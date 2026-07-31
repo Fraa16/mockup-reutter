@@ -16,54 +16,77 @@ const SITE_CONFIG = {
   // Interactive vehicle hotspot — 7 zones, positioned as % of the image frame
   spots: [
     {
-      x: 38, y: 36, num: '01', tag: 'Exterieur', label: 'Lack & Politur',
+      x: 16, y: 57, num: '01', tag: 'Exterieur', label: 'Lack & Politur',
       title: 'Lackaufbereitung & Politur',
       lead: 'Mehrstufige Politur nach Lackdickenmessung. Wir schleifen nur so viel weg, wie nötig ist — und versiegeln danach, damit das Ergebnis nicht nach der ersten Wäsche verschwindet.',
       bullets: ['Lackdickenmessung vor jedem Schliff', 'Kratzer und Hologramme raus, nicht überdeckt', 'Versiegelung oder Keramikschutz zum Abschluss']
     },
     {
-      x: 63, y: 25, num: '02', tag: 'Karosserie', label: 'Dellen & Hagel',
+      x: 42, y: 42, num: '02', tag: 'Karosserie', label: 'Dellen & Hagel',
       title: 'Dellenbeseitigung & Hagelschaden',
       lead: 'Ausbeulen ohne Lackieren. Der Originallack bleibt, wo er ist — das ist der Unterschied zwischen einer Reparatur und einem Wertverlust im Fahrzeugbrief.',
       bullets: ['Smart Repair von innen, ohne Spachtel und Füller', 'Hagelschaden komplett, Panel für Panel', 'Einzelne Parkdellen meist am selben Tag']
     },
     {
-      x: 17, y: 52, num: '03', tag: 'Exterieur', label: 'Lackierarbeiten',
+      x: 78, y: 60, num: '03', tag: 'Exterieur', label: 'Lackierarbeiten',
       title: 'Lackierarbeiten',
       lead: 'Farbtonbestimmung, Beilackierung, Teillackierung. Ziel ist ein Übergang, den man auch bei Sonne von der Seite nicht findet.',
       bullets: ['Farbtonauslesung und Musterblech vor dem Auftrag', 'Teil- und Beilackierung statt ganzer Seite', 'Kunststoff-, Stoßfänger- und Anbauteile']
     },
     {
-      x: 30, y: 77, num: '04', tag: 'Exterieur', label: 'Felgen & Reifen',
+      x: 18, y: 64, num: '04', tag: 'Exterieur', label: 'Felgen & Reifen',
       title: 'Felgen- & Reifenpflege',
       lead: 'Felgen werden von innen gereinigt, nicht nur abgespült. Die Reifenflanke bleibt danach matt statt speckig glänzend.',
       bullets: ['Säurefreie Reinigung, Felgenbett inklusive', 'Bordsteinschäden auf Anfrage', 'Versiegelung gegen eingebrannten Bremsstaub']
     },
     {
-      x: 51, y: 17, num: '05', tag: 'Interieur', label: 'Innenraum',
+      x: 45, y: 49, num: '05', tag: 'Interieur', label: 'Innenraum',
       title: 'Innenraumaufbereitung',
       lead: 'Sitze, Teppich, Himmel, Schächte und Fugen. Polster werden nass extrahiert, nicht nur abgesaugt und eingesprüht.',
       bullets: ['Sprühextraktion für Polster und Teppich', 'Kunststoff matt aufgefrischt, ohne Glanzfilm', 'Scheiben innen streifenfrei, auch die Kanten']
     },
     {
-      x: 74, y: 45, num: '06', tag: 'Interieur', label: 'Lederreparatur',
+      x: 54, y: 59, num: '06', tag: 'Interieur', label: 'Lederreparatur',
       title: 'Lederreparatur',
       lead: 'Risse, Brandlöcher, Scheuerstellen, Farbabrieb. Wir reparieren die Stelle und färben die Fläche — nicht das ganze Fahrzeug.',
       bullets: ['Risse und Brandlöcher füllen und strukturieren', 'Farbabrieb an der Sitzwange nachfärben', 'Lenkrad, Schaltsack und Türgriffe']
     },
     {
-      x: 86, y: 67, num: '07', tag: 'Interieur', label: 'Ozonbehandlung',
+      x: 64, y: 47, num: '07', tag: 'Interieur', label: 'Ozonbehandlung',
       title: 'Ozonbehandlung',
       lead: 'Gegen Rauch, Tiergeruch und Schimmel. Ozon zerlegt die Geruchsmoleküle, es überdeckt sie nicht mit Duftbaum.',
       bullets: ['Rauch- und Tiergeruch dauerhaft entfernen', 'Lüftungs- und Klimasystem mitbehandelt', 'Fahrzeug danach 60 Minuten gesperrt']
     }
   ],
 
-  // Vorher/Nachher cases — placeholder captions until real before/after photos exist
+  // Vorher/Nachher cases.
+  //
+  // NOTE: no genuine before/after pairs were supplied, so each case points at
+  // ONE photo for both sides; the "before" half is dulled in CSS
+  // (.layer-before .slot-img) to stand in for unpolished paint. That keeps
+  // angle and lighting matched the way a real pair would be, but it is a
+  // mockup device — it does not show actual work.
+  //
+  // Before launch, give each case two real shots of the SAME car, same angle,
+  // same light, and drop the CSS filter. The caption under the slider claims
+  // exactly that ("Alle Aufnahmen aus eigener Arbeit, unbearbeitet"), and the
+  // photos here do not depict hail or leather work at all.
   cases: [
-    { name: 'Hagelschaden Dach', meta: '3 Tage', note: 'Über 40 Dellen auf Dach und Motorhaube, komplett gedrückt. Kein Lackauftrag, Originallack erhalten.' },
-    { name: 'Lack & Politur', meta: '1 Tag', note: 'Waschkratzer und Hologramme über die ganze Flanke. Zweistufige Politur, danach versiegelt.' },
-    { name: 'Leder Fahrersitz', meta: '2 Tage', note: 'Durchgescheuerte Sitzwange, repariert, strukturiert und im Originalfarbton nachgefärbt.' }
+    {
+      name: 'Hagelschaden Dach', meta: '3 Tage',
+      note: 'Über 40 Dellen auf Dach und Motorhaube, komplett gedrückt. Kein Lackauftrag, Originallack erhalten.',
+      before: 'img/ba-1.webp', after: 'img/ba-1.webp'
+    },
+    {
+      name: 'Lack & Politur', meta: '1 Tag',
+      note: 'Waschkratzer und Hologramme über die ganze Flanke. Zweistufige Politur, danach versiegelt.',
+      before: 'img/ba-2.webp', after: 'img/ba-2.webp'
+    },
+    {
+      name: 'Leder Fahrersitz', meta: '2 Tage',
+      note: 'Durchgescheuerte Sitzwange, repariert, strukturiert und im Originalfarbton nachgefärbt.',
+      before: 'img/ba-3.webp', after: 'img/ba-3.webp'
+    }
   ],
 
   // Request form — step 2 service chips

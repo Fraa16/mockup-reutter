@@ -94,10 +94,17 @@
     });
   }
 
+  const baImgBefore = document.getElementById('ba-img-before');
+  const baImgAfter = document.getElementById('ba-img-after');
+
   function renderCaseCaption() {
     const c = cfg.cases[activeCase];
     baCaseName.textContent = c.name;
     baCaseNote.textContent = c.note;
+    // Swap the photographs too, not just the caption — otherwise every case
+    // shows the same pair.
+    if (c.before) baImgBefore.src = c.before;
+    if (c.after) baImgAfter.src = c.after;
   }
 
   function setBA(percent) {
