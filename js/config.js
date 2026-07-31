@@ -16,43 +16,43 @@ const SITE_CONFIG = {
   // Interactive vehicle hotspot — 7 zones, positioned as % of the image frame
   spots: [
     {
-      x: 16, y: 57, num: '01', tag: 'Exterieur', label: 'Lack & Politur',
+      x: 16, y: 55, num: '01', tag: 'Exterieur', label: 'Lack & Politur',
       title: 'Lackaufbereitung & Politur',
       lead: 'Mehrstufige Politur nach Lackdickenmessung. Wir schleifen nur so viel weg, wie nötig ist — und versiegeln danach, damit das Ergebnis nicht nach der ersten Wäsche verschwindet.',
       bullets: ['Lackdickenmessung vor jedem Schliff', 'Kratzer und Hologramme raus, nicht überdeckt', 'Versiegelung oder Keramikschutz zum Abschluss']
     },
     {
-      x: 42, y: 42, num: '02', tag: 'Karosserie', label: 'Dellen & Hagel',
+      x: 38, y: 38, num: '02', tag: 'Karosserie', label: 'Dellen & Hagel',
       title: 'Dellenbeseitigung & Hagelschaden',
       lead: 'Ausbeulen ohne Lackieren. Der Originallack bleibt, wo er ist — das ist der Unterschied zwischen einer Reparatur und einem Wertverlust im Fahrzeugbrief.',
       bullets: ['Smart Repair von innen, ohne Spachtel und Füller', 'Hagelschaden komplett, Panel für Panel', 'Einzelne Parkdellen meist am selben Tag']
     },
     {
-      x: 78, y: 60, num: '03', tag: 'Exterieur', label: 'Lackierarbeiten',
+      x: 79, y: 47, num: '03', tag: 'Exterieur', label: 'Lackierarbeiten',
       title: 'Lackierarbeiten',
       lead: 'Farbtonbestimmung, Beilackierung, Teillackierung. Ziel ist ein Übergang, den man auch bei Sonne von der Seite nicht findet.',
       bullets: ['Farbtonauslesung und Musterblech vor dem Auftrag', 'Teil- und Beilackierung statt ganzer Seite', 'Kunststoff-, Stoßfänger- und Anbauteile']
     },
     {
-      x: 18, y: 64, num: '04', tag: 'Exterieur', label: 'Felgen & Reifen',
+      x: 87, y: 66, num: '04', tag: 'Exterieur', label: 'Felgen & Reifen',
       title: 'Felgen- & Reifenpflege',
       lead: 'Felgen werden von innen gereinigt, nicht nur abgespült. Die Reifenflanke bleibt danach matt statt speckig glänzend.',
       bullets: ['Säurefreie Reinigung, Felgenbett inklusive', 'Bordsteinschäden auf Anfrage', 'Versiegelung gegen eingebrannten Bremsstaub']
     },
     {
-      x: 45, y: 49, num: '05', tag: 'Interieur', label: 'Innenraum',
+      x: 50, y: 52, num: '05', tag: 'Interieur', label: 'Innenraum',
       title: 'Innenraumaufbereitung',
       lead: 'Sitze, Teppich, Himmel, Schächte und Fugen. Polster werden nass extrahiert, nicht nur abgesaugt und eingesprüht.',
       bullets: ['Sprühextraktion für Polster und Teppich', 'Kunststoff matt aufgefrischt, ohne Glanzfilm', 'Scheiben innen streifenfrei, auch die Kanten']
     },
     {
-      x: 54, y: 59, num: '06', tag: 'Interieur', label: 'Lederreparatur',
+      x: 60, y: 64, num: '06', tag: 'Interieur', label: 'Lederreparatur',
       title: 'Lederreparatur',
       lead: 'Risse, Brandlöcher, Scheuerstellen, Farbabrieb. Wir reparieren die Stelle und färben die Fläche — nicht das ganze Fahrzeug.',
       bullets: ['Risse und Brandlöcher füllen und strukturieren', 'Farbabrieb an der Sitzwange nachfärben', 'Lenkrad, Schaltsack und Türgriffe']
     },
     {
-      x: 64, y: 47, num: '07', tag: 'Interieur', label: 'Ozonbehandlung',
+      x: 66, y: 48, num: '07', tag: 'Interieur', label: 'Ozonbehandlung',
       title: 'Ozonbehandlung',
       lead: 'Gegen Rauch, Tiergeruch und Schimmel. Ozon zerlegt die Geruchsmoleküle, es überdeckt sie nicht mit Duftbaum.',
       bullets: ['Rauch- und Tiergeruch dauerhaft entfernen', 'Lüftungs- und Klimasystem mitbehandelt', 'Fahrzeug danach 60 Minuten gesperrt']

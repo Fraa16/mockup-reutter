@@ -111,6 +111,7 @@
     baPercent = Math.max(1.5, Math.min(98.5, percent));
     baAfter.style.clipPath = `inset(0 0 0 ${baPercent}%)`;
     baHandle.style.left = baPercent + '%';
+    baFrame.setAttribute('aria-valuenow', Math.round(baPercent));
   }
 
   function baPercentFromClientX(clientX) {
@@ -119,16 +120,55 @@
   }
 
   let dragging = false;
+
   baFrame.addEventListener('pointerdown', e => {
     dragging = true;
+    // Route every subsequent move/up to this element even if the pointer
+    // leaves the frame (or the window) mid-drag.
+    if (baFrame.setPointerCapture) {
+      try { baFrame.setPointerCapture(e.pointerId); } catch (_) {}
+    }
+    // Stops the browser starting a native image-drag on the photos, which
+    // otherwise swallows the gesture the moment the pointer moves.
+    e.preventDefault();
     setBA(baPercentFromClientX(e.clientX));
   });
-  window.addEventListener('pointermove', e => {
+
+  baFrame.addEventListener('pointermove', e => {
     if (!dragging) return;
     e.preventDefault();
     setBA(baPercentFromClientX(e.clientX));
-  }, { passive: false });
-  window.addEventListener('pointerup', () => { dragging = false; });
+  });
+
+  const endDrag = e => {
+    if (!dragging) return;
+    dragging = false;
+    if (baFrame.releasePointerCapture && e && e.pointerId != null) {
+      try { baFrame.releasePointerCapture(e.pointerId); } catch (_) {}
+    }
+  };
+  baFrame.addEventListener('pointerup', endDrag);
+  baFrame.addEventListener('pointercancel', endDrag);
+  // Belt and braces: a pointerup that lands outside the frame still ends it.
+  window.addEventListener('pointerup', endDrag);
+
+  // Native drag fires before pointermove in some browsers; refuse it outright.
+  baFrame.addEventListener('dragstart', e => e.preventDefault());
+
+  // Keyboard access — the slider is a real control, so it needs to work
+  // without a pointer at all.
+  baFrame.setAttribute('tabindex', '0');
+  baFrame.setAttribute('role', 'slider');
+  baFrame.setAttribute('aria-label', 'Vergleich vorher / nachher');
+  baFrame.setAttribute('aria-valuemin', '0');
+  baFrame.setAttribute('aria-valuemax', '100');
+  baFrame.addEventListener('keydown', e => {
+    const step = e.shiftKey ? 10 : 2;
+    if (e.key === 'ArrowLeft') { setBA(baPercent - step); e.preventDefault(); }
+    else if (e.key === 'ArrowRight') { setBA(baPercent + step); e.preventDefault(); }
+    else if (e.key === 'Home') { setBA(2); e.preventDefault(); }
+    else if (e.key === 'End') { setBA(98); e.preventDefault(); }
+  });
 
   renderCases();
   renderCaseCaption();
@@ -218,6 +258,39 @@
 
   renderChips();
   goToStep(1);
+
+  /* ---------------------------------------------------------------------
+     Mobile navigation
+     --------------------------------------------------------------------- */
+  const navToggle = document.getElementById('nav-toggle');
+  const mainNav = document.getElementById('main-nav');
+
+  function setNav(open) {
+    mainNav.classList.toggle('is-open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+  }
+
+  navToggle.addEventListener('click', () => {
+    setNav(navToggle.getAttribute('aria-expanded') !== 'true');
+  });
+
+  // Tapping a link should navigate and close, not leave the panel covering
+  // the section it just jumped to.
+  mainNav.addEventListener('click', e => {
+    if (e.target.closest('a')) setNav(false);
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') setNav(false);
+  });
+
+  // Returning to the desktop layout must clear the mobile state, otherwise
+  // the panel stays stuck open behind the desktop nav.
+  const navBreak = window.matchMedia('(min-width: 981px)');
+  const onNavBreak = () => { if (navBreak.matches) setNav(false); };
+  navBreak.addEventListener ? navBreak.addEventListener('change', onNavBreak)
+                            : navBreak.addListener(onNavBreak);
 
   /* ---------------------------------------------------------------------
      Sticky request bar
