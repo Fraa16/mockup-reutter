@@ -1,0 +1,55 @@
+# =============================================================================
+# Fahrzeugpflege Reutter — Apache-Konfiguration
+# Getestet gegen IONOS Webhosting Plus (Apache, PHP 8.4)
+# =============================================================================
+
+# --- HTTPS erzwingen ---------------------------------------------------------
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# --- Alles, was keine echte Datei ist, geht an den Front-Controller ----------
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]
+
+# --- Sicherheits-Header ------------------------------------------------------
+<IfModule mod_headers.c>
+    # Die Seite laedt ausschliesslich eigene Ressourcen — keine CDN, keine
+    # Google Fonts, kein Tracking. Genau das sagt die CSP auch aus.
+    Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), camera=(), microphone=(), interest-cohort=()"
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# --- In uploads/ wird niemals Code ausgefuehrt -------------------------------
+# Zweite Verteidigungslinie hinter der Upload-Pruefung: selbst wenn eine
+# getarnte Datei durchkaeme, laeuft sie hier nicht.
+<Directory "uploads">
+    php_flag engine off
+    RemoveHandler .php .phtml .php3 .php4 .php5 .php7 .php8 .pht .phar
+    AddType text/plain .php .phtml .phar
+</Directory>
+
+# --- Caching -----------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    # Assets tragen einen Cache-Buster in der URL, duerfen also lange liegen.
+    ExpiresByType text/css                 "access plus 1 year"
+    ExpiresByType application/javascript   "access plus 1 year"
+    ExpiresByType font/woff2               "access plus 1 year"
+    ExpiresByType image/webp               "access plus 6 months"
+    ExpiresByType image/svg+xml            "access plus 6 months"
+    # HTML nie lange halten, sonst sieht der Kunde seine Aenderungen nicht.
+    ExpiresByType text/html                "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/json
+</IfModule>
+
+# --- Kein Verzeichnislisting -------------------------------------------------
+Options -Indexes

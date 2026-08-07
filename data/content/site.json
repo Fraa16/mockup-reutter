@@ -1,0 +1,72 @@
+{
+  "_hinweis": "Globale Daten. Werte mit PRUEFEN: sind noch nicht vom Kunden bestaetigt und duerfen so nicht live gehen.",
+
+  "firma": {
+    "name": "Fahrzeugpflege Reutter",
+    "inhaber": "PRUEFEN: Daniel Reutter",
+    "strasse": "Zabergäustraße 27",
+    "plz": "70435",
+    "ort": "Stuttgart",
+    "ortsteil": "Zuffenhausen",
+    "land": "DE",
+    "steuernummer": "FEHLT: vom Kunden anfordern (§ 5 DDG)",
+    "ustid": "FEHLT: vom Kunden anfordern, falls vorhanden",
+    "kammer": "FEHLT: Handwerkskammer-Zugehoerigkeit klaeren"
+  },
+
+  "kontakt": {
+    "telefon": "07 11 / 82 85 940",
+    "telefon_link": "+4971182859400",
+    "mobil": "0172 / 6 28 97 25",
+    "mobil_link": "+491726289725",
+    "email": "info@clean-box.eu"
+  },
+
+  "oeffnungszeiten": {
+    "text": "Mo–Fr 8–18 Uhr · Sa nach Absprache",
+    "strukturiert": [
+      { "tage": ["Mo", "Di", "Mi", "Do", "Fr"], "von": "08:00", "bis": "18:00" }
+    ],
+    "hinweis_samstag": "Samstag nach Absprache"
+  },
+
+  "einsatzgebiet": ["Stuttgart", "Ludwigsburg", "Gerlingen", "Ditzingen", "Weilimdorf"],
+  "einsatzgebiet_zusatz": "und Umgebung",
+
+  "kennzahlen": {
+    "_warnung": "Alle drei Werte hat das Design-Mockup erfunden. Vor dem Launch durch echte Zahlen ersetzen oder die betroffenen Bausteine entfernen — erfundene Bewertungen verstossen gegen § 5b UWG.",
+    "jahre": { "wert": 25, "belegt": false },
+    "google_bewertung": { "wert": "4,9", "belegt": false },
+    "google_anzahl": { "wert": 87, "belegt": false },
+    "google_profil_url": "FEHLT: Link zum Google-Unternehmensprofil"
+  },
+
+  "navigation": [
+    { "label": "Leistungen", "ziel": "/leistungen/" },
+    { "label": "Ergebnisse", "ziel": "/#ergebnisse" },
+    { "label": "Ablauf", "ziel": "/#ablauf" },
+    { "label": "Galerie", "ziel": "/galerie/" },
+    { "label": "Betrieb", "ziel": "/#betrieb" }
+  ],
+
+  "utility_bar": {
+    "zusatz": "Mobiler Service im gesamten Raum Stuttgart"
+  },
+
+  "sticky_bar": {
+    "headline": "Kostenlose Einschätzung — meist am selben Werktag",
+    "subline": "Werkstatt in Stuttgart · mobil im ganzen Raum",
+    "ab_scroll": 720
+  },
+
+  "footer": {
+    "beschreibung": "Fahrzeugpflege und KFZ-Aufbereitung für Außen und Innen. Dellen, Hagelschaden, Lack, Leder, Ozon. Im Raum Stuttgart, in der Halle und mobil.",
+    "rechtliches": [
+      { "label": "Impressum", "ziel": "/impressum/" },
+      { "label": "Datenschutzerklärung", "ziel": "/datenschutz/" },
+      { "label": "AGB", "ziel": "/agb/" },
+      { "label": "Widerrufsrecht", "ziel": "/widerruf/" },
+      { "label": "Galerie", "ziel": "/galerie/" }
+    ]
+  }
+}
