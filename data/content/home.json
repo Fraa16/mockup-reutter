@@ -1,14 +1,14 @@
 {
   "seo": {
     "titel": "Fahrzeugpflege Reutter — Lack, Leder, Dellen. Alles aus einer Hand.",
-    "beschreibung": "Fahrzeugpflege, KFZ-Aufbereitung, Dellen- und Hagelschadenbeseitigung, Lackierarbeiten, Lederreparatur und Ozonbehandlung in Stuttgart — in der Halle oder mobil bei Ihnen vor Ort."
+    "beschreibung": "Fahrzeugpflege, KFZ-Aufbereitung, Dellen- und Hagelschadenbeseitigung, Lackierarbeiten, Lederreparatur und Ozonbehandlung in Korntal bei Stuttgart — in der Halle oder mobil bei Ihnen vor Ort."
   },
 
   "hero": {
     "kicker": "Fahrzeugpflege & KFZ-Aufbereitung",
     "titel": "Lack, Leder, Dellen.",
     "titel_zusatz": "Alles aus einer Hand.",
-    "lead": "Wir beseitigen Hagelschäden, Parkdellen und Kratzer, lackieren nach, reparieren Leder und bereiten Innenräume auf. In der Halle in Stuttgart — oder mobil bei Ihnen vor Ort.",
+    "lead": "Wir beseitigen Hagelschäden, Parkdellen und Kratzer, lackieren nach, reparieren Leder und bereiten Innenräume auf. In der Halle in Korntal bei Stuttgart — oder mobil bei Ihnen vor Ort.",
     "fineprint": "Kostenlose Einschätzung · Antwort in der Regel am selben Werktag",
     "bild": "hero.webp",
     "bild_alt": "Dunkles Fahrzeug nach der Aufbereitung, Lichtkante auf der Flanke",
@@ -117,7 +117,7 @@
   "mobiler_service": {
     "eyebrow": "Mobiler Service",
     "titel": "Wenn Sie keine Zeit haben, kommen wir vorbei.",
-    "text": "Parkdellen, Politur, Innenraum und Lederreparatur machen wir auch bei Ihnen — zuhause, in der Firma oder in der Tiefgarage. Im Raum Stuttgart, Ludwigsburg, Gerlingen, Ditzingen und Weilimdorf ohne Anfahrtspauschale."
+    "text": "Parkdellen, Politur, Innenraum und Lederreparatur machen wir auch bei Ihnen — zuhause, in der Firma oder in der Tiefgarage. In Korntal, Stuttgart, Ludwigsburg, Gerlingen, Ditzingen und Weilimdorf ohne Anfahrtspauschale."
   },
 
   "betrieb": {
@@ -136,7 +136,7 @@
       "name": "Fahrzeugpflege Reutter",
       "text": "Inhabergeführt. Wer Ihr Auto annimmt, arbeitet auch daran."
     },
-    "kachel_3": { "wert": "5", "label": "Orte im Einsatzgebiet" }
+    "kachel_3": { "wert": "6", "label": "Orte im Einsatzgebiet" }
   },
 
   "bewertungen": {

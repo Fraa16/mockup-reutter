@@ -2,14 +2,13 @@
   "_hinweis": "Globale Daten. Werte mit PRUEFEN: sind noch nicht vom Kunden bestaetigt und duerfen so nicht live gehen.",
 
   "firma": {
-    "_konflikt": "STRITTIG — vor Launch klaeren. Das Google-Profil fuehrt den Betrieb als 'Smartrepair Reutter', Lembergstrasse 27, 70825 Korntal-Muenchingen. Die alte Website nennt 'Fahrzeugpflege Reutter', Zabergaeustrasse 27, 70435 Stuttgart-Zuffenhausen. Dieselbe Mobilnummer auf beiden Seiten belegt, dass es derselbe Betrieb ist. Wahrscheinlich Umzug und/oder Umfirmierung, alte Seite nie nachgezogen. Betrifft Impressum, LocalBusiness-Schema, Karte, Titel-Tags und alle Ortsangaben im Text.",
+    "_aufgabe_kunde": "Das Google-Unternehmensprofil laeuft noch unter 'Smartrepair Reutter'. Der offizielle Name ist laut Kunde 'Fahrzeugpflege Reutter' — das Profil muss umbenannt werden, damit Name, Adresse und Telefon auf Website, Google und in Verzeichnissen uebereinstimmen. Die 281 Rezensionen bleiben bei einer Umbenennung erhalten; Google prueft die Aenderung ggf. manuell.",
     "name": "Fahrzeugpflege Reutter",
-    "name_google": "Smartrepair Reutter",
     "inhaber": "PRUEFEN: Daniel Reutter",
-    "strasse": "PRUEFEN: Lembergstraße 27 (Google) oder Zabergäustraße 27 (alte Website)",
-    "plz": "PRUEFEN: 70825 (Korntal-Münchingen) oder 70435 (Stuttgart)",
-    "ort": "PRUEFEN: Korntal-Münchingen oder Stuttgart",
-    "ortsteil": "",
+    "strasse": "Lembergstraße 27",
+    "plz": "70825",
+    "ort": "Korntal-Münchingen",
+    "ortsteil": "Korntal",
     "land": "DE",
     "steuernummer": "FEHLT: vom Kunden anfordern (§ 5 DDG)",
     "ustid": "FEHLT: vom Kunden anfordern, falls vorhanden",
@@ -25,14 +24,15 @@
   },
 
   "oeffnungszeiten": {
-    "text": "Mo–Fr 8–18 Uhr · Sa nach Absprache",
+    "_korrektur": "Das Mockup schrieb 'Mo–Fr 8–18 Uhr · Sa nach Absprache'. Laut Google-Profil und Kunde gilt Mo–Fr 9–17 Uhr, Samstag geschlossen. Die alte Angabe war an zwei Stellen falsch und ist ersetzt.",
+    "text": "Mo–Fr 9–17 Uhr",
     "strukturiert": [
-      { "tage": ["Mo", "Di", "Mi", "Do", "Fr"], "von": "08:00", "bis": "18:00" }
-    ],
-    "hinweis_samstag": "Samstag nach Absprache"
+      { "tage": ["Mo", "Di", "Mi", "Do", "Fr"], "von": "09:00", "bis": "17:00" }
+    ]
   },
 
-  "einsatzgebiet": ["Stuttgart", "Ludwigsburg", "Gerlingen", "Ditzingen", "Weilimdorf"],
+  "_einsatzgebiet_hinweis": "Korntal ergaenzt — der Standort des Betriebs gehoerte nicht zur Liste aus dem Mockup, die noch von der alten Stuttgarter Adresse ausging. Ein Betrieb, der seinen eigenen Ort nicht nennt, verschenkt genau die Suchanfragen, die am naechsten liegen.",
+  "einsatzgebiet": ["Korntal", "Stuttgart", "Ludwigsburg", "Gerlingen", "Ditzingen", "Weilimdorf"],
   "einsatzgebiet_zusatz": "und Umgebung",
 
   "kennzahlen": {
@@ -57,7 +57,7 @@
 
   "sticky_bar": {
     "headline": "Kostenlose Einschätzung — meist am selben Werktag",
-    "subline": "Werkstatt in Stuttgart · mobil im ganzen Raum",
+    "subline": "Werkstatt in Korntal bei Stuttgart · mobil im ganzen Raum",
     "ab_scroll": 720
   },
 
