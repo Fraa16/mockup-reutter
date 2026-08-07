@@ -10,9 +10,9 @@
     "ort": "Korntal-Münchingen",
     "ortsteil": "Korntal",
     "land": "DE",
-    "steuernummer": "FEHLT: vom Kunden anfordern (§ 5 DDG)",
-    "ustid": "FEHLT: vom Kunden anfordern, falls vorhanden",
-    "kammer": "FEHLT: Handwerkskammer-Zugehoerigkeit klaeren"
+    "ustid": "DE257725894",
+    "_steuernummer": "Nicht noetig und bewusst nicht veroeffentlicht. § 5 DDG verlangt die Umsatzsteuer-Identifikationsnummer, sofern vorhanden — die liegt vor. Die Steuernummer zusaetzlich anzugeben ist nicht gefordert und wird allgemein davon abgeraten.",
+    "kammer": "OFFEN: Ist der Betrieb in der Handwerksrolle eingetragen (Fahrzeuglackierer ist zulassungspflichtiges Handwerk, Anlage A HwO)? Falls ja, muessen Kammer, Berufsbezeichnung und verleihender Staat ins Impressum (§ 5 Abs. 1 Nr. 5 DDG). Falls nein, darf nirgends 'Meisterbetrieb' stehen."
   },
 
   "kontakt": {
