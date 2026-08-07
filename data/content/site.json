@@ -2,12 +2,14 @@
   "_hinweis": "Globale Daten. Werte mit PRUEFEN: sind noch nicht vom Kunden bestaetigt und duerfen so nicht live gehen.",
 
   "firma": {
+    "_konflikt": "STRITTIG — vor Launch klaeren. Das Google-Profil fuehrt den Betrieb als 'Smartrepair Reutter', Lembergstrasse 27, 70825 Korntal-Muenchingen. Die alte Website nennt 'Fahrzeugpflege Reutter', Zabergaeustrasse 27, 70435 Stuttgart-Zuffenhausen. Dieselbe Mobilnummer auf beiden Seiten belegt, dass es derselbe Betrieb ist. Wahrscheinlich Umzug und/oder Umfirmierung, alte Seite nie nachgezogen. Betrifft Impressum, LocalBusiness-Schema, Karte, Titel-Tags und alle Ortsangaben im Text.",
     "name": "Fahrzeugpflege Reutter",
+    "name_google": "Smartrepair Reutter",
     "inhaber": "PRUEFEN: Daniel Reutter",
-    "strasse": "Zabergäustraße 27",
-    "plz": "70435",
-    "ort": "Stuttgart",
-    "ortsteil": "Zuffenhausen",
+    "strasse": "PRUEFEN: Lembergstraße 27 (Google) oder Zabergäustraße 27 (alte Website)",
+    "plz": "PRUEFEN: 70825 (Korntal-Münchingen) oder 70435 (Stuttgart)",
+    "ort": "PRUEFEN: Korntal-Münchingen oder Stuttgart",
+    "ortsteil": "",
     "land": "DE",
     "steuernummer": "FEHLT: vom Kunden anfordern (§ 5 DDG)",
     "ustid": "FEHLT: vom Kunden anfordern, falls vorhanden",
@@ -34,11 +36,11 @@
   "einsatzgebiet_zusatz": "und Umgebung",
 
   "kennzahlen": {
-    "_warnung": "Alle drei Werte hat das Design-Mockup erfunden. Vor dem Launch durch echte Zahlen ersetzen oder die betroffenen Bausteine entfernen — erfundene Bewertungen verstossen gegen § 5b UWG.",
+    "_hinweis": "Bewertung und Anzahl stammen aus dem Google-Unternehmensprofil und sind damit belegt. Die Jahreszahl hat das Mockup erfunden und ist weiterhin offen.",
     "jahre": { "wert": 25, "belegt": false },
-    "google_bewertung": { "wert": "4,9", "belegt": false },
-    "google_anzahl": { "wert": 87, "belegt": false },
-    "google_profil_url": "FEHLT: Link zum Google-Unternehmensprofil"
+    "google_bewertung": { "wert": "5,0", "belegt": true, "stand": "2026-08" },
+    "google_anzahl": { "wert": 281, "belegt": true, "stand": "2026-08" },
+    "google_profil_url": "https://share.google/9aGgJZc8acsdxbPXd"
   },
 
   "navigation": [
