@@ -49,7 +49,14 @@
         "Kunststoff-, Stoßfänger- und Anbauteile"
       ],
       "hotspot": { "x": 79, "y": 47 },
-      "chip": "Lackierarbeiten"
+      "chip": "Lackierarbeiten",
+      "themen": [
+        {
+          "slug": "beklebung",
+          "titel": "Fahrzeugbeklebung",
+          "_hinweis": "Die alte Seite hatte dafuer eine eigene Datei (/beklebung.html), die nicht in der Hauptnavigation stand. Laut Kunde gehoert die Leistung zu den Lackierarbeiten und bekommt hier einen eigenen Abschnitt mit Sprungmarke #beklebung — die alte URL wird per 301 dorthin umgeleitet. Text wird in P3 geschrieben; vorher pruefen, was der Betrieb konkret anbietet (Teilfolierung, Vollfolierung, Schriftzuege, Steinschlagschutz)."
+        }
+      ]
     },
     {
       "slug": "felgen-reifenpflege",
