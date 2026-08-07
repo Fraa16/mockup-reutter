@@ -1,74 +1,123 @@
 {
-  "_hinweis": "Globale Daten. Werte mit PRUEFEN: sind noch nicht vom Kunden bestaetigt und duerfen so nicht live gehen.",
-
-  "firma": {
-    "_aufgabe_kunde": "Das Google-Unternehmensprofil laeuft noch unter 'Smartrepair Reutter'. Der offizielle Name ist laut Kunde 'Fahrzeugpflege Reutter' — das Profil muss umbenannt werden, damit Name, Adresse und Telefon auf Website, Google und in Verzeichnissen uebereinstimmen. Die 281 Rezensionen bleiben bei einer Umbenennung erhalten; Google prueft die Aenderung ggf. manuell.",
-    "name": "Fahrzeugpflege Reutter",
-    "inhaber": "PRUEFEN: Daniel Reutter",
-    "strasse": "Lembergstraße 27",
-    "plz": "70825",
-    "ort": "Korntal-Münchingen",
-    "ortsteil": "Korntal",
-    "land": "DE",
-    "ustid": "DE257725894",
-    "_steuernummer": "Nicht noetig und bewusst nicht veroeffentlicht. § 5 DDG verlangt die Umsatzsteuer-Identifikationsnummer, sofern vorhanden — die liegt vor. Die Steuernummer zusaetzlich anzugeben ist nicht gefordert und wird allgemein davon abgeraten.",
-    "kammer": "OFFEN: Ist der Betrieb in der Handwerksrolle eingetragen (Fahrzeuglackierer ist zulassungspflichtiges Handwerk, Anlage A HwO)? Falls ja, muessen Kammer, Berufsbezeichnung und verleihender Staat ins Impressum (§ 5 Abs. 1 Nr. 5 DDG). Falls nein, darf nirgends 'Meisterbetrieb' stehen."
-  },
-
-  "kontakt": {
-    "telefon": "07 11 / 82 85 940",
-    "telefon_link": "+4971182859400",
-    "mobil": "0172 / 6 28 97 25",
-    "mobil_link": "+491726289725",
-    "email": "info@clean-box.eu"
-  },
-
-  "oeffnungszeiten": {
-    "_korrektur": "Das Mockup schrieb 'Mo–Fr 8–18 Uhr · Sa nach Absprache'. Laut Google-Profil und Kunde gilt Mo–Fr 9–17 Uhr, Samstag geschlossen. Die alte Angabe war an zwei Stellen falsch und ist ersetzt.",
-    "text": "Mo–Fr 9–17 Uhr",
-    "strukturiert": [
-      { "tage": ["Mo", "Di", "Mi", "Do", "Fr"], "von": "09:00", "bis": "17:00" }
-    ]
-  },
-
-  "_einsatzgebiet_hinweis": "Korntal ergaenzt — der Standort des Betriebs gehoerte nicht zur Liste aus dem Mockup, die noch von der alten Stuttgarter Adresse ausging. Ein Betrieb, der seinen eigenen Ort nicht nennt, verschenkt genau die Suchanfragen, die am naechsten liegen.",
-  "einsatzgebiet": ["Korntal", "Stuttgart", "Ludwigsburg", "Gerlingen", "Ditzingen", "Weilimdorf"],
-  "einsatzgebiet_zusatz": "und Umgebung",
-
-  "kennzahlen": {
-    "_hinweis": "Bewertung und Anzahl stammen aus dem Google-Unternehmensprofil und sind damit belegt. Die Jahreszahl hat das Mockup erfunden und ist weiterhin offen.",
-    "jahre": { "wert": 25, "belegt": false },
-    "google_bewertung": { "wert": "5,0", "belegt": true, "stand": "2026-08" },
-    "google_anzahl": { "wert": 281, "belegt": true, "stand": "2026-08" },
-    "google_profil_url": "https://share.google/9aGgJZc8acsdxbPXd"
-  },
-
-  "navigation": [
-    { "label": "Leistungen", "ziel": "/leistungen/" },
-    { "label": "Ergebnisse", "ziel": "/#ergebnisse" },
-    { "label": "Ablauf", "ziel": "/#ablauf" },
-    { "label": "Galerie", "ziel": "/galerie/" },
-    { "label": "Betrieb", "ziel": "/#betrieb" }
-  ],
-
-  "utility_bar": {
-    "zusatz": "Mobiler Service im gesamten Raum Stuttgart"
-  },
-
-  "sticky_bar": {
-    "headline": "Kostenlose Einschätzung — meist am selben Werktag",
-    "subline": "Werkstatt in Korntal bei Stuttgart · mobil im ganzen Raum",
-    "ab_scroll": 720
-  },
-
-  "footer": {
-    "beschreibung": "Fahrzeugpflege und KFZ-Aufbereitung für Außen und Innen. Dellen, Hagelschaden, Lack, Leder, Ozon. Im Raum Stuttgart, in der Halle und mobil.",
-    "rechtliches": [
-      { "label": "Impressum", "ziel": "/impressum/" },
-      { "label": "Datenschutzerklärung", "ziel": "/datenschutz/" },
-      { "label": "AGB", "ziel": "/agb/" },
-      { "label": "Widerrufsrecht", "ziel": "/widerruf/" },
-      { "label": "Galerie", "ziel": "/galerie/" }
-    ]
-  }
+    "_hinweis": "Globale Daten. Werte mit PRUEFEN: sind noch nicht vom Kunden bestaetigt und duerfen so nicht live gehen.",
+    "firma": {
+        "_aufgabe_kunde": "Das Google-Unternehmensprofil laeuft noch unter 'Smartrepair Reutter'. Der offizielle Name ist laut Kunde 'Fahrzeugpflege Reutter' — das Profil muss umbenannt werden, damit Name, Adresse und Telefon auf Website, Google und in Verzeichnissen uebereinstimmen. Die 281 Rezensionen bleiben bei einer Umbenennung erhalten; Google prueft die Aenderung ggf. manuell.",
+        "name": "Fahrzeugpflege Reutter",
+        "inhaber": "PRUEFEN: Daniel Reutter",
+        "strasse": "Lembergstraße 27",
+        "plz": "70825",
+        "ort": "Korntal-Münchingen",
+        "ortsteil": "Korntal",
+        "land": "DE",
+        "ustid": "DE257725894",
+        "_steuernummer": "Nicht noetig und bewusst nicht veroeffentlicht. § 5 DDG verlangt die Umsatzsteuer-Identifikationsnummer, sofern vorhanden — die liegt vor. Die Steuernummer zusaetzlich anzugeben ist nicht gefordert und wird allgemein davon abgeraten.",
+        "kammer": "OFFEN: Ist der Betrieb in der Handwerksrolle eingetragen (Fahrzeuglackierer ist zulassungspflichtiges Handwerk, Anlage A HwO)? Falls ja, muessen Kammer, Berufsbezeichnung und verleihender Staat ins Impressum (§ 5 Abs. 1 Nr. 5 DDG). Falls nein, darf nirgends 'Meisterbetrieb' stehen."
+    },
+    "kontakt": {
+        "telefon": "07 11 / 82 85 940",
+        "telefon_link": "+4971182859400",
+        "mobil": "0172 / 6 28 97 25",
+        "mobil_link": "+491726289725",
+        "email": "info@clean-box.eu"
+    },
+    "oeffnungszeiten": {
+        "_korrektur": "Das Mockup schrieb 'Mo–Fr 8–18 Uhr · Sa nach Absprache'. Laut Google-Profil und Kunde gilt Mo–Fr 9–17 Uhr, Samstag geschlossen. Die alte Angabe war an zwei Stellen falsch und ist ersetzt.",
+        "text": "Mo–Fr 9–17 Uhr",
+        "strukturiert": [
+            {
+                "tage": [
+                    "Mo",
+                    "Di",
+                    "Mi",
+                    "Do",
+                    "Fr"
+                ],
+                "von": "09:00",
+                "bis": "17:00"
+            }
+        ]
+    },
+    "_einsatzgebiet_hinweis": "Korntal ergaenzt — der Standort des Betriebs gehoerte nicht zur Liste aus dem Mockup, die noch von der alten Stuttgarter Adresse ausging. Ein Betrieb, der seinen eigenen Ort nicht nennt, verschenkt genau die Suchanfragen, die am naechsten liegen.",
+    "einsatzgebiet": [
+        "Korntal",
+        "Stuttgart",
+        "Ludwigsburg",
+        "Gerlingen",
+        "Ditzingen",
+        "Weilimdorf"
+    ],
+    "einsatzgebiet_zusatz": "und Umgebung",
+    "kennzahlen": {
+        "_hinweis": "Bewertung und Anzahl stammen aus dem Google-Unternehmensprofil und sind damit belegt. Die Jahreszahl hat das Mockup erfunden und ist weiterhin offen.",
+        "jahre": {
+            "wert": 25,
+            "belegt": false
+        },
+        "google_bewertung": {
+            "wert": "5,0",
+            "belegt": true,
+            "stand": "2026-08"
+        },
+        "google_anzahl": {
+            "wert": 281,
+            "belegt": true,
+            "stand": "2026-08"
+        },
+        "google_profil_url": "https://share.google/9aGgJZc8acsdxbPXd"
+    },
+    "navigation": [
+        {
+            "label": "Leistungen",
+            "ziel": "/leistungen/"
+        },
+        {
+            "label": "Ergebnisse",
+            "ziel": "/#ergebnisse"
+        },
+        {
+            "label": "Ablauf",
+            "ziel": "/#ablauf"
+        },
+        {
+            "label": "Galerie",
+            "ziel": "/galerie/"
+        },
+        {
+            "label": "Betrieb",
+            "ziel": "/#betrieb"
+        }
+    ],
+    "utility_bar": {
+        "zusatz": "Mobiler Service im gesamten Raum Stuttgart"
+    },
+    "sticky_bar": {
+        "headline": "Kostenlose Einschätzung — meist am selben Werktag",
+        "subline": "Werkstatt in Korntal bei Stuttgart · mobil im ganzen Raum",
+        "ab_scroll": 720
+    },
+    "footer": {
+        "beschreibung": "Fahrzeugpflege und KFZ-Aufbereitung für Außen und Innen. Dellen, Hagelschaden, Lack, Leder, Ozon. Im Raum Stuttgart, in der Halle und mobil.",
+        "rechtliches": [
+            {
+                "label": "Impressum",
+                "ziel": "/impressum/"
+            },
+            {
+                "label": "Datenschutzerklärung",
+                "ziel": "/datenschutz/"
+            },
+            {
+                "label": "AGB",
+                "ziel": "/agb/"
+            },
+            {
+                "label": "Widerrufsrecht",
+                "ziel": "/widerruf/"
+            },
+            {
+                "label": "Galerie",
+                "ziel": "/galerie/"
+            }
+        ]
+    }
 }
