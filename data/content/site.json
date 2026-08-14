@@ -121,5 +121,28 @@
                 "ziel": "/galerie/"
             }
         ]
+    },
+    "bewertungen": {
+        "titel": "Was Kunden schreiben",
+        "_warnung": "LAUNCH-BLOCKER: Alle drei Zitate hat das Design-Mockup erfunden. Erfundene Bewertungen verstossen gegen § 5b UWG. Vor Launch durch echte Google-Rezensionen ersetzen oder die Sektion entfernen.",
+        "echt": false,
+        "eintraege": [
+            {
+                "text": "Hagelschaden am ganzen Dach und der Motorhaube. Nach drei Tagen war nichts mehr zu sehen, und lackiert wurde nichts. Preis war genau der, der vorher genannt wurde.",
+                "name": "M. Keller",
+                "ort": "Ditzingen"
+            },
+            {
+                "text": "Leder an der Fahrerseite war durchgescheuert. Wurde repariert und nachgefärbt, man findet die Stelle nicht mehr. Ehrliche Beratung, was sich lohnt und was nicht.",
+                "name": "S. Brenner",
+                "ort": "Stuttgart-Weilimdorf"
+            },
+            {
+                "text": "Kam zu uns in die Firmentiefgarage, hat vier Fahrzeuge an einem Tag aufbereitet. Absprache lief per Telefon, alles pünktlich, alles wie vereinbart.",
+                "name": "T. Aydin",
+                "ort": "Ludwigsburg"
+            }
+        ],
+        "_verschoben": "Lag bis zum zweiten Design-Bundle in home.json. Der geteilte Fuss zeigt die Bewertungen jetzt auf jeder Seite, deshalb gehoeren sie zu den Stammdaten."
     }
 }

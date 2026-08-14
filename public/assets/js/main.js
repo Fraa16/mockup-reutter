@@ -245,10 +245,14 @@
      --------------------------------------------------------------------- */
   const stickyBar = document.getElementById('sticky-bar');
   if (stickyBar) {
-    const schwelle = Number(stickyBar.dataset.abScroll) || 720;
+    const schwelle = Number(stickyBar.dataset.abScroll) || 600;
     const pruefe = () => {
       const y = window.scrollY || document.documentElement.scrollTop;
-      stickyBar.classList.toggle('visible', y > schwelle);
+      const sichtbar = y > schwelle;
+      stickyBar.classList.toggle('visible', sichtbar);
+      // Die Leiste ist fixiert und wuerde sonst die letzte Fusszeile verdecken.
+      // Das CSS macht daraus einen Platzhalter am Ende des Fusses.
+      document.body.classList.toggle('sticky-an', sichtbar);
     };
     window.addEventListener('scroll', pruefe, { passive: true });
     pruefe();

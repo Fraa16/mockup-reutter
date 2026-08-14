@@ -253,14 +253,17 @@ partial('kopf', [
     </div>
 
     <div class="reviews-head">
-      <h3><?= h(get($seite, 'bewertungen.titel')) ?></h3>
+      <h3><?= h(get($s, 'bewertungen.titel', 'Was Kunden schreiben')) ?></h3>
       <div class="rating">
         <span class="stars" aria-hidden="true">★★★★★</span>
         <span class="count"><?= h($kennzahl('google_bewertung')) ?> auf Google · <?= h($kennzahl('google_anzahl')) ?> Bewertungen</span>
       </div>
     </div>
     <div class="review-grid">
-      <?php foreach (get($seite, 'bewertungen.eintraege', []) as $r): ?>
+      <?php /* Bewertungen sind Stammdaten — der geteilte Fuss zeigt sie auf allen
+              anderen Seiten. Hier stehen sie im Abschnitt "Betrieb", deshalb ist
+              der Block im Fuss unterdrueckt. */ ?>
+      <?php foreach (get($s, 'bewertungen.eintraege', []) as $r): ?>
       <div class="review-card rv">
         <span class="stars" aria-hidden="true">★★★★★</span>
         <p>„<?= h($r['text']) ?>"</p>
@@ -308,4 +311,6 @@ partial('kopf', [
   </div>
 </section>
 
-<?php partial('fuss'); ?>
+<?php /* Beide Bloecke aus: Bewertungen stehen oben im Abschnitt "Betrieb", und
+        das ausfuehrliche Formular sitzt bereits in der Anfrage-Sektion. */ ?>
+<?php partial('fuss', ['zeigeBewertungen' => false, 'zeigeFormular' => false]); ?>

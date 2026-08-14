@@ -1,127 +1,155 @@
 {
-  "_hinweis": "Die sieben Bereiche des Fahrzeug-Hotspots auf der Startseite. Sechs davon bekommen laut Angebot eine eigene Unterseite; 'Felgen & Reifen' hatte auch die alte Seite nicht als eigenen Reiter und laeuft als Abschnitt unter Exterieur.",
-  "_hotspot_hinweis": "x/y sind Prozentwerte im Bildrahmen und auf das aktuelle Platzhalterfoto ausgerichtet. Sobald ein echtes Fahrzeugfoto hochgeladen wird, muessen die Marker im Panel neu gesetzt werden.",
-
-  "eintraege": [
-    {
-      "slug": "fahrzeugpflege-exterieur",
-      "eigene_seite": true,
-      "num": "01",
-      "tag": "Exterieur",
-      "label": "Lack & Politur",
-      "titel": "Lackaufbereitung & Politur",
-      "lead": "Mehrstufige Politur nach Lackdickenmessung. Wir schleifen nur so viel weg, wie nötig ist — und versiegeln danach, damit das Ergebnis nicht nach der ersten Wäsche verschwindet.",
-      "bullets": [
-        "Lackdickenmessung vor jedem Schliff",
-        "Kratzer und Hologramme raus, nicht überdeckt",
-        "Versiegelung oder Keramikschutz zum Abschluss"
-      ],
-      "hotspot": { "x": 16, "y": 55 },
-      "chip": "Exterieur-Pflege"
-    },
-    {
-      "slug": "dellen-hagelschaden",
-      "eigene_seite": true,
-      "num": "02",
-      "tag": "Karosserie",
-      "label": "Dellen & Hagel",
-      "titel": "Dellenbeseitigung & Hagelschaden",
-      "lead": "Ausbeulen ohne Lackieren. Der Originallack bleibt, wo er ist — das ist der Unterschied zwischen einer Reparatur und einem Wertverlust im Fahrzeugbrief.",
-      "bullets": [
-        "Smart Repair von innen, ohne Spachtel und Füller",
-        "Hagelschaden komplett, Panel für Panel",
-        "Einzelne Parkdellen meist am selben Tag"
-      ],
-      "hotspot": { "x": 38, "y": 38 },
-      "chip": "Dellen / Hagelschaden"
-    },
-    {
-      "slug": "lackierarbeiten",
-      "eigene_seite": true,
-      "num": "03",
-      "tag": "Exterieur",
-      "label": "Lackierarbeiten",
-      "titel": "Lackierarbeiten",
-      "lead": "Farbtonbestimmung, Beilackierung, Teillackierung. Ziel ist ein Übergang, den man auch bei Sonne von der Seite nicht findet.",
-      "bullets": [
-        "Farbtonauslesung und Musterblech vor dem Auftrag",
-        "Teil- und Beilackierung statt ganzer Seite",
-        "Kunststoff-, Stoßfänger- und Anbauteile"
-      ],
-      "hotspot": { "x": 79, "y": 47 },
-      "chip": "Lackierarbeiten",
-      "themen": [
+    "_hinweis": "Die sieben Bereiche des Fahrzeug-Hotspots auf der Startseite. Sechs davon bekommen laut Angebot eine eigene Unterseite; 'Felgen & Reifen' hatte auch die alte Seite nicht als eigenen Reiter und laeuft als Abschnitt unter Exterieur.",
+    "_hotspot_hinweis": "x/y sind Prozentwerte im Bildrahmen und auf das aktuelle Platzhalterfoto ausgerichtet. Sobald ein echtes Fahrzeugfoto hochgeladen wird, muessen die Marker im Panel neu gesetzt werden.",
+    "eintraege": [
         {
-          "slug": "beklebung",
-          "titel": "Fahrzeugbeklebung",
-          "_hinweis": "Die alte Seite hatte dafuer eine eigene Datei (/beklebung.html), die nicht in der Hauptnavigation stand. Laut Kunde gehoert die Leistung zu den Lackierarbeiten und bekommt hier einen eigenen Abschnitt mit Sprungmarke #beklebung — die alte URL wird per 301 dorthin umgeleitet. Text wird in P3 geschrieben; vorher pruefen, was der Betrieb konkret anbietet (Teilfolierung, Vollfolierung, Schriftzuege, Steinschlagschutz)."
+            "slug": "fahrzeugpflege-exterieur",
+            "eigene_seite": true,
+            "num": "01",
+            "tag": "Exterieur",
+            "label": "Lack & Politur",
+            "titel": "Lackaufbereitung & Politur",
+            "lead": "Mehrstufige Politur nach Lackdickenmessung. Wir schleifen nur so viel weg, wie nötig ist — und versiegeln danach, damit das Ergebnis nicht nach der ersten Wäsche verschwindet.",
+            "bullets": [
+                "Lackdickenmessung vor jedem Schliff",
+                "Kratzer und Hologramme raus, nicht überdeckt",
+                "Versiegelung oder Keramikschutz zum Abschluss"
+            ],
+            "hotspot": {
+                "x": 16,
+                "y": 55
+            },
+            "chip": "Exterieur-Pflege",
+            "seitenname": "Fahrzeugpflege Exterieur"
+        },
+        {
+            "slug": "dellen-hagelschaden",
+            "eigene_seite": true,
+            "num": "02",
+            "tag": "Karosserie",
+            "label": "Dellen & Hagel",
+            "titel": "Dellenbeseitigung & Hagelschaden",
+            "lead": "Ausbeulen ohne Lackieren. Der Originallack bleibt, wo er ist — das ist der Unterschied zwischen einer Reparatur und einem Wertverlust im Fahrzeugbrief.",
+            "bullets": [
+                "Smart Repair von innen, ohne Spachtel und Füller",
+                "Hagelschaden komplett, Panel für Panel",
+                "Einzelne Parkdellen meist am selben Tag"
+            ],
+            "hotspot": {
+                "x": 38,
+                "y": 38
+            },
+            "chip": "Dellen / Hagelschaden",
+            "seitenname": "Dellen / Hagelschaden"
+        },
+        {
+            "slug": "lackierarbeiten",
+            "eigene_seite": true,
+            "num": "03",
+            "tag": "Exterieur",
+            "label": "Lackierarbeiten",
+            "titel": "Lackierarbeiten",
+            "lead": "Farbtonbestimmung, Beilackierung, Teillackierung. Ziel ist ein Übergang, den man auch bei Sonne von der Seite nicht findet.",
+            "bullets": [
+                "Farbtonauslesung und Musterblech vor dem Auftrag",
+                "Teil- und Beilackierung statt ganzer Seite",
+                "Kunststoff-, Stoßfänger- und Anbauteile"
+            ],
+            "hotspot": {
+                "x": 79,
+                "y": 47
+            },
+            "chip": "Lackierarbeiten",
+            "themen": [
+                {
+                    "slug": "beklebung",
+                    "titel": "Fahrzeugbeklebung",
+                    "_hinweis": "Die alte Seite hatte dafuer eine eigene Datei (/beklebung.html), die nicht in der Hauptnavigation stand. Laut Kunde gehoert die Leistung zu den Lackierarbeiten und bekommt hier einen eigenen Abschnitt mit Sprungmarke #beklebung — die alte URL wird per 301 dorthin umgeleitet. Text wird in P3 geschrieben; vorher pruefen, was der Betrieb konkret anbietet (Teilfolierung, Vollfolierung, Schriftzuege, Steinschlagschutz)."
+                }
+            ],
+            "seitenname": "Lackierarbeiten"
+        },
+        {
+            "slug": "felgen-reifenpflege",
+            "eigene_seite": false,
+            "gehoert_zu": "fahrzeugpflege-exterieur",
+            "num": "04",
+            "tag": "Exterieur",
+            "label": "Felgen & Reifen",
+            "titel": "Felgen- & Reifenpflege",
+            "lead": "Felgen werden von innen gereinigt, nicht nur abgespült. Die Reifenflanke bleibt danach matt statt speckig glänzend.",
+            "bullets": [
+                "Säurefreie Reinigung, Felgenbett inklusive",
+                "Bordsteinschäden auf Anfrage",
+                "Versiegelung gegen eingebrannten Bremsstaub"
+            ],
+            "hotspot": {
+                "x": 87,
+                "y": 66
+            },
+            "chip": "Felgenaufbereitung",
+            "seitenname": "Felgen- & Reifenpflege"
+        },
+        {
+            "slug": "fahrzeugpflege-interieur",
+            "eigene_seite": true,
+            "num": "05",
+            "tag": "Interieur",
+            "label": "Innenraum",
+            "titel": "Innenraumaufbereitung",
+            "lead": "Sitze, Teppich, Himmel, Schächte und Fugen. Polster werden nass extrahiert, nicht nur abgesaugt und eingesprüht.",
+            "bullets": [
+                "Sprühextraktion für Polster und Teppich",
+                "Kunststoff matt aufgefrischt, ohne Glanzfilm",
+                "Scheiben innen streifenfrei, auch die Kanten"
+            ],
+            "hotspot": {
+                "x": 50,
+                "y": 52
+            },
+            "chip": "Interieur-Pflege",
+            "seitenname": "Fahrzeugpflege Interieur"
+        },
+        {
+            "slug": "lederreparatur",
+            "eigene_seite": true,
+            "num": "06",
+            "tag": "Interieur",
+            "label": "Lederreparatur",
+            "titel": "Lederreparatur",
+            "lead": "Risse, Brandlöcher, Scheuerstellen, Farbabrieb. Wir reparieren die Stelle und färben die Fläche — nicht das ganze Fahrzeug.",
+            "bullets": [
+                "Risse und Brandlöcher füllen und strukturieren",
+                "Farbabrieb an der Sitzwange nachfärben",
+                "Lenkrad, Schaltsack und Türgriffe"
+            ],
+            "hotspot": {
+                "x": 60,
+                "y": 64
+            },
+            "chip": "Lederreparatur",
+            "seitenname": "Lederreparatur"
+        },
+        {
+            "slug": "ozonbehandlung",
+            "eigene_seite": true,
+            "num": "07",
+            "tag": "Interieur",
+            "label": "Ozonbehandlung",
+            "titel": "Ozonbehandlung",
+            "lead": "Gegen Rauch, Tiergeruch und Schimmel. Ozon zerlegt die Geruchsmoleküle, es überdeckt sie nicht mit Duftbaum.",
+            "bullets": [
+                "Rauch- und Tiergeruch dauerhaft entfernen",
+                "Lüftungs- und Klimasystem mitbehandelt",
+                "Fahrzeug danach 60 Minuten gesperrt"
+            ],
+            "hotspot": {
+                "x": 66,
+                "y": 48
+            },
+            "chip": "Ozonbehandlung",
+            "seitenname": "Ozonbehandlung"
         }
-      ]
-    },
-    {
-      "slug": "felgen-reifenpflege",
-      "eigene_seite": false,
-      "gehoert_zu": "fahrzeugpflege-exterieur",
-      "num": "04",
-      "tag": "Exterieur",
-      "label": "Felgen & Reifen",
-      "titel": "Felgen- & Reifenpflege",
-      "lead": "Felgen werden von innen gereinigt, nicht nur abgespült. Die Reifenflanke bleibt danach matt statt speckig glänzend.",
-      "bullets": [
-        "Säurefreie Reinigung, Felgenbett inklusive",
-        "Bordsteinschäden auf Anfrage",
-        "Versiegelung gegen eingebrannten Bremsstaub"
-      ],
-      "hotspot": { "x": 87, "y": 66 },
-      "chip": "Felgenaufbereitung"
-    },
-    {
-      "slug": "fahrzeugpflege-interieur",
-      "eigene_seite": true,
-      "num": "05",
-      "tag": "Interieur",
-      "label": "Innenraum",
-      "titel": "Innenraumaufbereitung",
-      "lead": "Sitze, Teppich, Himmel, Schächte und Fugen. Polster werden nass extrahiert, nicht nur abgesaugt und eingesprüht.",
-      "bullets": [
-        "Sprühextraktion für Polster und Teppich",
-        "Kunststoff matt aufgefrischt, ohne Glanzfilm",
-        "Scheiben innen streifenfrei, auch die Kanten"
-      ],
-      "hotspot": { "x": 50, "y": 52 },
-      "chip": "Interieur-Pflege"
-    },
-    {
-      "slug": "lederreparatur",
-      "eigene_seite": true,
-      "num": "06",
-      "tag": "Interieur",
-      "label": "Lederreparatur",
-      "titel": "Lederreparatur",
-      "lead": "Risse, Brandlöcher, Scheuerstellen, Farbabrieb. Wir reparieren die Stelle und färben die Fläche — nicht das ganze Fahrzeug.",
-      "bullets": [
-        "Risse und Brandlöcher füllen und strukturieren",
-        "Farbabrieb an der Sitzwange nachfärben",
-        "Lenkrad, Schaltsack und Türgriffe"
-      ],
-      "hotspot": { "x": 60, "y": 64 },
-      "chip": "Lederreparatur"
-    },
-    {
-      "slug": "ozonbehandlung",
-      "eigene_seite": true,
-      "num": "07",
-      "tag": "Interieur",
-      "label": "Ozonbehandlung",
-      "titel": "Ozonbehandlung",
-      "lead": "Gegen Rauch, Tiergeruch und Schimmel. Ozon zerlegt die Geruchsmoleküle, es überdeckt sie nicht mit Duftbaum.",
-      "bullets": [
-        "Rauch- und Tiergeruch dauerhaft entfernen",
-        "Lüftungs- und Klimasystem mitbehandelt",
-        "Fahrzeug danach 60 Minuten gesperrt"
-      ],
-      "hotspot": { "x": 66, "y": 48 },
-      "chip": "Ozonbehandlung"
-    }
-  ]
+    ],
+    "_seitenname_hinweis": "seitenname ist der Name der Seite (Navigation, Fussbereich, Brotkrumen); titel ist die Ueberschrift im Hotspot-Panel der Startseite. Die beiden unterscheiden sich bewusst."
 }

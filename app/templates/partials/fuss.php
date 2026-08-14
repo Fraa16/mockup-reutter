@@ -1,11 +1,57 @@
 <?php
 /**
- * Seitenfuss: Footer, Sticky-Anfrageleiste, Skripte.
+ * Seitenfuss. Traegt vier Bloecke, wie im zweiten Design-Bundle vorgegeben:
+ * Bewertungen → Kurzanfrage → Fussbereich → Sticky-Leiste.
+ *
+ * @var bool   $zeigeBewertungen  Bewertungsblock. Auf der Startseite aus, weil
+ *                                die Bewertungen dort schon im Abschnitt
+ *                                "Betrieb" stehen — sonst stuenden sie zweimal.
+ * @var bool   $zeigeFormular     Kurzanfrage. Auf Kontakt und den Rechtsseiten
+ *                                aus: dort gibt es das ausfuehrliche Formular
+ *                                oder gar keins.
+ * @var string $ctaUeberschrift   Ueberschrift ueber der Kurzanfrage.
  */
 $s = site();
-$leistungen = content('leistungen')['eintraege'];
+
+$zeigeBewertungen = $zeigeBewertungen ?? true;
+$zeigeFormular    = $zeigeFormular    ?? true;
+$ctaUeberschrift  = $ctaUeberschrift  ?? 'Sagen Sie uns, was ansteht.';
+
+$kennzahl = static fn (string $k): string => (string) get(site(), "kennzahlen.$k.wert", '');
 ?>
 </main>
+
+<?php if ($zeigeBewertungen): ?>
+<!-- Bewertungen -->
+<section class="reviews-section">
+  <div class="wrap">
+    <div class="reviews-head">
+      <h2><?= h(get($s, 'bewertungen.titel', 'Was Kunden schreiben')) ?></h2>
+      <div class="rating">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span class="count"><?= h($kennzahl('google_bewertung')) ?> auf Google · <?= h($kennzahl('google_anzahl')) ?> Bewertungen</span>
+      </div>
+    </div>
+    <div class="review-grid">
+      <?php foreach (get($s, 'bewertungen.eintraege', []) as $r): ?>
+      <div class="review-card rv">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <p>„<?= h($r['text']) ?>"</p>
+        <div class="author">
+          <?= swash() ?>
+          <span class="name"><?= h($r['name']) ?></span>
+          <span class="loc">· <?= h($r['ort']) ?></span>
+        </div>
+      </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+<?php endif; ?>
+
+<?php if ($zeigeFormular): ?>
+  <?php partial('kurzanfrage', ['ueberschrift' => $ctaUeberschrift]); ?>
+<?php endif; ?>
 
 <!-- Footer -->
 <footer class="site-footer">
@@ -23,12 +69,11 @@ $leistungen = content('leistungen')['eintraege'];
       <div class="footer-col">
         <div class="heading">Leistungen</div>
         <div class="links">
-          <?php foreach ($leistungen as $l): ?>
-            <?php /* Bereiche ohne eigene Seite zeigen auf den Abschnitt, zu dem sie gehoeren. */ ?>
-            <?php $ziel = $l['eigene_seite']
-                ? '/leistungen/' . $l['slug'] . '/'
-                : '/leistungen/' . $l['gehoert_zu'] . '/#' . $l['slug']; ?>
-            <a href="<?= attr($ziel) ?>"><?= h($l['titel']) ?></a>
+          <?php /* Nur die sechs Leistungen mit eigener Seite, wie im Entwurf.
+                  'Felgen & Reifen' hat keine und bleibt ueber die Startseite und
+                  den Exterieur-Abschnitt erreichbar. */ ?>
+          <?php foreach (leistungen_mit_seite() as $l): ?>
+            <a href="/leistungen/<?= attr($l['slug']) ?>/"><?= h($l['seitenname']) ?></a>
           <?php endforeach; ?>
         </div>
       </div>
@@ -54,11 +99,14 @@ $leistungen = content('leistungen')['eintraege'];
       <span>© <?= date('Y') ?> <?= h(get($s, 'firma.name')) ?> · Alle Rechte vorbehalten</span>
       <span><?= h(get($s, 'oeffnungszeiten.text')) ?></span>
     </div>
+    <?php /* Solange die Sticky-Leiste sichtbar ist, verdeckt sie sonst die
+            letzte Fusszeile. main.js setzt dafuer eine Klasse am body. */ ?>
+    <div class="footer-sticky-platz" aria-hidden="true"></div>
   </div>
 </footer>
 
 <!-- Sticky request bar -->
-<div class="sticky-bar" id="sticky-bar" data-ab-scroll="<?= attr((string) get($s, 'sticky_bar.ab_scroll', 720)) ?>">
+<div class="sticky-bar" id="sticky-bar" data-ab-scroll="<?= attr((string) get($s, 'sticky_bar.ab_scroll', 600)) ?>">
   <div class="wrap">
     <div class="info">
       <?= swash() ?>

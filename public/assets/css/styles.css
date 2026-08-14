@@ -886,6 +886,64 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
 
 
 /* ==========================================================================
+   Bewertungen — geteilter Block im Fußbereich
+   ==========================================================================
+   Steht seit dem zweiten Design-Bundle auf jeder Seite. Auf der Startseite
+   unterdrückt, weil die Bewertungen dort schon im Abschnitt „Betrieb" stehen.
+   Karten und Kopfzeile teilen sich die Regeln mit der Startseite (.review-*).
+   ========================================================================== */
+.reviews-section{
+  background:var(--light-bg);
+  border-top:1px solid rgba(10,11,13,.08);
+  padding:78px 0 84px;
+}
+.reviews-section .reviews-head{padding-top:0;border-top:0;margin-bottom:30px}
+.reviews-section .reviews-head h2{
+  margin:0;font-family:var(--font-display);font-weight:800;font-size:32px;
+  letter-spacing:-.025em;color:var(--black);
+}
+
+/* ==========================================================================
+   Kurzanfrage
+   ========================================================================== */
+.kurzanfrage{background:var(--near-black);padding:72px 0 76px;position:relative;overflow:hidden}
+.kurzanfrage .deco{
+  position:absolute;right:-80px;top:-100px;width:520px;height:360px;
+  background:rgba(216,13,24,.09);transform:skewX(-20deg);pointer-events:none;
+}
+.kurzanfrage .wrap{position:relative}
+.kurzanfrage-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);
+  gap:70px;align-items:center;
+}
+.kurzanfrage-intro h2{
+  margin:0 0 16px;font-family:var(--font-display);font-weight:800;font-size:40px;
+  line-height:1.03;letter-spacing:-.03em;color:#fff;
+}
+.kurzanfrage-intro p{margin:0 0 22px;max-width:460px;font:400 16.5px/1.65 var(--font-body);color:var(--gray-250)}
+.kurzanfrage-links{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.kurzanfrage-links a{
+  font:600 14.5px/1 var(--font-body);color:var(--gray-100);
+  border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:5px;
+}
+.kurzanfrage-links a:hover{color:#fff;border-color:var(--red)}
+
+.kurzanfrage-karte{background:var(--black);border:1px solid rgba(255,255,255,.13);padding:34px 36px}
+.kurzanfrage-karte .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;margin-bottom:20px}
+.kurzanfrage-fuss{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.kurzanfrage-fuss .consent{max-width:340px}
+
+/* ==========================================================================
+   Platz unter der Sticky-Leiste
+   ==========================================================================
+   Die Leiste ist fixiert und würde sonst die letzte Fußzeile verdecken.
+   main.js setzt .sticky-an am body, solange sie sichtbar ist.
+   ========================================================================== */
+.footer-sticky-platz{height:0;transition:height .2s}
+/* 74 px Leiste plus ihre 1-px-Rahmenlinie. */
+.sticky-an .footer-sticky-platz{height:75px}
+
+/* ==========================================================================
    Responsive
    --------------------------------------------------------------------------
    The mockup was authored desktop-first at 1440. Everything above is the
@@ -990,6 +1048,8 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
   .review-grid{grid-template-columns:repeat(2,1fr)}
 
   .anfrage-grid{grid-template-columns:minmax(0,1fr);gap:48px}
+  .kurzanfrage-grid{grid-template-columns:minmax(0,1fr);gap:38px}
+  .kurzanfrage-intro h2{font-size:clamp(26px,4vw,40px)}
 
   .footer-grid{grid-template-columns:repeat(2,1fr);gap:40px}
 
@@ -1076,6 +1136,13 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
   .review-card{padding:24px 22px}
 
   .request-card{padding:26px 20px 24px}
+  .kurzanfrage-karte{padding:24px 20px}
+  .kurzanfrage-karte .field-grid{grid-template-columns:minmax(0,1fr)}
+  .kurzanfrage-fuss{flex-direction:column;align-items:stretch;gap:16px}
+  .kurzanfrage-fuss .consent{max-width:none}
+  .kurzanfrage-fuss .btn{justify-content:center}
+  .reviews-section{padding:56px 0 60px}
+  .reviews-section .reviews-head h2{font-size:26px}
   .field-grid{grid-template-columns:minmax(0,1fr)}
   /* Tracker labels don't fit three-across on a phone; numbers carry it. */
   .step-tracker .step-label{display:none}

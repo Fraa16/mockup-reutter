@@ -1,177 +1,205 @@
 {
-  "seo": {
-    "titel": "Fahrzeugpflege Reutter — Lack, Leder, Dellen. Alles aus einer Hand.",
-    "beschreibung": "Fahrzeugpflege, KFZ-Aufbereitung, Dellen- und Hagelschadenbeseitigung, Lackierarbeiten, Lederreparatur und Ozonbehandlung in Korntal bei Stuttgart — in der Halle oder mobil bei Ihnen vor Ort."
-  },
-
-  "hero": {
-    "kicker": "Fahrzeugpflege & KFZ-Aufbereitung",
-    "titel": "Lack, Leder, Dellen.",
-    "titel_zusatz": "Alles aus einer Hand.",
-    "lead": "Wir beseitigen Hagelschäden, Parkdellen und Kratzer, lackieren nach, reparieren Leder und bereiten Innenräume auf. In der Halle in Korntal bei Stuttgart — oder mobil bei Ihnen vor Ort.",
-    "fineprint": "Kostenlose Einschätzung · Antwort in der Regel am selben Werktag",
-    "bild": "hero.webp",
-    "bild_alt": "Dunkles Fahrzeug nach der Aufbereitung, Lichtkante auf der Flanke",
-    "bild_platzhalter": true,
-    "kachel_3": { "wert": "7", "label": "Leistungen, ein Ansprechpartner" }
-  },
-
-  "trust": [
-    { "titel": "Eigene Halle, eigenes Personal", "text": "Keine Vermittlung, keine Subunternehmer." },
-    { "titel": "Originallack bleibt erhalten", "text": "Dellen drücken statt spachteln, wo es geht." },
-    { "titel": "Mobiler Service", "text": "Wir kommen zu Ihnen — Hof, Firma, Tiefgarage." },
-    { "titel": "Fester Ansprechpartner", "text": "Der, der annimmt, übergibt auch wieder." }
-  ],
-
-  "leistungen_sektion": {
-    "kicker": "Leistungen",
-    "titel": "Sagen Sie uns, wo es weh tut.",
-    "beschreibung": "Klicken Sie die Stelle am Fahrzeug an. Sie sehen sofort, was wir dort machen — und was das für Ihren Lack bedeutet.",
-    "bild": "hotspot-car.webp",
-    "bild_alt": "Fahrzeug in der Seitenansicht — die Marker markieren die Bereiche, die wir bearbeiten",
-    "bild_platzhalter": true
-  },
-
-  "ergebnisse": {
-    "kicker": "Vorher / Nachher",
-    "titel": "Das Ergebnis lässt sich nicht beschreiben. Nur ziehen.",
-    "hinweis": "Ziehen zum Vergleichen. Alle Aufnahmen aus eigener Arbeit, unbearbeitet, gleiches Licht.",
-    "start_position": 52,
-    "_warnung": "LAUNCH-BLOCKER: Jeder Fall zeigt aktuell dasselbe Foto auf beiden Seiten, die Vorher-Haelfte ist nur per CSS-Filter abgedunkelt. Der Hinweistext behauptet 'aus eigener Arbeit' — das ist mit Stockfotos irrefuehrende Werbung (§ 5 UWG). Vor Launch echte Paare vom Kunden einsetzen oder Sektion und Text anpassen.",
-    "faelle": [
-      {
-        "name": "Hagelschaden Dach",
-        "meta": "3 Tage",
-        "note": "Über 40 Dellen auf Dach und Motorhaube, komplett gedrückt. Kein Lackauftrag, Originallack erhalten.",
-        "vorher": "ba-1.webp",
-        "nachher": "ba-1.webp",
-        "echtes_paar": false
-      },
-      {
-        "name": "Lack & Politur",
-        "meta": "1 Tag",
-        "note": "Waschkratzer und Hologramme über die ganze Flanke. Zweistufige Politur, danach versiegelt.",
-        "vorher": "ba-2.webp",
-        "nachher": "ba-2.webp",
-        "echtes_paar": false
-      },
-      {
-        "name": "Leder Fahrersitz",
-        "meta": "2 Tage",
-        "note": "Durchgescheuerte Sitzwange, repariert, strukturiert und im Originalfarbton nachgefärbt.",
-        "vorher": "ba-3.webp",
-        "nachher": "ba-3.webp",
-        "echtes_paar": false
-      }
-    ]
-  },
-
-  "ablauf": {
-    "kicker": "Ablauf",
-    "titel": "Vier Schritte. Keine Überraschung auf der Rechnung.",
-    "lead": "Sie wissen vor dem Termin, was gemacht wird, wie lange es dauert und was es kostet. Wenn wir während der Arbeit etwas finden, rufen wir an — nicht hinterher.",
-    "schritte": [
-      {
-        "num": "01",
-        "titel": "Anfrage mit Fotos",
-        "text": "Formular ausfüllen, zwei bis drei Fotos vom Schaden dazu. Oder anrufen — wir schreiben es dann auf.",
-        "dauer": "2 Minuten<br>für Sie"
-      },
-      {
-        "num": "02",
-        "titel": "Einschätzung und Festpreis",
-        "text": "Wir melden uns mit Aufwand, Dauer und Preis. Bei Hagelschaden schauen wir das Fahrzeug vorher an — aus Fotos lässt sich das nicht seriös schätzen.",
-        "dauer": "meist am<br>selben Tag"
-      },
-      {
-        "num": "03",
-        "titel": "Halle oder mobil",
-        "text": "Lackarbeiten und Ozon laufen in der Halle. Dellen, Politur und Innenraum können wir bei Ihnen erledigen, wenn Strom und Platz da sind.",
-        "dauer": "Termin nach<br>Absprache"
-      },
-      {
-        "num": "04",
-        "titel": "Abnahme gemeinsam am Fahrzeug",
-        "text": "Wir gehen mit Ihnen ums Auto, bei Tageslicht. Was nicht passt, wird nachgearbeitet, bevor Sie zahlen.",
-        "dauer": "15 Minuten<br>vor Ort"
-      }
-    ]
-  },
-
-  "galerie": {
-    "kicker": "Galerie",
-    "titel": "Aus der Halle.",
-    "link_text": "Alle Arbeiten ansehen →",
-    "_hinweis": "Alle Bilder sind Stockmaterial und zeigen nicht die Arbeit des Betriebs. Vor Launch tauschen.",
-    "kacheln": [
-      { "bild": "g1.webp", "alt": "Maschinenpolitur an der Fahrzeugflanke", "caption": "Lackaufbereitung", "span": 2, "row": 2 },
-      { "bild": "g2.webp", "alt": "Politur am vorderen Kotflügel" },
-      { "bild": "g3.webp", "alt": "Fertig aufbereitetes Fahrzeug, Frontansicht", "caption": "Nach der Aufbereitung", "row": 2 },
-      { "bild": "g4.webp", "alt": "Heckpartie nach der Politur im Detail" },
-      { "bild": "g5.webp", "alt": "Poliermaschine an der Seitenwand" },
-      { "bild": "g6.webp", "alt": "Fahrzeug nach der Politur im Tageslicht", "caption": "Ergebnis im Tageslicht", "span": 2 },
-      { "bild": "g7.webp", "alt": "Politur an der hinteren Seitenwand" }
-    ]
-  },
-
-  "mobiler_service": {
-    "eyebrow": "Mobiler Service",
-    "titel": "Wenn Sie keine Zeit haben, kommen wir vorbei.",
-    "text": "Parkdellen, Politur, Innenraum und Lederreparatur machen wir auch bei Ihnen — zuhause, in der Firma oder in der Tiefgarage. In Korntal, Stuttgart, Ludwigsburg, Gerlingen, Ditzingen und Weilimdorf ohne Anfahrtspauschale."
-  },
-
-  "betrieb": {
-    "kicker": "Der Betrieb",
-    "titel_vorne": "Kompetent, fachgemäß, zuverlässig — und das seit ",
-    "titel_hinten": " Jahren.",
-    "absaetze": [
-      "Wir sind ein kleiner Betrieb im Raum Stuttgart und machen Fahrzeugpflege, Aufbereitung und Smart Repair. Kein Waschstraßen-Tempo, keine Pakete, die keiner braucht: Wir schauen uns das Fahrzeug an und sagen, was sinnvoll ist — auch wenn das heißt, dass wir Ihnen etwas ausreden.",
-      "Viele Kunden kommen seit Jahren mit dem zweiten und dritten Fahrzeug. Das ist die Referenz, die zählt."
-    ],
-    "bild": "betrieb.webp",
-    "bild_alt": "Fertig aufbereitetes Fahrzeug des Betriebs",
-    "bild_platzhalter": true,
-    "_bild_warnung": "Zeigt aktuell einen Porsche 356 in einer Palmenallee und ist als 'Inhaber/Team vor der Halle' beschriftet. Zwingend durch ein echtes Foto ersetzen.",
-    "badge": {
-      "name": "Fahrzeugpflege Reutter",
-      "text": "Inhabergeführt. Wer Ihr Auto annimmt, arbeitet auch daran."
+    "seo": {
+        "titel": "Fahrzeugpflege Reutter — Lack, Leder, Dellen. Alles aus einer Hand.",
+        "beschreibung": "Fahrzeugpflege, KFZ-Aufbereitung, Dellen- und Hagelschadenbeseitigung, Lackierarbeiten, Lederreparatur und Ozonbehandlung in Korntal bei Stuttgart — in der Halle oder mobil bei Ihnen vor Ort."
     },
-    "kachel_3": { "wert": "6", "label": "Orte im Einsatzgebiet" }
-  },
-
-  "bewertungen": {
-    "titel": "Was Kunden schreiben",
-    "_warnung": "LAUNCH-BLOCKER: Alle drei Zitate hat das Design-Mockup erfunden. Erfundene Bewertungen verstossen gegen § 5b UWG. Vor Launch durch echte Google-Rezensionen ersetzen oder die Sektion entfernen.",
-    "echt": false,
-    "eintraege": [
-      {
-        "text": "Hagelschaden am ganzen Dach und der Motorhaube. Nach drei Tagen war nichts mehr zu sehen, und lackiert wurde nichts. Preis war genau der, der vorher genannt wurde.",
-        "name": "M. Keller",
-        "ort": "Ditzingen"
-      },
-      {
-        "text": "Leder an der Fahrerseite war durchgescheuert. Wurde repariert und nachgefärbt, man findet die Stelle nicht mehr. Ehrliche Beratung, was sich lohnt und was nicht.",
-        "name": "S. Brenner",
-        "ort": "Stuttgart-Weilimdorf"
-      },
-      {
-        "text": "Kam zu uns in die Firmentiefgarage, hat vier Fahrzeuge an einem Tag aufbereitet. Absprache lief per Telefon, alles pünktlich, alles wie vereinbart.",
-        "name": "T. Aydin",
-        "ort": "Ludwigsburg"
-      }
-    ]
-  },
-
-  "anfrage": {
-    "kicker": "Termin anfragen",
-    "titel": "Drei Angaben, dann melden wir uns.",
-    "lead": "Kein Konto, keine Terminsoftware. Sie schreiben, was los ist, wir rufen zurück und sagen Ihnen einen Preis.",
-    "karte_platzhalter": "Kartenausschnitt Standort",
-    "chips": [
-      "Exterieur-Pflege", "Interieur-Pflege", "Dellen / Hagelschaden", "Lackierarbeiten",
-      "Lederreparatur", "Ozonbehandlung", "Felgenaufbereitung", "Weiß ich noch nicht"
+    "hero": {
+        "kicker": "Fahrzeugpflege & KFZ-Aufbereitung",
+        "titel": "Lack, Leder, Dellen.",
+        "titel_zusatz": "Alles aus einer Hand.",
+        "lead": "Wir beseitigen Hagelschäden, Parkdellen und Kratzer, lackieren nach, reparieren Leder und bereiten Innenräume auf. In der Halle in Korntal bei Stuttgart — oder mobil bei Ihnen vor Ort.",
+        "fineprint": "Kostenlose Einschätzung · Antwort in der Regel am selben Werktag",
+        "bild": "hero.webp",
+        "bild_alt": "Dunkles Fahrzeug nach der Aufbereitung, Lichtkante auf der Flanke",
+        "bild_platzhalter": true,
+        "kachel_3": {
+            "wert": "7",
+            "label": "Leistungen, ein Ansprechpartner"
+        }
+    },
+    "trust": [
+        {
+            "titel": "Eigene Halle, eigenes Personal",
+            "text": "Keine Vermittlung, keine Subunternehmer."
+        },
+        {
+            "titel": "Originallack bleibt erhalten",
+            "text": "Dellen drücken statt spachteln, wo es geht."
+        },
+        {
+            "titel": "Mobiler Service",
+            "text": "Wir kommen zu Ihnen — Hof, Firma, Tiefgarage."
+        },
+        {
+            "titel": "Fester Ansprechpartner",
+            "text": "Der, der annimmt, übergibt auch wieder."
+        }
     ],
-    "schritte": ["Fahrzeug", "Leistung", "Kontakt"],
-    "hinweise": ["Schritt 1 von 3", "Schritt 2 von 3 · Mehrfachauswahl möglich", "Letzter Schritt"]
-  }
+    "leistungen_sektion": {
+        "kicker": "Leistungen",
+        "titel": "Sagen Sie uns, wo es weh tut.",
+        "beschreibung": "Klicken Sie die Stelle am Fahrzeug an. Sie sehen sofort, was wir dort machen — und was das für Ihren Lack bedeutet.",
+        "bild": "hotspot-car.webp",
+        "bild_alt": "Fahrzeug in der Seitenansicht — die Marker markieren die Bereiche, die wir bearbeiten",
+        "bild_platzhalter": true
+    },
+    "ergebnisse": {
+        "kicker": "Vorher / Nachher",
+        "titel": "Das Ergebnis lässt sich nicht beschreiben. Nur ziehen.",
+        "hinweis": "Ziehen zum Vergleichen. Alle Aufnahmen aus eigener Arbeit, unbearbeitet, gleiches Licht.",
+        "start_position": 52,
+        "_warnung": "LAUNCH-BLOCKER: Jeder Fall zeigt aktuell dasselbe Foto auf beiden Seiten, die Vorher-Haelfte ist nur per CSS-Filter abgedunkelt. Der Hinweistext behauptet 'aus eigener Arbeit' — das ist mit Stockfotos irrefuehrende Werbung (§ 5 UWG). Vor Launch echte Paare vom Kunden einsetzen oder Sektion und Text anpassen.",
+        "faelle": [
+            {
+                "name": "Hagelschaden Dach",
+                "meta": "3 Tage",
+                "note": "Über 40 Dellen auf Dach und Motorhaube, komplett gedrückt. Kein Lackauftrag, Originallack erhalten.",
+                "vorher": "ba-1.webp",
+                "nachher": "ba-1.webp",
+                "echtes_paar": false
+            },
+            {
+                "name": "Lack & Politur",
+                "meta": "1 Tag",
+                "note": "Waschkratzer und Hologramme über die ganze Flanke. Zweistufige Politur, danach versiegelt.",
+                "vorher": "ba-2.webp",
+                "nachher": "ba-2.webp",
+                "echtes_paar": false
+            },
+            {
+                "name": "Leder Fahrersitz",
+                "meta": "2 Tage",
+                "note": "Durchgescheuerte Sitzwange, repariert, strukturiert und im Originalfarbton nachgefärbt.",
+                "vorher": "ba-3.webp",
+                "nachher": "ba-3.webp",
+                "echtes_paar": false
+            }
+        ]
+    },
+    "ablauf": {
+        "kicker": "Ablauf",
+        "titel": "Vier Schritte. Keine Überraschung auf der Rechnung.",
+        "lead": "Sie wissen vor dem Termin, was gemacht wird, wie lange es dauert und was es kostet. Wenn wir während der Arbeit etwas finden, rufen wir an — nicht hinterher.",
+        "schritte": [
+            {
+                "num": "01",
+                "titel": "Anfrage mit Fotos",
+                "text": "Formular ausfüllen, zwei bis drei Fotos vom Schaden dazu. Oder anrufen — wir schreiben es dann auf.",
+                "dauer": "2 Minuten<br>für Sie"
+            },
+            {
+                "num": "02",
+                "titel": "Einschätzung und Festpreis",
+                "text": "Wir melden uns mit Aufwand, Dauer und Preis. Bei Hagelschaden schauen wir das Fahrzeug vorher an — aus Fotos lässt sich das nicht seriös schätzen.",
+                "dauer": "meist am<br>selben Tag"
+            },
+            {
+                "num": "03",
+                "titel": "Halle oder mobil",
+                "text": "Lackarbeiten und Ozon laufen in der Halle. Dellen, Politur und Innenraum können wir bei Ihnen erledigen, wenn Strom und Platz da sind.",
+                "dauer": "Termin nach<br>Absprache"
+            },
+            {
+                "num": "04",
+                "titel": "Abnahme gemeinsam am Fahrzeug",
+                "text": "Wir gehen mit Ihnen ums Auto, bei Tageslicht. Was nicht passt, wird nachgearbeitet, bevor Sie zahlen.",
+                "dauer": "15 Minuten<br>vor Ort"
+            }
+        ]
+    },
+    "galerie": {
+        "kicker": "Galerie",
+        "titel": "Aus der Halle.",
+        "link_text": "Alle Arbeiten ansehen →",
+        "_hinweis": "Alle Bilder sind Stockmaterial und zeigen nicht die Arbeit des Betriebs. Vor Launch tauschen.",
+        "kacheln": [
+            {
+                "bild": "g1.webp",
+                "alt": "Maschinenpolitur an der Fahrzeugflanke",
+                "caption": "Lackaufbereitung",
+                "span": 2,
+                "row": 2
+            },
+            {
+                "bild": "g2.webp",
+                "alt": "Politur am vorderen Kotflügel"
+            },
+            {
+                "bild": "g3.webp",
+                "alt": "Fertig aufbereitetes Fahrzeug, Frontansicht",
+                "caption": "Nach der Aufbereitung",
+                "row": 2
+            },
+            {
+                "bild": "g4.webp",
+                "alt": "Heckpartie nach der Politur im Detail"
+            },
+            {
+                "bild": "g5.webp",
+                "alt": "Poliermaschine an der Seitenwand"
+            },
+            {
+                "bild": "g6.webp",
+                "alt": "Fahrzeug nach der Politur im Tageslicht",
+                "caption": "Ergebnis im Tageslicht",
+                "span": 2
+            },
+            {
+                "bild": "g7.webp",
+                "alt": "Politur an der hinteren Seitenwand"
+            }
+        ]
+    },
+    "mobiler_service": {
+        "eyebrow": "Mobiler Service",
+        "titel": "Wenn Sie keine Zeit haben, kommen wir vorbei.",
+        "text": "Parkdellen, Politur, Innenraum und Lederreparatur machen wir auch bei Ihnen — zuhause, in der Firma oder in der Tiefgarage. In Korntal, Stuttgart, Ludwigsburg, Gerlingen, Ditzingen und Weilimdorf ohne Anfahrtspauschale."
+    },
+    "betrieb": {
+        "kicker": "Der Betrieb",
+        "titel_vorne": "Kompetent, fachgemäß, zuverlässig — und das seit ",
+        "titel_hinten": " Jahren.",
+        "absaetze": [
+            "Wir sind ein kleiner Betrieb im Raum Stuttgart und machen Fahrzeugpflege, Aufbereitung und Smart Repair. Kein Waschstraßen-Tempo, keine Pakete, die keiner braucht: Wir schauen uns das Fahrzeug an und sagen, was sinnvoll ist — auch wenn das heißt, dass wir Ihnen etwas ausreden.",
+            "Viele Kunden kommen seit Jahren mit dem zweiten und dritten Fahrzeug. Das ist die Referenz, die zählt."
+        ],
+        "bild": "betrieb.webp",
+        "bild_alt": "Fertig aufbereitetes Fahrzeug des Betriebs",
+        "bild_platzhalter": true,
+        "_bild_warnung": "Zeigt aktuell einen Porsche 356 in einer Palmenallee und ist als 'Inhaber/Team vor der Halle' beschriftet. Zwingend durch ein echtes Foto ersetzen.",
+        "badge": {
+            "name": "Fahrzeugpflege Reutter",
+            "text": "Inhabergeführt. Wer Ihr Auto annimmt, arbeitet auch daran."
+        },
+        "kachel_3": {
+            "wert": "6",
+            "label": "Orte im Einsatzgebiet"
+        }
+    },
+    "anfrage": {
+        "kicker": "Termin anfragen",
+        "titel": "Drei Angaben, dann melden wir uns.",
+        "lead": "Kein Konto, keine Terminsoftware. Sie schreiben, was los ist, wir rufen zurück und sagen Ihnen einen Preis.",
+        "karte_platzhalter": "Kartenausschnitt Standort",
+        "chips": [
+            "Exterieur-Pflege",
+            "Interieur-Pflege",
+            "Dellen / Hagelschaden",
+            "Lackierarbeiten",
+            "Lederreparatur",
+            "Ozonbehandlung",
+            "Felgenaufbereitung",
+            "Weiß ich noch nicht"
+        ],
+        "schritte": [
+            "Fahrzeug",
+            "Leistung",
+            "Kontakt"
+        ],
+        "hinweise": [
+            "Schritt 1 von 3",
+            "Schritt 2 von 3 · Mehrfachauswahl möglich",
+            "Letzter Schritt"
+        ]
+    }
 }
