@@ -103,7 +103,7 @@ partial('kopf', [
           <span class="vorschau-verlauf"></span>
           <span class="vorschau-titel">
             <?php foreach ($leistungen as $i => $l): ?>
-            <span class="vorschau-zeile<?= $i === 0 ? ' is-active' : '' ?>" data-vorschau-titel="<?= $i ?>"<?= $i === 0 ? '' : ' hidden' ?>>
+            <span class="vorschau-zeile<?= $i === 0 ? ' is-active' : '' ?>" data-vorschau-titel="<?= $i ?>">
               <span class="vorschau-kicker"><?= h($l['num']) ?> — <?= h($l['tag']) ?></span>
               <span class="vorschau-name"><?= h($l['seitenname']) ?></span>
             </span>

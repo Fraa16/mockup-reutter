@@ -91,7 +91,7 @@ partial('kopf', [
               Suchmaschinen sichtbar, JS blendet nur um. */ ?>
       <div class="hotspot-detail">
         <?php foreach ($leistungen as $i => $l): ?>
-        <div class="hs-panel<?= $i === 0 ? ' is-active' : '' ?>" id="hs-panel-<?= $i ?>"<?= $i === 0 ? '' : ' hidden' ?>>
+        <div class="hs-panel<?= $i === 0 ? ' is-active' : '' ?>" id="hs-panel-<?= $i ?>">
           <div class="head">
             <span class="tag"><?= h($l['tag']) ?></span>
             <span class="count"><?= h($l['num']) ?> / <?= h(str_pad((string) count($leistungen), 2, '0', STR_PAD_LEFT)) ?></span>

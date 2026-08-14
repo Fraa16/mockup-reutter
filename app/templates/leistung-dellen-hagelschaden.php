@@ -115,7 +115,7 @@ partial('kopf', [
               auffindbar sind. JS blendet nur um. */ ?>
       <div class="panelkarte-detail" id="panel-detail">
         <?php foreach ($panels as $i => $p): ?>
-        <div class="panel-tafel<?= $i === 2 ? ' is-active' : '' ?>"<?= $i === 2 ? '' : ' hidden' ?>>
+        <div class="panel-tafel<?= $i === 2 ? ' is-active' : '' ?>">
           <div class="tafel-name"><?= h($p['name']) ?></div>
           <div class="tafel-zahl">
             <span class="wert"><?= h((string) $p['anzahl']) ?></span>

@@ -75,7 +75,7 @@ partial('kopf', [
       <?php /* Alle fuenf Tafeln stehen im HTML, JS blendet um. */ ?>
       <div class="quellen-panel" id="quellen-tafel">
         <?php foreach ($quellen as $i => $q): ?>
-        <div class="quellen-tafel<?= $i === 0 ? ' is-active' : '' ?>"<?= $i === 0 ? '' : ' hidden' ?>>
+        <div class="quellen-tafel<?= $i === 0 ? ' is-active' : '' ?>">
           <div class="quellen-haupt">
             <div class="quellen-kopf">
               <span class="quellen-label"><?= h(get($seite, 'diagnose.sitz_titel')) ?></span>

@@ -73,7 +73,7 @@ partial('kopf', [
           <div class="schnitt-kopf">
             <span class="schnitt-titel"><?= h(get($seite, 'querschnitt.schema_titel')) ?></span>
             <?php foreach ($stufen as $i => $st): ?>
-            <span class="schnitt-abtrag<?= $i === 1 ? ' is-active' : '' ?>" data-abtrag="<?= $i ?>"<?= $i === 1 ? '' : ' hidden' ?>>
+            <span class="schnitt-abtrag<?= $i === 1 ? ' is-active' : '' ?>" data-abtrag="<?= $i ?>">
               Abtrag <?= h($st['abtrag']) ?>
             </span>
             <?php endforeach; ?>
@@ -106,7 +106,7 @@ partial('kopf', [
         <?php /* Die Abtragshoehe haengt am Tafel-Element, damit sie neben dem
                 zugehoerigen Text steht statt im Skript. */ ?>
         <div class="stufen-tafel<?= $i === 1 ? ' is-active' : '' ?>" data-tafel="<?= $i ?>"
-             data-abtrag-hoehe="<?= (int) $st['abtrag_hoehe'] ?>"<?= $i === 1 ? '' : ' hidden' ?>>
+             data-abtrag-hoehe="<?= (int) $st['abtrag_hoehe'] ?>">
           <div class="tafel-name"><?= h($st['name']) ?></div>
           <h3><?= h($st['ueberschrift']) ?></h3>
           <p><?= h($st['text']) ?></p>

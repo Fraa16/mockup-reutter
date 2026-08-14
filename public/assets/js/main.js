@@ -44,6 +44,9 @@
         dots[naechster].focus();
       });
     });
+
+    // Ohne dieses Skript stehen alle Panels untereinander und sind lesbar.
+    zeige(Math.max(0, panels.findIndex((el) => el.classList.contains('is-active'))));
   }
 
   /* ---------------------------------------------------------------------
@@ -163,6 +166,19 @@
         if (zone) zone.style.height = hoehen[i] + 'px';
       });
     });
+
+    // Ohne dieses Skript stehen alle Tafeln untereinander und sind lesbar.
+    // Erst hier wird daraus die Umschaltung.
+    const stufeZeigen = (index) => {
+      knoepfe.forEach((b, j) => {
+        b.classList.toggle('active', index === j);
+        b.setAttribute('aria-pressed', String(index === j));
+      });
+      tafeln.forEach((t, j) => { t.hidden = index !== j; });
+      abtragAnzeigen.forEach((a, j) => { a.hidden = index !== j; });
+      if (zone) zone.style.height = hoehen[index] + 'px';
+    };
+    stufeZeigen(Math.max(0, tafeln.findIndex((t) => t.classList.contains('is-active'))));
   }
 
   /* ---------------------------------------------------------------------
@@ -193,6 +209,8 @@
         zonen[naechste].focus();
       });
     });
+
+    zeige(Math.max(0, tafeln.findIndex((t) => t.classList.contains('is-active'))));
   }
 
   /* ---------------------------------------------------------------------
@@ -235,6 +253,8 @@
         knoepfe[naechste].focus();
       });
     });
+
+    zeige(Math.max(0, tafeln.findIndex((t) => t.classList.contains('is-active'))));
   }
 
   /* ---------------------------------------------------------------------
@@ -266,6 +286,8 @@
         grade[naechste].focus();
       });
     });
+
+    zeige(Math.max(0, tafeln.findIndex((t) => t.classList.contains('is-active'))));
   }
 
   /* ---------------------------------------------------------------------
@@ -321,13 +343,17 @@
     const titel  = Array.from(leistungsindex.querySelectorAll('.vorschau-zeile'));
     let aktiv = 0;
 
-    const zeige = (index) => {
-      if (index === aktiv) return;
+    const zeige = (index, erzwingen = false) => {
+      if (index === aktiv && !erzwingen) return;
       aktiv = index;
       zeilen.forEach((el, i) => el.classList.toggle('active', i === index));
       bilder.forEach((el, i) => el.classList.toggle('is-active', i === index));
       titel.forEach((el, i) => { el.hidden = i !== index; });
     };
+
+    // Beim Start einmal erzwingen: ohne Skript stehen alle Bildunterschriften
+    // untereinander, erst hier wird eine davon ausgewaehlt.
+    zeige(0, true);
 
     zeilen.forEach((el, i) => {
       el.addEventListener('mouseenter', () => zeige(i));
@@ -365,6 +391,8 @@
         chips[naechste].focus();
       });
     });
+
+    zeige(Math.max(0, tafeln.findIndex((t) => t.classList.contains('is-active'))));
   }
 
   /* ---------------------------------------------------------------------
@@ -499,6 +527,8 @@
         panels[naechster].focus();
       });
     });
+
+    zeige(Math.max(0, tafeln.findIndex((t) => t.classList.contains('is-active'))));
   }
 
   /* ---------------------------------------------------------------------

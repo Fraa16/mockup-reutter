@@ -103,7 +103,7 @@ partial('kopf', [
       <?php /* Alle vier Tafeln stehen im HTML, JS blendet um. */ ?>
       <div class="grad-panel" id="grad-tafel">
         <?php foreach ($grade as $i => $g): ?>
-        <div class="grad-tafel<?= $i === 1 ? ' is-active' : '' ?>"<?= $i === 1 ? '' : ' hidden' ?>>
+        <div class="grad-tafel<?= $i === 1 ? ' is-active' : '' ?>">
           <div class="grad-ablauf">
             <h3><?= h($g['ueberschrift']) ?></h3>
             <p><?= h($g['text']) ?></p>

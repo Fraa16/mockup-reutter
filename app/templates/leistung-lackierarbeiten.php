@@ -122,7 +122,7 @@ partial('kopf', [
           <div class="vorgehen-tafel<?= $i === 1 ? ' is-active' : '' ?>"
                data-klarlack="<?= (int) $t['balken_klarlack'] ?>"
                data-basis="<?= (int) $t['balken_basis'] ?>"
-               data-fueller="<?= (int) $t['balken_fueller'] ?>"<?= $i === 1 ? '' : ' hidden' ?>>
+               data-fueller="<?= (int) $t['balken_fueller'] ?>">
             <div class="vorgehen-kicker"><?= h(get($seite, 'tiefentest.vorgehen_kicker')) ?></div>
             <h3><?= h($t['aktion']) ?></h3>
             <p><?= h($t['text']) ?></p>

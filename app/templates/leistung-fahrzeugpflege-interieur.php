@@ -83,7 +83,7 @@ partial('kopf', [
       <?php /* Alle sechs Tafeln stehen im HTML, JS blendet um. */ ?>
       <div class="zonen-detail" id="zonen-tafel">
         <?php foreach ($zonen as $i => $z): ?>
-        <div class="zonen-tafel<?= $i === 0 ? ' is-active' : '' ?>"<?= $i === 0 ? '' : ' hidden' ?>>
+        <div class="zonen-tafel<?= $i === 0 ? ' is-active' : '' ?>">
           <div class="tafel-name"><?= h($z['kurz']) ?></div>
           <h3><?= h($z['name']) ?></h3>
           <p><?= h($z['text']) ?></p>
