@@ -8,7 +8,7 @@
     },
 
     "hero": {
-        "kicker": "Leistung 06 · Interieur",
+        "kicker": "Leistung 05 · Interieur",
         "titel": "Auffällig ist nicht die Farbe. Auffällig ist die fehlende Narbung.",
         "lead": "Eine reparierte Stelle verrät sich, wenn sie glatt und glänzend bleibt. Deshalb nehmen wir die Struktur vom Originalleder ab und prägen sie in die Reparatur, bevor überhaupt Farbe kommt.",
         "cta": "Termin anfragen",
@@ -200,8 +200,8 @@
     "verwandt": {
         "titel": "Passt oft dazu",
         "karten": [
-            { "slug": "fahrzeugpflege-interieur", "kicker": "05 · Interieur", "text": "Leder wird nach der Reparatur gereinigt und rückgefettet — meist im selben Termin." },
-            { "slug": "ozonbehandlung",           "kicker": "07 · Interieur", "text": "Bei Rauchgeruch im Leder hilft Reinigung allein oft nicht." },
+            { "slug": "fahrzeugpflege-interieur", "kicker": "02 · Interieur", "text": "Leder wird nach der Reparatur gereinigt und rückgefettet — meist im selben Termin." },
+            { "slug": "ozonbehandlung",           "kicker": "06 · Interieur", "text": "Bei Rauchgeruch im Leder hilft Reinigung allein oft nicht." },
             { "slug": "fahrzeugpflege-exterieur", "kicker": "01 · Exterieur", "text": "Innen fertig, außen stumpf — das fällt beim Verkauf sofort auf." }
         ]
     },

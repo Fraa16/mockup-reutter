@@ -8,7 +8,7 @@
     },
 
     "hero": {
-        "kicker": "Leistung 03 · Lack",
+        "kicker": "Leistung 04 · Lack",
         "titel": "Der Farbcode ist ein Vorschlag. Nicht das Ergebnis.",
         "lead": "Lack dunkelt über Jahre nach. Wer nur den Code aus dem Türrahmen mischt, sieht die Beilackierung später bei jedem Sonnenstand. Deshalb messen wir am Fahrzeug und spritzen vorher ein Muster.",
         "cta": "Termin anfragen",
@@ -203,9 +203,9 @@
     "verwandt": {
         "titel": "Passt oft dazu",
         "karten": [
-            { "slug": "dellen-hagelschaden",        "kicker": "02 · Karosserie", "text": "Delle mit gerissenem Lack: erst drücken, dann die Stelle beilackieren." },
+            { "slug": "dellen-hagelschaden",        "kicker": "03 · Karosserie", "text": "Delle mit gerissenem Lack: erst drücken, dann die Stelle beilackieren." },
             { "slug": "fahrzeugpflege-exterieur",   "kicker": "01 · Exterieur",  "text": "Nach der Lackierung wird poliert — oft lohnt sich gleich die ganze Fläche." },
-            { "slug": "fahrzeugpflege-interieur",   "kicker": "05 · Interieur",  "text": "Wenn das Fahrzeug ohnehin zwei Tage in der Halle steht." }
+            { "slug": "fahrzeugpflege-interieur",   "kicker": "02 · Interieur",  "text": "Wenn das Fahrzeug ohnehin zwei Tage in der Halle steht." }
         ]
     },
 

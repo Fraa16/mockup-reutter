@@ -8,7 +8,7 @@
     },
 
     "hero": {
-        "kicker": "Leistung 07 · Interieur",
+        "kicker": "Leistung 06 · Interieur",
         "titel": "Geruch lässt sich nicht fotografieren. Nur entfernen.",
         "lead": "Ozon zerlegt Geruchsmoleküle chemisch. Es entfernt aber keinen Schmutz — und genau da liegt der Unterschied zwischen einer Behandlung, die hält, und zwei Wochen Ruhe.",
         "cta": "Termin anfragen",
@@ -224,8 +224,8 @@
     "verwandt": {
         "titel": "Passt oft dazu",
         "karten": [
-            { "slug": "fahrzeugpflege-interieur", "kicker": "05 · Interieur", "text": "Ohne gründliche Innenraumreinigung bringt Ozon nichts. Meistens Schritt eins." },
-            { "slug": "lederreparatur",           "kicker": "06 · Interieur", "text": "Rauchgeruch setzt sich auch im Leder fest — Reinigung und Rückfettung gehören dazu." },
+            { "slug": "fahrzeugpflege-interieur", "kicker": "02 · Interieur", "text": "Ohne gründliche Innenraumreinigung bringt Ozon nichts. Meistens Schritt eins." },
+            { "slug": "lederreparatur",           "kicker": "05 · Interieur", "text": "Rauchgeruch setzt sich auch im Leder fest — Reinigung und Rückfettung gehören dazu." },
             { "slug": "fahrzeugpflege-exterieur", "kicker": "01 · Exterieur", "text": "Wenn das Fahrzeug ohnehin für einen Tag in der Halle steht." }
         ]
     },

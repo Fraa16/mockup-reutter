@@ -18,7 +18,10 @@ $pfad = $pfad === '/' ? '/' : $pfad . '/';
  */
 $routen = [
     '/'              => ['template' => 'home',       'inhalt' => 'home'],
-    '/leistungen/'   => ['template' => 'leistungen', 'inhalt' => 'leistungen'],
+    // Der Hub holt die Liste der Leistungen ueber leistungen_mit_seite();
+    // 'leistungen-hub' traegt nur die eigenen Texte der Uebersichtsseite.
+    // data/content/leistungen.json bleibt der reine Index.
+    '/leistungen/'   => ['template' => 'leistungen', 'inhalt' => 'leistungen-hub'],
     '/galerie/'      => ['template' => 'galerie',    'inhalt' => 'galerie'],
     '/kontakt/'      => ['template' => 'kontakt',    'inhalt' => 'kontakt'],
     '/danke/'        => ['template' => 'danke',      'inhalt' => null],

@@ -269,6 +269,34 @@
   }
 
   /* ---------------------------------------------------------------------
+     Leistungsindex (Leistungen-Hub)
+     Zeile ueberfahren oder fokussieren, rechts wechselt das Vorschaubild.
+     Ohne dieses Skript bleibt das erste Bild stehen — die Zeilen sind Links
+     und funktionieren unabhaengig davon.
+     --------------------------------------------------------------------- */
+  const leistungsindex = document.getElementById('leistungsindex');
+  if (leistungsindex) {
+    const zeilen = Array.from(leistungsindex.querySelectorAll('.index-zeile'));
+    const bilder = Array.from(leistungsindex.querySelectorAll('.vorschau-bild'));
+    const titel  = Array.from(leistungsindex.querySelectorAll('.vorschau-zeile'));
+    let aktiv = 0;
+
+    const zeige = (index) => {
+      if (index === aktiv) return;
+      aktiv = index;
+      zeilen.forEach((el, i) => el.classList.toggle('active', i === index));
+      bilder.forEach((el, i) => el.classList.toggle('is-active', i === index));
+      titel.forEach((el, i) => { el.hidden = i !== index; });
+    };
+
+    zeilen.forEach((el, i) => {
+      el.addEventListener('mouseenter', () => zeige(i));
+      // Auch beim Durchtabben, sonst haengt das Bild bei Tastaturbedienung fest.
+      el.addEventListener('focus', () => zeige(i));
+    });
+  }
+
+  /* ---------------------------------------------------------------------
      Geruchsdiagnose (Ozonbehandlung)
      Quelle als Chip waehlen, darunter wechselt die Tafel.
      --------------------------------------------------------------------- */
