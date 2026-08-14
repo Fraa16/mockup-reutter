@@ -1606,6 +1606,158 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
 .faq-section{background:#fff;padding:92px 0 96px}
 .faq-section.ist-grau{background:var(--light-bg)}
 
+/* ==========================================================================
+   Lederreparatur
+   ========================================================================== */
+
+/* --- Hero gespiegelt: Bild links, Text rechts, rote Kante rechts --------- */
+.leistung-hero.ist-gespiegelt{min-height:0;display:block}
+.leistung-hero.ist-gespiegelt .hero-bild{right:auto;left:0;width:46%}
+.leistung-hero.ist-gespiegelt .scrim{
+  background:linear-gradient(270deg,var(--black) 46%,rgba(10,11,13,.82) 62%,rgba(10,11,13,.1) 96%);
+}
+.leistung-hero.ist-gespiegelt .accent-bar{left:auto;right:0}
+.leistung-hero.ist-gespiegelt .wrap{
+  padding-top:70px;padding-bottom:80px;display:flex;justify-content:flex-end;
+}
+.leistung-hero.ist-gespiegelt .leistung-hero-copy{max-width:660px;margin-top:0}
+.leistung-hero.ist-gespiegelt .brotkrumen{margin-bottom:36px}
+
+/* --- Materialcheck: drei Karten direkt unter dem Hero -------------------- */
+.material{background:var(--black);padding:0 0 90px}
+.abschnitt-linie h2.label{margin:0;font:600 12px/1 var(--font-body);letter-spacing:.22em;text-transform:uppercase}
+.material-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.13);
+}
+.material-karte{background:var(--black);padding:32px 30px;display:flex;flex-direction:column;gap:14px}
+.material-kopf{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.material-kopf h3{margin:0;font:700 20px/1.2 var(--font-display);letter-spacing:-.02em;color:#fff}
+.material-urteil{
+  padding:6px 11px;background:rgba(255,255,255,.1);
+  font:700 11px/1 var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--gray-150);
+}
+.material-urteil.ist-gut{background:var(--red);color:#fff}
+.material-karte p{margin:0;font:400 15.5px/1.6 var(--font-body);color:var(--gray-400)}
+
+/* --- Vier Schadensgrade als Reiterleiste --------------------------------- */
+.schadensgrad{background:var(--light-bg);padding:96px 0 100px;border-top:5px solid var(--red)}
+.schadensgrad h2{
+  margin:0;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(28px,3.6vw,46px);line-height:1.02;letter-spacing:-.03em;color:var(--black);
+}
+.grad-leiste{display:flex;border:1px solid rgba(10,11,13,.14);border-bottom:0}
+.grad{
+  flex:1;cursor:pointer;background:#fff;border:0;border-right:1px solid rgba(10,11,13,.12);
+  padding:22px 24px;text-align:left;transition:background .18s;
+}
+.grad:last-child{border-right:0}
+.grad:hover{background:#FAFAFB}
+.grad-kopf{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.grad-punkt{width:10px;height:10px;display:inline-block;flex:none}
+.grad-num{font:700 12px/1 var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--gray-350)}
+.grad-name{display:block;font:700 18px/1.2 var(--font-display);letter-spacing:-.018em;color:var(--black)}
+.grad.active{background:var(--black)}
+.grad.active:hover{background:var(--black)}
+.grad.active .grad-num{color:var(--gray-400)}
+.grad.active .grad-name{color:#fff}
+
+.grad-panel{border:1px solid rgba(10,11,13,.14);background:#fff}
+.grad-tafel[hidden]{display:none}
+.grad-tafel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px)}
+.grad-ablauf{padding:40px 42px;border-right:1px solid rgba(10,11,13,.14)}
+.grad-ablauf h3{
+  margin:0 0 16px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(24px,2.8vw,34px);line-height:1.05;letter-spacing:-.028em;color:var(--black);
+}
+.grad-ablauf > p{margin:0 0 28px;max-width:640px;font:400 16.5px/1.68 var(--font-body);color:var(--gray-450)}
+.ablauf-titel{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gray-350);margin-bottom:14px;
+}
+.grad-schritte{margin:0;padding:0;list-style:none;border-top:1px solid rgba(10,11,13,.13)}
+.grad-schritte li{
+  display:grid;grid-template-columns:28px minmax(0,1fr);gap:14px;
+  padding:14px 0;border-bottom:1px solid rgba(10,11,13,.13);
+}
+.schritt-n{font:700 13px/1.4 var(--font-display);letter-spacing:.06em;color:var(--red)}
+.schritt-t{font:500 15.5px/1.5 var(--font-body);color:#2B3038}
+
+.grad-werte{padding:40px 36px;background:#FAFAFB;display:flex;flex-direction:column}
+.grad-daten{margin:0;border-top:2px solid var(--black)}
+.grad-daten > div{padding:16px 0;border-bottom:1px solid rgba(10,11,13,.13)}
+.grad-daten dt{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gray-350);margin-bottom:7px;
+}
+.grad-daten dd{margin:0;font:700 19px/1.2 var(--font-display);letter-spacing:-.018em;color:var(--black)}
+/* Der ehrlichste Kasten der Seite — deshalb schwarz abgesetzt. */
+.grad-erwartung{margin-top:24px;padding:20px 22px;background:var(--black)}
+.erwartung-titel{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--red-hover);margin-bottom:10px;
+}
+.grad-erwartung p{margin:0;font:400 15.5px/1.6 var(--font-body);color:var(--gray-150)}
+
+/* --- Vergleich mit zwei Makroaufnahmen daneben --------------------------- */
+.leder-vergleich{background:#fff;padding:92px 0 96px}
+.leder-ba-head{max-width:700px;margin-bottom:36px}
+.leder-ba-head h2{
+  margin:0 0 14px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(28px,3.5vw,44px);line-height:1.02;letter-spacing:-.03em;color:var(--black);
+}
+.leder-ba-head p{margin:0;font:400 16.5px/1.65 var(--font-body);color:var(--gray-450)}
+.leder-ba-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px}
+.leder-ba-grid .ba-frame{height:520px;border:1px solid rgba(10,11,13,.14)}
+.leder-makros{display:grid;grid-template-rows:1fr 1fr;gap:20px;min-height:0}
+.leder-makro{
+  position:relative;margin:0;overflow:hidden;border:1px solid rgba(10,11,13,.14);min-height:0;
+}
+.leder-makro img{width:100%;height:100%;object-fit:cover;display:block}
+.leder-makro figcaption{
+  position:absolute;left:14px;bottom:12px;padding:6px 11px;background:rgba(10,11,13,.82);
+  font:600 11px/1 var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:#fff;
+}
+
+/* --- Preis und Pflegehinweise ------------------------------------------- */
+.leder-preis{background:var(--black);padding:88px 0 92px}
+.leder-preis-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:64px;align-items:start}
+.leder-preis h2{
+  margin:0 0 16px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(26px,3vw,38px);line-height:1.04;letter-spacing:-.03em;color:#fff;
+}
+.leder-preis-grid > div > p{margin:0 0 28px;font:400 17px/1.65 var(--font-body);color:var(--gray-200)}
+.pflege-titel{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gray-400);margin-bottom:16px;
+}
+.pflege .bullets{margin:0;padding:0;list-style:none;border-top:1px solid rgba(255,255,255,.13)}
+.pflege .bullets li{
+  display:flex;align-items:flex-start;gap:14px;padding:15px 0;
+  border-bottom:1px solid rgba(255,255,255,.13);
+  font:500 15.5px/1.5 var(--font-body);color:var(--gray-150);
+}
+.pflege .bullets .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none}
+
+/* --- FAQ offen in zwei Spalten (statt Aufklapper) ------------------------
+   Die Antworten stehen ohne Interaktion im Quelltext — für Antwortboxen in
+   der Suche der bessere Fall, deshalb hier so belassen wie im Entwurf. */
+.faq-offen{background:var(--light-bg);padding:92px 0 96px}
+.faq-offen-head{display:flex;align-items:flex-end;justify-content:space-between;gap:60px;margin-bottom:44px}
+.faq-offen-head h2{
+  margin:0;max-width:700px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(26px,3.3vw,42px);line-height:1.02;letter-spacing:-.03em;color:var(--black);
+}
+.faq-offen-head p{margin:0;flex:none;font:400 16px/1.6 var(--font-body);color:var(--gray-450)}
+.faq-offen-head a{font-weight:600;color:var(--black);border-bottom:1px solid rgba(10,11,13,.25)}
+.faq-offen-head a:hover{color:var(--red);border-color:var(--red)}
+.faq-offen-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
+.faq-offen-eintrag{padding:26px 0;border-top:1px solid rgba(10,11,13,.14)}
+/* Die letzten beiden Einträge schließen das Raster nach unten ab. */
+.faq-offen-eintrag:nth-last-child(-n+2){border-bottom:1px solid rgba(10,11,13,.14)}
+.faq-offen-eintrag h3{margin:0 0 10px;font:700 19px/1.3 var(--font-display);letter-spacing:-.015em;color:var(--black)}
+.faq-offen-eintrag p{margin:0;font:400 16px/1.65 var(--font-body);color:var(--gray-450)}
+
 /* --- Heller Vergleich (Lackierarbeiten) ---------------------------------- */
 .leistung-vergleich.ist-hell{background:var(--light-bg)}
 .leistung-vergleich.ist-hell h2{color:var(--black)}
@@ -1753,6 +1905,27 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
   .beklebung-grid{grid-template-columns:minmax(0,1fr);gap:34px}
   .preis-band .wrap{grid-template-columns:minmax(0,1fr);gap:28px}
   .preis-band .btn{justify-content:center}
+
+  /* Lederreparatur */
+  .leistung-hero.ist-gespiegelt .hero-bild{width:100%}
+  .leistung-hero.ist-gespiegelt .scrim{background:linear-gradient(180deg,rgba(10,11,13,.86),var(--black) 70%)}
+  .leistung-hero.ist-gespiegelt .wrap{justify-content:flex-start}
+  .leistung-hero.ist-gespiegelt .cta-row .btn{flex:1 1 220px;justify-content:center}
+  .material-grid{grid-template-columns:minmax(0,1fr)}
+  .grad-leiste{flex-wrap:wrap;border-bottom:1px solid rgba(10,11,13,.14)}
+  .grad{flex:1 1 50%;border-bottom:1px solid rgba(10,11,13,.12)}
+  .grad-tafel{grid-template-columns:minmax(0,1fr)}
+  .grad-ablauf{border-right:0;border-bottom:1px solid rgba(10,11,13,.14)}
+  /* Slider oben, die beiden Makros darunter nebeneinander. */
+  .leder-ba-grid{grid-template-columns:minmax(0,1fr);gap:16px}
+  .leder-ba-grid .ba-frame{height:auto;aspect-ratio:16/10}
+  .leder-makros{grid-template-rows:none;grid-template-columns:1fr 1fr;gap:16px}
+  .leder-makro{aspect-ratio:4/3}
+  .leder-preis-grid{grid-template-columns:minmax(0,1fr);gap:40px}
+  .faq-offen-head{flex-direction:column;align-items:flex-start;gap:18px}
+  .faq-offen-grid{grid-template-columns:minmax(0,1fr);gap:0}
+  .faq-offen-eintrag:nth-last-child(-n+2){border-bottom:0}
+  .faq-offen-eintrag:last-child{border-bottom:1px solid rgba(10,11,13,.14)}
   .kurzanfrage-grid{grid-template-columns:minmax(0,1fr);gap:38px}
   .kurzanfrage-intro h2{font-size:clamp(26px,4vw,40px)}
 
@@ -1874,6 +2047,13 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
   .beklebung-varianten{grid-template-columns:minmax(0,1fr)}
   .beklebung-karte{padding:24px 20px}
   .leistung-vergleich.ist-hell .ba-frame{aspect-ratio:4/3}
+  .material{padding-bottom:64px}
+  .schadensgrad,.leder-vergleich,.leder-preis,.faq-offen{padding:64px 0 68px}
+  .grad{flex:1 1 100%;padding:16px 18px}
+  .grad-name{font-size:16px}
+  .grad-ablauf,.grad-werte{padding:26px 20px}
+  .leder-ba-grid .ba-frame{aspect-ratio:4/3}
+  .leder-makros{grid-template-columns:minmax(0,1fr)}
   .zonen,.trocknung{padding:64px 0 68px}
   .zone{padding:18px 18px;gap:12px;flex-wrap:wrap}
   .zone-zeit{width:100%;padding-left:31px}

@@ -238,6 +238,37 @@
   }
 
   /* ---------------------------------------------------------------------
+     Vier Schadensgrade (Lederreparatur)
+     Reiterleiste; die Tafeln stehen alle im HTML, JS blendet um.
+     --------------------------------------------------------------------- */
+  const schadensgrad = document.getElementById('schadensgrad');
+  if (schadensgrad) {
+    const grade  = Array.from(schadensgrad.querySelectorAll('.grad'));
+    const tafeln = Array.from(schadensgrad.querySelectorAll('.grad-tafel'));
+
+    const zeige = (index) => {
+      grade.forEach((el, i) => {
+        el.classList.toggle('active', i === index);
+        el.setAttribute('aria-pressed', String(i === index));
+      });
+      tafeln.forEach((el, i) => { el.hidden = i !== index; });
+    };
+
+    grade.forEach((el, i) => {
+      el.addEventListener('click', () => zeige(i));
+      el.addEventListener('keydown', (e) => {
+        const richtung = ['ArrowDown', 'ArrowRight'].includes(e.key) ? 1
+                       : ['ArrowUp', 'ArrowLeft'].includes(e.key) ? -1 : 0;
+        if (richtung === 0) return;
+        e.preventDefault();
+        const naechste = (i + richtung + grade.length) % grade.length;
+        zeige(naechste);
+        grade[naechste].focus();
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------------------
      Anfrageformular — aus den drei Fieldsets wird der Stepper
      Ohne dieses Skript bleiben alle drei Schritte sichtbar und absendbar.
      --------------------------------------------------------------------- */
