@@ -1,0 +1,105 @@
+{
+    "_hinweis": "Inhalte der Seite /datenschutz/. Aufbau aus export/project/Datenschutz.dc.html. Die technischen Aussagen koennen wir belegen — wir haben die Website gebaut und wissen, was sie tut. Die rechtliche Formulierung bleibt Sache des Generators oder Anwalts.",
+    "_besonderheit": "Diese Website laedt keine einzige externe Ressource: Schriften liegen lokal, es gibt kein Analytics, kein CDN, keine eingebettete Karte. Deshalb werden keine einwilligungspflichtigen Cookies gesetzt und es braucht keinen Cookie-Banner. Das ist ein Verkaufsargument, kein Versaeumnis — und es sollte hier auch so dastehen.",
+
+    "seo": {
+        "titel": "Datenschutzerklärung — Fahrzeugpflege Reutter",
+        "beschreibung": "Welche Daten beim Besuch dieser Website und bei einer Anfrage verarbeitet werden. Ohne Tracking, ohne externe Dienste, ohne Cookie-Banner."
+    },
+
+    "titel": "Datenschutzerklärung",
+    "lead": "Was beim Besuch dieser Website und bei einer Anfrage mit Ihren Daten passiert. Kurz vorweg: Diese Seite lädt nichts von fremden Servern nach und setzt keine Cookies, die eine Einwilligung bräuchten.",
+    "stand": "noch offen",
+    "im_aufbau": true,
+    "band_hinweis": "Gerüst mit den technisch belegbaren Angaben. Die verbindliche Fassung zieht der Betrieb über eRecht24 oder die IT-Recht Kanzlei — die hier beschriebenen Verarbeitungen stimmen und können dort eingesetzt werden.",
+
+    "abschnitte": [
+        {
+            "titel": "Verantwortliche Stelle",
+            "absaetze": ["Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der Datenschutz-Grundverordnung ist:"],
+            "zeilen": ["Fahrzeugpflege Reutter", "Lembergstraße 27", "70825 Korntal-Münchingen", "Telefon: 07 11 / 82 85 940", "E-Mail: info@clean-box.eu"],
+            "nachtext": ["Ein Datenschutzbeauftragter ist nicht bestellt und für einen Betrieb dieser Größe auch nicht vorgeschrieben."]
+        },
+        {
+            "titel": "Hosting",
+            "absaetze": [
+                "Diese Website wird bei einem Hoster in Deutschland betrieben. Der Hoster verarbeitet dabei Daten, die beim Aufruf der Seiten anfallen — insbesondere die in den Server-Logfiles genannten.",
+                "Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO: Wir haben ein berechtigtes Interesse an einer sicheren und zuverlässigen Bereitstellung unserer Website."
+            ],
+            "platzhalter": {
+                "titel": "Hoster benennen und Auftragsverarbeitungsvertrag prüfen",
+                "hinweis": "Hier gehört der Name des Hosters mit Anschrift hin (nach jetzigem Stand IONOS SE, Elgendorfer Str. 57, 56410 Montabaur). Mit dem Hoster muss ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO bestehen — bei IONOS wird er im Kundenkonto abgeschlossen."
+            }
+        },
+        {
+            "titel": "Server-Logfiles",
+            "absaetze": [
+                "Beim Aufruf dieser Website erhebt der Hoster automatisch Informationen, die Ihr Browser übermittelt: aufgerufene Seite, Datum und Uhrzeit, übertragene Datenmenge, Browsertyp und -version, Betriebssystem, verweisende Seite und die IP-Adresse.",
+                "Diese Daten werden nicht mit anderen Datenquellen zusammengeführt und dienen dem sicheren Betrieb der Website. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO."
+            ],
+            "platzhalter": {
+                "titel": "Speicherdauer der Logfiles beim Hoster erfragen",
+                "hinweis": "Üblich sind sieben bis dreißig Tage. Die tatsächliche Frist beim Hoster erfragen und hier eintragen, statt eine zu schätzen."
+            }
+        },
+        {
+            "titel": "Anfrageformular, Telefon und E-Mail",
+            "absaetze": [
+                "Wenn Sie uns über das Formular auf dieser Website, per E-Mail oder telefonisch kontaktieren, verarbeiten wir die Angaben, die Sie machen: Name, Telefonnummer, E-Mail-Adresse, Angaben zum Fahrzeug, die gewünschte Leistung und Ihre Beschreibung.",
+                "Diese Daten nutzen wir ausschließlich, um Ihre Anfrage zu beantworten und den Auftrag abzuwickeln. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, weil die Verarbeitung zur Durchführung vorvertraglicher Maßnahmen erforderlich ist.",
+                "Die Angaben werden nicht ohne Ihre Einwilligung weitergegeben. Der Versand der Anfrage erfolgt über den Mailserver unseres Hosters an unser eigenes Postfach; ein externer Formulardienst ist nicht eingebunden."
+            ]
+        },
+        {
+            "titel": "Fotos zur Schadensbeurteilung",
+            "absaetze": [
+                "Sie können Ihrer Anfrage Fotos des Schadens anhängen. Diese Bilder werden ausschließlich zur Einschätzung des Aufwands verwendet und der Anfrage-E-Mail angehängt.",
+                "Bitte laden Sie keine Aufnahmen hoch, auf denen Personen oder das Kennzeichen erkennbar sind, wenn das nicht nötig ist. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO."
+            ]
+        },
+        {
+            "titel": "Cookies",
+            "absaetze": [
+                "Diese Website setzt keine Cookies zu Analyse-, Werbe- oder Wiedererkennungszwecken. Ein Einwilligungsbanner ist deshalb nicht erforderlich.",
+                "Im geschützten Redaktionsbereich, den nur der Betrieb selbst nutzt, wird ein technisch notwendiges Sitzungscookie gesetzt. Es ist für den Login erforderlich, enthält keine Werbe- oder Analysedaten und fällt unter § 25 Abs. 2 TDDDG."
+            ]
+        },
+        {
+            "titel": "Keine eingebundenen Dienste Dritter",
+            "absaetze": [
+                "Diese Website lädt keine Inhalte von fremden Servern nach. Die Schriftarten liegen auf unserem eigenen Webspace, es sind keine Google Fonts, kein Content Delivery Network, keine Analyse- oder Trackingdienste und keine Social-Media-Elemente eingebunden.",
+                "Auch die Karte auf der Kontaktseite ist kein eingebettetes Kartenfenster, sondern ein Bild mit einem Link. Ihre IP-Adresse wird also erst dann an einen Kartendienst übertragen, wenn Sie den Link selbst anklicken. Dasselbe gilt für den WhatsApp-Link auf der Kontaktseite."
+            ]
+        },
+        {
+            "titel": "Speicherdauer",
+            "absaetze": ["Anfragen und die dazugehörigen Daten löschen wir, sobald sie für den Zweck nicht mehr erforderlich sind. Kommt ein Auftrag zustande, gelten die handels- und steuerrechtlichen Aufbewahrungsfristen — in der Regel sechs beziehungsweise zehn Jahre."],
+            "platzhalter": {
+                "titel": "Frist für Anfragen ohne Auftrag festlegen",
+                "hinweis": "Üblich sind sechs Monate nach der letzten Kommunikation. Der Betrieb sollte eine Frist festlegen, die er auch einhält."
+            }
+        },
+        {
+            "titel": "Ihre Rechte",
+            "absaetze": ["Sie haben jederzeit das Recht auf:"],
+            "liste": [
+                "Auskunft über die zu Ihrer Person gespeicherten Daten (Art. 15 DSGVO)",
+                "Berichtigung unrichtiger Daten (Art. 16 DSGVO)",
+                "Löschung (Art. 17 DSGVO)",
+                "Einschränkung der Verarbeitung (Art. 18 DSGVO)",
+                "Datenübertragbarkeit (Art. 20 DSGVO)",
+                "Widerspruch gegen eine Verarbeitung auf Grundlage berechtigter Interessen (Art. 21 DSGVO)"
+            ],
+            "nachtext": ["Eine formlose Nachricht an die oben genannte E-Mail-Adresse genügt."]
+        },
+        {
+            "titel": "Beschwerderecht bei der Aufsichtsbehörde",
+            "absaetze": ["Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Zuständig ist die Behörde des Bundeslandes, in dem der Betrieb seinen Sitz hat:"],
+            "zeilen": [
+                "Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg",
+                "Lautenschlagerstraße 20, 70173 Stuttgart",
+                "www.baden-wuerttemberg.datenschutz.de"
+            ]
+        }
+    ]
+}

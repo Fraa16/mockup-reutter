@@ -1,0 +1,58 @@
+{
+    "_hinweis": "Inhalte der Seite /widerruf/. Diese Seite steht NICHT im Design-Bundle — dort ist sie verschwunden und im Fussbereich durch 'Kontakt' ersetzt worden. Sie ist trotzdem noetig: die alte Website hatte eine, und ein Betrieb, der online Anfragen entgegennimmt und an Verbraucher leistet, braucht die Belehrung. Ihr Fehlen ist ein typischer Abmahngrund. Aufbau wie die anderen drei Rechtsseiten.",
+    "_warnung": "Die gesetzliche Muster-Widerrufsbelehrung darf man nicht frei umformulieren — nur wer das amtliche Muster verwendet, ist auf der sicheren Seite. Deshalb steht hier bewusst kein ausformulierter Belehrungstext, sondern die Erklaerung drumherum plus ein markierter Platz fuer das Muster.",
+
+    "seo": {
+        "titel": "Widerrufsrecht — Fahrzeugpflege Reutter",
+        "beschreibung": "Widerrufsbelehrung für Verbraucher bei Verträgen, die per Telefon, E-Mail oder über das Anfrageformular geschlossen werden."
+    },
+
+    "titel": "Widerrufsrecht",
+    "lead": "Wenn ein Auftrag zustande kommt, ohne dass wir uns persönlich gegenübergestanden haben — also über das Formular, per E-Mail oder am Telefon — steht Verbrauchern ein Widerrufsrecht zu. Was das bedeutet, steht hier.",
+    "stand": "noch offen",
+    "im_aufbau": true,
+    "band_hinweis": "Gerüst. Die eigentliche Belehrung muss dem amtlichen Muster der Anlage 1 zu Art. 246a EGBGB entsprechen — dieses Muster wird eingesetzt, nicht neu formuliert.",
+
+    "abschnitte": [
+        {
+            "titel": "Wann das Widerrufsrecht gilt",
+            "absaetze": [
+                "Das Widerrufsrecht betrifft Verträge, die ausschließlich über Fernkommunikationsmittel geschlossen werden — also über das Anfrageformular auf dieser Website, per E-Mail, per WhatsApp oder am Telefon.",
+                "Kommt der Vertrag dagegen bei uns in der Werkstatt zustande, weil Sie mit dem Fahrzeug vorbeikommen und wir uns vor Ort einig werden, liegt kein Fernabsatzvertrag vor und es gibt kein Widerrufsrecht.",
+                "Das Recht steht Verbrauchern zu, also natürlichen Personen, die den Vertrag zu Zwecken abschließen, die überwiegend weder ihrer gewerblichen noch ihrer selbständigen beruflichen Tätigkeit zugerechnet werden können."
+            ]
+        },
+        {
+            "titel": "Widerrufsbelehrung",
+            "platzhalter": {
+                "titel": "Amtliches Muster einsetzen",
+                "hinweis": "Hier gehört die Muster-Widerrufsbelehrung nach Anlage 1 zu Artikel 246a § 1 Abs. 2 Satz 2 EGBGB hinein, ausgefüllt mit Name, Anschrift, Telefonnummer und E-Mail-Adresse des Betriebs. Der Text wird wörtlich übernommen und nicht umformuliert — nur die Verwendung des amtlichen Musters gilt als gesetzeskonform."
+            }
+        },
+        {
+            "titel": "Widerrufsfolgen",
+            "platzhalter": {
+                "titel": "Teil des amtlichen Musters",
+                "hinweis": "Die Folgen des Widerrufs — Rückzahlung binnen vierzehn Tagen, Wertersatz für bereits erbrachte Leistungen — sind Bestandteil desselben Musters und werden mit übernommen."
+            }
+        },
+        {
+            "titel": "Vorzeitiges Erlöschen bei Dienstleistungen",
+            "absaetze": [
+                "Für unsere Arbeiten ist ein Punkt besonders wichtig: Wenn Sie ausdrücklich verlangen, dass wir vor Ablauf der Widerrufsfrist mit der Arbeit beginnen, erlischt Ihr Widerrufsrecht mit der vollständigen Erbringung der Leistung.",
+                "Das ist der Normalfall — kaum jemand möchte vierzehn Tage warten, bevor die Delle gedrückt wird. Wir holen dieses Verlangen deshalb vor Arbeitsbeginn ausdrücklich ein und dokumentieren es."
+            ],
+            "platzhalter": {
+                "titel": "Formulierung für die Auftragsbestätigung",
+                "hinweis": "Damit die Regelung greift, braucht es einen ausdrücklichen und dokumentierten Wunsch des Kunden — in Textform, etwa als Satz auf der Auftragsbestätigung, die der Kunde bestätigt. Diesen Satz sollte der Anwalt oder Verband mitliefern; er gehört in die Abläufe des Betriebs, nicht nur auf die Website."
+            }
+        },
+        {
+            "titel": "Muster-Widerrufsformular",
+            "platzhalter": {
+                "titel": "Formular nach Anlage 2 EGBGB ergänzen",
+                "hinweis": "Zum Widerrufsrecht gehört ein Muster-Widerrufsformular, das dem Verbraucher zur Verfügung gestellt werden muss. Auch das ist amtlich vorgegeben (Anlage 2 zu Art. 246a § 1 Abs. 2 Satz 1 Nr. 1 EGBGB) und wird mit den Betriebsdaten ausgefüllt."
+            }
+        }
+    ]
+}

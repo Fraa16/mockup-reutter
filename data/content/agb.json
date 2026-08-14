@@ -1,0 +1,97 @@
+{
+    "_hinweis": "Inhalte der Seite /agb/. Aufbau aus export/project/AGB.dc.html.",
+    "_warnung": "AGB sind der Teil, den man nicht selbst schreibt. Was hier steht, ist ein Geruest mit den Punkten, die ein Aufbereitungsbetrieb regeln muss — kein fertiger Vertragstext. Unwirksame Klauseln in AGB fallen ersatzlos weg und werden durch das Gesetz ersetzt, das meist unguenstiger ist als eine wirksame Regelung. Der Betrieb zieht die Fassung ueber eRecht24 oder die IT-Recht Kanzlei.",
+
+    "seo": {
+        "titel": "AGB — Fahrzeugpflege Reutter",
+        "beschreibung": "Allgemeine Geschäftsbedingungen der Fahrzeugpflege Reutter, Korntal-Münchingen: Vertragsschluss, Leistungsumfang, Preise, Termine und Gewährleistung."
+    },
+
+    "titel": "Allgemeine Geschäftsbedingungen",
+    "lead": "Was zwischen Ihnen und uns gilt, wenn Sie ein Fahrzeug zur Aufbereitung oder Reparatur bringen. Verständlich gehalten — die verbindliche Fassung wird gerade geprüft.",
+    "stand": "noch offen",
+    "im_aufbau": true,
+    "band_hinweis": "Gerüst mit den Punkten, die geregelt werden müssen. Die verbindliche Fassung kommt vom Anwalt oder Verband des Betriebs. Unwirksame Klauseln in AGB fallen ersatzlos weg — deshalb schreibt man sie nicht selbst.",
+
+    "abschnitte": [
+        {
+            "titel": "Geltungsbereich",
+            "absaetze": ["Diese Bedingungen gelten für alle Verträge über Fahrzeugpflege, Aufbereitung, Dellenentfernung, Lackierarbeiten, Lederreparatur und Ozonbehandlung zwischen Fahrzeugpflege Reutter und dem Kunden."],
+            "platzhalter": {
+                "titel": "Verbraucher oder Unternehmer",
+                "hinweis": "Hier muss stehen, ob der Betrieb an Verbraucher, an Unternehmer oder an beide leistet. Davon hängt fast alles Weitere ab — Widerrufsrecht, Gewährleistungsfristen, zulässige Haftungsbeschränkungen. Nach unserem Stand richtet sich das Angebot überwiegend an Verbraucher."
+            }
+        },
+        {
+            "titel": "Angebot und Vertragsschluss",
+            "absaetze": [
+                "Die Darstellung der Leistungen auf dieser Website ist kein bindendes Angebot, sondern eine Aufforderung, eine Anfrage zu stellen.",
+                "Ein Vertrag kommt zustande, wenn wir Ihre Anfrage annehmen — durch Auftragsbestätigung, durch die Vereinbarung eines Termins oder mit der Annahme des Fahrzeugs."
+            ]
+        },
+        {
+            "titel": "Leistungsumfang",
+            "absaetze": [
+                "Der Umfang ergibt sich aus dem, was vor Beginn der Arbeit vereinbart wurde. Zeigt sich am Fahrzeug ein Aufwand, der bei der Begutachtung nicht erkennbar war, stimmen wir uns vorher mit Ihnen ab, statt einfach weiterzuarbeiten.",
+                "Wir schulden eine fachgerechte Ausführung, nicht ein bestimmtes optisches Ergebnis. Wo die Grenze eines Verfahrens liegt, sagen wir vorher — das steht auch auf den einzelnen Leistungsseiten."
+            ]
+        },
+        {
+            "titel": "Preise und Zahlung",
+            "absaetze": ["Alle Preise verstehen sich als Endpreise einschließlich der gesetzlichen Umsatzsteuer. Der bei der Begutachtung genannte Festpreis gilt für den vereinbarten Umfang."],
+            "platzhalter": {
+                "titel": "Zahlungsarten und Fälligkeit eintragen",
+                "hinweis": "Barzahlung, EC-Karte, Überweisung? Fällig bei Abholung oder nach Rechnung mit Zahlungsziel? Wird bei größeren Aufträgen eine Anzahlung verlangt? Diese Punkte kennt nur der Betrieb."
+            }
+        },
+        {
+            "titel": "Termine, Annahme und Abholung",
+            "absaetze": [
+                "Termine werden verbindlich vereinbart. Können Sie einen Termin nicht einhalten, sagen Sie bitte rechtzeitig ab, damit der Platz anderweitig vergeben werden kann.",
+                "Bei der Annahme wird der Zustand des Fahrzeugs gemeinsam angesehen und dokumentiert. Bei der Abholung gehen wir das Ergebnis gemeinsam durch."
+            ],
+            "platzhalter": {
+                "titel": "Stellplatz nach Fertigstellung regeln",
+                "hinweis": "Wie lange kann ein fertiges Fahrzeug kostenfrei stehen bleiben, und was gilt danach? Ohne Regelung trägt der Betrieb das Risiko."
+            }
+        },
+        {
+            "titel": "Mitwirkung des Kunden",
+            "absaetze": [
+                "Bitte räumen Sie persönliche Gegenstände, Wertsachen und Papiere aus dem Fahrzeug. Für zurückgelassene Gegenstände können wir keine Haftung übernehmen.",
+                "Weisen Sie uns bitte auf Vorschäden, ausgebesserte Stellen, Folierungen und empfindliche Bauteile hin. Was wir wissen, können wir berücksichtigen."
+            ]
+        },
+        {
+            "titel": "Gewährleistung und Nacharbeit",
+            "absaetze": ["Es gelten die gesetzlichen Gewährleistungsrechte. Fällt Ihnen nach der Abholung etwas auf, melden Sie sich — wir sehen es uns an und arbeiten nach, wenn die Arbeit nicht in Ordnung war."],
+            "platzhalter": {
+                "titel": "Fristen und Ablauf festlegen",
+                "hinweis": "Innerhalb welcher Frist sollen Beanstandungen gemeldet werden? Gegenüber Unternehmern kann die Gewährleistung auf ein Jahr verkürzt werden, gegenüber Verbrauchern bei neuen Sachen nicht. Diese Formulierung gehört zwingend zum Anwalt."
+            }
+        },
+        {
+            "titel": "Haftung",
+            "absaetze": ["Für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit sowie bei Vorsatz und grober Fahrlässigkeit haften wir unbeschränkt nach den gesetzlichen Vorschriften."],
+            "platzhalter": {
+                "titel": "Haftungsbeschränkung formulieren lassen",
+                "hinweis": "Der Rest der Haftungsregelung ist der heikelste Teil jeder AGB. Eine zu weit gefasste Beschränkung ist unwirksam und fällt ersatzlos weg — dann haftet der Betrieb mehr als mit einer sauberen Klausel. Nicht selbst schreiben."
+            }
+        },
+        {
+            "titel": "Zurückbehaltungsrecht",
+            "absaetze": ["Bis zur vollständigen Bezahlung der Rechnung steht uns an dem Fahrzeug ein Zurückbehaltungsrecht nach den gesetzlichen Vorschriften zu."],
+            "platzhalter": {
+                "titel": "Vom Anwalt prüfen lassen",
+                "hinweis": "Werkunternehmerpfandrecht und Zurückbehaltungsrecht sind nicht dasselbe und in AGB unterschiedlich weit vereinbar. Die Formulierung gehört geprüft."
+            }
+        },
+        {
+            "titel": "Schlussbestimmungen",
+            "absaetze": [
+                "Es gilt das Recht der Bundesrepublik Deutschland. Bei Verbrauchern gilt diese Rechtswahl nur, soweit dadurch der Schutz zwingender Vorschriften des Staates ihres gewöhnlichen Aufenthalts nicht entzogen wird.",
+                "Sollte eine Bestimmung unwirksam sein, bleibt der Vertrag im Übrigen wirksam."
+            ]
+        }
+    ]
+}

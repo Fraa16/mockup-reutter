@@ -156,8 +156,27 @@ bisher nur die Mobilnummer)?
 ### 9. Rechtstexte beziehen
 
 Impressum, Datenschutzerklärung, AGB und Widerrufsbelehrung über eRecht24 oder
-die IT-Recht Kanzlei ziehen, am besten mit Aktualisierungsservice. Wir bauen
-Seitengerüst, Struktur und Verlinkung und setzen die Texte ein.
+die IT-Recht Kanzlei ziehen, am besten mit Aktualisierungsservice.
+
+**Die vier Seiten stehen inzwischen.** Gliederung, Inhaltsverzeichnis und
+Verlinkung sind fertig, und was wir belegen können, ist schon eingetragen:
+Anschrift, Kontaktdaten und USt-IdNr. im Impressum, die technisch prüfbaren
+Aussagen in der Datenschutzerklärung. Alles Übrige ist gestrichelt markiert
+und mit einem Satz erklärt, was dort hingehört. Solange Markierungen offen
+sind, trägt jede der vier Seiten oben ein rotes Hinweisband — das
+verschwindet, sobald `im_aufbau` in der jeweiligen Inhaltsdatei auf `false`
+steht.
+
+Offen im Impressum sind genau zwei Punkte: der bestätigte Name des Inhabers
+und die Frage zur Handwerksrolle (Punkt 5 oben). In der AGB sind es sechs,
+in der Widerrufsbelehrung vier — dort vor allem das amtliche Muster, das
+wörtlich übernommen und nicht umformuliert werden darf.
+
+Zwei Korrekturen gegenüber dem Design-Entwurf sind schon eingearbeitet: Die
+Impressumspflicht steht seit Mai 2024 in **§ 5 DDG**, nicht mehr in § 5 TMG.
+Und die **EU-Plattform zur Online-Streitbeilegung wurde zum 20.07.2025
+eingestellt** — ein Link darauf wäre heute falsch, es bleibt der reine
+VSBG-Hinweis.
 
 Für die Datenschutzerklärung ist relevant: Die Seite lädt **keinerlei externe
 Ressourcen**, setzt **kein Tracking** ein und braucht deshalb **keinen
