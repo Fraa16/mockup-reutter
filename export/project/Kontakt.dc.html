@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#0A0B0D;font-family:Barlow,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:#D80D18;text-decoration:none}
+  a:hover{color:#F2323C}
+  p{text-wrap:pretty}
+  ::selection{background:#D80D18;color:#fff}
+</style>
+</helmet>
+
+<div style="background:#0A0B0D;color:#fff;min-width:1280px">
+<dc-import name="Seitenkopf" active="kontakt" hint-size="100%,120px"></dc-import>
+
+<section data-screen-label="Kontakt Hero" style="position:relative;background:#0A0B0D;border-bottom:1px solid rgba(255,255,255,.1)">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:5px;background:#D80D18"></div>
+  <div style="max-width:1440px;margin:0 auto;padding:70px 64px 66px">
+    <div style="display:flex;align-items:center;gap:10px;font:500 13px/1 Barlow,sans-serif;color:#7C838D;margin-bottom:36px">
+      <a href="./Reutter Website.dc.html" style="color:#7C838D" style-hover="color:#fff">Startseite</a>
+      <span style="color:#4E555E">/</span>
+      <span style="color:#D6DAE0">Kontakt</span>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:70px;align-items:end">
+      <div>
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:22px">
+          <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+          <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Kontakt</span>
+        </div>
+        <h1 style="margin:0 0 20px;max-width:840px;font-family:Saira,sans-serif;font-weight:800;font-size:66px;line-height:.98;letter-spacing:-.035em;color:#fff">Sagen Sie uns, was ansteht.</h1>
+        <p style="margin:0;max-width:620px;font:400 18px/1.68 Barlow,sans-serif;color:#B4BAC2">Am schnellsten geht es mit Fotos: zwei Aufnahmen vom Schaden bei Tageslicht, und wir können meist schon etwas dazu sagen. Antwort in der Regel am selben Werktag.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12)">
+        <a href="tel:+4971182859400" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:#0A0B0D;padding:20px 24px;text-decoration:none">
+          <span style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7C838D">Werkstatt</span>
+          <span style="font:700 20px/1 Saira,sans-serif;letter-spacing:-.01em;color:#fff">07 11 / 82 85 940</span>
+        </a>
+        <a href="tel:+491726289725" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:#0A0B0D;padding:20px 24px;text-decoration:none">
+          <span style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7C838D">Mobil</span>
+          <span style="font:700 20px/1 Saira,sans-serif;letter-spacing:-.01em;color:#fff">0172 / 6 28 97 25</span>
+        </a>
+        <a href="mailto:info@clean-box.eu" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:#0A0B0D;padding:20px 24px;text-decoration:none">
+          <span style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7C838D">E-Mail</span>
+          <span style="font:700 17px/1 Saira,sans-serif;letter-spacing:-.01em;color:#fff">info@clean-box.eu</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formular" data-screen-label="Anfrageformular" style="background:#101216;padding:88px 0 96px;position:relative;overflow:hidden">
+  <div style="position:absolute;left:-120px;bottom:-140px;width:600px;height:420px;background:rgba(216,13,24,.08);transform:skewX(-20deg);pointer-events:none"></div>
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px;position:relative">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:64px;align-items:start">
+      <div style="background:#0A0B0D;border:1px solid rgba(255,255,255,.13);padding:44px 46px 40px">
+        <div style="display:flex;align-items:center;gap:0;margin-bottom:38px">
+          <sc-for list="{{ steps }}" as="st" hint-placeholder-count="3">
+            <div style="display:flex;align-items:center;gap:14px;flex:1">
+              <button onClick="{{ st.go }}" style="display:flex;align-items:center;gap:12px;background:transparent;border:0;padding:0;cursor:pointer;text-align:left">
+                <span style="width:34px;height:34px;flex:none;display:flex;align-items:center;justify-content:center;background:{{ st.dotBg }};color:{{ st.dotColor }};border:1px solid {{ st.dotBorder }};font:700 14px/1 Saira,sans-serif">{{ st.n }}</span>
+                <span style="font:600 13px/1.2 Barlow,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:{{ st.labelColor }};white-space:nowrap">{{ st.label }}</span>
+              </button>
+              <span style="flex:1;height:1px;background:{{ st.lineColor }};min-width:12px;margin:0 4px"></span>
+            </div>
+          </sc-for>
+        </div>
+
+        <sc-if value="{{ isStep1 }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <h2 style="margin:0 0 8px;font:700 25px/1.2 Saira,sans-serif;letter-spacing:-.02em;color:#fff">Um welches Fahrzeug geht es?</h2>
+            <p style="margin:0 0 30px;font:400 15.5px/1.6 Barlow,sans-serif;color:#8E959F">Marke, Modell und Baujahr reichen. Die Farbe hilft uns bei Lackarbeiten.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px 20px">
+              <label style="display:flex;flex-direction:column;gap:9px">
+                <span style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7C838D">Marke</span>
+                <input type="text" placeholder="z. B. BMW" style="background:#16191E;border:1px solid rgba(255,255,255,.14);color:#fff;padding:15px 16px;font:400 15.5px/1 Barlow,sans-serif;outline:none" style-focus="border-color:#D80D18">
+              </label>
+              <label style="display:flex;flex-direction:column;gap:9px">
+                <span style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7C838D">Modell</span>
+                <input type="text" placeholder="z. B. 3er Touring" style="background:#16191E;border:1px solid rgba(255,255,255,.14);color:#fff;padding:15px 16px;font:400 15.5px/1 Barlow,sans-serif;outline:none" style-focus="border-color:#D80D18">
+              </label>
+              <label style="display:flex;flex-direction:column;gap:9px">
+                <span style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7C838D">Baujahr</span>
+                <input type="text" placeholder="2019" style="background:#16191E;border:1px solid rgba(255,255,255,.14);color:#fff;padding:15px 16px;font:400 15.5px/1 Barlow,sans-serif;outline:none" style-focus="border-color:#D80D18">
+              </label>
+              <label style="display:flex;flex-direction:column;gap:9px">
+                <span style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7C838D">Lackfarbe</span>
+                <input type="text" placeholder="Schwarz metallic" style="background:#16191E;border:1px solid rgba(255,255,255,.14);color:#fff;padding:15px 16px;font:400 15.5px/1 Barlow,sans-serif;outline:none" style-focus="border-color:#D80D18">
+              </label>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isStep2 }}" hint-placeholder-val="{{ false }}">
+          <div>
+            <h2 style="margin:0 0 8px;font:700 25px/1.2 Saira,sans-serif;letter-spacing:-.02em;color:#fff">Was soll gemacht werden?</h2>
+            <p style="margin:0 0 26px;font:400 15.5px/1.6 Barlow,sans-serif;color:#8E959F">Mehrfachauswahl. Wenn Sie unsicher sind, schreiben Sie es unten in Worten.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px">
+              <sc-for list="{{ chips }}" as="c" hint-placeholder-count="8">
+                <button onClick="{{ c.toggle }}" style="cursor:pointer;padding:13px 18px;background:{{ c.bg }};border:1px solid {{ c.border }};color:{{ c.color }};font:600 14px/1 Barlow,sans-serif;letter-spacing:.02em;display:flex;align-items:center;gap:9px;transition:background .16s">
+                  <span style="width:11px;height:6px;background:{{ c.markColor }};transform:skewX(-20deg);display:inline-block"></span>{{ c.label }}
+                </button>
+              </sc-for>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px">
+              <span style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7C838D">Beschreibung</span>
+              <textarea rows="4" placeholder="z. B. Hagelschaden auf Dach und Motorhaube, Fahrzeug stand im Freien, Lack ist nicht aufgeplatzt." style="background:#16191E;border:1px solid rgba(255,255,255,.14);color:#fff;padding:15px 16px;font:400 15.5px/1.6 Barlow,sans-serif;outline:none;resize:vertical" style-focus="border-color:#D80D18"></textarea>
+            </label>
+            <div style="display:flex;align-items:center;gap:16px;border:1px dashed rgba(255,255,255,.2);background:rgba(255,255,255,.02);padding:20px 22px">
+              <span style="width:40px;height:40px;flex:none;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:#D80D18;font-size:19px;line-height:1">+</span>
+              <div>
+                <div style="font:600 14.5px/1.3 Barlow,sans-serif;color:#fff">Fotos vom Schaden anhängen</div>
+                <div style="margin-top:3px;font:400 13.5px/1.4 Barlow,sans-serif;color:#7C838D">JPG oder PNG, gerne aus zwei Winkeln bei Tageslicht</div>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isStep3 }}" hint-placeholder-val="{{ false }}">
+          <div>
+            <h2 style="margin:0 0 8px;font:700 25px/1.2 Saira,sans-serif;letter-spacing:-.02em;color:#fff">Wie erreichen wir Sie?</h2>
+            <p style="margin:0 0 30px;font:400 15.5px/1.6 Barlow,sans-serif;color:#8E959F">Wir rufen an, wenn wir eine Frage haben — sonst kommt die Einschätzung per Mail.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;margin-bottom:24px">
+              <label style="display:flex;flex-direction:column;gap:9px">
+                <span style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7C838D">Name</span>
+                <input type="text" placeholder="Vor- und Nachname" style="background:#16191E;border:1px solid rgba(255,255,255,.14);color:#fff;padding:15px 16px;font:400 15.5px/1 Barlow,sans-serif;outline:none" style-focus="border-color:#D80D18">
+              </label>
+              <label style="display:flex;flex-direction:column;gap:9px">
+                <span style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7C838D">Telefon</span>
+                <input type="tel" placeholder="0170 000 0000" style="background:#16191E;border:1px solid rgba(255,255,255,.14);color:#fff;padding:15px 16px;font:400 15.5px/1 Barlow,sans-serif;outline:none" style-focus="border-color:#D80D18">
+              </label>
+              <label style="display:flex;flex-direction:column;gap:9px">
+                <span style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7C838D">E-Mail</span>
+                <input type="email" placeholder="name@mail.de" style="background:#16191E;border:1px solid rgba(255,255,255,.14);color:#fff;padding:15px 16px;font:400 15.5px/1 Barlow,sans-serif;outline:none" style-focus="border-color:#D80D18">
+              </label>
+              <label style="display:flex;flex-direction:column;gap:9px">
+                <span style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7C838D">Wo soll gearbeitet werden</span>
+                <select style="background:#16191E;border:1px solid rgba(255,255,255,.14);color:#fff;padding:15px 16px;font:400 15.5px/1 Barlow,sans-serif;outline:none" style-focus="border-color:#D80D18">
+                  <option>In der Werkstatt</option>
+                  <option>Mobil bei mir vor Ort</option>
+                  <option>Weiß ich noch nicht</option>
+                </select>
+              </label>
+            </div>
+            <label style="display:flex;align-items:flex-start;gap:13px;cursor:pointer">
+              <input type="checkbox" style="width:18px;height:18px;margin:2px 0 0;accent-color:#D80D18;flex:none">
+              <span style="font:400 14px/1.55 Barlow,sans-serif;color:#8E959F">Ich habe die <a href="./Datenschutz.dc.html" style="color:#D6DAE0;border-bottom:1px solid rgba(255,255,255,.3)">Datenschutzerklärung</a> gelesen. Meine Daten werden nur für die Bearbeitung dieser Anfrage genutzt.</span>
+            </label>
+          </div>
+        </sc-if>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:36px;padding-top:28px;border-top:1px solid rgba(255,255,255,.12)">
+          <button onClick="{{ prev }}" style="background:transparent;border:1px solid rgba(255,255,255,.2);color:{{ prevColor }};padding:16px 24px;font:700 13px/1 Saira,sans-serif;letter-spacing:.07em;text-transform:uppercase;cursor:pointer" style-hover="border-color:#fff">Zurück</button>
+          <div style="display:flex;align-items:center;gap:20px">
+            <span style="font:500 13.5px/1.4 Barlow,sans-serif;color:#7C838D">{{ stepHint }}</span>
+            <button onClick="{{ next }}" style="display:flex;align-items:center;gap:11px;background:#D80D18;border:0;color:#fff;padding:17px 28px;font:700 13.5px/1 Saira,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)" style-hover="background:#F2323C">{{ nextLabel }} <span style="font-size:16px;line-height:1">→</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="border:1px solid rgba(255,255,255,.13);background:#0A0B0D;padding:30px 28px">
+          <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:20px">Lieber kein Formular?</div>
+          <a href="https://wa.me/491726289725" style="display:flex;align-items:flex-start;gap:14px;padding:16px 0;border-top:1px solid rgba(255,255,255,.12);text-decoration:none" style-hover="opacity:.75">
+            <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+            <span>
+              <span style="display:block;font:700 17px/1.25 Saira,sans-serif;color:#fff">Fotos per WhatsApp</span>
+              <span style="display:block;margin-top:5px;font:400 14.5px/1.5 Barlow,sans-serif;color:#8E959F">An 0172 / 6 28 97 25. Zwei Bilder vom Schaden reichen meist.</span>
+            </span>
+          </a>
+          <button onClick="{{ callback }}" style="width:100%;text-align:left;display:flex;align-items:flex-start;gap:14px;padding:16px 0;border:0;border-top:1px solid rgba(255,255,255,.12);background:transparent;cursor:pointer" style-hover="opacity:.75">
+            <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+            <span>
+              <span style="display:block;font:700 17px/1.25 Saira,sans-serif;color:#fff">{{ callbackTitle }}</span>
+              <span style="display:block;margin-top:5px;font:400 14.5px/1.5 Barlow,sans-serif;color:#8E959F">{{ callbackText }}</span>
+            </span>
+          </button>
+        </div>
+
+        <div style="border:1px solid rgba(255,255,255,.13);background:#0A0B0D;padding:30px 28px">
+          <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:18px">Öffnungszeiten</div>
+          <div style="display:flex;flex-direction:column;gap:0">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid rgba(255,255,255,.12)">
+              <span style="font:500 15px/1 Barlow,sans-serif;color:#8E959F">Montag – Freitag</span>
+              <span style="font:600 15px/1 Barlow,sans-serif;color:#fff">8 – 18 Uhr</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid rgba(255,255,255,.12)">
+              <span style="font:500 15px/1 Barlow,sans-serif;color:#8E959F">Samstag</span>
+              <span style="font:600 15px/1 Barlow,sans-serif;color:#fff">nach Absprache</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12)">
+              <span style="font:500 15px/1 Barlow,sans-serif;color:#8E959F">Sonntag</span>
+              <span style="font:600 15px/1 Barlow,sans-serif;color:#5C636D">geschlossen</span>
+            </div>
+          </div>
+          <p style="margin:18px 0 0;font:400 14px/1.55 Barlow,sans-serif;color:#7C838D">Fahrzeugannahme und -abholung bitte immer nach Termin — sonst steht Ihr Auto, während wir an einem anderen arbeiten.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Anfahrt" style="background:#F5F6F8;padding:88px 0 96px;border-top:5px solid #D80D18">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:64px;align-items:start">
+      <div style="position:relative;height:480px;border:1px solid rgba(10,11,13,.14)">
+        <image-slot id="kontakt-map" shape="rect" fit="cover" placeholder="Kartenausschnitt mit Standort — später als eingebettete Karte"></image-slot>
+      </div>
+      <div>
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:20px">
+          <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+          <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Anfahrt</span>
+        </div>
+        <h2 style="margin:0 0 22px;font-family:Saira,sans-serif;font-weight:800;font-size:42px;line-height:1.02;letter-spacing:-.03em;color:#0A0B0D">So finden Sie uns.</h2>
+        <div style="border:1px solid rgba(216,13,24,.35);background:rgba(216,13,24,.05);padding:20px 22px;margin-bottom:26px;display:flex;align-items:flex-start;gap:14px">
+          <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+          <div>
+            <div style="font:700 15px/1.3 Saira,sans-serif;color:#0A0B0D">Anschrift bitte eintragen</div>
+            <div style="margin-top:5px;font:400 14.5px/1.5 Barlow,sans-serif;color:#61686F">Straße, Hausnummer, PLZ und Ort lagen mir nicht vor — hier kommt die Adresse der Halle hin.</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(10,11,13,.13)">
+          <div style="padding:20px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+            <div style="font:700 17px/1.3 Saira,sans-serif;color:#0A0B0D">Mit dem Auto</div>
+            <div style="margin-top:6px;font:400 15.5px/1.55 Barlow,sans-serif;color:#61686F">Einfahrt zum Hof liegt hinter dem Gebäude. Fahren Sie bis zum Rolltor durch, dort nehmen wir das Fahrzeug an.</div>
+          </div>
+          <div style="padding:20px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+            <div style="font:700 17px/1.3 Saira,sans-serif;color:#0A0B0D">Parken</div>
+            <div style="margin-top:6px;font:400 15.5px/1.55 Barlow,sans-serif;color:#61686F">Stellplätze für Kunden direkt vor der Halle. Wenn Sie Ihr Fahrzeug dalassen, können Sie es dort abstellen und uns die Schlüssel geben.</div>
+          </div>
+          <div style="padding:20px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+            <div style="font:700 17px/1.3 Saira,sans-serif;color:#0A0B0D">Öffentlich</div>
+            <div style="margin-top:6px;font:400 15.5px/1.55 Barlow,sans-serif;color:#61686F">Haltestelle und Linien bitte ergänzen, sobald die Adresse feststeht.</div>
+          </div>
+          <div style="padding:20px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+            <div style="font:700 17px/1.3 Saira,sans-serif;color:#0A0B0D">Mobiler Service</div>
+            <div style="margin-top:6px;font:400 15.5px/1.55 Barlow,sans-serif;color:#61686F">In Stuttgart, Ludwigsburg, Gerlingen, Ditzingen und Weilimdorf kommen wir ohne Anfahrtspauschale zu Ihnen.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Versicherung" style="background:#0A0B0D;padding:76px 0 84px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:64px;align-items:start">
+      <div>
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:20px">
+          <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+          <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Versicherung &amp; Gutachten</span>
+        </div>
+        <h2 style="margin:0 0 18px;font-family:Saira,sans-serif;font-weight:800;font-size:38px;line-height:1.04;letter-spacing:-.03em;color:#fff">Wenn der Schaden über die Versicherung läuft</h2>
+        <p style="margin:0;font:400 16.5px/1.68 Barlow,sans-serif;color:#AFB5BD">Vor allem bei Hagel. Sagen Sie uns bei der Anfrage, dass es ein Versicherungsfall ist — dann dokumentieren wir von Anfang an entsprechend.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 40px">
+        <div style="padding:20px 0;border-top:1px solid rgba(255,255,255,.13)">
+          <div style="font:700 17px/1.3 Saira,sans-serif;color:#fff">Wir dokumentieren den Schaden</div>
+          <div style="margin-top:6px;font:400 15.5px/1.55 Barlow,sans-serif;color:#8E959F">Fotos und eine Aufstellung der Dellen je Bauteil, mit der Sie den Schaden melden können.</div>
+        </div>
+        <div style="padding:20px 0;border-top:1px solid rgba(255,255,255,.13)">
+          <div style="font:700 17px/1.3 Saira,sans-serif;color:#fff">Termin mit dem Gutachter</div>
+          <div style="margin-top:6px;font:400 15.5px/1.55 Barlow,sans-serif;color:#8E959F">Auf Wunsch stimmen wir uns direkt mit dem Sachverständigen ab, damit Sie nicht dazwischen stehen.</div>
+        </div>
+        <div style="padding:20px 0;border-top:1px solid rgba(255,255,255,.13)">
+          <div style="font:700 17px/1.3 Saira,sans-serif;color:#fff">Was wir nicht entscheiden</div>
+          <div style="margin-top:6px;font:400 15.5px/1.55 Barlow,sans-serif;color:#8E959F">Über Selbstbeteiligung, Einstufung und Regulierung entscheidet Ihre Versicherung, nicht wir.</div>
+        </div>
+        <div style="padding:20px 0;border-top:1px solid rgba(255,255,255,.13)">
+          <div style="font:700 17px/1.3 Saira,sans-serif;color:#fff">Auch ohne Versicherung</div>
+          <div style="margin-top:6px;font:400 15.5px/1.55 Barlow,sans-serif;color:#8E959F">Viele lassen kleine Hagelschäden selbst zahlen, weil die Einstufung teurer wäre. Wir rechnen Ihnen beides vor.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dc-import name="Seitenfuss" showForm="{{ false }}" hint-size="100%,900px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const CHIPS = ['Exterieur-Pflege', 'Interieur-Pflege', 'Dellen / Hagelschaden', 'Lackierarbeiten', 'Lederreparatur', 'Ozonbehandlung', 'Felgenaufbereitung', 'Weiß ich noch nicht'];
+const STEP_LABELS = ['Fahrzeug', 'Leistung', 'Kontakt'];
+
+class Component extends DCLogic {
+  state = { step: 1, picked: {}, cb: false };
+  renderVals() {
+    const step = this.state.step;
+    const hints = ['Schritt 1 von 3', 'Schritt 2 von 3 · Mehrfachauswahl möglich', 'Letzter Schritt'];
+    return {
+      steps: STEP_LABELS.map((label, i) => {
+        const n = i + 1, done = n < step, on = n === step;
+        return {
+          n: done ? '✓' : String(n).padStart(2, '0'),
+          label,
+          dotBg: on ? '#D80D18' : done ? 'rgba(216,13,24,.16)' : 'transparent',
+          dotColor: on ? '#fff' : done ? '#D80D18' : '#7C838D',
+          dotBorder: on ? '#D80D18' : done ? 'rgba(216,13,24,.5)' : 'rgba(255,255,255,.18)',
+          labelColor: on ? '#fff' : done ? '#C6CBD2' : '#7C838D',
+          lineColor: n === 3 ? 'transparent' : done ? 'rgba(216,13,24,.5)' : 'rgba(255,255,255,.14)',
+          go: () => this.setState({ step: n })
+        };
+      }),
+      chips: CHIPS.map(label => {
+        const on = !!this.state.picked[label];
+        return {
+          label,
+          bg: on ? 'rgba(216,13,24,.14)' : 'rgba(255,255,255,.03)',
+          border: on ? '#D80D18' : 'rgba(255,255,255,.16)',
+          color: on ? '#fff' : '#C6CBD2',
+          markColor: on ? '#D80D18' : 'rgba(255,255,255,.28)',
+          toggle: () => this.setState(s => {
+            const next = Object.assign({}, s.picked);
+            if (next[label]) delete next[label]; else next[label] = true;
+            return { picked: next };
+          })
+        };
+      }),
+      isStep1: step === 1, isStep2: step === 2, isStep3: step === 3,
+      stepHint: hints[step - 1],
+      nextLabel: step === 3 ? 'Anfrage senden' : 'Weiter',
+      prevColor: step === 1 ? '#4E555E' : '#D6DAE0',
+      next: () => this.setState(s => ({ step: Math.min(3, s.step + 1) })),
+      prev: () => this.setState(s => ({ step: Math.max(1, s.step - 1) })),
+      callback: () => this.setState(s => ({ cb: !s.cb })),
+      callbackTitle: this.state.cb ? 'Rückruf ist vorgemerkt' : 'Rückruf anfordern',
+      callbackText: this.state.cb ? 'Tragen Sie im Formular Ihre Nummer ein — wir melden uns am selben Werktag.' : 'Sie geben nur Nummer und Uhrzeit an, den Rest klären wir am Telefon.'
+    };
+  }
+}
+</script>
+</body>
+</html>

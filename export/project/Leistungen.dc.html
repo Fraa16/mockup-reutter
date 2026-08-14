@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#0A0B0D;font-family:Barlow,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:#D80D18;text-decoration:none}
+  a:hover{color:#F2323C}
+  p{text-wrap:pretty}
+  ::selection{background:#D80D18;color:#fff}
+  @keyframes rvUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+
+<div style="background:#0A0B0D;color:#fff;min-width:1280px">
+<dc-import name="Seitenkopf" active="leistungen" hint-size="100%,120px"></dc-import>
+
+<section data-screen-label="Leistungen Hero" style="position:relative;background:#0A0B0D;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.1)">
+  <div style="position:absolute;right:0;top:0;bottom:0;width:46%;opacity:.4">
+    <image-slot id="leistungen-hero" shape="rect" fit="cover" placeholder="Halle, Fahrzeug unter Lichtleiste"></image-slot>
+  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,#0A0B0D 42%,rgba(10,11,13,.55) 78%,rgba(10,11,13,.85))"></div>
+  <div style="position:absolute;left:0;top:0;bottom:0;width:5px;background:#D80D18"></div>
+  <div style="position:relative;max-width:1440px;margin:0 auto;padding:76px 64px 78px">
+    <div style="display:flex;align-items:center;gap:10px;font:500 13px/1 Barlow,sans-serif;color:#7C838D;margin-bottom:34px">
+      <a href="./Reutter Website.dc.html" style="color:#7C838D" style-hover="color:#fff">Startseite</a>
+      <span style="color:#4E555E">/</span>
+      <span style="color:#D6DAE0">Leistungen</span>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:70px;align-items:end">
+      <div>
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:22px">
+          <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+          <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Sechs Leistungen</span>
+        </div>
+        <h1 style="margin:0 0 24px;max-width:900px;font-family:Saira,sans-serif;font-weight:800;font-size:68px;line-height:.98;letter-spacing:-.035em;color:#fff">Was wir am Fahrzeug machen — und wie weit wir dabei gehen.</h1>
+        <p style="margin:0;max-width:660px;font:400 18px/1.68 Barlow,sans-serif;color:#B4BAC2">Sechs Bereiche, ein Betrieb. Meistens kommen zwei oder drei davon zusammen: Wer eine Delle drücken lässt, will hinterher auch keine Waschkratzer mehr sehen. Wir sagen Ihnen vorher, was zusammengehört und was Sie sich sparen können.</p>
+      </div>
+      <div style="border-left:1px solid rgba(255,255,255,.14);padding-left:32px">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7C838D;margin-bottom:16px">Für alle Leistungen gilt</div>
+        <div style="display:flex;flex-direction:column;gap:13px">
+          <div style="display:flex;align-items:flex-start;gap:12px"><span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span><span style="font:500 15.5px/1.5 Barlow,sans-serif;color:#D6DAE0">Festpreis nach Begutachtung</span></div>
+          <div style="display:flex;align-items:flex-start;gap:12px"><span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span><span style="font:500 15.5px/1.5 Barlow,sans-serif;color:#D6DAE0">Abnahme gemeinsam am Fahrzeug</span></div>
+          <div style="display:flex;align-items:flex-start;gap:12px"><span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span><span style="font:500 15.5px/1.5 Barlow,sans-serif;color:#D6DAE0">Vieles davon auch mobil vor Ort</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Leistungsindex" style="background:#0A0B0D;padding:0 0 100px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:64px;align-items:start">
+      <div style="padding-top:60px">
+        <sc-for list="{{ services }}" as="s" hint-placeholder-count="6">
+          <a href="{{ s.href }}" onMouseEnter="{{ s.hover }}" style="display:grid;grid-template-columns:78px minmax(0,1fr) 40px;gap:26px;align-items:center;padding:30px 20px 30px 0;border-top:1px solid rgba(255,255,255,.12);background:{{ s.rowBg }};transition:background .2s;text-decoration:none">
+            <span style="font-family:Saira,sans-serif;font-weight:800;font-size:40px;line-height:.9;letter-spacing:-.04em;color:{{ s.numColor }};padding-left:14px;transition:color .2s">{{ s.num }}</span>
+            <span style="display:block">
+              <span style="display:block;font:700 27px/1.14 Saira,sans-serif;letter-spacing:-.022em;color:{{ s.titleColor }};transition:color .2s">{{ s.title }}</span>
+              <span style="display:block;margin-top:8px;font:400 16px/1.55 Barlow,sans-serif;color:#8E959F">{{ s.blurb }}</span>
+              <span style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px">
+                <sc-for list="{{ s.tags }}" as="t" hint-placeholder-count="3">
+                  <span style="padding:6px 11px;border:1px solid rgba(255,255,255,.16);font:500 12px/1 Barlow,sans-serif;letter-spacing:.04em;color:#9AA1AB">{{ t }}</span>
+                </sc-for>
+              </span>
+            </span>
+            <span style="font-size:22px;line-height:1;color:{{ s.arrowColor }};text-align:right;transition:color .2s">→</span>
+          </a>
+        </sc-for>
+        <div style="border-top:1px solid rgba(255,255,255,.12)"></div>
+      </div>
+
+      <div style="position:sticky;top:160px;padding-top:60px">
+        <div style="position:relative;height:520px;border:1px solid rgba(255,255,255,.14);overflow:hidden">
+          <sc-for list="{{ services }}" as="s" hint-placeholder-count="6">
+            <span style="position:absolute;inset:0;opacity:{{ s.previewOpacity }};transition:opacity .35s">
+              <image-slot id="{{ s.slot }}" shape="rect" fit="cover" placeholder="{{ s.slotHint }}"></image-slot>
+            </span>
+          </sc-for>
+          <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,11,13,.25),rgba(10,11,13,.75));pointer-events:none"></span>
+          <span style="position:absolute;left:26px;right:26px;bottom:24px;pointer-events:none">
+            <span style="display:block;font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#D80D18;margin-bottom:10px">{{ activeService.num }} — {{ activeService.tag }}</span>
+            <span style="display:block;font:700 24px/1.15 Saira,sans-serif;letter-spacing:-.02em;color:#fff">{{ activeService.title }}</span>
+          </span>
+        </div>
+        <p style="margin:18px 0 0;font:500 13.5px/1.5 Barlow,sans-serif;color:#7C838D">Zeile überfahren für das Bild, klicken für die Details.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Kombinationen" style="background:#F5F6F8;padding:96px 0 100px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:60px;margin-bottom:44px">
+      <div style="max-width:700px">
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:20px">
+          <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+          <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Was meistens zusammengehört</span>
+        </div>
+        <h2 style="margin:0;font-family:Saira,sans-serif;font-weight:800;font-size:48px;line-height:1.02;letter-spacing:-.03em;color:#0A0B0D">Drei Fälle, die so bei uns reinkommen.</h2>
+      </div>
+      <p style="margin:0;max-width:360px;font:400 16px/1.62 Barlow,sans-serif;color:#61686F">Keine Pakete mit Namen. Nur die Kombinationen, die sich in der Praxis ergeben.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <div style="background:#fff;border:1px solid rgba(10,11,13,.1);padding:34px 32px;display:flex;flex-direction:column;gap:20px">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18">Nach dem Hagel</div>
+        <h3 style="margin:0;font:700 23px/1.2 Saira,sans-serif;letter-spacing:-.02em;color:#0A0B0D">Dellen drücken, danach Lack aufbereiten</h3>
+        <p style="margin:0;font:400 16px/1.6 Barlow,sans-serif;color:#61686F">Nach der Dellenarbeit sieht man die alten Waschkratzer erst richtig. Wer beides zusammen macht, spart den zweiten Termin.</p>
+        <div style="margin-top:auto;display:flex;flex-wrap:wrap;gap:8px;padding-top:6px">
+          <a href="./Leistung Dellen.dc.html" style="padding:8px 13px;border:1px solid rgba(10,11,13,.15);font:600 13px/1 Barlow,sans-serif;color:#0A0B0D" style-hover="border-color:#D80D18;color:#D80D18">Dellen</a>
+          <a href="./Leistung Exterieur.dc.html" style="padding:8px 13px;border:1px solid rgba(10,11,13,.15);font:600 13px/1 Barlow,sans-serif;color:#0A0B0D" style-hover="border-color:#D80D18;color:#D80D18">Exterieur</a>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(10,11,13,.1);padding:34px 32px;display:flex;flex-direction:column;gap:20px">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18">Vor dem Verkauf</div>
+        <h3 style="margin:0;font:700 23px/1.2 Saira,sans-serif;letter-spacing:-.02em;color:#0A0B0D">Innenraum, Leder und Politur</h3>
+        <p style="margin:0;font:400 16px/1.6 Barlow,sans-serif;color:#61686F">Der erste Eindruck entsteht beim Einsteigen, nicht auf dem Parkplatz. Sitzwange, Lenkrad und Geruch sind wichtiger als jede Felge.</p>
+        <div style="margin-top:auto;display:flex;flex-wrap:wrap;gap:8px;padding-top:6px">
+          <a href="./Leistung Interieur.dc.html" style="padding:8px 13px;border:1px solid rgba(10,11,13,.15);font:600 13px/1 Barlow,sans-serif;color:#0A0B0D" style-hover="border-color:#D80D18;color:#D80D18">Interieur</a>
+          <a href="./Leistung Leder.dc.html" style="padding:8px 13px;border:1px solid rgba(10,11,13,.15);font:600 13px/1 Barlow,sans-serif;color:#0A0B0D" style-hover="border-color:#D80D18;color:#D80D18">Leder</a>
+          <a href="./Leistung Exterieur.dc.html" style="padding:8px 13px;border:1px solid rgba(10,11,13,.15);font:600 13px/1 Barlow,sans-serif;color:#0A0B0D" style-hover="border-color:#D80D18;color:#D80D18">Exterieur</a>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(10,11,13,.1);padding:34px 32px;display:flex;flex-direction:column;gap:20px">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18">Gebraucht gekauft</div>
+        <h3 style="margin:0;font:700 23px/1.2 Saira,sans-serif;letter-spacing:-.02em;color:#0A0B0D">Geruch raus, Kratzer weg</h3>
+        <p style="margin:0;font:400 16px/1.6 Barlow,sans-serif;color:#61686F">Bei Raucherfahrzeugen bringt Ozon nur etwas, wenn der Innenraum vorher gründlich gereinigt wurde. Sonst ist der Geruch nach zwei Wochen zurück.</p>
+        <div style="margin-top:auto;display:flex;flex-wrap:wrap;gap:8px;padding-top:6px">
+          <a href="./Leistung Interieur.dc.html" style="padding:8px 13px;border:1px solid rgba(10,11,13,.15);font:600 13px/1 Barlow,sans-serif;color:#0A0B0D" style-hover="border-color:#D80D18;color:#D80D18">Interieur</a>
+          <a href="./Leistung Ozon.dc.html" style="padding:8px 13px;border:1px solid rgba(10,11,13,.15);font:600 13px/1 Barlow,sans-serif;color:#0A0B0D" style-hover="border-color:#D80D18;color:#D80D18">Ozon</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Grenzen" style="background:#fff;padding:0 0 100px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:70px;padding-top:90px;border-top:1px solid rgba(10,11,13,.12)">
+      <div>
+        <h2 style="margin:0 0 18px;font-family:Saira,sans-serif;font-weight:800;font-size:40px;line-height:1.04;letter-spacing:-.03em;color:#0A0B0D">Was wir nicht machen</h2>
+        <p style="margin:0;font:400 16.5px/1.65 Barlow,sans-serif;color:#61686F">Damit Sie nicht umsonst anrufen. Für alles hier haben wir Betriebe in der Nähe, die wir empfehlen können.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 40px">
+        <div style="padding:20px 0;border-top:1px solid rgba(10,11,13,.12)">
+          <div style="font:700 17px/1.3 Saira,sans-serif;color:#0A0B0D">Unfallinstandsetzung</div>
+          <div style="margin-top:6px;font:400 15.5px/1.55 Barlow,sans-serif;color:#61686F">Richtbank, Rahmen, Achsvermessung — das gehört in die Karosseriewerkstatt.</div>
+        </div>
+        <div style="padding:20px 0;border-top:1px solid rgba(10,11,13,.12)">
+          <div style="font:700 17px/1.3 Saira,sans-serif;color:#0A0B0D">Mechanik und Elektrik</div>
+          <div style="margin-top:6px;font:400 15.5px/1.55 Barlow,sans-serif;color:#61686F">Wir sind Aufbereiter, keine Kfz-Werkstatt. Inspektion und Reparatur machen andere.</div>
+        </div>
+        <div style="padding:20px 0;border-top:1px solid rgba(10,11,13,.12)">
+          <div style="font:700 17px/1.3 Saira,sans-serif;color:#0A0B0D">Folierung und Scheibentönung</div>
+          <div style="margin-top:6px;font:400 15.5px/1.55 Barlow,sans-serif;color:#61686F">Machen wir nicht selbst. Lackschutzfolie an Einzelstellen auf Anfrage.</div>
+        </div>
+        <div style="padding:20px 0;border-top:1px solid rgba(10,11,13,.12)">
+          <div style="font:700 17px/1.3 Saira,sans-serif;color:#0A0B0D">Rost und Durchrostung</div>
+          <div style="margin-top:6px;font:400 15.5px/1.55 Barlow,sans-serif;color:#61686F">Oberflächlichen Flugrost bekommen wir weg. Durchgerostetes Blech nicht.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dc-import name="Seitenfuss" ctaHeadline="Welche Leistung brauchen Sie?" hint-size="100%,1400px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const SERVICES = [
+  { num: '01', tag: 'Exterieur', title: 'Fahrzeugpflege Exterieur', href: './Leistung Exterieur.dc.html', slot: 'leistung-prev-ext',
+    slotHint: 'Politur unter Lichtleiste, Reflexion im Lack',
+    blurb: 'Handwäsche, mehrstufige Politur, Versiegelung. Für Lack, der nach der ersten Wäsche noch so aussieht.',
+    tags: ['Handwäsche', 'Lackdickenmessung', 'Versiegelung', 'Felgen'] },
+  { num: '02', tag: 'Interieur', title: 'Fahrzeugpflege Interieur', href: './Leistung Interieur.dc.html', slot: 'leistung-prev-int',
+    slotHint: 'Innenraum, Sitz wird extrahiert',
+    blurb: 'Sprühextraktion für Polster und Teppich, Kunststoff matt aufgefrischt, Schächte und Fugen inklusive.',
+    tags: ['Sprühextraktion', 'Tierhaare', 'Kunststoffpflege', 'Scheiben innen'] },
+  { num: '03', tag: 'Karosserie', title: 'Dellen & Hagelschaden', href: './Leistung Dellen.dc.html', slot: 'leistung-prev-del',
+    slotHint: 'Dellendrücken mit Reflexlampe',
+    blurb: 'Ausbeulen ohne Lackieren. Der Originallack bleibt, wo er ist — Parkdelle wie Hagelschaden.',
+    tags: ['Smart Repair', 'Hagel komplett', 'ohne Spachtel', 'Originallack'] },
+  { num: '04', tag: 'Lack', title: 'Lackierarbeiten', href: './Leistung Lackierarbeiten.dc.html', slot: 'leistung-prev-lac',
+    slotHint: 'Farbtonbestimmung / Musterblech',
+    blurb: 'Teil- und Beilackierung mit Farbtonauslesung. Ziel ist ein Übergang, den man auch bei Sonne nicht findet.',
+    tags: ['Farbtonauslesung', 'Beilackierung', 'Stoßfänger', 'Kunststoffteile'] },
+  { num: '05', tag: 'Interieur', title: 'Lederreparatur', href: './Leistung Leder.dc.html', slot: 'leistung-prev-led',
+    slotHint: 'Lederreparatur an der Sitzwange',
+    blurb: 'Risse, Brandlöcher, Scheuerstellen, Farbabrieb. Wir reparieren die Stelle und färben die Fläche.',
+    tags: ['Risse & Brandlöcher', 'Nachfärben', 'Lenkrad', 'Sitzwange'] },
+  { num: '06', tag: 'Interieur', title: 'Ozonbehandlung', href: './Leistung Ozon.dc.html', slot: 'leistung-prev-ozo',
+    slotHint: 'Ozongerät im Fahrzeuginnenraum',
+    blurb: 'Gegen Rauch, Tiergeruch und Schimmel. Ozon zerlegt die Geruchsmoleküle, statt sie zu überdecken.',
+    tags: ['Rauchgeruch', 'Tiergeruch', 'Klimaanlage', 'Schimmel'] }
+];
+
+class Component extends DCLogic {
+  state = { hover: 0 };
+  renderVals() {
+    const h = this.state.hover;
+    return {
+      activeService: SERVICES[h],
+      services: SERVICES.map((s, i) => Object.assign({}, s, {
+        rowBg: i === h ? 'rgba(255,255,255,.045)' : 'transparent',
+        numColor: i === h ? '#D80D18' : '#3A4048',
+        titleColor: i === h ? '#fff' : '#D6DAE0',
+        arrowColor: i === h ? '#D80D18' : '#4E555E',
+        previewOpacity: i === h ? 1 : 0,
+        hover: () => { if (this.state.hover !== i) this.setState({ hover: i }); }
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>
