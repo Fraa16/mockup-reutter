@@ -944,6 +944,243 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
 .sticky-an .footer-sticky-platz{height:75px}
 
 /* ==========================================================================
+   Leistungsseiten — gemeinsame Bausteine
+   ==========================================================================
+   Nur was wirklich auf mehreren der sechs Seiten vorkommt. Die Kernmodule
+   selbst bleiben je Seite eigen — das war eine ausdrückliche Vorgabe.
+   ========================================================================== */
+.brotkrumen{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  font:500 13px/1 var(--font-body);color:var(--gray-350);
+}
+.brotkrumen a{color:var(--gray-350)}
+.brotkrumen a:hover{color:#fff}
+.brotkrumen .trenner{color:var(--gray-500)}
+.brotkrumen [aria-current]{color:var(--gray-100)}
+
+/* --- Kopf der Leistungsseite --------------------------------------------- */
+.leistung-hero{
+  position:relative;background:var(--black);overflow:hidden;
+  min-height:620px;display:flex;align-items:flex-end;
+}
+.leistung-hero .hero-bild{position:absolute;inset:0}
+.leistung-hero .hero-bild .slot-img{width:100%;height:100%;object-fit:cover}
+.leistung-hero .scrim{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(120% 90% at 78% 20%,rgba(10,11,13,.2),rgba(10,11,13,.94) 62%),
+    linear-gradient(0deg,var(--black) 4%,rgba(10,11,13,.4) 60%);
+}
+.leistung-hero .accent-bar{position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--red)}
+.leistung-hero .wrap{position:relative;width:100%;padding-top:70px;padding-bottom:68px}
+.leistung-hero-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);
+  gap:64px;align-items:end;margin-top:150px;
+}
+.leistung-hero h1{
+  margin:0 0 22px;max-width:900px;
+  font-family:var(--font-display);font-weight:800;font-size:clamp(34px,5.4vw,70px);
+  line-height:.96;letter-spacing:-.035em;color:#fff;text-wrap:balance;
+}
+.leistung-hero .lead{margin:0;max-width:620px;font:400 18px/1.68 var(--font-body);color:var(--gray-150)}
+.leistung-hero-cta{display:flex;flex-direction:column;gap:12px}
+.leistung-hero-cta .btn{justify-content:space-between;padding:20px 28px;font-size:14.5px}
+.leistung-hero-cta .btn-red{box-shadow:0 18px 44px -18px rgba(216,13,24,.8)}
+.leistung-hero-cta .btn-outline{justify-content:center;border-color:rgba(255,255,255,.28);background:rgba(10,11,13,.5)}
+
+/* --- Abschnittslinie mit Beschriftung ------------------------------------ */
+.abschnitt-linie{display:flex;align-items:center;gap:14px;padding:26px 0 34px}
+.abschnitt-linie .label{
+  font:600 12px/1 var(--font-body);letter-spacing:.22em;text-transform:uppercase;color:var(--red);
+}
+.abschnitt-linie .linie{flex:1;height:1px;background:rgba(255,255,255,.14)}
+
+/* ==========================================================================
+   Machbarkeit — vier Karten
+   ========================================================================== */
+.machbarkeit{background:var(--black);padding:0 0 96px}
+.machbarkeit h2{
+  margin:0 0 14px;max-width:900px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(28px,3.6vw,46px);line-height:1.02;letter-spacing:-.03em;color:#fff;
+}
+.machbarkeit .lead{margin:0 0 40px;max-width:660px;font:400 17px/1.65 var(--font-body);color:var(--gray-250)}
+.check-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.13);
+}
+.check{background:var(--black);padding:30px 26px;display:flex;flex-direction:column;gap:16px;min-height:230px}
+.check-kopf{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.check-kopf .num{font-family:var(--font-display);font-weight:800;font-size:13px;letter-spacing:.12em;color:var(--gray-550)}
+.check-kopf .urteil{
+  padding:6px 11px;background:rgba(255,255,255,.1);color:var(--gray-100);
+  font:700 11px/1 var(--font-display);letter-spacing:.12em;text-transform:uppercase;
+}
+.check-kopf .urteil.ist-wichtig{background:var(--red);color:#fff}
+.check h3{margin:0;font:700 21px/1.2 var(--font-display);letter-spacing:-.02em;color:#fff}
+.check p{margin:0;font:400 15.5px/1.55 var(--font-body);color:var(--gray-350)}
+
+/* ==========================================================================
+   Panel-Karte — das Kernmodul dieser Seite
+   ========================================================================== */
+.panelkarte{background:var(--light-bg);padding:96px 0 100px;border-top:5px solid var(--red)}
+.panelkarte .section-head{margin-bottom:44px}
+.panelkarte h2{
+  margin:0;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(28px,3.6vw,46px);line-height:1.02;letter-spacing:-.03em;color:var(--black);
+}
+.panelkarte-panel{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);
+  border:1px solid rgba(10,11,13,.14);background:#fff;
+}
+.panelkarte-schema{padding:38px 40px;border-right:1px solid rgba(10,11,13,.14)}
+.panelkarte-kopf{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:24px}
+.panelkarte-kopf .bildunterschrift{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--gray-300);
+}
+.panelkarte-kopf .gesamt{font:600 13px/1 var(--font-body);color:var(--black)}
+
+.panel-raster{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(4,68px);gap:8px}
+.panel{
+  cursor:pointer;background:var(--light-bg);border:1px solid rgba(10,11,13,.14);
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px;
+  padding:10px 14px;text-align:left;transition:background .18s,border-color .18s;
+}
+.panel:hover{border-color:rgba(10,11,13,.32)}
+.panel .panel-name{font:600 12px/1.15 var(--font-body);letter-spacing:.02em;color:var(--gray-450)}
+.panel .panel-zahl{
+  font-family:var(--font-display);font-weight:800;font-size:19px;line-height:1;
+  letter-spacing:-.03em;color:var(--black);
+}
+.panel.active{background:var(--black);border-color:var(--black)}
+.panel.active .panel-name{color:var(--gray-350)}
+.panel.active .panel-zahl{color:#fff}
+.panelkarte-hinweis{margin:22px 0 0;font:400 14.5px/1.55 var(--font-body);color:var(--gray-400)}
+
+.panelkarte-detail{padding:38px 36px;background:#FAFAFB;display:flex;flex-direction:column}
+.panel-tafel{display:flex;flex-direction:column;flex:1}
+.panel-tafel[hidden]{display:none}
+.tafel-name{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--red);margin-bottom:16px;
+}
+.tafel-zahl{display:flex;align-items:baseline;gap:10px;margin-bottom:20px}
+.tafel-zahl .wert{
+  font-family:var(--font-display);font-weight:800;font-size:52px;line-height:1;
+  letter-spacing:-.04em;color:var(--black);
+}
+.tafel-zahl .einheit{font:500 15px/1 var(--font-body);color:var(--gray-400)}
+.panel-tafel p{margin:0 0 24px;font:400 16px/1.62 var(--font-body);color:var(--gray-450)}
+.tafel-werte{margin:auto 0 0;border-top:1px solid rgba(10,11,13,.13)}
+.tafel-werte > div{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:13px 0;border-bottom:1px solid rgba(10,11,13,.13);
+}
+.tafel-werte dt{font:500 14.5px/1 var(--font-body);color:var(--gray-400)}
+.tafel-werte dd{margin:0;font:600 14.5px/1 var(--font-body);color:var(--black)}
+.tafel-werte dd.stufe{color:var(--red)}
+
+/* ==========================================================================
+   Drei Stationen
+   ========================================================================== */
+.stationen{background:#fff;padding:92px 0 96px}
+.stationen-kopf{max-width:720px;margin-bottom:44px}
+.stationen-kopf h2{
+  margin:0 0 16px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(26px,3.4vw,44px);line-height:1.02;letter-spacing:-.03em;color:var(--black);
+}
+.stationen-kopf p{margin:0;font:400 16.5px/1.65 var(--font-body);color:var(--gray-450)}
+.stationen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.station-bild{position:relative;height:400px;overflow:hidden;border:1px solid rgba(10,11,13,.12)}
+.station-bild .slot-img{width:100%;height:100%;object-fit:cover}
+.station-nr{
+  position:absolute;left:16px;top:14px;padding:7px 13px;background:var(--black);
+  font:700 11px/1 var(--font-display);letter-spacing:.18em;text-transform:uppercase;color:#fff;
+}
+.station-nr.ist-letzte{background:var(--red)}
+.station h3{margin:20px 0 8px;font:700 20px/1.25 var(--font-display);letter-spacing:-.018em;color:var(--black)}
+.station p{margin:0;font:400 15.5px/1.6 var(--font-body);color:var(--gray-450)}
+
+/* ==========================================================================
+   Versicherung
+   ========================================================================== */
+.versicherung{background:var(--black);padding:92px 0 96px}
+.versicherung-grid{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:64px;align-items:start}
+.versicherung h2{
+  margin:0 0 18px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(26px,3.2vw,40px);line-height:1.04;letter-spacing:-.03em;color:#fff;
+}
+.versicherung > .wrap p{margin:0 0 26px;font:400 16.5px/1.68 var(--font-body);color:var(--gray-250)}
+.versicherung-punkte{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+.versicherung-punkte .punkt{padding:20px 0;border-top:1px solid rgba(255,255,255,.13)}
+.punkt-titel{font:700 17px/1.3 var(--font-display);color:#fff}
+.punkt-text{margin-top:6px;font:400 15.5px/1.55 var(--font-body);color:var(--gray-350)}
+
+/* ==========================================================================
+   Preisvorgehen und häufige Fragen
+   ========================================================================== */
+.preis-faq{background:var(--light-bg);padding:88px 0 96px}
+.preis-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:2px solid var(--black);border-bottom:1px solid rgba(10,11,13,.14);
+  margin-bottom:72px;
+}
+.preis-karte{padding:30px 34px;border-right:1px solid rgba(10,11,13,.14)}
+.preis-karte:first-child{padding-left:0}
+.preis-karte:last-child{padding-right:0;border-right:0}
+.preis-kicker{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--red);margin-bottom:12px;
+}
+.preis-titel{font:700 20px/1.25 var(--font-display);letter-spacing:-.018em;color:var(--black)}
+.preis-karte p{margin:8px 0 0;font:400 15.5px/1.6 var(--font-body);color:var(--gray-450)}
+
+.faq-grid{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:70px;align-items:start}
+.faq-intro h2{
+  margin:0 0 18px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(26px,3.2vw,40px);line-height:1.04;letter-spacing:-.03em;color:var(--black);
+}
+.faq-liste{border-top:1px solid rgba(10,11,13,.14)}
+.faq-eintrag{border-bottom:1px solid rgba(10,11,13,.14)}
+.faq-eintrag summary{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  padding:26px 0;cursor:pointer;list-style:none;
+}
+.faq-eintrag summary::-webkit-details-marker{display:none}
+.faq-frage{font:700 20px/1.3 var(--font-display);letter-spacing:-.015em;color:var(--gray-dark)}
+.faq-eintrag[open] .faq-frage{color:var(--black)}
+/* Plus und Minus als CSS-Zeichen, damit ohne JavaScript der richtige Zustand steht. */
+.faq-zeichen{
+  flex:none;width:22px;text-align:center;
+  font:400 24px/1 var(--font-body);color:var(--red);
+}
+.faq-zeichen::before{content:"+"}
+.faq-eintrag[open] .faq-zeichen::before{content:"−"}
+.faq-antwort p{margin:0;padding:0 60px 28px 0;font:400 16.5px/1.7 var(--font-body);color:var(--gray-450)}
+.faq-antwort a{color:var(--black);border-bottom:1px solid rgba(10,11,13,.25)}
+.faq-antwort a:hover{color:var(--red);border-color:var(--red)}
+
+/* ==========================================================================
+   Verwandte Leistungen
+   ========================================================================== */
+.verwandt{background:#fff;padding:90px 0 96px}
+.verwandt > .wrap > h2{
+  margin:0 0 32px;font-family:var(--font-display);font-weight:800;font-size:clamp(24px,2.6vw,34px);
+  letter-spacing:-.025em;color:var(--black);
+}
+.verwandt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.verwandt-karte{
+  display:block;border:1px solid rgba(10,11,13,.12);padding:30px 28px;
+  text-decoration:none;transition:border-color .16s;
+}
+.verwandt-karte:hover{border-color:var(--red)}
+.verwandt-kicker{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--red);margin-bottom:14px;
+}
+.verwandt-titel{font:700 22px/1.2 var(--font-display);letter-spacing:-.02em;color:var(--black);margin-bottom:10px}
+.verwandt-text{font:400 15.5px/1.55 var(--font-body);color:var(--gray-450)}
+
+/* ==========================================================================
    Responsive
    --------------------------------------------------------------------------
    The mockup was authored desktop-first at 1440. Everything above is the
@@ -1048,6 +1285,18 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
   .review-grid{grid-template-columns:repeat(2,1fr)}
 
   .anfrage-grid{grid-template-columns:minmax(0,1fr);gap:48px}
+  .leistung-hero{min-height:0}
+  .leistung-hero-grid{grid-template-columns:minmax(0,1fr);gap:34px;margin-top:80px}
+  .leistung-hero-cta{flex-direction:row;flex-wrap:wrap}
+  .leistung-hero-cta .btn{flex:1 1 220px;justify-content:center}
+  .check-grid{grid-template-columns:repeat(2,1fr)}
+  .panelkarte-panel{grid-template-columns:minmax(0,1fr)}
+  .panelkarte-schema{border-right:0;border-bottom:1px solid rgba(10,11,13,.14)}
+  .stationen-grid{grid-template-columns:minmax(0,1fr)}
+  .station-bild{height:300px}
+  .versicherung-grid{grid-template-columns:minmax(0,1fr);gap:38px}
+  .faq-grid{grid-template-columns:minmax(0,1fr);gap:34px}
+  .verwandt-grid{grid-template-columns:minmax(0,1fr)}
   .kurzanfrage-grid{grid-template-columns:minmax(0,1fr);gap:38px}
   .kurzanfrage-intro h2{font-size:clamp(26px,4vw,40px)}
 
@@ -1136,6 +1385,19 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
   .review-card{padding:24px 22px}
 
   .request-card{padding:26px 20px 24px}
+  .check-grid{grid-template-columns:minmax(0,1fr)}
+  .check{min-height:0}
+  .panelkarte{padding:64px 0 68px}
+  .panelkarte-schema,.panelkarte-detail{padding:26px 20px}
+  .panel-raster{grid-template-rows:repeat(4,62px);gap:6px}
+  .panel{padding:8px 10px}
+  .panel .panel-name{font-size:11px}
+  .preis-grid{grid-template-columns:minmax(0,1fr)}
+  .preis-karte{padding:24px 0;border-right:0;border-bottom:1px solid rgba(10,11,13,.14)}
+  .preis-karte:last-child{border-bottom:0}
+  .versicherung-punkte{grid-template-columns:minmax(0,1fr);gap:0}
+  .faq-antwort p{padding-right:0}
+  .stationen,.versicherung,.verwandt{padding:64px 0 68px}
   .kurzanfrage-karte{padding:24px 20px}
   .kurzanfrage-karte .field-grid{grid-template-columns:minmax(0,1fr)}
   .kurzanfrage-fuss{flex-direction:column;align-items:stretch;gap:16px}

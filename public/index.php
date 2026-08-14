@@ -33,11 +33,18 @@ $leistung = null;
 
 // Leistungsseiten: /leistungen/<slug>/ — der Slug wird gegen die gepflegte
 // Liste geprueft, nie ungefiltert weitergereicht.
+//
+// Jede Leistung hat ein eigenes Template und eine eigene Inhaltsdatei. Das ist
+// Absicht: die sechs Seiten sind unterschiedlich aufgebaut und haben je ein
+// eigenes interaktives Modul — ein gemeinsames Template wuerde sie einebnen.
 if ($route === null && preg_match('#^/leistungen/([a-z0-9-]+)/$#', $pfad, $treffer)) {
     foreach (leistungen_mit_seite() as $eintrag) {
         if ($eintrag['slug'] === $treffer[1]) {
             $leistung = $eintrag;
-            $route = ['template' => 'leistung', 'inhalt' => null];
+            $route = [
+                'template' => 'leistung-' . $eintrag['slug'],
+                'inhalt'   => 'leistung-' . $eintrag['slug'],
+            ];
             break;
         }
     }

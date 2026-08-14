@@ -209,6 +209,43 @@
   }
 
   /* ---------------------------------------------------------------------
+     Panel-Karte (Dellen & Hagelschaden)
+     Bauteil anklicken, Detailtafel umschalten. Alle Tafeln stehen im HTML.
+     --------------------------------------------------------------------- */
+  const panelkarte = document.getElementById('panelkarte');
+  if (panelkarte) {
+    const panels = Array.from(panelkarte.querySelectorAll('.panel'));
+    const tafeln = Array.from(panelkarte.querySelectorAll('.panel-tafel'));
+
+    const zeige = (index) => {
+      panels.forEach((el, i) => {
+        const aktiv = i === index;
+        el.classList.toggle('active', aktiv);
+        el.setAttribute('aria-pressed', String(aktiv));
+      });
+      tafeln.forEach((el, i) => {
+        el.hidden = i !== index;
+        el.classList.toggle('is-active', i === index);
+      });
+    };
+
+    panels.forEach((el, i) => {
+      el.addEventListener('click', () => zeige(i));
+      // Das Raster ist zweidimensional; Pfeiltasten laufen der Reihe nach
+      // durch, das ist berechenbarer als eine Navigation nach Position.
+      el.addEventListener('keydown', (e) => {
+        const richtung = ['ArrowRight', 'ArrowDown'].includes(e.key) ? 1
+                       : ['ArrowLeft', 'ArrowUp'].includes(e.key) ? -1 : 0;
+        if (richtung === 0) return;
+        e.preventDefault();
+        const naechster = (i + richtung + panels.length) % panels.length;
+        zeige(naechster);
+        panels[naechster].focus();
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------------------
      Mobile Navigation
      --------------------------------------------------------------------- */
   const navToggle = document.getElementById('nav-toggle');
