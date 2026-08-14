@@ -269,6 +269,46 @@
   }
 
   /* ---------------------------------------------------------------------
+     Bildraster der Galerie: Filter und Vergroessern
+     Ohne dieses Skript stehen alle zwanzig Bilder in Normalgroesse da —
+     der brauchbare Grundzustand, deshalb steckt nichts davon im HTML.
+     --------------------------------------------------------------------- */
+  const galerieFilter = document.getElementById('galerie-filter');
+  const galerieRaster = document.getElementById('galerie-raster');
+  if (galerieFilter && galerieRaster) {
+    const knoepfe = Array.from(galerieFilter.querySelectorAll('.filter'));
+    const kacheln = Array.from(galerieRaster.querySelectorAll('.kachel'));
+
+    knoepfe.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const gewaehlt = btn.dataset.kategorie;
+        knoepfe.forEach((b) => {
+          const an = b === btn;
+          b.classList.toggle('active', an);
+          b.setAttribute('aria-pressed', String(an));
+        });
+        kacheln.forEach((k) => {
+          k.hidden = gewaehlt !== '' && k.dataset.kategorie !== gewaehlt;
+          // Eine ausgeblendete Kachel darf nicht vergroessert wiederkommen.
+          if (k.hidden) {
+            k.classList.remove('ist-gross');
+            k.setAttribute('aria-pressed', 'false');
+          }
+        });
+      });
+    });
+
+    kacheln.forEach((k) => {
+      k.addEventListener('click', () => {
+        const gross = k.classList.toggle('ist-gross');
+        k.setAttribute('aria-pressed', String(gross));
+        const zoom = k.querySelector('.kachel-zoom');
+        if (zoom) zoom.textContent = gross ? 'schließen' : 'groß';
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------------------
      Leistungsindex (Leistungen-Hub)
      Zeile ueberfahren oder fokussieren, rechts wechselt das Vorschaubild.
      Ohne dieses Skript bleibt das erste Bild stehen — die Zeilen sind Links
@@ -371,13 +411,34 @@
       schritte.forEach((s) => { s.hidden = Number(s.dataset.step) !== aktuell; });
       zurueck.hidden = aktuell === 1;
       hinweis.textContent = hinweise[aktuell - 1];
-      weiter.innerHTML = aktuell === schritte.length
+      const letzter = aktuell === schritte.length;
+      weiter.innerHTML = letzter
         ? 'Anfrage senden'
         : 'Weiter <span class="btn-arrow" aria-hidden="true">→</span>';
+      // Auf den Zwischenschritten ist das kein Absendeknopf. Sonst prueft der
+      // Browser beim Klick die Pflichtfelder aus Schritt 3, findet sie
+      // ausgeblendet, kann sie nicht anspringen — und bricht ab, ohne dass
+      // ein submit-Ereignis entsteht. Der Knopf tut dann gar nichts.
+      weiter.type = letzter ? 'submit' : 'button';
       zeichneTracker();
     };
 
     zurueck.addEventListener('click', () => geheZu(aktuell - 1));
+
+    weiter.addEventListener('click', () => {
+      if (aktuell < schritte.length) geheZu(aktuell + 1);
+      // Im letzten Schritt ist es wieder ein echter Absendeknopf.
+    });
+
+    // Enter in einem Textfeld soll weiterblaettern statt ins Leere zu laufen.
+    // Im Textfeld der Beschreibung bleibt Enter ein Zeilenumbruch.
+    formular.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter' || aktuell >= schritte.length) return;
+      const ziel = e.target;
+      if (!(ziel instanceof HTMLInputElement) || ziel.type === 'checkbox') return;
+      e.preventDefault();
+      geheZu(aktuell + 1);
+    });
 
     formular.addEventListener('submit', (e) => {
       // Zwischenschritte schicken nichts ab, sie blaettern nur weiter.

@@ -1,0 +1,116 @@
+{
+    "_hinweis": "Inhalte der Seite /galerie/. Uebernommen aus export/project/Galerie.dc.html.",
+    "_warnung": "LAUNCH-BLOCKER, groesster der ganzen Website. Der Einleitungssatz behauptet woertlich 'Alle Aufnahmen stammen aus eigenen Auftraegen'. Tatsaechlich ist jedes Bild auf dieser Seite Stock- bzw. KI-Material, und die drei Vorher/Nachher-Paare zeigen zweimal dasselbe Bild. Das ist irrefuehrende Werbung nach § 5 UWG. Entweder echte Bilder vom Betrieb — oder der Satz und die Vergleichsregler muessen vor dem Launch raus.",
+    "_unbestaetigt": "Die drei Fallstudien sind erfunden: Dellenzahl, Dauern, Verfahren und Ergebnisse hat der Design-Assistent geschrieben. Vor Launch durch echte Auftraege ersetzen oder streichen.",
+
+    "seo": {
+        "titel": "Galerie — Arbeiten aus der Halle | Fahrzeugpflege Reutter",
+        "beschreibung": "Vorher und Nachher aus eigenen Aufträgen: Hagelschaden, Lackaufbereitung, Lederreparatur. Fahrzeugpflege Reutter in Korntal-Münchingen bei Stuttgart."
+    },
+
+    "hero": {
+        "kicker": "Galerie",
+        "titel": "Arbeiten aus der Halle. Ohne Filter, ohne Rendering.",
+        "_lead_warnung": "Dieser Satz ist der abmahnfaehige Teil. Solange Platzhalter stehen, darf er nicht online.",
+        "lead": "Alle Aufnahmen stammen aus eigenen Aufträgen. Vorher und Nachher immer aus derselben Perspektive und im selben Licht — sonst kann man es sich sparen.",
+        "cta_titel": "Ihr Fahrzeug soll hier stehen?",
+        "cta": "Termin anfragen"
+    },
+
+    "faelle": {
+        "kicker": "Drei Aufträge im Detail",
+        "_warnung": "Alle drei Vergleiche zeigen dasselbe Bild auf beiden Seiten.",
+        "eintraege": [
+            {
+                "kicker": "Fall 01 · Dellen & Hagel",
+                "titel": "Hagelschaden auf Dach und Motorhaube",
+                "text": "Über vierzig Dellen, das Fahrzeug stand im Freien. Himmel und Verkleidungen mussten raus, gedrückt wurde von innen. Es wurde nichts gespachtelt und nichts lackiert.",
+                "vergleich": {
+                    "start_position": 50,
+                    "vorher": "ba-1.webp",
+                    "vorher_alt": "Hagelschaden auf dem Dach vor der Reparatur",
+                    "nachher": "ba-1.webp",
+                    "nachher_alt": "Dach nach dem Drücken, Dellen entfernt",
+                    "echtes_paar": false
+                },
+                "werte": [
+                    { "label": "Dauer",     "wert": "3 Tage" },
+                    { "label": "Verfahren", "wert": "Drücken von innen" },
+                    { "label": "Lack",      "wert": "Original erhalten" }
+                ],
+                "slug": "dellen-hagelschaden"
+            },
+            {
+                "kicker": "Fall 02 · Exterieur",
+                "titel": "Waschkratzer über die ganze Flanke",
+                "text": "Schwarzer Metalliclack, jahrelang durch die Waschstraße. Lackdicke gemessen, Testfläche angelegt, danach zweistufig poliert und versiegelt.",
+                "vergleich": {
+                    "start_position": 50,
+                    "vorher": "ba-2.webp",
+                    "vorher_alt": "Waschkratzer im Streiflicht vor der Politur",
+                    "nachher": "ba-2.webp",
+                    "nachher_alt": "Klare Reflexion nach der Politur",
+                    "echtes_paar": false
+                },
+                "werte": [
+                    { "label": "Dauer",     "wert": "1 Tag" },
+                    { "label": "Verfahren", "wert": "Politur, zweistufig" },
+                    { "label": "Abschluss", "wert": "Versiegelung" }
+                ],
+                "slug": "fahrzeugpflege-exterieur"
+            },
+            {
+                "kicker": "Fall 03 · Leder",
+                "titel": "Fahrersitz, Wange durchgescheuert",
+                "text": "Die Faser lag frei. Stelle entfettet, in dünnen Schichten aufgebaut, Narbung vom Originalleder abgenommen und geprägt, danach bis zur Naht nachgefärbt.",
+                "vergleich": {
+                    "start_position": 50,
+                    "vorher": "ba-3.webp",
+                    "vorher_alt": "Sitzwange mit freiliegender Faser vor der Reparatur",
+                    "nachher": "ba-3.webp",
+                    "nachher_alt": "Sitzwange nach Aufbau und Nachfärben",
+                    "echtes_paar": false
+                },
+                "werte": [
+                    { "label": "Dauer",     "wert": "2 Tage" },
+                    { "label": "Verfahren", "wert": "Aufbau & Prägung" },
+                    { "label": "Farbe",     "wert": "auf Original gemischt" }
+                ],
+                "slug": "lederreparatur"
+            }
+        ],
+        "link_text": "Zur Leistung"
+    },
+
+    "raster": {
+        "titel": "Alle Arbeiten",
+        "beschreibung": "Nach Leistung filtern. Ein Klick auf ein Bild zeigt es groß.",
+        "alle_label": "Alle",
+        "fussnote": "Zwanzig Plätze. Sobald echte Fotos vorliegen, werden sie hier eingesetzt und einer Leistung zugeordnet.",
+        "_bilder_warnung": "Alle zwanzig Bilder sind Platzhalter aus dem Bildpool. Die Zuordnung zur Kategorie ist geraten, die Bildunterschriften beschreiben, was dort stehen SOLL — nicht, was zu sehen ist.",
+        "bilder": [
+            { "kategorie": "Exterieur",      "bild": "g1.webp",     "alt": "Politur unter der Lichtleiste",            "platzhalter": true },
+            { "kategorie": "Dellen & Hagel", "bild": "g2.webp",     "alt": "Dellendrücken, Werkzeug am Blech",         "platzhalter": true },
+            { "kategorie": "Interieur",      "bild": "g3.webp",     "alt": "Sitz wird extrahiert",                     "platzhalter": true },
+            { "kategorie": "Exterieur",      "bild": "img-11.webp", "alt": "Felge, Detailaufnahme",                    "platzhalter": true },
+            { "kategorie": "Leder",          "bild": "g6.webp",     "alt": "Sitzwange nach der Reparatur",             "platzhalter": true },
+            { "kategorie": "Lack",           "bild": "g5.webp",     "alt": "Musterblech neben dem Bauteil",            "platzhalter": true },
+            { "kategorie": "Exterieur",      "bild": "img-12.webp", "alt": "Reflexion auf der Motorhaube",             "platzhalter": true },
+            { "kategorie": "Dellen & Hagel", "bild": "img-14.webp", "alt": "Hagelschaden, markierte Dellen",           "platzhalter": true },
+            { "kategorie": "Interieur",      "bild": "img-16.webp", "alt": "Fußraum nach der Reinigung",               "platzhalter": true },
+            { "kategorie": "Ozon",           "bild": "g4.webp",     "alt": "Ozongerät im Innenraum",                   "platzhalter": true },
+            { "kategorie": "Exterieur",      "bild": "img-18.webp", "alt": "Handwäsche, Schaum auf dem Lack",          "platzhalter": true },
+            { "kategorie": "Lack",           "bild": "img-19.webp", "alt": "Stoßfänger nach der Lackierung",           "platzhalter": true },
+            { "kategorie": "Interieur",      "bild": "img-20.webp", "alt": "Armaturenbrett, matt aufgefrischt",        "platzhalter": true },
+            { "kategorie": "Leder",          "bild": "g7.webp",     "alt": "Lenkradkranz nachgefärbt",                 "platzhalter": true },
+            { "kategorie": "Dellen & Hagel", "bild": "img-21.webp", "alt": "Streifenlampe spiegelt im Dach",           "platzhalter": true },
+            { "kategorie": "Exterieur",      "bild": "img-22.webp", "alt": "Fahrzeug fertig in der Halle",             "platzhalter": true },
+            { "kategorie": "Interieur",      "bild": "img-23.webp", "alt": "Kofferraum nach der Aufbereitung",         "platzhalter": true },
+            { "kategorie": "Lack",           "bild": "img-25.webp", "alt": "Beilackierung, Übergang poliert",          "platzhalter": true },
+            { "kategorie": "Leder",          "bild": "img-26.webp", "alt": "Rissreparatur im Detail",                  "platzhalter": true },
+            { "kategorie": "Dellen & Hagel", "bild": "img-27.webp", "alt": "Verkleidung demontiert, Zugang zum Blech", "platzhalter": true }
+        ]
+    },
+
+    "cta_ueberschrift": "Ihr Fahrzeug als nächstes?"
+}
