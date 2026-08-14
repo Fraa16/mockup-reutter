@@ -49,42 +49,48 @@
   /* ---------------------------------------------------------------------
      Vorher / Nachher
      --------------------------------------------------------------------- */
-  const baFrame = document.getElementById('ba-frame');
-  if (baFrame) {
-    const baAfter    = document.getElementById('ba-after');
-    const baHandle   = document.getElementById('ba-handle');
-    const imgBefore  = document.getElementById('ba-img-before');
-    const imgAfter   = document.getElementById('ba-img-after');
-    const caseName   = document.getElementById('ba-case-name');
-    const caseNote   = document.getElementById('ba-case-note');
-    const caseKnoepfe = Array.from(document.querySelectorAll('.case-btn'));
+  // Vier der sechs Leistungsseiten haben denselben Regler, die Startseite
+  // zusaetzlich eine Fallauswahl. Deshalb einmal generisch ueber alle .ba-frame
+  // statt vier Kopien derselben Zieh-Logik.
+  document.querySelectorAll('.ba-frame').forEach((rahmen) => {
+    const nachher = rahmen.querySelector('.layer-after');
+    const griff   = rahmen.querySelector('.ba-handle');
+    if (!nachher || !griff) return;
 
-    let position = Number(baFrame.dataset.start) || 52;
+    const bildVorher  = rahmen.querySelector('.layer-before img');
+    const bildNachher = rahmen.querySelector('.layer-after img');
+    // Die Fallauswahl gehoert zur selben Sektion, gibt es aber nur auf der Startseite.
+    const sektion   = rahmen.closest('section') || document;
+    const faelle    = Array.from(sektion.querySelectorAll('.case-btn'));
+    const fallName  = sektion.querySelector('#ba-case-name');
+    const fallNotiz = sektion.querySelector('#ba-case-note');
+
+    let position = Number(rahmen.dataset.start) || 50;
 
     const setze = (prozent) => {
       position = Math.max(1.5, Math.min(98.5, prozent));
-      baAfter.style.clipPath = `inset(0 0 0 ${position}%)`;
-      baHandle.style.left = position + '%';
-      baFrame.setAttribute('aria-valuenow', String(Math.round(position)));
+      nachher.style.clipPath = `inset(0 0 0 ${position}%)`;
+      griff.style.left = position + '%';
+      rahmen.setAttribute('aria-valuenow', String(Math.round(position)));
     };
 
     const ausX = (clientX) => {
-      const r = baFrame.getBoundingClientRect();
+      const r = rahmen.getBoundingClientRect();
       return ((clientX - r.left) / r.width) * 100;
     };
 
     let zieht = false;
 
-    baFrame.addEventListener('pointerdown', (e) => {
+    rahmen.addEventListener('pointerdown', (e) => {
       zieht = true;
       // Bewegungen weiterhin empfangen, auch wenn der Zeiger den Rahmen verlaesst.
-      try { baFrame.setPointerCapture(e.pointerId); } catch { /* aelterer Browser */ }
+      try { rahmen.setPointerCapture(e.pointerId); } catch { /* aelterer Browser */ }
       // Verhindert, dass der Browser stattdessen das Bild zu ziehen beginnt.
       e.preventDefault();
       setze(ausX(e.clientX));
     });
 
-    baFrame.addEventListener('pointermove', (e) => {
+    rahmen.addEventListener('pointermove', (e) => {
       if (!zieht) return;
       e.preventDefault();
       setze(ausX(e.clientX));
@@ -94,21 +100,21 @@
       if (!zieht) return;
       zieht = false;
       if (e && e.pointerId != null) {
-        try { baFrame.releasePointerCapture(e.pointerId); } catch { /* egal */ }
+        try { rahmen.releasePointerCapture(e.pointerId); } catch { /* egal */ }
       }
     };
-    baFrame.addEventListener('pointerup', beende);
-    baFrame.addEventListener('pointercancel', beende);
+    rahmen.addEventListener('pointerup', beende);
+    rahmen.addEventListener('pointercancel', beende);
     window.addEventListener('pointerup', beende);
-    baFrame.addEventListener('dragstart', (e) => e.preventDefault());
+    rahmen.addEventListener('dragstart', (e) => e.preventDefault());
 
     // Der Vergleich ist ein echtes Bedienelement und muss ohne Maus gehen.
-    baFrame.setAttribute('tabindex', '0');
-    baFrame.setAttribute('role', 'slider');
-    baFrame.setAttribute('aria-label', 'Vergleich vorher / nachher');
-    baFrame.setAttribute('aria-valuemin', '0');
-    baFrame.setAttribute('aria-valuemax', '100');
-    baFrame.addEventListener('keydown', (e) => {
+    rahmen.setAttribute('tabindex', '0');
+    rahmen.setAttribute('role', 'slider');
+    rahmen.setAttribute('aria-label', 'Vergleich vorher / nachher');
+    rahmen.setAttribute('aria-valuemin', '0');
+    rahmen.setAttribute('aria-valuemax', '100');
+    rahmen.addEventListener('keydown', (e) => {
       const schritt = e.shiftKey ? 10 : 2;
       if (e.key === 'ArrowLeft')       { setze(position - schritt); e.preventDefault(); }
       else if (e.key === 'ArrowRight') { setze(position + schritt); e.preventDefault(); }
@@ -116,20 +122,47 @@
       else if (e.key === 'End')        { setze(98); e.preventDefault(); }
     });
 
-    caseKnoepfe.forEach((btn, i) => {
+    faelle.forEach((btn, i) => {
       btn.addEventListener('click', () => {
-        caseKnoepfe.forEach((b, j) => {
+        faelle.forEach((b, j) => {
           b.classList.toggle('active', i === j);
           b.setAttribute('aria-pressed', String(i === j));
         });
-        imgBefore.src = btn.dataset.vorher;
-        imgAfter.src  = btn.dataset.nachher;
-        caseName.textContent = btn.dataset.name;
-        caseNote.textContent = btn.dataset.note;
+        if (bildVorher)  bildVorher.src  = btn.dataset.vorher;
+        if (bildNachher) bildNachher.src = btn.dataset.nachher;
+        if (fallName)  fallName.textContent  = btn.dataset.name;
+        if (fallNotiz) fallNotiz.textContent = btn.dataset.note;
       });
     });
 
     setze(position);
+  });
+
+  /* ---------------------------------------------------------------------
+     Lack-Querschnitt (Fahrzeugpflege Exterieur)
+     Politurstufe waehlen, die Abtragszone im Klarlack waechst mit.
+     --------------------------------------------------------------------- */
+  const querschnitt = document.getElementById('querschnitt');
+  if (querschnitt) {
+    const knoepfe = Array.from(querschnitt.querySelectorAll('.stufe'));
+    const tafeln  = Array.from(querschnitt.querySelectorAll('.stufen-tafel'));
+    const abtragAnzeigen = Array.from(querschnitt.querySelectorAll('.schnitt-abtrag'));
+    const zone = querschnitt.querySelector('#abtragszone');
+    // Die Hoehe je Stufe steht in den Tafeln, nicht im Skript — so bleibt sie
+    // an einer Stelle gepflegt.
+    const hoehen = tafeln.map((t) => Number(t.dataset.abtragHoehe) || 20);
+
+    knoepfe.forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        knoepfe.forEach((b, j) => {
+          b.classList.toggle('active', i === j);
+          b.setAttribute('aria-pressed', String(i === j));
+        });
+        tafeln.forEach((t, j) => { t.hidden = i !== j; });
+        abtragAnzeigen.forEach((a, j) => { a.hidden = i !== j; });
+        if (zone) zone.style.height = hoehen[i] + 'px';
+      });
+    });
   }
 
   /* ---------------------------------------------------------------------

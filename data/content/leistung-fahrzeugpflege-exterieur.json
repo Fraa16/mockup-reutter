@@ -1,0 +1,143 @@
+{
+    "_hinweis": "Inhalte der Seite /leistungen/fahrzeugpflege-exterieur/. Uebernommen aus export/project/Leistung Exterieur.dc.html.",
+    "_unbestaetigt": "Saemtliche Fachaussagen sind Entwuerfe des Design-Assistenten und von Daniel Reutter nicht bestaetigt. Konkret zu pruefen: die Klarlackstaerke 'rund vierzig Mikrometer', die drei Politurstufen mit ihren Zeitangaben, und die Schutzschicht-Tabelle.",
+
+    "seo": {
+        "titel": "Lackaufbereitung & Politur Korntal — nach Messung | Fahrzeugpflege Reutter",
+        "beschreibung": "Mehrstufige Politur nach Lackdickenmessung: nur so viel Abtrag wie nötig, danach Versiegelung oder Keramik. Korntal bei Stuttgart, auch mobil."
+    },
+
+    "hero": {
+        "kicker": "Leistung 01 · Exterieur",
+        "titel": "Klarlack ist endlich. Wir gehen damit entsprechend um.",
+        "lead": "Zwischen Ihrer Farbe und der Witterung liegen rund vierzig Mikrometer. Jede Politur nimmt davon etwas weg. Deshalb messen wir vorher und arbeiten nur so aggressiv, wie es der Zustand verlangt.",
+        "cta": "Termin anfragen",
+        "bild": "g5.webp",
+        "bild_alt": "Politur unter der Lichtleiste, Reflexion auf dunklem Lack",
+        "bild_platzhalter": true,
+        "_bild_soll": "Politur unter der Lichtleiste, Reflexion auf dunklem Lack"
+    },
+
+    "querschnitt": {
+        "kicker": "Der Aufbau Ihres Lacks",
+        "titel": "Wie viel darf weg — und wovon eigentlich?",
+        "beschreibung": "Wählen Sie eine Politurstufe. Der Schnitt zeigt, wie tief wir arbeiten und was das an Klarlack kostet.",
+        "schema_titel": "Querschnitt, schematisch",
+        "hinweis": "Die rot schraffierte Zone ist das, was bei dieser Stufe abgetragen wird. Sie kommt nicht zurück — deshalb ist die Messung vorher keine Formalität.",
+        "_hoehen_hinweis": "abtrag_hoehe ist die Hoehe der schraffierten Zone in Pixeln und damit Design, nicht Inhalt. Erscheint deshalb nicht im CMS.",
+        "schichten": [
+            { "name": "Klarlack",              "zusatz": "ca. 40 µm",          "rolle": "klarlack" },
+            { "name": "Basislack — Ihre Farbe","zusatz": "wird nie angefasst", "rolle": "basis" },
+            { "name": "Füller / Grundierung",  "zusatz": "",                   "rolle": "fueller" },
+            { "name": "Blech",                 "zusatz": "",                   "rolle": "blech" }
+        ],
+        "stufen": [
+            {
+                "name": "Einstufig",
+                "unterzeile": "Auffrischen",
+                "abtrag": "minimal",
+                "abtrag_hoehe": 8,
+                "ueberschrift": "Glanz zurück, ohne Material zu verlieren",
+                "text": "Eine Finish-Politur legt den vorhandenen Lack frei und gibt ihm die Tiefe zurück. Feine Kratzer werden weicher, verschwinden aber nicht ganz. Die richtige Wahl bei jungen oder gepflegten Fahrzeugen.",
+                "wirksam_gegen": "Stumpfheit, leichte Schleier",
+                "zeit": "ein halber Tag",
+                "wiederholbar": "unbegrenzt"
+            },
+            {
+                "name": "Zweistufig",
+                "unterzeile": "Der Regelfall",
+                "abtrag": "gering",
+                "abtrag_hoehe": 20,
+                "ueberschrift": "Waschkratzer raus, danach Finish",
+                "text": "Erst wird mit einer schneidenden Politur korrigiert, danach mit einer Finish-Politur nachgearbeitet. Ohne den zweiten Durchgang bleiben Hologramme, die man auf dunklem Lack in der Sonne sofort sieht.",
+                "wirksam_gegen": "Waschkratzer, Hologramme",
+                "zeit": "ein Tag",
+                "wiederholbar": "mehrfach möglich"
+            },
+            {
+                "name": "Dreistufig",
+                "unterzeile": "Nur wenn nötig",
+                "abtrag": "deutlich",
+                "abtrag_hoehe": 34,
+                "ueberschrift": "Für harte Lacke und tiefe Spuren",
+                "text": "Mit Schleifschritt vorweg. Das machen wir nur, wenn die Messung genug Material zeigt und der Zustand es verlangt — etwa bei stark verwitterten Fahrzeugen. Danach ist deutlich weniger Reserve übrig.",
+                "wirksam_gegen": "tiefe Kratzer, Verwitterung",
+                "zeit": "ein bis zwei Tage",
+                "wiederholbar": "begrenzt"
+            }
+        ]
+    },
+
+    "schutz": {
+        "kicker": "Danach",
+        "titel": "Ohne Schutzschicht war die Politur ein Zwischenschritt.",
+        "lead": "Welche Variante sinnvoll ist, hängt nicht vom Preis ab, sondern davon, wo das Fahrzeug steht und wie es gewaschen wird. Wir sagen es Ihnen beim Ansehen.",
+        "spalten": ["Kriterium", "Wachs", "Versiegelung", "Keramik"],
+        "zeilen": [
+            { "kriterium": "Haltbarkeit",   "wachs": "Wochen bis Monate", "versiegelung": "mehrere Monate", "keramik": "ein bis mehrere Jahre" },
+            { "kriterium": "Aufwand",       "wachs": "gering",            "versiegelung": "mittel",         "keramik": "hoch, Halle nötig" },
+            { "kriterium": "Erneuerbar",    "wachs": "jederzeit selbst",  "versiegelung": "nach Saison",    "keramik": "nur professionell" },
+            { "kriterium": "Sinnvoll bei",  "wachs": "Garagenfahrzeug",   "versiegelung": "Alltagsfahrzeug","keramik": "ganzjährig draußen" },
+            { "kriterium": "Wäsche danach", "wachs": "nur von Hand",      "versiegelung": "nur von Hand",   "keramik": "von Hand, geht leichter" }
+        ],
+        "hinweis": "Kein Schutz ersetzt die richtige Wäsche. Wer nach der Keramikbeschichtung wieder in die Waschstraße fährt, hat in einem Jahr dieselben Kratzer wie vorher."
+    },
+
+    "vergleich": {
+        "kicker": "Vorher / Nachher",
+        "titel": "Zweistufig poliert, danach versiegelt.",
+        "beschreibung": "Streiflicht ist der einzige ehrliche Prüfstand. Ziehen Sie den Regler.",
+        "start_position": 50,
+        "_warnung": "LAUNCH-BLOCKER: vorher und nachher zeigen dasselbe Platzhalterbild. Vor Launch ein echtes Paar einsetzen — gleiches Fahrzeug, gleicher Winkel, gleiches Licht.",
+        "vorher": "ba-2.webp",
+        "vorher_alt": "Waschkratzer im Streiflicht vor der Politur",
+        "nachher": "ba-2.webp",
+        "nachher_alt": "Klare Reflexion nach der Politur",
+        "echtes_paar": false,
+        "fussnote_vor": "Mehr Arbeiten in der ",
+        "fussnote_link": "Galerie"
+    },
+
+    "preis": {
+        "kicker": "Preis",
+        "titel": "Festpreis nach Testfläche, nicht nach Fahrzeugklasse.",
+        "text": "Zwei Fahrzeuge derselben Baureihe können unterschiedlich viel Arbeit bedeuten — der eine Lack ist hart, der andere weich, einer stand in der Garage, der andere fünf Jahre draußen. Wir legen eine Testfläche an, sehen was nötig ist, und nennen dann einen Preis, der steht.",
+        "cta": "Einschätzung anfragen"
+    },
+
+    "faq": {
+        "kicker": "Häufige Fragen",
+        "titel": "Was Kunden vorher wissen wollen",
+        "hinweis_vor": "Steht Ihre Frage nicht dabei: ",
+        "fragen": [
+            {
+                "frage": "Wie oft kann ein Lack poliert werden?",
+                "antwort": "Bei einem gesunden Werkslack sind mehrere Korrekturpolituren über die Lebensdauer unproblematisch. Entscheidend ist nicht die Anzahl, sondern was noch da ist: Wir messen an mehreren Stellen pro Bauteil und sagen Ihnen, ob wir voll oder nur schonend arbeiten können."
+            },
+            {
+                "frage": "Verschwindet jeder Kratzer?",
+                "antwort": "Alles, was im Klarlack liegt, bekommen wir raus. Bleiben Sie mit dem Fingernagel im Kratzer hängen, geht er tiefer — dann ist es ein Fall für Lackierarbeiten. Wir sagen Ihnen vor dem Start, was bleibt.",
+                "link": { "text": "Mehr zu Lackierarbeiten", "ziel": "/leistungen/lackierarbeiten/" }
+            },
+            {
+                "frage": "Muss ich das Auto vorher waschen?",
+                "antwort": "Nein. Wäsche und Dekontamination gehören zur Arbeit und werden so gemacht, dass keine neuen Kratzer entstehen. Hilfreich ist nur: Räumen Sie den Innenraum aus, wenn innen mitgearbeitet werden soll."
+            },
+            {
+                "frage": "Geht Politur auch bei mir vor Ort?",
+                "antwort": "Ja, wenn Strom und ein überdachter oder windstiller Platz vorhanden sind. Was mobil nicht geht: die Kontrolle unter unserer Lichtleiste. Bei anspruchsvollen dunklen Lacken empfehlen wir deshalb die Halle."
+            }
+        ]
+    },
+
+    "verwandt": {
+        "titel": "Passt oft dazu",
+        "karten": [
+            { "slug": "dellen-hagelschaden",      "kicker": "03 · Karosserie", "text": "Nach der Politur sieht man Dellen erst richtig. Beides zusammen spart einen Termin." },
+            { "slug": "lackierarbeiten",          "kicker": "04 · Lack",       "text": "Für alles, was tiefer sitzt als der Klarlack." },
+            { "slug": "fahrzeugpflege-interieur", "kicker": "02 · Interieur",  "text": "Außen fertig, innen nicht — das fällt sofort auf." }
+        ]
+    },
+
+    "cta_ueberschrift": "Lack auffrischen lassen?"
+}
