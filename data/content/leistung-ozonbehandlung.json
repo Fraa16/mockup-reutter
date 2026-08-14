@@ -1,23 +1,26 @@
 {
     "_hinweis": "Inhalte der Seite /leistungen/ozonbehandlung/. Uebernommen aus export/project/Leistung Ozon.dc.html. Diese Seite hat als einzige bewusst keinen Vorher/Nachher-Regler — Geruch ist nicht fotografierbar. Stattdessen zwei Prozessbilder und ein Absatz, der genau das erklaert.",
     "_unbestaetigt": "Fachaussagen sind Entwuerfe des Design-Assistenten, von Daniel Reutter nicht bestaetigt. Zu pruefen: die fuenf Geruchsquellen mit ihren Dauern, die Aussage 'wir geben erst frei, wenn nichts mehr messbar ist' (setzt ein Messgeraet voraus!), die Sperrzeit-Phasen, 'Kaeltemittel/Klimaverdampfer mitbehandelt' und die Sicherheitsaussagen zu Gummi, Kunststoff und Elektronik. Achtung: die Startseite nennt '60 Minuten gesperrt', diese Seite 'ein halber Tag' — vor Launch angleichen.",
-
     "seo": {
         "titel": "Ozonbehandlung Auto Korntal — Rauchgeruch weg | Reutter",
         "beschreibung": "Rauch, Tiergeruch, Schimmel: Ozon zerlegt Geruchsmoleküle nach der Reinigung. Ozonbehandlung fürs Fahrzeug in Korntal-Münchingen bei Stuttgart, nur in der Halle."
     },
-
     "hero": {
         "kicker": "Leistung 06 · Interieur",
         "titel": "Geruch lässt sich nicht fotografieren. Nur entfernen.",
         "lead": "Ozon zerlegt Geruchsmoleküle chemisch. Es entfernt aber keinen Schmutz — und genau da liegt der Unterschied zwischen einer Behandlung, die hält, und zwei Wochen Ruhe.",
         "cta": "Termin anfragen",
         "kennzahlen": [
-            { "wert": "½ Tag", "label": "Fahrzeug gesperrt" },
-            { "wert": "Halle",  "label": "nicht mobil" }
+            {
+                "wert": "½ Tag",
+                "label": "Fahrzeug gesperrt"
+            },
+            {
+                "wert": "Halle",
+                "label": "nicht mobil"
+            }
         ]
     },
-
     "diagnose": {
         "kicker": "Diagnose zuerst",
         "titel": "Wonach riecht es bei Ihnen?",
@@ -26,7 +29,6 @@
         "reihenfolge_titel": "Reihenfolge in diesem Fall",
         "rueckfall_titel": "Kommt zurück, wenn"
     },
-
     "_quellen_hinweis": "urteil_dunkel = schwarzes statt rotes Etikett; betont am Schritt = schwarze Zeile. Beides markiert die Faelle, in denen Ozon nicht der erste Schritt ist.",
     "quellen": [
         {
@@ -36,9 +38,18 @@
             "ueberschrift": "In Himmel, Polstern und im Lüftungssystem",
             "text": "Rauch legt sich als Film auf alle Oberflächen und setzt sich im Schaumstoff fest. Der Dachhimmel ist dabei der größte Speicher — und der Teil, den die meisten vergessen.",
             "reihenfolge": [
-                { "n": "01", "t": "Innenraum komplett reinigen, Himmel inklusive" },
-                { "n": "02", "t": "Lüftung und Klimaverdampfer mitbehandeln" },
-                { "n": "03", "t": "Ozon-Durchlauf, bei starkem Geruch zwei" }
+                {
+                    "n": "01",
+                    "t": "Innenraum komplett reinigen, Himmel inklusive"
+                },
+                {
+                    "n": "02",
+                    "t": "Lüftung und Klimaverdampfer mitbehandeln"
+                },
+                {
+                    "n": "03",
+                    "t": "Ozon-Durchlauf, bei starkem Geruch zwei"
+                }
             ],
             "sinnvoll": "ja, nach der Reinigung",
             "vorarbeit": "zwingend",
@@ -52,9 +63,18 @@
             "ueberschrift": "Meist Teppich, Kofferraum und Gurtschächte",
             "text": "Der Geruch kommt von Haaren, Hautfett und Speichel in der Faser. Solange die Haare drin sind, arbeitet Ozon gegen eine Quelle, die nachliefert.",
             "reihenfolge": [
-                { "n": "01", "t": "Haare mechanisch aus der Faser holen" },
-                { "n": "02", "t": "Teppich und Polster nass extrahieren" },
-                { "n": "03", "t": "Ozon-Durchlauf für den Rest" }
+                {
+                    "n": "01",
+                    "t": "Haare mechanisch aus der Faser holen"
+                },
+                {
+                    "n": "02",
+                    "t": "Teppich und Polster nass extrahieren"
+                },
+                {
+                    "n": "03",
+                    "t": "Ozon-Durchlauf für den Rest"
+                }
             ],
             "sinnvoll": "ja, als letzter Schritt",
             "vorarbeit": "zwingend",
@@ -68,9 +88,19 @@
             "ueberschrift": "Irgendwo kommt Wasser herein",
             "text": "Häufig sind es verstopfte Wasserabläufe, eine undichte Türdichtung oder ein defekter Klimaablauf. Ozon tötet den Geruch — aber der Schimmel wächst weiter, solange es feucht bleibt.",
             "reihenfolge": [
-                { "n": "01", "t": "Ursache suchen: Abläufe, Dichtungen, Kofferraumwanne", "betont": true },
-                { "n": "02", "t": "Feuchtigkeit vollständig austrocknen" },
-                { "n": "03", "t": "Reinigen, danach Ozon" }
+                {
+                    "n": "01",
+                    "t": "Ursache suchen: Abläufe, Dichtungen, Kofferraumwanne",
+                    "betont": true
+                },
+                {
+                    "n": "02",
+                    "t": "Feuchtigkeit vollständig austrocknen"
+                },
+                {
+                    "n": "03",
+                    "t": "Reinigen, danach Ozon"
+                }
             ],
             "sinnvoll": "erst nach Trocknung",
             "vorarbeit": "Ursache muss behoben sein",
@@ -84,9 +114,18 @@
             "ueberschrift": "Milch, Fleisch oder Getränke im Kofferraum",
             "text": "Ausgelaufene Flüssigkeit zieht durch die Kofferraumwanne in den Teppich und den Schaum darunter. Von oben abgewischt ist sie nur nach unten gewandert.",
             "reihenfolge": [
-                { "n": "01", "t": "Wanne raus, Teppich anheben, Quelle entfernen" },
-                { "n": "02", "t": "Betroffene Fläche extrahieren und trocknen" },
-                { "n": "03", "t": "Ozon-Durchlauf gegen den Rest" }
+                {
+                    "n": "01",
+                    "t": "Wanne raus, Teppich anheben, Quelle entfernen"
+                },
+                {
+                    "n": "02",
+                    "t": "Betroffene Fläche extrahieren und trocknen"
+                },
+                {
+                    "n": "03",
+                    "t": "Ozon-Durchlauf gegen den Rest"
+                }
             ],
             "sinnvoll": "ja, nach Extraktion",
             "vorarbeit": "zwingend",
@@ -100,9 +139,18 @@
             "ueberschrift": "Dann fangen wir mit der Diagnose an",
             "text": "Das ist häufiger, als man denkt — der eigenen Nase fällt der Geruch im eigenen Auto kaum noch auf. Wir gehen das Fahrzeug systematisch durch, bevor irgendein Gerät angeschlossen wird.",
             "reihenfolge": [
-                { "n": "01", "t": "Teppich, Wanne und Abläufe prüfen" },
-                { "n": "02", "t": "Lüftung und Klima im Betrieb riechen" },
-                { "n": "03", "t": "Erst danach entscheiden, was nötig ist" }
+                {
+                    "n": "01",
+                    "t": "Teppich, Wanne und Abläufe prüfen"
+                },
+                {
+                    "n": "02",
+                    "t": "Lüftung und Klima im Betrieb riechen"
+                },
+                {
+                    "n": "03",
+                    "t": "Erst danach entscheiden, was nötig ist"
+                }
             ],
             "sinnvoll": "nach Befund",
             "vorarbeit": "Diagnose zuerst",
@@ -110,7 +158,6 @@
             "rueckfall": "die Ursache nicht gefunden wurde. Deshalb suchen wir, statt zu behandeln."
         }
     ],
-
     "sperrzeit": {
         "kicker": "Ablauf und Sperrzeit",
         "titel": "Während der Behandlung steigt niemand ein.",
@@ -154,19 +201,29 @@
             }
         ]
     },
-
     "grenzen": {
         "kicker": "Was Ozon nicht kann",
         "titel": "Manchmal sagen wir ab.",
         "lead": "Eine Ozonbehandlung ist schnell verkauft und schnell gemacht. Wenn wir wissen, dass sie in Ihrem Fall nicht hält, sagen wir es vorher — es ist Ihr Geld.",
         "punkte": [
-            { "titel": "Schmutz entfernen",           "text": "Ozon löst keinen Fleck und keine Ablagerung. Was Geruch abgibt, muss physisch raus." },
-            { "titel": "Eine undichte Stelle finden",  "text": "Bei Feuchtigkeit im Fahrzeug behandeln wir sonst nur das Symptom. Erst muss die Ursache weg." },
-            { "titel": "Weiterrauchen ausgleichen",    "text": "Wenn im Fahrzeug weiter geraucht wird, ist der Geruch in wenigen Wochen zurück." },
-            { "titel": "Mobil beim Kunden",            "text": "Die Behandlung braucht ein gesperrtes Fahrzeug und kontrollierte Lüftung. Das geht nur in der Halle." }
+            {
+                "titel": "Schmutz entfernen",
+                "text": "Ozon löst keinen Fleck und keine Ablagerung. Was Geruch abgibt, muss physisch raus."
+            },
+            {
+                "titel": "Eine undichte Stelle finden",
+                "text": "Bei Feuchtigkeit im Fahrzeug behandeln wir sonst nur das Symptom. Erst muss die Ursache weg."
+            },
+            {
+                "titel": "Weiterrauchen ausgleichen",
+                "text": "Wenn im Fahrzeug weiter geraucht wird, ist der Geruch in wenigen Wochen zurück."
+            },
+            {
+                "titel": "Mobil beim Kunden",
+                "text": "Die Behandlung braucht ein gesperrtes Fahrzeug und kontrollierte Lüftung. Das geht nur in der Halle."
+            }
         ]
     },
-
     "beleg": {
         "_hinweis": "Ersetzt bewusst den Vorher/Nachher-Regler der anderen Leistungsseiten.",
         "bilder": [
@@ -189,14 +246,12 @@
         ],
         "hinweis": "Hier gibt es bewusst keinen Vorher/Nachher-Regler. Ein Geruch lässt sich nicht abbilden, und ein Bild von einem sauberen Innenraum beweist nichts über die Behandlung. Was Sie stattdessen bekommen: die Abnahme im Fahrzeug, mit offener Tür und ohne Duftbaum."
     },
-
     "preis": {
         "kicker": "Preis",
         "titel": "Festpreis für Reinigung und Behandlung zusammen.",
         "text": "Die Ozonbehandlung allein ist schnell gemacht. Den Aufwand bestimmt die Reinigung davor. Deshalb nennen wir einen Preis für beides — und keinen, der nachher um die eigentliche Arbeit ergänzt wird.",
         "cta": "Einschätzung anfragen"
     },
-
     "faq": {
         "kicker": "Häufige Fragen",
         "titel": "Was Kunden vorher wissen wollen",
@@ -220,15 +275,25 @@
             }
         ]
     },
-
     "verwandt": {
         "titel": "Passt oft dazu",
         "karten": [
-            { "slug": "fahrzeugpflege-interieur", "kicker": "02 · Interieur", "text": "Ohne gründliche Innenraumreinigung bringt Ozon nichts. Meistens Schritt eins." },
-            { "slug": "lederreparatur",           "kicker": "05 · Interieur", "text": "Rauchgeruch setzt sich auch im Leder fest — Reinigung und Rückfettung gehören dazu." },
-            { "slug": "fahrzeugpflege-exterieur", "kicker": "01 · Exterieur", "text": "Wenn das Fahrzeug ohnehin für einen Tag in der Halle steht." }
+            {
+                "slug": "fahrzeugpflege-interieur",
+                "kicker": "02 · Interieur",
+                "text": "Ohne gründliche Innenraumreinigung bringt Ozon nichts. Meistens Schritt eins."
+            },
+            {
+                "slug": "lederreparatur",
+                "kicker": "05 · Interieur",
+                "text": "Rauchgeruch setzt sich auch im Leder fest — Reinigung und Rückfettung gehören dazu."
+            },
+            {
+                "slug": "fahrzeugpflege-exterieur",
+                "kicker": "01 · Exterieur",
+                "text": "Wenn das Fahrzeug ohnehin für einen Tag in der Halle steht."
+            }
         ]
     },
-
     "cta_ueberschrift": "Geruch im Fahrzeug?"
 }

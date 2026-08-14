@@ -103,15 +103,39 @@ $angemeldet = auth_angemeldet();
       Fassung wird automatisch gesichert — es kann also nichts verloren gehen.
     </p>
 
-    <div class="kacheln">
-      <?php foreach ($schema as $name => $bereich): ?>
-      <a class="kachel" href="/admin/edit.php?bereich=<?= attr($name) ?>">
-        <span class="kachel-titel"><?= h($bereich['titel']) ?></span>
-        <span class="kachel-text"><?= h($bereich['beschreibung']) ?></span>
-        <span class="kachel-pfeil" aria-hidden="true">→</span>
-      </a>
-      <?php endforeach; ?>
-    </div>
+    <?php
+      /* Sechzehn Kacheln nebeneinander sind eine Wand. Deshalb nach Gruppen
+         sortiert — in der Reihenfolge, in der die Gruppen hier stehen, nicht
+         in der Reihenfolge der Schemadatei. */
+      $reihenfolge = ['Stammdaten', 'Startseite', 'Leistungen', 'Weitere Seiten', 'Rechtliches'];
+      $nachGruppe  = [];
+      foreach ($schema as $name => $bereich) {
+          $nachGruppe[$bereich['gruppe'] ?? 'Sonstiges'][$name] = $bereich;
+      }
+      $gruppen = [];
+      foreach ($reihenfolge as $g) {
+          if (isset($nachGruppe[$g])) {
+              $gruppen[$g] = $nachGruppe[$g];
+              unset($nachGruppe[$g]);
+          }
+      }
+      $gruppen += $nachGruppe;   // was keiner bekannten Gruppe angehoert, faellt hinten an
+    ?>
+
+    <?php foreach ($gruppen as $gruppenName => $bereiche): ?>
+    <section class="bereichsgruppe">
+      <h2><?= h($gruppenName) ?></h2>
+      <div class="kacheln">
+        <?php foreach ($bereiche as $name => $bereich): ?>
+        <a class="kachel" href="/admin/edit.php?bereich=<?= attr($name) ?>">
+          <span class="kachel-titel"><?= h($bereich['titel']) ?></span>
+          <span class="kachel-text"><?= h($bereich['beschreibung']) ?></span>
+          <span class="kachel-pfeil" aria-hidden="true">→</span>
+        </a>
+        <?php endforeach; ?>
+      </div>
+    </section>
+    <?php endforeach; ?>
 
     <section class="hilfe">
       <h2>Kurz erklärt</h2>

@@ -204,6 +204,27 @@ function wert_pruefen(array $feld, mixed $roh): array
             }
             return [$wert, null];
 
+        // Ein Textfeld, in dem eine Leerzeile einen neuen Absatz macht. Fuer
+        // die Rechtsseiten: der Kunde fuegt den Text aus dem Generator ein,
+        // gespeichert wird eine Liste von Absaetzen — so bleibt die Ausgabe
+        // ein <p> je Absatz, ohne dass jemand HTML eintippen muesste.
+        case 'absaetze':
+            if (mb_strlen((string) $wert) > 20000) {
+                return [null, 'Höchstens 20000 Zeichen.'];
+            }
+            $roh = preg_split('/\R\s*\R/', (string) $wert) ?: [];
+            $absaetze = [];
+            foreach ($roh as $absatz) {
+                // Einzelne Zeilenumbrueche innerhalb eines Absatzes werden zu
+                // Leerzeichen — sonst haengt der Umbruch aus dem Eingabefeld
+                // im gerenderten Text fest.
+                $absatz = trim(preg_replace('/\s*\R\s*/', ' ', $absatz) ?? '');
+                if ($absatz !== '') {
+                    $absaetze[] = $absatz;
+                }
+            }
+            return [$absaetze, null];
+
         default:
             return [$wert, null];
     }

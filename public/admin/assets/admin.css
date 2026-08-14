@@ -81,7 +81,14 @@ h2{margin:0 0 4px;font-size:19px;letter-spacing:-.01em}
 .vorspann{margin:0 0 34px;color:var(--grau-600);max-width:62ch}
 
 /* --- Kacheln der Übersicht ---------------------------------------------- */
-.kacheln{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:52px}
+/* Sechzehn Bereiche brauchen Ueberschriften, sonst ist es eine Wand. */
+.bereichsgruppe{margin-bottom:44px}
+.bereichsgruppe > h2{
+  margin:0 0 16px;font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--rot);
+  padding-bottom:10px;border-bottom:1px solid var(--grau-100);
+}
+.kacheln{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
 .kachel{
   position:relative;display:flex;flex-direction:column;gap:8px;
   background:#fff;border:1px solid var(--grau-100);padding:26px 28px 30px;

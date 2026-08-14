@@ -206,6 +206,12 @@ function feld_ausgeben(array $feld, mixed $wert, string $name, ?string $dateiNam
       <?php if ($feld['typ'] === 'mehrzeilig'): ?>
         <textarea id="<?= attr($id) ?>" name="<?= attr($name) ?>" rows="4"><?= h((string) $wert) ?></textarea>
 
+      <?php elseif ($feld['typ'] === 'absaetze'): ?>
+        <?php /* Gespeichert ist eine Liste von Absaetzen, bearbeitet wird ein
+                Textfeld — mit einer Leerzeile zwischen den Absaetzen. */ ?>
+        <textarea id="<?= attr($id) ?>" name="<?= attr($name) ?>" rows="10"><?= h(implode("\n\n", (array) ($wert ?? []))) ?></textarea>
+        <p class="feld-hilfe">Für einen neuen Absatz eine Leerzeile einfügen.</p>
+
       <?php elseif ($feld['typ'] === 'zahl'): ?>
         <input type="number" step="any" id="<?= attr($id) ?>" name="<?= attr($name) ?>" value="<?= attr((string) $wert) ?>">
 
