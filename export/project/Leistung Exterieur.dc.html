@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#0A0B0D;font-family:Barlow,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:#D80D18;text-decoration:none}
+  a:hover{color:#F2323C}
+  p{text-wrap:pretty}
+  ::selection{background:#D80D18;color:#fff}
+</style>
+</helmet>
+
+<div style="background:#0A0B0D;color:#fff;min-width:1280px">
+<dc-import name="Seitenkopf" active="leistungen" hint-size="100%,120px"></dc-import>
+
+<section data-screen-label="Hero Exterieur" style="position:relative;background:#0A0B0D;overflow:hidden">
+  <div style="position:absolute;right:0;top:0;bottom:0;width:50%">
+    <image-slot id="ext-hero" shape="rect" fit="cover" placeholder="Politur unter der Lichtleiste, Reflexion auf dunklem Lack"></image-slot>
+  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,#0A0B0D 40%,rgba(10,11,13,.86) 56%,rgba(10,11,13,.15) 88%)"></div>
+  <div style="position:absolute;left:0;top:0;bottom:0;width:5px;background:#D80D18"></div>
+  <div style="position:relative;max-width:1440px;margin:0 auto;padding:70px 64px 84px">
+    <div style="display:flex;align-items:center;gap:10px;font:500 13px/1 Barlow,sans-serif;color:#7C838D;margin-bottom:38px">
+      <a href="./Reutter Website.dc.html" style="color:#7C838D" style-hover="color:#fff">Startseite</a>
+      <span style="color:#4E555E">/</span>
+      <a href="./Leistungen.dc.html" style="color:#7C838D" style-hover="color:#fff">Leistungen</a>
+      <span style="color:#4E555E">/</span>
+      <span style="color:#D6DAE0">Exterieur</span>
+    </div>
+    <div style="max-width:720px">
+      <div style="display:flex;align-items:center;gap:11px;margin-bottom:22px">
+        <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+        <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Leistung 01 · Exterieur</span>
+      </div>
+      <h1 style="margin:0 0 24px;font-family:Saira,sans-serif;font-weight:800;font-size:66px;line-height:.98;letter-spacing:-.035em;color:#fff">Klarlack ist endlich. Wir gehen damit entsprechend um.</h1>
+      <p style="margin:0 0 38px;max-width:600px;font:400 18px/1.68 Barlow,sans-serif;color:#B4BAC2">Zwischen Ihrer Farbe und der Witterung liegen rund vierzig Mikrometer. Jede Politur nimmt davon etwas weg. Deshalb messen wir vorher und arbeiten nur so aggressiv, wie es der Zustand verlangt.</p>
+      <div style="display:flex;align-items:center;gap:16px">
+        <a href="#anfrage" style="display:flex;align-items:center;gap:12px;background:#D80D18;color:#fff;padding:19px 30px;font:700 14.5px/1 Saira,sans-serif;letter-spacing:.08em;text-transform:uppercase;clip-path:polygon(11px 0,100% 0,100% calc(100% - 11px),calc(100% - 11px) 100%,0 100%,0 11px);box-shadow:0 18px 44px -18px rgba(216,13,24,.75)" style-hover="background:#F2323C">Termin anfragen <span style="font-size:17px;line-height:1">→</span></a>
+        <a href="tel:+4971182859400" style="display:flex;align-items:center;gap:12px;color:#fff;padding:19px 28px;font:700 14.5px/1 Saira,sans-serif;letter-spacing:.06em;border:1px solid rgba(255,255,255,.22)" style-hover="border-color:#fff;background:rgba(255,255,255,.08)">07 11 / 82 85 940</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Querschnitt" style="background:#F5F6F8;padding:96px 0 100px;border-top:5px solid #D80D18">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:60px;margin-bottom:46px">
+      <div style="max-width:680px">
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:20px">
+          <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+          <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Der Aufbau Ihres Lacks</span>
+        </div>
+        <h2 style="margin:0;font-family:Saira,sans-serif;font-weight:800;font-size:46px;line-height:1.02;letter-spacing:-.03em;color:#0A0B0D">Wie viel darf weg — und wovon eigentlich?</h2>
+      </div>
+      <p style="margin:0;max-width:360px;font:400 16px/1.62 Barlow,sans-serif;color:#61686F">Wählen Sie eine Politurstufe. Der Schnitt zeigt, wie tief wir arbeiten und was das an Klarlack kostet.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:56px;align-items:start">
+      <div>
+        <div style="display:flex;gap:0;margin-bottom:28px;border:1px solid rgba(10,11,13,.15)">
+          <sc-for list="{{ stages }}" as="st" hint-placeholder-count="3">
+            <button onClick="{{ st.pick }}" style="flex:1;cursor:pointer;background:{{ st.bg }};border:0;border-right:1px solid rgba(10,11,13,.12);padding:18px 20px;text-align:left;transition:background .18s">
+              <span style="display:block;font:700 15px/1.2 Saira,sans-serif;letter-spacing:.01em;color:{{ st.titleColor }}">{{ st.name }}</span>
+              <span style="display:block;margin-top:5px;font:500 13px/1.3 Barlow,sans-serif;color:{{ st.subColor }}">{{ st.sub }}</span>
+            </button>
+          </sc-for>
+        </div>
+
+        <div style="position:relative;background:#0A0B0D;padding:34px 36px 30px;border:1px solid rgba(10,11,13,.12)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px">
+            <span style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#7C838D">Querschnitt, schematisch</span>
+            <span style="font:600 13px/1 Barlow,sans-serif;color:#D80D18">Abtrag {{ stage.removal }}</span>
+          </div>
+          <div style="position:relative;display:flex;flex-direction:column;gap:3px">
+            <div style="position:relative;height:{{ stage.clearHeight }}px;background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.06));border:1px solid rgba(255,255,255,.28);display:flex;align-items:center;padding:0 18px;transition:height .35s cubic-bezier(.2,.7,.2,1)">
+              <span style="font:600 13px/1 Barlow,sans-serif;letter-spacing:.04em;color:#fff">Klarlack</span>
+              <span style="margin-left:auto;font:500 12.5px/1 Barlow,sans-serif;color:#AFB5BD">{{ stage.clearLabel }}</span>
+              <span style="position:absolute;left:0;right:0;top:0;height:{{ stage.cutHeight }}px;background:repeating-linear-gradient(-45deg,rgba(216,13,24,.55) 0 6px,rgba(216,13,24,.2) 6px 12px);border-bottom:2px solid #D80D18;transition:height .35s cubic-bezier(.2,.7,.2,1)"></span>
+            </div>
+            <div style="height:44px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;padding:0 18px">
+              <span style="font:600 13px/1 Barlow,sans-serif;letter-spacing:.04em;color:#D6DAE0">Basislack — Ihre Farbe</span>
+              <span style="margin-left:auto;font:500 12.5px/1 Barlow,sans-serif;color:#7C838D">wird nie angefasst</span>
+            </div>
+            <div style="height:34px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;padding:0 18px">
+              <span style="font:600 13px/1 Barlow,sans-serif;letter-spacing:.04em;color:#8E959F">Füller / Grundierung</span>
+            </div>
+            <div style="height:26px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;padding:0 18px">
+              <span style="font:600 13px/1 Barlow,sans-serif;letter-spacing:.04em;color:#5C636D">Blech</span>
+            </div>
+          </div>
+          <p style="margin:22px 0 0;font:400 15px/1.6 Barlow,sans-serif;color:#8E959F">Die rot schraffierte Zone ist das, was bei dieser Stufe abgetragen wird. Sie kommt nicht zurück — deshalb ist die Messung vorher keine Formalität.</p>
+        </div>
+      </div>
+
+      <div style="background:#fff;border:1px solid rgba(10,11,13,.12);padding:34px 32px">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:16px">{{ stage.name }}</div>
+        <h3 style="margin:0 0 14px;font:700 26px/1.18 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">{{ stage.headline }}</h3>
+        <p style="margin:0 0 24px;font:400 16.5px/1.65 Barlow,sans-serif;color:#61686F">{{ stage.text }}</p>
+        <div style="border-top:1px solid rgba(10,11,13,.13)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+            <span style="font:500 14.5px/1 Barlow,sans-serif;color:#7C838D">Dagegen wirksam</span>
+            <span style="font:600 14.5px/1 Barlow,sans-serif;color:#0A0B0D">{{ stage.against }}</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+            <span style="font:500 14.5px/1 Barlow,sans-serif;color:#7C838D">Zeit</span>
+            <span style="font:600 14.5px/1 Barlow,sans-serif;color:#0A0B0D">{{ stage.time }}</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+            <span style="font:500 14.5px/1 Barlow,sans-serif;color:#7C838D">Wiederholbar</span>
+            <span style="font:600 14.5px/1 Barlow,sans-serif;color:#0A0B0D">{{ stage.repeat }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Schutzschicht" style="background:#fff;padding:92px 0 96px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:64px;align-items:start">
+      <div>
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:20px">
+          <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+          <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Danach</span>
+        </div>
+        <h2 style="margin:0 0 18px;font-family:Saira,sans-serif;font-weight:800;font-size:40px;line-height:1.04;letter-spacing:-.03em;color:#0A0B0D">Ohne Schutzschicht war die Politur ein Zwischenschritt.</h2>
+        <p style="margin:0;font:400 16.5px/1.65 Barlow,sans-serif;color:#61686F">Welche Variante sinnvoll ist, hängt nicht vom Preis ab, sondern davon, wo das Fahrzeug steht und wie es gewaschen wird. Wir sagen es Ihnen beim Ansehen.</p>
+      </div>
+      <div>
+        <div style="display:grid;grid-template-columns:minmax(0,1.1fr) repeat(3,minmax(0,1fr));border:1px solid rgba(10,11,13,.13);border-bottom:0">
+          <div style="padding:16px 18px;background:#0A0B0D;font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7C838D">Kriterium</div>
+          <div style="padding:16px 18px;background:#0A0B0D;font:700 14px/1 Saira,sans-serif;letter-spacing:.03em;color:#fff">Wachs</div>
+          <div style="padding:16px 18px;background:#0A0B0D;font:700 14px/1 Saira,sans-serif;letter-spacing:.03em;color:#fff">Versiegelung</div>
+          <div style="padding:16px 18px;background:#D80D18;font:700 14px/1 Saira,sans-serif;letter-spacing:.03em;color:#fff">Keramik</div>
+        </div>
+        <sc-for list="{{ protection }}" as="p" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:minmax(0,1.1fr) repeat(3,minmax(0,1fr));border:1px solid rgba(10,11,13,.13);border-top:0;background:{{ p.rowBg }}">
+            <div style="padding:16px 18px;font:600 14.5px/1.35 Barlow,sans-serif;color:#0A0B0D;border-right:1px solid rgba(10,11,13,.1)">{{ p.label }}</div>
+            <div style="padding:16px 18px;font:400 14.5px/1.4 Barlow,sans-serif;color:#61686F;border-right:1px solid rgba(10,11,13,.1)">{{ p.wax }}</div>
+            <div style="padding:16px 18px;font:400 14.5px/1.4 Barlow,sans-serif;color:#61686F;border-right:1px solid rgba(10,11,13,.1)">{{ p.seal }}</div>
+            <div style="padding:16px 18px;font:500 14.5px/1.4 Barlow,sans-serif;color:#0A0B0D">{{ p.cer }}</div>
+          </div>
+        </sc-for>
+        <p style="margin:18px 0 0;font:400 14.5px/1.6 Barlow,sans-serif;color:#7C838D">Kein Schutz ersetzt die richtige Wäsche. Wer nach der Keramikbeschichtung wieder in die Waschstraße fährt, hat in einem Jahr dieselben Kratzer wie vorher.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Vorher Nachher" style="background:#0A0B0D;padding:92px 0 96px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:60px;margin-bottom:38px">
+      <div>
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:20px">
+          <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+          <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Vorher / Nachher</span>
+        </div>
+        <h2 style="margin:0;max-width:720px;font-family:Saira,sans-serif;font-weight:800;font-size:46px;line-height:1.02;letter-spacing:-.03em;color:#fff">Zweistufig poliert, danach versiegelt.</h2>
+      </div>
+      <p style="margin:0;max-width:330px;font:400 15.5px/1.6 Barlow,sans-serif;color:#8E959F">Streiflicht ist der einzige ehrliche Prüfstand. Ziehen Sie den Regler.</p>
+    </div>
+    <div ref="{{ baRef }}" onPointerDown="{{ baDown }}" style="position:relative;width:100%;height:580px;overflow:hidden;cursor:ew-resize;border:1px solid rgba(255,255,255,.14);user-select:none;touch-action:none">
+      <div style="position:absolute;inset:0"><image-slot id="ext-before" shape="rect" fit="cover" placeholder="VORHER — Waschkratzer im Streiflicht"></image-slot></div>
+      <div style="position:absolute;inset:0;clip-path:inset(0 0 0 {{ ba }}%)"><image-slot id="ext-after" shape="rect" fit="cover" placeholder="NACHHER — klare Reflexion"></image-slot></div>
+      <div style="position:absolute;top:0;bottom:0;left:{{ ba }}%;width:2px;background:#D80D18;pointer-events:none;box-shadow:0 0 0 1px rgba(0,0,0,.4),0 0 40px rgba(216,13,24,.5)">
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:#D80D18;display:flex;align-items:center;justify-content:center;gap:6px;clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px)">
+          <span style="color:#fff;font-size:15px;line-height:1">←</span><span style="color:#fff;font-size:15px;line-height:1">→</span>
+        </div>
+      </div>
+      <div style="position:absolute;left:26px;top:24px;padding:9px 16px;background:rgba(10,11,13,.8);border:1px solid rgba(255,255,255,.16);font:700 11.5px/1 Saira,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#fff;pointer-events:none">Vorher</div>
+      <div style="position:absolute;right:26px;top:24px;padding:9px 16px;background:#D80D18;font:700 11.5px/1 Saira,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#fff;pointer-events:none">Nachher</div>
+    </div>
+    <p style="margin:20px 0 0;font:500 13.5px/1.5 Barlow,sans-serif;color:#7C838D">Mehr Arbeiten in der <a href="./Galerie.dc.html" style="color:#D6DAE0;border-bottom:1px solid rgba(255,255,255,.3)">Galerie</a>.</p>
+  </div>
+</section>
+
+<section data-screen-label="Preis und FAQ" style="background:#F5F6F8;padding:92px 0 100px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="background:#0A0B0D;padding:44px 46px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center;margin-bottom:76px">
+      <div>
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#D80D18;margin-bottom:14px">Preis</div>
+        <h2 style="margin:0 0 12px;font-family:Saira,sans-serif;font-weight:800;font-size:34px;line-height:1.06;letter-spacing:-.028em;color:#fff">Festpreis nach Testfläche, nicht nach Fahrzeugklasse.</h2>
+        <p style="margin:0;max-width:760px;font:400 16.5px/1.62 Barlow,sans-serif;color:#AFB5BD">Zwei Fahrzeuge derselben Baureihe können unterschiedlich viel Arbeit bedeuten — der eine Lack ist hart, der andere weich, einer stand in der Garage, der andere fünf Jahre draußen. Wir legen eine Testfläche an, sehen was nötig ist, und nennen dann einen Preis, der steht.</p>
+      </div>
+      <a href="#anfrage" style="display:flex;align-items:center;justify-content:center;gap:11px;background:#D80D18;color:#fff;padding:19px 30px;font:700 14px/1 Saira,sans-serif;letter-spacing:.08em;text-transform:uppercase;flex:none;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)" style-hover="background:#F2323C">Einschätzung anfragen</a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:70px;align-items:start">
+      <div>
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:20px">
+          <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+          <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Häufige Fragen</span>
+        </div>
+        <h2 style="margin:0 0 18px;font-family:Saira,sans-serif;font-weight:800;font-size:40px;line-height:1.04;letter-spacing:-.03em;color:#0A0B0D">Was Kunden vorher wissen wollen</h2>
+        <p style="margin:0;font:400 16px/1.65 Barlow,sans-serif;color:#61686F">Steht Ihre Frage nicht dabei: <a href="tel:+4971182859400" style="color:#0A0B0D;border-bottom:1px solid rgba(10,11,13,.25)">07 11 / 82 85 940</a></p>
+      </div>
+      <div style="border-top:1px solid rgba(10,11,13,.14)">
+        <div style="border-bottom:1px solid rgba(10,11,13,.14)">
+          <button onClick="{{ q1Toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;background:transparent;border:0;padding:26px 0;cursor:pointer;text-align:left">
+            <span style="font:700 20px/1.3 Saira,sans-serif;letter-spacing:-.015em;color:{{ q1Color }}">Wie oft kann ein Lack poliert werden?</span>
+            <span style="font:400 24px/1 Barlow,sans-serif;color:#D80D18;flex:none">{{ q1Sign }}</span>
+          </button>
+          <p style="display:{{ q1Show }};margin:0;padding:0 60px 28px 0;font:400 16.5px/1.7 Barlow,sans-serif;color:#61686F">Bei einem gesunden Werkslack sind mehrere Korrekturpolituren über die Lebensdauer unproblematisch. Entscheidend ist nicht die Anzahl, sondern was noch da ist: Wir messen an mehreren Stellen pro Bauteil und sagen Ihnen, ob wir voll oder nur schonend arbeiten können.</p>
+        </div>
+        <div style="border-bottom:1px solid rgba(10,11,13,.14)">
+          <button onClick="{{ q2Toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;background:transparent;border:0;padding:26px 0;cursor:pointer;text-align:left">
+            <span style="font:700 20px/1.3 Saira,sans-serif;letter-spacing:-.015em;color:{{ q2Color }}">Verschwindet jeder Kratzer?</span>
+            <span style="font:400 24px/1 Barlow,sans-serif;color:#D80D18;flex:none">{{ q2Sign }}</span>
+          </button>
+          <p style="display:{{ q2Show }};margin:0;padding:0 60px 28px 0;font:400 16.5px/1.7 Barlow,sans-serif;color:#61686F">Alles, was im Klarlack liegt, bekommen wir raus. Bleiben Sie mit dem Fingernagel im Kratzer hängen, geht er tiefer — dann ist es ein Fall für <a href="./Leistung Lackierarbeiten.dc.html" style="color:#0A0B0D;border-bottom:1px solid rgba(10,11,13,.25)">Lackierarbeiten</a>. Wir sagen Ihnen vor dem Start, was bleibt.</p>
+        </div>
+        <div style="border-bottom:1px solid rgba(10,11,13,.14)">
+          <button onClick="{{ q3Toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;background:transparent;border:0;padding:26px 0;cursor:pointer;text-align:left">
+            <span style="font:700 20px/1.3 Saira,sans-serif;letter-spacing:-.015em;color:{{ q3Color }}">Muss ich das Auto vorher waschen?</span>
+            <span style="font:400 24px/1 Barlow,sans-serif;color:#D80D18;flex:none">{{ q3Sign }}</span>
+          </button>
+          <p style="display:{{ q3Show }};margin:0;padding:0 60px 28px 0;font:400 16.5px/1.7 Barlow,sans-serif;color:#61686F">Nein. Wäsche und Dekontamination gehören zur Arbeit und werden so gemacht, dass keine neuen Kratzer entstehen. Hilfreich ist nur: Räumen Sie den Innenraum aus, wenn innen mitgearbeitet werden soll.</p>
+        </div>
+        <div style="border-bottom:1px solid rgba(10,11,13,.14)">
+          <button onClick="{{ q4Toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;background:transparent;border:0;padding:26px 0;cursor:pointer;text-align:left">
+            <span style="font:700 20px/1.3 Saira,sans-serif;letter-spacing:-.015em;color:{{ q4Color }}">Geht Politur auch bei mir vor Ort?</span>
+            <span style="font:400 24px/1 Barlow,sans-serif;color:#D80D18;flex:none">{{ q4Sign }}</span>
+          </button>
+          <p style="display:{{ q4Show }};margin:0;padding:0 60px 28px 0;font:400 16.5px/1.7 Barlow,sans-serif;color:#61686F">Ja, wenn Strom und ein überdachter oder windstiller Platz vorhanden sind. Was mobil nicht geht: die Kontrolle unter unserer Lichtleiste. Bei anspruchsvollen dunklen Lacken empfehlen wir deshalb die Halle.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="anfrage" data-screen-label="Verwandte Leistungen" style="background:#fff;padding:90px 0 96px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <h2 style="margin:0 0 32px;font-family:Saira,sans-serif;font-weight:800;font-size:34px;letter-spacing:-.025em;color:#0A0B0D">Passt oft dazu</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <a href="./Leistung Dellen.dc.html" style="display:block;border:1px solid rgba(10,11,13,.12);padding:30px 28px;text-decoration:none" style-hover="border-color:#D80D18">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:14px">03 · Karosserie</div>
+        <div style="font:700 22px/1.2 Saira,sans-serif;letter-spacing:-.02em;color:#0A0B0D;margin-bottom:10px">Dellen &amp; Hagelschaden</div>
+        <div style="font:400 15.5px/1.55 Barlow,sans-serif;color:#61686F">Nach der Politur sieht man Dellen erst richtig. Beides zusammen spart einen Termin.</div>
+      </a>
+      <a href="./Leistung Lackierarbeiten.dc.html" style="display:block;border:1px solid rgba(10,11,13,.12);padding:30px 28px;text-decoration:none" style-hover="border-color:#D80D18">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:14px">04 · Lack</div>
+        <div style="font:700 22px/1.2 Saira,sans-serif;letter-spacing:-.02em;color:#0A0B0D;margin-bottom:10px">Lackierarbeiten</div>
+        <div style="font:400 15.5px/1.55 Barlow,sans-serif;color:#61686F">Für alles, was tiefer als der Klarlack ist: Steinschläge, Schrammen, Abplatzer.</div>
+      </a>
+      <a href="./Leistung Interieur.dc.html" style="display:block;border:1px solid rgba(10,11,13,.12);padding:30px 28px;text-decoration:none" style-hover="border-color:#D80D18">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:14px">02 · Interieur</div>
+        <div style="font:700 22px/1.2 Saira,sans-serif;letter-spacing:-.02em;color:#0A0B0D;margin-bottom:10px">Fahrzeugpflege Interieur</div>
+        <div style="font:400 15.5px/1.55 Barlow,sans-serif;color:#61686F">Außen frisch, innen alt — das fällt sofort auf. Meist am selben Tag machbar.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<dc-import name="Seitenfuss" ctaHeadline="Lack aufbereiten lassen?" hint-size="100%,1400px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const STAGES = [
+  { name: 'Einstufig', sub: 'Auffrischen', removal: 'minimal', clearHeight: 92, cutHeight: 8,
+    clearLabel: 'ca. 40 µm', headline: 'Glanz zurück, ohne Material zu verlieren',
+    text: 'Eine Finish-Politur legt den vorhandenen Lack frei und gibt ihm die Tiefe zurück. Feine Kratzer werden weicher, verschwinden aber nicht ganz. Die richtige Wahl bei jungen oder gepflegten Fahrzeugen.',
+    against: 'Stumpfheit, leichte Schleier', time: 'ein halber Tag', repeat: 'unbegrenzt' },
+  { name: 'Zweistufig', sub: 'Der Regelfall', removal: 'gering', clearHeight: 92, cutHeight: 20,
+    clearLabel: 'ca. 40 µm', headline: 'Waschkratzer raus, danach Finish',
+    text: 'Erst wird mit einer schneidenden Politur korrigiert, danach mit einer Finish-Politur nachgearbeitet. Ohne den zweiten Durchgang bleiben Hologramme, die man auf dunklem Lack in der Sonne sofort sieht.',
+    against: 'Waschkratzer, Hologramme', time: 'ein Tag', repeat: 'mehrfach möglich' },
+  { name: 'Dreistufig', sub: 'Nur wenn nötig', removal: 'deutlich', clearHeight: 92, cutHeight: 34,
+    clearLabel: 'ca. 40 µm', headline: 'Für harte Lacke und tiefe Spuren',
+    text: 'Mit Schleifschritt vorweg. Das machen wir nur, wenn die Messung genug Material zeigt und der Zustand es verlangt — etwa bei stark verwitterten Fahrzeugen. Danach ist deutlich weniger Reserve übrig.',
+    against: 'tiefe Kratzer, Verwitterung', time: 'ein bis zwei Tage', repeat: 'begrenzt' }
+];
+
+const PROTECTION = [
+  { label: 'Haltbarkeit', wax: 'Wochen bis Monate', seal: 'mehrere Monate', cer: 'ein bis mehrere Jahre' },
+  { label: 'Aufwand', wax: 'gering', seal: 'mittel', cer: 'hoch, Halle nötig' },
+  { label: 'Erneuerbar', wax: 'jederzeit selbst', seal: 'nach Saison', cer: 'nur professionell' },
+  { label: 'Sinnvoll bei', wax: 'Garagenfahrzeug', seal: 'Alltagsfahrzeug', cer: 'ganzjährig draußen' },
+  { label: 'Wäsche danach', wax: 'nur von Hand', seal: 'nur von Hand', cer: 'von Hand, geht leichter' }
+];
+
+class Component extends DCLogic {
+  state = { ba: null, drag: false, faq: 1, stage: 1 };
+  baRef = React.createRef();
+  componentDidMount() {
+    this._m = e => { if (this.state.drag) { e.preventDefault(); this.setBA(e.clientX); } };
+    this._u = () => { if (this.state.drag) this.setState({ drag: false }); };
+    window.addEventListener('pointermove', this._m, { passive: false });
+    window.addEventListener('pointerup', this._u);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('pointermove', this._m);
+    window.removeEventListener('pointerup', this._u);
+  }
+  setBA(x) {
+    const el = this.baRef.current; if (!el) return;
+    const r = el.getBoundingClientRect();
+    this.setState({ ba: Math.max(1.5, Math.min(98.5, ((x - r.left) / r.width) * 100)) });
+  }
+  renderVals() {
+    const si = this.state.stage;
+    const v = {
+      ba: this.state.ba === null ? 50 : this.state.ba,
+      baRef: this.baRef,
+      baDown: e => { this.setState({ drag: true }); this.setBA(e.clientX); },
+      stage: STAGES[si],
+      stages: STAGES.map((s, i) => ({
+        name: s.name, sub: s.sub,
+        bg: i === si ? '#0A0B0D' : '#fff',
+        titleColor: i === si ? '#fff' : '#0A0B0D',
+        subColor: i === si ? '#8E959F' : '#7C838D',
+        pick: () => this.setState({ stage: i })
+      })),
+      protection: PROTECTION.map((p, i) => Object.assign({}, p, { rowBg: i % 2 ? '#FAFAFB' : '#fff' }))
+    };
+    for (let n = 1; n <= 4; n++) {
+      const on = this.state.faq === n;
+      v['q' + n + 'Show'] = on ? 'block' : 'none';
+      v['q' + n + 'Sign'] = on ? '−' : '+';
+      v['q' + n + 'Color'] = on ? '#0A0B0D' : '#2B3038';
+      v['q' + n + 'Toggle'] = (i => () => this.setState(s => ({ faq: s.faq === i ? 0 : i })))(n);
+    }
+    return v;
+  }
+}
+</script>
+</body>
+</html>

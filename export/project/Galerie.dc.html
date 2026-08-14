@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#0A0B0D;font-family:Barlow,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:#D80D18;text-decoration:none}
+  a:hover{color:#F2323C}
+  p{text-wrap:pretty}
+  ::selection{background:#D80D18;color:#fff}
+</style>
+</helmet>
+
+<div style="background:#0A0B0D;color:#fff;min-width:1280px">
+<dc-import name="Seitenkopf" active="galerie" hint-size="100%,120px"></dc-import>
+
+<section data-screen-label="Galerie Hero" style="position:relative;background:#0A0B0D;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.1)">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:5px;background:#D80D18"></div>
+  <div style="position:relative;max-width:1440px;margin:0 auto;padding:70px 64px 72px">
+    <div style="display:flex;align-items:center;gap:10px;font:500 13px/1 Barlow,sans-serif;color:#7C838D;margin-bottom:36px">
+      <a href="./Reutter Website.dc.html" style="color:#7C838D" style-hover="color:#fff">Startseite</a>
+      <span style="color:#4E555E">/</span>
+      <span style="color:#D6DAE0">Galerie</span>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:70px;align-items:end">
+      <div>
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:22px">
+          <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+          <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Galerie</span>
+        </div>
+        <h1 style="margin:0 0 22px;max-width:880px;font-family:Saira,sans-serif;font-weight:800;font-size:66px;line-height:.98;letter-spacing:-.035em;color:#fff">Arbeiten aus der Halle. Ohne Filter, ohne Rendering.</h1>
+        <p style="margin:0;max-width:640px;font:400 18px/1.68 Barlow,sans-serif;color:#B4BAC2">Alle Aufnahmen stammen aus eigenen Aufträgen. Vorher und Nachher immer aus derselben Perspektive und im selben Licht — sonst kann man es sich sparen.</p>
+      </div>
+      <div style="border-left:1px solid rgba(255,255,255,.14);padding-left:32px">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7C838D;margin-bottom:14px">Ihr Fahrzeug soll hier stehen?</div>
+        <a href="./Kontakt.dc.html" style="display:flex;align-items:center;gap:11px;background:#D80D18;color:#fff;padding:17px 26px;font:700 13.5px/1 Saira,sans-serif;letter-spacing:.08em;text-transform:uppercase;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)" style-hover="background:#F2323C">Termin anfragen <span style="font-size:16px;line-height:1">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Fallstudien" style="background:#0A0B0D;padding:88px 0 96px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:44px">
+      <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Drei Aufträge im Detail</span>
+      <span style="flex:1;height:1px;background:rgba(255,255,255,.14)"></span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:48px;align-items:center;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:56px">
+      <div ref="{{ ba0Ref }}" onPointerDown="{{ ba0Down }}" style="position:relative;width:100%;height:520px;overflow:hidden;cursor:ew-resize;border:1px solid rgba(255,255,255,.14);user-select:none;touch-action:none">
+        <div style="position:absolute;inset:0"><image-slot id="gal-case1-before" shape="rect" fit="cover" placeholder="VORHER — Hagelschaden auf dem Dach"></image-slot></div>
+        <div style="position:absolute;inset:0;clip-path:inset(0 0 0 {{ ba0 }}%)"><image-slot id="gal-case1-after" shape="rect" fit="cover" placeholder="NACHHER — Dach gedrückt"></image-slot></div>
+        <div style="position:absolute;top:0;bottom:0;left:{{ ba0 }}%;width:2px;background:#D80D18;pointer-events:none;box-shadow:0 0 0 1px rgba(0,0,0,.4),0 0 40px rgba(216,13,24,.5)">
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;background:#D80D18;display:flex;align-items:center;justify-content:center;gap:5px;clip-path:polygon(13px 0,100% 0,100% calc(100% - 13px),calc(100% - 13px) 100%,0 100%,0 13px)">
+            <span style="color:#fff;font-size:14px;line-height:1">←</span><span style="color:#fff;font-size:14px;line-height:1">→</span>
+          </div>
+        </div>
+        <div style="position:absolute;left:24px;top:22px;padding:8px 14px;background:rgba(10,11,13,.8);border:1px solid rgba(255,255,255,.16);font:700 11px/1 Saira,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#fff;pointer-events:none">Vorher</div>
+        <div style="position:absolute;right:24px;top:22px;padding:8px 14px;background:#D80D18;font:700 11px/1 Saira,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#fff;pointer-events:none">Nachher</div>
+      </div>
+      <div>
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:16px">Fall 01 · Dellen &amp; Hagel</div>
+        <h2 style="margin:0 0 16px;font-family:Saira,sans-serif;font-weight:800;font-size:34px;line-height:1.06;letter-spacing:-.028em;color:#fff">Hagelschaden auf Dach und Motorhaube</h2>
+        <p style="margin:0 0 24px;font:400 16.5px/1.65 Barlow,sans-serif;color:#AFB5BD">Über vierzig Dellen, das Fahrzeug stand im Freien. Himmel und Verkleidungen mussten raus, gedrückt wurde von innen. Es wurde nichts gespachtelt und nichts lackiert.</p>
+        <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,.13)">
+          <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.13)"><span style="font:500 14.5px/1 Barlow,sans-serif;color:#7C838D">Dauer</span><span style="font:600 14.5px/1 Barlow,sans-serif;color:#D6DAE0">3 Tage</span></div>
+          <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.13)"><span style="font:500 14.5px/1 Barlow,sans-serif;color:#7C838D">Verfahren</span><span style="font:600 14.5px/1 Barlow,sans-serif;color:#D6DAE0">Drücken von innen</span></div>
+          <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.13)"><span style="font:500 14.5px/1 Barlow,sans-serif;color:#7C838D">Lack</span><span style="font:600 14.5px/1 Barlow,sans-serif;color:#D6DAE0">Original erhalten</span></div>
+        </div>
+        <a href="./Leistung Dellen.dc.html" style="display:inline-flex;align-items:center;gap:10px;margin-top:24px;font:600 14.5px/1 Barlow,sans-serif;color:#D6DAE0;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:5px" style-hover="color:#fff;border-color:#D80D18">Zur Leistung →</a>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:48px;align-items:center;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:56px">
+      <div>
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:16px">Fall 02 · Exterieur</div>
+        <h2 style="margin:0 0 16px;font-family:Saira,sans-serif;font-weight:800;font-size:34px;line-height:1.06;letter-spacing:-.028em;color:#fff">Waschkratzer über die ganze Flanke</h2>
+        <p style="margin:0 0 24px;font:400 16.5px/1.65 Barlow,sans-serif;color:#AFB5BD">Schwarzer Metalliclack, jahrelang durch die Waschstraße. Lackdicke gemessen, Testfläche angelegt, danach zweistufig poliert und versiegelt.</p>
+        <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,.13)">
+          <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.13)"><span style="font:500 14.5px/1 Barlow,sans-serif;color:#7C838D">Dauer</span><span style="font:600 14.5px/1 Barlow,sans-serif;color:#D6DAE0">1 Tag</span></div>
+          <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.13)"><span style="font:500 14.5px/1 Barlow,sans-serif;color:#7C838D">Verfahren</span><span style="font:600 14.5px/1 Barlow,sans-serif;color:#D6DAE0">Politur, zweistufig</span></div>
+          <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.13)"><span style="font:500 14.5px/1 Barlow,sans-serif;color:#7C838D">Abschluss</span><span style="font:600 14.5px/1 Barlow,sans-serif;color:#D6DAE0">Versiegelung</span></div>
+        </div>
+        <a href="./Leistung Exterieur.dc.html" style="display:inline-flex;align-items:center;gap:10px;margin-top:24px;font:600 14.5px/1 Barlow,sans-serif;color:#D6DAE0;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:5px" style-hover="color:#fff;border-color:#D80D18">Zur Leistung →</a>
+      </div>
+      <div ref="{{ ba1Ref }}" onPointerDown="{{ ba1Down }}" style="position:relative;width:100%;height:520px;overflow:hidden;cursor:ew-resize;border:1px solid rgba(255,255,255,.14);user-select:none;touch-action:none">
+        <div style="position:absolute;inset:0"><image-slot id="gal-case2-before" shape="rect" fit="cover" placeholder="VORHER — Waschkratzer im Streiflicht"></image-slot></div>
+        <div style="position:absolute;inset:0;clip-path:inset(0 0 0 {{ ba1 }}%)"><image-slot id="gal-case2-after" shape="rect" fit="cover" placeholder="NACHHER — klare Reflexion"></image-slot></div>
+        <div style="position:absolute;top:0;bottom:0;left:{{ ba1 }}%;width:2px;background:#D80D18;pointer-events:none;box-shadow:0 0 0 1px rgba(0,0,0,.4),0 0 40px rgba(216,13,24,.5)">
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;background:#D80D18;display:flex;align-items:center;justify-content:center;gap:5px;clip-path:polygon(13px 0,100% 0,100% calc(100% - 13px),calc(100% - 13px) 100%,0 100%,0 13px)">
+            <span style="color:#fff;font-size:14px;line-height:1">←</span><span style="color:#fff;font-size:14px;line-height:1">→</span>
+          </div>
+        </div>
+        <div style="position:absolute;left:24px;top:22px;padding:8px 14px;background:rgba(10,11,13,.8);border:1px solid rgba(255,255,255,.16);font:700 11px/1 Saira,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#fff;pointer-events:none">Vorher</div>
+        <div style="position:absolute;right:24px;top:22px;padding:8px 14px;background:#D80D18;font:700 11px/1 Saira,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#fff;pointer-events:none">Nachher</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:48px;align-items:center">
+      <div ref="{{ ba2Ref }}" onPointerDown="{{ ba2Down }}" style="position:relative;width:100%;height:520px;overflow:hidden;cursor:ew-resize;border:1px solid rgba(255,255,255,.14);user-select:none;touch-action:none">
+        <div style="position:absolute;inset:0"><image-slot id="gal-case3-before" shape="rect" fit="cover" placeholder="VORHER — durchgescheuerte Sitzwange"></image-slot></div>
+        <div style="position:absolute;inset:0;clip-path:inset(0 0 0 {{ ba2 }}%)"><image-slot id="gal-case3-after" shape="rect" fit="cover" placeholder="NACHHER — Struktur und Farbe zurück"></image-slot></div>
+        <div style="position:absolute;top:0;bottom:0;left:{{ ba2 }}%;width:2px;background:#D80D18;pointer-events:none;box-shadow:0 0 0 1px rgba(0,0,0,.4),0 0 40px rgba(216,13,24,.5)">
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;background:#D80D18;display:flex;align-items:center;justify-content:center;gap:5px;clip-path:polygon(13px 0,100% 0,100% calc(100% - 13px),calc(100% - 13px) 100%,0 100%,0 13px)">
+            <span style="color:#fff;font-size:14px;line-height:1">←</span><span style="color:#fff;font-size:14px;line-height:1">→</span>
+          </div>
+        </div>
+        <div style="position:absolute;left:24px;top:22px;padding:8px 14px;background:rgba(10,11,13,.8);border:1px solid rgba(255,255,255,.16);font:700 11px/1 Saira,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#fff;pointer-events:none">Vorher</div>
+        <div style="position:absolute;right:24px;top:22px;padding:8px 14px;background:#D80D18;font:700 11px/1 Saira,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#fff;pointer-events:none">Nachher</div>
+      </div>
+      <div>
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:16px">Fall 03 · Leder</div>
+        <h2 style="margin:0 0 16px;font-family:Saira,sans-serif;font-weight:800;font-size:34px;line-height:1.06;letter-spacing:-.028em;color:#fff">Fahrersitz, Wange durchgescheuert</h2>
+        <p style="margin:0 0 24px;font:400 16.5px/1.65 Barlow,sans-serif;color:#AFB5BD">Die Faser lag frei. Stelle entfettet, in dünnen Schichten aufgebaut, Narbung vom Originalleder abgenommen und geprägt, danach bis zur Naht nachgefärbt.</p>
+        <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,.13)">
+          <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.13)"><span style="font:500 14.5px/1 Barlow,sans-serif;color:#7C838D">Dauer</span><span style="font:600 14.5px/1 Barlow,sans-serif;color:#D6DAE0">2 Tage</span></div>
+          <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.13)"><span style="font:500 14.5px/1 Barlow,sans-serif;color:#7C838D">Verfahren</span><span style="font:600 14.5px/1 Barlow,sans-serif;color:#D6DAE0">Aufbau &amp; Prägung</span></div>
+          <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.13)"><span style="font:500 14.5px/1 Barlow,sans-serif;color:#7C838D">Farbe</span><span style="font:600 14.5px/1 Barlow,sans-serif;color:#D6DAE0">auf Original gemischt</span></div>
+        </div>
+        <a href="./Leistung Leder.dc.html" style="display:inline-flex;align-items:center;gap:10px;margin-top:24px;font:600 14.5px/1 Barlow,sans-serif;color:#D6DAE0;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:5px" style-hover="color:#fff;border-color:#D80D18">Zur Leistung →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Bildraster" style="background:#F5F6F8;padding:80px 0 100px;border-top:5px solid #D80D18">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:50px;margin-bottom:32px">
+      <h2 style="margin:0;font-family:Saira,sans-serif;font-weight:800;font-size:44px;line-height:1.02;letter-spacing:-.03em;color:#0A0B0D">Alle Arbeiten</h2>
+      <p style="margin:0;max-width:400px;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Nach Leistung filtern. Ein Klick auf ein Bild zeigt es groß.</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;padding-bottom:28px;margin-bottom:28px;border-bottom:1px solid rgba(10,11,13,.13)">
+      <sc-for list="{{ filters }}" as="f" hint-placeholder-count="7">
+        <button onClick="{{ f.pick }}" style="cursor:pointer;display:flex;align-items:center;gap:9px;padding:12px 18px;background:{{ f.bg }};border:1px solid {{ f.border }};color:{{ f.color }};font:600 13.5px/1 Barlow,sans-serif;letter-spacing:.02em;transition:background .16s">
+          {{ f.label }}<span style="font:500 12px/1 Barlow,sans-serif;color:{{ f.countColor }}">{{ f.count }}</span>
+        </button>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;gap:14px">
+      <sc-for list="{{ tiles }}" as="t" hint-placeholder-count="20">
+        <div onClick="{{ t.open }}" style="position:relative;overflow:hidden;cursor:pointer;display:{{ t.display }};grid-column:span {{ t.span }};grid-row:span {{ t.span }};background:#0A0B0D">
+          <image-slot id="{{ t.slot }}" shape="rect" fit="cover" placeholder="{{ t.hint }}"></image-slot>
+          <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,11,13,0) 55%,rgba(10,11,13,.8));pointer-events:none"></span>
+          <span style="position:absolute;left:16px;bottom:14px;display:flex;align-items:center;gap:9px;pointer-events:none">
+            <span style="width:11px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+            <span style="font:600 11px/1 Barlow,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#fff">{{ t.cat }}</span>
+          </span>
+          <span style="position:absolute;right:14px;top:14px;padding:6px 10px;background:rgba(10,11,13,.7);border:1px solid rgba(255,255,255,.18);font:600 11px/1 Barlow,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#fff;pointer-events:none">{{ t.zoomLabel }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin:26px 0 0;font:500 13.5px/1.5 Barlow,sans-serif;color:#7C838D">20 Plätze. Ziehen Sie Ihre Fotos direkt auf die Felder — die Zuordnung bleibt gespeichert.</p>
+  </div>
+</section>
+
+<dc-import name="Seitenfuss" ctaHeadline="Ihr Fahrzeug als nächstes?" hint-size="100%,1400px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const CATS = ['Alle', 'Exterieur', 'Interieur', 'Dellen & Hagel', 'Lack', 'Leder', 'Ozon'];
+
+const TILES = [
+  ['Exterieur', 'Politur unter der Lichtleiste'],
+  ['Dellen & Hagel', 'Dellendrücken, Werkzeug am Blech'],
+  ['Interieur', 'Sitz wird extrahiert'],
+  ['Exterieur', 'Felge, Detailaufnahme'],
+  ['Leder', 'Sitzwange nach der Reparatur'],
+  ['Lack', 'Musterblech neben dem Bauteil'],
+  ['Exterieur', 'Reflexion auf der Motorhaube'],
+  ['Dellen & Hagel', 'Hagelschaden, markierte Dellen'],
+  ['Interieur', 'Fußraum nach der Reinigung'],
+  ['Ozon', 'Ozongerät im Innenraum'],
+  ['Exterieur', 'Handwäsche, Schaum auf dem Lack'],
+  ['Lack', 'Stoßfänger nach der Lackierung'],
+  ['Interieur', 'Armaturenbrett, matt aufgefrischt'],
+  ['Leder', 'Lenkradkranz nachgefärbt'],
+  ['Dellen & Hagel', 'Streifenlampe spiegelt im Dach'],
+  ['Exterieur', 'Fahrzeug fertig in der Halle'],
+  ['Interieur', 'Kofferraum nach der Aufbereitung'],
+  ['Lack', 'Beilackierung, Übergang poliert'],
+  ['Leder', 'Rissreparatur im Detail'],
+  ['Dellen & Hagel', 'Verkleidung demontiert, Zugang zum Blech']
+];
+
+class Component extends DCLogic {
+  state = { cat: 'Alle', zoom: -1, ba: [50, 50, 50], drag: -1 };
+  refs0 = [React.createRef(), React.createRef(), React.createRef()];
+
+  componentDidMount() {
+    this._m = e => { if (this.state.drag >= 0) { e.preventDefault(); this.setBA(this.state.drag, e.clientX); } };
+    this._u = () => { if (this.state.drag >= 0) this.setState({ drag: -1 }); };
+    window.addEventListener('pointermove', this._m, { passive: false });
+    window.addEventListener('pointerup', this._u);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('pointermove', this._m);
+    window.removeEventListener('pointerup', this._u);
+  }
+  setBA(i, x) {
+    const el = this.refs0[i].current; if (!el) return;
+    const r = el.getBoundingClientRect();
+    const p = Math.max(1.5, Math.min(98.5, ((x - r.left) / r.width) * 100));
+    this.setState(s => { const ba = s.ba.slice(); ba[i] = p; return { ba }; });
+  }
+
+  renderVals() {
+    const cat = this.state.cat;
+    const counts = {};
+    TILES.forEach(t => { counts[t[0]] = (counts[t[0]] || 0) + 1; });
+    counts['Alle'] = TILES.length;
+
+    const v = {
+      filters: CATS.map(c => {
+        const on = c === cat;
+        return {
+          label: c, count: counts[c] || 0,
+          bg: on ? '#0A0B0D' : 'transparent',
+          border: on ? '#0A0B0D' : 'rgba(10,11,13,.18)',
+          color: on ? '#fff' : '#2B3038',
+          countColor: on ? '#8E959F' : '#9AA1AB',
+          pick: () => this.setState({ cat: c, zoom: -1 })
+        };
+      }),
+      tiles: TILES.map((t, i) => ({
+        cat: t[0], hint: t[1], slot: 'gal-tile-' + (i + 1),
+        display: cat === 'Alle' || t[0] === cat ? 'block' : 'none',
+        span: this.state.zoom === i ? 2 : 1,
+        zoomLabel: this.state.zoom === i ? 'schließen' : 'groß',
+        open: () => this.setState(s => ({ zoom: s.zoom === i ? -1 : i }))
+      }))
+    };
+    [0, 1, 2].forEach(i => {
+      v['ba' + i] = this.state.ba[i];
+      v['ba' + i + 'Ref'] = this.refs0[i];
+      v['ba' + i + 'Down'] = e => { this.setState({ drag: i }); this.setBA(i, e.clientX); };
+    });
+    return v;
+  }
+}
+</script>
+</body>
+</html>

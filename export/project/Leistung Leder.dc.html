@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#0A0B0D;font-family:Barlow,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:#D80D18;text-decoration:none}
+  a:hover{color:#F2323C}
+  p{text-wrap:pretty}
+  ::selection{background:#D80D18;color:#fff}
+</style>
+</helmet>
+
+<div style="background:#0A0B0D;color:#fff;min-width:1280px">
+<dc-import name="Seitenkopf" active="leistungen" hint-size="100%,120px"></dc-import>
+
+<section data-screen-label="Hero Leder" style="position:relative;background:#0A0B0D;overflow:hidden">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:46%">
+    <image-slot id="led-hero" shape="rect" fit="cover" placeholder="Makro: Lederstruktur an der Sitzwange"></image-slot>
+  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(270deg,#0A0B0D 46%,rgba(10,11,13,.82) 62%,rgba(10,11,13,.1) 96%)"></div>
+  <div style="position:absolute;right:0;top:0;bottom:0;width:5px;background:#D80D18"></div>
+  <div style="position:relative;max-width:1440px;margin:0 auto;padding:70px 64px 80px;display:flex;justify-content:flex-end">
+    <div style="max-width:660px">
+      <div style="display:flex;align-items:center;gap:10px;font:500 13px/1 Barlow,sans-serif;color:#7C838D;margin-bottom:36px">
+        <a href="./Reutter Website.dc.html" style="color:#7C838D" style-hover="color:#fff">Startseite</a>
+        <span style="color:#4E555E">/</span>
+        <a href="./Leistungen.dc.html" style="color:#7C838D" style-hover="color:#fff">Leistungen</a>
+        <span style="color:#4E555E">/</span>
+        <span style="color:#D6DAE0">Lederreparatur</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:11px;margin-bottom:22px">
+        <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+        <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Leistung 05 · Interieur</span>
+      </div>
+      <h1 style="margin:0 0 24px;font-family:Saira,sans-serif;font-weight:800;font-size:62px;line-height:.99;letter-spacing:-.035em;color:#fff">Auffällig ist nicht die Farbe. Auffällig ist die fehlende Narbung.</h1>
+      <p style="margin:0 0 34px;font:400 18px/1.68 Barlow,sans-serif;color:#B4BAC2">Eine reparierte Stelle verrät sich, wenn sie glatt und glänzend bleibt. Deshalb nehmen wir die Struktur vom Originalleder ab und prägen sie in die Reparatur, bevor überhaupt Farbe kommt.</p>
+      <div style="display:flex;align-items:center;gap:14px">
+        <a href="#anfrage" style="display:flex;align-items:center;gap:12px;background:#D80D18;color:#fff;padding:19px 30px;font:700 14.5px/1 Saira,sans-serif;letter-spacing:.08em;text-transform:uppercase;clip-path:polygon(11px 0,100% 0,100% calc(100% - 11px),calc(100% - 11px) 100%,0 100%,0 11px)" style-hover="background:#F2323C">Termin anfragen <span style="font-size:17px;line-height:1">→</span></a>
+        <a href="tel:+4971182859400" style="display:flex;align-items:center;gap:12px;color:#fff;padding:19px 28px;font:700 14.5px/1 Saira,sans-serif;letter-spacing:.06em;border:1px solid rgba(255,255,255,.22)" style-hover="border-color:#fff;background:rgba(255,255,255,.08)">07 11 / 82 85 940</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Materialcheck" style="background:#0A0B0D;padding:0 0 90px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="display:flex;align-items:center;gap:14px;padding:0 0 30px">
+      <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Zuerst: welches Material</span>
+      <span style="flex:1;height:1px;background:rgba(255,255,255,.14)"></span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.13)">
+      <div style="background:#0A0B0D;padding:32px 30px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <span style="font:700 20px/1.2 Saira,sans-serif;letter-spacing:-.02em;color:#fff">Echtleder</span>
+          <span style="padding:6px 11px;background:#D80D18;font:700 11px/1 Saira,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#fff">alles möglich</span>
+        </div>
+        <p style="margin:0;font:400 15.5px/1.6 Barlow,sans-serif;color:#8E959F">Füllen, prägen, färben, versiegeln. Bei pigmentiertem Leder — dem Standard im Fahrzeug — ist praktisch jeder Schaden reparabel.</p>
+      </div>
+      <div style="background:#0A0B0D;padding:32px 30px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <span style="font:700 20px/1.2 Saira,sans-serif;letter-spacing:-.02em;color:#fff">Kunstleder</span>
+          <span style="padding:6px 11px;background:rgba(255,255,255,.1);font:700 11px/1 Saira,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#D6DAE0">mit Grenzen</span>
+        </div>
+        <p style="margin:0;font:400 15.5px/1.6 Barlow,sans-serif;color:#8E959F">Einzelne Stellen gehen gut. Wenn die Oberfläche großflächig zu reißen beginnt, ist Nachfärben verlorene Zeit — dann hilft nur Beziehen.</p>
+      </div>
+      <div style="background:#0A0B0D;padding:32px 30px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <span style="font:700 20px/1.2 Saira,sans-serif;letter-spacing:-.02em;color:#fff">Alcantara</span>
+          <span style="padding:6px 11px;background:rgba(255,255,255,.1);font:700 11px/1 Saira,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#D6DAE0">nur reinigen</span>
+        </div>
+        <p style="margin:0;font:400 15.5px/1.6 Barlow,sans-serif;color:#8E959F">Ein Textil, kein Leder. Wird gereinigt und aufgeraut, aber nicht gefärbt. Durchgescheuertes Alcantara lässt sich nur ersetzen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Schadensgrad" style="background:#F5F6F8;padding:96px 0 100px;border-top:5px solid #D80D18">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:60px;margin-bottom:44px">
+      <div style="max-width:700px">
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:20px">
+          <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+          <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Vier Schadensgrade</span>
+        </div>
+        <h2 style="margin:0;font-family:Saira,sans-serif;font-weight:800;font-size:46px;line-height:1.02;letter-spacing:-.03em;color:#0A0B0D">Wie weit ist es bei Ihnen?</h2>
+      </div>
+      <p style="margin:0;max-width:340px;font:400 16px/1.62 Barlow,sans-serif;color:#61686F">Grad anwählen. Je früher Sie kommen, desto weniger muss aufgebaut werden — und desto weniger fällt später auf.</p>
+    </div>
+
+    <div style="display:flex;gap:0;margin-bottom:0;border:1px solid rgba(10,11,13,.14);border-bottom:0">
+      <sc-for list="{{ grades }}" as="g" hint-placeholder-count="4">
+        <button onClick="{{ g.pick }}" style="flex:1;cursor:pointer;background:{{ g.bg }};border:0;border-right:1px solid rgba(10,11,13,.12);padding:22px 24px;text-align:left;transition:background .18s">
+          <span style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+            <span style="width:10px;height:10px;background:{{ g.dot }};display:inline-block"></span>
+            <span style="font:700 12px/1 Saira,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:{{ g.numColor }}">Grad {{ g.num }}</span>
+          </span>
+          <span style="display:block;font:700 18px/1.2 Saira,sans-serif;letter-spacing:-.018em;color:{{ g.titleColor }}">{{ g.name }}</span>
+        </button>
+      </sc-for>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:0;border:1px solid rgba(10,11,13,.14);background:#fff">
+      <div style="padding:40px 42px;border-right:1px solid rgba(10,11,13,.14)">
+        <h3 style="margin:0 0 16px;font-family:Saira,sans-serif;font-weight:800;font-size:34px;line-height:1.05;letter-spacing:-.028em;color:#0A0B0D">{{ grade.headline }}</h3>
+        <p style="margin:0 0 28px;max-width:640px;font:400 16.5px/1.68 Barlow,sans-serif;color:#61686F">{{ grade.text }}</p>
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#9AA1AB;margin-bottom:14px">Was wir dafür tun</div>
+        <div style="border-top:1px solid rgba(10,11,13,.13)">
+          <sc-for list="{{ grade.steps }}" as="s" hint-placeholder-count="4">
+            <div style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:14px;padding:14px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+              <span style="font:700 13px/1.4 Saira,sans-serif;letter-spacing:.06em;color:#D80D18">{{ s.n }}</span>
+              <span style="font:500 15.5px/1.5 Barlow,sans-serif;color:#2B3038">{{ s.t }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="padding:40px 36px;background:#FAFAFB;display:flex;flex-direction:column">
+        <div style="border-top:2px solid #0A0B0D">
+          <div style="padding:16px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+            <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#9AA1AB;margin-bottom:7px">Aufwand</div>
+            <div style="font:700 19px/1.2 Saira,sans-serif;letter-spacing:-.018em;color:#0A0B0D">{{ grade.effort }}</div>
+          </div>
+          <div style="padding:16px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+            <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#9AA1AB;margin-bottom:7px">Dauer</div>
+            <div style="font:700 19px/1.2 Saira,sans-serif;letter-spacing:-.018em;color:#0A0B0D">{{ grade.time }}</div>
+          </div>
+          <div style="padding:16px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+            <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#9AA1AB;margin-bottom:7px">Mobil möglich</div>
+            <div style="font:700 19px/1.2 Saira,sans-serif;letter-spacing:-.018em;color:#0A0B0D">{{ grade.mobile }}</div>
+          </div>
+        </div>
+        <div style="margin-top:24px;padding:20px 22px;background:#0A0B0D">
+          <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#F2323C;margin-bottom:10px">Ehrliche Erwartung</div>
+          <div style="font:400 15.5px/1.6 Barlow,sans-serif;color:#D6DAE0">{{ grade.expect }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Vorher Nachher" style="background:#fff;padding:92px 0 96px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="max-width:700px;margin-bottom:36px">
+      <div style="display:flex;align-items:center;gap:11px;margin-bottom:18px">
+        <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+        <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Vorher / Nachher</span>
+      </div>
+      <h2 style="margin:0 0 14px;font-family:Saira,sans-serif;font-weight:800;font-size:44px;line-height:1.02;letter-spacing:-.03em;color:#0A0B0D">Fahrersitz, Wange aufgebaut und nachgefärbt.</h2>
+      <p style="margin:0;font:400 16.5px/1.65 Barlow,sans-serif;color:#61686F">Bei Leder entscheidet die Makroaufnahme. Aus zwei Metern sieht fast jede Reparatur gut aus.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px">
+      <div ref="{{ baRef }}" onPointerDown="{{ baDown }}" style="position:relative;width:100%;height:520px;overflow:hidden;cursor:ew-resize;border:1px solid rgba(10,11,13,.14);user-select:none;touch-action:none">
+        <div style="position:absolute;inset:0"><image-slot id="led-before" shape="rect" fit="cover" placeholder="VORHER — durchgescheuerte Wange"></image-slot></div>
+        <div style="position:absolute;inset:0;clip-path:inset(0 0 0 {{ ba }}%)"><image-slot id="led-after" shape="rect" fit="cover" placeholder="NACHHER — Struktur und Farbe zurück"></image-slot></div>
+        <div style="position:absolute;top:0;bottom:0;left:{{ ba }}%;width:2px;background:#D80D18;pointer-events:none;box-shadow:0 0 40px rgba(216,13,24,.45)">
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:58px;height:58px;background:#D80D18;display:flex;align-items:center;justify-content:center;gap:6px;clip-path:polygon(13px 0,100% 0,100% calc(100% - 13px),calc(100% - 13px) 100%,0 100%,0 13px)">
+            <span style="color:#fff;font-size:15px;line-height:1">←</span><span style="color:#fff;font-size:15px;line-height:1">→</span>
+          </div>
+        </div>
+        <div style="position:absolute;left:24px;top:22px;padding:8px 14px;background:rgba(10,11,13,.85);font:700 11px/1 Saira,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#fff;pointer-events:none">Vorher</div>
+        <div style="position:absolute;right:24px;top:22px;padding:8px 14px;background:#D80D18;font:700 11px/1 Saira,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#fff;pointer-events:none">Nachher</div>
+      </div>
+      <div style="display:grid;grid-template-rows:1fr 1fr;gap:20px">
+        <div style="position:relative;overflow:hidden;border:1px solid rgba(10,11,13,.14)">
+          <image-slot id="led-macro-1" shape="rect" fit="cover" placeholder="Makro: geprägte Narbung nach der Reparatur"></image-slot>
+          <span style="position:absolute;left:14px;bottom:12px;padding:6px 11px;background:rgba(10,11,13,.82);font:600 11px/1 Barlow,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#fff">Narbung</span>
+        </div>
+        <div style="position:relative;overflow:hidden;border:1px solid rgba(10,11,13,.14)">
+          <image-slot id="led-macro-2" shape="rect" fit="cover" placeholder="Makro: Lenkradkranz nachgefärbt"></image-slot>
+          <span style="position:absolute;left:14px;bottom:12px;padding:6px 11px;background:rgba(10,11,13,.82);font:600 11px/1 Barlow,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#fff">Lenkrad</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Preis und Pflege" style="background:#0A0B0D;padding:88px 0 92px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:64px;align-items:start">
+      <div>
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#D80D18;margin-bottom:14px">Preis</div>
+        <h2 style="margin:0 0 16px;font-family:Saira,sans-serif;font-weight:800;font-size:38px;line-height:1.04;letter-spacing:-.03em;color:#fff">Festpreis nach zwei scharfen Fotos.</h2>
+        <p style="margin:0 0 28px;font:400 17px/1.65 Barlow,sans-serif;color:#AFB5BD">Ob es eine Stunde oder zwei Tage werden, entscheidet der Schadensgrad — und ob nur nachgefärbt oder erst aufgebaut werden muss. Machen Sie zwei Aufnahmen aus der Nähe bei Tageslicht, das reicht uns meist für eine belastbare Einschätzung.</p>
+        <a href="#anfrage" style="display:inline-flex;align-items:center;gap:11px;background:#D80D18;color:#fff;padding:18px 28px;font:700 14px/1 Saira,sans-serif;letter-spacing:.08em;text-transform:uppercase;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)" style-hover="background:#F2323C">Fotos senden <span style="font-size:16px;line-height:1">→</span></a>
+      </div>
+      <div>
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#7C838D;margin-bottom:16px">Damit es hält</div>
+        <div style="border-top:1px solid rgba(255,255,255,.13)">
+          <div style="display:flex;align-items:flex-start;gap:14px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.13)">
+            <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+            <span style="font:500 15.5px/1.5 Barlow,sans-serif;color:#D6DAE0">Keine lösemittelhaltigen Reiniger und nichts mit Silikon</span>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.13)">
+            <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+            <span style="font:500 15.5px/1.5 Barlow,sans-serif;color:#D6DAE0">Zwei bis drei Mal im Jahr reinigen und rückfetten</span>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.13)">
+            <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+            <span style="font:500 15.5px/1.5 Barlow,sans-serif;color:#D6DAE0">In den ersten 24 Stunden nicht mit Jeans über die Wange rutschen</span>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.13)">
+            <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+            <span style="font:500 15.5px/1.5 Barlow,sans-serif;color:#D6DAE0">Bei hellem Leder Jeansfärbung früh entfernen, nicht einwirken lassen</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="FAQ" style="background:#F5F6F8;padding:92px 0 96px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:60px;margin-bottom:44px">
+      <h2 style="margin:0;max-width:700px;font-family:Saira,sans-serif;font-weight:800;font-size:42px;line-height:1.02;letter-spacing:-.03em;color:#0A0B0D">Fünf Fragen, die uns jede Woche gestellt werden</h2>
+      <p style="margin:0;flex:none;font:400 16px/1.6 Barlow,sans-serif;color:#61686F">Sonst einfach anrufen:<br><a href="tel:+4971182859400" style="color:#0A0B0D;border-bottom:1px solid rgba(10,11,13,.25);font-weight:600">07 11 / 82 85 940</a></p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 56px">
+      <div style="padding:26px 0;border-top:1px solid rgba(10,11,13,.14)">
+        <h3 style="margin:0 0 10px;font:700 19px/1.3 Saira,sans-serif;letter-spacing:-.015em;color:#0A0B0D">Sieht man die reparierte Stelle später?</h3>
+        <p style="margin:0;font:400 16px/1.65 Barlow,sans-serif;color:#61686F">Bei gedeckten Farben und normaler Narbung praktisch nicht. Bei sehr hellem oder stark strukturiertem Leder findet man sie, wenn man weiß, wo sie ist. Wir sagen vorher, was zu erwarten ist.</p>
+      </div>
+      <div style="padding:26px 0;border-top:1px solid rgba(10,11,13,.14)">
+        <h3 style="margin:0 0 10px;font:700 19px/1.3 Saira,sans-serif;letter-spacing:-.015em;color:#0A0B0D">Wie lange hält die Reparatur?</h3>
+        <p style="margin:0;font:400 16px/1.65 Barlow,sans-serif;color:#61686F">Wenn richtig entfettet und versiegelt wurde, so lange wie das übrige Leder. Kaputt machen sie lösemittelhaltige Reiniger und Pflegemittel mit Silikon.</p>
+      </div>
+      <div style="padding:26px 0;border-top:1px solid rgba(10,11,13,.14)">
+        <h3 style="margin:0 0 10px;font:700 19px/1.3 Saira,sans-serif;letter-spacing:-.015em;color:#0A0B0D">Muss die ganze Fläche gefärbt werden?</h3>
+        <p style="margin:0;font:400 16px/1.65 Barlow,sans-serif;color:#61686F">In der Regel bis zur nächsten Naht. Nur den Fleck zu färben ergibt einen sichtbaren Übergang, weil frisches Pigment anders reflektiert als gealtertes.</p>
+      </div>
+      <div style="padding:26px 0;border-top:1px solid rgba(10,11,13,.14)">
+        <h3 style="margin:0 0 10px;font:700 19px/1.3 Saira,sans-serif;letter-spacing:-.015em;color:#0A0B0D">Wann kann ich wieder normal einsteigen?</h3>
+        <p style="margin:0;font:400 16px/1.65 Barlow,sans-serif;color:#61686F">Nach etwa 24 Stunden ist die Fläche voll belastbar. Am selben Tag können Sie fahren, sollten aber nicht mit Jeans über die frisch gefärbte Wange rutschen.</p>
+      </div>
+      <div style="padding:26px 0;border-top:1px solid rgba(10,11,13,.14);border-bottom:1px solid rgba(10,11,13,.14)">
+        <h3 style="margin:0 0 10px;font:700 19px/1.3 Saira,sans-serif;letter-spacing:-.015em;color:#0A0B0D">Geht das auch am Lenkrad?</h3>
+        <p style="margin:0;font:400 16px/1.65 Barlow,sans-serif;color:#61686F">Ja, und es ist einer der häufigsten Aufträge. Der Kranz wird entfettet, aufgebaut, wo nötig, und neu gefärbt. Danach ist er wieder matt statt speckig-grau.</p>
+      </div>
+      <div style="padding:26px 0;border-top:1px solid rgba(10,11,13,.14);border-bottom:1px solid rgba(10,11,13,.14)">
+        <h3 style="margin:0 0 10px;font:700 19px/1.3 Saira,sans-serif;letter-spacing:-.015em;color:#0A0B0D">Lohnt sich das vor dem Verkauf?</h3>
+        <p style="margin:0;font:400 16px/1.65 Barlow,sans-serif;color:#61686F">Meistens ja. Der Fahrersitz ist das Erste, was ein Käufer beim Einsteigen sieht, und eine durchgescheuerte Wange drückt den Preis deutlich stärker als die Reparatur kostet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="anfrage" data-screen-label="Verwandte Leistungen" style="background:#fff;padding:90px 0 96px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <h2 style="margin:0 0 32px;font-family:Saira,sans-serif;font-weight:800;font-size:34px;letter-spacing:-.025em;color:#0A0B0D">Passt oft dazu</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <a href="./Leistung Interieur.dc.html" style="display:block;border:1px solid rgba(10,11,13,.12);padding:30px 28px;text-decoration:none" style-hover="border-color:#D80D18">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:14px">02 · Interieur</div>
+        <div style="font:700 22px/1.2 Saira,sans-serif;letter-spacing:-.02em;color:#0A0B0D;margin-bottom:10px">Fahrzeugpflege Interieur</div>
+        <div style="font:400 15.5px/1.55 Barlow,sans-serif;color:#61686F">Leder wird nach der Reparatur gereinigt und rückgefettet — meist im selben Termin.</div>
+      </a>
+      <a href="./Leistung Ozon.dc.html" style="display:block;border:1px solid rgba(10,11,13,.12);padding:30px 28px;text-decoration:none" style-hover="border-color:#D80D18">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:14px">06 · Interieur</div>
+        <div style="font:700 22px/1.2 Saira,sans-serif;letter-spacing:-.02em;color:#0A0B0D;margin-bottom:10px">Ozonbehandlung</div>
+        <div style="font:400 15.5px/1.55 Barlow,sans-serif;color:#61686F">Bei Rauchgeruch im Leder hilft Reinigung allein oft nicht.</div>
+      </a>
+      <a href="./Leistung Exterieur.dc.html" style="display:block;border:1px solid rgba(10,11,13,.12);padding:30px 28px;text-decoration:none" style-hover="border-color:#D80D18">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:14px">01 · Exterieur</div>
+        <div style="font:700 22px/1.2 Saira,sans-serif;letter-spacing:-.02em;color:#0A0B0D;margin-bottom:10px">Fahrzeugpflege Exterieur</div>
+        <div style="font:400 15.5px/1.55 Barlow,sans-serif;color:#61686F">Innen fertig, außen stumpf — das fällt beim Verkauf sofort auf.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<dc-import name="Seitenfuss" ctaHeadline="Leder reparieren lassen?" hint-size="100%,1400px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const GRADES = [
+  { num: '1', name: 'Farbabrieb', dot: '#C6CBD2',
+    headline: 'Die Farbe ist weg, das Leder ist ganz',
+    text: 'Typisch an Sitzwange, Lenkradkranz und Türgriff. Die Oberfläche ist noch geschlossen, nur das Pigment ist abgerieben. Der günstigste Zeitpunkt für eine Reparatur — hier muss nichts aufgebaut werden.',
+    steps: [{ n: '01', t: 'Reinigen und entfetten, bis nichts mehr abfärbt' }, { n: '02', t: 'Farbton auf das gealterte Leder mischen' }, { n: '03', t: 'Bis zur nächsten Naht nachfärben' }, { n: '04', t: 'Matt versiegeln' }],
+    effort: 'gering', time: 'ein halber Tag', mobile: 'ja',
+    expect: 'Nicht auffindbar. Das ist der Fall, bei dem am Ende niemand mehr sieht, dass etwas gemacht wurde.' },
+  { num: '2', name: 'Faser liegt frei', dot: '#8E959F',
+    headline: 'Die Oberfläche ist durchgescheuert',
+    text: 'Man sieht die helle Faser, die Stelle fühlt sich rau an. Ab hier muss Material aufgebaut werden — in dünnen Schichten, jede getrocknet. Zu dick aufgetragen reißt es beim ersten Einsteigen wieder.',
+    steps: [{ n: '01', t: 'Reinigen und entfetten' }, { n: '02', t: 'In dünnen Schichten füllen und zwischentrocknen' }, { n: '03', t: 'Narbung vom Originalleder abnehmen und prägen' }, { n: '04', t: 'Nachfärben und versiegeln' }],
+    effort: 'mittel', time: 'ein Tag', mobile: 'meist ja',
+    expect: 'Aus normaler Sitzposition unsichtbar. Bei sehr hellem Leder kann man die Stelle im Streiflicht finden.' },
+  { num: '3', name: 'Riss', dot: '#F2323C',
+    headline: 'Das Leder ist eingerissen',
+    text: 'Meist entlang der Naht oder an einer Knickkante. Der Riss wird von unten stabilisiert, bevor er gefüllt wird — sonst arbeitet er sich unter der neuen Schicht weiter.',
+    steps: [{ n: '01', t: 'Kanten säubern und von unten stabilisieren' }, { n: '02', t: 'Schichtweise füllen, jede Lage trocknen' }, { n: '03', t: 'Struktur prägen und angleichen' }, { n: '04', t: 'Flächig nachfärben und versiegeln' }],
+    effort: 'erhöht', time: 'ein bis zwei Tage', mobile: 'nur kleine Risse',
+    expect: 'Ein feiner Verlauf kann bei genauem Hinsehen erkennbar bleiben. Deutlich besser als der Riss — aber nicht wie neu.' },
+  { num: '4', name: 'Loch oder Brandloch', dot: '#D80D18',
+    headline: 'Es fehlt Material',
+    text: 'Bei kleinen Löchern setzen wir ein Stück Leder ein und arbeiten es ein. Ist die Fläche größer oder liegt sie mitten auf dem Sitzkissen, ist Beziehen die ehrlichere Empfehlung.',
+    steps: [{ n: '01', t: 'Loch ausschneiden, Unterlage einsetzen' }, { n: '02', t: 'Passstück einlegen und einarbeiten' }, { n: '03', t: 'Struktur prägen, Übergang angleichen' }, { n: '04', t: 'Flächig nachfärben und versiegeln' }],
+    effort: 'hoch', time: 'zwei Tage', mobile: 'nein',
+    expect: 'Von oben gut, im Streiflicht findbar. Bei Löchern in der Sitzmitte sagen wir Ihnen, wenn Beziehen sinnvoller ist.' }
+];
+
+class Component extends DCLogic {
+  state = { grade: 1, ba: null, drag: false };
+  baRef = React.createRef();
+  componentDidMount() {
+    this._m = e => { if (this.state.drag) { e.preventDefault(); this.setBA(e.clientX); } };
+    this._u = () => { if (this.state.drag) this.setState({ drag: false }); };
+    window.addEventListener('pointermove', this._m, { passive: false });
+    window.addEventListener('pointerup', this._u);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('pointermove', this._m);
+    window.removeEventListener('pointerup', this._u);
+  }
+  setBA(x) {
+    const el = this.baRef.current; if (!el) return;
+    const r = el.getBoundingClientRect();
+    this.setState({ ba: Math.max(1.5, Math.min(98.5, ((x - r.left) / r.width) * 100)) });
+  }
+  renderVals() {
+    const gi = this.state.grade;
+    return {
+      grade: GRADES[gi],
+      grades: GRADES.map((g, i) => ({
+        num: g.num, name: g.name, dot: g.dot,
+        bg: i === gi ? '#0A0B0D' : '#fff',
+        numColor: i === gi ? '#8E959F' : '#9AA1AB',
+        titleColor: i === gi ? '#fff' : '#0A0B0D',
+        pick: () => this.setState({ grade: i })
+      })),
+      ba: this.state.ba === null ? 50 : this.state.ba,
+      baRef: this.baRef,
+      baDown: e => { this.setState({ drag: true }); this.setBA(e.clientX); }
+    };
+  }
+}
+</script>
+</body>
+</html>

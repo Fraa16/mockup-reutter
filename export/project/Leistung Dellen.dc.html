@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#0A0B0D;font-family:Barlow,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:#D80D18;text-decoration:none}
+  a:hover{color:#F2323C}
+  p{text-wrap:pretty}
+  ::selection{background:#D80D18;color:#fff}
+</style>
+</helmet>
+
+<div style="background:#0A0B0D;color:#fff;min-width:1280px">
+<dc-import name="Seitenkopf" active="leistungen" hint-size="100%,120px"></dc-import>
+
+<section data-screen-label="Hero Dellen" style="position:relative;background:#0A0B0D;overflow:hidden;min-height:620px;display:flex;align-items:flex-end">
+  <div style="position:absolute;inset:0"><image-slot id="del-hero" shape="rect" fit="cover" placeholder="Streifenlampe spiegelt sich im Dach, Dellen sichtbar"></image-slot></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(120% 90% at 78% 20%,rgba(10,11,13,.2),rgba(10,11,13,.94) 62%),linear-gradient(0deg,#0A0B0D 4%,rgba(10,11,13,.4) 60%)"></div>
+  <div style="position:absolute;left:0;top:0;bottom:0;width:5px;background:#D80D18"></div>
+  <div style="position:relative;width:100%;max-width:1440px;margin:0 auto;padding:70px 64px 68px">
+    <div style="display:flex;align-items:center;gap:10px;font:500 13px/1 Barlow,sans-serif;color:#8E959F;margin-bottom:auto">
+      <a href="./Reutter Website.dc.html" style="color:#8E959F" style-hover="color:#fff">Startseite</a>
+      <span style="color:#5C636D">/</span>
+      <a href="./Leistungen.dc.html" style="color:#8E959F" style-hover="color:#fff">Leistungen</a>
+      <span style="color:#5C636D">/</span>
+      <span style="color:#D6DAE0">Dellen &amp; Hagelschaden</span>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:64px;align-items:end;margin-top:150px">
+      <div>
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:22px">
+          <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+          <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Leistung 03 · Karosserie</span>
+        </div>
+        <h1 style="margin:0 0 22px;max-width:900px;font-family:Saira,sans-serif;font-weight:800;font-size:70px;line-height:.96;letter-spacing:-.035em;color:#fff">Die Delle geht raus. Der Lack bleibt drauf.</h1>
+        <p style="margin:0;max-width:620px;font:400 18px/1.68 Barlow,sans-serif;color:#C6CBD2">Wir drücken das Blech von innen zurück, statt zu spachteln und zu lackieren. Was Ihr Fahrzeug behält: den Werkslack — und damit den Wert, den ein Lackschichtmessgerät später bestätigt.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <a href="#anfrage" style="display:flex;align-items:center;justify-content:space-between;gap:12px;background:#D80D18;color:#fff;padding:20px 28px;font:700 14.5px/1 Saira,sans-serif;letter-spacing:.08em;text-transform:uppercase;clip-path:polygon(11px 0,100% 0,100% calc(100% - 11px),calc(100% - 11px) 100%,0 100%,0 11px);box-shadow:0 18px 44px -18px rgba(216,13,24,.8)" style-hover="background:#F2323C">Schaden begutachten lassen <span style="font-size:17px;line-height:1">→</span></a>
+        <a href="tel:+4971182859400" style="display:flex;align-items:center;justify-content:center;gap:12px;color:#fff;padding:20px 28px;font:700 14.5px/1 Saira,sans-serif;letter-spacing:.06em;border:1px solid rgba(255,255,255,.28);background:rgba(10,11,13,.5)" style-hover="border-color:#fff;background:rgba(255,255,255,.1)">07 11 / 82 85 940</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Machbarkeit" style="background:#0A0B0D;padding:0 0 96px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="display:flex;align-items:center;gap:14px;padding:26px 0 34px">
+      <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Zuerst die ehrliche Frage</span>
+      <span style="flex:1;height:1px;background:rgba(255,255,255,.14)"></span>
+    </div>
+    <h2 style="margin:0 0 14px;max-width:900px;font-family:Saira,sans-serif;font-weight:800;font-size:46px;line-height:1.02;letter-spacing:-.03em;color:#fff">Lässt sich Ihre Delle drücken?</h2>
+    <p style="margin:0 0 40px;max-width:660px;font:400 17px/1.65 Barlow,sans-serif;color:#AFB5BD">Vier Dinge entscheiden darüber. Wenn eines davon nicht passt, sagen wir es beim ersten Blick — und nicht, wenn die Verkleidung schon unten ist.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.13)">
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="4">
+        <div style="background:#0A0B0D;padding:30px 26px;display:flex;flex-direction:column;gap:16px;min-height:230px">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <span style="font-family:Saira,sans-serif;font-weight:800;font-size:13px;letter-spacing:.12em;color:#4E555E">{{ c.num }}</span>
+            <span style="padding:6px 11px;background:{{ c.badgeBg }};font:700 11px/1 Saira,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:{{ c.badgeColor }}">{{ c.verdict }}</span>
+          </div>
+          <div style="font:700 21px/1.2 Saira,sans-serif;letter-spacing:-.02em;color:#fff">{{ c.title }}</div>
+          <div style="font:400 15.5px/1.55 Barlow,sans-serif;color:#8E959F">{{ c.text }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Panelkarte" style="background:#F5F6F8;padding:96px 0 100px;border-top:5px solid #D80D18">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:60px;margin-bottom:44px">
+      <div style="max-width:700px">
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:20px">
+          <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+          <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Hagelschaden, Panel für Panel</span>
+        </div>
+        <h2 style="margin:0;font-family:Saira,sans-serif;font-weight:800;font-size:46px;line-height:1.02;letter-spacing:-.03em;color:#0A0B0D">So sieht unsere Aufstellung aus.</h2>
+      </div>
+      <p style="margin:0;max-width:360px;font:400 16px/1.62 Barlow,sans-serif;color:#61686F">Beispiel aus einem echten Auftrag. Jedes Bauteil wird gezählt, bewertet und einzeln kalkuliert — das ist auch die Grundlage für Ihre Versicherung.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:0;border:1px solid rgba(10,11,13,.14);background:#fff">
+      <div style="padding:38px 40px;border-right:1px solid rgba(10,11,13,.14)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:24px">
+          <span style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#9AA1AB">Fahrzeug, schematisch von oben</span>
+          <span style="font:600 13px/1 Barlow,sans-serif;color:#0A0B0D">{{ totalDents }} Dellen gesamt</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(4,68px);gap:8px">
+          <sc-for list="{{ panels }}" as="p" hint-placeholder-count="8">
+            <button onClick="{{ p.pick }}" style="cursor:pointer;grid-column:{{ p.col }};grid-row:{{ p.row }};background:{{ p.bg }};border:1px solid {{ p.border }};display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px;padding:10px 14px;text-align:left;transition:background .18s">
+              <span style="font:600 12px/1.15 Barlow,sans-serif;letter-spacing:.02em;color:{{ p.labelColor }}">{{ p.name }}</span>
+              <span style="font-family:Saira,sans-serif;font-weight:800;font-size:19px;line-height:1;letter-spacing:-.03em;color:{{ p.countColor }}">{{ p.count }}</span>
+            </button>
+          </sc-for>
+        </div>
+        <p style="margin:22px 0 0;font:400 14.5px/1.55 Barlow,sans-serif;color:#7C838D">Ein Bauteil anklicken. Die Zahl ist die Anzahl der Dellen, nicht der Stunden.</p>
+      </div>
+      <div style="padding:38px 36px;background:#FAFAFB;display:flex;flex-direction:column">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:16px">{{ panel.name }}</div>
+        <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:20px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:52px;line-height:1;letter-spacing:-.04em;color:#0A0B0D">{{ panel.count }}</span>
+          <span style="font:500 15px/1 Barlow,sans-serif;color:#7C838D">Dellen erfasst</span>
+        </div>
+        <p style="margin:0 0 24px;font:400 16px/1.62 Barlow,sans-serif;color:#61686F">{{ panel.text }}</p>
+        <div style="border-top:1px solid rgba(10,11,13,.13);margin-top:auto">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+            <span style="font:500 14.5px/1 Barlow,sans-serif;color:#7C838D">Demontage</span>
+            <span style="font:600 14.5px/1 Barlow,sans-serif;color:#0A0B0D">{{ panel.demontage }}</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+            <span style="font:500 14.5px/1 Barlow,sans-serif;color:#7C838D">Zugang</span>
+            <span style="font:600 14.5px/1 Barlow,sans-serif;color:#0A0B0D">{{ panel.access }}</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+            <span style="font:500 14.5px/1 Barlow,sans-serif;color:#7C838D">Schwierigkeit</span>
+            <span style="font:600 14.5px/1 Barlow,sans-serif;color:#D80D18">{{ panel.level }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Drei Stationen" style="background:#fff;padding:92px 0 96px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="max-width:720px;margin-bottom:44px">
+      <div style="display:flex;align-items:center;gap:11px;margin-bottom:20px">
+        <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+        <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Drei Stationen</span>
+      </div>
+      <h2 style="margin:0 0 16px;font-family:Saira,sans-serif;font-weight:800;font-size:44px;line-height:1.02;letter-spacing:-.03em;color:#0A0B0D">Bei Dellen zeigt der Zwischenschritt mehr als das Ergebnis.</h2>
+      <p style="margin:0;font:400 16.5px/1.65 Barlow,sans-serif;color:#61686F">Deshalb hier keine Schieberegler, sondern drei Aufnahmen aus demselben Auftrag: markiert, offen, fertig.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <div>
+        <div style="position:relative;height:400px;overflow:hidden;border:1px solid rgba(10,11,13,.12)">
+          <image-slot id="del-station-1" shape="rect" fit="cover" placeholder="Dellen markiert unter der Streifenlampe"></image-slot>
+          <span style="position:absolute;left:16px;top:14px;padding:7px 13px;background:#0A0B0D;font:700 11px/1 Saira,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff">Station 01</span>
+        </div>
+        <h3 style="margin:20px 0 8px;font:700 20px/1.25 Saira,sans-serif;letter-spacing:-.018em;color:#0A0B0D">Zählen und markieren</h3>
+        <p style="margin:0;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Jede Delle wird unter der Streifenlampe gefunden und angezeichnet. Was hier nicht auf der Liste steht, wird später auch nicht abgerechnet.</p>
+      </div>
+      <div>
+        <div style="position:relative;height:400px;overflow:hidden;border:1px solid rgba(10,11,13,.12)">
+          <image-slot id="del-station-2" shape="rect" fit="cover" placeholder="Verkleidung demontiert, Werkzeug am Blech"></image-slot>
+          <span style="position:absolute;left:16px;top:14px;padding:7px 13px;background:#0A0B0D;font:700 11px/1 Saira,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff">Station 02</span>
+        </div>
+        <h3 style="margin:20px 0 8px;font:700 20px/1.25 Saira,sans-serif;letter-spacing:-.018em;color:#0A0B0D">Zugang schaffen, drücken</h3>
+        <p style="margin:0;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Himmel, Verkleidung oder Radhausschale kommen raus. Danach wird in vielen kleinen Schritten von innen zurückgeführt — nicht in einem Zug.</p>
+      </div>
+      <div>
+        <div style="position:relative;height:400px;overflow:hidden;border:1px solid rgba(10,11,13,.12)">
+          <image-slot id="del-station-3" shape="rect" fit="cover" placeholder="Fertiges Panel, gerade Reflexionslinie"></image-slot>
+          <span style="position:absolute;left:16px;top:14px;padding:7px 13px;background:#D80D18;font:700 11px/1 Saira,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff">Station 03</span>
+        </div>
+        <h3 style="margin:20px 0 8px;font:700 20px/1.25 Saira,sans-serif;letter-spacing:-.018em;color:#0A0B0D">Kontrolle im Streiflicht</h3>
+        <p style="margin:0;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Fertig ist es, wenn die Reflexionslinie über das ganze Bauteil gerade durchläuft. Erst dann kommt die Verkleidung zurück.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Versicherung" style="background:#0A0B0D;padding:92px 0 96px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:64px;align-items:start">
+      <div>
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:20px">
+          <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+          <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Teilkasko &amp; Gutachter</span>
+        </div>
+        <h2 style="margin:0 0 18px;font-family:Saira,sans-serif;font-weight:800;font-size:40px;line-height:1.04;letter-spacing:-.03em;color:#fff">Hagel läuft meist über die Versicherung. Manchmal ist das der teurere Weg.</h2>
+        <p style="margin:0 0 26px;font:400 16.5px/1.68 Barlow,sans-serif;color:#AFB5BD">Sagen Sie uns bei der Anfrage, dass es ein Versicherungsfall ist — dann dokumentieren wir von Anfang an entsprechend. Und wenn Selbstbeteiligung plus Einstufung teurer wären als die Reparatur, rechnen wir Ihnen beides vor.</p>
+        <a href="./Kontakt.dc.html" style="display:inline-flex;align-items:center;gap:10px;font:600 14.5px/1 Barlow,sans-serif;color:#D6DAE0;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:5px" style-hover="color:#fff;border-color:#D80D18">Fall schildern →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 40px">
+        <div style="padding:20px 0;border-top:1px solid rgba(255,255,255,.13)">
+          <div style="font:700 17px/1.3 Saira,sans-serif;color:#fff">Aufstellung je Bauteil</div>
+          <div style="margin-top:6px;font:400 15.5px/1.55 Barlow,sans-serif;color:#8E959F">Fotos und Dellenzahl pro Panel — damit können Sie den Schaden melden.</div>
+        </div>
+        <div style="padding:20px 0;border-top:1px solid rgba(255,255,255,.13)">
+          <div style="font:700 17px/1.3 Saira,sans-serif;color:#fff">Abstimmung mit dem Gutachter</div>
+          <div style="margin-top:6px;font:400 15.5px/1.55 Barlow,sans-serif;color:#8E959F">Auf Wunsch direkt, damit Sie nicht zwischen zwei Terminen pendeln.</div>
+        </div>
+        <div style="padding:20px 0;border-top:1px solid rgba(255,255,255,.13)">
+          <div style="font:700 17px/1.3 Saira,sans-serif;color:#fff">Was wir nicht entscheiden</div>
+          <div style="margin-top:6px;font:400 15.5px/1.55 Barlow,sans-serif;color:#8E959F">Selbstbeteiligung, Einstufung und Regulierung liegen bei Ihrer Versicherung.</div>
+        </div>
+        <div style="padding:20px 0;border-top:1px solid rgba(255,255,255,.13)">
+          <div style="font:700 17px/1.3 Saira,sans-serif;color:#fff">Selbst zahlen</div>
+          <div style="margin-top:6px;font:400 15.5px/1.55 Barlow,sans-serif;color:#8E959F">Bei kleinen Schäden oft günstiger. Wir sagen es Ihnen, auch wenn wir dann weniger abrechnen.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Preis und FAQ" style="background:#F5F6F8;padding:88px 0 96px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid #0A0B0D;border-bottom:1px solid rgba(10,11,13,.14);margin-bottom:72px">
+      <div style="padding:30px 34px 30px 0;border-right:1px solid rgba(10,11,13,.14)">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:12px">Einzelne Parkdelle</div>
+        <div style="font:700 20px/1.25 Saira,sans-serif;letter-spacing:-.018em;color:#0A0B0D">Preis nach zwei Fotos</div>
+        <p style="margin:8px 0 0;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Ein Bild von der Stelle, eines vom ganzen Bauteil. Damit können wir in der Regel schon einen Festpreis nennen.</p>
+      </div>
+      <div style="padding:30px 34px;border-right:1px solid rgba(10,11,13,.14)">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:12px">Hagelschaden</div>
+        <div style="font:700 20px/1.25 Saira,sans-serif;letter-spacing:-.018em;color:#0A0B0D">Nur nach Begutachtung</div>
+        <p style="margin:8px 0 0;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Aus Fotos lässt sich das nicht seriös schätzen. Das Fahrzeug muss unter die Lampe — die Begutachtung kostet Sie nichts.</p>
+      </div>
+      <div style="padding:30px 0 30px 34px">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:12px">Wenn mehr auftaucht</div>
+        <div style="font:700 20px/1.25 Saira,sans-serif;letter-spacing:-.018em;color:#0A0B0D">Anruf vor der Arbeit</div>
+        <p style="margin:8px 0 0;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Findet sich unter der Verkleidung ein Vorschaden, hören Sie das vorher — nicht auf der Rechnung.</p>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:70px;align-items:start">
+      <div>
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:20px">
+          <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+          <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Häufige Fragen</span>
+        </div>
+        <h2 style="margin:0 0 18px;font-family:Saira,sans-serif;font-weight:800;font-size:40px;line-height:1.04;letter-spacing:-.03em;color:#0A0B0D">Was Kunden vorher wissen wollen</h2>
+        <a href="#anfrage" style="display:inline-flex;align-items:center;gap:11px;background:#0A0B0D;color:#fff;padding:17px 26px;font:700 13.5px/1 Saira,sans-serif;letter-spacing:.08em;text-transform:uppercase;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)" style-hover="background:#D80D18">Schaden schildern <span style="font-size:16px;line-height:1">→</span></a>
+      </div>
+      <div style="border-top:1px solid rgba(10,11,13,.14)">
+        <div style="border-bottom:1px solid rgba(10,11,13,.14)">
+          <button onClick="{{ q1Toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;background:transparent;border:0;padding:26px 0;cursor:pointer;text-align:left">
+            <span style="font:700 20px/1.3 Saira,sans-serif;letter-spacing:-.015em;color:{{ q1Color }}">Bleibt der Originallack wirklich erhalten?</span>
+            <span style="font:400 24px/1 Barlow,sans-serif;color:#D80D18;flex:none">{{ q1Sign }}</span>
+          </button>
+          <p style="display:{{ q1Show }};margin:0;padding:0 60px 28px 0;font:400 16.5px/1.7 Barlow,sans-serif;color:#61686F">Ja. Beim Drücken wird das Blech von der Rückseite zurückgeformt, der Lack darauf kehrt in seine Form zurück. Es wird nichts geschliffen, gespachtelt oder überlackiert — ein Lackschichtmessgerät findet später keine Auffälligkeit.</p>
+        </div>
+        <div style="border-bottom:1px solid rgba(10,11,13,.14)">
+          <button onClick="{{ q2Toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;background:transparent;border:0;padding:26px 0;cursor:pointer;text-align:left">
+            <span style="font:700 20px/1.3 Saira,sans-serif;letter-spacing:-.015em;color:{{ q2Color }}">Was ist, wenn der Lack an der Delle geplatzt ist?</span>
+            <span style="font:400 24px/1 Barlow,sans-serif;color:#D80D18;flex:none">{{ q2Sign }}</span>
+          </button>
+          <p style="display:{{ q2Show }};margin:0;padding:0 60px 28px 0;font:400 16.5px/1.7 Barlow,sans-serif;color:#61686F">Dann arbeiten wir zweistufig: erst die Form zurückholen, danach die Stelle beilackieren. Das ist besser und günstiger, als das ganze Bauteil zu ersetzen. Details dazu auf der Seite <a href="./Leistung Lackierarbeiten.dc.html" style="color:#0A0B0D;border-bottom:1px solid rgba(10,11,13,.25)">Lackierarbeiten</a>.</p>
+        </div>
+        <div style="border-bottom:1px solid rgba(10,11,13,.14)">
+          <button onClick="{{ q3Toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;background:transparent;border:0;padding:26px 0;cursor:pointer;text-align:left">
+            <span style="font:700 20px/1.3 Saira,sans-serif;letter-spacing:-.015em;color:{{ q3Color }}">Wie lange dauert ein Hagelschaden?</span>
+            <span style="font:400 24px/1 Barlow,sans-serif;color:#D80D18;flex:none">{{ q3Sign }}</span>
+          </button>
+          <p style="display:{{ q3Show }};margin:0;padding:0 60px 28px 0;font:400 16.5px/1.7 Barlow,sans-serif;color:#61686F">Je nach Anzahl der Dellen und Demontageaufwand meist zwei bis vier Tage. Den Zeitraum nennen wir bei der Begutachtung und rufen an, wenn sich etwas verschiebt.</p>
+        </div>
+        <div style="border-bottom:1px solid rgba(10,11,13,.14)">
+          <button onClick="{{ q4Toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;background:transparent;border:0;padding:26px 0;cursor:pointer;text-align:left">
+            <span style="font:700 20px/1.3 Saira,sans-serif;letter-spacing:-.015em;color:{{ q4Color }}">Kommen Sie für eine Parkdelle zu mir?</span>
+            <span style="font:400 24px/1 Barlow,sans-serif;color:#D80D18;flex:none">{{ q4Sign }}</span>
+          </button>
+          <p style="display:{{ q4Show }};margin:0;padding:0 60px 28px 0;font:400 16.5px/1.7 Barlow,sans-serif;color:#61686F">Bei einzelnen Dellen ja, wenn wir an die Stelle herankommen und Platz zum Arbeiten ist. Sobald Verkleidungen raus müssen oder es viele Dellen sind, ist die Halle der richtige Ort.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="anfrage" data-screen-label="Verwandte Leistungen" style="background:#fff;padding:90px 0 96px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px">
+    <h2 style="margin:0 0 32px;font-family:Saira,sans-serif;font-weight:800;font-size:34px;letter-spacing:-.025em;color:#0A0B0D">Passt oft dazu</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <a href="./Leistung Exterieur.dc.html" style="display:block;border:1px solid rgba(10,11,13,.12);padding:30px 28px;text-decoration:none" style-hover="border-color:#D80D18">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:14px">01 · Exterieur</div>
+        <div style="font:700 22px/1.2 Saira,sans-serif;letter-spacing:-.02em;color:#0A0B0D;margin-bottom:10px">Fahrzeugpflege Exterieur</div>
+        <div style="font:400 15.5px/1.55 Barlow,sans-serif;color:#61686F">Nach der Dellenarbeit sieht man alte Waschkratzer erst richtig.</div>
+      </a>
+      <a href="./Leistung Lackierarbeiten.dc.html" style="display:block;border:1px solid rgba(10,11,13,.12);padding:30px 28px;text-decoration:none" style-hover="border-color:#D80D18">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:14px">04 · Lack</div>
+        <div style="font:700 22px/1.2 Saira,sans-serif;letter-spacing:-.02em;color:#0A0B0D;margin-bottom:10px">Lackierarbeiten</div>
+        <div style="font:400 15.5px/1.55 Barlow,sans-serif;color:#61686F">Für Dellen mit gerissenem Lack: erst drücken, dann beilackieren.</div>
+      </a>
+      <a href="./Leistung Interieur.dc.html" style="display:block;border:1px solid rgba(10,11,13,.12);padding:30px 28px;text-decoration:none" style-hover="border-color:#D80D18">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:14px">02 · Interieur</div>
+        <div style="font:700 22px/1.2 Saira,sans-serif;letter-spacing:-.02em;color:#0A0B0D;margin-bottom:10px">Fahrzeugpflege Interieur</div>
+        <div style="font:400 15.5px/1.55 Barlow,sans-serif;color:#61686F">Wenn das Fahrzeug ohnehin ein paar Tage bei uns steht.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<dc-import name="Seitenfuss" ctaHeadline="Dellen oder Hagelschaden?" hint-size="100%,1400px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const CHECKS = [
+  { num: '01', title: 'Ist der Lack unverletzt?', verdict: 'entscheidend',
+    text: 'Solange der Lack nur gedehnt wurde, lässt sich das Blech zurückformen. Ist er gerissen oder abgeplatzt, kommt Lackarbeit dazu.',
+    badgeBg: '#D80D18', badgeColor: '#fff' },
+  { num: '02', title: 'Kommen wir von innen dran?', verdict: 'meistens ja',
+    text: 'Über Verkleidungen, Radhaus oder Dachhimmel. Bei Doppelblechen und verklebten Bereichen ziehen wir stattdessen von außen mit Klebetechnik.',
+    badgeBg: 'rgba(255,255,255,.1)', badgeColor: '#D6DAE0' },
+  { num: '03', title: 'Liegt die Delle auf einer Kante?', verdict: 'schwieriger',
+    text: 'Sicken und Kanten sind steifer, das Blech gibt weniger nach. Geht oft, dauert aber länger — und manchmal bleibt eine minimale Spur.',
+    badgeBg: 'rgba(255,255,255,.1)', badgeColor: '#D6DAE0' },
+  { num: '04', title: 'Wie scharf ist der Einschlag?', verdict: 'Grenzfall',
+    text: 'Runde Dellen sind unser Fall. Ein scharfkantiger Einschlag mit gedehntem Blech lässt sich nicht immer vollständig zurückführen.',
+    badgeBg: 'rgba(255,255,255,.1)', badgeColor: '#D6DAE0' }
+];
+
+const PANELS = [
+  { name: 'Motorhaube', count: 11, col: '2', row: '1', demontage: 'nicht nötig', access: 'von unten frei', level: 'mittel',
+    text: 'Große, gewölbte Fläche und gut zugänglich. Bei Aluhauben arbeiten wir langsamer, weil das Material weniger verzeiht.' },
+  { name: 'Kotflügel L', count: 4, col: '1', row: '2', demontage: 'Radhausschale', access: 'eingeschränkt', level: 'mittel',
+    text: 'Zugang über das Radhaus. Der obere Bereich an der Kante zur Haube ist der schwierigste Teil.' },
+  { name: 'Dach', count: 18, col: '2', row: '2', demontage: 'Dachhimmel', access: 'nach Ausbau frei', level: 'hoch',
+    text: 'Das Panel mit den meisten Dellen und dem größten Aufwand: Der Himmel muss raus, danach ist die Fläche gut erreichbar.' },
+  { name: 'Kotflügel R', count: 3, col: '3', row: '2', demontage: 'Radhausschale', access: 'eingeschränkt', level: 'mittel',
+    text: 'Wie links, meist mit weniger Einschlägen — die Wetterseite hat in der Regel mehr abbekommen.' },
+  { name: 'Tür VL', count: 2, col: '1', row: '3', demontage: 'Türverkleidung', access: 'gut', level: 'gering',
+    text: 'Nach Ausbau der Verkleidung gut erreichbar. Vorsicht bei Fensterführung und Kabelbaum.' },
+  { name: 'Heckklappe', count: 5, col: '2', row: '3', demontage: 'Innenverkleidung', access: 'gut', level: 'mittel',
+    text: 'Viele Verstärkungen im Blech, dadurch weniger Spielraum. Umlaufende Kanten brauchen Geduld.' },
+  { name: 'Tür HR', count: 1, col: '3', row: '3', demontage: 'Türverkleidung', access: 'gut', level: 'gering',
+    text: 'Eine einzelne Delle. Solche Panels machen wir am Ende, weil die Demontage länger dauert als das Drücken.' },
+  { name: 'Seitenwand R', count: 2, col: '3', row: '4', demontage: 'teilweise', access: 'schwierig', level: 'hoch',
+    text: 'Doppelblech im hinteren Bereich. Hier arbeiten wir häufig mit Klebetechnik von außen statt von innen.' }
+];
+
+class Component extends DCLogic {
+  state = { panel: 2, faq: 1 };
+  renderVals() {
+    const pi = this.state.panel;
+    const v = {
+      checks: CHECKS,
+      totalDents: PANELS.reduce((a, p) => a + p.count, 0),
+      panel: PANELS[pi],
+      panels: PANELS.map((p, i) => ({
+        name: p.name, count: p.count, col: p.col, row: p.row,
+        bg: i === pi ? '#0A0B0D' : '#F5F6F8',
+        border: i === pi ? '#0A0B0D' : 'rgba(10,11,13,.14)',
+        labelColor: i === pi ? '#8E959F' : '#61686F',
+        countColor: i === pi ? '#fff' : '#0A0B0D',
+        pick: () => this.setState({ panel: i })
+      }))
+    };
+    for (let n = 1; n <= 4; n++) {
+      const on = this.state.faq === n;
+      v['q' + n + 'Show'] = on ? 'block' : 'none';
+      v['q' + n + 'Sign'] = on ? '−' : '+';
+      v['q' + n + 'Color'] = on ? '#0A0B0D' : '#2B3038';
+      v['q' + n + 'Toggle'] = (i => () => this.setState(s => ({ faq: s.faq === i ? 0 : i })))(n);
+    }
+    return v;
+  }
+}
+</script>
+</body>
+</html>

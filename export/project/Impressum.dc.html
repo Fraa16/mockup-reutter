@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#0A0B0D;font-family:Barlow,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:#D80D18;text-decoration:none}
+  a:hover{color:#F2323C}
+  p{text-wrap:pretty}
+  ::selection{background:#D80D18;color:#fff}
+</style>
+</helmet>
+
+<div style="background:#0A0B0D;color:#fff;min-width:1280px">
+<dc-import name="Seitenkopf" hint-size="100%,120px"></dc-import>
+
+<section data-screen-label="Impressum Hero" style="position:relative;background:#0A0B0D;border-bottom:1px solid rgba(255,255,255,.1)">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:5px;background:#D80D18"></div>
+  <div style="max-width:1440px;margin:0 auto;padding:64px 64px 60px">
+    <div style="display:flex;align-items:center;gap:10px;font:500 13px/1 Barlow,sans-serif;color:#7C838D;margin-bottom:32px">
+      <a href="./Reutter Website.dc.html" style="color:#7C838D" style-hover="color:#fff">Startseite</a>
+      <span style="color:#4E555E">/</span>
+      <span style="color:#D6DAE0">Impressum</span>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:70px;align-items:end">
+      <div>
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:20px">
+          <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+          <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Rechtliches</span>
+        </div>
+        <h1 style="margin:0 0 18px;font-family:Saira,sans-serif;font-weight:800;font-size:56px;line-height:1;letter-spacing:-.035em;color:#fff">Impressum</h1>
+        <p style="margin:0;max-width:620px;font:400 17.5px/1.65 Barlow,sans-serif;color:#B4BAC2">Angaben gemäß § 5 Telemediengesetz. Die Felder werden mit den Daten des Betriebs gefüllt.</p>
+      </div>
+      <div style="border-left:1px solid rgba(255,255,255,.14);padding-left:30px">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7C838D;margin-bottom:12px">Stand</div>
+        <div style="font:700 20px/1.2 Saira,sans-serif;color:#fff">Datum eintragen</div>
+        <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px">
+          <a href="./Impressum.dc.html" style="padding:8px 13px;border:1px solid rgba(255,255,255,.2);font:600 12.5px/1 Barlow,sans-serif;color:#C6CBD2" style-hover="border-color:#D80D18;color:#fff">Impressum</a>
+          <a href="./Datenschutz.dc.html" style="padding:8px 13px;border:1px solid rgba(255,255,255,.2);font:600 12.5px/1 Barlow,sans-serif;color:#C6CBD2" style-hover="border-color:#D80D18;color:#fff">Datenschutz</a>
+          <a href="./AGB.dc.html" style="padding:8px 13px;border:1px solid rgba(255,255,255,.2);font:600 12.5px/1 Barlow,sans-serif;color:#C6CBD2" style-hover="border-color:#D80D18;color:#fff">AGB</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Hinweis" style="background:#D80D18">
+  <div style="max-width:1440px;margin:0 auto;padding:20px 64px;display:flex;align-items:center;gap:16px">
+    <span style="width:16px;height:8px;background:#fff;transform:skewX(-20deg);display:inline-block;flex:none"></span>
+    <span style="font:600 15px/1.4 Barlow,sans-serif;color:#fff">Layout-Gerüst. Die markierten Felder werden mit Ihren geprüften Texten gefüllt — verbindliche Rechtstexte gehören zu Ihrem Anwalt oder Verband, nicht zu mir.</span>
+  </div>
+</section>
+
+<section data-screen-label="Impressum" style="background:#fff;padding:64px 0 90px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px;display:grid;grid-template-columns:300px minmax(0,1fr);gap:80px;align-items:start">
+    <div style="position:sticky;top:160px">
+      <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:16px">Inhalt</div>
+      <div style="border-top:1px solid rgba(10,11,13,.13)">
+        <a href="#abschnitt-1" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);text-decoration:none" style-hover="color:#D80D18">
+          <span style="font:700 12px/1.5 Saira,sans-serif;letter-spacing:.06em;color:#9AA1AB">01</span>
+          <span style="font:500 14.5px/1.45 Barlow,sans-serif;color:#2B3038">Angaben gemäß § 5 TMG</span>
+        </a>
+        <a href="#abschnitt-2" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);text-decoration:none" style-hover="color:#D80D18">
+          <span style="font:700 12px/1.5 Saira,sans-serif;letter-spacing:.06em;color:#9AA1AB">02</span>
+          <span style="font:500 14.5px/1.45 Barlow,sans-serif;color:#2B3038">Vertreten durch</span>
+        </a>
+        <a href="#abschnitt-3" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);text-decoration:none" style-hover="color:#D80D18">
+          <span style="font:700 12px/1.5 Saira,sans-serif;letter-spacing:.06em;color:#9AA1AB">03</span>
+          <span style="font:500 14.5px/1.45 Barlow,sans-serif;color:#2B3038">Kontakt</span>
+        </a>
+        <a href="#abschnitt-4" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);text-decoration:none" style-hover="color:#D80D18">
+          <span style="font:700 12px/1.5 Saira,sans-serif;letter-spacing:.06em;color:#9AA1AB">04</span>
+          <span style="font:500 14.5px/1.45 Barlow,sans-serif;color:#2B3038">Umsatzsteuer-Identifikationsnummer</span>
+        </a>
+        <a href="#abschnitt-5" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);text-decoration:none" style-hover="color:#D80D18">
+          <span style="font:700 12px/1.5 Saira,sans-serif;letter-spacing:.06em;color:#9AA1AB">05</span>
+          <span style="font:500 14.5px/1.45 Barlow,sans-serif;color:#2B3038">Handwerksrolle und Kammer</span>
+        </a>
+        <a href="#abschnitt-6" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);text-decoration:none" style-hover="color:#D80D18">
+          <span style="font:700 12px/1.5 Saira,sans-serif;letter-spacing:.06em;color:#9AA1AB">06</span>
+          <span style="font:500 14.5px/1.45 Barlow,sans-serif;color:#2B3038">Redaktionell verantwortlich</span>
+        </a>
+        <a href="#abschnitt-7" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);text-decoration:none" style-hover="color:#D80D18">
+          <span style="font:700 12px/1.5 Saira,sans-serif;letter-spacing:.06em;color:#9AA1AB">07</span>
+          <span style="font:500 14.5px/1.45 Barlow,sans-serif;color:#2B3038">EU-Streitschlichtung</span>
+        </a>
+        <a href="#abschnitt-8" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);text-decoration:none" style-hover="color:#D80D18">
+          <span style="font:700 12px/1.5 Saira,sans-serif;letter-spacing:.06em;color:#9AA1AB">08</span>
+          <span style="font:500 14.5px/1.45 Barlow,sans-serif;color:#2B3038">Verbraucherstreitbeilegung</span>
+        </a>
+        <a href="#abschnitt-9" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);text-decoration:none" style-hover="color:#D80D18">
+          <span style="font:700 12px/1.5 Saira,sans-serif;letter-spacing:.06em;color:#9AA1AB">09</span>
+          <span style="font:500 14.5px/1.45 Barlow,sans-serif;color:#2B3038">Haftung für Inhalte und Links</span>
+        </a>
+        <a href="#abschnitt-10" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);text-decoration:none" style-hover="color:#D80D18">
+          <span style="font:700 12px/1.5 Saira,sans-serif;letter-spacing:.06em;color:#9AA1AB">10</span>
+          <span style="font:500 14.5px/1.45 Barlow,sans-serif;color:#2B3038">Urheberrecht</span>
+        </a>
+      </div>
+    </div>
+    <div style="max-width:820px;border-top:1px solid rgba(10,11,13,.13)">
+      <div id="abschnitt-1" style="padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;color:#D80D18">01</span>
+          <h2 style="margin:0;font:700 26px/1.2 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">Angaben gemäß § 5 TMG</h2>
+        </div>
+        <div style="border:1px dashed rgba(216,13,24,.45);background:rgba(216,13,24,.04);padding:22px 24px;display:flex;align-items:flex-start;gap:14px">
+          <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+          <span>
+            <span style="display:block;font:700 14px/1.3 Saira,sans-serif;letter-spacing:.02em;color:#0A0B0D">Text einsetzen</span>
+            <span style="display:block;margin-top:6px;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Firmierung, Inhaber, Straße und Hausnummer, PLZ und Ort der Halle.</span>
+          </span>
+        </div>
+      </div>
+      <div id="abschnitt-2" style="padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;color:#D80D18">02</span>
+          <h2 style="margin:0;font:700 26px/1.2 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">Vertreten durch</h2>
+        </div>
+        <div style="border:1px dashed rgba(216,13,24,.45);background:rgba(216,13,24,.04);padding:22px 24px;display:flex;align-items:flex-start;gap:14px">
+          <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+          <span>
+            <span style="display:block;font:700 14px/1.3 Saira,sans-serif;letter-spacing:.02em;color:#0A0B0D">Text einsetzen</span>
+            <span style="display:block;margin-top:6px;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Name der vertretungsberechtigten Person.</span>
+          </span>
+        </div>
+      </div>
+      <div id="abschnitt-3" style="padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;color:#D80D18">03</span>
+          <h2 style="margin:0;font:700 26px/1.2 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">Kontakt</h2>
+        </div>
+        <div style="border-left:3px solid #0A0B0D;padding:4px 0 4px 22px;display:flex;flex-direction:column;gap:7px">
+          <span style="font:600 16.5px/1.6 Barlow,sans-serif;color:#0A0B0D">Telefon 07 11 / 82 85 940</span>
+          <span style="font:600 16.5px/1.6 Barlow,sans-serif;color:#0A0B0D">Mobil 0172 / 6 28 97 25</span>
+          <span style="font:600 16.5px/1.6 Barlow,sans-serif;color:#0A0B0D">E-Mail info@clean-box.eu</span>
+          <span style="font:400 16.5px/1.6 Barlow,sans-serif;color:#41474F">Telefax und weitere Kontaktwege bei Bedarf ergänzen.</span>
+        </div>
+      </div>
+      <div id="abschnitt-4" style="padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;color:#D80D18">04</span>
+          <h2 style="margin:0;font:700 26px/1.2 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">Umsatzsteuer-Identifikationsnummer</h2>
+        </div>
+        <div style="border:1px dashed rgba(216,13,24,.45);background:rgba(216,13,24,.04);padding:22px 24px;display:flex;align-items:flex-start;gap:14px">
+          <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+          <span>
+            <span style="display:block;font:700 14px/1.3 Saira,sans-serif;letter-spacing:.02em;color:#0A0B0D">Text einsetzen</span>
+            <span style="display:block;margin-top:6px;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">USt-IdNr. gemäß § 27 a UStG, sofern vorhanden — sonst Steuernummer und der Hinweis auf die Kleinunternehmerregelung.</span>
+          </span>
+        </div>
+      </div>
+      <div id="abschnitt-5" style="padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;color:#D80D18">05</span>
+          <h2 style="margin:0;font:700 26px/1.2 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">Handwerksrolle und Kammer</h2>
+        </div>
+        <div style="border:1px dashed rgba(216,13,24,.45);background:rgba(216,13,24,.04);padding:22px 24px;display:flex;align-items:flex-start;gap:14px">
+          <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+          <span>
+            <span style="display:block;font:700 14px/1.3 Saira,sans-serif;letter-spacing:.02em;color:#0A0B0D">Text einsetzen</span>
+            <span style="display:block;margin-top:6px;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Eintragung, zuständige Handwerkskammer, Berufsbezeichnung und der Staat, in dem sie verliehen wurde.</span>
+          </span>
+        </div>
+      </div>
+      <div id="abschnitt-6" style="padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;color:#D80D18">06</span>
+          <h2 style="margin:0;font:700 26px/1.2 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">Redaktionell verantwortlich</h2>
+        </div>
+        <div style="border:1px dashed rgba(216,13,24,.45);background:rgba(216,13,24,.04);padding:22px 24px;display:flex;align-items:flex-start;gap:14px">
+          <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+          <span>
+            <span style="display:block;font:700 14px/1.3 Saira,sans-serif;letter-spacing:.02em;color:#0A0B0D">Text einsetzen</span>
+            <span style="display:block;margin-top:6px;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Name und Anschrift der für den Inhalt verantwortlichen Person.</span>
+          </span>
+        </div>
+      </div>
+      <div id="abschnitt-7" style="padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;color:#D80D18">07</span>
+          <h2 style="margin:0;font:700 26px/1.2 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">EU-Streitschlichtung</h2>
+        </div>
+        <div style="border:1px dashed rgba(216,13,24,.45);background:rgba(216,13,24,.04);padding:22px 24px;display:flex;align-items:flex-start;gap:14px">
+          <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+          <span>
+            <span style="display:block;font:700 14px/1.3 Saira,sans-serif;letter-spacing:.02em;color:#0A0B0D">Text einsetzen</span>
+            <span style="display:block;margin-top:6px;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Hinweis auf die Plattform der EU-Kommission zur Online-Streitbeilegung samt Link.</span>
+          </span>
+        </div>
+      </div>
+      <div id="abschnitt-8" style="padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;color:#D80D18">08</span>
+          <h2 style="margin:0;font:700 26px/1.2 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">Verbraucherstreitbeilegung</h2>
+        </div>
+        <div style="border:1px dashed rgba(216,13,24,.45);background:rgba(216,13,24,.04);padding:22px 24px;display:flex;align-items:flex-start;gap:14px">
+          <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+          <span>
+            <span style="display:block;font:700 14px/1.3 Saira,sans-serif;letter-spacing:.02em;color:#0A0B0D">Text einsetzen</span>
+            <span style="display:block;margin-top:6px;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Erklärung, ob eine Teilnahme am Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle erfolgt.</span>
+          </span>
+        </div>
+      </div>
+      <div id="abschnitt-9" style="padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;color:#D80D18">09</span>
+          <h2 style="margin:0;font:700 26px/1.2 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">Haftung für Inhalte und Links</h2>
+        </div>
+        <div style="border:1px dashed rgba(216,13,24,.45);background:rgba(216,13,24,.04);padding:22px 24px;display:flex;align-items:flex-start;gap:14px">
+          <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+          <span>
+            <span style="display:block;font:700 14px/1.3 Saira,sans-serif;letter-spacing:.02em;color:#0A0B0D">Text einsetzen</span>
+            <span style="display:block;margin-top:6px;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Standardklauseln zur Haftung für eigene Inhalte und für verlinkte fremde Seiten.</span>
+          </span>
+        </div>
+      </div>
+      <div id="abschnitt-10" style="padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;color:#D80D18">10</span>
+          <h2 style="margin:0;font:700 26px/1.2 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">Urheberrecht</h2>
+        </div>
+        <div style="border:1px dashed rgba(216,13,24,.45);background:rgba(216,13,24,.04);padding:22px 24px;display:flex;align-items:flex-start;gap:14px">
+          <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+          <span>
+            <span style="display:block;font:700 14px/1.3 Saira,sans-serif;letter-spacing:.02em;color:#0A0B0D">Text einsetzen</span>
+            <span style="display:block;margin-top:6px;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Hinweis auf Urheberrecht an Texten und Bildern dieser Seite und zur Nutzung durch Dritte.</span>
+          </span>
+        </div>
+      </div>
+      <p style="margin:32px 0 0;font:400 15px/1.6 Barlow,sans-serif;color:#7C838D">Fragen zu dieser Seite: <a href="mailto:info@clean-box.eu" style="color:#0A0B0D;border-bottom:1px solid rgba(10,11,13,.25)">info@clean-box.eu</a></p>
+    </div>
+  </div>
+</section>
+
+<dc-import name="Seitenfuss" showForm="{{ false }}" hint-size="100%,900px"></dc-import>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#0A0B0D;font-family:Barlow,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:#D80D18;text-decoration:none}
+  a:hover{color:#F2323C}
+  p{text-wrap:pretty}
+  ::selection{background:#D80D18;color:#fff}
+</style>
+</helmet>
+
+<div style="background:#0A0B0D;color:#fff;min-width:1280px">
+<dc-import name="Seitenkopf" hint-size="100%,120px"></dc-import>
+
+<section data-screen-label="Impressum Hero" style="position:relative;background:#0A0B0D;border-bottom:1px solid rgba(255,255,255,.1)">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:5px;background:#D80D18"></div>
+  <div style="max-width:1440px;margin:0 auto;padding:64px 64px 60px">
+    <div style="display:flex;align-items:center;gap:10px;font:500 13px/1 Barlow,sans-serif;color:#7C838D;margin-bottom:32px">
+      <a href="./Reutter Website.dc.html" style="color:#7C838D" style-hover="color:#fff">Startseite</a>
+      <span style="color:#4E555E">/</span>
+      <span style="color:#D6DAE0">Impressum</span>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:70px;align-items:end">
+      <div>
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:20px">
+          <span style="width:16px;height:8px;background:#D80D18;transform:skewX(-20deg);display:inline-block"></span>
+          <span style="font:600 12px/1 Barlow,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D80D18">Rechtliches</span>
+        </div>
+        <h1 style="margin:0 0 18px;font-family:Saira,sans-serif;font-weight:800;font-size:56px;line-height:1;letter-spacing:-.035em;color:#fff">Impressum</h1>
+        <p style="margin:0;max-width:620px;font:400 17.5px/1.65 Barlow,sans-serif;color:#B4BAC2">Angaben gemäß § 5 Telemediengesetz. Die Felder werden mit den Daten des Betriebs gefüllt.</p>
+      </div>
+      <div style="border-left:1px solid rgba(255,255,255,.14);padding-left:30px">
+        <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7C838D;margin-bottom:12px">Stand</div>
+        <div style="font:700 20px/1.2 Saira,sans-serif;color:#fff">Datum eintragen</div>
+        <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px">
+          <a href="./Impressum.dc.html" style="padding:8px 13px;border:1px solid rgba(255,255,255,.2);font:600 12.5px/1 Barlow,sans-serif;color:#C6CBD2" style-hover="border-color:#D80D18;color:#fff">Impressum</a>
+          <a href="./Datenschutz.dc.html" style="padding:8px 13px;border:1px solid rgba(255,255,255,.2);font:600 12.5px/1 Barlow,sans-serif;color:#C6CBD2" style-hover="border-color:#D80D18;color:#fff">Datenschutz</a>
+          <a href="./AGB.dc.html" style="padding:8px 13px;border:1px solid rgba(255,255,255,.2);font:600 12.5px/1 Barlow,sans-serif;color:#C6CBD2" style-hover="border-color:#D80D18;color:#fff">AGB</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Hinweis" style="background:#D80D18">
+  <div style="max-width:1440px;margin:0 auto;padding:20px 64px;display:flex;align-items:center;gap:16px">
+    <span style="width:16px;height:8px;background:#fff;transform:skewX(-20deg);display:inline-block;flex:none"></span>
+    <span style="font:600 15px/1.4 Barlow,sans-serif;color:#fff">Layout-Gerüst. Die markierten Felder werden mit Ihren geprüften Texten gefüllt — verbindliche Rechtstexte gehören zu Ihrem Anwalt oder Verband, nicht zu mir.</span>
+  </div>
+</section>
+
+<section data-screen-label="Impressum" style="background:#fff;padding:64px 0 90px">
+  <div style="max-width:1440px;margin:0 auto;padding:0 64px;display:grid;grid-template-columns:300px minmax(0,1fr);gap:80px;align-items:start">
+    <div style="position:sticky;top:160px">
+      <div style="font:600 11.5px/1 Barlow,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D80D18;margin-bottom:16px">Inhalt</div>
+      <div style="border-top:1px solid rgba(10,11,13,.13)">
+        <a href="#abschnitt-1" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);text-decoration:none" style-hover="color:#D80D18">
+          <span style="font:700 12px/1.5 Saira,sans-serif;letter-spacing:.06em;color:#9AA1AB">01</span>
+          <span style="font:500 14.5px/1.45 Barlow,sans-serif;color:#2B3038">Angaben gemäß § 5 TMG</span>
+        </a>
+        <a href="#abschnitt-2" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);text-decoration:none" style-hover="color:#D80D18">
+          <span style="font:700 12px/1.5 Saira,sans-serif;letter-spacing:.06em;color:#9AA1AB">02</span>
+          <span style="font:500 14.5px/1.45 Barlow,sans-serif;color:#2B3038">Vertreten durch</span>
+        </a>
+        <a href="#abschnitt-3" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);text-decoration:none" style-hover="color:#D80D18">
+          <span style="font:700 12px/1.5 Saira,sans-serif;letter-spacing:.06em;color:#9AA1AB">03</span>
+          <span style="font:500 14.5px/1.45 Barlow,sans-serif;color:#2B3038">Kontakt</span>
+        </a>
+        <a href="#abschnitt-4" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);text-decoration:none" style-hover="color:#D80D18">
+          <span style="font:700 12px/1.5 Saira,sans-serif;letter-spacing:.06em;color:#9AA1AB">04</span>
+          <span style="font:500 14.5px/1.45 Barlow,sans-serif;color:#2B3038">Umsatzsteuer-Identifikationsnummer</span>
+        </a>
+        <a href="#abschnitt-5" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);text-decoration:none" style-hover="color:#D80D18">
+          <span style="font:700 12px/1.5 Saira,sans-serif;letter-spacing:.06em;color:#9AA1AB">05</span>
+          <span style="font:500 14.5px/1.45 Barlow,sans-serif;color:#2B3038">Handwerksrolle und Kammer</span>
+        </a>
+        <a href="#abschnitt-6" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);text-decoration:none" style-hover="color:#D80D18">
+          <span style="font:700 12px/1.5 Saira,sans-serif;letter-spacing:.06em;color:#9AA1AB">06</span>
+          <span style="font:500 14.5px/1.45 Barlow,sans-serif;color:#2B3038">Redaktionell verantwortlich</span>
+        </a>
+        <a href="#abschnitt-7" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);text-decoration:none" style-hover="color:#D80D18">
+          <span style="font:700 12px/1.5 Saira,sans-serif;letter-spacing:.06em;color:#9AA1AB">07</span>
+          <span style="font:500 14.5px/1.45 Barlow,sans-serif;color:#2B3038">EU-Streitschlichtung</span>
+        </a>
+        <a href="#abschnitt-8" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);text-decoration:none" style-hover="color:#D80D18">
+          <span style="font:700 12px/1.5 Saira,sans-serif;letter-spacing:.06em;color:#9AA1AB">08</span>
+          <span style="font:500 14.5px/1.45 Barlow,sans-serif;color:#2B3038">Verbraucherstreitbeilegung</span>
+        </a>
+        <a href="#abschnitt-9" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);text-decoration:none" style-hover="color:#D80D18">
+          <span style="font:700 12px/1.5 Saira,sans-serif;letter-spacing:.06em;color:#9AA1AB">09</span>
+          <span style="font:500 14.5px/1.45 Barlow,sans-serif;color:#2B3038">Haftung für Inhalte und Links</span>
+        </a>
+        <a href="#abschnitt-10" style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);text-decoration:none" style-hover="color:#D80D18">
+          <span style="font:700 12px/1.5 Saira,sans-serif;letter-spacing:.06em;color:#9AA1AB">10</span>
+          <span style="font:500 14.5px/1.45 Barlow,sans-serif;color:#2B3038">Urheberrecht</span>
+        </a>
+      </div>
+    </div>
+    <div style="max-width:820px;border-top:1px solid rgba(10,11,13,.13)">
+      <div id="abschnitt-1" style="padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;color:#D80D18">01</span>
+          <h2 style="margin:0;font:700 26px/1.2 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">Angaben gemäß § 5 TMG</h2>
+        </div>
+        <div style="border:1px dashed rgba(216,13,24,.45);background:rgba(216,13,24,.04);padding:22px 24px;display:flex;align-items:flex-start;gap:14px">
+          <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+          <span>
+            <span style="display:block;font:700 14px/1.3 Saira,sans-serif;letter-spacing:.02em;color:#0A0B0D">Text einsetzen</span>
+            <span style="display:block;margin-top:6px;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Firmierung, Inhaber, Straße und Hausnummer, PLZ und Ort der Halle.</span>
+          </span>
+        </div>
+      </div>
+      <div id="abschnitt-2" style="padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;color:#D80D18">02</span>
+          <h2 style="margin:0;font:700 26px/1.2 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">Vertreten durch</h2>
+        </div>
+        <div style="border:1px dashed rgba(216,13,24,.45);background:rgba(216,13,24,.04);padding:22px 24px;display:flex;align-items:flex-start;gap:14px">
+          <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+          <span>
+            <span style="display:block;font:700 14px/1.3 Saira,sans-serif;letter-spacing:.02em;color:#0A0B0D">Text einsetzen</span>
+            <span style="display:block;margin-top:6px;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Name der vertretungsberechtigten Person.</span>
+          </span>
+        </div>
+      </div>
+      <div id="abschnitt-3" style="padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;color:#D80D18">03</span>
+          <h2 style="margin:0;font:700 26px/1.2 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">Kontakt</h2>
+        </div>
+        <div style="border-left:3px solid #0A0B0D;padding:4px 0 4px 22px;display:flex;flex-direction:column;gap:7px">
+          <span style="font:600 16.5px/1.6 Barlow,sans-serif;color:#0A0B0D">Telefon 07 11 / 82 85 940</span>
+          <span style="font:600 16.5px/1.6 Barlow,sans-serif;color:#0A0B0D">Mobil 0172 / 6 28 97 25</span>
+          <span style="font:600 16.5px/1.6 Barlow,sans-serif;color:#0A0B0D">E-Mail info@clean-box.eu</span>
+          <span style="font:400 16.5px/1.6 Barlow,sans-serif;color:#41474F">Telefax und weitere Kontaktwege bei Bedarf ergänzen.</span>
+        </div>
+      </div>
+      <div id="abschnitt-4" style="padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;color:#D80D18">04</span>
+          <h2 style="margin:0;font:700 26px/1.2 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">Umsatzsteuer-Identifikationsnummer</h2>
+        </div>
+        <div style="border:1px dashed rgba(216,13,24,.45);background:rgba(216,13,24,.04);padding:22px 24px;display:flex;align-items:flex-start;gap:14px">
+          <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+          <span>
+            <span style="display:block;font:700 14px/1.3 Saira,sans-serif;letter-spacing:.02em;color:#0A0B0D">Text einsetzen</span>
+            <span style="display:block;margin-top:6px;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">USt-IdNr. gemäß § 27 a UStG, sofern vorhanden — sonst Steuernummer und der Hinweis auf die Kleinunternehmerregelung.</span>
+          </span>
+        </div>
+      </div>
+      <div id="abschnitt-5" style="padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;color:#D80D18">05</span>
+          <h2 style="margin:0;font:700 26px/1.2 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">Handwerksrolle und Kammer</h2>
+        </div>
+        <div style="border:1px dashed rgba(216,13,24,.45);background:rgba(216,13,24,.04);padding:22px 24px;display:flex;align-items:flex-start;gap:14px">
+          <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+          <span>
+            <span style="display:block;font:700 14px/1.3 Saira,sans-serif;letter-spacing:.02em;color:#0A0B0D">Text einsetzen</span>
+            <span style="display:block;margin-top:6px;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Eintragung, zuständige Handwerkskammer, Berufsbezeichnung und der Staat, in dem sie verliehen wurde.</span>
+          </span>
+        </div>
+      </div>
+      <div id="abschnitt-6" style="padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;color:#D80D18">06</span>
+          <h2 style="margin:0;font:700 26px/1.2 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">Redaktionell verantwortlich</h2>
+        </div>
+        <div style="border:1px dashed rgba(216,13,24,.45);background:rgba(216,13,24,.04);padding:22px 24px;display:flex;align-items:flex-start;gap:14px">
+          <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+          <span>
+            <span style="display:block;font:700 14px/1.3 Saira,sans-serif;letter-spacing:.02em;color:#0A0B0D">Text einsetzen</span>
+            <span style="display:block;margin-top:6px;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Name und Anschrift der für den Inhalt verantwortlichen Person.</span>
+          </span>
+        </div>
+      </div>
+      <div id="abschnitt-7" style="padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;color:#D80D18">07</span>
+          <h2 style="margin:0;font:700 26px/1.2 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">EU-Streitschlichtung</h2>
+        </div>
+        <div style="border:1px dashed rgba(216,13,24,.45);background:rgba(216,13,24,.04);padding:22px 24px;display:flex;align-items:flex-start;gap:14px">
+          <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+          <span>
+            <span style="display:block;font:700 14px/1.3 Saira,sans-serif;letter-spacing:.02em;color:#0A0B0D">Text einsetzen</span>
+            <span style="display:block;margin-top:6px;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Hinweis auf die Plattform der EU-Kommission zur Online-Streitbeilegung samt Link.</span>
+          </span>
+        </div>
+      </div>
+      <div id="abschnitt-8" style="padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;color:#D80D18">08</span>
+          <h2 style="margin:0;font:700 26px/1.2 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">Verbraucherstreitbeilegung</h2>
+        </div>
+        <div style="border:1px dashed rgba(216,13,24,.45);background:rgba(216,13,24,.04);padding:22px 24px;display:flex;align-items:flex-start;gap:14px">
+          <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+          <span>
+            <span style="display:block;font:700 14px/1.3 Saira,sans-serif;letter-spacing:.02em;color:#0A0B0D">Text einsetzen</span>
+            <span style="display:block;margin-top:6px;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Erklärung, ob eine Teilnahme am Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle erfolgt.</span>
+          </span>
+        </div>
+      </div>
+      <div id="abschnitt-9" style="padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;color:#D80D18">09</span>
+          <h2 style="margin:0;font:700 26px/1.2 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">Haftung für Inhalte und Links</h2>
+        </div>
+        <div style="border:1px dashed rgba(216,13,24,.45);background:rgba(216,13,24,.04);padding:22px 24px;display:flex;align-items:flex-start;gap:14px">
+          <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+          <span>
+            <span style="display:block;font:700 14px/1.3 Saira,sans-serif;letter-spacing:.02em;color:#0A0B0D">Text einsetzen</span>
+            <span style="display:block;margin-top:6px;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Standardklauseln zur Haftung für eigene Inhalte und für verlinkte fremde Seiten.</span>
+          </span>
+        </div>
+      </div>
+      <div id="abschnitt-10" style="padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:Saira,sans-serif;font-weight:800;font-size:15px;letter-spacing:.06em;color:#D80D18">10</span>
+          <h2 style="margin:0;font:700 26px/1.2 Saira,sans-serif;letter-spacing:-.022em;color:#0A0B0D">Urheberrecht</h2>
+        </div>
+        <div style="border:1px dashed rgba(216,13,24,.45);background:rgba(216,13,24,.04);padding:22px 24px;display:flex;align-items:flex-start;gap:14px">
+          <span style="width:12px;height:6px;background:#D80D18;transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none"></span>
+          <span>
+            <span style="display:block;font:700 14px/1.3 Saira,sans-serif;letter-spacing:.02em;color:#0A0B0D">Text einsetzen</span>
+            <span style="display:block;margin-top:6px;font:400 15.5px/1.6 Barlow,sans-serif;color:#61686F">Hinweis auf Urheberrecht an Texten und Bildern dieser Seite und zur Nutzung durch Dritte.</span>
+          </span>
+        </div>
+      </div>
+      <p style="margin:32px 0 0;font:400 15px/1.6 Barlow,sans-serif;color:#7C838D">Fragen zu dieser Seite: <a href="mailto:info@clean-box.eu" style="color:#0A0B0D;border-bottom:1px solid rgba(10,11,13,.25)">info@clean-box.eu</a></p>
+    </div>
+  </div>
+</section>
+
+<dc-import name="Seitenfuss" showForm="{{ false }}" hint-size="100%,900px"></dc-import>
+
