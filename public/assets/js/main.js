@@ -269,6 +269,37 @@
   }
 
   /* ---------------------------------------------------------------------
+     Geruchsdiagnose (Ozonbehandlung)
+     Quelle als Chip waehlen, darunter wechselt die Tafel.
+     --------------------------------------------------------------------- */
+  const diagnose = document.getElementById('diagnose');
+  if (diagnose) {
+    const chips  = Array.from(diagnose.querySelectorAll('.chip'));
+    const tafeln = Array.from(diagnose.querySelectorAll('.quellen-tafel'));
+
+    const zeige = (index) => {
+      chips.forEach((el, i) => {
+        el.classList.toggle('active', i === index);
+        el.setAttribute('aria-pressed', String(i === index));
+      });
+      tafeln.forEach((el, i) => { el.hidden = i !== index; });
+    };
+
+    chips.forEach((el, i) => {
+      el.addEventListener('click', () => zeige(i));
+      el.addEventListener('keydown', (e) => {
+        const richtung = ['ArrowDown', 'ArrowRight'].includes(e.key) ? 1
+                       : ['ArrowUp', 'ArrowLeft'].includes(e.key) ? -1 : 0;
+        if (richtung === 0) return;
+        e.preventDefault();
+        const naechste = (i + richtung + chips.length) % chips.length;
+        zeige(naechste);
+        chips[naechste].focus();
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------------------
      Anfrageformular — aus den drei Fieldsets wird der Stepper
      Ohne dieses Skript bleiben alle drei Schritte sichtbar und absendbar.
      --------------------------------------------------------------------- */

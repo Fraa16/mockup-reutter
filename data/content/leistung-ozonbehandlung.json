@@ -1,0 +1,234 @@
+{
+    "_hinweis": "Inhalte der Seite /leistungen/ozonbehandlung/. Uebernommen aus export/project/Leistung Ozon.dc.html. Diese Seite hat als einzige bewusst keinen Vorher/Nachher-Regler — Geruch ist nicht fotografierbar. Stattdessen zwei Prozessbilder und ein Absatz, der genau das erklaert.",
+    "_unbestaetigt": "Fachaussagen sind Entwuerfe des Design-Assistenten, von Daniel Reutter nicht bestaetigt. Zu pruefen: die fuenf Geruchsquellen mit ihren Dauern, die Aussage 'wir geben erst frei, wenn nichts mehr messbar ist' (setzt ein Messgeraet voraus!), die Sperrzeit-Phasen, 'Kaeltemittel/Klimaverdampfer mitbehandelt' und die Sicherheitsaussagen zu Gummi, Kunststoff und Elektronik. Achtung: die Startseite nennt '60 Minuten gesperrt', diese Seite 'ein halber Tag' — vor Launch angleichen.",
+
+    "seo": {
+        "titel": "Ozonbehandlung Auto Korntal — Rauchgeruch weg | Reutter",
+        "beschreibung": "Rauch, Tiergeruch, Schimmel: Ozon zerlegt Geruchsmoleküle nach der Reinigung. Ozonbehandlung fürs Fahrzeug in Korntal-Münchingen bei Stuttgart, nur in der Halle."
+    },
+
+    "hero": {
+        "kicker": "Leistung 07 · Interieur",
+        "titel": "Geruch lässt sich nicht fotografieren. Nur entfernen.",
+        "lead": "Ozon zerlegt Geruchsmoleküle chemisch. Es entfernt aber keinen Schmutz — und genau da liegt der Unterschied zwischen einer Behandlung, die hält, und zwei Wochen Ruhe.",
+        "cta": "Termin anfragen",
+        "kennzahlen": [
+            { "wert": "½ Tag", "label": "Fahrzeug gesperrt" },
+            { "wert": "Halle",  "label": "nicht mobil" }
+        ]
+    },
+
+    "diagnose": {
+        "kicker": "Diagnose zuerst",
+        "titel": "Wonach riecht es bei Ihnen?",
+        "beschreibung": "Wählen Sie die Quelle. Danach steht fest, was vorher passieren muss — und ob Ozon überhaupt der richtige Weg ist.",
+        "sitz_titel": "Wo der Geruch sitzt",
+        "reihenfolge_titel": "Reihenfolge in diesem Fall",
+        "rueckfall_titel": "Kommt zurück, wenn"
+    },
+
+    "_quellen_hinweis": "urteil_dunkel = schwarzes statt rotes Etikett; betont am Schritt = schwarze Zeile. Beides markiert die Faelle, in denen Ozon nicht der erste Schritt ist.",
+    "quellen": [
+        {
+            "label": "Rauch",
+            "urteil": "Ozon hilft",
+            "urteil_dunkel": false,
+            "ueberschrift": "In Himmel, Polstern und im Lüftungssystem",
+            "text": "Rauch legt sich als Film auf alle Oberflächen und setzt sich im Schaumstoff fest. Der Dachhimmel ist dabei der größte Speicher — und der Teil, den die meisten vergessen.",
+            "reihenfolge": [
+                { "n": "01", "t": "Innenraum komplett reinigen, Himmel inklusive" },
+                { "n": "02", "t": "Lüftung und Klimaverdampfer mitbehandeln" },
+                { "n": "03", "t": "Ozon-Durchlauf, bei starkem Geruch zwei" }
+            ],
+            "sinnvoll": "ja, nach der Reinigung",
+            "vorarbeit": "zwingend",
+            "dauer": "ein halber bis ein Tag",
+            "rueckfall": "weiter im Fahrzeug geraucht wird. Dann ist der Geruch in wenigen Wochen zurück."
+        },
+        {
+            "label": "Tiergeruch",
+            "urteil": "Ozon hilft",
+            "urteil_dunkel": false,
+            "ueberschrift": "Meist Teppich, Kofferraum und Gurtschächte",
+            "text": "Der Geruch kommt von Haaren, Hautfett und Speichel in der Faser. Solange die Haare drin sind, arbeitet Ozon gegen eine Quelle, die nachliefert.",
+            "reihenfolge": [
+                { "n": "01", "t": "Haare mechanisch aus der Faser holen" },
+                { "n": "02", "t": "Teppich und Polster nass extrahieren" },
+                { "n": "03", "t": "Ozon-Durchlauf für den Rest" }
+            ],
+            "sinnvoll": "ja, als letzter Schritt",
+            "vorarbeit": "zwingend",
+            "dauer": "ein Tag",
+            "rueckfall": "das Tier weiter ohne Decke oder Box mitfährt."
+        },
+        {
+            "label": "Schimmel / Feuchtigkeit",
+            "urteil": "erst Ursache",
+            "urteil_dunkel": true,
+            "ueberschrift": "Irgendwo kommt Wasser herein",
+            "text": "Häufig sind es verstopfte Wasserabläufe, eine undichte Türdichtung oder ein defekter Klimaablauf. Ozon tötet den Geruch — aber der Schimmel wächst weiter, solange es feucht bleibt.",
+            "reihenfolge": [
+                { "n": "01", "t": "Ursache suchen: Abläufe, Dichtungen, Kofferraumwanne", "betont": true },
+                { "n": "02", "t": "Feuchtigkeit vollständig austrocknen" },
+                { "n": "03", "t": "Reinigen, danach Ozon" }
+            ],
+            "sinnvoll": "erst nach Trocknung",
+            "vorarbeit": "Ursache muss behoben sein",
+            "dauer": "ein bis zwei Tage",
+            "rueckfall": "die undichte Stelle bleibt. Dann ist es in vier Wochen wieder da."
+        },
+        {
+            "label": "Lebensmittel",
+            "urteil": "Ozon hilft",
+            "urteil_dunkel": false,
+            "ueberschrift": "Milch, Fleisch oder Getränke im Kofferraum",
+            "text": "Ausgelaufene Flüssigkeit zieht durch die Kofferraumwanne in den Teppich und den Schaum darunter. Von oben abgewischt ist sie nur nach unten gewandert.",
+            "reihenfolge": [
+                { "n": "01", "t": "Wanne raus, Teppich anheben, Quelle entfernen" },
+                { "n": "02", "t": "Betroffene Fläche extrahieren und trocknen" },
+                { "n": "03", "t": "Ozon-Durchlauf gegen den Rest" }
+            ],
+            "sinnvoll": "ja, nach Extraktion",
+            "vorarbeit": "zwingend",
+            "dauer": "ein halber Tag",
+            "rueckfall": "unter dem Teppich Reste bleiben. Deshalb heben wir ihn an."
+        },
+        {
+            "label": "Weiß ich nicht",
+            "urteil": "wir suchen",
+            "urteil_dunkel": true,
+            "ueberschrift": "Dann fangen wir mit der Diagnose an",
+            "text": "Das ist häufiger, als man denkt — der eigenen Nase fällt der Geruch im eigenen Auto kaum noch auf. Wir gehen das Fahrzeug systematisch durch, bevor irgendein Gerät angeschlossen wird.",
+            "reihenfolge": [
+                { "n": "01", "t": "Teppich, Wanne und Abläufe prüfen" },
+                { "n": "02", "t": "Lüftung und Klima im Betrieb riechen" },
+                { "n": "03", "t": "Erst danach entscheiden, was nötig ist" }
+            ],
+            "sinnvoll": "nach Befund",
+            "vorarbeit": "Diagnose zuerst",
+            "dauer": "Befund in einer Stunde",
+            "rueckfall": "die Ursache nicht gefunden wurde. Deshalb suchen wir, statt zu behandeln."
+        }
+    ],
+
+    "sperrzeit": {
+        "kicker": "Ablauf und Sperrzeit",
+        "titel": "Während der Behandlung steigt niemand ein.",
+        "lead": "In der Konzentration, mit der gearbeitet wird, ist Ozon nicht harmlos. Deshalb ist das Fahrzeug verschlossen, und wir geben es erst frei, wenn nichts mehr messbar ist.",
+        "_phasen_hinweis": "zustand_art steuert die Farbe: frei (grau), gesperrt (rot), uebergabe (weiss).",
+        "phasen": [
+            {
+                "phase": "Phase 01",
+                "titel": "Diagnose",
+                "text": "Teppich anheben, Abläufe prüfen, Lüftung im Betrieb riechen. Erst danach steht der Plan.",
+                "zustand": "Fahrzeug frei",
+                "zustand_art": "frei"
+            },
+            {
+                "phase": "Phase 02",
+                "titel": "Reinigung",
+                "text": "Absaugen, Extraktion, Flächen abwischen. Alles, was Geruch abgibt, muss physisch raus.",
+                "zustand": "Fahrzeug frei",
+                "zustand_art": "frei"
+            },
+            {
+                "phase": "Phase 03",
+                "titel": "Ozon-Durchlauf",
+                "text": "Fahrzeug verschlossen, Umluft an, festgelegte Zeit. So kommt das Ozon auch in die Kanäle.",
+                "zustand": "gesperrt",
+                "zustand_art": "gesperrt"
+            },
+            {
+                "phase": "Phase 04",
+                "titel": "Lüften",
+                "text": "Türen offen, Durchzug. Restozon zerfällt von selbst zu Sauerstoff, das braucht Zeit.",
+                "zustand": "gesperrt",
+                "zustand_art": "gesperrt"
+            },
+            {
+                "phase": "Phase 05",
+                "titel": "Freigabe",
+                "text": "Kontrolle, dass nichts mehr messbar ist. Abnahme gemeinsam im Fahrzeug, ohne Duftbaum.",
+                "zustand": "Übergabe",
+                "zustand_art": "uebergabe"
+            }
+        ]
+    },
+
+    "grenzen": {
+        "kicker": "Was Ozon nicht kann",
+        "titel": "Manchmal sagen wir ab.",
+        "lead": "Eine Ozonbehandlung ist schnell verkauft und schnell gemacht. Wenn wir wissen, dass sie in Ihrem Fall nicht hält, sagen wir es vorher — es ist Ihr Geld.",
+        "punkte": [
+            { "titel": "Schmutz entfernen",           "text": "Ozon löst keinen Fleck und keine Ablagerung. Was Geruch abgibt, muss physisch raus." },
+            { "titel": "Eine undichte Stelle finden",  "text": "Bei Feuchtigkeit im Fahrzeug behandeln wir sonst nur das Symptom. Erst muss die Ursache weg." },
+            { "titel": "Weiterrauchen ausgleichen",    "text": "Wenn im Fahrzeug weiter geraucht wird, ist der Geruch in wenigen Wochen zurück." },
+            { "titel": "Mobil beim Kunden",            "text": "Die Behandlung braucht ein gesperrtes Fahrzeug und kontrollierte Lüftung. Das geht nur in der Halle." }
+        ]
+    },
+
+    "beleg": {
+        "_hinweis": "Ersetzt bewusst den Vorher/Nachher-Regler der anderen Leistungsseiten.",
+        "bilder": [
+            {
+                "bild": "g1.webp",
+                "alt": "Innenraum eines Raucherfahrzeugs vor der Reinigung",
+                "label": "Schritt 1 · Reinigung",
+                "ist_rot": false,
+                "platzhalter": true,
+                "_bild_soll": "Innenraum vor der Reinigung — Raucherfahrzeug"
+            },
+            {
+                "bild": "g2.webp",
+                "alt": "Ozongerät im geschlossenen Fahrzeug während der Behandlung",
+                "label": "Schritt 2 · Ozon",
+                "ist_rot": true,
+                "platzhalter": true,
+                "_bild_soll": "Ozongerät im geschlossenen Fahrzeug"
+            }
+        ],
+        "hinweis": "Hier gibt es bewusst keinen Vorher/Nachher-Regler. Ein Geruch lässt sich nicht abbilden, und ein Bild von einem sauberen Innenraum beweist nichts über die Behandlung. Was Sie stattdessen bekommen: die Abnahme im Fahrzeug, mit offener Tür und ohne Duftbaum."
+    },
+
+    "preis": {
+        "kicker": "Preis",
+        "titel": "Festpreis für Reinigung und Behandlung zusammen.",
+        "text": "Die Ozonbehandlung allein ist schnell gemacht. Den Aufwand bestimmt die Reinigung davor. Deshalb nennen wir einen Preis für beides — und keinen, der nachher um die eigentliche Arbeit ergänzt wird.",
+        "cta": "Einschätzung anfragen"
+    },
+
+    "faq": {
+        "kicker": "Häufige Fragen",
+        "titel": "Was Kunden vorher wissen wollen",
+        "hinweis_vor": "Steht Ihre Frage nicht dabei: ",
+        "fragen": [
+            {
+                "frage": "Ist Ozon gesundheitsschädlich?",
+                "antwort": "In der Arbeitskonzentration ja — deshalb ist das Fahrzeug während der Behandlung gesperrt und niemand steigt ein. Ozon zerfällt danach von selbst wieder zu Sauerstoff. Freigegeben wird erst, wenn nichts mehr messbar ist."
+            },
+            {
+                "frage": "Reicht Ozon allein, ohne Reinigung?",
+                "antwort": "Nur wenn der Innenraum wirklich sauber ist und der Geruch von einem einmaligen Ereignis kommt. In allen anderen Fällen sagen wir ab — wir wissen dann, dass es nicht hält."
+            },
+            {
+                "frage": "Hält das dauerhaft?",
+                "antwort": "Wenn die Ursache entfernt wurde, ja. Wird weiter im Auto geraucht oder bleibt die undichte Stelle, kommt der Geruch zurück — dagegen hilft keine Behandlung."
+            },
+            {
+                "frage": "Was ist mit Elektronik, Gummi und Leder?",
+                "antwort": "Bei sachgemäßer Anwendung passiert nichts. Ozon greift Gummi und Kunststoff erst bei sehr langer, sehr hoher Belastung an — deshalb arbeiten wir mit festgelegten Zeiten und nicht nach Gefühl. Leder wird nach der Behandlung rückgefettet."
+            }
+        ]
+    },
+
+    "verwandt": {
+        "titel": "Passt oft dazu",
+        "karten": [
+            { "slug": "fahrzeugpflege-interieur", "kicker": "05 · Interieur", "text": "Ohne gründliche Innenraumreinigung bringt Ozon nichts. Meistens Schritt eins." },
+            { "slug": "lederreparatur",           "kicker": "06 · Interieur", "text": "Rauchgeruch setzt sich auch im Leder fest — Reinigung und Rückfettung gehören dazu." },
+            { "slug": "fahrzeugpflege-exterieur", "kicker": "01 · Exterieur", "text": "Wenn das Fahrzeug ohnehin für einen Tag in der Halle steht." }
+        ]
+    },
+
+    "cta_ueberschrift": "Geruch im Fahrzeug?"
+}

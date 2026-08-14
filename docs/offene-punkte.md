@@ -123,6 +123,18 @@ Neu hinzugekommen und unbestätigt:
 - **Die Gewährleistungsantwort in der FAQ.** Gehört zu Punkt 5 unten; solange
   die offen ist, sollte auch dieser Satz nicht online gehen.
 
+### 7b. Widerspruch bei der Ozon-Sperrzeit
+
+Die Startseite sagt im Hotspot **„Fahrzeug danach 60 Minuten gesperrt"**, die
+Ozonseite sagt im Kopf **„½ Tag — Fahrzeug gesperrt"**. Beides steht online und
+widerspricht sich. Beide Zahlen stammen aus dem Entwurf, keine ist von Daniel
+bestätigt. Vor Launch eine Zahl festlegen und an beiden Stellen einsetzen.
+
+Ebenfalls auf der Ozonseite zu bestätigen: der Satz **„wir geben es erst frei,
+wenn nichts mehr messbar ist"** setzt ein Messgerät voraus. Hat der Betrieb
+eins? Wenn nicht, muss der Satz weg — er ist sonst eine Zusage, die nicht
+eingehalten werden kann.
+
 ---
 
 ## Aufgaben beim Kunden selbst

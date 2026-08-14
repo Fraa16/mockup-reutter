@@ -114,16 +114,16 @@ partial('kopf', [
               <?php endforeach; ?>
             </ol>
           </div>
-          <div class="grad-werte">
-            <dl class="grad-daten">
+          <div class="wertespalte">
+            <dl class="werte-liste">
               <div><dt>Aufwand</dt><dd><?= h($g['aufwand']) ?></dd></div>
               <div><dt>Dauer</dt><dd><?= h($g['dauer']) ?></dd></div>
               <div><dt>Mobil möglich</dt><dd><?= h($g['mobil']) ?></dd></div>
             </dl>
             <?php /* Der Kasten sagt, was hinterher noch zu sehen ist. Der steht
                     bewusst neben den Werten und nicht im Fliesstext. */ ?>
-            <div class="grad-erwartung">
-              <div class="erwartung-titel"><?= h(get($seite, 'grade_sektion.erwartung_titel')) ?></div>
+            <div class="werte-kasten">
+              <div class="kasten-titel"><?= h(get($seite, 'grade_sektion.erwartung_titel')) ?></div>
               <p><?= h($g['erwartung']) ?></p>
             </div>
           </div>
