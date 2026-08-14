@@ -104,6 +104,25 @@ Teilfolierung, Vollfolierung, Schriftzüge, Steinschlagschutzfolie — das sind
 verschiedene Leistungen mit verschiedenen Suchbegriffen. Der Text der alten
 Seite unter `/beklebung.html` ist als Ausgangspunkt brauchbar.
 
+**Steht inzwischen online, als Entwurf.** Der Abschnitt `#beklebung` auf
+`/leistungen/lackierarbeiten/` beschreibt alle vier Varianten — das ist eine
+Annahme, keine Auskunft. Vor dem Launch mit Daniel durchgehen und streichen,
+was er nicht anbietet. Der Abschnitt ist auch das Ziel der 301 von der alten
+`/beklebung.html`.
+
+### 7a. Aussagen der Lackierarbeiten-Seite
+
+Neu hinzugekommen und unbestätigt:
+
+- **Der Fingernageltest in drei Stufen** mit den Standzeiten „ein halber bis
+  ein Tag" / „ein bis zwei Tage" / „zwei bis drei Tage".
+- **Die vier Schritte der Farbtonfindung.** Vor allem: Misst der Betrieb den
+  Farbton tatsächlich am Fahrzeug, und wird ein Musterblech gespritzt? Die
+  ganze Seite steht auf dieser Aussage.
+- **„Politur des Übergangs inklusive"** — eine Preiszusage.
+- **Die Gewährleistungsantwort in der FAQ.** Gehört zu Punkt 5 unten; solange
+  die offen ist, sollte auch dieser Satz nicht online gehen.
+
 ---
 
 ## Aufgaben beim Kunden selbst

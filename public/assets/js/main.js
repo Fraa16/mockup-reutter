@@ -196,6 +196,48 @@
   }
 
   /* ---------------------------------------------------------------------
+     Fingernagel-Tiefentest (Lackierarbeiten)
+     Zustand waehlen, die rote Schadenszone waechst durch die Schichten.
+     --------------------------------------------------------------------- */
+  const tiefentest = document.getElementById('tiefentest');
+  if (tiefentest) {
+    const knoepfe = Array.from(tiefentest.querySelectorAll('.tiefe'));
+    const tafeln  = Array.from(tiefentest.querySelectorAll('.vorgehen-tafel'));
+    const zonen   = Array.from(tiefentest.querySelectorAll('.schadenszone'));
+
+    const zeige = (index) => {
+      knoepfe.forEach((el, i) => {
+        el.classList.toggle('active', i === index);
+        el.setAttribute('aria-pressed', String(i === index));
+      });
+      tafeln.forEach((el, i) => { el.hidden = i !== index; });
+
+      // Die Breiten stehen an der Tafel, damit sie neben ihrem Text
+      // gepflegt werden und nicht im Skript.
+      const tafel = tafeln[index];
+      if (!tafel) return;
+      zonen.forEach((zone) => {
+        const breite = Number(tafel.dataset[zone.dataset.schicht]) || 0;
+        zone.style.width = breite + '%';
+        zone.classList.toggle('ist-leer', breite === 0);
+      });
+    };
+
+    knoepfe.forEach((el, i) => {
+      el.addEventListener('click', () => zeige(i));
+      el.addEventListener('keydown', (e) => {
+        const richtung = ['ArrowDown', 'ArrowRight'].includes(e.key) ? 1
+                       : ['ArrowUp', 'ArrowLeft'].includes(e.key) ? -1 : 0;
+        if (richtung === 0) return;
+        e.preventDefault();
+        const naechste = (i + richtung + knoepfe.length) % knoepfe.length;
+        zeige(naechste);
+        knoepfe[naechste].focus();
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------------------
      Anfrageformular — aus den drei Fieldsets wird der Stepper
      Ohne dieses Skript bleiben alle drei Schritte sichtbar und absendbar.
      --------------------------------------------------------------------- */

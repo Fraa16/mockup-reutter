@@ -151,18 +151,22 @@ partial('kopf', [
   </div>
 </section>
 
-<!-- Preis und FAQ -->
-<section class="preis-faq">
+<!-- Preisrahmen -->
+<section class="preis-band">
+  <div class="band-schraege" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="preis-banner">
-      <div>
-        <div class="preis-kicker"><?= h(get($seite, 'preis.kicker')) ?></div>
-        <h2><?= h(get($seite, 'preis.titel')) ?></h2>
-        <p><?= h(get($seite, 'preis.text')) ?></p>
-      </div>
-      <a href="#kurzanfrage" class="btn btn-red"><?= h(get($seite, 'preis.cta')) ?></a>
+    <div>
+      <div class="preis-kicker"><?= h(get($seite, 'preis.kicker')) ?></div>
+      <h2><?= h(get($seite, 'preis.titel')) ?></h2>
+      <p><?= h(get($seite, 'preis.text')) ?></p>
     </div>
+    <a href="#kurzanfrage" class="btn btn-black"><?= h(get($seite, 'preis.cta')) ?></a>
+  </div>
+</section>
 
+<!-- FAQ -->
+<section class="faq-section ist-grau">
+  <div class="wrap">
     <div class="faq-grid">
       <div class="faq-intro">
         <div class="kicker"><?= swash() ?><span class="label"><?= h(get($seite, 'faq.kicker')) ?></span></div>
