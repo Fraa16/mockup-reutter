@@ -12,7 +12,7 @@ $kennzahl   = static fn (string $k): string => (string) get(site(), "kennzahlen.
 partial('kopf', [
     'titel'        => get($seite, 'seo.titel'),
     'beschreibung' => get($seite, 'seo.beschreibung'),
-    'pfad'         => '/',
+    'aktiv'        => '',
     'lcp_bild'     => get($seite, 'hero.bild'),
 ]);
 ?>

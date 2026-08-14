@@ -5,13 +5,14 @@
  *
  * @var string      $titel        Seitentitel fuer <title> und og:title
  * @var string      $beschreibung Meta-Description
- * @var string      $pfad         Aktueller Pfad, markiert den Menuepunkt
+ * @var string      $aktiv        Schluessel des aktiven Menuepunkts:
+ *                                leistungen | galerie | betrieb | kontakt
  * @var string|null $lcp_bild     Bild ueber der Falz, wird vorgeladen
  */
 $s = site();
 $titel        = $titel        ?? get($s, 'firma.name');
 $beschreibung = $beschreibung ?? '';
-$pfad         = $pfad         ?? '/';
+$aktiv        = $aktiv        ?? '';
 $lcp_bild     = $lcp_bild     ?? null;
 ?>
 <!DOCTYPE html>
@@ -71,12 +72,17 @@ $lcp_bild     = $lcp_bild     ?? null;
     </button>
     <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
       <?php foreach (get($s, 'navigation', []) as $punkt): ?>
-        <?php $aktiv = $punkt['ziel'] === $pfad; ?>
-        <a href="<?= attr($punkt['ziel']) ?>" class="nav-link<?= $aktiv ? ' is-active' : '' ?>"<?= $aktiv ? ' aria-current="page"' : '' ?>><?= h($punkt['label']) ?></a>
+        <?php $ist_aktiv = $punkt['schluessel'] === $aktiv; ?>
+        <a href="<?= attr($punkt['ziel']) ?>" class="nav-link<?= $ist_aktiv ? ' is-active' : '' ?>"<?= $ist_aktiv ? ' aria-current="page"' : '' ?>><?= h($punkt['label']) ?></a>
       <?php endforeach; ?>
       <a href="/kontakt/#anfrage" class="btn btn-red">Termin anfragen</a>
     </nav>
   </div>
 </header>
+
+<?php /* Utility-Leiste und Kopf sind fixiert; dieser Abstandhalter haelt den
+        Inhalt darunter. Hoehe steckt in --kopf-hoehe, damit die Sprungmarken
+        denselben Wert benutzen koennen. */ ?>
+<div class="kopf-abstand" aria-hidden="true"></div>
 
 <main id="inhalt">

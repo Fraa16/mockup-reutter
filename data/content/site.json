@@ -65,26 +65,27 @@
         },
         "google_profil_url": "https://share.google/9aGgJZc8acsdxbPXd"
     },
+    "_navigation_hinweis": "Vier Punkte statt fuenf, nach dem zweiten Design-Bundle. 'Ergebnisse' und 'Ablauf' waren reine Sprungmarken auf der Startseite — sie zeigten auf dieselbe URL und vererbten nichts, verbrauchten aber zwei von fuenf seitenweiten Navigationsplaetzen. 'Kontakt' fehlte bisher ganz; der rote Knopf fuehrt zwar dorthin, heisst aber 'Termin anfragen'.",
     "navigation": [
         {
+            "schluessel": "leistungen",
             "label": "Leistungen",
             "ziel": "/leistungen/"
         },
         {
-            "label": "Ergebnisse",
-            "ziel": "/#ergebnisse"
-        },
-        {
-            "label": "Ablauf",
-            "ziel": "/#ablauf"
-        },
-        {
+            "schluessel": "galerie",
             "label": "Galerie",
             "ziel": "/galerie/"
         },
         {
+            "schluessel": "betrieb",
             "label": "Betrieb",
             "ziel": "/#betrieb"
+        },
+        {
+            "schluessel": "kontakt",
+            "label": "Kontakt",
+            "ziel": "/kontakt/"
         }
     ],
     "utility_bar": {
@@ -93,7 +94,8 @@
     "sticky_bar": {
         "headline": "Kostenlose Einschätzung — meist am selben Werktag",
         "subline": "Werkstatt in Korntal bei Stuttgart · mobil im ganzen Raum",
-        "ab_scroll": 720
+        "ab_scroll": 600,
+        "_hinweis": "600 statt bisher 720 — so gibt es das zweite Design-Bundle vor."
     },
     "footer": {
         "beschreibung": "Fahrzeugpflege und KFZ-Aufbereitung für Außen und Innen. Dellen, Hagelschaden, Lack, Leder, Ozon. Im Raum Stuttgart, in der Halle und mobil.",
