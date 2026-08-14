@@ -1316,6 +1316,95 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
 .faq-hinweis a{color:var(--black);border-bottom:1px solid rgba(10,11,13,.25)}
 .faq-hinweis a:hover{color:var(--red);border-color:var(--red)}
 
+/* --- Kennzahlen im Hero (Interieur) -------------------------------------- */
+.hero-kennzahlen{display:flex;flex-wrap:wrap;gap:0;margin-top:40px;border-top:1px solid rgba(255,255,255,.14)}
+.hero-kennzahl{padding:20px 34px 0 0;margin-right:34px;border-right:1px solid rgba(255,255,255,.14)}
+.hero-kennzahl:last-child{border-right:0;margin-right:0;padding-right:0}
+.hero-kennzahl .wert{
+  font-family:var(--font-display);font-weight:800;font-size:24px;line-height:1;
+  letter-spacing:-.02em;color:#fff;
+}
+.hero-kennzahl .label{margin-top:7px;font:500 13px/1.4 var(--font-body);color:var(--gray-400)}
+
+/* ==========================================================================
+   Sechs-Zonen-Wähler (Interieur)
+   ========================================================================== */
+.zonen{background:var(--light-bg);padding:96px 0 100px;border-top:5px solid var(--red)}
+.zonen h2{
+  margin:0;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(28px,3.6vw,46px);line-height:1.02;letter-spacing:-.03em;color:var(--black);
+}
+.zonen-panel{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+  border:1px solid rgba(10,11,13,.14);background:#fff;
+}
+.zonen-liste{display:flex;flex-direction:column;border-right:1px solid rgba(10,11,13,.14)}
+.zone{
+  display:flex;align-items:center;gap:18px;width:100%;
+  padding:22px 26px;cursor:pointer;text-align:left;
+  background:#fff;border:0;border-bottom:1px solid rgba(10,11,13,.11);
+  transition:background .16s;
+}
+.zone:last-child{border-bottom:0}
+.zone:hover{background:#FAFAFB}
+.zone-num{
+  flex:none;font-family:var(--font-display);font-weight:800;font-size:13px;
+  letter-spacing:.12em;color:var(--gray-300);
+}
+.zone-text{display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}
+.zone-name{font:700 17px/1.25 var(--font-display);letter-spacing:-.015em;color:var(--black)}
+.zone-kurz{font:400 14px/1.35 var(--font-body);color:var(--gray-450)}
+.zone-zeit{
+  flex:none;font:600 13px/1 var(--font-body);color:var(--gray-400);
+  font-variant-numeric:tabular-nums;
+}
+.zone.active{background:var(--black)}
+.zone.active .zone-num{color:var(--red)}
+.zone.active .zone-name{color:#fff}
+.zone.active .zone-kurz,.zone.active .zone-zeit{color:var(--gray-350)}
+
+.zonen-detail{padding:38px 36px;background:#FAFAFB}
+.zonen-tafel[hidden]{display:none}
+.zonen-tafel h3{margin:0 0 14px;font:700 26px/1.18 var(--font-display);letter-spacing:-.022em;color:var(--black)}
+.zonen-tafel > p{margin:0 0 22px;font:400 16.5px/1.65 var(--font-body);color:var(--gray-450)}
+.zonen-tafel .bullets{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(10,11,13,.13);margin:0 0 24px;padding:0;list-style:none}
+.zonen-tafel .bullets li{
+  display:flex;align-items:flex-start;gap:14px;padding:13px 0;
+  border-bottom:1px solid rgba(10,11,13,.13);
+  font:500 15.5px/1.5 var(--font-body);color:var(--gray-dark);
+}
+.zonen-tafel .bullets .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none}
+/* Die Grenze ist der ehrlichste Teil der Seite und wird deshalb abgesetzt. */
+.zone-grenze{background:#fff;border-left:3px solid var(--red);padding:16px 20px}
+.grenze-titel{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--red);margin-bottom:8px;
+}
+.zone-grenze p{margin:0;font:400 15px/1.6 var(--font-body);color:var(--gray-450)}
+.zone-grenze a{color:var(--black);border-bottom:1px solid rgba(10,11,13,.25)}
+
+/* ==========================================================================
+   Trocknungs-Zeitstrahl (Interieur)
+   ========================================================================== */
+.trocknung{background:#fff;padding:92px 0 96px}
+.trocknung-grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:64px;align-items:start}
+.trocknung-intro h2{
+  margin:0 0 18px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(26px,3.2vw,40px);line-height:1.04;letter-spacing:-.03em;color:var(--black);
+}
+.trocknung-intro p{margin:0;font:400 16.5px/1.65 var(--font-body);color:var(--gray-450)}
+.zeitstrahl{margin:0;padding:0;list-style:none;border-top:1px solid rgba(10,11,13,.13)}
+.zeitstrahl-schritt{
+  display:grid;grid-template-columns:150px minmax(0,1fr);gap:28px;
+  padding:24px 0;border-bottom:1px solid rgba(10,11,13,.13);
+}
+.schritt-zeit{
+  font:600 13px/1.4 var(--font-body);letter-spacing:.06em;text-transform:uppercase;
+  color:var(--red);font-variant-numeric:tabular-nums;
+}
+.schritt-inhalt h3{margin:0 0 7px;font:700 19px/1.25 var(--font-display);letter-spacing:-.015em;color:var(--black)}
+.schritt-inhalt p{margin:0;font:400 15.5px/1.6 var(--font-body);color:var(--gray-450)}
+
 /* ==========================================================================
    Responsive
    --------------------------------------------------------------------------
@@ -1440,6 +1529,9 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
   .preis-banner{grid-template-columns:minmax(0,1fr);gap:28px;padding:34px 28px}
   .preis-banner .btn{justify-content:center}
   .leistung-vergleich .ba-frame{height:auto;aspect-ratio:16/10}
+  .zonen-panel{grid-template-columns:minmax(0,1fr)}
+  .zonen-liste{border-right:0;border-bottom:1px solid rgba(10,11,13,.14)}
+  .trocknung-grid{grid-template-columns:minmax(0,1fr);gap:34px}
   .kurzanfrage-grid{grid-template-columns:minmax(0,1fr);gap:38px}
   .kurzanfrage-intro h2{font-size:clamp(26px,4vw,40px)}
 
@@ -1547,6 +1639,12 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
   .schnitt{padding:24px 20px}
   .stufen-detail{padding:26px 22px}
   .leistung-vergleich .ba-frame{aspect-ratio:4/3}
+  .zonen,.trocknung{padding:64px 0 68px}
+  .zone{padding:18px 18px;gap:12px;flex-wrap:wrap}
+  .zone-zeit{width:100%;padding-left:31px}
+  .zonen-detail{padding:26px 20px}
+  .zeitstrahl-schritt{grid-template-columns:minmax(0,1fr);gap:8px}
+  .hero-kennzahl{padding-right:20px;margin-right:20px}
   .kurzanfrage-karte{padding:24px 20px}
   .kurzanfrage-karte .field-grid{grid-template-columns:minmax(0,1fr)}
   .kurzanfrage-fuss{flex-direction:column;align-items:stretch;gap:16px}

@@ -1,0 +1,167 @@
+{
+    "_hinweis": "Inhalte der Seite /leistungen/fahrzeugpflege-interieur/. Uebernommen aus export/project/Leistung Interieur.dc.html.",
+    "_unbestaetigt": "Fachaussagen sind Entwuerfe des Design-Assistenten, von Daniel Reutter nicht bestaetigt. Zu pruefen: die Zeitangaben je Zone, der Ablauf 4–8 Stunden, die Trocknungszeit von vier bis sechs Stunden und die Grenzen ('was geht nicht') je Zone.",
+
+    "seo": {
+        "titel": "Innenraumaufbereitung Korntal — Sprühextraktion | Fahrzeugpflege Reutter",
+        "beschreibung": "Polster nass extrahiert statt nur abgesaugt, Schächte von Hand, Kunststoff matt aufgefrischt. Innenraumaufbereitung in Korntal bei Stuttgart, auch mobil."
+    },
+
+    "hero": {
+        "kicker": "Leistung 02 · Interieur",
+        "titel": "Absaugen ist der Anfang, nicht die Arbeit.",
+        "lead": "Der Schmutz, der stört, sitzt unter der Oberfläche: im Schaum der Polster, in der Teppichfaser, in den Schächten zwischen Sitz und Konsole. Da kommt man nur mit Wasser, Zeit und Ausbau hin.",
+        "cta": "Termin anfragen",
+        "bild": "g3.webp",
+        "bild_alt": "Innenraum nach der Aufbereitung, Sitze extrahiert",
+        "bild_platzhalter": true,
+        "_bild_soll": "Innenraum, Sitz nass extrahiert",
+        "kennzahlen": [
+            { "wert": "4 – 8 Stunden", "label": "je nach Zustand und Größe" },
+            { "wert": "Halle oder mobil", "label": "auch in Ihrer Garage" }
+        ]
+    },
+
+    "zonen_sektion": {
+        "kicker": "Sechs Zonen im Innenraum",
+        "titel": "Jede Zone braucht ein anderes Verfahren.",
+        "beschreibung": "Wählen Sie eine Zone. Rechts steht, wie wir dort arbeiten, wie lange es dauert und wo die Grenze liegt."
+    },
+
+    "zonen": [
+        {
+            "num": "01",
+            "name": "Sitze und Polster",
+            "kurz": "Sprühextraktion, nass",
+            "zeit": "2 – 3 Stunden",
+            "text": "Reiniger wird eingesprüht, einwirken gelassen und mit Wasser wieder herausgezogen. Damit kommt der Schmutz aus dem Schaum, nicht nur von der Oberfläche.",
+            "punkte": ["Sprühextraktion statt Sprühen und Abwischen", "Sitzschienen und Ritzen von Hand", "Nach der Arbeit offen trocknen lassen"],
+            "grenze": "Flecken, die die Faser eingefärbt haben — etwa Tinte oder Haarfarbe — lassen sich aufhellen, aber nicht immer entfernen."
+        },
+        {
+            "num": "02",
+            "name": "Teppich und Fußräume",
+            "kurz": "Ausbau, wo möglich",
+            "zeit": "1 – 2 Stunden",
+            "text": "Fußmatten raus, Teppich abgesaugt, danach extrahiert. Unter den Matten sitzt Streusalz, das die Faser hart macht — das wird gelöst und ausgewaschen.",
+            "punkte": ["Matten separat gereinigt", "Streusalz und Getränkereste extrahiert", "Fahrerseite bekommt die meiste Zeit"],
+            "grenze": "Feuchtigkeit von einer undichten Stelle kommt zurück, wenn die Ursache bleibt. Dann muss die zuerst gefunden werden."
+        },
+        {
+            "num": "03",
+            "name": "Schächte und Fugen",
+            "kurz": "Handarbeit, unsichtbar",
+            "zeit": "1 Stunde",
+            "text": "Gurtschächte, Sitzschienen, die Fuge zwischen Konsole und Sitz, Ablagen. Das ist der Teil, den man hinterher nicht sieht, aber riecht, wenn er ausgelassen wurde.",
+            "punkte": ["Enge Düsen und Pinsel statt Bürste", "Türtaschen und Ablagen komplett leer", "Auch der Bereich unter den Sitzen"],
+            "grenze": "Was hinter fest verbauten Verkleidungen liegt, erreichen wir nur, wenn sich die Verkleidung zerstörungsfrei lösen lässt."
+        },
+        {
+            "num": "04",
+            "name": "Kunststoff und Armaturen",
+            "kurz": "Matt, nicht glänzend",
+            "zeit": "1 Stunde",
+            "text": "Armaturenbrett, Türverkleidung, Mittelkonsole und Lüftungsgitter werden gereinigt und matt aufgefrischt. Kein Silikonglanz, der staubt und in der Sonne spiegelt.",
+            "punkte": ["Reinigung vor Pflege, nicht statt Pflege", "Lüftungslamellen einzeln", "Bedienelemente ohne Rückstände"],
+            "grenze": "Verkratzte Klavierlack-Blenden lassen sich reinigen, aber nicht wie Autolack aufpolieren — das Material ist zu weich."
+        },
+        {
+            "num": "05",
+            "name": "Leder im Innenraum",
+            "kurz": "Reinigen und rückfetten",
+            "zeit": "1 – 2 Stunden",
+            "text": "Leder wird schonend gereinigt und danach rückgefettet. Ohne Rückfettung trocknet es aus, und dann beginnt es an den Sitzwangen zu reißen.",
+            "punkte": ["Reinigung ohne aggressive Lösemittel", "Rückfettung nach dem Trocknen", "Sitzwangen und Lenkrad zuerst"],
+            "_grenze_hinweis": "Der Satz endet bewusst offen — der Linktext setzt ihn fort. Sonst stuende 'die Seite Lederreparatur. Lederreparatur.'",
+            "grenze": "Risse, Löcher und Farbabrieb sind Reparatur, nicht Reinigung — dafür gibt es die Seite",
+            "grenze_link": { "text": "Lederreparatur", "ziel": "/leistungen/lederreparatur/" }
+        },
+        {
+            "num": "06",
+            "name": "Scheiben und Spiegel",
+            "kurz": "Streifenfrei bis zur Kante",
+            "zeit": "30 Minuten",
+            "text": "Innen zum Schluss, weil vorher noch gearbeitet wird. Die Kante am unteren Rand der Windschutzscheibe ist der Teil, an dem man erkennt, ob jemand sorgfältig war.",
+            "punkte": ["Zwei Tücher, nicht eines", "Untere Scheibenkante inklusive", "Rückspiegel und Displays trocken nach"],
+            "grenze": "Beschlagfilm von Rauch geht weg. Feine Kratzer im Glas — etwa von einem verschlissenen Wischer — bleiben."
+        }
+    ],
+
+    "trocknung": {
+        "kicker": "Planen Sie den Tag ein",
+        "titel": "Nasse Polster brauchen Zeit, keine Heizung.",
+        "lead": "Nach der Extraktion ist Feuchtigkeit im Schaum. Wer dann die Fenster schließt und in die Sonne stellt, holt sich genau den Geruch zurück, den er loswerden wollte.",
+        "schritte": [
+            { "zeit": "Stunde 0",     "titel": "Übergabe",              "text": "Fahrzeug wird ausgeräumt, Zustand gemeinsam angesehen, Problemstellen markiert." },
+            { "zeit": "Stunde 1 – 5", "titel": "Arbeit am Fahrzeug",    "text": "Trockenreinigung, Schächte, Extraktion, Kunststoff und Scheiben — in dieser Reihenfolge." },
+            { "zeit": "Stunde 5 – 9", "titel": "Trocknung, offen",      "text": "Türen auf, Luft durch. Bei kaltem oder feuchtem Wetter dauert es länger, dann sagen wir es Ihnen." },
+            { "zeit": "Abholung",     "titel": "Abnahme im Tageslicht", "text": "Wir gehen mit Ihnen durch den Innenraum. Was nicht passt, wird nachgearbeitet." }
+        ]
+    },
+
+    "vergleich": {
+        "kicker": "Vorher / Nachher",
+        "titel": "Derselbe Sitz, dieselbe Lampe.",
+        "beschreibung": "Bei Polstern lohnt der Vergleich nur an derselben Stelle im selben Licht — sonst zeigt man Beleuchtung statt Arbeit.",
+        "start_position": 50,
+        "_warnung": "LAUNCH-BLOCKER: vorher und nachher zeigen dasselbe Platzhalterbild. Vor Launch echtes Paar einsetzen.",
+        "vorher": "ba-3.webp",
+        "vorher_alt": "Polster vor der Extraktion",
+        "nachher": "ba-3.webp",
+        "nachher_alt": "Polster nach der Extraktion",
+        "echtes_paar": false,
+        "fussnote_vor": "Weitere Arbeiten in der ",
+        "fussnote_link": "Galerie"
+    },
+
+    "preis": {
+        "kicker": "Preis",
+        "titel": "Festpreis nach Begutachtung. Auch wenn es länger dauert.",
+        "text": "Wie viel Arbeit ein Innenraum ist, sieht man beim Öffnen der Tür. Zwei Fotos von Fußraum und Sitzen reichen uns meist für eine belastbare Einschätzung. Der genannte Preis ändert sich nicht, weil wir eine Stunde länger gebraucht haben.",
+        "cta": "Einschätzung anfragen"
+    },
+
+    "faq": {
+        "kicker": "Häufige Fragen",
+        "titel": "Fünf Fragen, die uns jede Woche gestellt werden",
+        "hinweis_vor": "Sonst einfach anrufen: ",
+        "fragen": [
+            {
+                "frage": "Wie lange müssen die Sitze trocknen?",
+                "antwort": "In der Regel vier bis sechs Stunden, bei kaltem Wetter länger. Planen Sie das Fahrzeug für den Tag ein und stellen Sie es danach nicht mit geschlossenen Fenstern in die Sonne."
+            },
+            {
+                "frage": "Bekommen Sie Tierhaare wirklich raus?",
+                "antwort": "Ja, aber es ist Handarbeit. Bei hellen Teppichen und langhaarigen Hunden bleibt manchmal ein Rest in der Faser. Wir sagen Ihnen beim Ansehen, was realistisch ist."
+            },
+            {
+                "frage": "Kaugummi, Wachs, Öl — geht das weg?",
+                "antwort": "Meistens ja. Kaugummi und Wachs werden mit Kälte spröde gemacht und mechanisch entfernt, Öl mit Lösemittel und anschließender Extraktion. Bleiben kann eine leichte Aufhellung."
+            },
+            {
+                "frage": "Kann ich Kindersitze drin lassen?",
+                "antwort": "Bauen Sie sie besser aus. Darunter sammelt sich am meisten, und genau diese Fläche sehen Sie hinterher. Wenn der Ausbau schwierig ist, machen wir es — sagen Sie Bescheid."
+            },
+            {
+                "frage": "Hilft Ozon gegen den Geruch?",
+                "antwort": "Nur nach der Reinigung. Ozon zerlegt Geruchsmoleküle, entfernt aber keinen Schmutz.",
+                "link": { "text": "Mehr zur Ozonbehandlung", "ziel": "/leistungen/ozonbehandlung/" }
+            },
+            {
+                "frage": "Muss ich alles ausräumen?",
+                "antwort": "Es hilft sehr. Wertsachen und Papiere nehmen Sie bitte immer mit. Alles andere räumen wir aus, wenn nötig — es kostet dann nur etwas mehr Zeit."
+            }
+        ]
+    },
+
+    "verwandt": {
+        "titel": "Passt oft dazu",
+        "karten": [
+            { "slug": "ozonbehandlung",           "kicker": "06 · Geruch",    "text": "Wenn nach der Reinigung noch Geruch bleibt, ist Ozon der zweite Schritt." },
+            { "slug": "lederreparatur",           "kicker": "05 · Leder",     "text": "Sitzwange, Lenkrad, Schaltsack — was die Reinigung nicht mehr rettet." },
+            { "slug": "fahrzeugpflege-exterieur", "kicker": "01 · Exterieur", "text": "Innen frisch, außen stumpf fällt sofort auf. Meist im selben Termin machbar." }
+        ]
+    },
+
+    "cta_ueberschrift": "Innenraum aufbereiten lassen?"
+}

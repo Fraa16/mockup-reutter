@@ -166,6 +166,36 @@
   }
 
   /* ---------------------------------------------------------------------
+     Zonen-Waehler (Fahrzeugpflege Interieur)
+     --------------------------------------------------------------------- */
+  const zonenkarte = document.getElementById('zonenkarte');
+  if (zonenkarte) {
+    const zonen  = Array.from(zonenkarte.querySelectorAll('.zone'));
+    const tafeln = Array.from(zonenkarte.querySelectorAll('.zonen-tafel'));
+
+    const zeige = (index) => {
+      zonen.forEach((el, i) => {
+        el.classList.toggle('active', i === index);
+        el.setAttribute('aria-pressed', String(i === index));
+      });
+      tafeln.forEach((el, i) => { el.hidden = i !== index; });
+    };
+
+    zonen.forEach((el, i) => {
+      el.addEventListener('click', () => zeige(i));
+      el.addEventListener('keydown', (e) => {
+        const richtung = ['ArrowDown', 'ArrowRight'].includes(e.key) ? 1
+                       : ['ArrowUp', 'ArrowLeft'].includes(e.key) ? -1 : 0;
+        if (richtung === 0) return;
+        e.preventDefault();
+        const naechste = (i + richtung + zonen.length) % zonen.length;
+        zeige(naechste);
+        zonen[naechste].focus();
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------------------
      Anfrageformular — aus den drei Fieldsets wird der Stepper
      Ohne dieses Skript bleiben alle drei Schritte sichtbar und absendbar.
      --------------------------------------------------------------------- */
