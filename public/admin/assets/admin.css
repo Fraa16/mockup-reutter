@@ -1,0 +1,187 @@
+/* ==========================================================================
+   Panel — bewusst nüchtern
+   ==========================================================================
+   Nimmt die Markenfarben der Website auf, bleibt sonst aber schlicht und
+   großflächig. Der Kunde soll hier arbeiten, nicht bewundern: große Klickziele,
+   viel Kontrast, keine Effekte, die vom Feld ablenken.
+   ========================================================================== */
+:root{
+  --rot:#D80D18;
+  --rot-hell:#F2323C;
+  --schwarz:#0A0B0D;
+  --grau-900:#16191E;
+  --grau-600:#61686F;
+  --grau-400:#8E959F;
+  --grau-200:#D6DAE0;
+  --grau-100:#E9ECF0;
+  --hell:#F5F6F8;
+  --gruen:#1B7A44;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--hell);color:var(--schwarz);
+  font:400 16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--rot);text-decoration:none}
+a:hover{color:var(--rot-hell)}
+:where(a,button,input,textarea,select):focus-visible{outline:3px solid var(--rot);outline-offset:2px}
+
+/* --- Wortmarke ----------------------------------------------------------- */
+.marke{display:flex;align-items:center;gap:14px}
+.wortmarke{
+  display:flex;align-items:center;font-weight:900;font-style:italic;font-size:22px;
+  letter-spacing:-.05em;color:#fff;line-height:1;
+}
+.wortmarke i{width:12px;height:13px;background:var(--rot);transform:skewX(-14deg);display:inline-block;margin:0 3px}
+.marke .sub{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--grau-400)}
+.zurueck{color:var(--grau-200);font-weight:600}
+.zurueck:hover{color:#fff}
+
+/* --- Anmeldung ----------------------------------------------------------- */
+.login-seite{
+  display:flex;align-items:center;justify-content:center;min-height:100vh;
+  background:var(--schwarz);padding:24px;
+}
+.login-karte{
+  width:100%;max-width:400px;background:var(--grau-900);
+  border:1px solid rgba(255,255,255,.12);padding:40px 36px;
+}
+.login-karte .marke{flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:32px}
+.login-karte label{display:block;margin-bottom:18px}
+.login-karte label span{
+  display:block;margin-bottom:8px;font-size:12px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--grau-400);
+}
+.login-karte input{
+  width:100%;background:#0F1216;border:1px solid rgba(255,255,255,.16);
+  color:#fff;padding:14px 15px;font-size:16px;
+}
+.login-karte input:focus{border-color:var(--rot);outline:none}
+.login-karte .knopf{width:100%;justify-content:center;margin-top:8px}
+.login-karte .hinweis{background:rgba(255,255,255,.05);color:var(--grau-200);border-color:rgba(255,255,255,.14)}
+.login-karte code{background:rgba(255,255,255,.1);padding:2px 6px;font-size:13px}
+
+/* --- Kopfzeile ----------------------------------------------------------- */
+.kopf{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  background:var(--schwarz);padding:16px 28px;
+}
+.kopf-rechts{display:flex;align-items:center;gap:20px;font-size:14px}
+.kopf-rechts a{color:var(--grau-200)}
+.kopf-rechts a:hover{color:#fff}
+.kopf-rechts .wer{color:var(--grau-400)}
+
+/* --- Layout -------------------------------------------------------------- */
+.inhalt{max-width:1000px;margin:0 auto;padding:44px 28px 90px}
+.inhalt.schmal{max-width:760px}
+h1{margin:0 0 10px;font-size:32px;line-height:1.15;letter-spacing:-.02em}
+h2{margin:0 0 4px;font-size:19px;letter-spacing:-.01em}
+.vorspann{margin:0 0 34px;color:var(--grau-600);max-width:62ch}
+
+/* --- Kacheln der Übersicht ---------------------------------------------- */
+/* Sechzehn Bereiche brauchen Ueberschriften, sonst ist es eine Wand. */
+/* Vorschau ohne beschreibbaren Speicher — nichts geht kaputt, es geht nur
+   nichts zu speichern. */
+.hinweis.nur-lesen{
+  background:#FFF6E5;border-left:3px solid #C97A00;color:#5A4200;
+  padding:14px 18px;margin:0 0 28px;font-size:14.5px;line-height:1.55;
+}
+.hinweis.nur-lesen strong{color:#3D2C00}
+
+.bereichsgruppe{margin-bottom:44px}
+.bereichsgruppe > h2{
+  margin:0 0 16px;font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--rot);
+  padding-bottom:10px;border-bottom:1px solid var(--grau-100);
+}
+.kacheln{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.kachel{
+  position:relative;display:flex;flex-direction:column;gap:8px;
+  background:#fff;border:1px solid var(--grau-100);padding:26px 28px 30px;
+  color:var(--schwarz);transition:border-color .15s,transform .15s;
+}
+.kachel:hover{border-color:var(--rot);color:var(--schwarz);transform:translateY(-2px)}
+.kachel-titel{font-size:19px;font-weight:700;letter-spacing:-.01em}
+.kachel-text{font-size:14.5px;color:var(--grau-600);line-height:1.5}
+.kachel-pfeil{position:absolute;right:24px;top:26px;color:var(--rot);font-size:19px}
+
+/* --- Formular ------------------------------------------------------------ */
+.gruppe{background:#fff;border:1px solid var(--grau-100);padding:28px 30px 8px;margin-bottom:20px}
+.gruppen-hinweis{
+  margin:6px 0 22px;padding:12px 14px;background:#FFF8E6;border-left:3px solid #E0A400;
+  font-size:14.5px;line-height:1.5;color:#5B4600;
+}
+.feld{margin-bottom:24px}
+.feld label{display:block;margin-bottom:7px;font-weight:600;font-size:15px}
+.feld-hilfe{margin:0 0 8px;font-size:13.5px;line-height:1.45;color:var(--grau-600)}
+.feld input[type=text],.feld input[type=number],.feld textarea{
+  width:100%;padding:12px 14px;font-size:16px;font-family:inherit;
+  border:1px solid var(--grau-200);background:#fff;color:var(--schwarz);
+}
+.feld input:focus,.feld textarea:focus{border-color:var(--rot);outline:none}
+.feld textarea{resize:vertical;line-height:1.55}
+
+/* --- Bildfeld ------------------------------------------------------------ */
+.bild-feld{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap}
+.vorschau{
+  width:150px;height:112px;object-fit:cover;flex:none;
+  border:1px solid var(--grau-200);background:var(--grau-100);
+}
+.vorschau.leer{
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;color:var(--grau-400);
+}
+.bild-aktionen{flex:1;min-width:240px}
+.bild-aktionen input[type=file]{width:100%;font-size:14px;margin-bottom:6px}
+
+/* --- Listen -------------------------------------------------------------- */
+.listen-eintrag{
+  border:1px solid var(--grau-100);padding:20px 22px 2px;margin:0 0 16px;
+  background:#FCFCFD;
+}
+.listen-eintrag legend{
+  padding:0 10px;font-size:12px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--grau-400);
+}
+
+/* --- Knöpfe -------------------------------------------------------------- */
+.knopf{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:15px 28px;font:600 15px/1 inherit;border:0;cursor:pointer;
+  transition:background .15s,border-color .15s;
+}
+.knopf.primaer{background:var(--rot);color:#fff}
+.knopf.primaer:hover{background:var(--rot-hell);color:#fff}
+.knopf.schlicht{background:transparent;border:1px solid var(--grau-200);color:var(--grau-600)}
+.knopf.schlicht:hover{border-color:var(--grau-600);color:var(--schwarz)}
+.kopf .knopf.schlicht{border-color:rgba(255,255,255,.25);color:var(--grau-200)}
+.kopf .knopf.schlicht:hover{border-color:#fff;color:#fff}
+
+.formular-fuss{
+  position:sticky;bottom:0;display:flex;gap:14px;align-items:center;
+  background:var(--hell);padding:18px 0;border-top:1px solid var(--grau-200);
+}
+
+/* --- Meldungen ----------------------------------------------------------- */
+.hinweis{
+  padding:15px 18px;margin:0 0 26px;font-size:15px;line-height:1.5;
+  border:1px solid var(--grau-200);background:#fff;
+}
+.hinweis.erfolg{border-color:var(--gruen);background:#EDF7F1;color:#12532F}
+.hinweis.fehler{border-color:var(--rot);background:#FDEEEF;color:#8A0810}
+.hinweis ul{margin:8px 0 0;padding-left:20px}
+
+/* --- Hilfe --------------------------------------------------------------- */
+.hilfe{border-top:1px solid var(--grau-200);padding-top:28px}
+.hilfe dl{margin:0}
+.hilfe dt{font-weight:700;margin-top:18px}
+.hilfe dd{margin:4px 0 0;color:var(--grau-600);max-width:70ch}
+
+@media (max-width:640px){
+  .inhalt{padding:28px 18px 80px}
+  h1{font-size:26px}
+  .gruppe{padding:22px 18px 4px}
+  .kopf{padding:14px 18px;gap:14px}
+}

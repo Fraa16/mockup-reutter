@@ -1,0 +1,2774 @@
+/* ==========================================================================
+   Schriften — lokal gehostet
+   ==========================================================================
+   Selbst ausgeliefert statt über fonts.googleapis.com: Das Einbinden von
+   Google Fonts per CDN überträgt die IP der Besucher in die USA und ist
+   ohne Einwilligung abmahnfähig (LG München I, 3 O 17493/20).
+
+   Es werden nur die Schnitte ausgeliefert, die das Design wirklich benutzt:
+   Barlow 400/500/600 für Fließtext, Saira 700/800 für Überschriften und
+   Buttons, Saira 900 kursiv ausschließlich für die Wortmarke — letztere auf
+   A-Z subgesetzt (2,3 KB statt 26,6 KB).
+   ========================================================================== */
+@font-face{
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/barlow-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/barlow-400-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/barlow-500-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/barlow-500-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/barlow-600-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/barlow-600-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Saira';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/saira-700-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Saira';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/saira-700-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Saira';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('../fonts/saira-800-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Saira';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('../fonts/saira-800-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Saira';
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url('../fonts/saira-900-italic-wordmark.woff2') format('woff2');
+}
+
+/* ==========================================================================
+   Fahrzeugpflege Reutter — design tokens
+   ========================================================================== */
+:root{
+  --black: #0A0B0D;
+  --near-black: #101216;
+  --off-black: #000;
+  --input-bg: #16191E;
+  --red: #D80D18;
+  --red-hover: #F2323C;
+  --light-bg: #F5F6F8;
+  --white: #fff;
+
+  --gray-50: #E4E7EB;
+  --gray-100: #D6DAE0;
+  --gray-150: #C6CBD2;
+  --gray-200: #B4BAC2;
+  --gray-250: #AFB5BD;
+  --gray-300: #9AA1AB;
+  --gray-350: #8E959F;
+  --gray-400: #7C838D;
+  --gray-450: #61686F;
+  --gray-500: #5C636D;
+  --gray-550: #4E555E;
+  --gray-dark: #2B3038;
+
+  --font-display: 'Saira', sans-serif;
+  --font-body: 'Barlow', system-ui, sans-serif;
+
+  --max-width: 1440px;
+  --gutter: 64px;
+
+  /* Utility-Leiste (38) + Kopf (82). Beide sind fixiert, deshalb braucht der
+     Inhalt darunter einen Abstandhalter — und Sprungmarken denselben Versatz,
+     sonst verschwindet das Ziel hinter dem Kopf. */
+  --utility-hoehe: 38px;
+  --kopf-hoehe: 120px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--black);
+  font-family:var(--font-body);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:var(--red);text-decoration:none}
+a:hover{color:var(--red-hover)}
+p{margin:0}
+input,textarea,select,button{font-family:inherit}
+button{font-family:inherit}
+::selection{background:var(--red);color:#fff}
+img{max-width:100%;display:block}
+
+.wrap{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:0 var(--gutter);
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+@keyframes rvUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes rvIn{from{opacity:0}to{opacity:1}}
+@keyframes par{from{transform:translateY(-4%) scale(1.06)}to{transform:translateY(4%) scale(1.06)}}
+@keyframes pulse{0%{opacity:.55;transform:scale(1)}70%{opacity:0;transform:scale(2.1)}100%{opacity:0;transform:scale(2.1)}}
+
+.rv{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.is-visible{opacity:1;transform:none}
+.rv-in{opacity:0;transition:opacity .7s ease}
+.rv-in.is-visible{opacity:1}
+
+@media (prefers-reduced-motion: reduce){
+  .rv,.rv-in{opacity:1;transform:none;transition:none}
+  .parallax-layer{animation:none !important}
+}
+
+/* ==========================================================================
+   Shared bits
+   ========================================================================== */
+.kicker{
+  display:flex;align-items:center;gap:11px;margin-bottom:22px;
+}
+.kicker .swash{
+  width:16px;height:8px;background:var(--red);transform:skewX(-20deg);display:inline-block;flex:none;
+}
+.kicker span.label{
+  font:600 12px/1 var(--font-body);letter-spacing:.22em;text-transform:uppercase;color:var(--red);
+}
+
+.btn{
+  display:inline-flex;align-items:center;gap:11px;
+  font:700 14px/1 var(--font-display);letter-spacing:.08em;text-transform:uppercase;
+  padding:18px 28px;border:0;cursor:pointer;
+  clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
+  transition:background .18s,color .18s,border-color .18s;
+}
+.btn-arrow{font-size:16px;line-height:1}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-hover);color:#fff}
+.btn-dark{background:var(--black);color:#fff}
+.btn-dark:hover{background:var(--red);color:#fff}
+.btn-outline{
+  background:rgba(255,255,255,.03);color:#fff;border:1px solid rgba(255,255,255,.22);
+  clip-path:none;
+}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08);color:#fff}
+
+/* Real photo filling a slot. Slots are sized by their wrapper, so the image
+   just covers it — same box the placeholder occupied. */
+.slot-img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  /* Browsers start a native drag on images, which would swallow the
+     before/after gesture the moment the pointer moves. */
+  -webkit-user-drag:none;user-select:none;
+}
+/* The hero image sits under a heavy left-to-right scrim; bias the crop right
+   so the vehicle stays clear of the headline rather than sitting behind it. */
+.hero .slot-img{object-position:70% 50%}
+
+.img-placeholder{
+  position:relative;width:100%;height:100%;min-height:100%;
+  background:
+    repeating-linear-gradient(-45deg, rgba(255,255,255,.035) 0 2px, transparent 2px 14px),
+    linear-gradient(155deg,#1b1d22,#0c0d10);
+  border:1px solid rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+}
+.img-placeholder span{
+  max-width:78%;
+  font:500 12.5px/1.5 var(--font-body);letter-spacing:.04em;
+  color:rgba(255,255,255,.4);
+  text-transform:none;
+}
+.img-placeholder.light{
+  background:
+    repeating-linear-gradient(-45deg, rgba(10,11,13,.035) 0 2px, transparent 2px 14px),
+    linear-gradient(155deg,#e9eaed,#dcdee2);
+  border-color:rgba(10,11,13,.08);
+}
+.img-placeholder.light span{color:rgba(10,11,13,.4)}
+
+/* ==========================================================================
+   Utility bar
+   ========================================================================== */
+.utility-bar{
+  position:fixed;top:0;left:0;right:0;z-index:70;
+  background:var(--off-black);border-bottom:1px solid rgba(255,255,255,.08);
+}
+.utility-bar .wrap{
+  height:38px;display:flex;align-items:center;justify-content:space-between;
+  font:500 12.5px/1 var(--font-body);color:var(--gray-350);letter-spacing:.02em;
+}
+.utility-bar .left{display:flex;align-items:center;gap:26px}
+.utility-bar .areas{display:flex;align-items:center;gap:9px}
+.utility-bar .areas .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;flex:none}
+.utility-bar .sep{color:var(--gray-500)}
+.utility-bar .right{display:flex;align-items:center;gap:22px}
+.utility-bar .hours{color:var(--gray-150)}
+.utility-bar .phone{color:#fff;font-weight:600;letter-spacing:.03em}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.site-header{
+  position:fixed;top:var(--utility-hoehe);left:0;right:0;z-index:69;
+  background:rgba(10,11,13,.9);
+  backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid rgba(255,255,255,.09);
+}
+.site-header .wrap{
+  height:82px;display:flex;align-items:center;justify-content:space-between;
+}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+.logo .wordmark{
+  display:flex;align-items:center;font-family:var(--font-display);font-weight:900;font-style:italic;
+  font-size:29px;letter-spacing:-.055em;color:#fff;line-height:1;
+}
+.logo .wordmark .swash{width:15px;height:16px;background:var(--red);transform:skewX(-14deg);display:inline-block;margin:0 3px}
+.logo .divider{width:1px;height:26px;background:rgba(255,255,255,.16)}
+.logo .sub{font:600 10.5px/1.35 var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--gray-350)}
+
+/* Hamburger — hidden on desktop, revealed at the nav breakpoint. */
+.nav-toggle{
+  display:none;width:44px;height:44px;padding:0;flex:none;
+  background:transparent;border:1px solid rgba(255,255,255,.22);cursor:pointer;
+  align-items:center;justify-content:center;flex-direction:column;gap:5px;
+}
+.nav-toggle span{
+  display:block;width:20px;height:2px;background:#fff;
+  transition:transform .25s cubic-bezier(.2,.7,.2,1),opacity .2s;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-toggle:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+
+.main-nav{display:flex;align-items:center;gap:34px}
+.main-nav a.nav-link{
+  font:600 14px/1 var(--font-body);letter-spacing:.03em;color:var(--gray-100);
+}
+.main-nav a.nav-link:hover{color:#fff}
+.main-nav .btn{padding:14px 24px;font-size:13px}
+
+.kopf-abstand{height:var(--kopf-hoehe);flex:none}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero{position:relative;overflow:hidden;background:var(--black)}
+.hero .parallax-frame{position:absolute;inset:0;overflow:hidden}
+.hero .parallax-layer{
+  position:absolute;inset:-6% 0;
+  animation:par 18s ease-in-out infinite alternate;
+}
+.hero .parallax-layer .img-placeholder{border:0}
+.hero .scrim{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(100deg,#0A0B0D 24%,rgba(10,11,13,.9) 46%,rgba(10,11,13,.35) 74%,rgba(10,11,13,.6) 100%);
+}
+.hero .accent-bar{position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--red);pointer-events:none}
+
+.hero .wrap{
+  position:relative;padding:118px var(--gutter) 96px;
+  display:grid;grid-template-columns:minmax(0,1fr) 336px;gap:64px;align-items:end;
+  min-height:660px;
+}
+.hero-copy{max-width:760px;pointer-events:none}
+.hero-copy .kicker{animation:rvIn .7s both}
+.hero h1{
+  margin:0 0 28px;font-family:var(--font-display);font-weight:800;font-size:82px;line-height:.94;
+  letter-spacing:-.035em;color:#fff;animation:rvUp .9s cubic-bezier(.2,.7,.2,1) both;
+}
+.hero h1 .muted{color:var(--gray-350)}
+.hero .lead{
+  margin:0 0 40px;max-width:600px;font:400 18.5px/1.68 var(--font-body);color:var(--gray-200);
+  animation:rvUp 1s cubic-bezier(.2,.7,.2,1) .06s both;
+}
+.hero .cta-row{
+  display:flex;align-items:center;gap:16px;pointer-events:auto;
+  animation:rvUp 1s cubic-bezier(.2,.7,.2,1) .12s both;
+}
+.hero .cta-row .btn-red{padding:20px 32px;font-size:15px;box-shadow:0 18px 44px -18px rgba(216,13,24,.75)}
+.hero .cta-row .btn-outline{padding:20px 28px;font:700 15px/1 var(--font-display);letter-spacing:.06em;clip-path:none}
+.hero .fineprint{
+  margin:22px 0 0;font:500 13.5px/1.5 var(--font-body);color:var(--gray-400);letter-spacing:.02em;
+  animation:rvUp 1s cubic-bezier(.2,.7,.2,1) .12s both;
+}
+
+.hero-stats{
+  display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(6px);
+  animation:rvUp 1s cubic-bezier(.2,.7,.2,1) .2s both;
+}
+.hero-stats .stat{background:rgba(10,11,13,.72);padding:26px 28px}
+.hero-stats .stat .value{
+  font-family:var(--font-display);font-weight:800;font-size:40px;line-height:1;letter-spacing:-.03em;color:#fff;
+  display:flex;align-items:baseline;gap:8px;
+}
+.hero-stats .stat .value .stars{color:var(--red);font-size:16px;letter-spacing:.06em}
+.hero-stats .stat .label{
+  margin-top:8px;font:500 13px/1.4 var(--font-body);letter-spacing:.06em;text-transform:uppercase;color:var(--gray-350);
+}
+
+/* ==========================================================================
+   Trust strip
+   ========================================================================== */
+.trust-strip{background:var(--light-bg);border-top:5px solid var(--red)}
+.trust-strip .grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.trust-strip .item{
+  padding:36px 40px;border-right:1px solid rgba(10,11,13,.1);display:flex;align-items:flex-start;gap:16px;
+}
+.trust-strip .item:first-child{padding-left:0}
+.trust-strip .item:last-child{border-right:0;padding-right:0}
+.trust-strip .item .swash{width:14px;height:7px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none}
+.trust-strip .item h3{margin:0;font:700 16px/1.3 var(--font-display);color:var(--black);letter-spacing:-.01em}
+.trust-strip .item p{margin-top:5px;font:400 14.5px/1.5 var(--font-body);color:var(--gray-450)}
+
+/* ==========================================================================
+   Section shells
+   ========================================================================== */
+.section{padding:104px 0 112px}
+.section-dark{background:var(--black)}
+.section-light{background:var(--light-bg)}
+.section-white{background:#fff;padding:104px 0 108px}
+
+.section-head{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:60px;margin-bottom:52px;
+}
+.section-head h2{
+  margin:0;font-family:var(--font-display);font-weight:800;font-size:54px;line-height:1;letter-spacing:-.03em;
+}
+.section-head.dark h2{color:#fff}
+.section-head.light h2{color:var(--black)}
+.section-head .desc{margin:0;max-width:380px;font:400 16.5px/1.65 var(--font-body);color:var(--gray-450)}
+
+/* ==========================================================================
+   Leistungen / Hotspot
+   ========================================================================== */
+.hotspot-panel{
+  display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,1fr);gap:0;
+  background:var(--black);border:1px solid rgba(10,11,13,.12);
+}
+.hotspot-visual{
+  position:relative;min-height:560px;overflow:hidden;border-right:1px solid rgba(255,255,255,.12);
+}
+.hotspot-visual .scrim{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,11,13,.5),rgba(10,11,13,.1) 40%,rgba(10,11,13,.55));
+}
+.hotspot-visual .tag{
+  position:absolute;left:28px;top:26px;font:600 11.5px/1 var(--font-body);letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(255,255,255,.62);pointer-events:none;
+}
+.hotspot-dot{
+  position:absolute;transform:translate(-50%,-50%);border:0;padding:0;background:transparent;cursor:pointer;z-index:3;
+}
+.hotspot-dot .bubble{
+  position:relative;display:flex;align-items:center;justify-content:center;
+  height:42px;min-width:42px;padding:0;border-radius:99px;
+  background:rgba(10,11,13,.72);color:#fff;border:1px solid rgba(255,255,255,.55);
+  box-shadow:0 6px 20px -8px rgba(0,0,0,.8);
+  font:700 14px/1 var(--font-display);letter-spacing:.06em;white-space:nowrap;
+  transition:background .18s,color .18s,box-shadow .25s,border-color .18s;
+}
+.hotspot-dot .ring{
+  position:absolute;inset:-1px;border-radius:99px;border:1px solid var(--red);opacity:0;
+  animation:pulse 2.4s ease-out infinite;pointer-events:none;
+}
+.hotspot-dot.active .bubble{
+  background:var(--red);border-color:var(--red);box-shadow:0 10px 30px -8px rgba(216,13,24,.9);
+}
+.hotspot-dot.active .ring{opacity:1}
+
+.hotspot-detail{
+  padding:48px 46px;display:flex;flex-direction:column;background:var(--black);min-height:560px;
+}
+.hotspot-detail .head{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:22px;
+  border-bottom:1px solid rgba(255,255,255,.13);
+}
+.hotspot-detail .head .tag{font:600 11.5px/1 var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.hotspot-detail .head .count{font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:.06em;color:var(--gray-550)}
+.hotspot-detail h3{margin:30px 0 18px;font-family:var(--font-display);font-weight:800;font-size:38px;line-height:1.03;letter-spacing:-.028em;color:#fff}
+.hotspot-detail .lead{margin:0 0 30px;font:400 17px/1.68 var(--font-body);color:var(--gray-250)}
+.hotspot-detail .bullets{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,.1)}
+.hotspot-detail .bullets li{
+  list-style:none;display:flex;align-items:flex-start;gap:14px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.1);
+}
+.hotspot-detail .bullets li .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none}
+.hotspot-detail .bullets li span{font:500 15.5px/1.5 var(--font-body);color:var(--gray-100)}
+.hotspot-detail .cta{margin-top:auto;padding-top:34px;display:flex;align-items:center;gap:18px}
+.hotspot-detail .cta .btn{padding:17px 26px;font-size:13.5px}
+.hotspot-detail .cta .hint{font:500 13.5px/1.4 var(--font-body);color:var(--gray-400)}
+
+/* ==========================================================================
+   Vorher / Nachher
+   ========================================================================== */
+.ba-section{position:relative}
+.ba-section .top-rule{
+  position:absolute;left:0;right:0;top:0;height:1px;
+  background:linear-gradient(90deg,var(--red) 0 18%,rgba(255,255,255,.1) 18%);
+}
+.ba-head{display:flex;align-items:flex-end;justify-content:space-between;gap:60px;margin-bottom:46px}
+.ba-head h2{margin:0;max-width:780px;font-family:var(--font-display);font-weight:800;font-size:54px;line-height:1;letter-spacing:-.03em;color:#fff}
+.case-list{display:flex;flex-direction:column;gap:10px;flex:none}
+.case-btn{
+  text-align:left;cursor:pointer;padding:14px 20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.16);
+  color:#fff;font:700 13px/1 var(--font-display);letter-spacing:.07em;text-transform:uppercase;min-width:250px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;transition:background .18s,border-color .18s;
+}
+.case-btn .meta{font-family:var(--font-body);font-weight:500;font-size:12px;letter-spacing:.04em;text-transform:none;color:var(--gray-400)}
+.case-btn.active{background:var(--red);border-color:var(--red)}
+.case-btn.active .meta{color:rgba(255,255,255,.8)}
+
+.ba-frame{
+  position:relative;width:100%;height:620px;overflow:hidden;cursor:grab;
+  border:1px solid rgba(255,255,255,.14);user-select:none;
+  /* Claim the horizontal gesture from the browser so a swipe drags the
+     divider instead of scrolling/zooming the page on touch. */
+  touch-action:none;
+}
+.ba-frame:active{cursor:grabbing}
+.ba-frame:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.ba-frame .layer{pointer-events:none}
+.ba-frame .layer{position:absolute;inset:0}
+/* MOCKUP DEVICE: both halves show the same photo; the "before" side is dulled
+   to stand in for unpolished paint, so angle and light stay matched. Delete
+   this rule once real paired before/after photographs replace them. */
+.ba-frame .layer-before .slot-img{
+  filter:saturate(.42) contrast(.86) brightness(.78);
+}
+.ba-frame .layer-after{clip-path:inset(0 0 0 52%)}
+.ba-handle{
+  position:absolute;top:0;bottom:0;width:2px;background:var(--red);left:52%;pointer-events:none;
+  box-shadow:0 0 0 1px rgba(0,0,0,.4),0 0 40px rgba(216,13,24,.5);
+}
+.ba-handle .grip{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:var(--red);
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px);
+  box-shadow:0 12px 34px -10px rgba(0,0,0,.8);
+}
+.ba-handle .grip span{color:#fff;font-size:15px;line-height:1}
+.ba-label{position:absolute;top:24px;padding:9px 16px;font:700 11.5px/1 var(--font-display);letter-spacing:.2em;text-transform:uppercase;color:#fff;pointer-events:none}
+.ba-label.before{left:26px;background:rgba(10,11,13,.8);border:1px solid rgba(255,255,255,.16)}
+.ba-label.after{right:26px;background:var(--red)}
+.ba-caption{
+  position:absolute;right:26px;bottom:24px;padding:12px 18px;background:rgba(10,11,13,.82);
+  border:1px solid rgba(255,255,255,.14);pointer-events:none;max-width:390px;
+}
+.ba-caption .name{font:700 14px/1.2 var(--font-display);letter-spacing:.01em;color:#fff}
+.ba-caption .note{margin-top:5px;font:400 13.5px/1.5 var(--font-body);color:var(--gray-250)}
+.ba-hint{margin:20px 0 0;font:500 13.5px/1.5 var(--font-body);color:var(--gray-400)}
+
+/* ==========================================================================
+   Ablauf
+   ========================================================================== */
+.ablauf-grid{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:80px;align-items:start}
+.ablauf-intro{position:sticky;top:120px}
+.ablauf-intro h2{margin:0 0 24px;font-family:var(--font-display);font-weight:800;font-size:52px;line-height:1;letter-spacing:-.03em;color:var(--black)}
+.ablauf-intro p{margin:0 0 32px;font:400 17px/1.68 var(--font-body);color:var(--gray-450)}
+
+.step-list{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(10,11,13,.12)}
+.step-row{
+  display:grid;grid-template-columns:96px minmax(0,1fr) 190px;gap:32px;padding:34px 0;
+  border-bottom:1px solid rgba(10,11,13,.12);align-items:start;
+}
+.step-row .num{font-family:var(--font-display);font-weight:800;font-size:52px;line-height:.9;letter-spacing:-.04em;color:var(--gray-50)}
+.step-row.final .num{color:var(--red)}
+.step-row h3{margin:0 0 9px;font:700 22px/1.25 var(--font-display);letter-spacing:-.015em;color:var(--black)}
+.step-row p{margin:0;font:400 16px/1.62 var(--font-body);color:var(--gray-450)}
+.step-row .duration{font:600 13px/1.5 var(--font-body);letter-spacing:.06em;text-transform:uppercase;color:var(--gray-300)}
+
+/* ==========================================================================
+   Galerie
+   ========================================================================== */
+.gallery-head{display:flex;align-items:flex-end;justify-content:space-between;gap:60px;margin-bottom:44px}
+.gallery-head h2{margin:0;font-family:var(--font-display);font-weight:800;font-size:54px;line-height:1;letter-spacing:-.03em;color:#fff}
+.gallery-head .link{
+  font:600 14px/1 var(--font-body);letter-spacing:.05em;color:var(--gray-100);
+  border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:5px;
+}
+.gallery-head .link:hover{color:#fff;border-color:var(--red)}
+
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:14px}
+.gallery-grid .tile{position:relative;overflow:hidden}
+.gallery-grid .tile.span-2{grid-column:span 2}
+.gallery-grid .tile.row-2{grid-row:span 2}
+.gallery-grid .tile .caption{
+  position:absolute;left:18px;bottom:16px;padding:7px 13px;background:rgba(10,11,13,.82);
+  font:600 11px/1 var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:#fff;pointer-events:none;
+}
+
+/* ==========================================================================
+   Mobiler Service
+   ========================================================================== */
+.mobile-banner{background:var(--red);position:relative;overflow:hidden}
+.mobile-banner .deco{
+  position:absolute;right:-40px;top:-60px;width:520px;height:420px;background:rgba(255,255,255,.07);
+  transform:skewX(-20deg);pointer-events:none;
+}
+.mobile-banner .wrap{
+  padding:64px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:60px;align-items:center;position:relative;
+}
+.mobile-banner .copy{max-width:820px}
+.mobile-banner .eyebrow{font:600 12px/1 var(--font-body);letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:18px}
+.mobile-banner h2{margin:0 0 14px;font-family:var(--font-display);font-weight:800;font-size:44px;line-height:1.04;letter-spacing:-.03em;color:#fff}
+.mobile-banner p{margin:0;font:400 17.5px/1.6 var(--font-body);color:rgba(255,255,255,.88);max-width:700px}
+.mobile-banner .actions{display:flex;flex-direction:column;gap:12px;flex:none}
+.mobile-banner .actions .btn-dark{padding:19px 30px;font-size:14px;justify-content:center}
+.mobile-banner .actions .btn-outline{
+  padding:19px 30px;font:700 14px/1 var(--font-display);letter-spacing:.05em;justify-content:center;
+  border-color:rgba(255,255,255,.45);
+}
+.mobile-banner .actions .btn-dark:hover{background:#fff;color:var(--black)}
+.mobile-banner .actions .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.12)}
+
+/* ==========================================================================
+   Betrieb & Bewertungen
+   ========================================================================== */
+.betrieb-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:center;margin-bottom:88px}
+.betrieb-photo{position:relative;height:520px}
+.betrieb-photo .badge{
+  position:absolute;right:-24px;bottom:-24px;background:var(--black);padding:26px 30px;max-width:270px;
+}
+.betrieb-photo .badge .name{font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:.02em;color:#fff}
+.betrieb-photo .badge .desc{margin-top:8px;font:400 14px/1.55 var(--font-body);color:var(--gray-300)}
+
+.betrieb-copy h2{margin:0 0 24px;font-family:var(--font-display);font-weight:800;font-size:50px;line-height:1.02;letter-spacing:-.03em;color:var(--black)}
+.betrieb-copy p{margin:0 0 20px;font:400 17px/1.7 var(--font-body);color:var(--gray-450)}
+.betrieb-copy p:last-of-type{margin-bottom:34px}
+
+.betrieb-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(10,11,13,.14)}
+.betrieb-stats .stat{padding:22px 20px 0 0;border-right:1px solid rgba(10,11,13,.14)}
+.betrieb-stats .stat:last-child{border-right:0;padding-right:0}
+.betrieb-stats .stat:not(:first-child){padding-left:20px}
+.betrieb-stats .stat .value{font-family:var(--font-display);font-weight:800;font-size:34px;line-height:1;letter-spacing:-.03em;color:var(--black)}
+.betrieb-stats .stat .label{margin-top:7px;font:500 12.5px/1.4 var(--font-body);letter-spacing:.05em;text-transform:uppercase;color:var(--gray-400)}
+
+.reviews-head{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:32px;
+  padding-top:20px;border-top:1px solid rgba(10,11,13,.12);
+}
+.reviews-head h3{margin:0;font-family:var(--font-display);font-weight:800;font-size:32px;letter-spacing:-.025em;color:var(--black)}
+.reviews-head .rating{display:flex;align-items:center;gap:12px}
+.reviews-head .stars{color:var(--red);font-size:15px;letter-spacing:.08em}
+.reviews-head .count{font:600 14px/1 var(--font-body);color:var(--gray-450)}
+
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.review-card{
+  background:#fff;border:1px solid rgba(10,11,13,.1);padding:32px 30px;
+  display:flex;flex-direction:column;gap:18px;
+}
+.review-card .stars{color:var(--red);font-size:14px;letter-spacing:.1em}
+.review-card p{margin:0;font:400 16.5px/1.62 var(--font-body);color:var(--gray-dark)}
+.review-card .author{margin-top:auto;display:flex;align-items:center;gap:12px;padding-top:6px}
+.review-card .author .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;flex:none}
+.review-card .author .name{font:600 13.5px/1 var(--font-body);color:var(--black)}
+.review-card .author .loc{font:400 13px/1 var(--font-body);color:var(--gray-300)}
+
+/* ==========================================================================
+   Anfrage (request form)
+   ========================================================================== */
+.anfrage-section{background:var(--near-black);position:relative;overflow:hidden}
+.anfrage-section .deco{
+  position:absolute;left:-120px;bottom:-120px;width:600px;height:400px;background:rgba(216,13,24,.09);
+  transform:skewX(-20deg);pointer-events:none;filter:blur(2px);
+}
+.anfrage-grid{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:80px;align-items:start;position:relative}
+.anfrage-intro h2{margin:0 0 22px;font-family:var(--font-display);font-weight:800;font-size:50px;line-height:1;letter-spacing:-.03em;color:#fff}
+.anfrage-intro > p{margin:0 0 40px;font:400 17px/1.68 var(--font-body);color:var(--gray-250)}
+
+.contact-list{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,.12)}
+.contact-list .row{padding:18px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.contact-list .row .label{font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--gray-400);margin-bottom:8px}
+.contact-list .row a{font:700 22px/1.2 var(--font-display);letter-spacing:-.01em;color:#fff}
+.contact-list .row a:hover{color:var(--red)}
+.contact-list .row.email a{font-size:19px}
+
+.map-frame{margin-top:28px;position:relative;height:200px;border:1px solid rgba(255,255,255,.12)}
+
+.request-card{background:var(--black);border:1px solid rgba(255,255,255,.13);padding:44px 46px 40px}
+
+.step-tracker{display:flex;align-items:center;gap:0;margin-bottom:38px}
+.step-tracker .step-item{display:flex;align-items:center;gap:14px;flex:1}
+.step-tracker .step-btn{display:flex;align-items:center;gap:12px;background:transparent;border:0;padding:0;cursor:pointer;text-align:left}
+.step-tracker .dot{
+  width:34px;height:34px;flex:none;display:flex;align-items:center;justify-content:center;
+  background:transparent;color:var(--gray-400);border:1px solid rgba(255,255,255,.18);
+  font:700 14px/1 var(--font-display);transition:background .18s,color .18s,border-color .18s;
+}
+.step-tracker .step-label{font:600 13px/1.2 var(--font-body);letter-spacing:.05em;text-transform:uppercase;color:var(--gray-400);white-space:nowrap;transition:color .18s}
+.step-tracker .line{flex:1;height:1px;background:rgba(255,255,255,.14);min-width:12px;margin:0 4px;transition:background .18s}
+
+.step-tracker .step-item.done .dot{background:rgba(216,13,24,.16);color:var(--red);border-color:rgba(216,13,24,.5)}
+.step-tracker .step-item.done .step-label{color:var(--gray-150)}
+.step-tracker .step-item.done .line{background:rgba(216,13,24,.5)}
+.step-tracker .step-item.current .dot{background:var(--red);color:#fff;border-color:var(--red)}
+.step-tracker .step-item.current .step-label{color:#fff}
+.step-tracker .step-item:last-child .line{background:transparent}
+
+.form-step h3{margin:0 0 8px;font:700 25px/1.2 var(--font-display);letter-spacing:-.02em;color:#fff}
+.form-step > p{margin:0 0 30px;font:400 15.5px/1.6 var(--font-body);color:var(--gray-350)}
+
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.field{display:flex;flex-direction:column;gap:9px}
+.field span{font:600 11.5px/1 var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--gray-400)}
+.field input,.field select,.field textarea{
+  background:var(--input-bg);border:1px solid rgba(255,255,255,.14);color:#fff;
+  padding:15px 16px;font:400 15.5px/1 var(--font-body);outline:none;
+}
+.field textarea{font:400 15.5px/1.6 var(--font-body);resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--red)}
+.field input::placeholder,.field textarea::placeholder{color:var(--gray-500)}
+
+.chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.chip{
+  cursor:pointer;padding:13px 18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.16);
+  color:var(--gray-150);font:600 14px/1 var(--font-body);letter-spacing:.02em;
+  display:flex;align-items:center;gap:9px;transition:background .16s,border-color .16s,color .16s;
+}
+.chip .swash{width:11px;height:6px;background:rgba(255,255,255,.28);transform:skewX(-20deg);display:inline-block;transition:background .16s}
+.chip.active{background:rgba(216,13,24,.14);border-color:var(--red);color:#fff}
+.chip.active .swash{background:var(--red)}
+
+.desc-field{margin-bottom:22px}
+
+.dropzone{
+  display:flex;align-items:center;gap:16px;border:1px dashed rgba(255,255,255,.2);
+  background:rgba(255,255,255,.02);padding:20px 22px;
+}
+.dropzone .icon{
+  width:40px;height:40px;flex:none;border:1px solid rgba(255,255,255,.2);
+  display:flex;align-items:center;justify-content:center;color:var(--red);font-size:19px;line-height:1;
+}
+.dropzone .title{font:600 14.5px/1.3 var(--font-body);color:#fff}
+.dropzone .hint{margin-top:3px;font:400 13.5px/1.4 var(--font-body);color:var(--gray-400)}
+
+.consent{display:flex;align-items:flex-start;gap:13px;cursor:pointer}
+.consent input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--red);flex:none}
+.consent span{font:400 14px/1.55 var(--font-body);color:var(--gray-350)}
+.consent a{color:var(--gray-100);border-bottom:1px solid rgba(255,255,255,.3)}
+
+.form-nav{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:36px;
+  padding-top:28px;border-top:1px solid rgba(255,255,255,.12);
+}
+.form-nav .btn-back{
+  background:transparent;border:1px solid rgba(255,255,255,.2);color:var(--gray-100);
+  padding:16px 24px;font:700 13px/1 var(--font-display);letter-spacing:.07em;text-transform:uppercase;cursor:pointer;
+  transition:border-color .18s,color .18s;
+}
+.form-nav .btn-back:hover{border-color:#fff}
+.form-nav .btn-back:disabled{color:var(--gray-550);cursor:default}
+.form-nav .btn-back:disabled:hover{border-color:rgba(255,255,255,.2)}
+.form-nav .right{display:flex;align-items:center;gap:20px}
+.form-nav .hint{font:500 13.5px/1.4 var(--font-body);color:var(--gray-400)}
+.form-nav .btn-next{padding:17px 28px;font-size:13.5px}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer{background:var(--off-black);padding:76px 0 0;border-top:1px solid rgba(255,255,255,.1)}
+.footer-grid{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr));gap:56px;padding-bottom:60px}
+.footer-brand .wordmark{
+  display:flex;align-items:center;font-family:var(--font-display);font-weight:900;font-style:italic;
+  font-size:38px;letter-spacing:-.055em;color:#fff;line-height:1;margin-bottom:20px;
+}
+.footer-brand .wordmark .swash{width:19px;height:20px;background:var(--red);transform:skewX(-14deg);display:inline-block;margin:0 4px}
+.footer-brand p{margin:0 0 24px;max-width:340px;font:400 15.5px/1.65 var(--font-body);color:var(--gray-350)}
+.footer-brand .contact{display:flex;flex-direction:column;gap:5px;font:500 15px/1.6 var(--font-body);color:var(--gray-100)}
+.footer-brand .contact a{color:var(--gray-100)}
+.footer-brand .contact a:hover{color:#fff}
+
+.footer-col .heading{font:600 11.5px/1 var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--gray-500);margin-bottom:20px}
+.footer-col .links{display:flex;flex-direction:column;gap:11px}
+.footer-col .links a,.footer-col .links span{font:500 15px/1.3 var(--font-body);color:var(--gray-150)}
+.footer-col .links a:hover{color:#fff}
+.footer-col .links span.muted{color:var(--gray-400)}
+
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);padding:24px 0;display:flex;align-items:center;justify-content:space-between;
+}
+.footer-bottom span{font:400 13.5px/1 var(--font-body);color:var(--gray-500)}
+
+/* ==========================================================================
+   Sticky request bar
+   ========================================================================== */
+.sticky-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:80;
+  background:rgba(10,11,13,.94);backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.14);
+  transform:translateY(100%);opacity:0;pointer-events:none;
+  transition:transform .35s cubic-bezier(.2,.7,.2,1),opacity .35s cubic-bezier(.2,.7,.2,1);
+}
+.sticky-bar.visible{transform:translateY(0);opacity:1;pointer-events:auto}
+.sticky-bar .wrap{height:74px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.sticky-bar .info{display:flex;align-items:center;gap:18px}
+.sticky-bar .swash{width:16px;height:8px;background:var(--red);transform:skewX(-20deg);display:inline-block;flex:none}
+.sticky-bar .headline{font:700 17px/1.2 var(--font-display);letter-spacing:-.01em;color:#fff}
+.sticky-bar .subline{font:400 14.5px/1.2 var(--font-body);color:var(--gray-350)}
+.sticky-bar .actions{display:flex;align-items:center;gap:12px}
+.sticky-bar .btn-outline{padding:14px 22px;font:700 13.5px/1 var(--font-display);letter-spacing:.05em}
+.sticky-bar .btn-red{padding:14px 24px;font-size:13.5px}
+
+/* section scroll offset so sticky header doesn't cover anchors */
+section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
+
+/* ==========================================================================
+   Zugänglichkeit — Grundlagen
+   ========================================================================== */
+/* Erster Tabstopp auf jeder Seite: direkt zum Inhalt, vorbei an der Navigation. */
+.skip-link{
+  position:absolute;left:-9999px;top:0;z-index:200;
+  background:var(--red);color:#fff;padding:14px 22px;
+  font:700 14px/1 var(--font-display);letter-spacing:.06em;text-transform:uppercase;
+}
+.skip-link:focus{left:0;color:#fff}
+
+/* Für Screenreader da, optisch weg — z. B. die Legenden der Formularschritte. */
+.visually-hidden{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
+
+/* Der Mockup-Entwurf hatte gar keinen sichtbaren Fokus. Ohne den ist die Seite
+   per Tastatur unbedienbar, deshalb einheitlich für alles Fokussierbare. */
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{
+  outline:2px solid var(--red);
+  outline-offset:3px;
+  border-radius:1px;
+}
+/* Auf rotem Grund wäre ein roter Ring unsichtbar. */
+.mobile-banner :where(a,button):focus-visible{outline-color:#fff}
+
+.main-nav a.nav-link{position:relative}
+.nav-link.is-active{color:#fff}
+.nav-link.is-active::after{
+  content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--red);
+}
+
+/* ==========================================================================
+   Hotspot — alle sieben Panels liegen im HTML, nur eines ist sichtbar
+   ========================================================================== */
+.hs-panel{display:flex;flex-direction:column;flex:1}
+.hs-panel[hidden]{display:none}
+.hotspot-detail .cta{flex-wrap:wrap}
+.hint-link{
+  font:600 13.5px/1.4 var(--font-body);color:var(--gray-150);
+  border-bottom:1px solid rgba(255,255,255,.28);padding-bottom:3px;
+}
+.hint-link:hover{color:#fff;border-color:var(--red)}
+
+/* ==========================================================================
+   Formular — echte Bedienelemente hinter der Mockup-Optik
+   ========================================================================== */
+/* Die Chips sind Checkboxen. Ohne JavaScript funktionieren sie genauso. */
+.chip input[type="checkbox"]{
+  position:absolute;opacity:0;width:0;height:0;
+}
+.chip:has(input:checked){background:rgba(216,13,24,.14);border-color:var(--red);color:#fff}
+.chip:has(input:checked) .swash{background:var(--red)}
+.chip:has(input:focus-visible){outline:2px solid var(--red);outline-offset:3px}
+.chip:hover{border-color:rgba(255,255,255,.34)}
+
+/* Dateifeld: der ganze Kasten ist die Schaltfläche. */
+.dropzone{cursor:pointer;transition:border-color .16s,background .16s}
+.dropzone:hover{border-color:rgba(255,255,255,.38);background:rgba(255,255,255,.04)}
+.dropzone input[type="file"]{
+  position:absolute;opacity:0;width:0;height:0;
+}
+.dropzone:has(input:focus-visible){outline:2px solid var(--red);outline-offset:3px}
+
+/* Spamfalle. display:none würde von manchen Bots erkannt — so ist das Feld
+   für Menschen unerreichbar, sieht für Bots aber nach einem normalen Feld aus. */
+.hp-feld{
+  position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;
+}
+
+.form-fehler{
+  background:rgba(216,13,24,.12);border:1px solid var(--red);
+  padding:18px 20px;margin-bottom:26px;
+  font:400 14.5px/1.55 var(--font-body);color:#fff;
+}
+.form-fehler strong{display:block;margin-bottom:8px;font:700 14px/1 var(--font-display);letter-spacing:.04em}
+.form-fehler ul{margin:0;padding-left:18px}
+.field.has-error input,.field.has-error select,.field.has-error textarea{border-color:var(--red)}
+.field span em{color:var(--red);font-style:normal}
+.consent.has-error span{color:#fff}
+.pflicht-hinweis{
+  margin:0 0 20px;font:400 13.5px/1.5 var(--font-body);color:var(--gray-400);
+}
+.pflicht-hinweis em{font-style:normal;color:var(--gray-150)}
+
+/* Ohne JavaScript stehen alle drei Schritte untereinander — dann brauchen sie
+   eine Trennung, die der Stepper sonst übernimmt. */
+.form-step{border:0;padding:0;margin:0 0 34px}
+.form-step:last-of-type{margin-bottom:0}
+.form-step[hidden]{display:none}
+
+/* ==========================================================================
+   Sub-Hero — Kopf der Unterseiten und der Fehlerseite
+   ========================================================================== */
+.sub-hero{
+  position:relative;overflow:hidden;background:var(--black);
+  padding:96px 0 84px;
+}
+.sub-hero .scrim{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(120deg,var(--black) 30%,rgba(10,11,13,.82) 100%);
+}
+.sub-hero .accent-bar{position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--red)}
+.sub-hero .wrap{position:relative}
+.sub-hero h1{
+  margin:0 0 24px;max-width:900px;
+  font-family:var(--font-display);font-weight:800;font-size:clamp(34px,5vw,62px);
+  line-height:1.02;letter-spacing:-.032em;color:#fff;
+}
+.sub-hero .lead{margin:0 0 32px;max-width:640px;font:400 17.5px/1.68 var(--font-body);color:var(--gray-200)}
+.sub-hero .fineprint{margin:0 0 24px;font:500 13.5px/1.5 var(--font-body);color:var(--gray-400)}
+.sub-hero .cta-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+
+
+/* ==========================================================================
+   Bewertungen — geteilter Block im Fußbereich
+   ==========================================================================
+   Steht seit dem zweiten Design-Bundle auf jeder Seite. Auf der Startseite
+   unterdrückt, weil die Bewertungen dort schon im Abschnitt „Betrieb" stehen.
+   Karten und Kopfzeile teilen sich die Regeln mit der Startseite (.review-*).
+   ========================================================================== */
+.reviews-section{
+  background:var(--light-bg);
+  border-top:1px solid rgba(10,11,13,.08);
+  padding:78px 0 84px;
+}
+.reviews-section .reviews-head{padding-top:0;border-top:0;margin-bottom:30px}
+.reviews-section .reviews-head h2{
+  margin:0;font-family:var(--font-display);font-weight:800;font-size:32px;
+  letter-spacing:-.025em;color:var(--black);
+}
+
+/* ==========================================================================
+   Kurzanfrage
+   ========================================================================== */
+.kurzanfrage{background:var(--near-black);padding:72px 0 76px;position:relative;overflow:hidden}
+.kurzanfrage .deco{
+  position:absolute;right:-80px;top:-100px;width:520px;height:360px;
+  background:rgba(216,13,24,.09);transform:skewX(-20deg);pointer-events:none;
+}
+.kurzanfrage .wrap{position:relative}
+.kurzanfrage-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);
+  gap:70px;align-items:center;
+}
+.kurzanfrage-intro h2{
+  margin:0 0 16px;font-family:var(--font-display);font-weight:800;font-size:40px;
+  line-height:1.03;letter-spacing:-.03em;color:#fff;
+}
+.kurzanfrage-intro p{margin:0 0 22px;max-width:460px;font:400 16.5px/1.65 var(--font-body);color:var(--gray-250)}
+.kurzanfrage-links{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.kurzanfrage-links a{
+  font:600 14.5px/1 var(--font-body);color:var(--gray-100);
+  border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:5px;
+}
+.kurzanfrage-links a:hover{color:#fff;border-color:var(--red)}
+
+.kurzanfrage-karte{background:var(--black);border:1px solid rgba(255,255,255,.13);padding:34px 36px}
+.kurzanfrage-karte .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;margin-bottom:20px}
+.kurzanfrage-fuss{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.kurzanfrage-fuss .consent{max-width:340px}
+
+/* ==========================================================================
+   Platz unter der Sticky-Leiste
+   ==========================================================================
+   Die Leiste ist fixiert und würde sonst die letzte Fußzeile verdecken.
+   main.js setzt .sticky-an am body, solange sie sichtbar ist.
+   ========================================================================== */
+.footer-sticky-platz{height:0;transition:height .2s}
+/* 74 px Leiste plus ihre 1-px-Rahmenlinie. */
+.sticky-an .footer-sticky-platz{height:75px}
+
+/* ==========================================================================
+   Leistungsseiten — gemeinsame Bausteine
+   ==========================================================================
+   Nur was wirklich auf mehreren der sechs Seiten vorkommt. Die Kernmodule
+   selbst bleiben je Seite eigen — das war eine ausdrückliche Vorgabe.
+   ========================================================================== */
+.brotkrumen{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  font:500 13px/1 var(--font-body);color:var(--gray-350);
+}
+.brotkrumen a{color:var(--gray-350)}
+.brotkrumen a:hover{color:#fff}
+.brotkrumen .trenner{color:var(--gray-500)}
+.brotkrumen [aria-current]{color:var(--gray-100)}
+
+/* --- Kopf der Leistungsseite --------------------------------------------- */
+.leistung-hero{
+  position:relative;background:var(--black);overflow:hidden;
+  min-height:620px;display:flex;align-items:flex-end;
+}
+.leistung-hero .hero-bild{position:absolute;inset:0}
+.leistung-hero .hero-bild .slot-img{width:100%;height:100%;object-fit:cover}
+.leistung-hero .scrim{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(120% 90% at 78% 20%,rgba(10,11,13,.2),rgba(10,11,13,.94) 62%),
+    linear-gradient(0deg,var(--black) 4%,rgba(10,11,13,.4) 60%);
+}
+.leistung-hero .accent-bar{position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--red)}
+.leistung-hero .wrap{position:relative;width:100%;padding-top:70px;padding-bottom:68px}
+.leistung-hero-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);
+  gap:64px;align-items:end;margin-top:150px;
+}
+.leistung-hero h1{
+  margin:0 0 22px;max-width:900px;
+  font-family:var(--font-display);font-weight:800;font-size:clamp(34px,5.4vw,70px);
+  line-height:.96;letter-spacing:-.035em;color:#fff;text-wrap:balance;
+}
+.leistung-hero .lead{margin:0;max-width:620px;font:400 18px/1.68 var(--font-body);color:var(--gray-150)}
+.leistung-hero-cta{display:flex;flex-direction:column;gap:12px}
+.leistung-hero-cta .btn{justify-content:space-between;padding:20px 28px;font-size:14.5px}
+.leistung-hero-cta .btn-red{box-shadow:0 18px 44px -18px rgba(216,13,24,.8)}
+.leistung-hero-cta .btn-outline{justify-content:center;border-color:rgba(255,255,255,.28);background:rgba(10,11,13,.5)}
+
+/* --- Abschnittslinie mit Beschriftung ------------------------------------ */
+.abschnitt-linie{display:flex;align-items:center;gap:14px;padding:26px 0 34px}
+.abschnitt-linie .label{
+  font:600 12px/1 var(--font-body);letter-spacing:.22em;text-transform:uppercase;color:var(--red);
+}
+.abschnitt-linie .linie{flex:1;height:1px;background:rgba(255,255,255,.14)}
+
+/* ==========================================================================
+   Machbarkeit — vier Karten
+   ========================================================================== */
+.machbarkeit{background:var(--black);padding:0 0 96px}
+.machbarkeit h2{
+  margin:0 0 14px;max-width:900px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(28px,3.6vw,46px);line-height:1.02;letter-spacing:-.03em;color:#fff;
+}
+.machbarkeit .lead{margin:0 0 40px;max-width:660px;font:400 17px/1.65 var(--font-body);color:var(--gray-250)}
+.check-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.13);
+}
+.check{background:var(--black);padding:30px 26px;display:flex;flex-direction:column;gap:16px;min-height:230px}
+.check-kopf{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.check-kopf .num{font-family:var(--font-display);font-weight:800;font-size:13px;letter-spacing:.12em;color:var(--gray-550)}
+.check-kopf .urteil{
+  padding:6px 11px;background:rgba(255,255,255,.1);color:var(--gray-100);
+  font:700 11px/1 var(--font-display);letter-spacing:.12em;text-transform:uppercase;
+}
+.check-kopf .urteil.ist-wichtig{background:var(--red);color:#fff}
+.check h3{margin:0;font:700 21px/1.2 var(--font-display);letter-spacing:-.02em;color:#fff}
+.check p{margin:0;font:400 15.5px/1.55 var(--font-body);color:var(--gray-350)}
+
+/* ==========================================================================
+   Panel-Karte — das Kernmodul dieser Seite
+   ========================================================================== */
+.panelkarte{background:var(--light-bg);padding:96px 0 100px;border-top:5px solid var(--red)}
+.panelkarte .section-head{margin-bottom:44px}
+.panelkarte h2{
+  margin:0;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(28px,3.6vw,46px);line-height:1.02;letter-spacing:-.03em;color:var(--black);
+}
+.panelkarte-panel{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);
+  border:1px solid rgba(10,11,13,.14);background:#fff;
+}
+.panelkarte-schema{padding:38px 40px;border-right:1px solid rgba(10,11,13,.14)}
+.panelkarte-kopf{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:24px}
+.panelkarte-kopf .bildunterschrift{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--gray-300);
+}
+.panelkarte-kopf .gesamt{font:600 13px/1 var(--font-body);color:var(--black)}
+
+.panel-raster{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(4,68px);gap:8px}
+.panel{
+  cursor:pointer;background:var(--light-bg);border:1px solid rgba(10,11,13,.14);
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px;
+  padding:10px 14px;text-align:left;transition:background .18s,border-color .18s;
+}
+.panel:hover{border-color:rgba(10,11,13,.32)}
+.panel .panel-name{font:600 12px/1.15 var(--font-body);letter-spacing:.02em;color:var(--gray-450)}
+.panel .panel-zahl{
+  font-family:var(--font-display);font-weight:800;font-size:19px;line-height:1;
+  letter-spacing:-.03em;color:var(--black);
+}
+.panel.active{background:var(--black);border-color:var(--black)}
+.panel.active .panel-name{color:var(--gray-350)}
+.panel.active .panel-zahl{color:#fff}
+.panelkarte-hinweis{margin:22px 0 0;font:400 14.5px/1.55 var(--font-body);color:var(--gray-400)}
+
+.panelkarte-detail{padding:38px 36px;background:#FAFAFB;display:flex;flex-direction:column}
+.panel-tafel{display:flex;flex-direction:column;flex:1}
+.panel-tafel[hidden]{display:none}
+.tafel-name{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--red);margin-bottom:16px;
+}
+.tafel-zahl{display:flex;align-items:baseline;gap:10px;margin-bottom:20px}
+.tafel-zahl .wert{
+  font-family:var(--font-display);font-weight:800;font-size:52px;line-height:1;
+  letter-spacing:-.04em;color:var(--black);
+}
+.tafel-zahl .einheit{font:500 15px/1 var(--font-body);color:var(--gray-400)}
+.panel-tafel p{margin:0 0 24px;font:400 16px/1.62 var(--font-body);color:var(--gray-450)}
+.tafel-werte{margin:auto 0 0;border-top:1px solid rgba(10,11,13,.13)}
+.tafel-werte > div{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:13px 0;border-bottom:1px solid rgba(10,11,13,.13);
+}
+.tafel-werte dt{font:500 14.5px/1 var(--font-body);color:var(--gray-400)}
+.tafel-werte dd{margin:0;font:600 14.5px/1 var(--font-body);color:var(--black)}
+.tafel-werte dd.stufe{color:var(--red)}
+
+/* ==========================================================================
+   Drei Stationen
+   ========================================================================== */
+.stationen{background:#fff;padding:92px 0 96px}
+.stationen-kopf{max-width:720px;margin-bottom:44px}
+.stationen-kopf h2{
+  margin:0 0 16px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(26px,3.4vw,44px);line-height:1.02;letter-spacing:-.03em;color:var(--black);
+}
+.stationen-kopf p{margin:0;font:400 16.5px/1.65 var(--font-body);color:var(--gray-450)}
+.stationen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.station-bild{position:relative;height:400px;overflow:hidden;border:1px solid rgba(10,11,13,.12)}
+.station-bild .slot-img{width:100%;height:100%;object-fit:cover}
+.station-nr{
+  position:absolute;left:16px;top:14px;padding:7px 13px;background:var(--black);
+  font:700 11px/1 var(--font-display);letter-spacing:.18em;text-transform:uppercase;color:#fff;
+}
+.station-nr.ist-letzte{background:var(--red)}
+.station h3{margin:20px 0 8px;font:700 20px/1.25 var(--font-display);letter-spacing:-.018em;color:var(--black)}
+.station p{margin:0;font:400 15.5px/1.6 var(--font-body);color:var(--gray-450)}
+
+/* ==========================================================================
+   Versicherung
+   ========================================================================== */
+.versicherung{background:var(--black);padding:92px 0 96px}
+.versicherung-grid{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:64px;align-items:start}
+.versicherung h2{
+  margin:0 0 18px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(26px,3.2vw,40px);line-height:1.04;letter-spacing:-.03em;color:#fff;
+}
+.versicherung > .wrap p{margin:0 0 26px;font:400 16.5px/1.68 var(--font-body);color:var(--gray-250)}
+.versicherung-punkte{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+.versicherung-punkte .punkt{padding:20px 0;border-top:1px solid rgba(255,255,255,.13)}
+.punkt-titel{font:700 17px/1.3 var(--font-display);color:#fff}
+.punkt-text{margin-top:6px;font:400 15.5px/1.55 var(--font-body);color:var(--gray-350)}
+
+/* ==========================================================================
+   Preisvorgehen und häufige Fragen
+   ========================================================================== */
+.preis-faq{background:var(--light-bg);padding:88px 0 96px}
+.preis-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:2px solid var(--black);border-bottom:1px solid rgba(10,11,13,.14);
+  margin-bottom:72px;
+}
+.preis-karte{padding:30px 34px;border-right:1px solid rgba(10,11,13,.14)}
+.preis-karte:first-child{padding-left:0}
+.preis-karte:last-child{padding-right:0;border-right:0}
+.preis-kicker{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--red);margin-bottom:12px;
+}
+.preis-titel{font:700 20px/1.25 var(--font-display);letter-spacing:-.018em;color:var(--black)}
+.preis-karte p{margin:8px 0 0;font:400 15.5px/1.6 var(--font-body);color:var(--gray-450)}
+
+.faq-grid{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:70px;align-items:start}
+.faq-intro h2{
+  margin:0 0 18px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(26px,3.2vw,40px);line-height:1.04;letter-spacing:-.03em;color:var(--black);
+}
+.faq-liste{border-top:1px solid rgba(10,11,13,.14)}
+.faq-eintrag{border-bottom:1px solid rgba(10,11,13,.14)}
+.faq-eintrag summary{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  padding:26px 0;cursor:pointer;list-style:none;
+}
+.faq-eintrag summary::-webkit-details-marker{display:none}
+.faq-frage{font:700 20px/1.3 var(--font-display);letter-spacing:-.015em;color:var(--gray-dark)}
+.faq-eintrag[open] .faq-frage{color:var(--black)}
+/* Plus und Minus als CSS-Zeichen, damit ohne JavaScript der richtige Zustand steht. */
+.faq-zeichen{
+  flex:none;width:22px;text-align:center;
+  font:400 24px/1 var(--font-body);color:var(--red);
+}
+.faq-zeichen::before{content:"+"}
+.faq-eintrag[open] .faq-zeichen::before{content:"−"}
+.faq-antwort p{margin:0;padding:0 60px 28px 0;font:400 16.5px/1.7 var(--font-body);color:var(--gray-450)}
+.faq-antwort a{color:var(--black);border-bottom:1px solid rgba(10,11,13,.25)}
+.faq-antwort a:hover{color:var(--red);border-color:var(--red)}
+
+/* ==========================================================================
+   Verwandte Leistungen
+   ========================================================================== */
+.verwandt{background:#fff;padding:90px 0 96px}
+.verwandt.ist-grau{background:var(--light-bg)}
+.verwandt > .wrap > h2{
+  margin:0 0 32px;font-family:var(--font-display);font-weight:800;font-size:clamp(24px,2.6vw,34px);
+  letter-spacing:-.025em;color:var(--black);
+}
+.verwandt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.verwandt-karte{
+  display:block;border:1px solid rgba(10,11,13,.12);padding:30px 28px;
+  text-decoration:none;transition:border-color .16s;
+}
+.verwandt-karte:hover{border-color:var(--red)}
+.verwandt-kicker{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--red);margin-bottom:14px;
+}
+.verwandt-titel{font:700 22px/1.2 var(--font-display);letter-spacing:-.02em;color:var(--black);margin-bottom:10px}
+.verwandt-text{font:400 15.5px/1.55 var(--font-body);color:var(--gray-450)}
+
+/* --- Hero-Variante mit halbseitigem Bild (Exterieur) --------------------- */
+.leistung-hero.ist-halb{min-height:0;display:block}
+.leistung-hero.ist-halb .hero-bild{left:auto;right:0;width:50%}
+.leistung-hero.ist-halb .scrim{
+  background:linear-gradient(90deg,var(--black) 40%,rgba(10,11,13,.86) 56%,rgba(10,11,13,.15) 88%);
+}
+.leistung-hero.ist-halb .wrap{padding-top:70px;padding-bottom:84px}
+.leistung-hero-copy{max-width:720px;margin-top:38px}
+.leistung-hero-copy h1{
+  margin:0 0 24px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(34px,5vw,66px);line-height:.98;letter-spacing:-.035em;color:#fff;text-wrap:balance;
+}
+.leistung-hero-copy .lead{margin:0 0 38px;max-width:600px;font:400 18px/1.68 var(--font-body);color:var(--gray-200)}
+.leistung-hero-copy .cta-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+
+/* ==========================================================================
+   Lack-Querschnitt (Exterieur)
+   ========================================================================== */
+.querschnitt{background:var(--light-bg);padding:96px 0 100px;border-top:5px solid var(--red)}
+.querschnitt h2{
+  margin:0;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(28px,3.6vw,46px);line-height:1.02;letter-spacing:-.03em;color:var(--black);
+}
+.querschnitt-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:56px;align-items:start}
+
+.stufen-wahl{display:flex;margin-bottom:28px;border:1px solid rgba(10,11,13,.15)}
+.stufe{
+  flex:1;cursor:pointer;background:#fff;border:0;border-right:1px solid rgba(10,11,13,.12);
+  padding:18px 20px;text-align:left;transition:background .18s;
+}
+.stufe:last-child{border-right:0}
+.stufe-name{display:block;font:700 15px/1.2 var(--font-display);letter-spacing:.01em;color:var(--black)}
+.stufe-sub{display:block;margin-top:5px;font:500 13px/1.3 var(--font-body);color:var(--gray-400)}
+.stufe.active{background:var(--black)}
+.stufe.active .stufe-name{color:#fff}
+.stufe.active .stufe-sub{color:var(--gray-350)}
+
+.schnitt{background:var(--black);padding:34px 36px 30px;border:1px solid rgba(10,11,13,.12)}
+.schnitt-kopf{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}
+.schnitt-titel{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--gray-400);
+}
+.schnitt-abtrag{font:600 13px/1 var(--font-body);color:var(--red)}
+.schnitt-abtrag[hidden]{display:none}
+
+.schichten{position:relative;display:flex;flex-direction:column;gap:3px}
+.schicht{
+  position:relative;display:flex;align-items:center;padding:0 18px;
+  border:1px solid rgba(255,255,255,.14);
+}
+.schicht-name{font:600 13px/1 var(--font-body);letter-spacing:.04em}
+.schicht-zusatz{margin-left:auto;font:500 12.5px/1 var(--font-body)}
+/* Die Schichthöhen bilden den Aufbau ab und sind Design, nicht Inhalt. */
+.schicht-klarlack{
+  height:92px;background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.06));
+  border-color:rgba(255,255,255,.28);
+}
+.schicht-klarlack .schicht-name{color:#fff}
+.schicht-klarlack .schicht-zusatz{color:var(--gray-250)}
+.schicht-basis{height:44px;background:rgba(255,255,255,.09)}
+.schicht-basis .schicht-name{color:var(--gray-100)}
+.schicht-basis .schicht-zusatz{color:var(--gray-400)}
+.schicht-fueller{height:34px;background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
+.schicht-fueller .schicht-name{color:var(--gray-350)}
+.schicht-blech{height:26px;background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.08)}
+.schicht-blech .schicht-name{color:var(--gray-500)}
+
+.abtragszone{
+  position:absolute;left:0;right:0;top:0;
+  background:repeating-linear-gradient(-45deg,rgba(216,13,24,.55) 0 6px,rgba(216,13,24,.2) 6px 12px);
+  border-bottom:2px solid var(--red);
+  transition:height .35s cubic-bezier(.2,.7,.2,1);
+}
+.schnitt-hinweis{margin:22px 0 0;font:400 15px/1.6 var(--font-body);color:var(--gray-350)}
+
+.stufen-detail{background:#fff;border:1px solid rgba(10,11,13,.12);padding:34px 32px}
+.stufen-tafel[hidden]{display:none}
+.stufen-tafel h3{margin:0 0 14px;font:700 26px/1.18 var(--font-display);letter-spacing:-.022em;color:var(--black)}
+.stufen-tafel p{margin:0 0 24px;font:400 16.5px/1.65 var(--font-body);color:var(--gray-450)}
+
+/* ==========================================================================
+   Schutzschicht-Vergleich
+   ========================================================================== */
+.schutz{background:#fff;padding:92px 0 96px}
+.schutz-grid{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:64px;align-items:start}
+.schutz h2{
+  margin:0 0 18px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(26px,3.2vw,40px);line-height:1.04;letter-spacing:-.03em;color:var(--black);
+}
+.schutz-grid > div > p{margin:0;font:400 16.5px/1.65 var(--font-body);color:var(--gray-450)}
+/* Breite Tabellen scrollen in ihrem eigenen Rahmen, nie die ganze Seite. */
+.tabelle-rahmen{overflow-x:auto}
+.schutz-tabelle{width:100%;border-collapse:collapse;min-width:560px}
+.schutz-tabelle th,.schutz-tabelle td{
+  padding:16px 18px;text-align:left;border:1px solid rgba(10,11,13,.13);
+}
+.schutz-tabelle thead th{
+  background:var(--black);color:#fff;
+  font:700 14px/1 var(--font-display);letter-spacing:.03em;
+}
+.schutz-tabelle thead th:first-child{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--gray-400);
+}
+.schutz-tabelle thead th.ist-empfohlen{background:var(--red)}
+.schutz-tabelle tbody th{font:600 14.5px/1.35 var(--font-body);color:var(--black)}
+.schutz-tabelle tbody td{font:400 14.5px/1.4 var(--font-body);color:var(--gray-450)}
+.schutz-tabelle tbody td.ist-betont{font-weight:500;color:var(--black)}
+.schutz-tabelle tbody tr:nth-child(even){background:#FAFAFB}
+.schutz-hinweis{margin:18px 0 0;font:400 14.5px/1.6 var(--font-body);color:var(--gray-400)}
+
+/* --- Vergleich auf den Leistungsseiten ----------------------------------- */
+.leistung-vergleich{background:var(--black);padding:92px 0 96px}
+.leistung-vergleich .ba-head{margin-bottom:38px}
+.leistung-vergleich h2{
+  margin:0;max-width:720px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(28px,3.6vw,46px);line-height:1.02;letter-spacing:-.03em;color:#fff;
+}
+.ba-desc{margin:0;max-width:330px;font:400 15.5px/1.6 var(--font-body);color:var(--gray-350)}
+.leistung-vergleich .ba-frame{height:580px}
+
+/* --- Preis-Banner (Exterieur) -------------------------------------------- */
+.preis-banner{
+  background:var(--black);padding:44px 46px;display:grid;
+  grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center;margin-bottom:76px;
+}
+.preis-banner h2{
+  margin:0 0 12px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(24px,2.8vw,34px);line-height:1.06;letter-spacing:-.028em;color:#fff;
+}
+.preis-banner p{margin:0;max-width:760px;font:400 16.5px/1.62 var(--font-body);color:var(--gray-250)}
+.preis-banner .preis-kicker{margin-bottom:14px}
+.preis-banner .btn{flex:none}
+.faq-hinweis{margin:0;font:400 16px/1.65 var(--font-body);color:var(--gray-450)}
+.faq-hinweis a{color:var(--black);border-bottom:1px solid rgba(10,11,13,.25)}
+.faq-hinweis a:hover{color:var(--red);border-color:var(--red)}
+
+/* --- Kennzahlen im Hero (Interieur) -------------------------------------- */
+.hero-kennzahlen{display:flex;flex-wrap:wrap;gap:0;margin-top:40px;border-top:1px solid rgba(255,255,255,.14)}
+.hero-kennzahl{padding:20px 34px 0 0;margin-right:34px;border-right:1px solid rgba(255,255,255,.14)}
+.hero-kennzahl:last-child{border-right:0;margin-right:0;padding-right:0}
+.hero-kennzahl .wert{
+  font-family:var(--font-display);font-weight:800;font-size:24px;line-height:1;
+  letter-spacing:-.02em;color:#fff;
+}
+.hero-kennzahl .label{margin-top:7px;font:500 13px/1.4 var(--font-body);color:var(--gray-400)}
+
+/* ==========================================================================
+   Sechs-Zonen-Wähler (Interieur)
+   ========================================================================== */
+.zonen{background:var(--light-bg);padding:96px 0 100px;border-top:5px solid var(--red)}
+.zonen h2{
+  margin:0;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(28px,3.6vw,46px);line-height:1.02;letter-spacing:-.03em;color:var(--black);
+}
+.zonen-panel{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+  border:1px solid rgba(10,11,13,.14);background:#fff;
+}
+.zonen-liste{display:flex;flex-direction:column;border-right:1px solid rgba(10,11,13,.14)}
+.zone{
+  display:flex;align-items:center;gap:18px;width:100%;
+  padding:22px 26px;cursor:pointer;text-align:left;
+  background:#fff;border:0;border-bottom:1px solid rgba(10,11,13,.11);
+  transition:background .16s;
+}
+.zone:last-child{border-bottom:0}
+.zone:hover{background:#FAFAFB}
+.zone-num{
+  flex:none;font-family:var(--font-display);font-weight:800;font-size:13px;
+  letter-spacing:.12em;color:var(--gray-300);
+}
+.zone-text{display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}
+.zone-name{font:700 17px/1.25 var(--font-display);letter-spacing:-.015em;color:var(--black)}
+.zone-kurz{font:400 14px/1.35 var(--font-body);color:var(--gray-450)}
+.zone-zeit{
+  flex:none;font:600 13px/1 var(--font-body);color:var(--gray-400);
+  font-variant-numeric:tabular-nums;
+}
+.zone.active{background:var(--black)}
+.zone.active .zone-num{color:var(--red)}
+.zone.active .zone-name{color:#fff}
+.zone.active .zone-kurz,.zone.active .zone-zeit{color:var(--gray-350)}
+
+.zonen-detail{padding:38px 36px;background:#FAFAFB}
+.zonen-tafel[hidden]{display:none}
+.zonen-tafel h3{margin:0 0 14px;font:700 26px/1.18 var(--font-display);letter-spacing:-.022em;color:var(--black)}
+.zonen-tafel > p{margin:0 0 22px;font:400 16.5px/1.65 var(--font-body);color:var(--gray-450)}
+.zonen-tafel .bullets{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(10,11,13,.13);margin:0 0 24px;padding:0;list-style:none}
+.zonen-tafel .bullets li{
+  display:flex;align-items:flex-start;gap:14px;padding:13px 0;
+  border-bottom:1px solid rgba(10,11,13,.13);
+  font:500 15.5px/1.5 var(--font-body);color:var(--gray-dark);
+}
+.zonen-tafel .bullets .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none}
+/* Die Grenze ist der ehrlichste Teil der Seite und wird deshalb abgesetzt. */
+.zone-grenze{background:#fff;border-left:3px solid var(--red);padding:16px 20px}
+.grenze-titel{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--red);margin-bottom:8px;
+}
+.zone-grenze p{margin:0;font:400 15px/1.6 var(--font-body);color:var(--gray-450)}
+.zone-grenze a{color:var(--black);border-bottom:1px solid rgba(10,11,13,.25)}
+
+/* ==========================================================================
+   Trocknungs-Zeitstrahl (Interieur)
+   ========================================================================== */
+.trocknung{background:#fff;padding:92px 0 96px}
+.trocknung-grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:64px;align-items:start}
+.trocknung-intro h2{
+  margin:0 0 18px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(26px,3.2vw,40px);line-height:1.04;letter-spacing:-.03em;color:var(--black);
+}
+.trocknung-intro p{margin:0;font:400 16.5px/1.65 var(--font-body);color:var(--gray-450)}
+.zeitstrahl{margin:0;padding:0;list-style:none;border-top:1px solid rgba(10,11,13,.13)}
+.zeitstrahl-schritt{
+  display:grid;grid-template-columns:150px minmax(0,1fr);gap:28px;
+  padding:24px 0;border-bottom:1px solid rgba(10,11,13,.13);
+}
+.schritt-zeit{
+  font:600 13px/1.4 var(--font-body);letter-spacing:.06em;text-transform:uppercase;
+  color:var(--red);font-variant-numeric:tabular-nums;
+}
+.schritt-inhalt h3{margin:0 0 7px;font:700 19px/1.25 var(--font-display);letter-spacing:-.015em;color:var(--black)}
+.schritt-inhalt p{margin:0;font:400 15.5px/1.6 var(--font-body);color:var(--gray-450)}
+
+/* ==========================================================================
+   Hero mit Musterreihe (Lackierarbeiten)
+   Diese Seite hat als einzige kein Hero-Foto — statt eines Bildes stehen
+   fünf Lackmuster, gestaffelt in der Höhe.
+   ========================================================================== */
+.leistung-hero.ist-lack{min-height:0;display:block;background:var(--black)}
+.leistung-hero.ist-lack .wrap{padding-top:70px;padding-bottom:52px}
+.lack-hero-fuss{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:50px;flex-wrap:wrap;
+}
+.lack-muster{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap}
+.muster-reihe{display:flex;align-items:flex-end;gap:14px}
+.muster{display:flex;flex-direction:column;gap:9px}
+.muster-farbe{width:76px;border:1px solid rgba(255,255,255,.2);display:block}
+.muster-label{font:500 11.5px/1.3 var(--font-body);letter-spacing:.03em;color:var(--gray-400)}
+.muster-text{
+  margin:0 0 22px;max-width:230px;font:400 14px/1.5 var(--font-body);color:var(--gray-400);
+}
+.lack-hero-fuss .cta-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;flex:none}
+
+/* ==========================================================================
+   Fingernagel-Tiefentest (Lackierarbeiten)
+   Drei Zustände wählbar; im Schnitt darunter wächst die rote Schadenszone
+   waagerecht durch die Schichten.
+   ========================================================================== */
+.tiefentest{background:var(--light-bg);padding:96px 0 100px;border-top:5px solid var(--red)}
+.tiefentest h2{
+  margin:0;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(28px,3.6vw,46px);line-height:1.02;letter-spacing:-.03em;color:var(--black);
+}
+.tiefen-wahl{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:36px}
+.tiefe{
+  cursor:pointer;text-align:left;background:#fff;border:1px solid rgba(10,11,13,.14);
+  padding:26px 24px;display:flex;flex-direction:column;gap:16px;transition:background .18s,border-color .18s;
+}
+.tiefe:hover{border-color:rgba(10,11,13,.34)}
+.tiefe-kopf{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%}
+.tiefe-num{
+  font-family:var(--font-display);font-weight:800;font-size:13px;
+  letter-spacing:.12em;color:var(--gray-300);
+}
+.tiefe-urteil{
+  padding:6px 11px;background:var(--light-bg);
+  font:700 11px/1 var(--font-display);letter-spacing:.1em;text-transform:uppercase;color:var(--gray-450);
+}
+.tiefe-titel{font:700 21px/1.2 var(--font-display);letter-spacing:-.02em;color:var(--black)}
+.tiefe-gefuehl{font:400 15.5px/1.55 var(--font-body);color:var(--gray-450)}
+.tiefe.active{background:var(--black);border-color:var(--black)}
+.tiefe.active .tiefe-num{color:var(--gray-500)}
+.tiefe.active .tiefe-urteil{background:var(--red);color:#fff}
+.tiefe.active .tiefe-titel{color:#fff}
+.tiefe.active .tiefe-gefuehl{color:var(--gray-400)}
+
+.tiefen-panel{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);
+  border:1px solid rgba(10,11,13,.14);background:#fff;
+}
+.lack-schnitt{padding:38px 40px;border-right:1px solid rgba(10,11,13,.14)}
+.lack-schnitt .schnitt-titel{
+  display:block;margin-bottom:24px;
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--gray-350);
+}
+.lack-schichten{display:flex;flex-direction:column;gap:4px}
+.lack-schicht{
+  position:relative;display:flex;align-items:center;padding:0 20px;
+  border:1px solid rgba(10,11,13,.16);overflow:hidden;
+}
+.lack-schicht .schicht-name{position:relative;z-index:1;font:600 14px/1 var(--font-body)}
+.lack-schicht .schicht-zusatz{
+  position:relative;z-index:1;margin-left:auto;font:500 13px/1 var(--font-body);color:var(--gray-400);
+}
+/* Die Schichthöhen bilden den Aufbau ab und sind Design, nicht Inhalt. */
+.lack-klarlack{height:64px;background:linear-gradient(180deg,#EBEDF0,#DFE2E7);border-color:rgba(10,11,13,.14)}
+.lack-klarlack .schicht-name{color:var(--black)}
+.lack-basis{height:52px;background:#2B3038;border-color:rgba(10,11,13,.2)}
+.lack-basis .schicht-name{color:#fff}
+.lack-fueller{height:44px;background:#C6CBD2}
+.lack-fueller .schicht-name{color:#41474F}
+.lack-blech{height:34px;background:#8E959F}
+.lack-blech .schicht-name{color:var(--black)}
+
+/* Wächst von links: so weit reicht der Schaden in diese Schicht hinein. */
+.schadenszone{
+  position:absolute;left:0;top:0;height:100%;
+  background:repeating-linear-gradient(-45deg,rgba(216,13,24,.5) 0 6px,rgba(216,13,24,.18) 6px 12px);
+  border-right:2px solid var(--red);
+  transition:width .35s cubic-bezier(.2,.7,.2,1);
+}
+/* Breite 0 heißt „gar nicht betroffen" — dann darf auch die Kante nicht stehen.
+   Die Klasse setzen Template und Skript, weil sich der Inline-Wert nicht
+   zuverlässig per Attributselektor treffen lässt. */
+.schadenszone.ist-leer{border-right-width:0}
+.lack-schnitt .schnitt-hinweis{margin:24px 0 0;font:400 15px/1.6 var(--font-body);color:var(--gray-450)}
+
+.vorgehen{padding:38px 36px;background:#FAFAFB;display:flex;flex-direction:column}
+.vorgehen-tafel[hidden]{display:none}
+.vorgehen-tafel{display:flex;flex-direction:column;flex:1}
+.vorgehen-kicker{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--red);margin-bottom:16px;
+}
+.vorgehen-tafel h3{margin:0 0 14px;font:700 25px/1.18 var(--font-display);letter-spacing:-.022em;color:var(--black)}
+.vorgehen-tafel > p{margin:0 0 24px;font:400 16px/1.62 var(--font-body);color:var(--gray-450)}
+.vorgehen-werte{margin:auto 0 0;border-top:1px solid rgba(10,11,13,.13)}
+.vorgehen-werte > div{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:13px 0;border-bottom:1px solid rgba(10,11,13,.13);
+}
+.vorgehen-werte dt{font:500 14.5px/1.3 var(--font-body);color:var(--gray-400)}
+.vorgehen-werte dd{margin:0;font:600 14.5px/1.3 var(--font-body);color:var(--black);text-align:right}
+.vorgehen-werte dd.ist-rot,.vorgehen-werte dd.ist-rot a{color:var(--red)}
+.vorgehen-werte dd.ist-rot a{border-bottom:1px solid rgba(216,13,24,.4)}
+.vorgehen-werte dd.ist-rot a:hover{color:var(--red-hover);border-color:var(--red-hover)}
+
+/* ==========================================================================
+   Farbtonfindung (Lackierarbeiten)
+   ========================================================================== */
+.farbton{background:var(--black);padding:92px 0 96px}
+.farbton-grid{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:64px;align-items:start}
+/* Die Einleitung bleibt beim Scrollen stehen — der Schrittraster ist hoch. */
+.farbton-intro{position:sticky;top:calc(var(--kopf-hoehe) + 40px)}
+.farbton-intro h2{
+  margin:0 0 20px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(26px,3.3vw,42px);line-height:1.03;letter-spacing:-.03em;color:#fff;
+}
+.farbton-intro > p{margin:0 0 28px;font:400 16.5px/1.68 var(--font-body);color:var(--gray-200)}
+.farbton-bild{position:relative;height:230px;border:1px solid rgba(255,255,255,.14);overflow:hidden}
+.farbton-bild img{width:100%;height:100%;object-fit:cover;display:block}
+
+.farbton-schritte{
+  margin:0;padding:0;list-style:none;
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.13);
+}
+.farbton-schritt{
+  background:var(--black);padding:34px 32px;min-height:250px;
+  display:flex;flex-direction:column;gap:14px;
+}
+.schritt-num{
+  font-family:var(--font-display);font-weight:800;font-size:40px;line-height:.9;
+  letter-spacing:-.04em;color:#2B3038;
+}
+.farbton-schritt.ist-betont .schritt-num{color:var(--red)}
+.farbton-schritt h3{margin:0;font:700 21px/1.2 var(--font-display);letter-spacing:-.02em;color:#fff}
+.farbton-schritt p{margin:0;font:400 15.5px/1.6 var(--font-body);color:var(--gray-400)}
+
+/* ==========================================================================
+   Fahrzeugbeklebung (Lackierarbeiten, Abschnitt #beklebung)
+   Nicht aus dem Entwurf — aus vorhandenen Bausteinen zusammengesetzt.
+   ========================================================================== */
+.beklebung{background:#fff;padding:92px 0 96px}
+.beklebung-grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:64px;align-items:start}
+.beklebung-intro h2{
+  margin:0 0 18px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(26px,3.2vw,40px);line-height:1.04;letter-spacing:-.03em;color:var(--black);
+}
+.beklebung-intro > p{margin:0 0 28px;font:400 16.5px/1.65 var(--font-body);color:var(--gray-450)}
+.beklebung-varianten{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:rgba(10,11,13,.14);border:1px solid rgba(10,11,13,.14);
+}
+.beklebung-karte{background:#fff;padding:30px 28px;display:flex;flex-direction:column;gap:10px}
+.beklebung-karte h3{margin:0;font:700 20px/1.2 var(--font-display);letter-spacing:-.02em;color:var(--black)}
+.beklebung-karte p{margin:0;font:400 15.5px/1.58 var(--font-body);color:var(--gray-450)}
+.beklebung-hinweis{
+  display:flex;align-items:flex-start;gap:14px;margin:34px 0 0;padding:18px 22px;
+  background:var(--light-bg);border-left:3px solid var(--red);
+  font:500 15.5px/1.6 var(--font-body);color:var(--gray-dark);
+}
+.beklebung-hinweis .swash{margin-top:8px;flex:none}
+
+/* ==========================================================================
+   Vollflächiges Preisband (Interieur, Lackierarbeiten)
+   Der Entwurf setzt den Preis dort als eigenes rotes Band ab, nicht als
+   schwarzen Kasten innerhalb der FAQ-Sektion.
+   ========================================================================== */
+.preis-band{background:var(--red);position:relative;overflow:hidden}
+.preis-band .band-schraege{
+  position:absolute;right:-40px;top:-60px;width:520px;height:420px;
+  background:rgba(255,255,255,.07);transform:skewX(-20deg);pointer-events:none;
+}
+.preis-band .wrap{
+  padding-top:60px;padding-bottom:60px;position:relative;
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:60px;align-items:center;
+}
+.preis-band .preis-kicker{color:rgba(255,255,255,.72);margin-bottom:16px}
+.preis-band h2{
+  margin:0 0 14px;max-width:820px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(26px,3.2vw,40px);line-height:1.04;letter-spacing:-.03em;color:#fff;
+}
+.preis-band p{margin:0;max-width:720px;font:400 17px/1.6 var(--font-body);color:rgba(255,255,255,.88)}
+.btn-black{background:var(--black);color:#fff}
+.btn-black:hover{background:#fff;color:var(--black)}
+
+/* --- FAQ als eigenständige Sektion (ohne Preiskasten darüber) ------------
+   Nur nötig, wo der Preis als eigenes Band davorsteht. Exterieur behält den
+   kombinierten Block .preis-faq, weil der Entwurf es dort so zeigt. */
+.faq-section{background:#fff;padding:92px 0 96px}
+.faq-section.ist-grau{background:var(--light-bg)}
+
+/* ==========================================================================
+   Lederreparatur
+   ========================================================================== */
+
+/* --- Hero gespiegelt: Bild links, Text rechts, rote Kante rechts --------- */
+.leistung-hero.ist-gespiegelt{min-height:0;display:block}
+.leistung-hero.ist-gespiegelt .hero-bild{right:auto;left:0;width:46%}
+.leistung-hero.ist-gespiegelt .scrim{
+  background:linear-gradient(270deg,var(--black) 46%,rgba(10,11,13,.82) 62%,rgba(10,11,13,.1) 96%);
+}
+.leistung-hero.ist-gespiegelt .accent-bar{left:auto;right:0}
+.leistung-hero.ist-gespiegelt .wrap{
+  padding-top:70px;padding-bottom:80px;display:flex;justify-content:flex-end;
+}
+.leistung-hero.ist-gespiegelt .leistung-hero-copy{max-width:660px;margin-top:0}
+.leistung-hero.ist-gespiegelt .brotkrumen{margin-bottom:36px}
+
+/* --- Materialcheck: drei Karten direkt unter dem Hero -------------------- */
+.material{background:var(--black);padding:0 0 90px}
+.abschnitt-linie h2.label{margin:0;font:600 12px/1 var(--font-body);letter-spacing:.22em;text-transform:uppercase}
+.material-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.13);
+}
+.material-karte{background:var(--black);padding:32px 30px;display:flex;flex-direction:column;gap:14px}
+.material-kopf{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.material-kopf h3{margin:0;font:700 20px/1.2 var(--font-display);letter-spacing:-.02em;color:#fff}
+.material-urteil{
+  padding:6px 11px;background:rgba(255,255,255,.1);
+  font:700 11px/1 var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--gray-150);
+}
+.material-urteil.ist-gut{background:var(--red);color:#fff}
+.material-karte p{margin:0;font:400 15.5px/1.6 var(--font-body);color:var(--gray-400)}
+
+/* --- Vier Schadensgrade als Reiterleiste --------------------------------- */
+.schadensgrad{background:var(--light-bg);padding:96px 0 100px;border-top:5px solid var(--red)}
+.schadensgrad h2{
+  margin:0;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(28px,3.6vw,46px);line-height:1.02;letter-spacing:-.03em;color:var(--black);
+}
+.grad-leiste{display:flex;border:1px solid rgba(10,11,13,.14);border-bottom:0}
+.grad{
+  flex:1;cursor:pointer;background:#fff;border:0;border-right:1px solid rgba(10,11,13,.12);
+  padding:22px 24px;text-align:left;transition:background .18s;
+}
+.grad:last-child{border-right:0}
+.grad:hover{background:#FAFAFB}
+.grad-kopf{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.grad-punkt{width:10px;height:10px;display:inline-block;flex:none}
+.grad-num{font:700 12px/1 var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--gray-350)}
+.grad-name{display:block;font:700 18px/1.2 var(--font-display);letter-spacing:-.018em;color:var(--black)}
+.grad.active{background:var(--black)}
+.grad.active:hover{background:var(--black)}
+.grad.active .grad-num{color:var(--gray-400)}
+.grad.active .grad-name{color:#fff}
+
+.grad-panel{border:1px solid rgba(10,11,13,.14);background:#fff}
+.grad-tafel[hidden]{display:none}
+.grad-tafel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px)}
+.grad-ablauf{padding:40px 42px;border-right:1px solid rgba(10,11,13,.14)}
+.grad-ablauf h3{
+  margin:0 0 16px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(24px,2.8vw,34px);line-height:1.05;letter-spacing:-.028em;color:var(--black);
+}
+.grad-ablauf > p{margin:0 0 28px;max-width:640px;font:400 16.5px/1.68 var(--font-body);color:var(--gray-450)}
+.ablauf-titel{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gray-350);margin-bottom:14px;
+}
+.grad-schritte{margin:0;padding:0;list-style:none;border-top:1px solid rgba(10,11,13,.13)}
+.grad-schritte li{
+  display:grid;grid-template-columns:28px minmax(0,1fr);gap:14px;
+  padding:14px 0;border-bottom:1px solid rgba(10,11,13,.13);
+}
+.schritt-n{font:700 13px/1.4 var(--font-display);letter-spacing:.06em;color:var(--red)}
+.schritt-t{font:500 15.5px/1.5 var(--font-body);color:#2B3038}
+
+/* Wertespalte: Kennzahlen plus abgesetzter schwarzer Kasten. Steht so auf
+   Lederreparatur und Ozonbehandlung — anders als die Kernmodule ist das
+   tatsaechlich derselbe Baustein, deshalb geteilt. */
+.wertespalte{padding:40px 36px;background:#FAFAFB;display:flex;flex-direction:column}
+.werte-liste{margin:0;border-top:2px solid var(--black)}
+.werte-liste > div{padding:16px 0;border-bottom:1px solid rgba(10,11,13,.13)}
+.werte-liste dt{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gray-350);margin-bottom:7px;
+}
+.werte-liste dd{margin:0;font:700 19px/1.2 var(--font-display);letter-spacing:-.018em;color:var(--black)}
+/* Der ehrlichste Kasten der Seite — deshalb schwarz abgesetzt. */
+.werte-kasten{margin-top:24px;padding:20px 22px;background:var(--black)}
+.kasten-titel{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--red-hover);margin-bottom:10px;
+}
+.werte-kasten p{margin:0;font:400 15.5px/1.6 var(--font-body);color:var(--gray-150)}
+
+/* --- Vergleich mit zwei Makroaufnahmen daneben --------------------------- */
+.leder-vergleich{background:#fff;padding:92px 0 96px}
+.leder-ba-head{max-width:700px;margin-bottom:36px}
+.leder-ba-head h2{
+  margin:0 0 14px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(28px,3.5vw,44px);line-height:1.02;letter-spacing:-.03em;color:var(--black);
+}
+.leder-ba-head p{margin:0;font:400 16.5px/1.65 var(--font-body);color:var(--gray-450)}
+.leder-ba-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px}
+.leder-ba-grid .ba-frame{height:520px;border:1px solid rgba(10,11,13,.14)}
+.leder-makros{display:grid;grid-template-rows:1fr 1fr;gap:20px;min-height:0}
+.leder-makro{
+  position:relative;margin:0;overflow:hidden;border:1px solid rgba(10,11,13,.14);min-height:0;
+}
+.leder-makro img{width:100%;height:100%;object-fit:cover;display:block}
+.leder-makro figcaption{
+  position:absolute;left:14px;bottom:12px;padding:6px 11px;background:rgba(10,11,13,.82);
+  font:600 11px/1 var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:#fff;
+}
+
+/* --- Preis und Pflegehinweise ------------------------------------------- */
+.leder-preis{background:var(--black);padding:88px 0 92px}
+.leder-preis-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:64px;align-items:start}
+.leder-preis h2{
+  margin:0 0 16px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(26px,3vw,38px);line-height:1.04;letter-spacing:-.03em;color:#fff;
+}
+.leder-preis-grid > div > p{margin:0 0 28px;font:400 17px/1.65 var(--font-body);color:var(--gray-200)}
+.pflege-titel{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gray-400);margin-bottom:16px;
+}
+.pflege .bullets{margin:0;padding:0;list-style:none;border-top:1px solid rgba(255,255,255,.13)}
+.pflege .bullets li{
+  display:flex;align-items:flex-start;gap:14px;padding:15px 0;
+  border-bottom:1px solid rgba(255,255,255,.13);
+  font:500 15.5px/1.5 var(--font-body);color:var(--gray-150);
+}
+.pflege .bullets .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none}
+
+/* --- FAQ offen in zwei Spalten (statt Aufklapper) ------------------------
+   Die Antworten stehen ohne Interaktion im Quelltext — für Antwortboxen in
+   der Suche der bessere Fall, deshalb hier so belassen wie im Entwurf. */
+.faq-offen{background:var(--light-bg);padding:92px 0 96px}
+.faq-offen-head{display:flex;align-items:flex-end;justify-content:space-between;gap:60px;margin-bottom:44px}
+.faq-offen-head h2{
+  margin:0;max-width:700px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(26px,3.3vw,42px);line-height:1.02;letter-spacing:-.03em;color:var(--black);
+}
+.faq-offen-head p{margin:0;flex:none;font:400 16px/1.6 var(--font-body);color:var(--gray-450)}
+.faq-offen-head a{font-weight:600;color:var(--black);border-bottom:1px solid rgba(10,11,13,.25)}
+.faq-offen-head a:hover{color:var(--red);border-color:var(--red)}
+.faq-offen-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
+.faq-offen-eintrag{padding:26px 0;border-top:1px solid rgba(10,11,13,.14)}
+/* Die letzten beiden Einträge schließen das Raster nach unten ab. */
+.faq-offen-eintrag:nth-last-child(-n+2){border-bottom:1px solid rgba(10,11,13,.14)}
+.faq-offen-eintrag h3{margin:0 0 10px;font:700 19px/1.3 var(--font-display);letter-spacing:-.015em;color:var(--black)}
+.faq-offen-eintrag p{margin:0;font:400 16px/1.65 var(--font-body);color:var(--gray-450)}
+
+/* ==========================================================================
+   Rechtsseiten — Impressum, Datenschutz, AGB, Widerruf
+   ========================================================================== */
+.recht-hero{position:relative;background:var(--black);border-bottom:1px solid rgba(255,255,255,.1)}
+.recht-hero .accent-bar{position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--red)}
+.recht-hero .wrap{position:relative;padding-top:64px;padding-bottom:60px}
+.recht-hero .brotkrumen{margin-bottom:32px}
+.recht-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:70px;align-items:end}
+.recht-hero h1{
+  margin:0 0 18px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(32px,4.4vw,56px);line-height:1;letter-spacing:-.035em;color:#fff;
+}
+.recht-hero .lead{margin:0;max-width:620px;font:400 17.5px/1.65 var(--font-body);color:var(--gray-200)}
+.recht-meta{border-left:1px solid rgba(255,255,255,.14);padding-left:30px}
+.meta-titel{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gray-400);margin-bottom:12px;
+}
+.meta-wert{font:700 20px/1.2 var(--font-display);color:#fff}
+.recht-chips{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.recht-chip{
+  padding:8px 13px;border:1px solid rgba(255,255,255,.2);
+  font:600 12.5px/1 var(--font-body);color:var(--gray-250);
+}
+a.recht-chip:hover{border-color:var(--red);color:#fff}
+.recht-chip.ist-aktiv{border-color:var(--red);background:var(--red);color:#fff}
+
+/* Solange Platzhalter in der Seite stehen, sagt das Band es unmissverständlich. */
+.recht-band{background:var(--red)}
+.recht-band .wrap{display:flex;align-items:center;gap:16px;padding-top:20px;padding-bottom:20px}
+.recht-band .swash{width:16px;height:8px;background:#fff;transform:skewX(-20deg);display:inline-block;flex:none}
+.recht-band p{margin:0;font:600 15px/1.4 var(--font-body);color:#fff}
+
+.recht-inhalt{background:#fff;padding:64px 0 90px}
+.recht-inhalt .wrap{display:grid;grid-template-columns:300px minmax(0,1fr);gap:80px;align-items:start}
+.recht-verzeichnis{position:sticky;top:calc(var(--kopf-hoehe) + 40px)}
+.verzeichnis-titel{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--red);margin-bottom:16px;
+}
+.recht-verzeichnis ol{margin:0;padding:0;list-style:none;border-top:1px solid rgba(10,11,13,.13)}
+.recht-verzeichnis a{
+  display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;
+  padding:11px 0;border-bottom:1px solid rgba(10,11,13,.1);
+  font:500 14.5px/1.45 var(--font-body);color:#2B3038;
+}
+.recht-verzeichnis a:hover{color:var(--red)}
+.verzeichnis-num{font:700 12px/1.5 var(--font-display);letter-spacing:.06em;color:var(--gray-350)}
+
+.recht-text{max-width:820px;border-top:1px solid rgba(10,11,13,.13)}
+.recht-abschnitt{padding:38px 0;border-bottom:1px solid rgba(10,11,13,.13)}
+.abschnitt-kopf{display:flex;align-items:baseline;gap:16px;margin-bottom:18px}
+.abschnitt-num{
+  font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:.06em;color:var(--red);
+}
+.recht-abschnitt h2{
+  margin:0;font:700 26px/1.2 var(--font-display);letter-spacing:-.022em;color:var(--black);
+}
+.recht-abschnitt p{margin:0 0 16px;font:400 16.5px/1.72 var(--font-body);color:var(--gray-450)}
+.recht-abschnitt p:last-child{margin-bottom:0}
+.abschnitt-zeilen{
+  display:flex;flex-direction:column;gap:4px;margin:0 0 16px;font-style:normal;
+  font:500 16.5px/1.55 var(--font-body);color:var(--black);
+}
+.abschnitt-liste{margin:0 0 16px;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.abschnitt-liste li{
+  display:flex;align-items:flex-start;gap:13px;
+  font:400 16px/1.6 var(--font-body);color:var(--gray-450);
+}
+.abschnitt-liste .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:9px;flex:none}
+/* Gestrichelt: hier fehlt bewusst noch etwas. */
+.recht-platzhalter{
+  display:flex;align-items:flex-start;gap:14px;margin:0 0 16px;
+  border:1px dashed rgba(216,13,24,.45);background:rgba(216,13,24,.04);padding:22px 24px;
+}
+.recht-platzhalter .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none}
+.platzhalter-titel{font:600 15px/1.3 var(--font-body);color:var(--black);margin-bottom:6px}
+.recht-platzhalter p{margin:0;font:400 14.5px/1.6 var(--font-body);color:var(--gray-450)}
+
+/* ==========================================================================
+   Danke-Seite
+   ========================================================================== */
+.danke{position:relative;background:var(--black);padding:110px 0 120px;min-height:52vh}
+.danke .accent-bar{position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--red)}
+.danke .wrap{position:relative;max-width:900px}
+.danke h1{
+  margin:0 0 20px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(34px,5vw,62px);line-height:.99;letter-spacing:-.035em;color:#fff;text-wrap:balance;
+}
+.danke .lead{margin:0 0 40px;max-width:640px;font:400 18px/1.68 var(--font-body);color:var(--gray-200)}
+.danke-wege{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);margin-bottom:44px;
+}
+.danke-weg{display:flex;flex-direction:column;gap:8px;background:var(--black);padding:22px 24px}
+.danke-weg:hover{background:#14171B}
+.danke-weg .weg-wert{font-size:19px;text-align:left}
+.weiter-titel{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gray-400);margin-bottom:14px;
+}
+.weiter-links{display:flex;flex-wrap:wrap;gap:10px}
+.weiter-links a{
+  padding:12px 18px;border:1px solid rgba(255,255,255,.2);
+  font:600 13.5px/1 var(--font-body);color:var(--gray-150);
+}
+.weiter-links a:hover{border-color:var(--red);color:#fff}
+
+/* ==========================================================================
+   Kontakt & Anfahrt
+   ========================================================================== */
+.kontakt-hero{position:relative;background:var(--black);border-bottom:1px solid rgba(255,255,255,.1)}
+.kontakt-hero .accent-bar{position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--red)}
+.kontakt-hero .wrap{position:relative;padding-top:70px;padding-bottom:66px}
+.kontakt-hero .brotkrumen{margin-bottom:36px}
+.kontakt-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:70px;align-items:end}
+.kontakt-hero h1{
+  margin:0 0 20px;max-width:840px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(36px,5.2vw,66px);line-height:.98;letter-spacing:-.035em;color:#fff;text-wrap:balance;
+}
+.kontakt-hero .lead{margin:0;max-width:620px;font:400 18px/1.68 var(--font-body);color:var(--gray-200)}
+.kontakt-wege{
+  display:flex;flex-direction:column;gap:1px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);
+}
+.kontakt-weg{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  background:var(--black);padding:20px 24px;
+}
+.kontakt-weg:hover{background:#14171B}
+.weg-label{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--gray-400);
+}
+.weg-wert{font:700 20px/1 var(--font-display);letter-spacing:-.01em;color:#fff;text-align:right}
+.kontakt-weg:last-child .weg-wert{font-size:17px}
+
+/* --- Formularabschnitt mit Seitenspalte ---------------------------------- */
+.anfrage-seite{background:#101216;padding:88px 0 96px;position:relative;overflow:hidden}
+.anfrage-schraege{
+  position:absolute;left:-120px;bottom:-140px;width:600px;height:420px;
+  background:rgba(216,13,24,.08);transform:skewX(-20deg);pointer-events:none;
+}
+.anfrage-seite .wrap{position:relative}
+.anfrage-seite-grid{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:64px;align-items:start}
+.anfrage-seite .kicker{margin-bottom:22px}
+.anfrage-seitenspalte{display:flex;flex-direction:column;gap:20px}
+.seiten-karte{border:1px solid rgba(255,255,255,.13);background:var(--black);padding:30px 28px}
+.karte-titel{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--red);margin-bottom:18px;
+}
+.karte-weg{
+  display:flex;align-items:flex-start;gap:14px;padding:16px 0;
+  border-top:1px solid rgba(255,255,255,.12);
+}
+.karte-weg:hover{opacity:.75}
+.karte-weg .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none}
+.weg-titel{display:block;font:700 17px/1.25 var(--font-display);color:#fff}
+.weg-text{display:block;margin-top:5px;font:400 14.5px/1.5 var(--font-body);color:var(--gray-400)}
+.zeiten-liste{margin:0}
+.zeiten-liste > div{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:12px 0;border-top:1px solid rgba(255,255,255,.12);
+}
+.zeiten-liste > div:last-child{border-bottom:1px solid rgba(255,255,255,.12)}
+.zeiten-liste dt{font:500 15px/1.3 var(--font-body);color:var(--gray-400)}
+.zeiten-liste dd{margin:0;font:600 15px/1.3 var(--font-body);color:#fff;text-align:right}
+.zeiten-liste dd.ist-zu{color:var(--gray-500)}
+.zeiten-hinweis{margin:18px 0 0;font:400 14px/1.55 var(--font-body);color:var(--gray-400)}
+
+/* --- Anfahrt ------------------------------------------------------------ */
+.anfahrt{background:var(--light-bg);padding:88px 0 96px;border-top:5px solid var(--red)}
+.anfahrt-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:64px;align-items:start}
+.anfahrt-karte{position:relative;height:480px;border:1px solid rgba(10,11,13,.14);overflow:hidden}
+.anfahrt-karte img{width:100%;height:100%;object-fit:cover;display:block}
+/* Bis ein Kartenbild vorliegt: sichtbar leer statt falsch bebildert. */
+.karte-platzhalter{
+  height:100%;display:flex;align-items:center;justify-content:center;
+  background:repeating-linear-gradient(-45deg,#E9EBEE 0 12px,#F5F6F8 12px 24px);
+  font:600 13px/1 var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--gray-350);
+}
+.anfahrt h2{
+  margin:0 0 22px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(28px,3.4vw,42px);line-height:1.02;letter-spacing:-.03em;color:var(--black);
+}
+.anfahrt-adresse{
+  display:flex;align-items:flex-start;gap:14px;
+  border:1px solid rgba(216,13,24,.35);background:rgba(216,13,24,.05);
+  padding:20px 22px;margin-bottom:26px;
+}
+.anfahrt-adresse .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none}
+.adresse-titel{font:700 15px/1.3 var(--font-display);color:var(--black)}
+.anfahrt-adresse address{margin:5px 0 0;font:400 15.5px/1.6 var(--font-body);font-style:normal;color:var(--gray-450)}
+.karte-link{
+  display:inline-flex;align-items:center;gap:8px;margin-top:12px;
+  font:600 14.5px/1 var(--font-body);color:var(--black);border-bottom:1px solid rgba(10,11,13,.25);padding-bottom:4px;
+}
+.karte-link:hover{color:var(--red);border-color:var(--red)}
+.anfahrt-punkte{border-top:1px solid rgba(10,11,13,.13)}
+.anfahrt-punkt{padding:20px 0;border-bottom:1px solid rgba(10,11,13,.13)}
+.anfahrt-punkt h3{margin:0;font:700 17px/1.3 var(--font-display);color:var(--black)}
+.anfahrt-punkt p{margin:6px 0 0;font:400 15.5px/1.55 var(--font-body);color:var(--gray-450)}
+
+/* --- Versicherung: dunkle Fassung des Grenzen-Rasters -------------------- */
+.versicherung-kontakt{background:var(--black);padding:76px 0 84px}
+.versicherung-kontakt .grenzen-grid{grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:64px}
+.versicherung-kontakt .grenzen-intro h2{margin:0 0 18px;font-size:clamp(26px,3vw,38px);color:#fff}
+.versicherung-kontakt .grenzen-intro p{color:var(--gray-200)}
+.versicherung-kontakt .grenzen-punkte{grid-template-columns:1fr 1fr;gap:0 40px}
+.versicherung-kontakt .grenzen-punkt{border-top-color:rgba(255,255,255,.13)}
+.versicherung-kontakt .grenzen-punkt h3{color:#fff}
+.versicherung-kontakt .grenzen-punkt p{color:var(--gray-400)}
+
+/* ==========================================================================
+   Galerie-Seite
+   ========================================================================== */
+.galerie-hero{
+  position:relative;background:var(--black);overflow:hidden;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.galerie-hero .accent-bar{position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--red)}
+.galerie-hero .wrap{position:relative;padding-top:70px;padding-bottom:72px}
+.galerie-hero .brotkrumen{margin-bottom:36px}
+.galerie-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:70px;align-items:end}
+.galerie-hero h1{
+  margin:0 0 22px;max-width:880px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(36px,5.2vw,66px);line-height:.98;letter-spacing:-.035em;color:#fff;text-wrap:balance;
+}
+.galerie-hero .lead{margin:0;max-width:640px;font:400 18px/1.68 var(--font-body);color:var(--gray-200)}
+.galerie-hero-cta{border-left:1px solid rgba(255,255,255,.14);padding-left:32px}
+.galerie-hero-cta .cta-titel{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gray-400);margin-bottom:14px;
+}
+.galerie-hero-cta .btn{justify-content:space-between}
+
+/* --- Drei Fallstudien --------------------------------------------------- */
+.faelle{background:var(--black);padding:88px 0 96px}
+.fall{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:48px;align-items:center;
+  padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:56px;
+}
+.fall:last-child{padding-bottom:0;border-bottom:0;margin-bottom:0}
+/* Jeder zweite Fall dreht die Seiten. Die Reihenfolge im Quelltext bleibt
+   gleich, damit Vorlesereihenfolge und Tabreihenfolge stimmen. */
+.fall.ist-gedreht{grid-template-columns:minmax(0,340px) minmax(0,1fr)}
+.fall.ist-gedreht .fall-bild{order:2}
+.fall.ist-gedreht .fall-text{order:1}
+.fall-bild .ba-frame{height:520px;border:1px solid rgba(255,255,255,.14)}
+.fall-kicker{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--red);margin-bottom:16px;
+}
+.fall-text h3{
+  margin:0 0 16px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(24px,2.8vw,34px);line-height:1.06;letter-spacing:-.028em;color:#fff;
+}
+.fall-text > p{margin:0 0 24px;font:400 16.5px/1.65 var(--font-body);color:var(--gray-200)}
+.fall-werte{margin:0;border-top:1px solid rgba(255,255,255,.13)}
+.fall-werte > div{
+  display:flex;justify-content:space-between;gap:16px;
+  padding:13px 0;border-bottom:1px solid rgba(255,255,255,.13);
+}
+.fall-werte dt{font:500 14.5px/1.3 var(--font-body);color:var(--gray-400)}
+.fall-werte dd{margin:0;font:600 14.5px/1.3 var(--font-body);color:var(--gray-150);text-align:right}
+.fall-link{
+  display:inline-flex;align-items:center;gap:10px;margin-top:24px;padding-bottom:5px;
+  font:600 14.5px/1 var(--font-body);color:var(--gray-150);
+  border-bottom:1px solid rgba(255,255,255,.3);
+}
+.fall-link:hover{color:#fff;border-color:var(--red)}
+
+/* --- Bildraster mit Filter ---------------------------------------------- */
+.bildraster{background:var(--light-bg);padding:80px 0 100px;border-top:5px solid var(--red)}
+.raster-kopf{display:flex;align-items:flex-end;justify-content:space-between;gap:50px;margin-bottom:32px}
+.raster-kopf h2{
+  margin:0;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(28px,3.5vw,44px);line-height:1.02;letter-spacing:-.03em;color:var(--black);
+}
+.raster-kopf p{margin:0;max-width:400px;font:400 15.5px/1.6 var(--font-body);color:var(--gray-450)}
+.raster-filter{
+  display:flex;flex-wrap:wrap;gap:10px;
+  padding-bottom:28px;margin-bottom:28px;border-bottom:1px solid rgba(10,11,13,.13);
+}
+.filter{
+  cursor:pointer;display:flex;align-items:center;gap:9px;padding:12px 18px;
+  background:transparent;border:1px solid rgba(10,11,13,.18);color:#2B3038;
+  font:600 13.5px/1 var(--font-body);letter-spacing:.02em;transition:background .16s,border-color .16s;
+}
+.filter:hover{border-color:rgba(10,11,13,.45)}
+.filter-zahl{font:500 12px/1 var(--font-body);color:var(--gray-350)}
+.filter.active{background:var(--black);border-color:var(--black);color:#fff}
+.filter.active .filter-zahl{color:var(--gray-400)}
+
+.raster-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;gap:14px}
+.kachel{
+  position:relative;overflow:hidden;cursor:pointer;padding:0;border:0;
+  background:var(--black);display:block;
+}
+.kachel[hidden]{display:none}
+/* Vergrößern heißt hier: die Kachel belegt vier Felder statt einem. Kein
+   Overlay, deshalb bleibt die Seite bedienbar wie vorher. */
+.kachel.ist-gross{grid-column:span 2;grid-row:span 2}
+.kachel img{width:100%;height:100%;object-fit:cover;display:block}
+.kachel-verlauf{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,11,13,0) 55%,rgba(10,11,13,.8));
+}
+.kachel-kategorie{
+  position:absolute;left:16px;bottom:14px;display:flex;align-items:center;gap:9px;pointer-events:none;
+  font:600 11px/1 var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:#fff;
+}
+.kachel-kategorie .swash{width:11px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;flex:none}
+.kachel-zoom{
+  position:absolute;right:14px;top:14px;padding:6px 10px;
+  background:rgba(10,11,13,.7);border:1px solid rgba(255,255,255,.18);
+  font:600 11px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:#fff;pointer-events:none;
+}
+.raster-fussnote{margin:26px 0 0;font:500 13.5px/1.5 var(--font-body);color:var(--gray-400)}
+
+/* ==========================================================================
+   Leistungen-Hub
+   ========================================================================== */
+.hub-hero{
+  position:relative;background:var(--black);overflow:hidden;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.hub-hero .hero-bild{position:absolute;right:0;top:0;bottom:0;width:46%;opacity:.4}
+.hub-hero .hero-bild .slot-img{width:100%;height:100%;object-fit:cover}
+.hub-hero .scrim{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,var(--black) 42%,rgba(10,11,13,.55) 78%,rgba(10,11,13,.85));
+}
+.hub-hero .accent-bar{position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--red)}
+.hub-hero .wrap{position:relative;padding-top:76px;padding-bottom:78px}
+.hub-hero .brotkrumen{margin-bottom:34px}
+.hub-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:70px;align-items:end}
+.hub-hero h1{
+  margin:0 0 24px;max-width:900px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(36px,5.4vw,68px);line-height:.98;letter-spacing:-.035em;color:#fff;text-wrap:balance;
+}
+.hub-hero .lead{margin:0;max-width:660px;font:400 18px/1.68 var(--font-body);color:var(--gray-200)}
+.hub-gilt{border-left:1px solid rgba(255,255,255,.14);padding-left:32px}
+.gilt-titel{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gray-400);margin-bottom:16px;
+}
+.hub-gilt .bullets{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px}
+.hub-gilt .bullets li{
+  display:flex;align-items:flex-start;gap:12px;
+  font:500 15.5px/1.5 var(--font-body);color:var(--gray-150);
+}
+.hub-gilt .bullets .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none}
+
+/* --- Der Index: sechs Zeilen, rechts das mitlaufende Bild ---------------- */
+.hub-index{background:var(--black);padding:0 0 100px}
+.hub-index-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:64px;align-items:start}
+.index-liste{padding-top:60px}
+.index-zeile{
+  display:grid;grid-template-columns:78px minmax(0,1fr) 40px;gap:26px;align-items:center;
+  padding:30px 20px 30px 0;border-top:1px solid rgba(255,255,255,.12);
+  background:transparent;transition:background .2s;
+}
+.index-abschluss{border-top:1px solid rgba(255,255,255,.12)}
+.index-num{
+  font-family:var(--font-display);font-weight:800;font-size:40px;line-height:.9;
+  letter-spacing:-.04em;color:#3A4048;padding-left:14px;transition:color .2s;
+}
+.index-text h2{
+  margin:0;font:700 27px/1.14 var(--font-display);letter-spacing:-.022em;
+  color:var(--gray-100);transition:color .2s;
+}
+.index-kurz{display:block;margin:8px 0 0;font:400 16px/1.55 var(--font-body);color:var(--gray-400)}
+.index-schlagworte{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.schlagwort{
+  padding:6px 11px;border:1px solid rgba(255,255,255,.16);
+  font:500 12px/1 var(--font-body);letter-spacing:.04em;color:var(--gray-350);
+}
+.index-pfeil{font-size:22px;line-height:1;color:var(--gray-500);text-align:right;transition:color .2s}
+.index-zeile.active,.index-zeile:hover,.index-zeile:focus-visible{background:rgba(255,255,255,.045)}
+.index-zeile.active .index-num,
+.index-zeile:hover .index-num,
+.index-zeile:focus-visible .index-num{color:var(--red)}
+.index-zeile.active .index-text h2,
+.index-zeile:hover .index-text h2,
+.index-zeile:focus-visible .index-text h2{color:#fff}
+.index-zeile.active .index-pfeil,
+.index-zeile:hover .index-pfeil,
+.index-zeile:focus-visible .index-pfeil{color:var(--red)}
+
+.index-vorschau{position:sticky;top:calc(var(--kopf-hoehe) + 40px);padding-top:60px}
+.vorschau-rahmen{position:relative;height:520px;border:1px solid rgba(255,255,255,.14);overflow:hidden}
+.vorschau-bild{position:absolute;inset:0;opacity:0;transition:opacity .35s}
+.vorschau-bild.is-active{opacity:1}
+.vorschau-bild img{width:100%;height:100%;object-fit:cover;display:block}
+.vorschau-verlauf{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,11,13,.25),rgba(10,11,13,.75));
+}
+.vorschau-titel{position:absolute;left:26px;right:26px;bottom:24px;pointer-events:none}
+.vorschau-zeile[hidden]{display:none}
+.vorschau-kicker{
+  display:block;margin-bottom:10px;
+  font:600 11.5px/1 var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--red);
+}
+.vorschau-name{display:block;font:700 24px/1.15 var(--font-display);letter-spacing:-.02em;color:#fff}
+.vorschau-hinweis{margin:18px 0 0;font:500 13.5px/1.5 var(--font-body);color:var(--gray-400)}
+
+/* --- Kombinationen ------------------------------------------------------ */
+.kombinationen{background:var(--light-bg);padding:96px 0 100px}
+.kombinationen h2{
+  margin:0;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(28px,3.8vw,48px);line-height:1.02;letter-spacing:-.03em;color:var(--black);
+}
+.kombi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.kombi-karte{
+  background:#fff;border:1px solid rgba(10,11,13,.1);padding:34px 32px;
+  display:flex;flex-direction:column;gap:20px;
+}
+.kombi-kicker{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--red);
+}
+.kombi-karte h3{margin:0;font:700 23px/1.2 var(--font-display);letter-spacing:-.02em;color:var(--black)}
+.kombi-karte p{margin:0;font:400 16px/1.6 var(--font-body);color:var(--gray-450)}
+.kombi-links{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px;padding-top:6px}
+.kombi-links a{
+  padding:8px 13px;border:1px solid rgba(10,11,13,.15);
+  font:600 13px/1 var(--font-body);color:var(--black);
+}
+.kombi-links a:hover{border-color:var(--red);color:var(--red)}
+
+/* --- Was wir nicht machen (teilt das Raster mit der Ozonseite) ---------- */
+.hub-grenzen{background:#fff;padding:0 0 100px}
+.hub-grenzen .grenzen-grid{
+  grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:70px;
+  padding-top:90px;border-top:1px solid rgba(10,11,13,.12);
+}
+.hub-grenzen .grenzen-intro h2{margin:0 0 18px}
+.hub-grenzen .grenzen-punkte{grid-template-columns:1fr 1fr;gap:0 40px}
+
+/* ==========================================================================
+   Ozonbehandlung
+   ========================================================================== */
+
+/* --- Hero ohne Bild: Überschrift breit, darunter Lead und Kennzahlen ----- */
+.leistung-hero.ist-ozon{
+  min-height:0;display:block;background:var(--black);
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.leistung-hero.ist-ozon .wrap{padding-top:70px;padding-bottom:78px}
+.leistung-hero.ist-ozon .brotkrumen{margin-bottom:56px}
+.leistung-hero.ist-ozon .kicker{margin-bottom:26px}
+.leistung-hero.ist-ozon h1{
+  margin:0 0 34px;max-width:1180px;
+  font-size:clamp(38px,6.2vw,88px);line-height:.94;letter-spacing:-.04em;
+}
+.ozon-hero-fuss{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;
+  align-items:end;padding-top:12px;border-top:1px solid rgba(255,255,255,.14);
+}
+.leistung-hero.ist-ozon .lead{margin:26px 0 0;max-width:none;font-size:19px;line-height:1.62}
+.ozon-hero-werte{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:24px;
+  padding-top:26px;flex-wrap:wrap;
+}
+/* Im Hero der Ozonseite stehen die Kennzahlen frei, ohne Trennlinien. */
+.ozon-hero-werte .hero-kennzahl{padding:0;margin:0;border:0}
+.ozon-hero-werte .hero-kennzahl .wert{font-size:34px;letter-spacing:-.03em}
+.ozon-hero-werte .hero-kennzahl .label{
+  margin-top:8px;font:500 12.5px/1.4 var(--font-body);letter-spacing:.06em;text-transform:uppercase;
+}
+.ozon-hero-werte .btn{flex:none}
+
+/* --- Geruchsdiagnose: Chips über einer Tafel ---------------------------- */
+.diagnose{background:var(--light-bg);padding:96px 0 100px;border-top:5px solid var(--red)}
+.diagnose h2{
+  margin:0;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(28px,3.6vw,46px);line-height:1.02;letter-spacing:-.03em;color:var(--black);
+}
+.quellen-chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{
+  cursor:pointer;padding:15px 22px;background:#fff;border:1px solid rgba(10,11,13,.16);
+  color:#2B3038;font:600 15px/1 var(--font-body);letter-spacing:.02em;
+  display:flex;align-items:center;gap:10px;transition:background .16s,border-color .16s;
+}
+.chip:hover{border-color:rgba(10,11,13,.4)}
+.chip-marke{width:11px;height:6px;background:rgba(10,11,13,.22);transform:skewX(-20deg);display:inline-block;flex:none}
+.chip.active{background:var(--black);border-color:var(--black);color:#fff}
+.chip.active .chip-marke{background:var(--red)}
+
+/* Die Tafel schließt oben bündig an die Chipreihe an. */
+.quellen-panel{border:1px solid rgba(10,11,13,.14);background:#fff;margin-top:-1px}
+.quellen-tafel[hidden]{display:none}
+.quellen-tafel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px)}
+.quellen-haupt{padding:40px 42px;border-right:1px solid rgba(10,11,13,.14)}
+.quellen-kopf{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:22px}
+.quellen-label{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--gray-350);
+}
+.quellen-urteil{
+  padding:7px 13px;background:var(--red);
+  font:700 11.5px/1 var(--font-display);letter-spacing:.1em;text-transform:uppercase;color:#fff;
+}
+.quellen-urteil.ist-dunkel{background:var(--black)}
+.quellen-haupt h3{
+  margin:0 0 16px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(23px,2.6vw,32px);line-height:1.06;letter-spacing:-.028em;color:var(--black);
+}
+.quellen-haupt > p{margin:0 0 26px;max-width:620px;font:400 16.5px/1.68 var(--font-body);color:var(--gray-450)}
+.quellen-reihenfolge{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.quellen-reihenfolge li{
+  display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:center;
+  background:#FAFAFB;border:1px solid rgba(10,11,13,.13);padding:14px 18px;
+}
+/* Schwarz markiert den Schritt, der vor jeder Behandlung stehen muss. */
+.quellen-reihenfolge li.ist-betont{background:var(--black);border-color:var(--black)}
+.quellen-reihenfolge li.ist-betont .schritt-t{color:#fff}
+.quellen-reihenfolge .schritt-n{font:700 12px/1 var(--font-display);letter-spacing:.1em;color:var(--red)}
+.quellen-reihenfolge .schritt-t{font:500 15.5px/1.45 var(--font-body);color:#2B3038}
+
+/* --- Sperrzeit: fünf Phasen -------------------------------------------- */
+.sperrzeit{background:var(--black);padding:92px 0 96px}
+.sperrzeit-intro{max-width:760px;margin-bottom:46px}
+.sperrzeit-intro h2{
+  margin:0 0 16px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(28px,3.5vw,44px);line-height:1.02;letter-spacing:-.03em;color:#fff;
+}
+.sperrzeit-intro p{margin:0;font:400 17px/1.65 var(--font-body);color:var(--gray-200)}
+.phasen{
+  margin:0;padding:0;list-style:none;
+  display:grid;grid-template-columns:repeat(5,1fr);gap:1px;
+  background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.13);
+}
+.phase{background:var(--black);padding:28px 24px;min-height:270px;display:flex;flex-direction:column;gap:14px}
+.phase-kopf{display:flex;align-items:center;gap:10px}
+.phase-punkt{width:10px;height:10px;display:inline-block;flex:none;background:var(--gray-400)}
+.phase-nummer{
+  font:600 11.5px/1 var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--gray-400);
+}
+.phase h3{margin:0;font:700 20px/1.2 var(--font-display);letter-spacing:-.02em;color:#fff}
+.phase p{margin:0;font:400 15px/1.58 var(--font-body);color:var(--gray-400)}
+.phase-zustand{
+  margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.12);
+  font:600 13px/1 var(--font-body);color:var(--gray-400);
+}
+/* Der Zustand ist die eigentliche Information der Spalte: frei, gesperrt, fertig. */
+.phase-punkt.ist-gesperrt{background:var(--red)}
+.phase-punkt.ist-uebergabe{background:#fff}
+.phase-zustand.ist-gesperrt{color:var(--red-hover)}
+.phase-zustand.ist-uebergabe{color:#fff}
+
+/* --- Was Ozon nicht kann ------------------------------------------------ */
+.grenzen{background:#fff;padding:92px 0 96px}
+.grenzen-grid{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:64px;align-items:start}
+.grenzen-intro h2{
+  margin:0 0 18px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(26px,3.2vw,40px);line-height:1.04;letter-spacing:-.03em;color:var(--black);
+}
+.grenzen-intro p{margin:0;font:400 16.5px/1.68 var(--font-body);color:var(--gray-450)}
+.grenzen-punkte{display:grid;grid-template-columns:1fr 1fr;gap:0 44px}
+.grenzen-punkt{padding:22px 0;border-top:1px solid rgba(10,11,13,.13)}
+.grenzen-punkt h3{margin:0;font:700 18px/1.3 var(--font-display);color:var(--black)}
+.grenzen-punkt p{margin:7px 0 0;font:400 15.5px/1.58 var(--font-body);color:var(--gray-450)}
+
+/* --- Beleg statt Vorher/Nachher ---------------------------------------- */
+.beleg{background:var(--light-bg);padding:88px 0 92px}
+.beleg-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px}
+.beleg-bild{position:relative;margin:0;height:420px;overflow:hidden;border:1px solid rgba(10,11,13,.14)}
+.beleg-bild img{width:100%;height:100%;object-fit:cover;display:block}
+.beleg-bild figcaption{
+  position:absolute;left:18px;top:16px;padding:8px 14px;
+  font:700 11px/1 var(--font-display);letter-spacing:.18em;text-transform:uppercase;color:#fff;
+}
+.beleg-bild figcaption.ist-schwarz{background:var(--black)}
+.beleg-bild figcaption.ist-rot{background:var(--red)}
+.beleg-hinweis{
+  display:flex;align-items:flex-start;gap:16px;margin:0;
+  background:#fff;border-left:3px solid var(--red);padding:24px 26px;
+}
+.beleg-hinweis .swash{width:14px;height:7px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:9px;flex:none}
+.beleg-hinweis span:not(.swash){max-width:900px;font:400 16.5px/1.65 var(--font-body);color:#41474F}
+
+/* --- Heller Vergleich (Lackierarbeiten) ---------------------------------- */
+.leistung-vergleich.ist-hell{background:var(--light-bg)}
+.leistung-vergleich.ist-hell h2{color:var(--black)}
+.leistung-vergleich.ist-hell .ba-desc{color:var(--gray-450)}
+.leistung-vergleich.ist-hell .ba-frame{border:1px solid rgba(10,11,13,.14)}
+.leistung-vergleich.ist-hell .ba-hint{color:var(--gray-400)}
+
+/* ==========================================================================
+   Responsive
+   --------------------------------------------------------------------------
+   The mockup was authored desktop-first at 1440. Everything above is the
+   desktop layout untouched; these blocks step it down. Fluid type via clamp()
+   handles the in-between sizes so the breakpoints only need to change
+   structure, not re-declare every font-size.
+   ========================================================================== */
+
+/* --- Fluid type: applies at every width, so headings scale continuously
+       instead of jumping at each breakpoint. --------------------------- */
+.hero h1{font-size:clamp(38px, 5.7vw, 82px)}
+.section-head h2,
+.ba-head h2,
+.gallery-head h2{font-size:clamp(30px, 3.8vw, 54px)}
+.ablauf-intro h2{font-size:clamp(30px, 3.7vw, 52px)}
+.betrieb-copy h2,
+.anfrage-intro h2{font-size:clamp(28px, 3.5vw, 50px)}
+.mobile-banner h2{font-size:clamp(26px, 3.1vw, 44px)}
+.hotspot-detail h3{font-size:clamp(26px, 2.7vw, 38px)}
+
+/* --- Tablet / narrow desktop ------------------------------------------- */
+@media (max-width: 1200px){
+  :root{--gutter: 40px}
+  .hero .wrap{grid-template-columns:minmax(0,1fr) 300px;gap:40px;min-height:560px;padding:90px var(--gutter) 72px}
+  .ablauf-grid{gap:48px}
+  .betrieb-top{gap:48px}
+  .anfrage-grid{gap:48px}
+  .request-card{padding:36px 32px 32px}
+  .hotspot-detail{padding:38px 32px}
+  .footer-grid{gap:36px}
+}
+
+/* --- Stack the two-column modules -------------------------------------- */
+@media (max-width: 980px){
+  :root{--gutter: 28px; --kopf-hoehe: 108px}
+
+  /* Nav collapses into a panel under the header bar. */
+  .nav-toggle{display:flex}
+  .main-nav{
+    position:absolute;left:0;right:0;top:100%;
+    flex-direction:column;align-items:stretch;gap:0;
+    background:rgba(10,11,13,.98);backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,.12);
+    padding:8px var(--gutter) 20px;
+    /* Collapsed by default; .is-open (set by the toggle) reveals it. */
+    display:none;
+  }
+  .main-nav.is-open{display:flex}
+  .main-nav a.nav-link{padding:15px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:15px}
+  .main-nav .btn{margin-top:16px;justify-content:center;padding:16px 24px}
+  .site-header .wrap{height:70px}
+
+  /* Utility bar: drop the secondary copy, keep location + phone. */
+  .utility-bar .left .sep,
+  .utility-bar .left span:last-child,
+  .utility-bar .hours,
+  .utility-bar .right .sep{display:none}
+  .utility-bar .wrap{font-size:11.5px}
+
+  /* Hero: one column, stats become a 3-up row beneath the copy. */
+  .hero .wrap{grid-template-columns:minmax(0,1fr);gap:36px;align-items:start;min-height:0;padding:64px var(--gutter) 56px}
+  .hero-copy{max-width:none}
+  .hero-stats{flex-direction:row;gap:1px}
+  .hero-stats .stat{flex:1;padding:18px 16px}
+  .hero-stats .stat .value{font-size:30px}
+  .hero-stats .stat .label{font-size:11px}
+  .hero .lead{font-size:17px}
+
+  .trust-strip .grid{grid-template-columns:repeat(2,1fr)}
+  .trust-strip .item{padding:26px 24px}
+  .trust-strip .item:nth-child(2n){border-right:0;padding-right:0}
+  .trust-strip .item:nth-child(2n+1){padding-left:0}
+
+  /* Hotspot: image above, detail below — the markers keep working. */
+  .hotspot-panel{grid-template-columns:minmax(0,1fr)}
+  .hotspot-visual{min-height:0;aspect-ratio:4/3;border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .hotspot-detail{min-height:0}
+
+  .ba-head{flex-direction:column;align-items:stretch;gap:28px}
+  .case-list{flex-direction:row;flex-wrap:wrap}
+  .case-btn{min-width:0;flex:1 1 190px}
+  .ba-frame{height:auto;aspect-ratio:16/10}
+
+  .ablauf-grid{grid-template-columns:minmax(0,1fr);gap:40px}
+  .ablauf-intro{position:static}   /* sticky is meaningless once stacked */
+  .step-row{grid-template-columns:64px minmax(0,1fr);gap:20px}
+  .step-row .num{font-size:40px}
+  .step-row .duration{grid-column:2;padding-top:4px}
+
+  .gallery-head{flex-direction:column;align-items:flex-start;gap:20px}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}
+
+  .mobile-banner .wrap{grid-template-columns:minmax(0,1fr);gap:30px;padding:56px var(--gutter)}
+  .mobile-banner .actions{flex-direction:row;flex-wrap:wrap}
+  .mobile-banner .actions a{flex:1 1 220px}
+
+  .betrieb-top{grid-template-columns:minmax(0,1fr);gap:56px;margin-bottom:64px}
+  .betrieb-photo{height:420px}
+  .betrieb-photo .badge{right:0;bottom:-20px;max-width:min(300px,80%)}
+
+  .reviews-head{flex-direction:column;align-items:flex-start;gap:14px}
+  .review-grid{grid-template-columns:repeat(2,1fr)}
+
+  .anfrage-grid{grid-template-columns:minmax(0,1fr);gap:48px}
+  .leistung-hero{min-height:0}
+  .leistung-hero-grid{grid-template-columns:minmax(0,1fr);gap:34px;margin-top:80px}
+  .leistung-hero-cta{flex-direction:row;flex-wrap:wrap}
+  .leistung-hero-cta .btn{flex:1 1 220px;justify-content:center}
+  .check-grid{grid-template-columns:repeat(2,1fr)}
+  .panelkarte-panel{grid-template-columns:minmax(0,1fr)}
+  .panelkarte-schema{border-right:0;border-bottom:1px solid rgba(10,11,13,.14)}
+  .stationen-grid{grid-template-columns:minmax(0,1fr)}
+  .station-bild{height:300px}
+  .versicherung-grid{grid-template-columns:minmax(0,1fr);gap:38px}
+  .faq-grid{grid-template-columns:minmax(0,1fr);gap:34px}
+  .verwandt-grid{grid-template-columns:minmax(0,1fr)}
+  .leistung-hero.ist-halb .hero-bild{width:100%}
+  .leistung-hero.ist-halb .scrim{background:linear-gradient(180deg,rgba(10,11,13,.86),var(--black) 70%)}
+  .querschnitt-grid{grid-template-columns:minmax(0,1fr);gap:32px}
+  .schutz-grid{grid-template-columns:minmax(0,1fr);gap:34px}
+  .preis-banner{grid-template-columns:minmax(0,1fr);gap:28px;padding:34px 28px}
+  .preis-banner .btn{justify-content:center}
+  .leistung-vergleich .ba-frame{height:auto;aspect-ratio:16/10}
+  .zonen-panel{grid-template-columns:minmax(0,1fr)}
+  .zonen-liste{border-right:0;border-bottom:1px solid rgba(10,11,13,.14)}
+  .trocknung-grid{grid-template-columns:minmax(0,1fr);gap:34px}
+
+  /* Lackierarbeiten */
+  .lack-hero-fuss{flex-direction:column;align-items:stretch;gap:32px}
+  .muster-text{margin-bottom:0}
+  .lack-hero-fuss .cta-row .btn{flex:1 1 220px;justify-content:center}
+  .tiefen-wahl{grid-template-columns:minmax(0,1fr);gap:14px}
+  .tiefen-panel{grid-template-columns:minmax(0,1fr)}
+  .lack-schnitt{border-right:0;border-bottom:1px solid rgba(10,11,13,.14)}
+  .farbton-grid{grid-template-columns:minmax(0,1fr);gap:38px}
+  .farbton-intro{position:static}   /* sticky ist gestapelt sinnlos */
+  .beklebung-grid{grid-template-columns:minmax(0,1fr);gap:34px}
+  .preis-band .wrap{grid-template-columns:minmax(0,1fr);gap:28px}
+  .preis-band .btn{justify-content:center}
+
+  /* Lederreparatur */
+  .leistung-hero.ist-gespiegelt .hero-bild{width:100%}
+  .leistung-hero.ist-gespiegelt .scrim{background:linear-gradient(180deg,rgba(10,11,13,.86),var(--black) 70%)}
+  .leistung-hero.ist-gespiegelt .wrap{justify-content:flex-start}
+  .leistung-hero.ist-gespiegelt .cta-row .btn{flex:1 1 220px;justify-content:center}
+  .material-grid{grid-template-columns:minmax(0,1fr)}
+  .grad-leiste{flex-wrap:wrap;border-bottom:1px solid rgba(10,11,13,.14)}
+  .grad{flex:1 1 50%;border-bottom:1px solid rgba(10,11,13,.12)}
+  .grad-tafel{grid-template-columns:minmax(0,1fr)}
+  .grad-ablauf{border-right:0;border-bottom:1px solid rgba(10,11,13,.14)}
+  /* Slider oben, die beiden Makros darunter nebeneinander. */
+  .leder-ba-grid{grid-template-columns:minmax(0,1fr);gap:16px}
+  .leder-ba-grid .ba-frame{height:auto;aspect-ratio:16/10}
+  .leder-makros{grid-template-rows:none;grid-template-columns:1fr 1fr;gap:16px}
+  .leder-makro{aspect-ratio:4/3}
+  .leder-preis-grid{grid-template-columns:minmax(0,1fr);gap:40px}
+  .faq-offen-head{flex-direction:column;align-items:flex-start;gap:18px}
+  .faq-offen-grid{grid-template-columns:minmax(0,1fr);gap:0}
+  .faq-offen-eintrag:nth-last-child(-n+2){border-bottom:0}
+  .faq-offen-eintrag:last-child{border-bottom:1px solid rgba(10,11,13,.14)}
+
+  /* Rechtsseiten und Danke */
+  .recht-hero-grid{grid-template-columns:minmax(0,1fr);gap:32px;align-items:start}
+  .recht-meta{border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.14);padding-top:24px}
+  .recht-inhalt .wrap{grid-template-columns:minmax(0,1fr);gap:40px}
+  /* Gestapelt stünde das Verzeichnis sonst mitten im Text fest. */
+  .recht-verzeichnis{position:static}
+  .danke-wege{grid-template-columns:minmax(0,1fr)}
+
+  /* Kontakt */
+  .kontakt-hero-grid{grid-template-columns:minmax(0,1fr);gap:34px;align-items:start}
+  .anfrage-seite-grid{grid-template-columns:minmax(0,1fr);gap:40px}
+  .anfahrt-grid{grid-template-columns:minmax(0,1fr);gap:34px}
+  .anfahrt-karte{height:340px}
+  .versicherung-kontakt .grenzen-grid{grid-template-columns:minmax(0,1fr);gap:34px}
+  .versicherung-kontakt .grenzen-punkte{grid-template-columns:minmax(0,1fr);gap:0}
+
+  /* Galerie */
+  .galerie-hero-grid{grid-template-columns:minmax(0,1fr);gap:34px;align-items:start}
+  .galerie-hero-cta{border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.14);padding-top:26px}
+  .fall,.fall.ist-gedreht{grid-template-columns:minmax(0,1fr);gap:30px}
+  /* Gestapelt steht das Bild immer oben — die Drehung ergibt keinen Sinn mehr. */
+  .fall.ist-gedreht .fall-bild{order:0}
+  .fall.ist-gedreht .fall-text{order:0}
+  .fall-bild .ba-frame{height:auto;aspect-ratio:16/10}
+  .raster-kopf{flex-direction:column;align-items:flex-start;gap:16px}
+  .raster-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
+
+  /* Leistungen-Hub */
+  .hub-hero .hero-bild{width:100%;opacity:.28}
+  .hub-hero .scrim{background:linear-gradient(180deg,rgba(10,11,13,.8),var(--black) 72%)}
+  .hub-hero-grid{grid-template-columns:minmax(0,1fr);gap:38px;align-items:start}
+  .hub-gilt{border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.14);padding-top:26px}
+  /* Ohne Zeigegeraet gibt es kein Ueberfahren — die Vorschau entfällt,
+     jede Zeile trägt ihren Text ohnehin selbst. */
+  .hub-index-grid{grid-template-columns:minmax(0,1fr);gap:0}
+  .index-vorschau{display:none}
+  .index-liste{padding-top:40px}
+  .index-zeile{grid-template-columns:56px minmax(0,1fr) 28px;gap:18px;padding:24px 0}
+  .index-num{font-size:32px;padding-left:0}
+  .index-text h2{font-size:22px}
+  .kombi-grid{grid-template-columns:minmax(0,1fr)}
+  .hub-grenzen .grenzen-grid{grid-template-columns:minmax(0,1fr);gap:34px;padding-top:56px}
+  .hub-grenzen .grenzen-punkte{grid-template-columns:minmax(0,1fr);gap:0}
+
+  /* Ozonbehandlung */
+  .ozon-hero-fuss{grid-template-columns:minmax(0,1fr);gap:0}
+  .ozon-hero-werte{padding-top:32px;gap:32px}
+  .ozon-hero-werte .btn{flex:1 1 100%;justify-content:center}
+  .quellen-tafel{grid-template-columns:minmax(0,1fr)}
+  .quellen-haupt{border-right:0;border-bottom:1px solid rgba(10,11,13,.14)}
+  /* Fünf Phasen nebeneinander sind auf schmalen Bildschirmen unlesbar. */
+  .phasen{grid-template-columns:1fr 1fr}
+  .phase{min-height:0}
+  .grenzen-grid{grid-template-columns:minmax(0,1fr);gap:34px}
+  .beleg-bild{height:320px}
+  .kurzanfrage-grid{grid-template-columns:minmax(0,1fr);gap:38px}
+  .kurzanfrage-intro h2{font-size:clamp(26px,4vw,40px)}
+
+  .footer-grid{grid-template-columns:repeat(2,1fr);gap:40px}
+
+  /* Sticky bar: the prose is desktop garnish — keep the two actions. */
+  .sticky-bar .subline{display:none}
+  .sticky-bar .headline{font-size:15px}
+  .sticky-bar .wrap{height:68px;gap:16px}
+}
+
+/* --- Phones ------------------------------------------------------------- */
+@media (max-width: 640px){
+  :root{--gutter: 18px; --kopf-hoehe: 104px; --utility-hoehe: 34px}
+
+  .utility-bar .wrap{height:34px;font-size:11px;gap:12px}
+  .utility-bar .areas{gap:7px}
+  /* Location list is too long for one line — truncate it and hold the phone
+     number on a single line, or the two collide. */
+  .utility-bar .left{min-width:0;overflow:hidden}
+  .utility-bar .areas{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .utility-bar .right{flex:none}
+  .utility-bar .phone{white-space:nowrap}
+
+  .section{padding:64px 0 68px}
+  .section-white{padding:64px 0 68px}
+  .anfrage-section{padding:64px 0 72px}
+
+  /* The desktop scrim runs left-to-right across a wide frame; on a narrow one
+     it covers nearly the whole photo. Fade top-to-bottom instead so the
+     vehicle stays visible behind the copy. */
+  .hero .scrim{
+    background:linear-gradient(180deg,rgba(10,11,13,.82) 0%,rgba(10,11,13,.62) 45%,rgba(10,11,13,.9) 100%);
+  }
+  .hero .wrap{padding:48px var(--gutter) 44px;gap:30px}
+  .ba-caption{padding:9px 13px}
+  .ba-caption .note{font-size:12.5px;line-height:1.45}
+  .hero .cta-row{flex-direction:column;align-items:stretch;gap:12px}
+  .hero .cta-row .btn{justify-content:center}
+  .hero-stats{flex-direction:column}
+  .hero-stats .stat{padding:16px 18px}
+  .hero .accent-bar{width:3px}
+
+  .trust-strip .grid{grid-template-columns:minmax(0,1fr)}
+  .trust-strip .item{padding:22px 0;border-right:0;border-bottom:1px solid rgba(10,11,13,.1)}
+  .trust-strip .item:last-child{border-bottom:0}
+
+  .section-head{flex-direction:column;align-items:flex-start;gap:20px;margin-bottom:32px}
+  .section-head .desc{max-width:none}
+
+  .hotspot-visual{aspect-ratio:3/2}
+  .hotspot-detail{padding:30px 22px}
+  .hotspot-detail h3{margin:22px 0 14px}
+  .hotspot-detail .cta{flex-direction:column;align-items:stretch;gap:12px;padding-top:26px}
+  .hotspot-detail .cta .btn{justify-content:center}
+  .hotspot-detail .cta .hint{text-align:center}
+  /* Smaller markers so seven of them still fit a phone-width photo. */
+  .hotspot-dot .bubble{height:34px;min-width:34px;font-size:12px}
+
+  .case-btn{flex:1 1 100%;padding:13px 16px}
+  .ba-frame{aspect-ratio:4/3}
+  .ba-handle .grip{width:46px;height:46px}
+  .ba-caption{left:14px;right:14px;bottom:14px;max-width:none;padding:10px 14px}
+  .ba-label{top:14px;padding:7px 12px;font-size:10.5px}
+  .ba-label.before{left:14px}
+  .ba-label.after{right:14px}
+
+  .step-row{grid-template-columns:minmax(0,1fr);gap:8px;padding:26px 0}
+  .step-row .num{font-size:34px}
+  .step-row .duration{grid-column:1}
+
+  .gallery-grid{grid-template-columns:minmax(0,1fr);grid-auto-rows:220px}
+  /* The desktop mosaic spans would overflow a single column. */
+  .gallery-grid .tile.span-2,
+  .gallery-grid .tile.row-2{grid-column:auto;grid-row:auto}
+
+  .mobile-banner .actions{flex-direction:column}
+  .betrieb-photo{height:300px}
+  .betrieb-photo .badge{position:static;max-width:none;margin-top:14px;padding:20px 22px}
+  .betrieb-stats{grid-template-columns:minmax(0,1fr)}
+  .betrieb-stats .stat{padding:16px 0;border-right:0;border-bottom:1px solid rgba(10,11,13,.14)}
+  .betrieb-stats .stat:not(:first-child){padding-left:0}
+  .betrieb-stats .stat:last-child{border-bottom:0}
+
+  .review-grid{grid-template-columns:minmax(0,1fr)}
+  .review-card{padding:24px 22px}
+
+  .request-card{padding:26px 20px 24px}
+  .check-grid{grid-template-columns:minmax(0,1fr)}
+  .check{min-height:0}
+  .panelkarte{padding:64px 0 68px}
+  .panelkarte-schema,.panelkarte-detail{padding:26px 20px}
+  .panel-raster{grid-template-rows:repeat(4,62px);gap:6px}
+  .panel{padding:8px 10px}
+  .panel .panel-name{font-size:11px}
+  .preis-grid{grid-template-columns:minmax(0,1fr)}
+  .preis-karte{padding:24px 0;border-right:0;border-bottom:1px solid rgba(10,11,13,.14)}
+  .preis-karte:last-child{border-bottom:0}
+  .versicherung-punkte{grid-template-columns:minmax(0,1fr);gap:0}
+  .faq-antwort p{padding-right:0}
+  .stationen,.versicherung,.verwandt{padding:64px 0 68px}
+  .querschnitt,.schutz,.leistung-vergleich{padding:64px 0 68px}
+  .stufen-wahl{flex-direction:column}
+  .stufe{border-right:0;border-bottom:1px solid rgba(10,11,13,.12)}
+  .schnitt{padding:24px 20px}
+  .stufen-detail{padding:26px 22px}
+  .leistung-vergleich .ba-frame{aspect-ratio:4/3}
+  .tiefentest,.farbton,.beklebung,.faq-section{padding:64px 0 68px}
+  .preis-band .wrap{padding-top:44px;padding-bottom:44px}
+  .tiefe{padding:22px 20px;gap:12px}
+  .lack-schnitt,.vorgehen{padding:26px 20px}
+  .lack-schicht{padding:0 14px}
+  .lack-schicht .schicht-name{font-size:13px}
+  /* Fünf Muster nebeneinander sprengen die Zeile — schmaler und umbrechend. */
+  .muster-reihe{flex-wrap:wrap;gap:10px}
+  .muster-farbe{width:56px}
+  .farbton-schritte{grid-template-columns:minmax(0,1fr)}
+  .farbton-schritt{min-height:0;padding:26px 22px}
+  .beklebung-varianten{grid-template-columns:minmax(0,1fr)}
+  .beklebung-karte{padding:24px 20px}
+  .leistung-vergleich.ist-hell .ba-frame{aspect-ratio:4/3}
+  .material{padding-bottom:64px}
+  .schadensgrad,.leder-vergleich,.leder-preis,.faq-offen{padding:64px 0 68px}
+  .grad{flex:1 1 100%;padding:16px 18px}
+  .grad-name{font-size:16px}
+  .grad-ablauf,.wertespalte{padding:26px 20px}
+  .leder-ba-grid .ba-frame{aspect-ratio:4/3}
+  .leder-makros{grid-template-columns:minmax(0,1fr)}
+  .recht-inhalt{padding:48px 0 68px}
+  .recht-abschnitt{padding:28px 0}
+  .recht-abschnitt h2{font-size:21px}
+  .abschnitt-kopf{gap:12px}
+  .recht-band .wrap{align-items:flex-start;gap:12px}
+  .recht-band p{font-size:14px}
+  .danke{padding:64px 0 72px;min-height:0}
+  .weiter-links a{flex:1 1 100%;text-align:center}
+  .anfrage-seite,.anfahrt,.versicherung-kontakt{padding:64px 0 68px}
+  .kontakt-weg{padding:16px 18px;gap:12px}
+  .weg-wert{font-size:17px}
+  .kontakt-weg:last-child .weg-wert{font-size:15px}
+  .seiten-karte{padding:24px 20px}
+  .anfahrt-karte{height:240px}
+  .faelle,.bildraster{padding:64px 0 68px}
+  .fall-bild .ba-frame{aspect-ratio:4/3}
+  .raster-grid{grid-template-columns:minmax(0,1fr);grid-auto-rows:220px}
+  /* Einspaltig gäbe „doppelt breit" eine Kachel, die aus dem Raster ragt. */
+  .kachel.ist-gross{grid-column:auto;grid-row:span 2}
+  .filter{padding:10px 14px;font-size:12.5px}
+  .kombinationen{padding:64px 0 68px}
+  .hub-index,.hub-grenzen{padding-bottom:64px}
+  .index-zeile{grid-template-columns:44px minmax(0,1fr);gap:14px}
+  .index-pfeil{display:none}
+  .index-num{font-size:26px}
+  .kombi-karte{padding:26px 22px}
+  .diagnose,.sperrzeit,.grenzen,.beleg{padding:64px 0 68px}
+  .chip{padding:13px 16px;font-size:14px}
+  .quellen-haupt,.quellen-tafel .wertespalte{padding:26px 20px}
+  .quellen-kopf{flex-wrap:wrap;gap:12px}
+  .phasen{grid-template-columns:minmax(0,1fr)}
+  .phase{padding:22px 20px}
+  .grenzen-punkte{grid-template-columns:minmax(0,1fr);gap:0}
+  .beleg-grid{grid-template-columns:minmax(0,1fr)}
+  .beleg-bild{height:auto;aspect-ratio:4/3}
+  .beleg-hinweis{padding:20px 18px;gap:12px}
+  .zonen,.trocknung{padding:64px 0 68px}
+  .zone{padding:18px 18px;gap:12px;flex-wrap:wrap}
+  .zone-zeit{width:100%;padding-left:31px}
+  .zonen-detail{padding:26px 20px}
+  .zeitstrahl-schritt{grid-template-columns:minmax(0,1fr);gap:8px}
+  .hero-kennzahl{padding-right:20px;margin-right:20px}
+  .kurzanfrage-karte{padding:24px 20px}
+  .kurzanfrage-karte .field-grid{grid-template-columns:minmax(0,1fr)}
+  .kurzanfrage-fuss{flex-direction:column;align-items:stretch;gap:16px}
+  .kurzanfrage-fuss .consent{max-width:none}
+  .kurzanfrage-fuss .btn{justify-content:center}
+  .reviews-section{padding:56px 0 60px}
+  .reviews-section .reviews-head h2{font-size:26px}
+  .field-grid{grid-template-columns:minmax(0,1fr)}
+  /* Tracker labels don't fit three-across on a phone; numbers carry it. */
+  .step-tracker .step-label{display:none}
+  .step-tracker{margin-bottom:28px}
+  .form-nav{flex-direction:column-reverse;align-items:stretch;gap:14px}
+  .form-nav .right{flex-direction:column-reverse;align-items:stretch;gap:12px}
+  .form-nav .btn-next{justify-content:center}
+  .form-nav .btn-back{text-align:center}
+  .form-nav .hint{text-align:center}
+  .contact-list .row a{font-size:20px}
+
+  .footer-grid{grid-template-columns:minmax(0,1fr);gap:32px;padding-bottom:40px}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:8px}
+  .site-footer{padding-top:52px}
+
+  /* Bar reduces to the two actions; the headline would wrap badly. */
+  .sticky-bar .info{display:none}
+  .sticky-bar .wrap{gap:10px;height:64px}
+  .sticky-bar .actions{width:100%;gap:8px}
+  .sticky-bar .actions a{flex:1;justify-content:center;padding:13px 10px;font-size:12px}
+
+  /* Kopfhoehe steckt in --kopf-hoehe, die Regel oben greift automatisch. */
+}
+
+/* Inputs below 16px trigger iOS's zoom-on-focus. */
+@media (max-width: 860px){
+  .field input,.field select,.field textarea{font-size:16px}
+}

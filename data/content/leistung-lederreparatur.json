@@ -1,0 +1,210 @@
+{
+    "_hinweis": "Inhalte der Seite /leistungen/lederreparatur/. Uebernommen aus export/project/Leistung Leder.dc.html.",
+    "_unbestaetigt": "Fachaussagen sind Entwuerfe des Design-Assistenten, von Daniel Reutter nicht bestaetigt. Zu pruefen: die Materialaussagen zu Kunstleder und Alcantara, die vier Schadensgrade mit Aufwand, Dauer und 'mobil moeglich', die Aussage 'Narbung vom Originalleder abnehmen und praegen' (setzt Praegepapiere oder Silikonabdruecke voraus), die 24-Stunden-Angabe und die Pflegehinweise.",
+
+    "seo": {
+        "titel": "Lederreparatur Korntal — Sitze, Lenkrad | Fahrzeugpflege Reutter",
+        "beschreibung": "Farbabrieb, durchgescheuerte Sitzwange, Risse und Brandlöcher. Lederreparatur mit geprägter Narbung statt glatter Stelle — in Korntal-Münchingen bei Stuttgart."
+    },
+
+    "hero": {
+        "kicker": "Leistung 05 · Interieur",
+        "titel": "Auffällig ist nicht die Farbe. Auffällig ist die fehlende Narbung.",
+        "lead": "Eine reparierte Stelle verrät sich, wenn sie glatt und glänzend bleibt. Deshalb nehmen wir die Struktur vom Originalleder ab und prägen sie in die Reparatur, bevor überhaupt Farbe kommt.",
+        "cta": "Termin anfragen",
+        "bild": "g6.webp",
+        "bild_alt": "Nahaufnahme der Lederstruktur an einer Sitzwange",
+        "bild_platzhalter": true,
+        "_bild_soll": "Makro: Lederstruktur an der Sitzwange"
+    },
+
+    "material": {
+        "kicker": "Zuerst: welches Material",
+        "karten": [
+            {
+                "name": "Echtleder",
+                "urteil": "alles möglich",
+                "ist_gut": true,
+                "text": "Füllen, prägen, färben, versiegeln. Bei pigmentiertem Leder — dem Standard im Fahrzeug — ist praktisch jeder Schaden reparabel."
+            },
+            {
+                "name": "Kunstleder",
+                "urteil": "mit Grenzen",
+                "ist_gut": false,
+                "text": "Einzelne Stellen gehen gut. Wenn die Oberfläche großflächig zu reißen beginnt, ist Nachfärben verlorene Zeit — dann hilft nur Beziehen."
+            },
+            {
+                "name": "Alcantara",
+                "urteil": "nur reinigen",
+                "ist_gut": false,
+                "text": "Ein Textil, kein Leder. Wird gereinigt und aufgeraut, aber nicht gefärbt. Durchgescheuertes Alcantara lässt sich nur ersetzen."
+            }
+        ]
+    },
+
+    "grade_sektion": {
+        "kicker": "Vier Schadensgrade",
+        "titel": "Wie weit ist es bei Ihnen?",
+        "beschreibung": "Grad anwählen. Je früher Sie kommen, desto weniger muss aufgebaut werden — und desto weniger fällt später auf.",
+        "schritte_titel": "Was wir dafür tun",
+        "erwartung_titel": "Ehrliche Erwartung"
+    },
+
+    "_grade_hinweis": "punkt_farbe ist Design (Ampelwirkung von hell nach rot) und bleibt im Inhalt, weil sie zur Reihenfolge gehoert.",
+    "grade": [
+        {
+            "num": "1",
+            "name": "Farbabrieb",
+            "punkt_farbe": "#C6CBD2",
+            "ueberschrift": "Die Farbe ist weg, das Leder ist ganz",
+            "text": "Typisch an Sitzwange, Lenkradkranz und Türgriff. Die Oberfläche ist noch geschlossen, nur das Pigment ist abgerieben. Der günstigste Zeitpunkt für eine Reparatur — hier muss nichts aufgebaut werden.",
+            "schritte": [
+                { "n": "01", "t": "Reinigen und entfetten, bis nichts mehr abfärbt" },
+                { "n": "02", "t": "Farbton auf das gealterte Leder mischen" },
+                { "n": "03", "t": "Bis zur nächsten Naht nachfärben" },
+                { "n": "04", "t": "Matt versiegeln" }
+            ],
+            "aufwand": "gering",
+            "dauer": "ein halber Tag",
+            "mobil": "ja",
+            "erwartung": "Nicht auffindbar. Das ist der Fall, bei dem am Ende niemand mehr sieht, dass etwas gemacht wurde."
+        },
+        {
+            "num": "2",
+            "name": "Faser liegt frei",
+            "punkt_farbe": "#8E959F",
+            "ueberschrift": "Die Oberfläche ist durchgescheuert",
+            "text": "Man sieht die helle Faser, die Stelle fühlt sich rau an. Ab hier muss Material aufgebaut werden — in dünnen Schichten, jede getrocknet. Zu dick aufgetragen reißt es beim ersten Einsteigen wieder.",
+            "schritte": [
+                { "n": "01", "t": "Reinigen und entfetten" },
+                { "n": "02", "t": "In dünnen Schichten füllen und zwischentrocknen" },
+                { "n": "03", "t": "Narbung vom Originalleder abnehmen und prägen" },
+                { "n": "04", "t": "Nachfärben und versiegeln" }
+            ],
+            "aufwand": "mittel",
+            "dauer": "ein Tag",
+            "mobil": "meist ja",
+            "erwartung": "Aus normaler Sitzposition unsichtbar. Bei sehr hellem Leder kann man die Stelle im Streiflicht finden."
+        },
+        {
+            "num": "3",
+            "name": "Riss",
+            "punkt_farbe": "#F2323C",
+            "ueberschrift": "Das Leder ist eingerissen",
+            "text": "Meist entlang der Naht oder an einer Knickkante. Der Riss wird von unten stabilisiert, bevor er gefüllt wird — sonst arbeitet er sich unter der neuen Schicht weiter.",
+            "schritte": [
+                { "n": "01", "t": "Kanten säubern und von unten stabilisieren" },
+                { "n": "02", "t": "Schichtweise füllen, jede Lage trocknen" },
+                { "n": "03", "t": "Struktur prägen und angleichen" },
+                { "n": "04", "t": "Flächig nachfärben und versiegeln" }
+            ],
+            "aufwand": "erhöht",
+            "dauer": "ein bis zwei Tage",
+            "mobil": "nur kleine Risse",
+            "erwartung": "Ein feiner Verlauf kann bei genauem Hinsehen erkennbar bleiben. Deutlich besser als der Riss — aber nicht wie neu."
+        },
+        {
+            "num": "4",
+            "name": "Loch oder Brandloch",
+            "punkt_farbe": "#D80D18",
+            "ueberschrift": "Es fehlt Material",
+            "text": "Bei kleinen Löchern setzen wir ein Stück Leder ein und arbeiten es ein. Ist die Fläche größer oder liegt sie mitten auf dem Sitzkissen, ist Beziehen die ehrlichere Empfehlung.",
+            "schritte": [
+                { "n": "01", "t": "Loch ausschneiden, Unterlage einsetzen" },
+                { "n": "02", "t": "Passstück einlegen und einarbeiten" },
+                { "n": "03", "t": "Struktur prägen, Übergang angleichen" },
+                { "n": "04", "t": "Flächig nachfärben und versiegeln" }
+            ],
+            "aufwand": "hoch",
+            "dauer": "zwei Tage",
+            "mobil": "nein",
+            "erwartung": "Von oben gut, im Streiflicht findbar. Bei Löchern in der Sitzmitte sagen wir Ihnen, wenn Beziehen sinnvoller ist."
+        }
+    ],
+
+    "vergleich": {
+        "kicker": "Vorher / Nachher",
+        "titel": "Fahrersitz, Wange aufgebaut und nachgefärbt.",
+        "beschreibung": "Bei Leder entscheidet die Makroaufnahme. Aus zwei Metern sieht fast jede Reparatur gut aus.",
+        "start_position": 50,
+        "_warnung": "LAUNCH-BLOCKER: vorher und nachher zeigen dasselbe Platzhalterbild. Vor Launch echtes Paar einsetzen.",
+        "vorher": "ba-2.webp",
+        "vorher_alt": "Sitzwange vor der Reparatur, Leder durchgescheuert",
+        "nachher": "ba-2.webp",
+        "nachher_alt": "Sitzwange nach der Reparatur, Struktur und Farbe zurück",
+        "echtes_paar": false,
+        "makros": [
+            {
+                "bild": "g4.webp",
+                "alt": "Makroaufnahme der geprägten Narbung nach der Reparatur",
+                "label": "Narbung",
+                "platzhalter": true,
+                "_bild_soll": "Makro: geprägte Narbung nach der Reparatur"
+            },
+            {
+                "bild": "g7.webp",
+                "alt": "Makroaufnahme eines nachgefärbten Lenkradkranzes",
+                "label": "Lenkrad",
+                "platzhalter": true,
+                "_bild_soll": "Makro: Lenkradkranz nachgefärbt"
+            }
+        ]
+    },
+
+    "preis": {
+        "kicker": "Preis",
+        "titel": "Festpreis nach zwei scharfen Fotos.",
+        "text": "Ob es eine Stunde oder zwei Tage werden, entscheidet der Schadensgrad — und ob nur nachgefärbt oder erst aufgebaut werden muss. Machen Sie zwei Aufnahmen aus der Nähe bei Tageslicht, das reicht uns meist für eine belastbare Einschätzung.",
+        "cta": "Fotos senden",
+        "pflege_titel": "Damit es hält",
+        "pflege": [
+            "Keine lösemittelhaltigen Reiniger und nichts mit Silikon",
+            "Zwei bis drei Mal im Jahr reinigen und rückfetten",
+            "In den ersten 24 Stunden nicht mit Jeans über die Wange rutschen",
+            "Bei hellem Leder Jeansfärbung früh entfernen, nicht einwirken lassen"
+        ]
+    },
+
+    "faq": {
+        "_hinweis": "Diese Seite zeigt die Antworten offen in zwei Spalten statt als Aufklapper — so im Entwurf. Der Text steht damit ohne Interaktion im Quelltext, was fuer Antwortboxen in der Suche der bessere Fall ist.",
+        "titel": "Sechs Fragen, die uns jede Woche gestellt werden",
+        "hinweis_vor": "Sonst einfach anrufen:",
+        "fragen": [
+            {
+                "frage": "Sieht man die reparierte Stelle später?",
+                "antwort": "Bei gedeckten Farben und normaler Narbung praktisch nicht. Bei sehr hellem oder stark strukturiertem Leder findet man sie, wenn man weiß, wo sie ist. Wir sagen vorher, was zu erwarten ist."
+            },
+            {
+                "frage": "Wie lange hält die Reparatur?",
+                "antwort": "Wenn richtig entfettet und versiegelt wurde, so lange wie das übrige Leder. Kaputt machen sie lösemittelhaltige Reiniger und Pflegemittel mit Silikon."
+            },
+            {
+                "frage": "Muss die ganze Fläche gefärbt werden?",
+                "antwort": "In der Regel bis zur nächsten Naht. Nur den Fleck zu färben ergibt einen sichtbaren Übergang, weil frisches Pigment anders reflektiert als gealtertes."
+            },
+            {
+                "frage": "Wann kann ich wieder normal einsteigen?",
+                "antwort": "Nach etwa 24 Stunden ist die Fläche voll belastbar. Am selben Tag können Sie fahren, sollten aber nicht mit Jeans über die frisch gefärbte Wange rutschen."
+            },
+            {
+                "frage": "Geht das auch am Lenkrad?",
+                "antwort": "Ja, und es ist einer der häufigsten Aufträge. Der Kranz wird entfettet, aufgebaut, wo nötig, und neu gefärbt. Danach ist er wieder matt statt speckig-grau."
+            },
+            {
+                "frage": "Lohnt sich das vor dem Verkauf?",
+                "antwort": "Meistens ja. Der Fahrersitz ist das Erste, was ein Käufer beim Einsteigen sieht, und eine durchgescheuerte Wange drückt den Preis deutlich stärker als die Reparatur kostet."
+            }
+        ]
+    },
+
+    "verwandt": {
+        "titel": "Passt oft dazu",
+        "karten": [
+            { "slug": "fahrzeugpflege-interieur", "kicker": "02 · Interieur", "text": "Leder wird nach der Reparatur gereinigt und rückgefettet — meist im selben Termin." },
+            { "slug": "ozonbehandlung",           "kicker": "06 · Interieur", "text": "Bei Rauchgeruch im Leder hilft Reinigung allein oft nicht." },
+            { "slug": "fahrzeugpflege-exterieur", "kicker": "01 · Exterieur", "text": "Innen fertig, außen stumpf — das fällt beim Verkauf sofort auf." }
+        ]
+    },
+
+    "cta_ueberschrift": "Leder reparieren lassen?"
+}

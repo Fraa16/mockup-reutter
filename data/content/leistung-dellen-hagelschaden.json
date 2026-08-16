@@ -1,0 +1,164 @@
+{
+    "_hinweis": "Inhalte der Seite /leistungen/dellen-hagelschaden/. Uebernommen aus dem zweiten Design-Bundle (export/project/Leistung Dellen.dc.html).",
+    "_unbestaetigt": "ACHTUNG: Saemtliche Fachaussagen auf dieser Seite sind Entwuerfe des Design-Assistenten und von Daniel Reutter nicht bestaetigt. Besonders heikel ist der Versicherungsabschnitt — er sagt eine Abstimmung mit dem Gutachter und eine Aufstellung je Bauteil zu. Das sind Leistungsversprechen, keine Werbetexte. Vor Launch abgleichen.",
+
+    "seo": {
+        "titel": "Dellen & Hagelschaden Korntal — ohne Lackieren | Fahrzeugpflege Reutter",
+        "beschreibung": "Dellen drücken statt spachteln: Der Originallack bleibt erhalten. Hagelschaden Panel für Panel, Aufstellung für die Versicherung. Korntal bei Stuttgart, auch mobil."
+    },
+
+    "hero": {
+        "kicker": "Leistung 03 · Karosserie",
+        "titel": "Die Delle geht raus. Der Lack bleibt drauf.",
+        "lead": "Wir drücken das Blech von innen zurück, statt zu spachteln und zu lackieren. Was Ihr Fahrzeug behält: den Werkslack — und damit den Wert, den ein Lackschichtmessgerät später bestätigt.",
+        "cta": "Schaden begutachten lassen",
+        "bild": "hero.webp",
+        "bild_alt": "Streifenlampe spiegelt sich im Dach, Dellen werden sichtbar",
+        "bild_platzhalter": true,
+        "_bild_soll": "Streifenlampe spiegelt sich im Dach, Dellen sichtbar"
+    },
+
+    "machbarkeit": {
+        "kicker": "Zuerst die ehrliche Frage",
+        "titel": "Lässt sich Ihre Delle drücken?",
+        "lead": "Vier Dinge entscheiden darüber. Wenn eines davon nicht passt, sagen wir es beim ersten Blick — und nicht, wenn die Verkleidung schon unten ist.",
+        "checks": [
+            {
+                "num": "01",
+                "titel": "Ist der Lack unverletzt?",
+                "urteil": "entscheidend",
+                "hervorgehoben": true,
+                "text": "Solange der Lack nur gedehnt wurde, lässt sich das Blech zurückformen. Ist er gerissen oder abgeplatzt, kommt Lackarbeit dazu."
+            },
+            {
+                "num": "02",
+                "titel": "Kommen wir von innen dran?",
+                "urteil": "meistens ja",
+                "hervorgehoben": false,
+                "text": "Über Verkleidungen, Radhaus oder Dachhimmel. Bei Doppelblechen und verklebten Bereichen ziehen wir stattdessen von außen mit Klebetechnik."
+            },
+            {
+                "num": "03",
+                "titel": "Liegt die Delle auf einer Kante?",
+                "urteil": "schwieriger",
+                "hervorgehoben": false,
+                "text": "Sicken und Kanten sind steifer, das Blech gibt weniger nach. Geht oft, dauert aber länger — und manchmal bleibt eine minimale Spur."
+            },
+            {
+                "num": "04",
+                "titel": "Wie scharf ist der Einschlag?",
+                "urteil": "Grenzfall",
+                "hervorgehoben": false,
+                "text": "Runde Dellen sind unser Fall. Ein scharfkantiger Einschlag mit gedehntem Blech lässt sich nicht immer vollständig zurückführen."
+            }
+        ]
+    },
+
+    "panelkarte": {
+        "kicker": "Hagelschaden, Panel für Panel",
+        "titel": "So sieht unsere Aufstellung aus.",
+        "beschreibung": "Beispiel aus einem echten Auftrag. Jedes Bauteil wird gezählt, bewertet und einzeln kalkuliert — das ist auch die Grundlage für Ihre Versicherung.",
+        "bildunterschrift": "Fahrzeug, schematisch von oben",
+        "hinweis": "Ein Bauteil anklicken. Die Zahl ist die Anzahl der Dellen, nicht der Stunden.",
+        "_spalten_hinweis": "spalte und zeile bestimmen die Position im Schema und sind Design, nicht Inhalt — sie erscheinen deshalb nicht im CMS.",
+        "panels": [
+            { "name": "Motorhaube",   "anzahl": 11, "spalte": 2, "zeile": 1, "demontage": "nicht nötig",      "zugang": "von unten frei",   "schwierigkeit": "mittel", "text": "Große, gewölbte Fläche und gut zugänglich. Bei Aluhauben arbeiten wir langsamer, weil das Material weniger verzeiht." },
+            { "name": "Kotflügel L",  "anzahl": 4,  "spalte": 1, "zeile": 2, "demontage": "Radhausschale",    "zugang": "eingeschränkt",    "schwierigkeit": "mittel", "text": "Zugang über das Radhaus. Der obere Bereich an der Kante zur Haube ist der schwierigste Teil." },
+            { "name": "Dach",         "anzahl": 18, "spalte": 2, "zeile": 2, "demontage": "Dachhimmel",       "zugang": "nach Ausbau frei", "schwierigkeit": "hoch",   "text": "Das Panel mit den meisten Dellen und dem größten Aufwand: Der Himmel muss raus, danach ist die Fläche gut erreichbar." },
+            { "name": "Kotflügel R",  "anzahl": 3,  "spalte": 3, "zeile": 2, "demontage": "Radhausschale",    "zugang": "eingeschränkt",    "schwierigkeit": "mittel", "text": "Wie links, meist mit weniger Einschlägen — die Wetterseite hat in der Regel mehr abbekommen." },
+            { "name": "Tür VL",       "anzahl": 2,  "spalte": 1, "zeile": 3, "demontage": "Türverkleidung",   "zugang": "gut",              "schwierigkeit": "gering", "text": "Nach Ausbau der Verkleidung gut erreichbar. Vorsicht bei Fensterführung und Kabelbaum." },
+            { "name": "Heckklappe",   "anzahl": 5,  "spalte": 2, "zeile": 3, "demontage": "Innenverkleidung", "zugang": "gut",              "schwierigkeit": "mittel", "text": "Viele Verstärkungen im Blech, dadurch weniger Spielraum. Umlaufende Kanten brauchen Geduld." },
+            { "name": "Tür HR",       "anzahl": 1,  "spalte": 3, "zeile": 3, "demontage": "Türverkleidung",   "zugang": "gut",              "schwierigkeit": "gering", "text": "Eine einzelne Delle. Solche Panels machen wir am Ende, weil die Demontage länger dauert als das Drücken." },
+            { "name": "Seitenwand R", "anzahl": 2,  "spalte": 3, "zeile": 4, "demontage": "teilweise",        "zugang": "schwierig",        "schwierigkeit": "hoch",   "text": "Doppelblech im hinteren Bereich. Hier arbeiten wir häufig mit Klebetechnik von außen statt von innen." }
+        ]
+    },
+
+    "stationen": {
+        "kicker": "Drei Stationen",
+        "titel": "Bei Dellen zeigt der Zwischenschritt mehr als das Ergebnis.",
+        "lead": "Deshalb hier keine Schieberegler, sondern drei Aufnahmen aus demselben Auftrag: markiert, offen, fertig.",
+        "eintraege": [
+            {
+                "titel": "Zählen und markieren",
+                "text": "Jede Delle wird unter der Streifenlampe gefunden und angezeichnet. Was hier nicht auf der Liste steht, wird später auch nicht abgerechnet.",
+                "bild": "g1.webp",
+                "bild_alt": "Markierte Dellen auf einem Bauteil unter der Streifenlampe",
+                "bild_platzhalter": true,
+                "_bild_soll": "Dellen markiert unter der Streifenlampe"
+            },
+            {
+                "titel": "Zugang schaffen, drücken",
+                "text": "Himmel, Verkleidung oder Radhausschale kommen raus. Danach wird in vielen kleinen Schritten von innen zurückgeführt — nicht in einem Zug.",
+                "bild": "g2.webp",
+                "bild_alt": "Demontierte Verkleidung, Werkzeug am Blech",
+                "bild_platzhalter": true,
+                "_bild_soll": "Verkleidung demontiert, Werkzeug am Blech"
+            },
+            {
+                "titel": "Kontrolle im Streiflicht",
+                "text": "Fertig ist es, wenn die Reflexionslinie über das ganze Bauteil gerade durchläuft. Erst dann kommt die Verkleidung zurück.",
+                "bild": "g3.webp",
+                "bild_alt": "Fertiges Bauteil mit gerader Reflexionslinie",
+                "bild_platzhalter": true,
+                "_bild_soll": "Fertiges Panel, gerade Reflexionslinie"
+            }
+        ]
+    },
+
+    "versicherung": {
+        "kicker": "Teilkasko & Gutachter",
+        "titel": "Hagel läuft meist über die Versicherung. Manchmal ist das der teurere Weg.",
+        "text": "Sagen Sie uns bei der Anfrage, dass es ein Versicherungsfall ist — dann dokumentieren wir von Anfang an entsprechend. Und wenn Selbstbeteiligung plus Einstufung teurer wären als die Reparatur, rechnen wir Ihnen beides vor.",
+        "link_text": "Fall schildern →",
+        "punkte": [
+            { "titel": "Aufstellung je Bauteil",        "text": "Fotos und Dellenzahl pro Panel — damit können Sie den Schaden melden." },
+            { "titel": "Abstimmung mit dem Gutachter",  "text": "Auf Wunsch direkt, damit Sie nicht zwischen zwei Terminen pendeln." },
+            { "titel": "Was wir nicht entscheiden",     "text": "Selbstbeteiligung, Einstufung und Regulierung liegen bei Ihrer Versicherung." },
+            { "titel": "Selbst zahlen",                 "text": "Bei kleinen Schäden oft günstiger. Wir sagen es Ihnen, auch wenn wir dann weniger abrechnen." }
+        ]
+    },
+
+    "preis": {
+        "karten": [
+            { "kicker": "Einzelne Parkdelle", "titel": "Preis nach zwei Fotos",  "text": "Ein Bild von der Stelle, eines vom ganzen Bauteil. Damit können wir in der Regel schon einen Festpreis nennen." },
+            { "kicker": "Hagelschaden",       "titel": "Nur nach Begutachtung",  "text": "Aus Fotos lässt sich das nicht seriös schätzen. Das Fahrzeug muss unter die Lampe — die Begutachtung kostet Sie nichts." },
+            { "kicker": "Wenn mehr auftaucht","titel": "Anruf vor der Arbeit",   "text": "Findet sich unter der Verkleidung ein Vorschaden, hören Sie das vorher — nicht auf der Rechnung." }
+        ]
+    },
+
+    "faq": {
+        "kicker": "Häufige Fragen",
+        "titel": "Was Kunden vorher wissen wollen",
+        "cta": "Schaden schildern",
+        "fragen": [
+            {
+                "frage": "Bleibt der Originallack wirklich erhalten?",
+                "antwort": "Ja. Beim Drücken wird das Blech von der Rückseite zurückgeformt, der Lack darauf kehrt in seine Form zurück. Es wird nichts geschliffen, gespachtelt oder überlackiert — ein Lackschichtmessgerät findet später keine Auffälligkeit."
+            },
+            {
+                "frage": "Was ist, wenn der Lack an der Delle geplatzt ist?",
+                "antwort": "Dann arbeiten wir zweistufig: erst die Form zurückholen, danach die Stelle beilackieren. Das ist besser und günstiger, als das ganze Bauteil zu ersetzen.",
+                "link": { "text": "Mehr zu Lackierarbeiten", "ziel": "/leistungen/lackierarbeiten/" }
+            },
+            {
+                "frage": "Wie lange dauert ein Hagelschaden?",
+                "antwort": "Je nach Anzahl der Dellen und Demontageaufwand meist zwei bis vier Tage. Den Zeitraum nennen wir bei der Begutachtung und rufen an, wenn sich etwas verschiebt."
+            },
+            {
+                "frage": "Kommen Sie für eine Parkdelle zu mir?",
+                "antwort": "Bei einzelnen Dellen ja, wenn wir an die Stelle herankommen und Platz zum Arbeiten ist. Sobald Verkleidungen raus müssen oder es viele Dellen sind, ist die Halle der richtige Ort."
+            }
+        ]
+    },
+
+    "verwandt": {
+        "titel": "Passt oft dazu",
+        "karten": [
+            { "slug": "fahrzeugpflege-exterieur", "kicker": "01 · Exterieur", "text": "Nach der Dellenarbeit sieht man alte Waschkratzer erst richtig." },
+            { "slug": "lackierarbeiten",          "kicker": "04 · Lack",      "text": "Für Dellen mit gerissenem Lack: erst drücken, dann beilackieren." },
+            { "slug": "fahrzeugpflege-interieur", "kicker": "02 · Interieur", "text": "Wenn das Fahrzeug ohnehin ein paar Tage bei uns steht." }
+        ]
+    },
+
+    "cta_ueberschrift": "Dellen oder Hagelschaden?"
+}

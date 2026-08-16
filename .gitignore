@@ -1,0 +1,13 @@
+# Zugangsdaten und lokale Einstellungen — gehören unter keinen Umständen ins Repo
+data/users.php
+data/.login-versuche.json
+app/config.local.php
+app/config/zugangsdaten.php
+
+# Vom CMS erzeugt bzw. auf dem Server gepflegt
+data/backups/
+public/uploads/cache/
+
+# Betriebssystem / Editor
+.DS_Store
+node_modules/

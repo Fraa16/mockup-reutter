@@ -1,0 +1,89 @@
+{
+    "_hinweis": "Inhalte der Seite /kontakt/. Uebernommen aus export/project/Kontakt.dc.html. Die im Entwurf rot markierte fehlende Anschrift ist eingesetzt: Lembergstrasse 27, 70825 Korntal-Muenchingen. Die Oeffnungszeiten des Entwurfs (Mo–Fr 8–18, Sa nach Absprache) waren Platzhalter und kommen jetzt aus site.json.",
+    "_unbestaetigt": "Zu pruefen: die Anfahrtsbeschreibung (Hof hinter dem Gebaeude? Rolltor? Kundenparkplaetze?) ist reine Annahme des Design-Assistenten und beschreibt eine Halle, die niemand gesehen hat. Ebenso 'Antwort in der Regel am selben Werktag' und der ganze Versicherungsabschnitt — er sagt Abstimmung mit dem Gutachter und eine Aufstellung je Bauteil zu.",
+
+    "seo": {
+        "titel": "Kontakt & Anfahrt — Fahrzeugpflege Reutter, Korntal",
+        "beschreibung": "Anfrage mit Fotos, Telefon 07 11 / 82 85 940 oder WhatsApp. Fahrzeugpflege Reutter, Lembergstraße 27, 70825 Korntal-Münchingen bei Stuttgart."
+    },
+
+    "hero": {
+        "kicker": "Kontakt",
+        "titel": "Sagen Sie uns, was ansteht.",
+        "lead": "Am schnellsten geht es mit Fotos: zwei Aufnahmen vom Schaden bei Tageslicht, und wir können meist schon etwas dazu sagen. Antwort in der Regel am selben Werktag."
+    },
+
+    "formular": {
+        "kicker": "Anfrage",
+        "titel": "Anfrage mit Fotos"
+    },
+
+    "ohne_formular": {
+        "titel": "Lieber kein Formular?",
+        "wege": [
+            {
+                "titel": "Fotos per WhatsApp",
+                "text": "Zwei Bilder vom Schaden reichen meist.",
+                "art": "whatsapp",
+                "_hinweis": "Das Ziel wird aus der Mobilnummer in site.json gebildet. Es ist ein Link, kein eingebetteter Dienst — es geht also kein Request an Meta, solange niemand klickt."
+            },
+            {
+                "titel": "Kurz anrufen",
+                "text": "Wenn es schnell gehen soll: Werkstatt 07 11 / 82 85 940, mobil auch unterwegs erreichbar.",
+                "art": "telefon"
+            }
+        ]
+    },
+
+    "zeiten": {
+        "titel": "Öffnungszeiten",
+        "hinweis": "Fahrzeugannahme und -abholung bitte immer nach Termin — sonst steht Ihr Auto, während wir an einem anderen arbeiten."
+    },
+
+    "anfahrt": {
+        "kicker": "Anfahrt",
+        "titel": "So finden Sie uns.",
+        "karte": {
+            "_hinweis": "Bewusst kein eingebettetes Google-Maps-iframe: das waere ein Request an Google beim Seitenaufruf und damit einwilligungspflichtig. Vorgesehen ist ein statisches Kartenbild plus Link. Solange keins vorliegt, steht hier ein sichtbarer Platzhalter statt eines falschen Fotos.",
+            "bild": "",
+            "bild_alt": "Kartenausschnitt mit dem Standort in Korntal-Münchingen",
+            "platzhalter_text": "Kartenausschnitt folgt",
+            "link_text": "Route planen"
+        },
+        "adresse_titel": "Adresse",
+        "punkte": [
+            {
+                "titel": "Mit dem Auto",
+                "_unbestaetigt": "Beschreibt eine Halle, die niemand gesehen hat. Mit Daniel abgleichen.",
+                "text": "Einfahrt zum Hof liegt hinter dem Gebäude. Fahren Sie bis zum Rolltor durch, dort nehmen wir das Fahrzeug an."
+            },
+            {
+                "titel": "Parken",
+                "_unbestaetigt": "Gibt es Kundenparkplaetze vor der Halle?",
+                "text": "Stellplätze für Kunden direkt vor der Halle. Wenn Sie Ihr Fahrzeug dalassen, können Sie es dort abstellen und uns die Schlüssel geben."
+            },
+            {
+                "titel": "Öffentlich",
+                "_offen": "Haltestelle und Linien fehlen noch — einziger inhaltlicher Punkt, der auf dieser Seite offen bleibt.",
+                "text": "Haltestelle und Linien tragen wir nach, sobald wir sie geprüft haben."
+            },
+            {
+                "titel": "Mobiler Service",
+                "text": "Im Raum Stuttgart kommen wir zu Ihnen. Welche Orte das genau sind, steht oben in der Leiste."
+            }
+        ]
+    },
+
+    "versicherung": {
+        "kicker": "Versicherung & Gutachten",
+        "titel": "Wenn der Schaden über die Versicherung läuft",
+        "lead": "Vor allem bei Hagel. Sagen Sie uns bei der Anfrage, dass es ein Versicherungsfall ist — dann dokumentieren wir von Anfang an entsprechend.",
+        "_warnung": "LAUNCH-BLOCKER: Die ersten beiden Punkte sind Leistungszusagen, die Daniel nie gemacht hat. Dieselben Saetze stehen auf /leistungen/dellen-hagelschaden/. Bestaetigen oder streichen.",
+        "punkte": [
+            { "titel": "Wir dokumentieren den Schaden", "text": "Fotos und eine Aufstellung der Dellen je Bauteil, mit der Sie den Schaden melden können." },
+            { "titel": "Termin mit dem Gutachter",      "text": "Auf Wunsch stimmen wir uns direkt mit dem Sachverständigen ab, damit Sie nicht dazwischen stehen." },
+            { "titel": "Was wir nicht entscheiden",     "text": "Über Selbstbeteiligung, Einstufung und Regulierung entscheidet Ihre Versicherung, nicht wir." },
+            { "titel": "Auch ohne Versicherung",        "text": "Viele lassen kleine Hagelschäden selbst zahlen, weil die Einstufung teurer wäre. Wir rechnen Ihnen beides vor." }
+        ]
+    }
+}

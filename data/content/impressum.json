@@ -1,0 +1,111 @@
+{
+    "_hinweis": "Inhalte der Seite /impressum/. Aufbau aus export/project/Impressum.dc.html. Was belegt ist, steht drin; alles andere ist sichtbar als Platzhalter markiert.",
+    "_korrektur": "Der Entwurf schrieb 'Angaben gemaess § 5 TMG'. Das Telemediengesetz ist im Mai 2024 durch das Digitale-Dienste-Gesetz abgeloest worden; die Impressumspflicht steht jetzt in § 5 DDG. Ausserdem hatte der Entwurf einen Abschnitt 'EU-Streitschlichtung' mit Verweis auf die OS-Plattform — die wurde zum 20.07.2025 eingestellt, ein Link darauf waere heute falsch. Der Abschnitt nennt deshalb nur noch den VSBG-Hinweis.",
+    "seo": {
+        "titel": "Impressum — Fahrzeugpflege Reutter",
+        "beschreibung": "Anbieterkennzeichnung nach § 5 DDG für Fahrzeugpflege Reutter, Lembergstraße 27, 70825 Korntal-Münchingen."
+    },
+    "titel": "Impressum",
+    "lead": "Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG). Anschrift, Kontaktdaten und Umsatzsteuer-Identifikationsnummer sind eingetragen; zwei Punkte muss der Betrieb noch bestätigen.",
+    "stand": "noch offen",
+    "im_aufbau": true,
+    "band_hinweis": "Gerüst mit den belegten Daten. Die noch markierten Felder und die abschließende Prüfung gehören zum Anwalt oder Verband des Betriebs — verbindliche Rechtstexte kommen nicht von uns.",
+    "abschnitte": [
+        {
+            "titel": "Angaben gemäß § 5 DDG",
+            "absaetze": [
+                "Diensteanbieter im Sinne des § 5 DDG ist:"
+            ],
+            "zeilen": [
+                "Fahrzeugpflege Reutter",
+                "Lembergstraße 27",
+                "70825 Korntal-Münchingen",
+                "Deutschland"
+            ],
+            "nachtext": [
+                "Die Rechtsform des Betriebs ist noch zu bestätigen. Handelt es sich um ein Einzelunternehmen, genügen Name und Anschrift des Inhabers; bei einer eingetragenen Gesellschaft kommen Registergericht und Registernummer dazu."
+            ]
+        },
+        {
+            "titel": "Vertreten durch",
+            "platzhalter": {
+                "titel": "Name des Inhabers bestätigen",
+                "hinweis": "Nach unserer Recherche Daniel Reutter — vom Betrieb bestätigen lassen, bevor die Seite online geht. Der Name muss vollständig und richtig geschrieben hier stehen."
+            },
+            "absaetze": []
+        },
+        {
+            "titel": "Kontakt",
+            "zeilen": [
+                "Telefon: 07 11 / 82 85 940",
+                "Mobil: 0172 / 6 28 97 25",
+                "E-Mail: info@clean-box.eu"
+            ],
+            "nachtext": [
+                "Eine E-Mail-Adresse und ein zweiter, unmittelbarer Kommunikationsweg sind nach § 5 Abs. 1 Nr. 2 DDG Pflicht. Beides liegt vor."
+            ],
+            "absaetze": []
+        },
+        {
+            "titel": "Umsatzsteuer-Identifikationsnummer",
+            "absaetze": [
+                "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:"
+            ],
+            "zeilen": [
+                "DE257725894"
+            ],
+            "nachtext": [
+                "Die Steuernummer wird bewusst nicht zusätzlich veröffentlicht. § 5 DDG verlangt die Umsatzsteuer-Identifikationsnummer, sofern vorhanden — die liegt vor."
+            ]
+        },
+        {
+            "titel": "Handwerksrolle und Berufsbezeichnung",
+            "platzhalter": {
+                "titel": "Eintrag in der Handwerksrolle klären",
+                "hinweis": "Fahrzeuglackierer ist zulassungspflichtiges Handwerk nach Anlage A der Handwerksordnung, reine Fahrzeugpflege und Aufbereitung dagegen nicht. Ist der Betrieb eingetragen, müssen Kammer, Berufsbezeichnung und verleihender Staat hier stehen (§ 5 Abs. 1 Nr. 5 DDG). Ist er es nicht, darf der Begriff Meisterbetrieb nirgends auf der Website auftauchen."
+            },
+            "absaetze": []
+        },
+        {
+            "titel": "Redaktionell verantwortlich",
+            "absaetze": [
+                "Verantwortlich für den Inhalt nach § 18 Abs. 2 Medienstaatsvertrag ist der Inhaber unter der oben genannten Anschrift."
+            ]
+        },
+        {
+            "titel": "Streitbeilegung",
+            "absaetze": [
+                "Die Europäische Kommission hat ihre Plattform zur Online-Streitbeilegung zum 20. Juli 2025 eingestellt. Ein Verweis darauf entfällt deshalb.",
+                "Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+            ],
+            "nachtext": [
+                "Die zweite Aussage ist eine Entscheidung des Betriebs. Wer freiwillig teilnehmen möchte, muss stattdessen die zuständige Schlichtungsstelle mit Anschrift und Website benennen."
+            ]
+        },
+        {
+            "titel": "Haftung für Inhalte",
+            "absaetze": [
+                "Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.",
+                "Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben davon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden entsprechender Rechtsverletzungen entfernen wir diese Inhalte umgehend."
+            ]
+        },
+        {
+            "titel": "Haftung für Links",
+            "absaetze": [
+                "Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.",
+                "Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Eine permanente inhaltliche Kontrolle ist ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen entfernen wir derartige Links umgehend."
+            ]
+        },
+        {
+            "titel": "Urheberrecht",
+            "absaetze": [
+                "Die durch die Betreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors beziehungsweise Erstellers.",
+                "Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet."
+            ],
+            "platzhalter": {
+                "titel": "Bildnachweise ergänzen",
+                "hinweis": "Solange Stock- oder KI-Material auf der Website steht, gehört hierher, woher es stammt und unter welcher Lizenz es verwendet wird. Sobald ausschließlich eigene Fotos des Betriebs verwendet werden, kann der Punkt entfallen."
+            }
+        }
+    ]
+}
