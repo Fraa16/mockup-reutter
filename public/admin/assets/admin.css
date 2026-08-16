@@ -82,6 +82,14 @@ h2{margin:0 0 4px;font-size:19px;letter-spacing:-.01em}
 
 /* --- Kacheln der Übersicht ---------------------------------------------- */
 /* Sechzehn Bereiche brauchen Ueberschriften, sonst ist es eine Wand. */
+/* Vorschau ohne beschreibbaren Speicher — nichts geht kaputt, es geht nur
+   nichts zu speichern. */
+.hinweis.nur-lesen{
+  background:#FFF6E5;border-left:3px solid #C97A00;color:#5A4200;
+  padding:14px 18px;margin:0 0 28px;font-size:14.5px;line-height:1.55;
+}
+.hinweis.nur-lesen strong{color:#3D2C00}
+
 .bereichsgruppe{margin-bottom:44px}
 .bereichsgruppe > h2{
   margin:0 0 16px;font-size:12px;font-weight:700;letter-spacing:.18em;

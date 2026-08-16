@@ -21,8 +21,12 @@ $schema = $schemas[$bereich];
 $daten  = content($bereich);
 $fehler = [];
 
+/* Auf einer schreibgeschuetzten Vorschau kann nichts gespeichert werden.
+   Das Formular bleibt lesbar, der Knopf verschwindet. */
+$nurLesen = !inhalte_beschreibbar();
+
 /* Speichern ------------------------------------------------------------- */
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$nurLesen) {
     csrf_pruefen();
 
     [$daten, $fehler] = eingaben_uebernehmen($schema, $daten, $_POST);
@@ -143,6 +147,14 @@ $gespeichert = isset($_GET['gespeichert']);
   <h1><?= h($schema['titel']) ?></h1>
   <p class="vorspann"><?= h($schema['beschreibung']) ?></p>
 
+  <?php if ($nurLesen): ?>
+  <p class="hinweis nur-lesen">
+    <strong>Nur zum Ansehen.</strong> Auf dieser Vorschau lässt sich nichts speichern —
+    sie läuft auf einem Server ohne beschreibbaren Speicher. Auf dem richtigen
+    Hosting funktioniert das Bearbeiten normal.
+  </p>
+  <?php endif; ?>
+
   <form method="post" enctype="multipart/form-data" class="formular">
     <?= csrf_feld() ?>
 
@@ -180,8 +192,10 @@ $gespeichert = isset($_GET['gespeichert']);
     <?php endforeach; ?>
 
     <div class="formular-fuss">
+      <?php if (!$nurLesen): ?>
       <button type="submit" class="knopf primaer">Änderungen speichern</button>
-      <a href="/admin/" class="knopf schlicht">Abbrechen</a>
+      <?php endif; ?>
+      <a href="/admin/" class="knopf schlicht"><?= $nurLesen ? 'Zurück zur Übersicht' : 'Abbrechen' ?></a>
     </div>
   </form>
 </main>

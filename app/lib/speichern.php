@@ -10,6 +10,26 @@ declare(strict_types=1);
  */
 
 /**
+ * Laesst sich hier ueberhaupt speichern?
+ *
+ * Auf einer Vorschau ohne beschreibbares Dateisystem — etwa einer
+ * Serverless-Umgebung wie Vercel — ist die Antwort nein. Dann soll das Panel
+ * das vorher sagen, statt den Kunden ein Formular ausfuellen zu lassen und
+ * am Ende mit einem Fehler abzubrechen.
+ */
+function inhalte_beschreibbar(): bool
+{
+    // Serverless-Umgebungen sagen ueber eine Umgebungsvariable Bescheid. Auf
+    // die verlassen wir uns zuerst: is_writable() antwortet je nach Benutzer
+    // auch dann mit true, wenn ein Schreibversuch spaeter scheitern wuerde.
+    if (getenv('VERCEL') !== false || getenv('AWS_LAMBDA_FUNCTION_NAME') !== false) {
+        return false;
+    }
+
+    return is_writable(DATA_ROOT . '/content');
+}
+
+/**
  * Setzt einen verschachtelten Wert per Punktnotation.
  *
  * @param array<string,mixed> $daten

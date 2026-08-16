@@ -1,0 +1,20 @@
+# Was nicht auf die Vorschau hochgeladen werden muss.
+#
+# Alles andere geht mit — app/ und data/ werden von der Funktion gebraucht und
+# sind ueber die Routen in vercel.json trotzdem nicht direkt abrufbar.
+
+# Design-Referenz: rund 8000 Zeilen Prototyp, die niemand ausliefert.
+export/
+project/
+chats/
+
+# Bildpool ist nach public/uploads/ uebernommen worden.
+bildpool/
+
+# Interne Notizen gehoeren nicht auf einen oeffentlich erreichbaren Host.
+docs/
+
+# Sicherungen der Inhaltsdateien.
+data/backups/
+
+.git/
