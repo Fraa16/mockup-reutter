@@ -73,10 +73,29 @@ $angemeldet = auth_angemeldet();
     </form>
 
     <?php if (auth_benutzer() === []): ?>
+      <?php /* Zwei verschiedene Ursachen, zwei verschiedene Hinweise. Ohne
+              diese Unterscheidung sucht man auf einer Vorschau nach einer
+              Datei, die dort nie liegen wird. Preisgegeben wird dabei nichts,
+              was nicht ohnehin in der Dokumentation steht — die Namen der
+              beiden Variablen sind kein Geheimnis, ihre Werte stehen hier
+              nicht. */ ?>
+      <?php if (auth_umgebung('PANEL_BENUTZER') !== '' || auth_umgebung('PANEL_PASSWORT_HASH') !== ''): ?>
+      <p class="hinweis fehler">
+        Der Zugang aus den Umgebungsvariablen ist unvollständig:
+        <code>PANEL_BENUTZER</code> <?= auth_umgebung('PANEL_BENUTZER') !== '' ? 'ist gesetzt' : '<strong>fehlt</strong>' ?>,
+        <code>PANEL_PASSWORT_HASH</code>
+        <?= auth_umgebung('PANEL_PASSWORT_HASH') === '' ? '<strong>fehlt</strong>'
+            : (str_starts_with(auth_umgebung('PANEL_PASSWORT_HASH'), '$2y$')
+               ? 'ist gesetzt' : '<strong>ist kein bcrypt-Hash</strong> (beginnt nicht mit <code>$2y$</code> — meist von der Shell verschluckt)') ?>.
+      </p>
+      <?php else: ?>
       <p class="hinweis">
         Es ist noch kein Zugang eingerichtet. Auf dem Server einmal
-        <code>php bin/passwort-setzen.php</code> ausführen.
+        <code>php bin/passwort-setzen.php</code> ausführen — oder, auf einer
+        Vorschau ohne Schreibrechte, <code>PANEL_BENUTZER</code> und
+        <code>PANEL_PASSWORT_HASH</code> setzen.
       </p>
+      <?php endif; ?>
     <?php endif; ?>
   </main>
 

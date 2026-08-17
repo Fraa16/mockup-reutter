@@ -63,14 +63,37 @@ function auth_benutzer(): array
         return require $datei;
     }
 
-    $benutzer = (string) (getenv('PANEL_BENUTZER') ?: '');
-    $hash     = (string) (getenv('PANEL_PASSWORT_HASH') ?: '');
+    $benutzer = auth_umgebung('PANEL_BENUTZER');
+    $hash     = auth_umgebung('PANEL_PASSWORT_HASH');
 
     if ($benutzer === '' || !str_starts_with($hash, '$2y$')) {
         return [];
     }
 
     return [strtolower($benutzer) => ['passwort' => $hash, 'name' => $benutzer]];
+}
+
+/**
+ * Liest eine Umgebungsvariable — aus allen drei Quellen, die PHP dafuer hat.
+ *
+ * getenv() allein reicht nicht: PHP-FPM raeumt die Prozessumgebung seiner
+ * Arbeiter standardmaessig aus (clear_env), dann kommt dort nichts an,
+ * waehrend $_SERVER die Werte weiterhin traegt. Welche Variante ein Hoster
+ * fährt, sieht man ihm nicht an, deshalb alle drei.
+ *
+ * Getrimmt wird, weil beim Einfuegen in eine Weboberflaeche schnell ein
+ * Leerzeichen oder Zeilenumbruch mitgeht — ein Passwort-Hash mit angehaengtem
+ * Zeilenumbruch passt zu keinem Passwort mehr.
+ */
+function auth_umgebung(string $name): string
+{
+    foreach ([getenv($name), $_SERVER[$name] ?? false, $_ENV[$name] ?? false] as $wert) {
+        if (is_string($wert) && trim($wert) !== '') {
+            return trim($wert);
+        }
+    }
+
+    return '';
 }
 
 function auth_angemeldet(): bool
