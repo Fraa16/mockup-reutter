@@ -87,6 +87,25 @@ partial('kopf', [
         </div>
       </div>
 
+      <?php /* Zweite Bedienung fuers Handy: die Marker im Bild sind 34 px
+              gross und stehen teils dicht beieinander — mit dem Daumen ist das
+              nichts. Die Leiste ist nur unterhalb 640 px sichtbar.
+
+              Sie startet mit hidden und wird von main.js freigeschaltet: ohne
+              JavaScript wuerden hier sieben Knoepfe stehen, die nichts tun,
+              waehrend darunter ohnehin alle Bereiche untereinander lesbar
+              sind. */ ?>
+      <div class="hotspot-chips" id="hotspot-chips" role="group"
+           aria-label="Bereich wählen" hidden>
+        <?php foreach ($leistungen as $i => $l): ?>
+        <button type="button" class="hotspot-chip" data-spot="<?= $i ?>"
+                aria-pressed="<?= $i === 0 ? 'true' : 'false' ?>"
+                aria-controls="hs-panel-<?= $i ?>">
+          <span class="nummer"><?= h($l['num']) ?></span><?= h($l['titel']) ?>
+        </button>
+        <?php endforeach; ?>
+      </div>
+
       <?php /* Alle sieben Panels stehen im HTML — der Text ist damit fuer
               Suchmaschinen sichtbar, JS blendet nur um. */ ?>
       <div class="hotspot-detail">

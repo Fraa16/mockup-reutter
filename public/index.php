@@ -31,6 +31,27 @@ $routen = [
     '/widerruf/'     => ['template' => 'rechtstext', 'inhalt' => 'widerruf'],
 ];
 
+/**
+ * Abgeschickte Anfragen. Beide Formulare der Website landen hier.
+ *
+ * Post-Redirect-Get: Nach dem Erfolg wird weitergeleitet, damit ein Neuladen
+ * die Anfrage nicht ein zweites Mal schickt. Im Fehlerfall bleiben wir auf der
+ * Kontaktseite und geben die Eingaben zurueck ins Formular — niemand soll
+ * alles noch einmal tippen, weil ein Haken fehlte.
+ */
+if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST' && $pfad === '/kontakt/') {
+    require APP_ROOT . '/lib/anfrage.php';
+    require APP_ROOT . '/lib/images.php';
+    require APP_ROOT . '/lib/mail.php';
+
+    [$erfolg, $formularFehler, $formularWerte] = anfrage_verarbeiten($_POST, $_FILES);
+
+    if ($erfolg) {
+        header('Location: /danke/', true, 303);
+        exit;
+    }
+}
+
 $route = $routen[$pfad] ?? null;
 $leistung = null;
 
@@ -75,4 +96,8 @@ echo render($route['template'], [
     'seite'    => $route['inhalt'] !== null ? content($route['inhalt']) : [],
     'leistung' => $leistung,
     'pfad'     => $pfad,
+    // Nur gesetzt, wenn gerade eine Anfrage schiefgegangen ist. Das Formular
+    // fuellt sich damit wieder und zeigt, was fehlt.
+    'fehler'   => $formularFehler ?? [],
+    'werte'    => $formularWerte  ?? [],
 ]);

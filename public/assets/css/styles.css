@@ -670,9 +670,12 @@ img{max-width:100%;display:block}
 .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
 .field{display:flex;flex-direction:column;gap:9px}
 .field span{font:600 11.5px/1 var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--gray-400)}
+/* Kein outline:none hier — die Regel stand im Entwurf und hat den gemeinsamen
+   Fokusring weiter unten ueberstimmt (hoehere Spezifitaet). Mit der Tastatur
+   war dadurch nicht zu erkennen, in welchem Feld man steht. */
 .field input,.field select,.field textarea{
   background:var(--input-bg);border:1px solid rgba(255,255,255,.14);color:#fff;
-  padding:15px 16px;font:400 15.5px/1 var(--font-body);outline:none;
+  padding:15px 16px;font:400 15.5px/1 var(--font-body);
 }
 .field textarea{font:400 15.5px/1.6 var(--font-body);resize:vertical}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--red)}
@@ -2772,3 +2775,110 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 @media (max-width: 860px){
   .field input,.field select,.field textarea{font-size:16px}
 }
+
+/* Ohne Zeigegeraet gibt es kein Ueberfahren — dann waere der Hinweis eine
+   Anleitung fuer etwas, das es nicht gibt. Die Vorschau selbst bleibt. */
+@media (hover: none){
+  .vorschau-hinweis{display:none}
+}
+
+/* ==========================================================================
+   Hotspot — Leiste unter dem Foto fuer das Handy
+   Die sieben Marker sitzen auf Prozentpositionen im Bild: 34 px gross, das
+   engste Paar 43 px auseinander. Am Schreibtisch mit der Maus ist das genau
+   richtig, mit dem Daumen nicht. Statt die Marker aufzublasen — sie muessen
+   auf die Stelle im Bild zeigen — bekommt das Handy eine zweite, ordentlich
+   grosse Bedienung darunter. Die Marker bleiben und zeigen weiterhin an,
+   welcher Bereich gerade offen ist.
+   ========================================================================== */
+.hotspot-chips{display:none}
+@media (max-width: 640px){
+  .hotspot-chips{
+    display:flex;gap:8px;overflow-x:auto;
+    padding:14px var(--gutter);
+    border-bottom:1px solid rgba(255,255,255,.12);
+    scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  }
+  .hotspot-chips::-webkit-scrollbar{display:none}
+  .hotspot-chip{
+    flex:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+    min-height:44px;padding:0 15px;white-space:nowrap;
+    background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.16);
+    color:var(--gray-150);font:600 13.5px/1 var(--font-body);
+    transition:background .16s,border-color .16s,color .16s;
+  }
+  .hotspot-chip .nummer{font-family:var(--font-display);font-weight:800;color:var(--gray-450)}
+  .hotspot-chip[aria-pressed="true"]{background:rgba(216,13,24,.16);border-color:var(--red);color:#fff}
+  .hotspot-chip[aria-pressed="true"] .nummer{color:var(--red)}
+}
+
+/* ==========================================================================
+   Touch-Ziele
+   Ein Finger trifft rund 44 px zuverlaessig. Der Entwurf war mit der Maus
+   gezeichnet und liegt bei 11 bis 42 px — auf dem Handy heisst das
+   danebentippen. Bewusst nur unterhalb 640 px: am Schreibtisch bleibt das
+   Mock-up unangetastet.
+   ========================================================================== */
+@media (max-width: 640px){
+  /* Die Telefonnummer in der Servicezeile war 11 px hoch und ist der
+     wertvollste Link der Seite. Dafuer waechst die Leiste um zehn Pixel —
+     die Kopfhoehe zieht ueber die Variable automatisch nach. */
+  :root{--utility-hoehe: 44px; --kopf-hoehe: 114px}
+  .utility-bar .wrap{height:44px}
+  .utility-bar .phone{display:flex;align-items:center;min-height:44px}
+
+  /* Der Kopf ist 70 px hoch — das Logo bekommt seine Flaeche geschenkt. */
+  .logo{min-height:44px}
+  .skip-link{min-height:44px;display:flex;align-items:center}
+
+  /* Leiste am unteren Rand: passt in ihre 64 px. */
+  .sticky-bar .actions a{min-height:44px;padding-block:0}
+
+  /* Flaechige Schalter: display steht schon auf flex, nur die Hoehe fehlt. */
+  .filter,
+  .case-btn,
+  .chip{min-height:44px}
+
+  /* Textschalter, die inline gesetzt sind und deshalb erst eine Box brauchen. */
+  .recht-chip,
+  .kombi-links a,
+  .gallery-head .link,
+  .karte-link,
+  .fall-link,
+  .hint-link,
+  .kurzanfrage-links a,
+  .brotkrumen a,
+  .contact-list .row a,
+  .weiter-links a{min-height:44px;display:inline-flex;align-items:center}
+
+  /* Fusszeile: die Zeilen ruecken auseinander, statt dass sich
+     Trefferflaechen ueberlappen — daneben getippt ist schlimmer als klein. */
+  .footer-col .links{gap:0}
+  .footer-col .links a{min-height:44px;display:flex;align-items:center}
+  /* Die Ortsliste sind Spannen, keine Links — die brauchen keine
+     Trefferflaeche und wuerden die Fusszeile nur unnoetig strecken. */
+  .footer-col .links span{padding-block:6px}
+  .footer-brand .contact{gap:0}
+  .footer-brand .contact a{min-height:44px;display:flex;align-items:center}
+
+  /* Schrittanzeige: der Punkt bleibt 34 px gross, die Flaeche waechst nach
+     aussen — negatives margin haelt das Layout an seinem Platz. */
+  .step-tracker .step-btn{padding:5px;margin:-5px}
+
+  /* Getroffen wird die ganze Beschriftung, nicht nur der Haken. Bei kurzem
+     Text ist die aber nur eine Zeile hoch — deshalb Polsterung statt
+     min-height, damit der Haken bei laengerem Text oben stehen bleibt. */
+  .consent{padding-block:10px}
+  .consent input{width:24px;height:24px;margin-top:0}
+}
+
+/* ==========================================================================
+   Galerie ohne Bilder
+   Loescht der Betrieb alle Aufnahmen, stand vorher ein leeres Raster da —
+   ohne Filterleiste laesst sich wenigstens erklaeren, was los ist.
+   ========================================================================== */
+.raster-leer{
+  border:1px dashed rgba(10,11,13,.22);padding:54px 32px;text-align:center;
+}
+.raster-leer p{margin:0;font:400 16.5px/1.6 var(--font-body);color:var(--gray-450)}
+.raster-leer .btn{margin-top:24px}

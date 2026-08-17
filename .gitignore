@@ -8,6 +8,11 @@ app/config/zugangsdaten.php
 data/backups/
 public/uploads/cache/
 
+# Eingegangene Anfragen samt Fotos — personenbezogene Daten fremder Kunden.
+# Die gehoeren auf den Server und unter keinen Umstaenden ins Repository.
+data/anfragen/
+data/.anfrage-limit.json
+
 # Betriebssystem / Editor
 .DS_Store
 node_modules/

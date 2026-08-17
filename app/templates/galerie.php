@@ -99,6 +99,20 @@ partial('kopf', [
       <p><?= h(get($seite, 'raster.beschreibung')) ?></p>
     </div>
 
+    <?php if ($bilder === []): ?>
+      <?php /* Nimmt der Betrieb alle Aufnahmen aus der Pflege, stand hier
+              vorher ein leeres Raster ohne jede Erklaerung. Eine Filterleiste
+              ueber null Bildern waere zusaetzlich sinnlos, deshalb entfaellt
+              sie in diesem Fall ganz.
+
+              Ein Filter, der leer ausgeht, kann dagegen nicht vorkommen: die
+              Kategorien werden oben aus den vorhandenen Bildern gebildet. */ ?>
+      <div class="raster-leer">
+        <p><?= h(get($seite, 'raster.leer_text', 'Aktuell sind hier keine Aufnahmen hinterlegt. Rufen Sie uns an — wir zeigen Ihnen Arbeiten aus der Werkstatt.')) ?></p>
+        <a href="/kontakt/#anfrage" class="btn btn-dark">Termin anfragen <span class="btn-arrow" aria-hidden="true">→</span></a>
+      </div>
+    <?php else: ?>
+
     <?php /* Ohne JavaScript bleibt die Leiste sichtbar, filtert aber nicht —
             dann stehen alle Bilder da. Das ist der brauchbare Grundzustand,
             deshalb blenden wir sie nicht vorsorglich aus. */ ?>
@@ -125,6 +139,7 @@ partial('kopf', [
       <?php endforeach; ?>
     </div>
     <p class="raster-fussnote"><?= h(get($seite, 'raster.fussnote')) ?></p>
+    <?php endif; ?>
   </div>
 </section>
 

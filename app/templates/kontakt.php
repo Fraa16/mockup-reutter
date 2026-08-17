@@ -63,7 +63,10 @@ partial('kopf', [
       <div>
         <div class="kicker"><?= swash() ?><span class="label"><?= h(get($seite, 'formular.kicker')) ?></span></div>
         <h2 class="visually-hidden"><?= h(get($seite, 'formular.titel')) ?></h2>
-        <?php partial('anfrage-form'); ?>
+        <?php /* Nach einer fehlgeschlagenen Anfrage kommen die Eingaben zurueck
+                ins Formular — partial() erbt den Gueltigkeitsbereich nicht,
+                deshalb ausdruecklich weiterreichen. */ ?>
+        <?php partial('anfrage-form', ['fehler' => $fehler ?? [], 'werte' => $werte ?? []]); ?>
       </div>
 
       <aside class="anfrage-seitenspalte">

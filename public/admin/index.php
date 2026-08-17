@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 require dirname(__DIR__, 2) . '/app/bootstrap.php';
 require APP_ROOT . '/lib/auth.php';
+require APP_ROOT . '/lib/anfrage.php';
 
 $schema  = require APP_ROOT . '/schema/felder.php';
 $meldung = '';
@@ -102,6 +103,22 @@ $angemeldet = auth_angemeldet();
       Alle Änderungen sind sofort auf der Website sichtbar. Die jeweils letzte
       Fassung wird automatisch gesichert — es kann also nichts verloren gehen.
     </p>
+
+    <?php /* Die Anfragen stehen bewusst vor den Inhalten: wer sich hier
+            anmeldet, will meist wissen, ob jemand geschrieben hat. */ ?>
+    <section class="bereichsgruppe">
+      <h2>Posteingang</h2>
+      <div class="kacheln">
+        <a class="kachel" href="/admin/anfragen.php">
+          <span class="kachel-titel">Anfragen von der Website</span>
+          <span class="kachel-text">Alles, was über die Formulare hereinkommt — mit Fotos, falls welche dabei waren.</span>
+          <?php if (($neu = anfragen_ungelesen()) > 0): ?>
+          <span class="kachel-zahl"><?= (int) $neu ?> neu</span>
+          <?php endif; ?>
+          <span class="kachel-pfeil" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
 
     <?php
       /* Sechzehn Kacheln nebeneinander sind eine Wand. Deshalb nach Gruppen

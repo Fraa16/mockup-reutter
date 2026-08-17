@@ -17,6 +17,12 @@
   if (hotspotHost) {
     const dots = Array.from(hotspotHost.querySelectorAll('.hotspot-dot'));
     const panels = Array.from(document.querySelectorAll('.hs-panel'));
+    // Zweite Bedienung fuers Handy — die Marker im Bild sind zu klein fuer
+    // einen Daumen. Ohne dieses Skript blieben es tote Knoepfe, deshalb steht
+    // die Leiste im HTML auf hidden und wird erst hier freigeschaltet.
+    const chipHost = document.getElementById('hotspot-chips');
+    const chips = chipHost ? Array.from(chipHost.querySelectorAll('.hotspot-chip')) : [];
+    if (chipHost) chipHost.hidden = false;
 
     const zeige = (index) => {
       dots.forEach((dot, i) => {
@@ -24,26 +30,30 @@
         dot.classList.toggle('active', aktiv);
         dot.setAttribute('aria-pressed', String(aktiv));
       });
+      chips.forEach((chip, i) => chip.setAttribute('aria-pressed', String(i === index)));
       panels.forEach((panel, i) => {
         panel.hidden = i !== index;
         panel.classList.toggle('is-active', i === index);
       });
     };
 
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => zeige(i));
-      // Pfeiltasten wandern durch die Bereiche, ohne dass man sieben Mal Tab
-      // druecken muss.
-      dot.addEventListener('keydown', (e) => {
+    // Pfeiltasten wandern durch die Bereiche, ohne dass man sieben Mal Tab
+    // druecken muss. Gilt fuer beide Bedienungen gleich.
+    const verdrahten = (elemente) => elemente.forEach((el, i) => {
+      el.addEventListener('click', () => zeige(i));
+      el.addEventListener('keydown', (e) => {
         const richtung = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1
                        : e.key === 'ArrowLeft'  || e.key === 'ArrowUp'   ? -1 : 0;
         if (richtung === 0) return;
         e.preventDefault();
-        const naechster = (i + richtung + dots.length) % dots.length;
+        const naechster = (i + richtung + elemente.length) % elemente.length;
         zeige(naechster);
-        dots[naechster].focus();
+        elemente[naechster].focus();
       });
     });
+
+    verdrahten(dots);
+    verdrahten(chips);
 
     // Ohne dieses Skript stehen alle Panels untereinander und sind lesbar.
     zeige(Math.max(0, panels.findIndex((el) => el.classList.contains('is-active'))));
