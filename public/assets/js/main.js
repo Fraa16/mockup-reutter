@@ -10,43 +10,86 @@
   'use strict';
 
   /* ---------------------------------------------------------------------
-     Leistungs-Hotspot
-     Alle Panels stehen im HTML; hier wird nur sichtbar geschaltet.
+     Umschalter — eine Leiste aus Schaltern, darunter ebenso viele Tafeln
+
+     Sechs Stellen auf der Website taten genau dasselbe: Schalter aktiv
+     setzen, aria-pressed pflegen, die zugehoerige Tafel zeigen, mit den
+     Pfeiltasten durchgehen. Unterschiedlich waren die Klassennamen und das,
+     was nebenher noch passiert — eine Hoehe, ein paar Balkenbreiten. Genau
+     dafuer ist `nebenbei` da.
+
+     Ohne dieses Skript stehen alle Tafeln untereinander und sind lesbar.
+     Deshalb wird beim Start einmal geschaltet, statt den Anfangszustand ins
+     HTML zu schreiben — die Seite muss auch ohne JavaScript etwas zeigen.
+
+     `schalter` und `tafeln` nehmen auch mehrere Wahlausdruecke: der Hotspot
+     hat zwei Leisten (Marker im Bild, Chips fuers Handy) auf denselben
+     Tafeln, der Querschnitt zwei Saetze Tafeln auf einer Leiste.
+
+     @param {{bereich:string, schalter:string|string[], tafeln:string|string[],
+              nebenbei?:(index:number, tafel:Element)=>void}} o
+     @returns {((index:number)=>void)|null}
      --------------------------------------------------------------------- */
-  const hotspotHost = document.getElementById('hotspot-dots');
-  if (hotspotHost) {
-    const dots = Array.from(hotspotHost.querySelectorAll('.hotspot-dot'));
-    const panels = Array.from(document.querySelectorAll('.hs-panel'));
+  const umschalter = ({ bereich, schalter, tafeln, nebenbei }) => {
+    const wurzel = document.getElementById(bereich);
+    if (!wurzel) return null;
+
+    const saetze = (wahl) => (Array.isArray(wahl) ? wahl : [wahl])
+      .map((w) => Array.from(wurzel.querySelectorAll(w)))
+      .filter((satz) => satz.length > 0);
+
+    const leisten = saetze(schalter);
+    const platten = saetze(tafeln);
+    if (leisten.length === 0 || platten.length === 0) return null;
 
     const zeige = (index) => {
-      dots.forEach((dot, i) => {
-        const aktiv = i === index;
-        dot.classList.toggle('active', aktiv);
-        dot.setAttribute('aria-pressed', String(aktiv));
-      });
-      panels.forEach((panel, i) => {
-        panel.hidden = i !== index;
-        panel.classList.toggle('is-active', i === index);
-      });
+      leisten.forEach((leiste) => leiste.forEach((el, i) => {
+        el.classList.toggle('active', i === index);
+        el.setAttribute('aria-pressed', String(i === index));
+      }));
+      platten.forEach((satz) => satz.forEach((el, i) => {
+        el.hidden = i !== index;
+        el.classList.toggle('is-active', i === index);
+      }));
+      if (nebenbei) nebenbei(index, platten[0][index]);
     };
 
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => zeige(i));
-      // Pfeiltasten wandern durch die Bereiche, ohne dass man sieben Mal Tab
-      // druecken muss.
-      dot.addEventListener('keydown', (e) => {
-        const richtung = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1
-                       : e.key === 'ArrowLeft'  || e.key === 'ArrowUp'   ? -1 : 0;
+    leisten.forEach((leiste) => leiste.forEach((el, i) => {
+      el.addEventListener('click', () => zeige(i));
+      // Pfeiltasten laufen durch die Leiste, damit man nicht sieben Mal Tab
+      // druecken muss, um zum letzten Bereich zu kommen.
+      el.addEventListener('keydown', (e) => {
+        const richtung = ['ArrowRight', 'ArrowDown'].includes(e.key) ? 1
+                       : ['ArrowLeft', 'ArrowUp'].includes(e.key) ? -1 : 0;
         if (richtung === 0) return;
         e.preventDefault();
-        const naechster = (i + richtung + dots.length) % dots.length;
+        const naechster = (i + richtung + leiste.length) % leiste.length;
         zeige(naechster);
-        dots[naechster].focus();
+        leiste[naechster].focus();
       });
-    });
+    }));
 
-    // Ohne dieses Skript stehen alle Panels untereinander und sind lesbar.
-    zeige(Math.max(0, panels.findIndex((el) => el.classList.contains('is-active'))));
+    // Welche Tafel im HTML als aktiv markiert ist, gibt den Anfangszustand vor.
+    zeige(Math.max(0, platten[0].findIndex((el) => el.classList.contains('is-active'))));
+    return zeige;
+  };
+
+  /* ---------------------------------------------------------------------
+     Leistungs-Hotspot (Startseite)
+     Marker im Bild und — unterhalb 640 px — eine Chipleiste darunter.
+     --------------------------------------------------------------------- */
+  if (document.getElementById('hotspot')) {
+    // Die Chipleiste steht im HTML auf hidden: ohne dieses Skript waeren es
+    // sieben Knoepfe, die nichts tun, waehrend darunter ohnehin alle
+    // Bereiche untereinander lesbar sind.
+    const chipleiste = document.getElementById('hotspot-chips');
+    if (chipleiste) chipleiste.hidden = false;
+
+    umschalter({
+      bereich:  'hotspot',
+      schalter: ['.hotspot-dot', '.hotspot-chip'],
+      tafeln:   '.hs-panel',
+    });
   }
 
   /* ---------------------------------------------------------------------
@@ -125,14 +168,21 @@
       else if (e.key === 'End')        { setze(98); e.preventDefault(); }
     });
 
+    const tausche = (img, quelle, srcset) => {
+      if (!img || !quelle) return;
+      if (srcset) { img.srcset = srcset; } else { img.removeAttribute('srcset'); }
+      img.src = quelle;
+    };
+
     faelle.forEach((btn, i) => {
       btn.addEventListener('click', () => {
         faelle.forEach((b, j) => {
           b.classList.toggle('active', i === j);
           b.setAttribute('aria-pressed', String(i === j));
         });
-        if (bildVorher)  bildVorher.src  = btn.dataset.vorher;
-        if (bildNachher) bildNachher.src = btn.dataset.nachher;
+        // srcset zuerst: solange dort etwas steht, ignoriert der Browser src.
+        tausche(bildVorher,  btn.dataset.vorher,  btn.dataset.vorherSrcset);
+        tausche(bildNachher, btn.dataset.nachher, btn.dataset.nachherSrcset);
         if (fallName)  fallName.textContent  = btn.dataset.name;
         if (fallNotiz) fallNotiz.textContent = btn.dataset.note;
       });
@@ -143,152 +193,46 @@
 
   /* ---------------------------------------------------------------------
      Lack-Querschnitt (Fahrzeugpflege Exterieur)
-     Politurstufe waehlen, die Abtragszone im Klarlack waechst mit.
+     Politurstufe waehlen, die Abtragszone im Klarlack waechst mit. Die Hoehe
+     je Stufe steht an der Tafel, damit sie neben ihrem Text gepflegt wird
+     und nicht im Skript.
      --------------------------------------------------------------------- */
-  const querschnitt = document.getElementById('querschnitt');
-  if (querschnitt) {
-    const knoepfe = Array.from(querschnitt.querySelectorAll('.stufe'));
-    const tafeln  = Array.from(querschnitt.querySelectorAll('.stufen-tafel'));
-    const abtragAnzeigen = Array.from(querschnitt.querySelectorAll('.schnitt-abtrag'));
-    const zone = querschnitt.querySelector('#abtragszone');
-    // Die Hoehe je Stufe steht in den Tafeln, nicht im Skript — so bleibt sie
-    // an einer Stelle gepflegt.
-    const hoehen = tafeln.map((t) => Number(t.dataset.abtragHoehe) || 20);
-
-    knoepfe.forEach((btn, i) => {
-      btn.addEventListener('click', () => {
-        knoepfe.forEach((b, j) => {
-          b.classList.toggle('active', i === j);
-          b.setAttribute('aria-pressed', String(i === j));
-        });
-        tafeln.forEach((t, j) => { t.hidden = i !== j; });
-        abtragAnzeigen.forEach((a, j) => { a.hidden = i !== j; });
-        if (zone) zone.style.height = hoehen[i] + 'px';
-      });
-    });
-
-    // Ohne dieses Skript stehen alle Tafeln untereinander und sind lesbar.
-    // Erst hier wird daraus die Umschaltung.
-    const stufeZeigen = (index) => {
-      knoepfe.forEach((b, j) => {
-        b.classList.toggle('active', index === j);
-        b.setAttribute('aria-pressed', String(index === j));
-      });
-      tafeln.forEach((t, j) => { t.hidden = index !== j; });
-      abtragAnzeigen.forEach((a, j) => { a.hidden = index !== j; });
-      if (zone) zone.style.height = hoehen[index] + 'px';
-    };
-    stufeZeigen(Math.max(0, tafeln.findIndex((t) => t.classList.contains('is-active'))));
-  }
+  const abtragszone = document.getElementById('abtragszone');
+  umschalter({
+    bereich:  'querschnitt',
+    schalter: '.stufe',
+    tafeln:   ['.stufen-tafel', '.schnitt-abtrag'],
+    nebenbei: (index, tafel) => {
+      if (abtragszone) abtragszone.style.height = (Number(tafel.dataset.abtragHoehe) || 20) + 'px';
+    },
+  });
 
   /* ---------------------------------------------------------------------
      Zonen-Waehler (Fahrzeugpflege Interieur)
      --------------------------------------------------------------------- */
-  const zonenkarte = document.getElementById('zonenkarte');
-  if (zonenkarte) {
-    const zonen  = Array.from(zonenkarte.querySelectorAll('.zone'));
-    const tafeln = Array.from(zonenkarte.querySelectorAll('.zonen-tafel'));
-
-    const zeige = (index) => {
-      zonen.forEach((el, i) => {
-        el.classList.toggle('active', i === index);
-        el.setAttribute('aria-pressed', String(i === index));
-      });
-      tafeln.forEach((el, i) => { el.hidden = i !== index; });
-    };
-
-    zonen.forEach((el, i) => {
-      el.addEventListener('click', () => zeige(i));
-      el.addEventListener('keydown', (e) => {
-        const richtung = ['ArrowDown', 'ArrowRight'].includes(e.key) ? 1
-                       : ['ArrowUp', 'ArrowLeft'].includes(e.key) ? -1 : 0;
-        if (richtung === 0) return;
-        e.preventDefault();
-        const naechste = (i + richtung + zonen.length) % zonen.length;
-        zeige(naechste);
-        zonen[naechste].focus();
-      });
-    });
-
-    zeige(Math.max(0, tafeln.findIndex((t) => t.classList.contains('is-active'))));
-  }
+  umschalter({ bereich: 'zonenkarte', schalter: '.zone', tafeln: '.zonen-tafel' });
 
   /* ---------------------------------------------------------------------
      Fingernagel-Tiefentest (Lackierarbeiten)
-     Zustand waehlen, die rote Schadenszone waechst durch die Schichten.
+     Zustand waehlen, die rote Schadenszone waechst durch die Schichten. Die
+     Breiten stehen wie beim Querschnitt an der Tafel.
      --------------------------------------------------------------------- */
-  const tiefentest = document.getElementById('tiefentest');
-  if (tiefentest) {
-    const knoepfe = Array.from(tiefentest.querySelectorAll('.tiefe'));
-    const tafeln  = Array.from(tiefentest.querySelectorAll('.vorgehen-tafel'));
-    const zonen   = Array.from(tiefentest.querySelectorAll('.schadenszone'));
-
-    const zeige = (index) => {
-      knoepfe.forEach((el, i) => {
-        el.classList.toggle('active', i === index);
-        el.setAttribute('aria-pressed', String(i === index));
-      });
-      tafeln.forEach((el, i) => { el.hidden = i !== index; });
-
-      // Die Breiten stehen an der Tafel, damit sie neben ihrem Text
-      // gepflegt werden und nicht im Skript.
-      const tafel = tafeln[index];
-      if (!tafel) return;
-      zonen.forEach((zone) => {
-        const breite = Number(tafel.dataset[zone.dataset.schicht]) || 0;
-        zone.style.width = breite + '%';
-        zone.classList.toggle('ist-leer', breite === 0);
-      });
-    };
-
-    knoepfe.forEach((el, i) => {
-      el.addEventListener('click', () => zeige(i));
-      el.addEventListener('keydown', (e) => {
-        const richtung = ['ArrowDown', 'ArrowRight'].includes(e.key) ? 1
-                       : ['ArrowUp', 'ArrowLeft'].includes(e.key) ? -1 : 0;
-        if (richtung === 0) return;
-        e.preventDefault();
-        const naechste = (i + richtung + knoepfe.length) % knoepfe.length;
-        zeige(naechste);
-        knoepfe[naechste].focus();
-      });
-    });
-
-    zeige(Math.max(0, tafeln.findIndex((t) => t.classList.contains('is-active'))));
-  }
+  const schadenszonen = Array.from(document.querySelectorAll('#tiefentest .schadenszone'));
+  umschalter({
+    bereich:  'tiefentest',
+    schalter: '.tiefe',
+    tafeln:   '.vorgehen-tafel',
+    nebenbei: (index, tafel) => schadenszonen.forEach((zone) => {
+      const breite = Number(tafel.dataset[zone.dataset.schicht]) || 0;
+      zone.style.width = breite + '%';
+      zone.classList.toggle('ist-leer', breite === 0);
+    }),
+  });
 
   /* ---------------------------------------------------------------------
      Vier Schadensgrade (Lederreparatur)
-     Reiterleiste; die Tafeln stehen alle im HTML, JS blendet um.
      --------------------------------------------------------------------- */
-  const schadensgrad = document.getElementById('schadensgrad');
-  if (schadensgrad) {
-    const grade  = Array.from(schadensgrad.querySelectorAll('.grad'));
-    const tafeln = Array.from(schadensgrad.querySelectorAll('.grad-tafel'));
-
-    const zeige = (index) => {
-      grade.forEach((el, i) => {
-        el.classList.toggle('active', i === index);
-        el.setAttribute('aria-pressed', String(i === index));
-      });
-      tafeln.forEach((el, i) => { el.hidden = i !== index; });
-    };
-
-    grade.forEach((el, i) => {
-      el.addEventListener('click', () => zeige(i));
-      el.addEventListener('keydown', (e) => {
-        const richtung = ['ArrowDown', 'ArrowRight'].includes(e.key) ? 1
-                       : ['ArrowUp', 'ArrowLeft'].includes(e.key) ? -1 : 0;
-        if (richtung === 0) return;
-        e.preventDefault();
-        const naechste = (i + richtung + grade.length) % grade.length;
-        zeige(naechste);
-        grade[naechste].focus();
-      });
-    });
-
-    zeige(Math.max(0, tafeln.findIndex((t) => t.classList.contains('is-active'))));
-  }
+  umschalter({ bereich: 'schadensgrad', schalter: '.grad', tafeln: '.grad-tafel' });
 
   /* ---------------------------------------------------------------------
      Bildraster der Galerie: Filter und Vergroessern
@@ -364,36 +308,8 @@
 
   /* ---------------------------------------------------------------------
      Geruchsdiagnose (Ozonbehandlung)
-     Quelle als Chip waehlen, darunter wechselt die Tafel.
      --------------------------------------------------------------------- */
-  const diagnose = document.getElementById('diagnose');
-  if (diagnose) {
-    const chips  = Array.from(diagnose.querySelectorAll('.chip'));
-    const tafeln = Array.from(diagnose.querySelectorAll('.quellen-tafel'));
-
-    const zeige = (index) => {
-      chips.forEach((el, i) => {
-        el.classList.toggle('active', i === index);
-        el.setAttribute('aria-pressed', String(i === index));
-      });
-      tafeln.forEach((el, i) => { el.hidden = i !== index; });
-    };
-
-    chips.forEach((el, i) => {
-      el.addEventListener('click', () => zeige(i));
-      el.addEventListener('keydown', (e) => {
-        const richtung = ['ArrowDown', 'ArrowRight'].includes(e.key) ? 1
-                       : ['ArrowUp', 'ArrowLeft'].includes(e.key) ? -1 : 0;
-        if (richtung === 0) return;
-        e.preventDefault();
-        const naechste = (i + richtung + chips.length) % chips.length;
-        zeige(naechste);
-        chips[naechste].focus();
-      });
-    });
-
-    zeige(Math.max(0, tafeln.findIndex((t) => t.classList.contains('is-active'))));
-  }
+  umschalter({ bereich: 'diagnose', schalter: '.chip', tafeln: '.quellen-tafel' });
 
   /* ---------------------------------------------------------------------
      Anfrageformular — aus den drei Fieldsets wird der Stepper
@@ -494,42 +410,10 @@
 
   /* ---------------------------------------------------------------------
      Panel-Karte (Dellen & Hagelschaden)
-     Bauteil anklicken, Detailtafel umschalten. Alle Tafeln stehen im HTML.
+     Das Raster ist zweidimensional; die Pfeiltasten laufen trotzdem der
+     Reihe nach durch — das ist berechenbarer als eine Navigation nach Lage.
      --------------------------------------------------------------------- */
-  const panelkarte = document.getElementById('panelkarte');
-  if (panelkarte) {
-    const panels = Array.from(panelkarte.querySelectorAll('.panel'));
-    const tafeln = Array.from(panelkarte.querySelectorAll('.panel-tafel'));
-
-    const zeige = (index) => {
-      panels.forEach((el, i) => {
-        const aktiv = i === index;
-        el.classList.toggle('active', aktiv);
-        el.setAttribute('aria-pressed', String(aktiv));
-      });
-      tafeln.forEach((el, i) => {
-        el.hidden = i !== index;
-        el.classList.toggle('is-active', i === index);
-      });
-    };
-
-    panels.forEach((el, i) => {
-      el.addEventListener('click', () => zeige(i));
-      // Das Raster ist zweidimensional; Pfeiltasten laufen der Reihe nach
-      // durch, das ist berechenbarer als eine Navigation nach Position.
-      el.addEventListener('keydown', (e) => {
-        const richtung = ['ArrowRight', 'ArrowDown'].includes(e.key) ? 1
-                       : ['ArrowLeft', 'ArrowUp'].includes(e.key) ? -1 : 0;
-        if (richtung === 0) return;
-        e.preventDefault();
-        const naechster = (i + richtung + panels.length) % panels.length;
-        zeige(naechster);
-        panels[naechster].focus();
-      });
-    });
-
-    zeige(Math.max(0, tafeln.findIndex((t) => t.classList.contains('is-active'))));
-  }
+  umschalter({ bereich: 'panelkarte', schalter: '.panel', tafeln: '.panel-tafel' });
 
   /* ---------------------------------------------------------------------
      Mobile Navigation
@@ -579,6 +463,44 @@
     };
     window.addEventListener('scroll', pruefe, { passive: true });
     pruefe();
+  }
+
+  /* ---------------------------------------------------------------------
+     Inhaltsverzeichnis der Rechtsseiten
+     Steht im HTML offen — ohne dieses Skript bleibt es das auch, und die
+     Seite ist genauso benutzbar wie vorher. Auf dem Handy nahm es bei
+     zehn bis vierzehn Abschnitten den halben ersten Bildschirm ein,
+     deshalb klappt es dort zu, bis jemand es aufmacht.
+     --------------------------------------------------------------------- */
+  const verzeichnis = document.getElementById('recht-verzeichnis');
+  if (verzeichnis) {
+    const schmal = window.matchMedia('(max-width: 640px)');
+
+    // Nicht gegen den Nutzer arbeiten: wer selbst auf- oder zuklappt, behaelt
+    // seinen Zustand. Das Ereignis kommt bei <details> verzoegert, deshalb
+    // wird der zuletzt selbst gesetzte Wert gemerkt statt eines Zeitriegels.
+    let vonHand = false;
+    let selbstGesetzt = null;
+
+    verzeichnis.addEventListener('toggle', () => {
+      if (verzeichnis.open === selbstGesetzt) { selbstGesetzt = null; return; }
+      vonHand = true;
+    });
+
+    const setze = (soll) => {
+      if (verzeichnis.open === soll) return;
+      selbstGesetzt = soll;
+      verzeichnis.open = soll;
+    };
+
+    const anpassen = () => { if (!vonHand) setze(!schmal.matches); };
+    anpassen();
+    schmal.addEventListener('change', anpassen);
+
+    // Ein Sprung ins Verzeichnis soll den Abschnitt zeigen, nicht die Liste.
+    verzeichnis.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => {
+      if (schmal.matches) setze(false);
+    }));
   }
 
   /* ---------------------------------------------------------------------

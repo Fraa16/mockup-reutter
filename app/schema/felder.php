@@ -205,6 +205,8 @@ return [
                     ['pfad' => 'kennzahlen.jahre.wert',            'typ' => 'zahl', 'label' => 'Jahre im Handwerk'],
                     ['pfad' => 'kennzahlen.google_bewertung.wert', 'typ' => 'text', 'label' => 'Google-Bewertung', 'hilfe' => 'Mit Komma, z. B. 5,0'],
                     ['pfad' => 'kennzahlen.google_anzahl.wert',    'typ' => 'zahl', 'label' => 'Anzahl Google-Rezensionen'],
+                    ['pfad' => 'kennzahlen.google_profil_url',     'typ' => 'text', 'label' => 'Link zum Google-Profil',
+                     'hilfe' => 'Die Bewertung im Fußbereich wird damit anklickbar — so kann jeder sie nachprüfen. Leer lassen schaltet den Link ab.'],
                 ],
             ],
             [

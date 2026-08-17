@@ -22,10 +22,22 @@ $adresse   = get($s, 'firma.strasse') . ', ' . get($s, 'firma.plz') . ' ' . get(
 $karte     = get($seite, 'anfahrt.karte', []);
 $kartenBild = (string) ($karte['bild'] ?? '');
 
+/* Auf der Kontaktseite steht der Betrieb ein zweites Mal — mit derselben
+   @id. Suchmaschinen fuehren beides zusammen, und wer diese Seite direkt
+   aufruft, bringt Adresse und Oeffnungszeiten trotzdem mit. */
+$jsonld = [
+    seo_jsonld_betrieb(),
+    seo_jsonld_brotkrumen([
+        ['label' => 'Startseite', 'ziel' => '/'],
+        ['label' => 'Kontakt'],
+    ]),
+];
+
 partial('kopf', [
     'titel'        => get($seite, 'seo.titel'),
     'beschreibung' => get($seite, 'seo.beschreibung'),
     'aktiv'        => 'kontakt',
+    'jsonld'       => $jsonld,
 ]);
 ?>
 
@@ -63,7 +75,10 @@ partial('kopf', [
       <div>
         <div class="kicker"><?= swash() ?><span class="label"><?= h(get($seite, 'formular.kicker')) ?></span></div>
         <h2 class="visually-hidden"><?= h(get($seite, 'formular.titel')) ?></h2>
-        <?php partial('anfrage-form'); ?>
+        <?php /* Nach einer fehlgeschlagenen Anfrage kommen die Eingaben zurueck
+                ins Formular — partial() erbt den Gueltigkeitsbereich nicht,
+                deshalb ausdruecklich weiterreichen. */ ?>
+        <?php partial('anfrage-form', ['fehler' => $fehler ?? [], 'werte' => $werte ?? []]); ?>
       </div>
 
       <aside class="anfrage-seitenspalte">
@@ -119,8 +134,10 @@ partial('kopf', [
     <div class="anfahrt-grid">
       <div class="anfahrt-karte">
         <?php if ($kartenBild !== ''): ?>
-          <img class="slot-img" src="<?= attr(upload($kartenBild)) ?>" alt="<?= attr($karte['bild_alt'] ?? '') ?>"
-               width="1448" height="1086" loading="lazy">
+          <?= bild($kartenBild, (string) ($karte['bild_alt'] ?? ''), [
+              'class' => 'slot-img',
+              'sizes' => '(max-width: 980px) 92vw, 45vw',
+          ]) ?>
         <?php else: ?>
           <?php /* Lieber ein sichtbarer Platzhalter als ein Foto an der Stelle,
                   an der eine Karte stehen soll. */ ?>

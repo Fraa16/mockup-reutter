@@ -4,7 +4,6 @@ declare(strict_types=1);
 require dirname(__DIR__, 2) . '/app/bootstrap.php';
 require APP_ROOT . '/lib/auth.php';
 require APP_ROOT . '/lib/speichern.php';
-require APP_ROOT . '/lib/images.php';
 
 auth_verlangen();
 

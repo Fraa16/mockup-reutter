@@ -20,6 +20,10 @@ ini_set('log_errors', '1');
 
 require APP_ROOT . '/lib/content.php';
 require APP_ROOT . '/lib/render.php';
+// bild() braucht bild_quellen() fuer srcset — deshalb gehoert images.php
+// seit dem Umbau in jeden Seitenaufruf, nicht nur ins Panel.
+require APP_ROOT . '/lib/images.php';
+require APP_ROOT . '/lib/seo.php';
 
 // Lokale Entwicklungseinstellungen, falls vorhanden (nicht im Git).
 if (is_file(APP_ROOT . '/config.local.php')) {

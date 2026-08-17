@@ -6,7 +6,15 @@ app/config/zugangsdaten.php
 
 # Vom CMS erzeugt bzw. auf dem Server gepflegt
 data/backups/
-public/uploads/cache/
+# public/uploads/cache/ steht bewusst NICHT hier: die verkleinerten Fassungen
+# gehören ins Repository. Auf Vercel ist das Dateisystem schreibgeschützt,
+# dort kann zur Laufzeit nichts erzeugt werden. Neu erzeugen mit
+# `php bin/ableitungen.php` und mitcommitten.
+
+# Eingegangene Anfragen samt Fotos — personenbezogene Daten fremder Kunden.
+# Die gehoeren auf den Server und unter keinen Umstaenden ins Repository.
+data/anfragen/
+data/.anfrage-limit.json
 
 # Betriebssystem / Editor
 .DS_Store

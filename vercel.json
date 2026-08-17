@@ -8,9 +8,9 @@
   },
 
   "routes": [
-    { "src": "/assets/(.*)",  "dest": "/assets/$1" },
-    { "src": "/uploads/(.*)", "dest": "/uploads/$1" },
-    { "handle": "filesystem" },
+    { "src": "/assets/(.*)",        "dest": "/assets/$1" },
+    { "src": "/uploads/(.*)",       "dest": "/uploads/$1" },
+    { "src": "/admin/assets/(.*)",  "dest": "/admin/assets/$1" },
     { "src": "/(.*)", "dest": "/api/index.php" }
   ],
 

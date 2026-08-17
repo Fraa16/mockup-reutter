@@ -10,7 +10,13 @@ declare(strict_types=1);
  * Handyfotos ebenfalls, und das Ergebnis ist ein sauberes WebP.
  */
 
-const BILD_BREITEN     = [640, 1024, 1440, 1920];
+/**
+ * Die 400er-Stufe ist fuer das Bildraster der Galerie: dort stehen auf dem
+ * Handy zwei Kacheln nebeneinander, jede rund 178 px breit. Selbst auf einem
+ * Bildschirm mit doppelter Aufloesung reichen 400 px — die naechstgroessere
+ * Fassung waere dreimal so schwer, ohne dass man etwas davon sieht.
+ */
+const BILD_BREITEN     = [400, 640, 1024, 1440, 1920];
 const BILD_MAX_BYTES   = 12 * 1024 * 1024;
 const BILD_MAX_KANTE   = 4000;
 const BILD_QUALITAET   = 82;
@@ -33,12 +39,38 @@ const BILD_TYPEN = [
  */
 function bild_annehmen(array $datei, string $wunschname = ''): array
 {
+    $name = bild_dateiname($wunschname !== '' ? $wunschname : ($datei['name'] ?? 'bild'));
+
+    [$ok, $meldung] = bild_umwandeln($datei, PUBLIC_ROOT . '/uploads/' . $name);
+    if (!$ok) {
+        return [null, $meldung];
+    }
+
+    bild_ableitungen_erzeugen($name);
+
+    return [$name, null];
+}
+
+/**
+ * Prueft eine hochgeladene Datei und schreibt sie als WebP an einen frei
+ * waehlbaren Ort.
+ *
+ * Steckt getrennt von bild_annehmen(), weil Anfragefotos woanders hingehoeren
+ * als Website-Bilder: sie liegen ausserhalb des Webroots und brauchen keine
+ * Groessen fuer srcset. Die Pruefung und das Neukodieren sind dagegen fuer
+ * beide dieselben und sollen es bleiben.
+ *
+ * @param array{name?:string,type?:string,tmp_name?:string,error?:int,size?:int} $datei
+ * @return array{0:bool,1:string|null} Erfolg und, im Fehlerfall, die Meldung
+ */
+function bild_umwandeln(array $datei, string $zielpfad): array
+{
     if (($datei['error'] ?? UPLOAD_ERR_NO_FILE) === UPLOAD_ERR_NO_FILE) {
-        return [null, null];
+        return [false, null];
     }
 
     if ($datei['error'] !== UPLOAD_ERR_OK) {
-        return [null, match ($datei['error']) {
+        return [false, match ($datei['error']) {
             UPLOAD_ERR_INI_SIZE, UPLOAD_ERR_FORM_SIZE => 'Die Datei ist zu groß.',
             UPLOAD_ERR_PARTIAL                        => 'Die Übertragung wurde abgebrochen.',
             default                                   => 'Die Datei konnte nicht übertragen werden.',
@@ -47,27 +79,27 @@ function bild_annehmen(array $datei, string $wunschname = ''): array
 
     // Muss ueber den PHP-Upload gekommen sein, nicht irgendein Pfad im System.
     if (!is_uploaded_file($datei['tmp_name'])) {
-        return [null, 'Ungültiger Upload.'];
+        return [false, 'Ungültiger Upload.'];
     }
 
     if ($datei['size'] > BILD_MAX_BYTES) {
-        return [null, 'Die Datei ist größer als ' . (BILD_MAX_BYTES / 1024 / 1024) . ' MB.'];
+        return [false, 'Die Datei ist größer als ' . (BILD_MAX_BYTES / 1024 / 1024) . ' MB.'];
     }
 
     $info = @getimagesize($datei['tmp_name']);
     if ($info === false || !isset(BILD_TYPEN[$info[2]])) {
-        return [null, 'Das ist kein gültiges JPG-, PNG- oder WebP-Bild.'];
+        return [false, 'Das ist kein gültiges JPG-, PNG- oder WebP-Bild.'];
     }
 
     [$breite, $hoehe] = $info;
     if ($breite > BILD_MAX_KANTE * 2 || $hoehe > BILD_MAX_KANTE * 2) {
-        return [null, 'Das Bild ist ungewöhnlich groß. Bitte auf maximal 8000 Pixel Kantenlänge verkleinern.'];
+        return [false, 'Das Bild ist ungewöhnlich groß. Bitte auf maximal 8000 Pixel Kantenlänge verkleinern.'];
     }
 
     $lader = BILD_TYPEN[$info[2]];
     $quelle = @$lader($datei['tmp_name']);
     if (!$quelle instanceof GdImage) {
-        return [null, 'Das Bild konnte nicht gelesen werden.'];
+        return [false, 'Das Bild konnte nicht gelesen werden.'];
     }
 
     // Transparenz erhalten, sonst werden freigestellte PNGs schwarz.
@@ -79,18 +111,19 @@ function bild_annehmen(array $datei, string $wunschname = ''): array
         $quelle = bild_skalieren($quelle, min(BILD_MAX_KANTE, $breite));
     }
 
-    $name = bild_dateiname($wunschname !== '' ? $wunschname : ($datei['name'] ?? 'bild'));
-    $ziel = PUBLIC_ROOT . '/uploads/' . $name;
-
-    if (!imagewebp($quelle, $ziel, BILD_QUALITAET)) {
+    $ordner = dirname($zielpfad);
+    if (!is_dir($ordner) && !mkdir($ordner, 0775, true) && !is_dir($ordner)) {
         imagedestroy($quelle);
-        return [null, 'Das Bild konnte nicht gespeichert werden. Schreibrechte auf public/uploads/ prüfen.'];
+        return [false, 'Der Zielordner konnte nicht angelegt werden.'];
+    }
+
+    if (!imagewebp($quelle, $zielpfad, BILD_QUALITAET)) {
+        imagedestroy($quelle);
+        return [false, 'Das Bild konnte nicht gespeichert werden. Schreibrechte auf ' . $ordner . ' prüfen.'];
     }
     imagedestroy($quelle);
 
-    bild_ableitungen_erzeugen($name);
-
-    return [$name, null];
+    return [true, null];
 }
 
 /**

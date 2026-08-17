@@ -18,9 +18,26 @@ $s       = site();
 $quellen = get($seite, 'quellen', []);
 
 /* Kein Bild ueber der Falz — der Hero ist reiner Text. */
+/* Strukturierte Daten: der Betrieb liegt auf der Startseite, hier stehen die
+   Leistung selbst, der Weg dorthin und die Fragen, die auf der Seite sichtbar
+   sind. Google verlangt, dass jede ausgezeichnete Frage auch im Text steht —
+   deshalb kommt beides aus derselben Datei. */
+$jsonld = [
+    seo_jsonld_leistung($leistung, (string) get($seite, 'seo.beschreibung')),
+    seo_jsonld_brotkrumen([
+        ['label' => 'Startseite', 'ziel' => '/'],
+        ['label' => 'Leistungen', 'ziel' => '/leistungen/'],
+        ['label' => $leistung['titel']],
+    ]),
+    seo_jsonld_faq(get($seite, 'faq.fragen', [])),
+];
+
 partial('kopf', [
     'titel'        => get($seite, 'seo.titel'),
     'beschreibung' => get($seite, 'seo.beschreibung'),
+    'jsonld'       => $jsonld,
+    'og_bild'      => get($seite, 'hero.bild'),
+    'og_bild_alt'  => get($seite, 'hero.bild_alt'),
     'aktiv'        => 'leistungen',
 ]);
 ?>
@@ -164,8 +181,10 @@ partial('kopf', [
     <div class="beleg-grid">
       <?php foreach (get($seite, 'beleg.bilder', []) as $b): ?>
       <figure class="beleg-bild">
-        <img class="slot-img" src="<?= attr(upload($b['bild'])) ?>" alt="<?= attr($b['alt']) ?>"
-             width="1448" height="1086" loading="lazy">
+        <?= bild($b['bild'], $b['alt'], [
+            'class' => 'slot-img',
+            'sizes' => '(max-width: 980px) 92vw, 45vw',
+        ]) ?>
         <figcaption class="<?= !empty($b['ist_rot']) ? 'ist-rot' : 'ist-schwarz' ?>"><?= h($b['label']) ?></figcaption>
       </figure>
       <?php endforeach; ?>

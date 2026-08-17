@@ -27,10 +27,17 @@ $rechtsseiten = [
 $abschnitte = get($seite, 'abschnitte', []);
 $imAufbau   = (bool) get($seite, 'im_aufbau', true);
 
+/* Der Weg dorthin — dieselbe Liste, die oben sichtbar steht. */
+$jsonld = [seo_jsonld_brotkrumen([
+    ['label' => 'Startseite', 'ziel' => '/'],
+    ['label' => get($seite, 'titel')],
+])];
+
 partial('kopf', [
     'titel'        => get($seite, 'seo.titel'),
     'beschreibung' => get($seite, 'seo.beschreibung'),
     'aktiv'        => '',
+    'jsonld'       => $jsonld,
 ]);
 ?>
 
@@ -78,18 +85,26 @@ partial('kopf', [
 <!-- Inhalt -->
 <section class="recht-inhalt">
   <div class="wrap">
+    <?php /* Das Verzeichnis stand auf dem Handy in voller Laenge ueber dem
+            Text — bei zehn bis vierzehn Abschnitten anderthalb Bildschirme
+            Navigation, bevor der erste Satz kommt. Deshalb ein <details>:
+            am Schreibtisch bleibt es offen und klebt in der Spalte, auf dem
+            Handy klappt main.js es zu. Ohne JavaScript steht es offen — also
+            genau so, wie es vorher immer war. */ ?>
     <nav class="recht-verzeichnis" aria-label="Inhaltsverzeichnis">
-      <div class="verzeichnis-titel">Inhalt</div>
-      <ol>
-        <?php foreach ($abschnitte as $i => $a): ?>
-        <li>
-          <a href="#abschnitt-<?= $i + 1 ?>">
-            <span class="verzeichnis-num"><?= str_pad((string) ($i + 1), 2, '0', STR_PAD_LEFT) ?></span>
-            <span><?= h($a['titel']) ?></span>
-          </a>
-        </li>
-        <?php endforeach; ?>
-      </ol>
+      <details id="recht-verzeichnis" open>
+        <summary class="verzeichnis-titel">Inhalt</summary>
+        <ol>
+          <?php foreach ($abschnitte as $i => $a): ?>
+          <li>
+            <a href="#abschnitt-<?= $i + 1 ?>">
+              <span class="verzeichnis-num"><?= str_pad((string) ($i + 1), 2, '0', STR_PAD_LEFT) ?></span>
+              <span><?= h($a['titel']) ?></span>
+            </a>
+          </li>
+          <?php endforeach; ?>
+        </ol>
+      </details>
     </nav>
 
     <div class="recht-text">

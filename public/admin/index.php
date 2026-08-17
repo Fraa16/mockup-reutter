@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 require dirname(__DIR__, 2) . '/app/bootstrap.php';
 require APP_ROOT . '/lib/auth.php';
+require APP_ROOT . '/lib/speichern.php';   // inhalte_beschreibbar()
+require APP_ROOT . '/lib/anfrage.php';
 
 $schema  = require APP_ROOT . '/schema/felder.php';
 $meldung = '';
@@ -49,7 +51,7 @@ $angemeldet = auth_angemeldet();
 
   <main class="login-karte">
     <div class="marke">
-      <span class="wortmarke"><span>REU</span><span>T</span><i></i><span>T</span><span>ER</span></span>
+      <img class="wortmarke" src="/assets/logo/reutter-wortmarke-weiss.webp" alt="Fahrzeugpflege Reutter" width="527" height="56">
       <span class="sub">Inhalte pflegen</span>
     </div>
 
@@ -71,10 +73,29 @@ $angemeldet = auth_angemeldet();
     </form>
 
     <?php if (auth_benutzer() === []): ?>
+      <?php /* Zwei verschiedene Ursachen, zwei verschiedene Hinweise. Ohne
+              diese Unterscheidung sucht man auf einer Vorschau nach einer
+              Datei, die dort nie liegen wird. Preisgegeben wird dabei nichts,
+              was nicht ohnehin in der Dokumentation steht — die Namen der
+              beiden Variablen sind kein Geheimnis, ihre Werte stehen hier
+              nicht. */ ?>
+      <?php if (auth_umgebung('PANEL_BENUTZER') !== '' || auth_umgebung('PANEL_PASSWORT_HASH') !== ''): ?>
+      <p class="hinweis fehler">
+        Der Zugang aus den Umgebungsvariablen ist unvollständig:
+        <code>PANEL_BENUTZER</code> <?= auth_umgebung('PANEL_BENUTZER') !== '' ? 'ist gesetzt' : '<strong>fehlt</strong>' ?>,
+        <code>PANEL_PASSWORT_HASH</code>
+        <?= auth_umgebung('PANEL_PASSWORT_HASH') === '' ? '<strong>fehlt</strong>'
+            : (str_starts_with(auth_umgebung('PANEL_PASSWORT_HASH'), '$2y$')
+               ? 'ist gesetzt' : '<strong>ist kein bcrypt-Hash</strong> (beginnt nicht mit <code>$2y$</code> — meist von der Shell verschluckt)') ?>.
+      </p>
+      <?php else: ?>
       <p class="hinweis">
         Es ist noch kein Zugang eingerichtet. Auf dem Server einmal
-        <code>php bin/passwort-setzen.php</code> ausführen.
+        <code>php bin/passwort-setzen.php</code> ausführen — oder, auf einer
+        Vorschau ohne Schreibrechte, <code>PANEL_BENUTZER</code> und
+        <code>PANEL_PASSWORT_HASH</code> setzen.
       </p>
+      <?php endif; ?>
     <?php endif; ?>
   </main>
 
@@ -82,7 +103,7 @@ $angemeldet = auth_angemeldet();
 
   <header class="kopf">
     <div class="marke">
-      <span class="wortmarke"><span>REU</span><span>T</span><i></i><span>T</span><span>ER</span></span>
+      <img class="wortmarke" src="/assets/logo/reutter-wortmarke-weiss.webp" alt="Fahrzeugpflege Reutter" width="527" height="56">
       <span class="sub">Inhalte pflegen</span>
     </div>
     <div class="kopf-rechts">
@@ -98,10 +119,39 @@ $angemeldet = auth_angemeldet();
     <?php endif; ?>
 
     <h1>Was möchten Sie ändern?</h1>
+
+    <?php if (!inhalte_beschreibbar()): ?>
+    <?php /* Ohne diesen Hinweis stuende hier „Alle Änderungen sind sofort
+            sichtbar" — auf einer Vorschau ohne Schreibrechte ist das schlicht
+            falsch. Der Hinweis in den Formularen kommt erst, wenn man eines
+            geöffnet hat; das ist einen Klick zu spät. */ ?>
+    <p class="hinweis nur-lesen">
+      <strong>Nur zum Ansehen.</strong> Diese Vorschau läuft auf einem Server ohne
+      beschreibbaren Speicher — Sie können sich alles anschauen, gespeichert wird
+      nichts. Auf dem richtigen Hosting funktioniert das Bearbeiten normal.
+    </p>
+    <?php else: ?>
     <p class="vorspann">
       Alle Änderungen sind sofort auf der Website sichtbar. Die jeweils letzte
       Fassung wird automatisch gesichert — es kann also nichts verloren gehen.
     </p>
+    <?php endif; ?>
+
+    <?php /* Die Anfragen stehen bewusst vor den Inhalten: wer sich hier
+            anmeldet, will meist wissen, ob jemand geschrieben hat. */ ?>
+    <section class="bereichsgruppe">
+      <h2>Posteingang</h2>
+      <div class="kacheln">
+        <a class="kachel" href="/admin/anfragen.php">
+          <span class="kachel-titel">Anfragen von der Website</span>
+          <span class="kachel-text">Alles, was über die Formulare hereinkommt — mit Fotos, falls welche dabei waren.</span>
+          <?php if (($neu = anfragen_ungelesen()) > 0): ?>
+          <span class="kachel-zahl"><?= (int) $neu ?> neu</span>
+          <?php endif; ?>
+          <span class="kachel-pfeil" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
 
     <?php
       /* Sechzehn Kacheln nebeneinander sind eine Wand. Deshalb nach Gruppen

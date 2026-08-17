@@ -30,11 +30,10 @@ a:hover{color:var(--rot-hell)}
 
 /* --- Wortmarke ----------------------------------------------------------- */
 .marke{display:flex;align-items:center;gap:14px}
-.wortmarke{
-  display:flex;align-items:center;font-weight:900;font-style:italic;font-size:22px;
-  letter-spacing:-.05em;color:#fff;line-height:1;
-}
-.wortmarke i{width:12px;height:13px;background:var(--rot);transform:skewX(-14deg);display:inline-block;margin:0 3px}
+/* Seit das echte Logo vorliegt ein Bild statt nachgebauter Buchstaben.
+   Hoehe steuert, Breite folgt — die Vorlage ist doppelt so gross wie die
+   Darstellung und bleibt damit auf dichten Bildschirmen scharf. */
+.wortmarke{display:block;height:20px;width:auto}
 .marke .sub{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--grau-400)}
 .zurueck{color:var(--grau-200);font-weight:600}
 .zurueck:hover{color:#fff}
@@ -58,7 +57,7 @@ a:hover{color:var(--rot-hell)}
   width:100%;background:#0F1216;border:1px solid rgba(255,255,255,.16);
   color:#fff;padding:14px 15px;font-size:16px;
 }
-.login-karte input:focus{border-color:var(--rot);outline:none}
+.login-karte input:focus{border-color:var(--rot)}
 .login-karte .knopf{width:100%;justify-content:center;margin-top:8px}
 .login-karte .hinweis{background:rgba(255,255,255,.05);color:var(--grau-200);border-color:rgba(255,255,255,.14)}
 .login-karte code{background:rgba(255,255,255,.1);padding:2px 6px;font-size:13px}
@@ -120,7 +119,7 @@ h2{margin:0 0 4px;font-size:19px;letter-spacing:-.01em}
   width:100%;padding:12px 14px;font-size:16px;font-family:inherit;
   border:1px solid var(--grau-200);background:#fff;color:var(--schwarz);
 }
-.feld input:focus,.feld textarea:focus{border-color:var(--rot);outline:none}
+.feld input:focus,.feld textarea:focus{border-color:var(--rot)}
 .feld textarea{resize:vertical;line-height:1.55}
 
 /* --- Bildfeld ------------------------------------------------------------ */
@@ -162,6 +161,62 @@ h2{margin:0 0 4px;font-size:19px;letter-spacing:-.01em}
 .formular-fuss{
   position:sticky;bottom:0;display:flex;gap:14px;align-items:center;
   background:var(--hell);padding:18px 0;border-top:1px solid var(--grau-200);
+}
+
+/* --- Eingegangene Anfragen ----------------------------------------------- */
+/* Die Liste ist eine Arbeitsliste, keine Galerie: eine Zeile pro Anfrage,
+   ungelesene fallen durch die rote Kante auf. */
+.anfrage-liste{border-top:1px solid var(--grau-200)}
+.anfrage-zeile{
+  display:grid;grid-template-columns:190px 200px minmax(0,1fr) 90px;
+  gap:18px;align-items:baseline;
+  padding:18px 16px 18px 13px;border-bottom:1px solid var(--grau-200);
+  border-left:3px solid transparent;background:#fff;color:var(--schwarz);
+}
+.anfrage-zeile:hover{border-left-color:var(--grau-200);color:var(--schwarz);background:#FCFCFD}
+.anfrage-zeile.ist-neu{border-left-color:var(--rot)}
+.zeile-zeit{font-size:14px;color:var(--grau-600);display:flex;align-items:center;gap:10px}
+.marke-neu{
+  background:var(--rot);color:#fff;font-size:11px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;
+}
+.zeile-name{font-weight:700}
+.zeile-betreff{color:var(--grau-600);font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.zeile-anhang{font-size:13.5px;color:var(--grau-400);text-align:right}
+
+.leerer-stand{
+  border:1px dashed var(--grau-200);background:#fff;padding:48px 32px;text-align:center;
+}
+.leerer-stand p{margin:0;font-size:17px}
+.leerer-stand .klein{margin-top:8px;font-size:14.5px;color:var(--grau-600)}
+
+.antwort-wege{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:34px}
+.anfrage-block{background:#fff;border:1px solid var(--grau-100);padding:24px 28px;margin-bottom:18px}
+.anfrage-block h2{
+  margin:0 0 12px;font-size:12px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--grau-400);
+}
+.anfrage-text{margin:0;font-size:16px;line-height:1.6}
+.marken-liste{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.marken-liste li{border:1px solid var(--grau-200);padding:7px 12px;font-size:14.5px;font-weight:600}
+.anfrage-daten{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px 24px}
+.anfrage-daten dt{font-size:13px;color:var(--grau-600)}
+.anfrage-daten dd{margin:2px 0 0;font-size:16px;font-weight:600}
+.anfrage-fotos{display:flex;flex-wrap:wrap;gap:12px}
+.anfrage-fotos img{width:200px;height:150px;object-fit:cover;border:1px solid var(--grau-200);display:block}
+
+.anfrage-loeschen{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:30px}
+.loesch-hinweis{font-size:14px;color:var(--grau-600);max-width:44ch}
+
+/* Zaehler auf der Kachel der Übersicht. */
+.kachel-zahl{
+  align-self:flex-start;margin-top:4px;background:var(--rot);color:#fff;
+  font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;
+}
+
+@media (max-width: 720px){
+  .anfrage-zeile{grid-template-columns:minmax(0,1fr);gap:5px}
+  .zeile-anhang{text-align:left}
 }
 
 /* --- Meldungen ----------------------------------------------------------- */

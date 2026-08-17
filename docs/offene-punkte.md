@@ -63,11 +63,34 @@ Bewertungen fallen unter § 5b UWG.
 Bei 281 echten Rezensionen ist das in fünf Minuten erledigt: aus dem
 Google-Profil kopieren, jeweils mit Namensinitial und Ort.
 
-### 4. Logo als SVG
+### 4. Logo als echte Vektordatei
 
-Die Wortmarke ist derzeit aus HTML-Elementen nachgebaut. Für saubere Darstellung
-in jeder Größe, für das Favicon und für die Social-Media-Vorschau wird die
-Originaldatei gebraucht — SVG, EPS oder AI.
+**Teilweise erledigt.** Das gelieferte Logo steht seit dem 17.08. im Kopfbereich,
+im Fußbereich und im Panel. Es reicht für die Bildschirmgrößen, in denen es dort
+vorkommt — nicht mehr.
+
+Was geliefert wurde, war nämlich **kein Vektor**: Die Datei `logo.svg` enthält
+ein einzelnes eingebettetes JPEG von 934 × 107 px, kein einziger Buchstabe ist
+ein Vektorpfad. Der Rahmen skaliert es auf 2000 px, deshalb wirkte die „SVG"
+unschärfer als die JPG — dieselben Pixel, weiter auseinandergezogen.
+
+Verwendbar ist es damit bis etwa 250 px Breite (Kopfbereich) beziehungsweise
+380 px (Fußbereich), auch auf Bildschirmen mit doppelter Pixeldichte. Darüber
+wird es weich.
+
+**Gebraucht wird weiterhin die echte Vektordatei — AI, EPS, PDF oder CDR.** Die
+existiert mit hoher Wahrscheinlichkeit: der Betrieb macht Fahrzeugbeklebung, und
+ein Schneidplotter braucht Vektorpfade. Wer die Fahrzeuge oder Schilder
+beschriftet hat, hat die Datei.
+
+> Selbst prüfen: die `.svg` in einem Texteditor öffnen. Steht dort
+> `<image … base64`, ist es eine Attrappe. Eine echte enthält viele
+> `<path>`-Zeilen.
+
+Erst damit sind möglich: ein Favicon aus der Wortmarke (derzeit das rote
+Parallelogramm als Übergangslösung — für 64 × 64 px ohnehin die bessere Wahl,
+ein 9:1 breiter Schriftzug ist dort nicht lesbar), eine Social-Media-Vorschau
+mit Logo, und jede Verwendung im Druck.
 
 ---
 
@@ -199,3 +222,85 @@ eine laufende Rechnungsposition weniger.
 | SFTP-/SSH-Zugang, auf `/neu` beschränkt | Deployment |
 | Postfach `website@clean-box.eu` | Formularversand, damit `info@` unangetastet bleibt |
 | Entscheidung zur Domain | `clean-box.eu` behalten oder `fahrzeugpflege-reutter.de` registrieren |
+
+---
+
+## Nach dem Optimierungsdurchgang neu dazugekommen
+
+### SMTP-Zugangsdaten eintragen
+
+Das Anfrageformular verarbeitet, legt ab und verschickt. Der Versand braucht
+eine Datei `app/config/zugangsdaten.php` (nicht im Git, Vorlage siehe
+`app/lib/mail.php`) mit Host, Port, Benutzer, Passwort und Absender des
+Postfachs `website@clean-box.eu`.
+
+Solange sie fehlt, geht **keine Anfrage verloren**: jede liegt als JSON unter
+`data/anfragen/` und steht im Panel unter *Posteingang*. Der Absender bekommt
+dann allerdings keine Eingangsbestätigung, und niemand wird per Mail
+benachrichtigt — es muss also jemand ins Panel schauen.
+
+Auf Vercel funktioniert die Ablage nicht: das Dateisystem ist dort
+schreibgeschützt. Die Vorschau kann Anfragen entgegennehmen und anzeigen, dass
+es geklappt hat, speichert sie aber nicht. **Vor dem Livegang auf einem echten
+Server mit Schreibrechten prüfen.**
+
+### Verkleinerte Bildfassungen mitliefern
+
+`public/uploads/cache/` liegt jetzt im Repository — auf einem serverlosen Host
+kann zur Laufzeit nichts erzeugt werden. Wer Bilder direkt in den Ordner legt,
+statt sie über das Panel hochzuladen, muss danach einmal
+
+    php bin/ableitungen.php
+
+ausführen und das Ergebnis mitcommitten. Über das Panel hochgeladene Bilder
+erzeugen ihre Fassungen automatisch.
+
+### Panel auf der Vorschau: Zugang bei Bedarf wieder anlegen
+
+Der Redaktionsbereich ist auf der Vorschau erreichbar (`/admin/`), hat dort aber
+**derzeit keinen Zugang** — die Anmeldemaske sagt das auch. So bleibt es, bis er
+gebraucht wird.
+
+`auth_benutzer()` sucht den Zugang in dieser Reihenfolge:
+
+1. `data/users.php` — der Normalfall auf dem echten Server, angelegt über
+   `php bin/passwort-setzen.php`, nicht im Repository.
+2. Die Umgebungsvariablen `PANEL_BENUTZER` und `PANEL_PASSWORT_HASH`
+   (bcrypt-Hash, kein Klartext). Achtung: bei Vercel sind sie an eine Umgebung
+   gebunden (Production / Preview / Development) und greifen erst ab dem
+   nächsten Deployment.
+3. `data/vorschau-zugang.php` — dieselbe Struktur wie `users.php`, liegt im
+   Repository. Wird **nur auf einem Host ohne beschreibbares `data/`** gelesen;
+   auf dem richtigen Hosting also nie, auch dann nicht, wenn `users.php` fehlt.
+
+**Für einen Kundentermin** ist Weg 3 der bequemste: Datei anlegen, Hash über
+`php -r "echo password_hash('…', PASSWORD_BCRYPT, ['cost' => 12]);"` erzeugen,
+committen. Danach wieder löschen.
+
+Zu wissen: gespeichert wird auf der Vorschau nichts (schreibgeschütztes
+Dateisystem, das Panel sagt es auch), die Bremse gegen Durchprobieren von
+Passwörtern greift dort nicht, und die Anmeldung kann zwischendurch verloren
+gehen, weil die Sitzung im Dateisystem der jeweiligen Funktionsinstanz liegt.
+Für einen Rundgang reicht es.
+
+### Domain entscheiden — sonst bleibt die Seite unsichtbar
+
+Die Seite trägt `noindex`, solange sie unter einer `*.vercel.app`-Adresse
+läuft, damit die Vorschau nicht neben der echten Domain im Index landet.
+Sobald die endgültige Domain hierher zeigt, fällt das automatisch weg — es ist
+keine Einstellung zu ändern. Die Entscheidung `clean-box.eu` oder
+`fahrzeugpflege-reutter.de` steht aber weiterhin aus.
+
+### Bewertungen bewusst nicht ausgezeichnet
+
+Die strukturierten Daten enthalten **kein** `aggregateRating`. Die 5,0 aus 281
+Bewertungen sind belegt, stammen aber aus dem Google-Unternehmensprofil.
+Bewertungen einer fremden Plattform im eigenen Markup auszuzeichnen
+widerspricht Googles Richtlinien für strukturierte Daten und kann eine manuelle
+Maßnahme auslösen. Google kennt die Bewertung ohnehin — sie kommt aus dem
+eigenen Profil, das auf der Seite verlinkt ist.
+
+Wenn Bewertungen als Sternchen im Suchergebnis erscheinen sollen, müsste der
+Betrieb sie **selbst** einsammeln (etwa über ein Formular nach der Abholung)
+und auf der Website veröffentlichen. Das ist ein eigenes Vorhaben, kein
+Markup-Detail.
