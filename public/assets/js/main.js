@@ -592,6 +592,44 @@
   }
 
   /* ---------------------------------------------------------------------
+     Inhaltsverzeichnis der Rechtsseiten
+     Steht im HTML offen — ohne dieses Skript bleibt es das auch, und die
+     Seite ist genauso benutzbar wie vorher. Auf dem Handy nahm es bei
+     zehn bis vierzehn Abschnitten den halben ersten Bildschirm ein,
+     deshalb klappt es dort zu, bis jemand es aufmacht.
+     --------------------------------------------------------------------- */
+  const verzeichnis = document.getElementById('recht-verzeichnis');
+  if (verzeichnis) {
+    const schmal = window.matchMedia('(max-width: 640px)');
+
+    // Nicht gegen den Nutzer arbeiten: wer selbst auf- oder zuklappt, behaelt
+    // seinen Zustand. Das Ereignis kommt bei <details> verzoegert, deshalb
+    // wird der zuletzt selbst gesetzte Wert gemerkt statt eines Zeitriegels.
+    let vonHand = false;
+    let selbstGesetzt = null;
+
+    verzeichnis.addEventListener('toggle', () => {
+      if (verzeichnis.open === selbstGesetzt) { selbstGesetzt = null; return; }
+      vonHand = true;
+    });
+
+    const setze = (soll) => {
+      if (verzeichnis.open === soll) return;
+      selbstGesetzt = soll;
+      verzeichnis.open = soll;
+    };
+
+    const anpassen = () => { if (!vonHand) setze(!schmal.matches); };
+    anpassen();
+    schmal.addEventListener('change', anpassen);
+
+    // Ein Sprung ins Verzeichnis soll den Abschnitt zeigen, nicht die Liste.
+    verzeichnis.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => {
+      if (schmal.matches) setze(false);
+    }));
+  }
+
+  /* ---------------------------------------------------------------------
      Einblenden beim Scrollen
      --------------------------------------------------------------------- */
   const reveals = document.querySelectorAll('.rv, .rv-in');
