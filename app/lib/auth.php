@@ -20,6 +20,16 @@ function auth_session_starten(): void
         return;
     }
 
+    /* In einer Serverless-Umgebung ist nur das Temp-Verzeichnis beschreibbar.
+       PHP nimmt das meist ohnehin, aber darauf verlassen wollen wir uns nicht:
+       ohne Schreibrecht scheitert session_start() still und niemand kaeme
+       hinein. Dass die Sitzung beim Wechsel der Instanz verloren geht, laesst
+       sich damit nicht verhindern — dafuer braeuchte es einen gemeinsamen
+       Speicher, den es auf der Vorschau nicht gibt. */
+    if (getenv('VERCEL') !== false || getenv('AWS_LAMBDA_FUNCTION_NAME') !== false) {
+        session_save_path(sys_get_temp_dir());
+    }
+
     session_set_cookie_params([
         'lifetime' => 0,
         'path'     => '/admin/',
@@ -31,12 +41,36 @@ function auth_session_starten(): void
     session_start();
 }
 
-/** @return array<string,array{passwort:string,name:string}> */
+/**
+ * Die hinterlegten Zugaenge.
+ *
+ * Normalfall ist data/users.php, angelegt ueber bin/passwort-setzen.php. Die
+ * Datei ist bewusst nicht im Git — Passwort-Hashes gehoeren nicht ins
+ * Repository.
+ *
+ * Genau deshalb gibt es auf einem Host, auf den nur das Repository ausgerollt
+ * wird, gar keinen Zugang. Fuer diesen Fall der Rueckfall auf zwei
+ * Umgebungsvariablen: PANEL_BENUTZER und PANEL_PASSWORT_HASH (ein
+ * bcrypt-Hash, kein Klartext). Sie sind fuer die Vorschau gedacht, damit man
+ * sich das Panel ansehen kann, und gehoeren vor dem Livegang entfernt.
+ *
+ * @return array<string,array{passwort:string,name:string}>
+ */
 function auth_benutzer(): array
 {
     $datei = DATA_ROOT . '/users.php';
+    if (is_file($datei)) {
+        return require $datei;
+    }
 
-    return is_file($datei) ? require $datei : [];
+    $benutzer = (string) (getenv('PANEL_BENUTZER') ?: '');
+    $hash     = (string) (getenv('PANEL_PASSWORT_HASH') ?: '');
+
+    if ($benutzer === '' || !str_starts_with($hash, '$2y$')) {
+        return [];
+    }
+
+    return [strtolower($benutzer) => ['passwort' => $hash, 'name' => $benutzer]];
 }
 
 function auth_angemeldet(): bool
@@ -118,7 +152,12 @@ function auth_versuch_vermerken(string $benutzer, bool $erfolg): void
         }
     }
 
-    file_put_contents($datei, json_encode($eintraege), LOCK_EX);
+    /* Auf einem schreibgeschuetzten Dateisystem laesst sich nicht mitzaehlen.
+       Das @ unterdrueckt nur die Warnung, nicht das Problem: dort gibt es
+       dann keine Bremse gegen Durchprobieren. Fuer die Vorschau, die ohnehin
+       hinter dem Zugriffsschutz von Vercel liegt, ist das vertretbar — auf
+       dem echten Hosting ist data/ beschreibbar und die Sperre greift. */
+    @file_put_contents($datei, json_encode($eintraege), LOCK_EX);
 }
 
 /**

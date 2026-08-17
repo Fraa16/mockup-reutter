@@ -232,6 +232,28 @@ statt sie über das Panel hochzuladen, muss danach einmal
 ausführen und das Ergebnis mitcommitten. Über das Panel hochgeladene Bilder
 erzeugen ihre Fassungen automatisch.
 
+### Panel-Zugang der Vorschau vor dem Livegang entfernen
+
+Damit das Panel auf der Vercel-Vorschau angesehen werden kann, liest
+`auth_benutzer()` zwei Umgebungsvariablen, **wenn `data/users.php` fehlt**:
+
+| Variable | Inhalt |
+|---|---|
+| `PANEL_BENUTZER` | Benutzername |
+| `PANEL_PASSWORT_HASH` | bcrypt-Hash, kein Klartext |
+
+Sie sind nur für die Vorschau gedacht und stehen in den Projekteinstellungen
+bei Vercel, **nicht im Repository**. Auf dem echten Hosting existiert
+`data/users.php` und hat Vorrang — ein vergessener Umgebungswert kann den
+richtigen Zugang also nicht überschreiben. Trotzdem: **vor dem Livegang bei
+Vercel löschen.**
+
+Zu wissen: gespeichert wird auf der Vorschau nichts (schreibgeschütztes
+Dateisystem, das Panel sagt es auch), die Bremse gegen Durchprobieren von
+Passwörtern greift dort nicht, und die Anmeldung kann zwischendurch verloren
+gehen, weil die Sitzung im Dateisystem der jeweiligen Funktionsinstanz liegt.
+Für einen Rundgang reicht es.
+
 ### Domain entscheiden — sonst bleibt die Seite unsichtbar
 
 Die Seite trägt `noindex`, solange sie unter einer `*.vercel.app`-Adresse

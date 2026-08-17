@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 require dirname(__DIR__, 2) . '/app/bootstrap.php';
 require APP_ROOT . '/lib/auth.php';
+require APP_ROOT . '/lib/speichern.php';   // inhalte_beschreibbar()
 require APP_ROOT . '/lib/anfrage.php';
 
 $schema  = require APP_ROOT . '/schema/felder.php';
@@ -99,10 +100,23 @@ $angemeldet = auth_angemeldet();
     <?php endif; ?>
 
     <h1>Was möchten Sie ändern?</h1>
+
+    <?php if (!inhalte_beschreibbar()): ?>
+    <?php /* Ohne diesen Hinweis stuende hier „Alle Änderungen sind sofort
+            sichtbar" — auf einer Vorschau ohne Schreibrechte ist das schlicht
+            falsch. Der Hinweis in den Formularen kommt erst, wenn man eines
+            geöffnet hat; das ist einen Klick zu spät. */ ?>
+    <p class="hinweis nur-lesen">
+      <strong>Nur zum Ansehen.</strong> Diese Vorschau läuft auf einem Server ohne
+      beschreibbaren Speicher — Sie können sich alles anschauen, gespeichert wird
+      nichts. Auf dem richtigen Hosting funktioniert das Bearbeiten normal.
+    </p>
+    <?php else: ?>
     <p class="vorspann">
       Alle Änderungen sind sofort auf der Website sichtbar. Die jeweils letzte
       Fassung wird automatisch gesichert — es kann also nichts verloren gehen.
     </p>
+    <?php endif; ?>
 
     <?php /* Die Anfragen stehen bewusst vor den Inhalten: wer sich hier
             anmeldet, will meist wissen, ob jemand geschrieben hat. */ ?>
