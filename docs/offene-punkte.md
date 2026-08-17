@@ -234,19 +234,27 @@ erzeugen ihre Fassungen automatisch.
 
 ### Panel-Zugang der Vorschau vor dem Livegang entfernen
 
-Damit das Panel auf der Vercel-Vorschau angesehen werden kann, liest
-`auth_benutzer()` zwei Umgebungsvariablen, **wenn `data/users.php` fehlt**:
+**`data/vorschau-zugang.php` muss vor dem Livegang gelöscht werden.**
 
-| Variable | Inhalt |
-|---|---|
-| `PANEL_BENUTZER` | Benutzername |
-| `PANEL_PASSWORT_HASH` | bcrypt-Hash, kein Klartext |
+Damit das Panel auf der Vercel-Vorschau angesehen werden kann, sucht
+`auth_benutzer()` den Zugang in dieser Reihenfolge:
 
-Sie sind nur für die Vorschau gedacht und stehen in den Projekteinstellungen
-bei Vercel, **nicht im Repository**. Auf dem echten Hosting existiert
-`data/users.php` und hat Vorrang — ein vergessener Umgebungswert kann den
-richtigen Zugang also nicht überschreiben. Trotzdem: **vor dem Livegang bei
-Vercel löschen.**
+1. `data/users.php` — der Normalfall, angelegt über `php bin/passwort-setzen.php`,
+   nicht im Repository.
+2. Die Umgebungsvariablen `PANEL_BENUTZER` und `PANEL_PASSWORT_HASH`
+   (bcrypt-Hash, kein Klartext).
+3. `data/vorschau-zugang.php` — liegt im Repository und wird **nur auf einem
+   Host ohne beschreibbares `data/`** gelesen.
+
+Der dritte Schritt existiert, weil Umgebungsvariablen bei Vercel an eine
+Umgebung gebunden sind (Production / Preview / Development) und erst ab dem
+nächsten Deployment greifen — zwei Fallstricke, die man der Oberfläche nicht
+ansieht.
+
+Auf dem richtigen Hosting ist `data/` beschreibbar, dort wird die Datei nie
+angefasst — auch dann nicht, wenn `users.php` noch fehlt. Der Vorschau-Zugang
+kann also nicht versehentlich auf der echten Domain gelten. Gelöscht gehört er
+trotzdem, sobald die Vorschau nicht mehr gebraucht wird.
 
 Zu wissen: gespeichert wird auf der Vorschau nichts (schreibgeschütztes
 Dateisystem, das Panel sagt es auch), die Bremse gegen Durchprobieren von

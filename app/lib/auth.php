@@ -66,11 +66,46 @@ function auth_benutzer(): array
     $benutzer = auth_umgebung('PANEL_BENUTZER');
     $hash     = auth_umgebung('PANEL_PASSWORT_HASH');
 
-    if ($benutzer === '' || !str_starts_with($hash, '$2y$')) {
+    if ($benutzer !== '' && str_starts_with($hash, '$2y$')) {
+        return [strtolower($benutzer) => ['passwort' => $hash, 'name' => $benutzer]];
+    }
+
+    /* Letzter Rueckfall: der mitgelieferte Vorschau-Zugang.
+       Umgebungsvariablen sind auf Vercel an eine Umgebung gebunden (Production
+       / Preview / Development) und greifen erst ab dem naechsten Deployment —
+       zwei Fallstricke, an denen der Zugang haengen bleibt, ohne dass man es
+       der Oberflaeche ansieht. Deshalb liegt eine Kennung im Repository, damit
+       das Ansehen ohne Einrichtung funktioniert.
+
+       Streng begrenzt auf schreibgeschuetzte Umgebungen: auf einem echten
+       Hosting ist data/ beschreibbar, dort wird diese Datei nie angefasst —
+       auch dann nicht, wenn users.php noch fehlt. Der Vorschau-Zugang kann
+       also nicht versehentlich auf der richtigen Domain gelten. */
+    if (!auth_nur_lesbarer_host()) {
         return [];
     }
 
-    return [strtolower($benutzer) => ['passwort' => $hash, 'name' => $benutzer]];
+    $vorschau = DATA_ROOT . '/vorschau-zugang.php';
+
+    return is_file($vorschau) ? require $vorschau : [];
+}
+
+/**
+ * Laeuft das hier auf einem Host ohne beschreibbares data/?
+ *
+ * Serverless-Umgebungen sagen es ueber eine Umgebungsvariable. Auf die
+ * verlassen wir uns zuerst, weil is_writable() je nach Benutzer auch dann
+ * true meldet, wenn ein Schreibversuch spaeter scheitern wuerde.
+ */
+function auth_nur_lesbarer_host(): bool
+{
+    foreach (['VERCEL', 'AWS_LAMBDA_FUNCTION_NAME', 'VERCEL_ENV'] as $name) {
+        if (auth_umgebung($name) !== '') {
+            return true;
+        }
+    }
+
+    return !is_writable(DATA_ROOT);
 }
 
 /**
