@@ -79,6 +79,57 @@ function upload(string $file): string
 }
 
 /**
+ * Ein Bild aus public/uploads/ als vollstaendiges <img>.
+ *
+ * Vorher stand in den Templates ein blankes <img src=...> mit fest
+ * eingetragenen Abmessungen. Auf einem 390-px-Bildschirm lud die Galerie
+ * damit 2,5 MB, weil jedes Handy dieselbe Datei bekam wie ein grosser
+ * Monitor. bild_quellen() gab es schon, aufgerufen hat es niemand.
+ *
+ * Die Abmessungen kommen aus der Datei selbst, nicht aus dem Template: so
+ * kann kein falsches Seitenverhaeltnis mehr entstehen, wenn der Betrieb ein
+ * Bild austauscht. Fehlt die Datei, bleibt es beim blossen src — dann sieht
+ * man den Platzhalter statt eines zerbrochenen Layouts.
+ *
+ * `sizes` sagt dem Browser, wie breit das Bild im fertigen Layout steht.
+ * Ohne diese Angabe rechnet er mit der vollen Fensterbreite und laedt zu
+ * viel. Die Voreinstellung passt fuer Bilder, die eine Spalte fuellen.
+ *
+ * @param array{class?:string,id?:string,sizes?:string,loading?:string,
+ *              fetchpriority?:string,decoding?:string} $o
+ */
+function bild(string $datei, string $alt, array $o = []): string
+{
+    $datei = ltrim($datei, '/');
+    $quellen = function_exists('bild_quellen') ? bild_quellen($datei) : ['srcset' => '', 'breite' => 0, 'hoehe' => 0];
+
+    $teile = ['src="' . attr(upload($datei)) . '"', 'alt="' . attr($alt) . '"'];
+
+    if ($quellen['srcset'] !== '') {
+        $teile[] = 'srcset="' . attr($quellen['srcset']) . '"';
+        $teile[] = 'sizes="' . attr($o['sizes'] ?? '(max-width: 980px) 100vw, 50vw') . '"';
+    }
+    if ($quellen['breite'] > 0) {
+        $teile[] = 'width="' . $quellen['breite'] . '"';
+        $teile[] = 'height="' . $quellen['hoehe'] . '"';
+    }
+
+    foreach (['class', 'id', 'loading', 'fetchpriority', 'decoding'] as $name) {
+        if (!empty($o[$name])) {
+            $teile[] = $name . '="' . attr((string) $o[$name]) . '"';
+        }
+    }
+
+    // Alles ausser dem ersten Bild darf warten. Wer das anders will, setzt
+    // loading ausdruecklich — die Hero-Bilder tun das.
+    if (!isset($o['loading']) && !isset($o['fetchpriority'])) {
+        $teile[] = 'loading="lazy"';
+    }
+
+    return '<img ' . implode(' ', $teile) . '>';
+}
+
+/**
  * Das rote Parallelogramm aus dem Logo — im Mockup das durchgehende
  * Akzentelement. Groesse variiert je Einsatzort.
  */

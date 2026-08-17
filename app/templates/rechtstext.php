@@ -27,10 +27,17 @@ $rechtsseiten = [
 $abschnitte = get($seite, 'abschnitte', []);
 $imAufbau   = (bool) get($seite, 'im_aufbau', true);
 
+/* Der Weg dorthin — dieselbe Liste, die oben sichtbar steht. */
+$jsonld = [seo_jsonld_brotkrumen([
+    ['label' => 'Startseite', 'ziel' => '/'],
+    ['label' => get($seite, 'titel')],
+])];
+
 partial('kopf', [
     'titel'        => get($seite, 'seo.titel'),
     'beschreibung' => get($seite, 'seo.beschreibung'),
     'aktiv'        => '',
+    'jsonld'       => $jsonld,
 ]);
 ?>
 

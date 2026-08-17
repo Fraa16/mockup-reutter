@@ -168,14 +168,21 @@
       else if (e.key === 'End')        { setze(98); e.preventDefault(); }
     });
 
+    const tausche = (img, quelle, srcset) => {
+      if (!img || !quelle) return;
+      if (srcset) { img.srcset = srcset; } else { img.removeAttribute('srcset'); }
+      img.src = quelle;
+    };
+
     faelle.forEach((btn, i) => {
       btn.addEventListener('click', () => {
         faelle.forEach((b, j) => {
           b.classList.toggle('active', i === j);
           b.setAttribute('aria-pressed', String(i === j));
         });
-        if (bildVorher)  bildVorher.src  = btn.dataset.vorher;
-        if (bildNachher) bildNachher.src = btn.dataset.nachher;
+        // srcset zuerst: solange dort etwas steht, ignoriert der Browser src.
+        tausche(bildVorher,  btn.dataset.vorher,  btn.dataset.vorherSrcset);
+        tausche(bildNachher, btn.dataset.nachher, btn.dataset.nachherSrcset);
         if (fallName)  fallName.textContent  = btn.dataset.name;
         if (fallNotiz) fallNotiz.textContent = btn.dataset.note;
       });

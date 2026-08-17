@@ -9,11 +9,19 @@ $s          = site();
 $leistungen = content('leistungen')['eintraege'];
 $kennzahl   = static fn (string $k): string => (string) get(site(), "kennzahlen.$k.wert", '');
 
+/* Der Betrieb steht nur hier — die Unterseiten verweisen ueber @id darauf,
+   statt ihn zu wiederholen. */
+$jsonld = [seo_jsonld_betrieb()];
+
 partial('kopf', [
     'titel'        => get($seite, 'seo.titel'),
     'beschreibung' => get($seite, 'seo.beschreibung'),
     'aktiv'        => '',
+    'jsonld'       => $jsonld,
+    'og_bild'      => get($seite, 'hero.bild'),
+    'og_bild_alt'  => get($seite, 'hero.bild_alt'),
     'lcp_bild'     => get($seite, 'hero.bild'),
+    'lcp_sizes'    => '(max-width: 980px) 100vw, 50vw',
 ]);
 ?>
 
@@ -21,8 +29,12 @@ partial('kopf', [
 <section id="top" class="hero">
   <div class="parallax-frame">
     <div class="parallax-layer">
-      <img class="slot-img" src="<?= attr(upload(get($seite, 'hero.bild'))) ?>"
-           alt="<?= attr(get($seite, 'hero.bild_alt')) ?>" width="1448" height="1086" fetchpriority="high">
+      <?= bild(get($seite, 'hero.bild'), get($seite, 'hero.bild_alt'), [
+          'class' => 'slot-img',
+          'sizes' => '(max-width: 980px) 100vw, 50vw',
+          // Das Bild ueber der Falz — es soll nicht warten.
+          'fetchpriority' => 'high',
+      ]) ?>
     </div>
   </div>
   <div class="scrim" aria-hidden="true"></div>
@@ -72,8 +84,10 @@ partial('kopf', [
             gemeinsame Umschalter in main.js sucht darin. */ ?>
     <div class="hotspot-panel" id="hotspot">
       <div class="hotspot-visual">
-        <img class="slot-img" src="<?= attr(upload(get($seite, 'leistungen_sektion.bild'))) ?>"
-             alt="<?= attr(get($seite, 'leistungen_sektion.bild_alt')) ?>" width="1448" height="1086" loading="lazy">
+        <?= bild(get($seite, 'leistungen_sektion.bild'), get($seite, 'leistungen_sektion.bild_alt'), [
+            'class' => 'slot-img',
+            'sizes' => '(max-width: 980px) 92vw, 52vw',
+        ]) ?>
         <div class="scrim" aria-hidden="true"></div>
         <div class="tag">Interaktiv · <?= count($leistungen) ?> Bereiche</div>
         <div id="hotspot-dots">
@@ -150,8 +164,13 @@ partial('kopf', [
       </div>
       <div class="case-list" id="case-list">
         <?php foreach (get($seite, 'ergebnisse.faelle', []) as $i => $f): ?>
+        <?php /* Auch die srcset-Listen mitgeben: seit die Bilder in mehreren
+                Groessen ausgeliefert werden, genuegt ein Tausch von src nicht
+                mehr — der Browser bleibt sonst bei der Fassung aus srcset. */ ?>
+        <?php $qv = bild_quellen($f['vorher']); $qn = bild_quellen($f['nachher']); ?>
         <button type="button" class="case-btn<?= $i === 0 ? ' active' : '' ?>" data-case="<?= $i ?>"
                 data-vorher="<?= attr(upload($f['vorher'])) ?>" data-nachher="<?= attr(upload($f['nachher'])) ?>"
+                data-vorher-srcset="<?= attr($qv['srcset']) ?>" data-nachher-srcset="<?= attr($qn['srcset']) ?>"
                 data-name="<?= attr($f['name']) ?>" data-note="<?= attr($f['note']) ?>"
                 aria-pressed="<?= $i === 0 ? 'true' : 'false' ?>">
           <?= h($f['name']) ?><span class="meta"><?= h($f['meta']) ?></span>
@@ -163,10 +182,16 @@ partial('kopf', [
     <?php $erst = get($seite, 'ergebnisse.faelle.0'); ?>
     <div class="ba-frame" id="ba-frame" data-start="<?= attr((string) get($seite, 'ergebnisse.start_position', 52)) ?>">
       <div class="layer layer-before">
-        <img class="slot-img" id="ba-img-before" src="<?= attr(upload($erst['vorher'])) ?>" alt="Vorher — Zustand vor der Bearbeitung" width="1448" height="1086" loading="lazy">
+        <?= bild($erst['vorher'], 'Vorher — Zustand vor der Bearbeitung', [
+            'class' => 'slot-img', 'id' => 'ba-img-before',
+            'sizes' => '(max-width: 980px) 92vw, 55vw',
+        ]) ?>
       </div>
       <div class="layer layer-after" id="ba-after">
-        <img class="slot-img" id="ba-img-after" src="<?= attr(upload($erst['nachher'])) ?>" alt="Nachher — Zustand nach der Bearbeitung" width="1448" height="1086" loading="lazy">
+        <?= bild($erst['nachher'], 'Nachher — Zustand nach der Bearbeitung', [
+            'class' => 'slot-img', 'id' => 'ba-img-after',
+            'sizes' => '(max-width: 980px) 92vw, 55vw',
+        ]) ?>
       </div>
       <div class="ba-handle" id="ba-handle" aria-hidden="true">
         <div class="grip"><span>←</span><span>→</span></div>
@@ -228,7 +253,10 @@ partial('kopf', [
         if (($k['row']  ?? 1) === 2) { $klassen .= ' row-2'; }
       ?>
       <div class="<?= attr($klassen) ?>">
-        <img class="slot-img" src="<?= attr(upload($k['bild'])) ?>" alt="<?= attr($k['alt']) ?>" width="1100" height="825" loading="lazy">
+        <?= bild($k['bild'], $k['alt'], [
+            'class' => 'slot-img',
+            'sizes' => '(max-width: 640px) 92vw, (max-width: 980px) 46vw, 23vw',
+        ]) ?>
         <?php if (isset($k['caption'])): ?><div class="caption"><?= h($k['caption']) ?></div><?php endif; ?>
       </div>
       <?php endforeach; ?>
@@ -243,8 +271,10 @@ partial('kopf', [
   <div class="wrap">
     <div class="betrieb-top">
       <div class="betrieb-photo">
-        <img class="slot-img" src="<?= attr(upload(get($seite, 'betrieb.bild'))) ?>"
-             alt="<?= attr(get($seite, 'betrieb.bild_alt')) ?>" width="1000" height="750" loading="lazy">
+        <?= bild(get($seite, 'betrieb.bild'), get($seite, 'betrieb.bild_alt'), [
+            'class' => 'slot-img',
+            'sizes' => '(max-width: 980px) 92vw, 45vw',
+        ]) ?>
         <div class="badge">
           <div class="name"><?= h(get($seite, 'betrieb.badge.name')) ?></div>
           <div class="desc"><?= h(get($seite, 'betrieb.badge.text')) ?></div>

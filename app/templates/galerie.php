@@ -22,10 +22,17 @@ foreach ($bilder as $b) {
     $kategorien[$b['kategorie']] = ($kategorien[$b['kategorie']] ?? 0) + 1;
 }
 
+/* Der Weg dorthin — dieselbe Liste, die oben sichtbar steht. */
+$jsonld = [seo_jsonld_brotkrumen([
+    ['label' => 'Startseite', 'ziel' => '/'],
+    ['label' => 'Galerie'],
+])];
+
 partial('kopf', [
     'titel'        => get($seite, 'seo.titel'),
     'beschreibung' => get($seite, 'seo.beschreibung'),
     'aktiv'        => 'galerie',
+    'jsonld'       => $jsonld,
 ]);
 ?>
 
@@ -130,8 +137,10 @@ partial('kopf', [
     <div class="raster-grid" id="galerie-raster">
       <?php foreach ($bilder as $i => $b): ?>
       <button type="button" class="kachel" data-kategorie="<?= attr($b['kategorie']) ?>" aria-pressed="false">
-        <img src="<?= attr(upload($b['bild'])) ?>" alt="<?= attr($b['alt']) ?>"
-             width="1448" height="1086" <?= $i < 8 ? '' : 'loading="lazy"' ?>>
+        <?= bild($b['bild'], $b['alt'], [
+            'sizes' => '(max-width: 640px) 92vw, (max-width: 980px) 46vw, 23vw',
+            'loading' => $i < 8 ? 'eager' : 'lazy',
+        ]) ?>
         <span class="kachel-verlauf" aria-hidden="true"></span>
         <span class="kachel-kategorie"><?= swash() ?><span><?= h($b['kategorie']) ?></span></span>
         <span class="kachel-zoom" aria-hidden="true">groß</span>

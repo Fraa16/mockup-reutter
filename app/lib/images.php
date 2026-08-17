@@ -10,7 +10,13 @@ declare(strict_types=1);
  * Handyfotos ebenfalls, und das Ergebnis ist ein sauberes WebP.
  */
 
-const BILD_BREITEN     = [640, 1024, 1440, 1920];
+/**
+ * Die 400er-Stufe ist fuer das Bildraster der Galerie: dort stehen auf dem
+ * Handy zwei Kacheln nebeneinander, jede rund 178 px breit. Selbst auf einem
+ * Bildschirm mit doppelter Aufloesung reichen 400 px — die naechstgroessere
+ * Fassung waere dreimal so schwer, ohne dass man etwas davon sieht.
+ */
+const BILD_BREITEN     = [400, 640, 1024, 1440, 1920];
 const BILD_MAX_BYTES   = 12 * 1024 * 1024;
 const BILD_MAX_KANTE   = 4000;
 const BILD_QUALITAET   = 82;

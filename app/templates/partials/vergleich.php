@@ -11,12 +11,16 @@
 ?>
 <div class="ba-frame" data-start="<?= attr((string) ($v['start_position'] ?? 50)) ?>">
   <div class="layer layer-before">
-    <img class="slot-img" src="<?= attr(upload($v['vorher'])) ?>" alt="<?= attr($v['vorher_alt']) ?>"
-         width="1448" height="1086" loading="lazy">
+    <?= bild($v['vorher'], $v['vorher_alt'], [
+        'class' => 'slot-img',
+        'sizes' => '(max-width: 980px) 92vw, 55vw',
+    ]) ?>
   </div>
   <div class="layer layer-after">
-    <img class="slot-img" src="<?= attr(upload($v['nachher'])) ?>" alt="<?= attr($v['nachher_alt']) ?>"
-         width="1448" height="1086" loading="lazy">
+    <?= bild($v['nachher'], $v['nachher_alt'], [
+        'class' => 'slot-img',
+        'sizes' => '(max-width: 980px) 92vw, 55vw',
+    ]) ?>
   </div>
   <div class="ba-handle" aria-hidden="true">
     <div class="grip"><span>←</span><span>→</span></div>

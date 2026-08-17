@@ -24,19 +24,32 @@ foreach (leistungen_mit_seite() as $l) {
 }
 usort($leistungen, static fn(array $a, array $b): int => strcmp($a['num'], $b['num']));
 
+/* Der Weg dorthin — dieselbe Liste, die oben sichtbar steht. */
+$jsonld = [seo_jsonld_brotkrumen([
+    ['label' => 'Startseite', 'ziel' => '/'],
+    ['label' => 'Leistungen'],
+])];
+
 partial('kopf', [
     'titel'        => get($seite, 'seo.titel'),
     'beschreibung' => get($seite, 'seo.beschreibung'),
     'aktiv'        => 'leistungen',
+    'jsonld'       => $jsonld,
+    'og_bild'      => get($seite, 'hero.bild'),
+    'og_bild_alt'  => get($seite, 'hero.bild_alt'),
     'lcp_bild'     => get($seite, 'hero.bild'),
+    'lcp_sizes'    => '(max-width: 980px) 100vw, 50vw',
 ]);
 ?>
 
 <!-- Hero -->
 <section class="hub-hero">
   <div class="hero-bild">
-    <img class="slot-img" src="<?= attr(upload(get($seite, 'hero.bild'))) ?>"
-         alt="<?= attr(get($seite, 'hero.bild_alt')) ?>" width="1448" height="1086" fetchpriority="high">
+    <?= bild(get($seite, 'hero.bild'), get($seite, 'hero.bild_alt'), [
+        'class' => 'slot-img',
+        'sizes' => '(max-width: 980px) 100vw, 50vw',
+        'fetchpriority' => 'high',
+    ]) ?>
   </div>
   <div class="scrim" aria-hidden="true"></div>
   <div class="accent-bar" aria-hidden="true"></div>
@@ -96,8 +109,10 @@ partial('kopf', [
         <div class="vorschau-rahmen">
           <?php foreach ($leistungen as $i => $l): ?>
           <span class="vorschau-bild<?= $i === 0 ? ' is-active' : '' ?>" data-vorschau="<?= $i ?>">
-            <img src="<?= attr(upload($l['bild'])) ?>" alt="" width="1448" height="1086"
-                 <?= $i === 0 ? '' : 'loading="lazy"' ?>>
+            <?= bild($l['bild'], '', [
+                'sizes' => '(max-width: 980px) 1px, 38vw',
+                'loading' => $i === 0 ? 'eager' : 'lazy',
+            ]) ?>
           </span>
           <?php endforeach; ?>
           <span class="vorschau-verlauf"></span>

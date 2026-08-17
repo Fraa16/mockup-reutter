@@ -19,9 +19,26 @@ $tiefen = get($seite, 'tiefen', []);
 
 /* Der Hero traegt hier kein Foto, sondern die Musterreihe — deshalb kein
    lcp_bild. Vorgeladen wird nichts, es gibt nichts vorzuladen. */
+/* Strukturierte Daten: der Betrieb liegt auf der Startseite, hier stehen die
+   Leistung selbst, der Weg dorthin und die Fragen, die auf der Seite sichtbar
+   sind. Google verlangt, dass jede ausgezeichnete Frage auch im Text steht —
+   deshalb kommt beides aus derselben Datei. */
+$jsonld = [
+    seo_jsonld_leistung($leistung, (string) get($seite, 'seo.beschreibung')),
+    seo_jsonld_brotkrumen([
+        ['label' => 'Startseite', 'ziel' => '/'],
+        ['label' => 'Leistungen', 'ziel' => '/leistungen/'],
+        ['label' => $leistung['titel']],
+    ]),
+    seo_jsonld_faq(get($seite, 'faq.fragen', [])),
+];
+
 partial('kopf', [
     'titel'        => get($seite, 'seo.titel'),
     'beschreibung' => get($seite, 'seo.beschreibung'),
+    'jsonld'       => $jsonld,
+    'og_bild'      => get($seite, 'hero.bild'),
+    'og_bild_alt'  => get($seite, 'hero.bild_alt'),
     'aktiv'        => 'leistungen',
 ]);
 ?>
@@ -157,8 +174,10 @@ partial('kopf', [
         <h2><?= h(get($seite, 'farbton.titel')) ?></h2>
         <p><?= h(get($seite, 'farbton.lead')) ?></p>
         <div class="farbton-bild">
-          <img class="slot-img" src="<?= attr(upload(get($seite, 'farbton.bild'))) ?>"
-               alt="<?= attr(get($seite, 'farbton.bild_alt')) ?>" width="1448" height="1086" loading="lazy">
+          <?= bild(get($seite, 'farbton.bild'), get($seite, 'farbton.bild_alt'), [
+              'class' => 'slot-img',
+              'sizes' => '(max-width: 980px) 92vw, 30vw',
+          ]) ?>
         </div>
       </div>
       <ol class="farbton-schritte">

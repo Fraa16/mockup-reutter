@@ -14,19 +14,40 @@ $s = site();
 $panels = get($seite, 'panelkarte.panels', []);
 $gesamt = array_sum(array_column($panels, 'anzahl'));
 
+/* Strukturierte Daten: der Betrieb liegt auf der Startseite, hier stehen die
+   Leistung selbst, der Weg dorthin und die Fragen, die auf der Seite sichtbar
+   sind. Google verlangt, dass jede ausgezeichnete Frage auch im Text steht —
+   deshalb kommt beides aus derselben Datei. */
+$jsonld = [
+    seo_jsonld_leistung($leistung, (string) get($seite, 'seo.beschreibung')),
+    seo_jsonld_brotkrumen([
+        ['label' => 'Startseite', 'ziel' => '/'],
+        ['label' => 'Leistungen', 'ziel' => '/leistungen/'],
+        ['label' => $leistung['titel']],
+    ]),
+    seo_jsonld_faq(get($seite, 'faq.fragen', [])),
+];
+
 partial('kopf', [
     'titel'        => get($seite, 'seo.titel'),
     'beschreibung' => get($seite, 'seo.beschreibung'),
+    'jsonld'       => $jsonld,
+    'og_bild'      => get($seite, 'hero.bild'),
+    'og_bild_alt'  => get($seite, 'hero.bild_alt'),
     'aktiv'        => 'leistungen',
     'lcp_bild'     => get($seite, 'hero.bild'),
+    'lcp_sizes'    => '(max-width: 980px) 100vw, 50vw',
 ]);
 ?>
 
 <!-- Hero -->
 <section class="leistung-hero">
   <div class="hero-bild">
-    <img class="slot-img" src="<?= attr(upload(get($seite, 'hero.bild'))) ?>"
-         alt="<?= attr(get($seite, 'hero.bild_alt')) ?>" width="1448" height="1086" fetchpriority="high">
+    <?= bild(get($seite, 'hero.bild'), get($seite, 'hero.bild_alt'), [
+        'class' => 'slot-img',
+        'sizes' => '(max-width: 980px) 100vw, 50vw',
+        'fetchpriority' => 'high',
+    ]) ?>
   </div>
   <div class="scrim" aria-hidden="true"></div>
   <div class="accent-bar" aria-hidden="true"></div>
@@ -146,8 +167,10 @@ partial('kopf', [
       <?php foreach (get($seite, 'stationen.eintraege', []) as $i => $st): ?>
       <div class="station">
         <div class="station-bild">
-          <img class="slot-img" src="<?= attr(upload($st['bild'])) ?>" alt="<?= attr($st['bild_alt']) ?>"
-               width="1100" height="825" loading="lazy">
+          <?= bild($st['bild'], $st['bild_alt'], [
+              'class' => 'slot-img',
+              'sizes' => '(max-width: 980px) 92vw, 30vw',
+          ]) ?>
           <span class="station-nr<?= $i === 2 ? ' ist-letzte' : '' ?>">Station <?= h(str_pad((string) ($i + 1), 2, '0', STR_PAD_LEFT)) ?></span>
         </div>
         <h3><?= h($st['titel']) ?></h3>

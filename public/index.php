@@ -41,7 +41,6 @@ $routen = [
  */
 if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST' && $pfad === '/kontakt/') {
     require APP_ROOT . '/lib/anfrage.php';
-    require APP_ROOT . '/lib/images.php';
     require APP_ROOT . '/lib/mail.php';
 
     [$erfolg, $formularFehler, $formularWerte] = anfrage_verarbeiten($_POST, $_FILES);
@@ -50,6 +49,37 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST' && $pfad === '/kontakt/') {
         header('Location: /danke/', true, 303);
         exit;
     }
+}
+
+/**
+ * Adressen fuer Suchmaschinen.
+ *
+ * Beide werden erzeugt und nicht als Datei gepflegt: die Leistungsseiten
+ * kommen aus dem CMS, eine von Hand gepflegte sitemap.xml waere nach dem
+ * ersten Umbenennen falsch. Die Ausgabe haengt am Host — auf einer Vorschau
+ * unter *.vercel.app steht in robots.txt ein Verbot, damit die Vorschau nicht
+ * neben der echten Domain im Index landet.
+ */
+if ($pfad === '/sitemap.xml/' || $pfad === '/robots.txt/') {
+    if ($pfad === '/robots.txt/') {
+        header('Content-Type: text/plain; charset=utf-8');
+        if (!seo_indexierbar()) {
+            exit("User-agent: *\nDisallow: /\n");
+        }
+        exit("User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /danke/\n\nSitemap: " . absolut('/sitemap.xml') . "\n");
+    }
+
+    header('Content-Type: application/xml; charset=utf-8');
+    echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+    echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+    foreach (seo_seitenliste() as $eintrag) {
+        echo "  <url>\n";
+        echo '    <loc>' . htmlspecialchars(absolut($eintrag['pfad']), ENT_XML1) . "</loc>\n";
+        echo '    <priority>' . $eintrag['prio'] . "</priority>\n";
+        echo "  </url>\n";
+    }
+    echo '</urlset>' . "\n";
+    exit;
 }
 
 $route = $routen[$pfad] ?? null;
