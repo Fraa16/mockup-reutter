@@ -196,4 +196,4 @@ partial('kopf', [
   </div>
 </section>
 
-<?php partial('fuss', ['zeigeFormular' => false, 'ctaUeberschrift' => get($seite, 'hero.titel')]); ?>
+<?php partial('fuss', ['zeigeFormular' => false, 'zeigeLeiste' => false, 'ctaUeberschrift' => get($seite, 'hero.titel')]); ?>

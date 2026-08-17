@@ -219,10 +219,9 @@ img{max-width:100%;display:block}
 .rv-in{opacity:0;transition:opacity .7s ease}
 .rv-in.is-visible{opacity:1}
 
-@media (prefers-reduced-motion: reduce){
-  .rv,.rv-in{opacity:1;transform:none;transition:none}
-  .parallax-layer{animation:none !important}
-}
+/* Bewegung abschaltbar: der vollstaendige Block steht am Ende der Datei.
+   Dort kann ihn keine spaetere Regel gleicher Spezifitaet mehr ueberstimmen —
+   genau das war bei .sticky-bar und dem Hotspot-Ring passiert. */
 
 /* ==========================================================================
    Shared bits
@@ -846,9 +845,16 @@ a.count:hover{color:var(--rot-schrift);border-color:var(--red)}
   position:fixed;left:0;right:0;bottom:0;z-index:80;
   background:rgba(10,11,13,.94);backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.14);
   transform:translateY(100%);opacity:0;pointer-events:none;
-  transition:transform .35s cubic-bezier(.2,.7,.2,1),opacity .35s cubic-bezier(.2,.7,.2,1);
+  /* pointer-events halten nur die Maus ab. Ohne visibility blieben die beiden
+     Knoepfe im Tabweg: am Seitenanfang landete der Fokus zweimal auf einer
+     unsichtbaren Leiste unterhalb des Bildschirms. visibility nimmt sie aus
+     Tabreihenfolge und Vorlesen heraus und ist dabei animierbar — beim
+     Einfahren gilt sofort `visible`, beim Ausfahren erst am Ende `hidden`,
+     die Bewegung bleibt also vollstaendig sichtbar. */
+  visibility:hidden;
+  transition:transform .35s cubic-bezier(.2,.7,.2,1),opacity .35s cubic-bezier(.2,.7,.2,1),visibility .35s;
 }
-.sticky-bar.visible{transform:translateY(0);opacity:1;pointer-events:auto}
+.sticky-bar.visible{transform:translateY(0);opacity:1;pointer-events:auto;visibility:visible}
 .sticky-bar .wrap{height:74px;display:flex;align-items:center;justify-content:space-between;gap:30px}
 .sticky-bar .info{display:flex;align-items:center;gap:18px}
 .sticky-bar .swash{width:16px;height:8px}
@@ -858,8 +864,21 @@ a.count:hover{color:var(--rot-schrift);border-color:var(--red)}
 .sticky-bar .btn-outline{padding:14px 22px;font:700 13.5px/1 var(--font-display);letter-spacing:.05em}
 .sticky-bar .btn-red{padding:14px 24px;font-size:13.5px}
 
-/* section scroll offset so sticky header doesn't cover anchors */
-section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
+/* Der Kopf ist fixiert und würde sonst über dem Ziel jedes Ankersprungs
+   liegen. scroll-padding am Wurzelelement statt scroll-margin an jedem [id]:
+   der Rand gilt dann für alles, was in den Blick gescrollt wird, nicht nur
+   für Sprungziele. Gemessen betraf das die Schrittanzeige der Kurzanfrage —
+   sie hat keine id und lag beim Durchtabben 22 px hinter dem Kopf. */
+:root{scroll-padding-top:var(--kopf-hoehe)}
+
+/* Dasselbe für die untere Kante. Wer sich mit der Tabulatortaste durch den
+   Fuss arbeitet, landete sonst hinter der Leiste: der Browser scrollt das
+   Element genau an den unteren Rand, und dort liegt die Leiste darüber —
+   gemessen sechs solcher Stationen am Schreibtisch, sieben auf dem Handy.
+   scroll-padding verkleinert den Bereich, in den hineingescrollt wird.
+   Nur solange die Leiste steht, sonst würde jeder Ankersprung 75 px zu weit
+   fahren. */
+:root:has(body.sticky-an){scroll-padding-bottom:calc(var(--leiste-hoehe,75px) + 10px)}
 
 /* ==========================================================================
    Zugänglichkeit — Grundlagen
@@ -1029,8 +1048,11 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
    main.js setzt .sticky-an am body, solange sie sichtbar ist.
    ========================================================================== */
 .footer-sticky-platz{height:0;transition:height .2s}
-/* 74 px Leiste plus ihre 1-px-Rahmenlinie. */
-.sticky-an .footer-sticky-platz{height:75px}
+/* Die Höhe kommt gemessen aus main.js, weil die Leiste je Breite 75, 69 oder
+   65 px hoch ist. Fest eingetragene 75 px liessen auf dem Handy 10 px Luft
+   unter der letzten Fusszeile stehen. Der Rückfallwert gilt nur für den
+   Bruchteil einer Sekunde vor der ersten Messung. */
+.sticky-an .footer-sticky-platz{height:var(--leiste-hoehe,75px)}
 
 /* ==========================================================================
    Leistungsseiten — gemeinsame Bausteine
@@ -2477,8 +2499,26 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
     padding:8px var(--gutter) 20px;
     /* Collapsed by default; .is-open (set by the toggle) reveals it. */
     display:none;
+    /* Solange das Panel offen ist, ist der Seitenscroll gesperrt (siehe
+       .nav-offen). Waechst die Navigation im CMS ueber die Bildschirmhoehe
+       hinaus, muss sie deshalb selbst scrollen koennen — sonst waere der
+       letzte Punkt unerreichbar. 120px ist die Kopfhoehe samt Ortsleiste. */
+    max-height:calc(100vh - 120px);
+    max-height:calc(100dvh - 120px);
+    overflow-y:auto;
+    overscroll-behavior:contain;
   }
   .main-nav.is-open{display:flex}
+
+  /* Scrollsperre hinter dem offenen Panel. Ohne sie schiebt eine Wischbewegung
+     neben dem Panel die Seite darunter weg, waehrend das Panel am Kopf
+     festklebt — man scrollt sichtbar in einer Seite, die man nicht bedienen
+     kann. main.js setzt die Klasse, nimmt den Rest der Seite zugleich per
+     `inert` aus dem Fokus.
+     Zwei Selektoren, weil nicht jeder Browser overflow vom body auf den
+     Viewport durchreicht; das :has() greift am Wurzelelement selbst. */
+  body.nav-offen{overflow:hidden}
+  html:has(body.nav-offen){overflow:hidden}
   .main-nav a.nav-link{padding:15px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:15px}
   .main-nav .btn{margin-top:16px;justify-content:center;padding:16px 24px}
   .site-header .wrap{height:70px}
@@ -3073,4 +3113,41 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 @media (max-width: 400px){
   .logo .divider,
   .logo .sub{display:none}
+}
+
+/* ==========================================================================
+   Bewegung abschalten
+   Steht absichtlich am Dateiende: Media Queries erhöhen die Spezifität nicht,
+   ein `transition:none` weiter oben verliert also gegen jede gleichrangige
+   Regel weiter unten. Wer „Bewegung reduzieren" im Betriebssystem einschaltet,
+   bekommt dieselbe Seite — nur ohne Fahrt, Blende und Puls.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce){
+  /* Ankersprünge landen sofort statt zu gleiten. */
+  html{scroll-behavior:auto}
+
+  /* Einblendungen beim Scrollen: Inhalt sofort da. */
+  .rv,.rv-in{opacity:1;transform:none;transition:none}
+  .parallax-layer{animation:none !important}
+
+  /* Die Anfrageleiste erscheint weiterhin, aber ohne die 0,35-s-Fahrt. */
+  .sticky-bar{transition:none}
+
+  /* Der Ring am aktiven Hotspot pulsiert endlos. */
+  .hotspot-dot .ring{animation:none}
+
+  /* Auffangnetz für alles Übrige — vor allem den Hero: Kicker, Überschrift,
+     Text und Knöpfe fahren dort gestaffelt mit `animation … both` herein, mit
+     Verzögerungen bis 0,2 s. Ohne den negativen `animation-delay` stünden sie
+     erst leer da und sprängen dann; negativ gesetzt beginnt die Animation
+     bereits hinter ihrem Ende, `both` hält damit sofort den Endzustand.
+     Dauern auf .01ms statt 0: mit 0 feuern `transitionend`-Handler nicht mehr.
+     Solche gibt es hier nicht, aber der Wert kostet nichts. */
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-delay:-1ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
+  }
 }

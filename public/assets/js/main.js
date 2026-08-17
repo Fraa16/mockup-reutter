@@ -369,9 +369,19 @@
 
     zurueck.addEventListener('click', () => geheZu(aktuell - 1));
 
-    weiter.addEventListener('click', () => {
-      if (aktuell < schritte.length) geheZu(aktuell + 1);
-      // Im letzten Schritt ist es wieder ein echter Absendeknopf.
+    weiter.addEventListener('click', (e) => {
+      // Im letzten Schritt ist es ein echter Absendeknopf, dann nichts tun.
+      if (aktuell >= schritte.length) return;
+      /* preventDefault ist hier kein Zierrat: geheZu() setzt weiter.type auf
+         "submit", sobald der letzte Schritt erreicht ist — und zwar noch
+         waehrend dieses Klicks. Die Standardaktion wird erst nach den
+         Zuhoerern ausgewertet, sie sieht also bereits den Absendeknopf und
+         schickt ab. Sichtbar wurde das beim Sprung von Schritt 2 auf 3:
+         der Browser prueft die eben eingeblendeten Pflichtfelder und stellt
+         eine Meldung „Bitte fuellen Sie dieses Feld aus" ueber das Namensfeld,
+         bevor jemand ein Zeichen tippen konnte. */
+      e.preventDefault();
+      geheZu(aktuell + 1);
     });
 
     // Enter in einem Textfeld soll weiterblaettern statt ins Leere zu laufen.
@@ -405,7 +415,37 @@
       }
     }
 
-    if (aktuell === 1) geheZu(1);
+    /* Nach einer abgewiesenen Anfrage stand die Meldung „Bitte tragen Sie Ihren
+       Namen ein" ueber Schritt 1 — das Namensfeld liegt aber in Schritt 3 und
+       war ausgeblendet. Man musste zweimal weiterblaettern, um zu finden, was
+       beanstandet wird.
+
+       Deshalb: zum ersten Schritt springen, in dem etwas fehlt, und das Feld
+       gleich anspringen. Die Meldung oben bleibt stehen, sie hat role="alert"
+       und wird ohnehin vorgelesen. */
+    const ersterFehler = formular.querySelector('.field.has-error, .consent.has-error');
+    if (ersterFehler) {
+      const schritt = Number(ersterFehler.closest('.form-step')?.dataset.step || 0);
+      if (schritt > 0) {
+        geheZu(schritt);
+      }
+      /* Ein Bild spaeter, nicht sofort: die Antwort des Servers traegt
+         #anfrage im Adressfeld, und der Browser setzt den Fokus beim Sprung
+         zum Sprungziel selbst noch einmal — direkt nach DOMContentLoaded
+         gesetzt, landete er wieder auf dem Rumpf.
+         preventScroll, damit die Fehlermeldung oben im Blick bleibt; und nur,
+         wenn niemand schon von Hand irgendwo hineingegangen ist. */
+      const feld = ersterFehler.querySelector('input,select,textarea');
+      if (feld) {
+        requestAnimationFrame(() => {
+          const jetzt = document.activeElement;
+          if (jetzt && jetzt !== document.body && jetzt !== document.documentElement) return;
+          feld.focus({ preventScroll: true });
+        });
+      }
+    } else if (aktuell === 1) {
+      geheZu(1);
+    }
   }
 
   /* ---------------------------------------------------------------------
@@ -421,10 +461,35 @@
   const navToggle = document.getElementById('nav-toggle');
   const mainNav   = document.getElementById('main-nav');
   if (navToggle && mainNav) {
+    /* Was hinter dem offenen Panel liegt, ist verdeckt — also darf es auch
+       nicht bedienbar sein. Vorher lief der Fokus nach dem letzten Menuepunkt
+       einfach in den Seiteninhalt weiter, der unsichtbar dahinter lag, und die
+       Seite scrollte unter dem Panel mit.
+
+       inert nimmt einen Bereich komplett aus Fokus und Vorlesen heraus. Wo es
+       fehlt (aeltere Browser), greift wenigstens die Scrollsperre.
+
+       Nicht einzeln aufgezaehlt, sondern von oben abgeleitet: Bewertungen und
+       Kurzanfrage liegen zwischen </main> und dem Fuss, also in keinem der
+       beiden — eine Liste haette sie stillschweigend uebersprungen, und der
+       Fokus lief zehn Stationen weit hinter das Panel. Ausgenommen bleibt nur,
+       was oberhalb des Panels sichtbar bleibt: Ortsleiste und Kopf. */
+    const oben = [mainNav.closest('.site-header') || mainNav,
+                  document.querySelector('.utility-bar')].filter(Boolean);
+    const dahinter = Array.from(document.body.children).filter((el) =>
+      !['SCRIPT', 'TEMPLATE', 'NOSCRIPT'].includes(el.tagName)
+      && !oben.some((k) => el === k || el.contains(k) || k.contains(el)));
+
     const setzeNav = (offen) => {
       mainNav.classList.toggle('is-open', offen);
       navToggle.setAttribute('aria-expanded', String(offen));
       navToggle.setAttribute('aria-label', offen ? 'Menü schließen' : 'Menü öffnen');
+      document.body.classList.toggle('nav-offen', offen);
+      dahinter.forEach((el) => { el.inert = offen; });
+      // Beim Schliessen zurueck auf den Knopf, sonst landet der Fokus im Nichts.
+      if (!offen && mainNav.contains(document.activeElement)) {
+        navToggle.focus();
+      }
     };
 
     navToggle.addEventListener('click', () => {
@@ -453,15 +518,50 @@
   const stickyBar = document.getElementById('sticky-bar');
   if (stickyBar) {
     const schwelle = Number(stickyBar.dataset.abScroll) || 600;
+
+    /* Waehrend jemand tippt, muss die Leiste weg.
+       Auf dem Handy schiebt die Bildschirmtastatur das Sichtfeld auf rund
+       350 px zusammen. Davon gingen 181 px an fixierte Leisten — mehr als die
+       Haelfte, und das genau in dem Moment, in dem das Feld unter dem Finger
+       sichtbar bleiben muss.
+
+       Nur dort, wo eine Tastatur einfaehrt: am Schreibtisch verdeckt die Leiste
+       nichts, und ein Klick ins Feld wuerde sie ohne Not wegfahren lassen. */
+    const eng  = window.matchMedia('(max-width: 980px)');
+    let   tippt = false;
+
+    /* Der Platzhalter am Fussende muss genau so hoch sein wie die Leiste —
+       die ist je Breite 75, 69 oder 65 px hoch. Gemessen statt im CSS
+       wiederholt, sonst blieben unten 10 px Luft stehen. */
+    const messeHoehe = () => {
+      document.documentElement.style.setProperty('--leiste-hoehe', stickyBar.offsetHeight + 'px');
+    };
+
     const pruefe = () => {
       const y = window.scrollY || document.documentElement.scrollTop;
-      const sichtbar = y > schwelle;
+      const sichtbar = y > schwelle && !(tippt && eng.matches);
       stickyBar.classList.toggle('visible', sichtbar);
       // Die Leiste ist fixiert und wuerde sonst die letzte Fusszeile verdecken.
       // Das CSS macht daraus einen Platzhalter am Ende des Fusses.
       document.body.classList.toggle('sticky-an', sichtbar);
     };
+
+    document.addEventListener('focusin', (e) => {
+      if (e.target.closest('input, select, textarea')) { tippt = true; pruefe(); }
+    });
+    document.addEventListener('focusout', (e) => {
+      if (!e.target.closest('input, select, textarea')) return;
+      // Kurz warten: beim Sprung von einem Feld zum naechsten kaeme die Leiste
+      // sonst zwischen zwei Feldern kurz zurueck und wackelt.
+      setTimeout(() => {
+        tippt = !!document.activeElement?.closest('input, select, textarea');
+        pruefe();
+      }, 120);
+    });
+
     window.addEventListener('scroll', pruefe, { passive: true });
+    window.addEventListener('resize', messeHoehe, { passive: true });
+    messeHoehe();
     pruefe();
   }
 

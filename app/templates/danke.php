@@ -53,4 +53,4 @@ partial('kopf', [
   </div>
 </section>
 
-<?php partial('fuss', ['zeigeFormular' => false]); ?>
+<?php partial('fuss', ['zeigeFormular' => false, 'zeigeLeiste' => false]); ?>
