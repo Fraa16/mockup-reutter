@@ -68,7 +68,9 @@ partial('kopf', [
       <p class="desc"><?= h(get($seite, 'leistungen_sektion.beschreibung')) ?></p>
     </div>
 
-    <div class="hotspot-panel">
+    <?php /* Die Kennung fasst Marker, Chipleiste und Tafeln zusammen — der
+            gemeinsame Umschalter in main.js sucht darin. */ ?>
+    <div class="hotspot-panel" id="hotspot">
       <div class="hotspot-visual">
         <img class="slot-img" src="<?= attr(upload(get($seite, 'leistungen_sektion.bild'))) ?>"
              alt="<?= attr(get($seite, 'leistungen_sektion.bild_alt')) ?>" width="1448" height="1086" loading="lazy">

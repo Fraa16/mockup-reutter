@@ -179,6 +179,15 @@
 }
 
 *{box-sizing:border-box}
+
+/* Das hidden-Attribut ist das Mittel, mit dem JavaScript hier umschaltet.
+   Die Regel des Browsers dafuer ist display:none — die verliert aber gegen
+   jedes display:flex oder display:grid im Stylesheet. Deshalb stand elfmal
+   dieselbe Ausnahme fuer je eine Komponente in der Datei. Einmal fuer alle
+   ist verlaesslicher: wer kuenftig eine Tafel dazubaut, muss nicht daran
+   denken. */
+[hidden]{display:none !important}
+
 html{scroll-behavior:smooth}
 body{
   margin:0;
@@ -225,9 +234,49 @@ img{max-width:100%;display:block}
 .kicker{
   display:flex;align-items:center;gap:11px;margin-bottom:22px;
 }
-.kicker .swash{
-  width:16px;height:8px;background:var(--red);transform:skewX(-20deg);display:inline-block;flex:none;
+/* Kleinbeschriftung — der Kicker über einer Überschrift, das Label über
+   einem Wert, der Titel einer Karte. Achtzehn Stellen haben dieselben drei
+   Eigenschaften neu deklariert; hier stehen sie einmal, die Regeln an ihrem
+   jeweiligen Ort setzen nur noch Farbe und Abstand.
+
+   Bewusst eine Aufzählung statt einer neuen Klasse im Markup: die Templates
+   sind 1:1 aus dem Entwurf gebaut, und eine Umbenennung quer durch sechzehn
+   Dateien wäre Risiko ohne Gegenwert. */
+.contact-list .row .label,
+.panelkarte-kopf .bildunterschrift,
+.tafel-name,
+.preis-kicker,
+.verwandt-kicker,
+.lack-schnitt .schnitt-titel,
+.vorgehen-kicker,
+.ablauf-titel,
+.meta-titel,
+.verzeichnis-titel,
+.weiter-titel,
+.weg-label,
+.karte-titel,
+.galerie-hero-cta .cta-titel,
+.fall-kicker,
+.gilt-titel,
+.kombi-kicker,
+.quellen-label{
+  font:600 11.5px/1 var(--font-body);
+  letter-spacing:.18em;
+  text-transform:uppercase;
 }
+
+/* Der schräge Balken. Er kommt dreiundzwanzig Mal vor und wurde jedes Mal
+   vollständig neu deklariert, obwohl sich meist nur die Größe oder ein
+   Abstand unterschied — eine Variante hatte darüber sogar ihre Größe
+   verloren und war unsichtbar. Hier steht der Grundwert, die Varianten
+   darunter sagen nur noch, was bei ihnen anders ist. */
+.swash{
+  display:inline-block;flex:none;
+  width:12px;height:6px;
+  background:var(--red);
+  transform:skewX(-20deg);
+}
+.kicker .swash{width:16px;height:8px}
 .kicker span.label{
   font:600 12px/1 var(--font-body);letter-spacing:.22em;text-transform:uppercase;color:var(--rot-schrift);
 }
@@ -298,7 +347,6 @@ img{max-width:100%;display:block}
 }
 .utility-bar .left{display:flex;align-items:center;gap:26px}
 .utility-bar .areas{display:flex;align-items:center;gap:9px}
-.utility-bar .areas .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;flex:none}
 .utility-bar .sep{color:var(--gray-500)}
 .utility-bar .right{display:flex;align-items:center;gap:22px}
 .utility-bar .hours{color:var(--gray-150)}
@@ -321,7 +369,7 @@ img{max-width:100%;display:block}
   display:flex;align-items:center;font-family:var(--font-display);font-weight:900;font-style:italic;
   font-size:29px;letter-spacing:-.055em;color:#fff;line-height:1;
 }
-.logo .wordmark .swash{width:15px;height:16px;background:var(--red);transform:skewX(-14deg);display:inline-block;margin:0 3px}
+.logo .wordmark .swash{width:15px;height:16px;transform:skewX(-14deg);margin:0 3px}
 .logo .divider{width:1px;height:26px;background:rgba(255,255,255,.16)}
 .logo .sub{font:600 10.5px/1.35 var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--gray-350)}
 
@@ -417,7 +465,7 @@ img{max-width:100%;display:block}
 }
 .trust-strip .item:first-child{padding-left:0}
 .trust-strip .item:last-child{border-right:0;padding-right:0}
-.trust-strip .item .swash{width:14px;height:7px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none}
+.trust-strip .item .swash{width:14px;height:7px;margin-top:8px}
 .trust-strip .item h3{margin:0;font:700 16px/1.3 var(--font-display);color:var(--black);letter-spacing:-.01em}
 .trust-strip .item p{margin-top:5px;font:400 14.5px/1.5 var(--font-body);color:var(--gray-450)}
 
@@ -492,7 +540,7 @@ img{max-width:100%;display:block}
 .hotspot-detail .bullets li{
   list-style:none;display:flex;align-items:flex-start;gap:14px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.1);
 }
-.hotspot-detail .bullets li .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none}
+.hotspot-detail .bullets li .swash{margin-top:8px}
 .hotspot-detail .bullets li span{font:500 15.5px/1.5 var(--font-body);color:var(--gray-100)}
 .hotspot-detail .cta{margin-top:auto;padding-top:34px;display:flex;align-items:center;gap:18px}
 .hotspot-detail .cta .btn{padding:17px 26px;font-size:13.5px}
@@ -660,7 +708,6 @@ img{max-width:100%;display:block}
 .review-card .stars{color:var(--rot-schrift);font-size:14px;letter-spacing:.1em}
 .review-card p{margin:0;font:400 16.5px/1.62 var(--font-body);color:var(--gray-dark)}
 .review-card .author{margin-top:auto;display:flex;align-items:center;gap:12px;padding-top:6px}
-.review-card .author .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;flex:none}
 .review-card .author .name{font:600 13.5px/1 var(--font-body);color:var(--black)}
 .review-card .author .loc{font:400 13px/1 var(--font-body);color:var(--gray-300)}
 
@@ -678,7 +725,7 @@ img{max-width:100%;display:block}
 
 .contact-list{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,.12)}
 .contact-list .row{padding:18px 0;border-bottom:1px solid rgba(255,255,255,.12)}
-.contact-list .row .label{font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--gray-400);margin-bottom:8px}
+.contact-list .row .label{color:var(--gray-400);margin-bottom:8px}
 .contact-list .row a{font:700 22px/1.2 var(--font-display);letter-spacing:-.01em;color:#fff}
 .contact-list .row a:hover{color:var(--rot-schrift)}
 .contact-list .row.email a{font-size:19px}
@@ -728,7 +775,7 @@ img{max-width:100%;display:block}
   color:var(--gray-150);font:600 14px/1 var(--font-body);letter-spacing:.02em;
   display:flex;align-items:center;gap:9px;transition:background .16s,border-color .16s,color .16s;
 }
-.chip .swash{width:11px;height:6px;background:rgba(255,255,255,.28);transform:skewX(-20deg);display:inline-block;transition:background .16s}
+.chip .swash{width:11px;background:rgba(255,255,255,.28);transition:background .16s}
 .chip.active{background:rgba(216,13,24,.14);border-color:var(--red);color:#fff}
 .chip.active .swash{background:var(--red)}
 
@@ -775,7 +822,7 @@ img{max-width:100%;display:block}
   display:flex;align-items:center;font-family:var(--font-display);font-weight:900;font-style:italic;
   font-size:38px;letter-spacing:-.055em;color:#fff;line-height:1;margin-bottom:20px;
 }
-.footer-brand .wordmark .swash{width:19px;height:20px;background:var(--red);transform:skewX(-14deg);display:inline-block;margin:0 4px}
+.footer-brand .wordmark .swash{width:19px;height:20px;transform:skewX(-14deg);margin:0 4px}
 .footer-brand p{margin:0 0 24px;max-width:340px;font:400 15.5px/1.65 var(--font-body);color:var(--gray-350)}
 .footer-brand .contact{display:flex;flex-direction:column;gap:5px;font:500 15px/1.6 var(--font-body);color:var(--gray-100)}
 .footer-brand .contact a{color:var(--gray-100)}
@@ -804,7 +851,7 @@ img{max-width:100%;display:block}
 .sticky-bar.visible{transform:translateY(0);opacity:1;pointer-events:auto}
 .sticky-bar .wrap{height:74px;display:flex;align-items:center;justify-content:space-between;gap:30px}
 .sticky-bar .info{display:flex;align-items:center;gap:18px}
-.sticky-bar .swash{width:16px;height:8px;background:var(--red);transform:skewX(-20deg);display:inline-block;flex:none}
+.sticky-bar .swash{width:16px;height:8px}
 .sticky-bar .headline{font:700 17px/1.2 var(--font-display);letter-spacing:-.01em;color:#fff}
 .sticky-bar .subline{font:400 14.5px/1.2 var(--font-body);color:var(--gray-350)}
 .sticky-bar .actions{display:flex;align-items:center;gap:12px}
@@ -851,7 +898,6 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
    Hotspot — alle sieben Panels liegen im HTML, nur eines ist sichtbar
    ========================================================================== */
 .hs-panel{display:flex;flex-direction:column;flex:1}
-.hs-panel[hidden]{display:none}
 .hotspot-detail .cta{flex-wrap:wrap}
 .hint-link{
   font:600 13.5px/1.4 var(--font-body);color:var(--gray-150);
@@ -904,7 +950,6 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
    eine Trennung, die der Stepper sonst übernimmt. */
 .form-step{border:0;padding:0;margin:0 0 34px}
 .form-step:last-of-type{margin-bottom:0}
-.form-step[hidden]{display:none}
 
 /* ==========================================================================
    Sub-Hero — Kopf der Unterseiten und der Fehlerseite
@@ -1079,7 +1124,7 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
 .panelkarte-schema{padding:38px 40px;border-right:1px solid rgba(10,11,13,.14)}
 .panelkarte-kopf{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:24px}
 .panelkarte-kopf .bildunterschrift{
-  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--gray-300);
+  color:var(--gray-300);
 }
 .panelkarte-kopf .gesamt{font:600 13px/1 var(--font-body);color:var(--black)}
 
@@ -1102,9 +1147,7 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
 
 .panelkarte-detail{padding:38px 36px;background:#FAFAFB;display:flex;flex-direction:column}
 .panel-tafel{display:flex;flex-direction:column;flex:1}
-.panel-tafel[hidden]{display:none}
 .tafel-name{
-  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
   color:var(--rot-schrift);margin-bottom:16px;
 }
 .tafel-zahl{display:flex;align-items:baseline;gap:10px;margin-bottom:20px}
@@ -1172,7 +1215,6 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
 .preis-karte:first-child{padding-left:0}
 .preis-karte:last-child{padding-right:0;border-right:0}
 .preis-kicker{
-  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
   color:var(--rot-schrift);margin-bottom:12px;
 }
 .preis-titel{font:700 20px/1.25 var(--font-display);letter-spacing:-.018em;color:var(--black)}
@@ -1222,7 +1264,6 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
 }
 .verwandt-karte:hover{border-color:var(--red)}
 .verwandt-kicker{
-  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
   color:var(--rot-schrift);margin-bottom:14px;
 }
 .verwandt-titel{font:700 22px/1.2 var(--font-display);letter-spacing:-.02em;color:var(--black);margin-bottom:10px}
@@ -1271,7 +1312,6 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
   font:600 11.5px/1 var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--gray-400);
 }
 .schnitt-abtrag{font:600 13px/1 var(--font-body);color:var(--rot-schrift)}
-.schnitt-abtrag[hidden]{display:none}
 
 .schichten{position:relative;display:flex;flex-direction:column;gap:3px}
 .schicht{
@@ -1304,7 +1344,6 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
 .schnitt-hinweis{margin:22px 0 0;font:400 15px/1.6 var(--font-body);color:var(--gray-350)}
 
 .stufen-detail{background:#fff;border:1px solid rgba(10,11,13,.12);padding:34px 32px}
-.stufen-tafel[hidden]{display:none}
 .stufen-tafel h3{margin:0 0 14px;font:700 26px/1.18 var(--font-display);letter-spacing:-.022em;color:var(--black)}
 .stufen-tafel p{margin:0 0 24px;font:400 16.5px/1.65 var(--font-body);color:var(--gray-450)}
 
@@ -1412,7 +1451,6 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
 .zone.active .zone-kurz,.zone.active .zone-zeit{color:var(--gray-350)}
 
 .zonen-detail{padding:38px 36px;background:#FAFAFB}
-.zonen-tafel[hidden]{display:none}
 .zonen-tafel h3{margin:0 0 14px;font:700 26px/1.18 var(--font-display);letter-spacing:-.022em;color:var(--black)}
 .zonen-tafel > p{margin:0 0 22px;font:400 16.5px/1.65 var(--font-body);color:var(--gray-450)}
 .zonen-tafel .bullets{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(10,11,13,.13);margin:0 0 24px;padding:0;list-style:none}
@@ -1421,7 +1459,7 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
   border-bottom:1px solid rgba(10,11,13,.13);
   font:500 15.5px/1.5 var(--font-body);color:var(--gray-dark);
 }
-.zonen-tafel .bullets .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none}
+.zonen-tafel .bullets .swash{margin-top:8px}
 /* Die Grenze ist der ehrlichste Teil der Seite und wird deshalb abgesetzt. */
 .zone-grenze{background:#fff;border-left:3px solid var(--red);padding:16px 20px}
 .grenze-titel{
@@ -1513,7 +1551,7 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
 .lack-schnitt{padding:38px 40px;border-right:1px solid rgba(10,11,13,.14)}
 .lack-schnitt .schnitt-titel{
   display:block;margin-bottom:24px;
-  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--gray-350);
+  color:var(--gray-350);
 }
 .lack-schichten{display:flex;flex-direction:column;gap:4px}
 .lack-schicht{
@@ -1548,10 +1586,8 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
 .lack-schnitt .schnitt-hinweis{margin:24px 0 0;font:400 15px/1.6 var(--font-body);color:var(--gray-450)}
 
 .vorgehen{padding:38px 36px;background:#FAFAFB;display:flex;flex-direction:column}
-.vorgehen-tafel[hidden]{display:none}
 .vorgehen-tafel{display:flex;flex-direction:column;flex:1}
 .vorgehen-kicker{
-  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
   color:var(--rot-schrift);margin-bottom:16px;
 }
 .vorgehen-tafel h3{margin:0 0 14px;font:700 25px/1.18 var(--font-display);letter-spacing:-.022em;color:var(--black)}
@@ -1710,7 +1746,6 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
 .grad.active .grad-name{color:#fff}
 
 .grad-panel{border:1px solid rgba(10,11,13,.14);background:#fff}
-.grad-tafel[hidden]{display:none}
 .grad-tafel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px)}
 .grad-ablauf{padding:40px 42px;border-right:1px solid rgba(10,11,13,.14)}
 .grad-ablauf h3{
@@ -1719,7 +1754,6 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
 }
 .grad-ablauf > p{margin:0 0 28px;max-width:640px;font:400 16.5px/1.68 var(--font-body);color:var(--gray-450)}
 .ablauf-titel{
-  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
   color:var(--gray-350);margin-bottom:14px;
 }
 .grad-schritte{margin:0;padding:0;list-style:none;border-top:1px solid rgba(10,11,13,.13)}
@@ -1787,7 +1821,7 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
   border-bottom:1px solid rgba(255,255,255,.13);
   font:500 15.5px/1.5 var(--font-body);color:var(--gray-150);
 }
-.pflege .bullets .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none}
+.pflege .bullets .swash{margin-top:8px}
 
 /* --- FAQ offen in zwei Spalten (statt Aufklapper) ------------------------
    Die Antworten stehen ohne Interaktion im Quelltext — für Antwortboxen in
@@ -1823,7 +1857,6 @@ section[id],[id]{scroll-margin-top:var(--kopf-hoehe)}
 .recht-hero .lead{margin:0;max-width:620px;font:400 17.5px/1.65 var(--font-body);color:var(--gray-200)}
 .recht-meta{border-left:1px solid rgba(255,255,255,.14);padding-left:30px}
 .meta-titel{
-  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
   color:var(--gray-400);margin-bottom:12px;
 }
 .meta-wert{font:700 20px/1.2 var(--font-display);color:#fff}
@@ -1838,14 +1871,13 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 /* Solange Platzhalter in der Seite stehen, sagt das Band es unmissverständlich. */
 .recht-band{background:var(--red)}
 .recht-band .wrap{display:flex;align-items:center;gap:16px;padding-top:20px;padding-bottom:20px}
-.recht-band .swash{width:16px;height:8px;background:#fff;transform:skewX(-20deg);display:inline-block;flex:none}
+.recht-band .swash{width:16px;height:8px;background:#fff}
 .recht-band p{margin:0;font:600 15px/1.4 var(--font-body);color:#fff}
 
 .recht-inhalt{background:#fff;padding:var(--eng-oben) 0 var(--eng-unten)}
 .recht-inhalt .wrap{display:grid;grid-template-columns:300px minmax(0,1fr);gap:80px;align-items:start}
 .recht-verzeichnis{position:sticky;top:calc(var(--kopf-hoehe) + 40px)}
 .verzeichnis-titel{
-  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
   color:var(--rot-schrift);margin-bottom:16px;
 }
 /* Am Schreibtisch steht das Verzeichnis offen in der Spalte — dort waere ein
@@ -1884,13 +1916,13 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   display:flex;align-items:flex-start;gap:13px;
   font:400 16px/1.6 var(--font-body);color:var(--gray-450);
 }
-.abschnitt-liste .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:9px;flex:none}
+.abschnitt-liste .swash{margin-top:9px}
 /* Gestrichelt: hier fehlt bewusst noch etwas. */
 .recht-platzhalter{
   display:flex;align-items:flex-start;gap:14px;margin:0 0 16px;
   border:1px dashed rgba(216,13,24,.45);background:rgba(216,13,24,.04);padding:22px 24px;
 }
-.recht-platzhalter .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none}
+.recht-platzhalter .swash{margin-top:8px}
 .platzhalter-titel{font:600 15px/1.3 var(--font-body);color:var(--black);margin-bottom:6px}
 .recht-platzhalter p{margin:0;font:400 14.5px/1.6 var(--font-body);color:var(--gray-450)}
 
@@ -1913,7 +1945,6 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 .danke-weg:hover{background:#14171B}
 .danke-weg .weg-wert{font-size:19px;text-align:left}
 .weiter-titel{
-  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
   color:var(--gray-400);margin-bottom:14px;
 }
 .weiter-links{display:flex;flex-wrap:wrap;gap:10px}
@@ -1946,7 +1977,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 }
 .kontakt-weg:hover{background:#14171B}
 .weg-label{
-  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--gray-400);
+  color:var(--gray-400);
 }
 .weg-wert{font:700 20px/1 var(--font-display);letter-spacing:-.01em;color:#fff;text-align:right}
 .kontakt-weg:last-child .weg-wert{font-size:17px}
@@ -1963,7 +1994,6 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 .anfrage-seitenspalte{display:flex;flex-direction:column;gap:20px}
 .seiten-karte{border:1px solid rgba(255,255,255,.13);background:var(--black);padding:30px 28px}
 .karte-titel{
-  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
   color:var(--rot-schrift);margin-bottom:18px;
 }
 .karte-weg{
@@ -1971,7 +2001,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   border-top:1px solid rgba(255,255,255,.12);
 }
 .karte-weg:hover{opacity:.75}
-.karte-weg .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none}
+.karte-weg .swash{margin-top:8px}
 .weg-titel{display:block;font:700 17px/1.25 var(--font-display);color:#fff}
 .weg-text{display:block;margin-top:5px;font:400 14.5px/1.5 var(--font-body);color:var(--gray-400)}
 .zeiten-liste{margin:0}
@@ -2005,7 +2035,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   border:1px solid rgba(216,13,24,.35);background:rgba(216,13,24,.05);
   padding:20px 22px;margin-bottom:26px;
 }
-.anfahrt-adresse .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none}
+.anfahrt-adresse .swash{margin-top:8px}
 .adresse-titel{font:700 15px/1.3 var(--font-display);color:var(--black)}
 .anfahrt-adresse address{margin:5px 0 0;font:400 15.5px/1.6 var(--font-body);font-style:normal;color:var(--gray-450)}
 .karte-link{
@@ -2046,7 +2076,6 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 .galerie-hero .lead{margin:0;max-width:640px;font:400 18px/1.68 var(--font-body);color:var(--gray-200)}
 .galerie-hero-cta{border-left:1px solid rgba(255,255,255,.14);padding-left:32px}
 .galerie-hero-cta .cta-titel{
-  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
   color:var(--gray-400);margin-bottom:14px;
 }
 .galerie-hero-cta .btn{justify-content:space-between}
@@ -2065,7 +2094,6 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 .fall.ist-gedreht .fall-text{order:1}
 .fall-bild .ba-frame{height:520px;border:1px solid rgba(255,255,255,.14)}
 .fall-kicker{
-  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
   color:var(--rot-schrift);margin-bottom:16px;
 }
 .fall-text h3{
@@ -2114,7 +2142,6 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   position:relative;overflow:hidden;cursor:pointer;padding:0;border:0;
   background:var(--black);display:block;
 }
-.kachel[hidden]{display:none}
 /* Vergrößern heißt hier: die Kachel belegt vier Felder statt einem. Kein
    Overlay, deshalb bleibt die Seite bedienbar wie vorher. */
 .kachel.ist-gross{grid-column:span 2;grid-row:span 2}
@@ -2127,7 +2154,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   position:absolute;left:16px;bottom:14px;display:flex;align-items:center;gap:9px;pointer-events:none;
   font:600 11px/1 var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:#fff;
 }
-.kachel-kategorie .swash{width:11px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;flex:none}
+.kachel-kategorie .swash{width:11px}
 .kachel-zoom{
   position:absolute;right:14px;top:14px;padding:6px 10px;
   background:rgba(10,11,13,.7);border:1px solid rgba(255,255,255,.18);
@@ -2159,7 +2186,6 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 .hub-hero .lead{margin:0;max-width:660px;font:400 18px/1.68 var(--font-body);color:var(--gray-200)}
 .hub-gilt{border-left:1px solid rgba(255,255,255,.14);padding-left:32px}
 .gilt-titel{
-  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
   color:var(--gray-400);margin-bottom:16px;
 }
 .hub-gilt .bullets{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px}
@@ -2167,7 +2193,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   display:flex;align-items:flex-start;gap:12px;
   font:500 15.5px/1.5 var(--font-body);color:var(--gray-150);
 }
-.hub-gilt .bullets .swash{width:12px;height:6px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:8px;flex:none}
+.hub-gilt .bullets .swash{margin-top:8px}
 
 /* --- Der Index: sechs Zeilen, rechts das mitlaufende Bild ---------------- */
 .hub-index{background:var(--black);padding:0 0 var(--sekt-unten)}
@@ -2215,7 +2241,6 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   background:linear-gradient(180deg,rgba(10,11,13,.25),rgba(10,11,13,.75));
 }
 .vorschau-titel{position:absolute;left:26px;right:26px;bottom:24px;pointer-events:none}
-.vorschau-zeile[hidden]{display:none}
 .vorschau-kicker{
   display:block;margin-bottom:10px;
   font:600 11.5px/1 var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--rot-schrift);
@@ -2235,7 +2260,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   display:flex;flex-direction:column;gap:20px;
 }
 .kombi-kicker{
-  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--rot-schrift);
+  color:var(--rot-schrift);
 }
 .kombi-karte h3{margin:0;font:700 23px/1.2 var(--font-display);letter-spacing:-.02em;color:var(--black)}
 .kombi-karte p{margin:0;font:400 16px/1.6 var(--font-body);color:var(--gray-450)}
@@ -2307,12 +2332,11 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 
 /* Die Tafel schließt oben bündig an die Chipreihe an. */
 .quellen-panel{border:1px solid rgba(10,11,13,.14);background:#fff;margin-top:-1px}
-.quellen-tafel[hidden]{display:none}
 .quellen-tafel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px)}
 .quellen-haupt{padding:40px 42px;border-right:1px solid rgba(10,11,13,.14)}
 .quellen-kopf{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:22px}
 .quellen-label{
-  font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--gray-350);
+  color:var(--gray-350);
 }
 .quellen-urteil{
   padding:7px 13px;background:var(--red);
@@ -2396,7 +2420,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   display:flex;align-items:flex-start;gap:16px;margin:0;
   background:#fff;border-left:3px solid var(--red);padding:24px 26px;
 }
-.beleg-hinweis .swash{width:14px;height:7px;background:var(--red);transform:skewX(-20deg);display:inline-block;margin-top:9px;flex:none}
+.beleg-hinweis .swash{width:14px;height:7px;margin-top:9px}
 .beleg-hinweis span:not(.swash){max-width:900px;font:400 16.5px/1.65 var(--font-body);color:#41474F}
 
 /* --- Heller Vergleich (Lackierarbeiten) ---------------------------------- */
