@@ -303,29 +303,11 @@ partial('kopf', [
       </div>
     </div>
 
-    <div class="reviews-head">
-      <h3><?= h(get($s, 'bewertungen.titel', 'Was Kunden schreiben')) ?></h3>
-      <div class="rating">
-        <span class="stars" aria-hidden="true">★★★★★</span>
-        <span class="count"><?= h($kennzahl('google_bewertung')) ?> auf Google · <?= h($kennzahl('google_anzahl')) ?> Bewertungen</span>
-      </div>
-    </div>
-    <div class="review-grid">
-      <?php /* Bewertungen sind Stammdaten — der geteilte Fuss zeigt sie auf allen
-              anderen Seiten. Hier stehen sie im Abschnitt "Betrieb", deshalb ist
-              der Block im Fuss unterdrueckt. */ ?>
-      <?php foreach (get($s, 'bewertungen.eintraege', []) as $r): ?>
-      <div class="review-card rv">
-        <span class="stars" aria-hidden="true">★★★★★</span>
-        <p>„<?= h($r['text']) ?>"</p>
-        <div class="author">
-          <?= swash() ?>
-          <span class="name"><?= h($r['name']) ?></span>
-          <span class="loc">· <?= h($r['ort']) ?></span>
-        </div>
-      </div>
-      <?php endforeach; ?>
-    </div>
+    <?php /* Bewertungen sind Stammdaten — der geteilte Fuss zeigt sie auf allen
+            anderen Seiten. Hier stehen sie im Abschnitt „Betrieb", der seine h2
+            schon hat, deshalb eine Ebene tiefer; und deshalb ist der Block im
+            Fuss auf dieser Seite unterdrueckt. */ ?>
+    <?php partial('bewertungen', ['ebene' => 'h3']); ?>
   </div>
 </section>
 

@@ -17,7 +17,6 @@ $zeigeBewertungen = $zeigeBewertungen ?? true;
 $zeigeFormular    = $zeigeFormular    ?? true;
 $ctaUeberschrift  = $ctaUeberschrift  ?? 'Sagen Sie uns, was ansteht.';
 
-$kennzahl = static fn (string $k): string => (string) get(site(), "kennzahlen.$k.wert", '');
 ?>
 </main>
 
@@ -25,26 +24,7 @@ $kennzahl = static fn (string $k): string => (string) get(site(), "kennzahlen.$k
 <!-- Bewertungen -->
 <section class="reviews-section">
   <div class="wrap">
-    <div class="reviews-head">
-      <h2><?= h(get($s, 'bewertungen.titel', 'Was Kunden schreiben')) ?></h2>
-      <div class="rating">
-        <span class="stars" aria-hidden="true">★★★★★</span>
-        <span class="count"><?= h($kennzahl('google_bewertung')) ?> auf Google · <?= h($kennzahl('google_anzahl')) ?> Bewertungen</span>
-      </div>
-    </div>
-    <div class="review-grid">
-      <?php foreach (get($s, 'bewertungen.eintraege', []) as $r): ?>
-      <div class="review-card rv">
-        <span class="stars" aria-hidden="true">★★★★★</span>
-        <p>„<?= h($r['text']) ?>"</p>
-        <div class="author">
-          <?= swash() ?>
-          <span class="name"><?= h($r['name']) ?></span>
-          <span class="loc">· <?= h($r['ort']) ?></span>
-        </div>
-      </div>
-      <?php endforeach; ?>
-    </div>
+    <?php partial('bewertungen', ['ebene' => 'h2']); ?>
   </div>
 </section>
 <?php endif; ?>

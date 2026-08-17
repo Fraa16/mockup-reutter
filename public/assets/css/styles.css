@@ -699,6 +699,13 @@ img{max-width:100%;display:block}
 .reviews-head .rating{display:flex;align-items:center;gap:12px}
 .reviews-head .stars{color:var(--rot-schrift);font-size:15px;letter-spacing:.08em}
 .reviews-head .count{font:600 14px/1 var(--font-body);color:var(--gray-450)}
+/* Als Link bleibt die Zeile optisch dieselbe — nur unterstrichen, damit man
+   sieht, dass sie zum Profil führt. */
+a.count{
+  display:inline-flex;align-items:center;gap:6px;
+  border-bottom:1px solid rgba(10,11,13,.28);padding-bottom:3px;
+}
+a.count:hover{color:var(--rot-schrift);border-color:var(--red)}
 
 .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .review-card{
@@ -3023,7 +3030,8 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   .kurzanfrage-links a,
   .brotkrumen a,
   .contact-list .row a,
-  .weiter-links a{min-height:44px;display:inline-flex;align-items:center}
+  .weiter-links a,
+  a.count{min-height:44px;display:inline-flex;align-items:center}
 
   /* Fusszeile: die Zeilen ruecken auseinander, statt dass sich
      Trefferflaechen ueberlappen — daneben getippt ist schlimmer als klein. */
