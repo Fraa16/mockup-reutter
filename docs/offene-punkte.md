@@ -232,29 +232,27 @@ statt sie über das Panel hochzuladen, muss danach einmal
 ausführen und das Ergebnis mitcommitten. Über das Panel hochgeladene Bilder
 erzeugen ihre Fassungen automatisch.
 
-### Panel-Zugang der Vorschau vor dem Livegang entfernen
+### Panel auf der Vorschau: Zugang bei Bedarf wieder anlegen
 
-**`data/vorschau-zugang.php` muss vor dem Livegang gelöscht werden.**
+Der Redaktionsbereich ist auf der Vorschau erreichbar (`/admin/`), hat dort aber
+**derzeit keinen Zugang** — die Anmeldemaske sagt das auch. So bleibt es, bis er
+gebraucht wird.
 
-Damit das Panel auf der Vercel-Vorschau angesehen werden kann, sucht
-`auth_benutzer()` den Zugang in dieser Reihenfolge:
+`auth_benutzer()` sucht den Zugang in dieser Reihenfolge:
 
-1. `data/users.php` — der Normalfall, angelegt über `php bin/passwort-setzen.php`,
-   nicht im Repository.
+1. `data/users.php` — der Normalfall auf dem echten Server, angelegt über
+   `php bin/passwort-setzen.php`, nicht im Repository.
 2. Die Umgebungsvariablen `PANEL_BENUTZER` und `PANEL_PASSWORT_HASH`
-   (bcrypt-Hash, kein Klartext).
-3. `data/vorschau-zugang.php` — liegt im Repository und wird **nur auf einem
-   Host ohne beschreibbares `data/`** gelesen.
+   (bcrypt-Hash, kein Klartext). Achtung: bei Vercel sind sie an eine Umgebung
+   gebunden (Production / Preview / Development) und greifen erst ab dem
+   nächsten Deployment.
+3. `data/vorschau-zugang.php` — dieselbe Struktur wie `users.php`, liegt im
+   Repository. Wird **nur auf einem Host ohne beschreibbares `data/`** gelesen;
+   auf dem richtigen Hosting also nie, auch dann nicht, wenn `users.php` fehlt.
 
-Der dritte Schritt existiert, weil Umgebungsvariablen bei Vercel an eine
-Umgebung gebunden sind (Production / Preview / Development) und erst ab dem
-nächsten Deployment greifen — zwei Fallstricke, die man der Oberfläche nicht
-ansieht.
-
-Auf dem richtigen Hosting ist `data/` beschreibbar, dort wird die Datei nie
-angefasst — auch dann nicht, wenn `users.php` noch fehlt. Der Vorschau-Zugang
-kann also nicht versehentlich auf der echten Domain gelten. Gelöscht gehört er
-trotzdem, sobald die Vorschau nicht mehr gebraucht wird.
+**Für einen Kundentermin** ist Weg 3 der bequemste: Datei anlegen, Hash über
+`php -r "echo password_hash('…', PASSWORD_BCRYPT, ['cost' => 12]);"` erzeugen,
+committen. Danach wieder löschen.
 
 Zu wissen: gespeichert wird auf der Vorschau nichts (schreibgeschütztes
 Dateisystem, das Panel sagt es auch), die Bremse gegen Durchprobieren von
