@@ -7,8 +7,11 @@
 
    Es werden nur die Schnitte ausgeliefert, die das Design wirklich benutzt:
    Barlow 400/500/600 für Fließtext, Saira 700/800 für Überschriften und
-   Buttons, Saira 900 kursiv ausschließlich für die Wortmarke — letztere auf
-   A-Z subgesetzt (2,3 KB statt 26,6 KB).
+   Buttons.
+
+   Der Schnitt Saira 900 kursiv ist entfallen: er wurde ausschließlich für die
+   nachgebaute Wortmarke geladen, und die ist seit dem Vorliegen des echten
+   Logos ein Bild. Ein Schriftschnitt weniger im Kopf jeder Seite.
    ========================================================================== */
 @font-face{
   font-family: 'Barlow';
@@ -89,13 +92,6 @@
   font-display: swap;
   src: url('../fonts/saira-800-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face{
-  font-family: 'Saira';
-  font-style: italic;
-  font-weight: 900;
-  font-display: swap;
-  src: url('../fonts/saira-900-italic-wordmark.woff2') format('woff2');
 }
 
 /* ==========================================================================
@@ -365,11 +361,12 @@ img{max-width:100%;display:block}
   height:82px;display:flex;align-items:center;justify-content:space-between;
 }
 .logo{display:flex;align-items:center;gap:14px;text-decoration:none}
-.logo .wordmark{
-  display:flex;align-items:center;font-family:var(--font-display);font-weight:900;font-style:italic;
-  font-size:29px;letter-spacing:-.055em;color:#fff;line-height:1;
-}
-.logo .wordmark .swash{width:15px;height:16px;transform:skewX(-14deg);margin:0 3px}
+/* Die echte Wortmarke als Bild. Hoehe steuert, Breite folgt — so bleibt
+   das Seitenverhaeltnis der Vorlage erhalten, egal was der Kunde spaeter
+   austauscht. Die Vorlage ist doppelt so gross wie die Darstellung, damit sie
+   auf dichten Bildschirmen scharf bleibt. */
+.logo-bild{display:block;height:26px;width:auto}
+.logo-bild.ist-gross{height:44px;margin-bottom:20px}
 .logo .divider{width:1px;height:26px;background:rgba(255,255,255,.16)}
 .logo .sub{font:600 10.5px/1.35 var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--gray-350)}
 
@@ -825,11 +822,7 @@ a.count:hover{color:var(--rot-schrift);border-color:var(--red)}
    ========================================================================== */
 .site-footer{background:var(--off-black);padding:76px 0 0;border-top:1px solid rgba(255,255,255,.1)}
 .footer-grid{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr));gap:56px;padding-bottom:60px}
-.footer-brand .wordmark{
-  display:flex;align-items:center;font-family:var(--font-display);font-weight:900;font-style:italic;
-  font-size:38px;letter-spacing:-.055em;color:#fff;line-height:1;margin-bottom:20px;
-}
-.footer-brand .wordmark .swash{width:19px;height:20px;transform:skewX(-14deg);margin:0 4px}
+
 .footer-brand p{margin:0 0 24px;max-width:340px;font:400 15.5px/1.65 var(--font-body);color:var(--gray-350)}
 .footer-brand .contact{display:flex;flex-direction:column;gap:5px;font:500 15px/1.6 var(--font-body);color:var(--gray-100)}
 .footer-brand .contact a{color:var(--gray-100)}
@@ -2490,6 +2483,12 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   .main-nav .btn{margin-top:16px;justify-content:center;padding:16px 24px}
   .site-header .wrap{height:70px}
 
+  /* Das echte Logo ist breiter als die nachgebaute Wortmarke davor — bei
+     390 px stiess „Fahrzeugpflege" sonst in den Menueknopf. Auf 21 px Hoehe
+     traegt es genauso gross wie vorher, weil der Ausschnitt fast nur aus den
+     Buchstaben besteht. */
+  .logo-bild{height:21px}
+
   /* Utility bar: drop the secondary copy, keep location + phone. */
   .utility-bar .left .sep,
   .utility-bar .left span:last-child,
@@ -3064,3 +3063,14 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 }
 .raster-leer p{margin:0;font:400 16.5px/1.6 var(--font-body);color:var(--gray-450)}
 .raster-leer .btn{margin-top:24px}
+
+/* ==========================================================================
+   Sehr schmale Geräte
+   Auf 360 px (viele Android-Geräte, iPhone SE) stossen Logo, Deskriptor und
+   Menüknopf aneinander. Das Logo trägt „REUTTER" selbst — der Zusatz daneben
+   ist dort der verzichtbare Teil, nicht die Marke.
+   ========================================================================== */
+@media (max-width: 400px){
+  .logo .divider,
+  .logo .sub{display:none}
+}

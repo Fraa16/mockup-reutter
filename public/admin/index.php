@@ -51,7 +51,7 @@ $angemeldet = auth_angemeldet();
 
   <main class="login-karte">
     <div class="marke">
-      <span class="wortmarke"><span>REU</span><span>T</span><i></i><span>T</span><span>ER</span></span>
+      <img class="wortmarke" src="/assets/logo/reutter-wortmarke-weiss.webp" alt="Fahrzeugpflege Reutter" width="527" height="56">
       <span class="sub">Inhalte pflegen</span>
     </div>
 
@@ -103,7 +103,7 @@ $angemeldet = auth_angemeldet();
 
   <header class="kopf">
     <div class="marke">
-      <span class="wortmarke"><span>REU</span><span>T</span><i></i><span>T</span><span>ER</span></span>
+      <img class="wortmarke" src="/assets/logo/reutter-wortmarke-weiss.webp" alt="Fahrzeugpflege Reutter" width="527" height="56">
       <span class="sub">Inhalte pflegen</span>
     </div>
     <div class="kopf-rechts">

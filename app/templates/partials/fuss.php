@@ -38,7 +38,10 @@ $ctaUeberschrift  = $ctaUeberschrift  ?? 'Sagen Sie uns, was ansteht.';
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <span class="wordmark"><span>REU</span><span>T</span><?= swash() ?><span>T</span><span>ER</span></span>
+        <?php /* Im Fuss ist Platz — hier steht das vollständige Logo mit den
+                Karosserielinien, nicht nur die Buchstaben. */ ?>
+        <img class="logo-bild ist-gross" src="<?= attr(asset('logo/reutter-weiss.webp')) ?>"
+             alt="Fahrzeugpflege Reutter" width="934" height="107" loading="lazy">
         <p><?= h(get($s, 'footer.beschreibung')) ?></p>
         <div class="contact">
           <span>Telefon <?= h(get($s, 'kontakt.telefon')) ?></span>

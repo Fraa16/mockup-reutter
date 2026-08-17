@@ -102,8 +102,19 @@ $lcp_sizes    = $lcp_sizes    ?? null;
 <!-- Header -->
 <header class="site-header">
   <div class="wrap">
+    <?php /* Bis zum zweiten Design-Bundle war die Wortmarke aus HTML nachgebaut,
+            weil das Logo nur als Rastergrafik vorlag. Jetzt steht die echte
+            Marke da — beschnitten auf die Buchstaben, weil die feinen
+            Karosserielinien des Originals bei 26 px Höhe nur Platz kosten und
+            als Halbpixel ohnehin verschwinden.
+
+            Vorlage ist 527 × 56 px, dargestellt wird sie halb so groß. Damit
+            bleibt sie auch auf Bildschirmen mit doppelter Pixeldichte scharf.
+            Der Alternativtext bleibt leer: der Link daneben trägt bereits ein
+            aria-label, sonst würde alles doppelt vorgelesen. */ ?>
     <a href="/" class="logo" aria-label="<?= attr(get($s, 'firma.name')) ?> — zur Startseite">
-      <span class="wordmark"><span>REU</span><span>T</span><?= swash() ?><span>T</span><span>ER</span></span>
+      <img class="logo-bild" src="<?= attr(asset('logo/reutter-wortmarke-weiss.webp')) ?>"
+           alt="" width="527" height="56" fetchpriority="high">
       <span class="divider"></span>
       <span class="sub">Fahrzeug<br>pflege</span>
     </a>

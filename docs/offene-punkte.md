@@ -63,11 +63,34 @@ Bewertungen fallen unter § 5b UWG.
 Bei 281 echten Rezensionen ist das in fünf Minuten erledigt: aus dem
 Google-Profil kopieren, jeweils mit Namensinitial und Ort.
 
-### 4. Logo als SVG
+### 4. Logo als echte Vektordatei
 
-Die Wortmarke ist derzeit aus HTML-Elementen nachgebaut. Für saubere Darstellung
-in jeder Größe, für das Favicon und für die Social-Media-Vorschau wird die
-Originaldatei gebraucht — SVG, EPS oder AI.
+**Teilweise erledigt.** Das gelieferte Logo steht seit dem 17.08. im Kopfbereich,
+im Fußbereich und im Panel. Es reicht für die Bildschirmgrößen, in denen es dort
+vorkommt — nicht mehr.
+
+Was geliefert wurde, war nämlich **kein Vektor**: Die Datei `logo.svg` enthält
+ein einzelnes eingebettetes JPEG von 934 × 107 px, kein einziger Buchstabe ist
+ein Vektorpfad. Der Rahmen skaliert es auf 2000 px, deshalb wirkte die „SVG"
+unschärfer als die JPG — dieselben Pixel, weiter auseinandergezogen.
+
+Verwendbar ist es damit bis etwa 250 px Breite (Kopfbereich) beziehungsweise
+380 px (Fußbereich), auch auf Bildschirmen mit doppelter Pixeldichte. Darüber
+wird es weich.
+
+**Gebraucht wird weiterhin die echte Vektordatei — AI, EPS, PDF oder CDR.** Die
+existiert mit hoher Wahrscheinlichkeit: der Betrieb macht Fahrzeugbeklebung, und
+ein Schneidplotter braucht Vektorpfade. Wer die Fahrzeuge oder Schilder
+beschriftet hat, hat die Datei.
+
+> Selbst prüfen: die `.svg` in einem Texteditor öffnen. Steht dort
+> `<image … base64`, ist es eine Attrappe. Eine echte enthält viele
+> `<path>`-Zeilen.
+
+Erst damit sind möglich: ein Favicon aus der Wortmarke (derzeit das rote
+Parallelogramm als Übergangslösung — für 64 × 64 px ohnehin die bessere Wahl,
+ein 9:1 breiter Schriftzug ist dort nicht lesbar), eine Social-Media-Vorschau
+mit Logo, und jede Verwendung im Druck.
 
 ---
 
