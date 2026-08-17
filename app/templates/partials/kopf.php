@@ -53,11 +53,15 @@ $lcp_sizes    = $lcp_sizes    ?? null;
      nicht geraten wird. */
   $kanonisch = absolut(seo_pfad());
   $ogBild    = seo_vorschaubild($og_bild ?? null);
+  $keinIndex = ($kein_index ?? false) || !seo_indexierbar();
 ?>
+<?php if (!($kein_index ?? false)): ?>
 <link rel="canonical" href="<?= attr($kanonisch) ?>">
-<?php if (!seo_indexierbar()): ?>
-<?php /* Vorschau auf Vercel oder lokal — die soll nicht in den Index. Sobald
-        die echte Domain hierher zeigt, faellt diese Zeile von selbst weg. */ ?>
+<?php endif; ?>
+<?php if ($keinIndex): ?>
+<?php /* Fehlerseite, Vorschau auf Vercel oder lokal — nichts davon gehoert in
+        den Index. Sobald die echte Domain hierher zeigt, faellt die Zeile fuer
+        die Vorschau von selbst weg. */ ?>
 <meta name="robots" content="noindex, nofollow">
 <?php endif; ?>
 

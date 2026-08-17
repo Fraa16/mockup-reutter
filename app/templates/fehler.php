@@ -9,6 +9,9 @@
 partial('kopf', [
     'titel'        => $titel . ' — ' . get(site(), 'firma.name'),
     'beschreibung' => 'Diese Seite existiert nicht.',
+    // Eine Adresse, die es nicht gibt, soll sich nicht selbst als kanonisch
+    // ausgeben und nicht in den Index.
+    'kein_index'   => true,
 ]);
 ?>
 <section class="sub-hero">

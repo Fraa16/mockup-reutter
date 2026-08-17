@@ -199,3 +199,57 @@ eine laufende Rechnungsposition weniger.
 | SFTP-/SSH-Zugang, auf `/neu` beschränkt | Deployment |
 | Postfach `website@clean-box.eu` | Formularversand, damit `info@` unangetastet bleibt |
 | Entscheidung zur Domain | `clean-box.eu` behalten oder `fahrzeugpflege-reutter.de` registrieren |
+
+---
+
+## Nach dem Optimierungsdurchgang neu dazugekommen
+
+### SMTP-Zugangsdaten eintragen
+
+Das Anfrageformular verarbeitet, legt ab und verschickt. Der Versand braucht
+eine Datei `app/config/zugangsdaten.php` (nicht im Git, Vorlage siehe
+`app/lib/mail.php`) mit Host, Port, Benutzer, Passwort und Absender des
+Postfachs `website@clean-box.eu`.
+
+Solange sie fehlt, geht **keine Anfrage verloren**: jede liegt als JSON unter
+`data/anfragen/` und steht im Panel unter *Posteingang*. Der Absender bekommt
+dann allerdings keine Eingangsbestätigung, und niemand wird per Mail
+benachrichtigt — es muss also jemand ins Panel schauen.
+
+Auf Vercel funktioniert die Ablage nicht: das Dateisystem ist dort
+schreibgeschützt. Die Vorschau kann Anfragen entgegennehmen und anzeigen, dass
+es geklappt hat, speichert sie aber nicht. **Vor dem Livegang auf einem echten
+Server mit Schreibrechten prüfen.**
+
+### Verkleinerte Bildfassungen mitliefern
+
+`public/uploads/cache/` liegt jetzt im Repository — auf einem serverlosen Host
+kann zur Laufzeit nichts erzeugt werden. Wer Bilder direkt in den Ordner legt,
+statt sie über das Panel hochzuladen, muss danach einmal
+
+    php bin/ableitungen.php
+
+ausführen und das Ergebnis mitcommitten. Über das Panel hochgeladene Bilder
+erzeugen ihre Fassungen automatisch.
+
+### Domain entscheiden — sonst bleibt die Seite unsichtbar
+
+Die Seite trägt `noindex`, solange sie unter einer `*.vercel.app`-Adresse
+läuft, damit die Vorschau nicht neben der echten Domain im Index landet.
+Sobald die endgültige Domain hierher zeigt, fällt das automatisch weg — es ist
+keine Einstellung zu ändern. Die Entscheidung `clean-box.eu` oder
+`fahrzeugpflege-reutter.de` steht aber weiterhin aus.
+
+### Bewertungen bewusst nicht ausgezeichnet
+
+Die strukturierten Daten enthalten **kein** `aggregateRating`. Die 5,0 aus 281
+Bewertungen sind belegt, stammen aber aus dem Google-Unternehmensprofil.
+Bewertungen einer fremden Plattform im eigenen Markup auszuzeichnen
+widerspricht Googles Richtlinien für strukturierte Daten und kann eine manuelle
+Maßnahme auslösen. Google kennt die Bewertung ohnehin — sie kommt aus dem
+eigenen Profil, das auf der Seite verlinkt ist.
+
+Wenn Bewertungen als Sternchen im Suchergebnis erscheinen sollen, müsste der
+Betrieb sie **selbst** einsammeln (etwa über ein Formular nach der Abholung)
+und auf der Website veröffentlichen. Das ist ein eigenes Vorhaben, kein
+Markup-Detail.
