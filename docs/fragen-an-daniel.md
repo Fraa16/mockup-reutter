@@ -225,6 +225,73 @@ Speicherdauer der Logfiles · Aufbewahrungsfrist für Anfragen ohne Auftrag
 
 ---
 
+## E · Nachtrag aus der Suchbegriffs-Recherche (18.08.)
+
+Vier Punkte, die beim Blick auf den Markt aufgetaucht sind. Herleitung steht in
+`docs/suchbegriffe.md`.
+
+### E1 — Es gibt drei Websites, nicht eine
+
+Neben `clean-box.eu` sind zwei weitere Seiten des Betriebs in Google auffindbar:
+
+- **`stuttgart-hagelschaden.de`** — vollständige Seite mit Startseite,
+  Dellenbeseitigung, Ozonbehandlung, Galerie, Impressum
+- **`stuttgart-dellendoktor.de`** — vollständige Seite mit Bildergalerie und
+  Anfahrt
+
+Beide sind Exact-Match-Domains auf genau die Begriffe, um die es geht.
+
+**→ Gehören ihm beide Domains? Laufen die Verträge? Hat er die Zugangsdaten?**
+
+> Warum das drängt: Ohne die Zugänge lassen sich keine Weiterleitungen
+> einrichten, und die gewachsene Sichtbarkeit von zwei Domains ist beim
+> Umschalten weg. Domainzugänge wiederzubeschaffen dauert am längsten von allem
+> hier — deshalb zuerst fragen.
+
+Das ändert auch die Domainfrage aus Block D. Sie lautet nicht mehr „`clean-box.eu`
+behalten oder neu registrieren", sondern: **welche der drei wird die Hauptdomain,
+und werden die anderen beiden seitengenau darauf weitergeleitet?**
+
+### E2 — Ab-Preise je Leistung
+
+Die mit Abstand häufigste Frage im Netz ist „was kostet das". Der Wettbewerb
+beantwortet sie mit Zahlen — „ab 119,90 €", „Parkdellen ab 49 €". Unsere Seiten
+sagen überall „Festpreis nach Begutachtung". Das stimmt, beantwortet die Frage
+aber nicht.
+
+**→ Eine belastbare Ab-Zahl je Bereich:**
+
+| | ab … € |
+|---|---|
+| Parkdelle, einzeln | |
+| Hagelschaden | |
+| Lackaufbereitung / Politur | |
+| Innenraumaufbereitung | |
+| Lederreparatur | |
+| Ozonbehandlung | |
+
+### E3 — „Smart Repair" und „Dellendoktor"
+
+Sein Google-Profil heißt „Smartrepair Reutter", der Verzeichniseintrag
+„Fahrzeugpflege / Dellendoktor / Smartrepair Reutter". **Auf der neuen Website
+kommt keiner der beiden Begriffe vor** — obwohl beide im Markt fest etabliert
+sind und die Altseiten sie führen.
+
+**→ Versteht er unter „Smart Repair" dasselbe wie der Markt (Dellen, Kratzer,
+Lack, Kunststoff, Innenraum ohne Teiletausch), und will er so gefunden werden?**
+
+### E4 — Ozon: die Frage aus B2, geschärft
+
+Im Markt gilt: Behandlung je nach Intensität vier bis vierundzwanzig Stunden,
+danach etwa eine Stunde, bis das Ozon zerfallen ist, dann lüften. Die „60
+Minuten" von unserer Startseite entsprechen in mehreren Quellen der **Laufzeit
+des Geräts** — nicht der Zeit bis zur Rückgabe.
+
+**→ Wie lange läuft bei ihm das Gerät — und wie lange steht das Fahrzeug
+insgesamt, bis der Kunde es wiederbekommt?**
+
+---
+
 ## Kurzfassung für unterwegs
 
 Wenn nur fünf Minuten bleiben, sind das die fünf Fragen:
@@ -234,3 +301,5 @@ Wenn nur fünf Minuten bleiben, sind das die fünf Fragen:
 3. **25 Jahre** — stimmt die Zahl?
 4. **Handwerksrolle** — eingetragen oder nicht?
 5. **Logo** — wer hat die Fahrzeugbeschriftung gemacht?
+6. **Domains** — gehören ihm `stuttgart-hagelschaden.de` und
+   `stuttgart-dellendoktor.de`, und hat er die Zugänge? (E1)
