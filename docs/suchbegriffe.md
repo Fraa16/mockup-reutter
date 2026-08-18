@@ -22,40 +22,11 @@ fremder Domains. Alles unten stammt aus Titeln und Beschreibungen in den
 Suchergebnissen. Für die Frage „welcher Begriff wird im Markt verwendet" reicht
 das; für „wie ist die Seite intern aufgebaut" nicht.
 
----
-
-## 0 · Der wichtigste Fund: Es gibt drei Domains, nicht eine
-
-Das war nicht Teil des Auftrags, ist aber der Punkt mit der größten Wirkung.
-Neben `clean-box.eu` betreibt der Betrieb **zwei weitere, in Google
-auffindbare Websites**:
-
-| Domain | Zustand laut Trefferliste |
-|---|---|
-| `clean-box.eu` | die heutige Seite, die wir ersetzen |
-| `stuttgart-hagelschaden.de` | vollständige Seite: Startseite, `dellenbeseitigung_hagelschaden.html`, `ozonbehandlung.html`, `gallerie.html`, `impressum.html` |
-| `stuttgart-dellendoktor.de` | vollständige Seite: `dellendoktor--hagelschaden.html`, Bildergalerie, Kontakt und Anfahrt |
-
-Zwei davon sind **Exact-Match-Domains auf genau die Begriffe, um die es geht** —
-„Stuttgart Hagelschaden" und „Stuttgart Dellendoktor". Beide sind indexiert.
-
-Damit ändert sich die Domainfrage aus Block D grundlegend. Sie lautete: „`clean-box.eu`
-behalten oder `fahrzeugpflege-reutter.de` registrieren". Richtig lautet sie:
-
-> **Was passiert mit drei gewachsenen Domains, wenn eine neue Seite live geht?**
-
-Wer hier einfach eine vierte Domain aufsetzt, wirft die Historie und die
-eingehenden Verweise von dreien weg. Die saubere Lösung ist eine Hauptdomain
-plus **301-Weiterleitungen** von den anderen beiden, seitengenau — nicht
-pauschal auf die Startseite, sonst wertet Google sie als „soft 404".
-
-Und die Titel der Altseiten sind aufschlussreich:
-
-> „Fahrzeugpflege Reutter – Dellendoktor – Hagelschaden Reparatur und
-> Auto-Aufbereitung **im Raum Stuttgart**"
-
-**Die alten Seiten setzen den Ortsanker auf Stuttgart. Unsere neue setzt ihn auf
-Korntal.** Das ist ein Rückschritt gegenüber dem, was schon da ist.
+> **Und daraus folgt eine dritte, die ich in der ersten Fassung übersehen
+> hatte:** Ein Suchtreffer belegt, dass eine Seite **einmal** existiert hat —
+> nicht, dass sie **heute** erreichbar ist. Suchindizes und Branchenverzeichnisse
+> führen abgeschaltete Seiten noch lange weiter. Wo unten von fremden Seiten die
+> Rede ist, ist das eine Aussage über den Index, nicht über den Livezustand.
 
 ---
 
@@ -69,9 +40,15 @@ Beobachtet:
   wenn sie gar nicht dort sitzen: Anbieter aus Backnang, Ostfildern, Fellbach
   und Esslingen tun es. Der Ortsanker richtet sich nach dem gesuchten Markt,
   nicht nach der Meldeadresse.
-- **Reutters eigene Altseiten machen es ebenso** („im Raum Stuttgart").
+- **Reutters frühere Seiten machten es ebenso** („im Raum Stuttgart") — die
+  sind allerdings abgeschaltet, der Titel stammt aus dem Suchindex. Zählt daher
+  als Randnotiz, nicht als Beleg; siehe unten.
 - Korntal-Münchingen hat rund 19 000 Einwohner. Stuttgart rund 600 000, dazu
   Ludwigsburg, Gerlingen, Ditzingen, Leonberg, Weilimdorf im Einzugsgebiet.
+
+Die Empfehlung steht damit auf den beiden ersten Punkten — Wettbewerbertitel und
+Einwohnerzahlen. Beide sind unabhängig davon, was mit den alten Seiten passiert
+ist.
 
 Konkret: **„Stuttgart" in Titel und Kicker, „Korntal-Münchingen" in Beschreibung,
 Adressblock und strukturierten Daten.** Der Standort verschwindet nicht — er
@@ -93,6 +70,43 @@ wenn Daniels Fotos da sind.
 **Der stärkere lokale Hebel liegt ohnehin außerhalb der Website:** das
 Google-Unternehmensprofil (Frage A4) und die Verzeichniseinträge — siehe
 Abschnitt F.
+
+---
+
+## A2 · Zwei abgeschaltete Vorgängerseiten
+
+Bei der Recherche tauchten zwei weitere Domains des Betriebs in den
+Trefferlisten auf: `stuttgart-hagelschaden.de` mit Startseite,
+Dellenbeseitigung, Ozonbehandlung, Galerie und Impressum, sowie
+`stuttgart-dellendoktor.de` mit Bildergalerie und Anfahrt.
+
+**Beide sind nicht mehr erreichbar.** Nachgemessen:
+
+| Domain | Auflösung |
+|---|---|
+| `clean-box.eu` | löst auf → IONOS |
+| `stuttgart-hagelschaden.de` | **löst nicht auf** |
+| `stuttgart-dellendoktor.de` | **löst nicht auf** |
+| `fahrzeugpflege-reutter.de` | löst nicht auf |
+
+Ob die beiden **nicht mehr registriert** sind oder nur **nirgendwohin zeigen**,
+lässt sich von hier nicht feststellen: `whois` steht nicht zur Verfügung, und
+der Egress-Proxy blockiert DNS-Abfragen über HTTPS. Das ist eine offene Frage,
+keine Feststellung.
+
+**Was daraus folgt — und was nicht.** Weiterleitungen sind kein Thema: von einer
+Domain, die nicht auflöst, lässt sich nichts umleiten; sie müsste erst
+zurückgeholt werden. Und an der Domainfrage aus Block D ändert sich nichts. Sie
+bleibt: `clean-box.eu` behalten oder auf eine neue Domain wechseln — mit
+Weiterleitung von `clean-box.eu`, der einzigen lebenden Adresse.
+
+Interessant bleibt nur der **Titel**, den die Altseite im Index trägt:
+
+> „Fahrzeugpflege Reutter – Dellendoktor – Hagelschaden Reparatur und
+> Auto-Aufbereitung **im Raum Stuttgart**"
+
+So hat sich der Betrieb selbst positioniert — auf Stuttgart, nicht auf Korntal.
+Das stützt die Empfehlung aus Abschnitt A, trägt sie aber nicht.
 
 ---
 
@@ -342,11 +356,10 @@ Schlüssel jeweils `seo.titel` und `seo.beschreibung` in der genannten Datei.
 
 Vier neue Punkte aus dieser Recherche. Gehören zu `docs/fragen-an-daniel.md`.
 
-**F1 — Die drei Domains.** Gehören `stuttgart-hagelschaden.de` und
-`stuttgart-dellendoktor.de` ihm? Laufen die Verträge noch? Hat er die Zugänge?
-Ohne sie lassen sich keine Weiterleitungen einrichten, und die eingehenden
-Verweise von zwei gewachsenen Domains sind weg. **Das ist der Punkt mit dem
-längsten Vorlauf** — Domainzugänge wiederzubeschaffen dauert.
+**F1 — Die beiden abgeschalteten Adressen.** `stuttgart-hagelschaden.de` und
+`stuttgart-dellendoktor.de` laufen nicht mehr. Bewusst aufgegeben oder
+ausgelaufen? Nur falls Letzteres und es zeigten Verweise darauf, lohnt eine
+Rückholung samt Weiterleitung — sonst nicht. Kleine Frage, kein Blocker.
 
 **F2 — Ab-Preise je Leistung.** Eine belastbare Zahl pro Bereich („Parkdelle ab
 …", „Innenraum ab …"). Der Wettbewerb nennt sie, die häufigste Nutzerfrage ist

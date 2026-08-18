@@ -230,27 +230,18 @@ Speicherdauer der Logfiles · Aufbewahrungsfrist für Anfragen ohne Auftrag
 Vier Punkte, die beim Blick auf den Markt aufgetaucht sind. Herleitung steht in
 `docs/suchbegriffe.md`.
 
-### E1 — Es gibt drei Websites, nicht eine
+### E1 — Zwei frühere Adressen sind abgeschaltet
 
-Neben `clean-box.eu` sind zwei weitere Seiten des Betriebs in Google auffindbar:
+Neben `clean-box.eu` gab es zwei weitere Seiten des Betriebs:
+`stuttgart-hagelschaden.de` und `stuttgart-dellendoktor.de`. Beide sind heute
+nicht mehr erreichbar; im Suchindex stehen sie noch.
 
-- **`stuttgart-hagelschaden.de`** — vollständige Seite mit Startseite,
-  Dellenbeseitigung, Ozonbehandlung, Galerie, Impressum
-- **`stuttgart-dellendoktor.de`** — vollständige Seite mit Bildergalerie und
-  Anfahrt
+**→ Bewusst aufgegeben, oder ausgelaufen?**
 
-Beide sind Exact-Match-Domains auf genau die Begriffe, um die es geht.
-
-**→ Gehören ihm beide Domains? Laufen die Verträge? Hat er die Zugangsdaten?**
-
-> Warum das drängt: Ohne die Zugänge lassen sich keine Weiterleitungen
-> einrichten, und die gewachsene Sichtbarkeit von zwei Domains ist beim
-> Umschalten weg. Domainzugänge wiederzubeschaffen dauert am längsten von allem
-> hier — deshalb zuerst fragen.
-
-Das ändert auch die Domainfrage aus Block D. Sie lautet nicht mehr „`clean-box.eu`
-behalten oder neu registrieren", sondern: **welche der drei wird die Hauptdomain,
-und werden die anderen beiden seitengenau darauf weitergeleitet?**
+> Nur wenn sie ausgelaufen sind **und** Verweise darauf zeigten, lohnt es,
+> eine davon zurückzuholen und weiterzuleiten. Ansonsten ist der Punkt
+> erledigt. An der Domainfrage in Block D ändert er nichts — die bleibt
+> `clean-box.eu` behalten oder wechseln.
 
 ### E2 — Ab-Preise je Leistung
 
@@ -301,5 +292,3 @@ Wenn nur fünf Minuten bleiben, sind das die fünf Fragen:
 3. **25 Jahre** — stimmt die Zahl?
 4. **Handwerksrolle** — eingetragen oder nicht?
 5. **Logo** — wer hat die Fahrzeugbeschriftung gemacht?
-6. **Domains** — gehören ihm `stuttgart-hagelschaden.de` und
-   `stuttgart-dellendoktor.de`, und hat er die Zugänge? (E1)
