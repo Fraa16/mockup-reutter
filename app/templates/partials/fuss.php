@@ -9,12 +9,18 @@
  * @var bool   $zeigeFormular     Kurzanfrage. Auf Kontakt und den Rechtsseiten
  *                                aus: dort gibt es das ausfuehrliche Formular
  *                                oder gar keins.
+ * @var bool   $zeigeLeiste       Sticky-Leiste. Auf Kontakt aus, weil sie dort
+ *                                zum Formular schickt, das schon offen daliegt;
+ *                                auf /danke/ aus, weil die Anfrage gerade
+ *                                heraus ist. Die Rufnummer bleibt in beiden
+ *                                Faellen im Kopf und im Fuss erreichbar.
  * @var string $ctaUeberschrift   Ueberschrift ueber der Kurzanfrage.
  */
 $s = site();
 
 $zeigeBewertungen = $zeigeBewertungen ?? true;
 $zeigeFormular    = $zeigeFormular    ?? true;
+$zeigeLeiste      = $zeigeLeiste      ?? true;
 $ctaUeberschrift  = $ctaUeberschrift  ?? 'Sagen Sie uns, was ansteht.';
 
 ?>
@@ -88,6 +94,7 @@ $ctaUeberschrift  = $ctaUeberschrift  ?? 'Sagen Sie uns, was ansteht.';
   </div>
 </footer>
 
+<?php if ($zeigeLeiste): ?>
 <!-- Sticky request bar -->
 <div class="sticky-bar" id="sticky-bar" data-ab-scroll="<?= attr((string) get($s, 'sticky_bar.ab_scroll', 600)) ?>">
   <div class="wrap">
@@ -102,6 +109,7 @@ $ctaUeberschrift  = $ctaUeberschrift  ?? 'Sagen Sie uns, was ansteht.';
     </div>
   </div>
 </div>
+<?php endif; ?>
 
 <script src="<?= attr(asset('js/main.js')) ?>" defer></script>
 </body>
