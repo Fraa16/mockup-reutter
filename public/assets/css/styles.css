@@ -353,6 +353,7 @@ img{max-width:100%;display:block}
 .site-header{
   position:fixed;top:var(--utility-hoehe);left:0;right:0;z-index:69;
   background:rgba(10,11,13,.9);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
   backdrop-filter:blur(14px) saturate(140%);
   border-bottom:1px solid rgba(255,255,255,.09);
 }
@@ -390,6 +391,31 @@ img{max-width:100%;display:block}
 }
 .main-nav a.nav-link:hover{color:#fff}
 .main-nav .btn{padding:14px 24px;font-size:13px}
+
+/* Scrollsperre hinter dem offenen Menuepanel.
+   Ohne sie schiebt eine Wischbewegung neben dem Panel die Seite darunter weg,
+   waehrend das Panel am Kopf festklebt — man scrollt sichtbar in einer Seite,
+   die man nicht bedienen kann. main.js setzt die Klasse und nimmt den Rest der
+   Seite zugleich per `inert` aus dem Fokus.
+
+   Warum `position:fixed` und nicht `overflow:hidden`: Safari auf iOS ignoriert
+   overflow auf html und body fuer Wischgesten. Am Schreibtisch und unter
+   Android hielt die Sperre, auf dem iPhone scrollte die Seite weiter. Den
+   Rumpf aus dem Scrollfluss zu nehmen wirkt dagegen ueberall; damit er dabei
+   nicht an den Seitenanfang springt, setzt main.js die gemerkte Scrollposition
+   als negatives `top` und stellt sie beim Schliessen zurueck.
+
+   Bewusst ausserhalb der Breitenabfrage: die Klasse setzt nur der Menueknopf,
+   den es oberhalb von 980 px nicht gibt. Stuende die Regel drinnen, verloere
+   der Rumpf beim Verbreitern des Fensters seine Positionierung, behielte aber
+   das inline gesetzte `top` — und die Seite haenge um diesen Betrag verschoben.
+   overflow bleibt als zweite Lage stehen, es kostet nichts. */
+body.nav-offen{
+  position:fixed;
+  left:0;right:0;width:100%;
+  overflow:hidden;
+}
+html:has(body.nav-offen){overflow:hidden}
 
 .kopf-abstand{height:var(--kopf-hoehe);flex:none}
 
@@ -438,7 +464,7 @@ img{max-width:100%;display:block}
 
 .hero-stats{
   display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
   animation:rvUp 1s cubic-bezier(.2,.7,.2,1) .2s both;
 }
 .hero-stats .stat{background:rgba(10,11,13,.72);padding:26px 28px}
@@ -843,7 +869,7 @@ a.count:hover{color:var(--rot-schrift);border-color:var(--red)}
    ========================================================================== */
 .sticky-bar{
   position:fixed;left:0;right:0;bottom:0;z-index:80;
-  background:rgba(10,11,13,.94);backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.14);
+  background:rgba(10,11,13,.94);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.14);
   transform:translateY(100%);opacity:0;pointer-events:none;
   /* pointer-events halten nur die Maus ab. Ohne visibility blieben die beiden
      Knoepfe im Tabweg: am Seitenanfang landete der Fokus zweimal auf einer
@@ -2494,7 +2520,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   .main-nav{
     position:absolute;left:0;right:0;top:100%;
     flex-direction:column;align-items:stretch;gap:0;
-    background:rgba(10,11,13,.98);backdrop-filter:blur(14px);
+    background:rgba(10,11,13,.98);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
     border-bottom:1px solid rgba(255,255,255,.12);
     padding:8px var(--gutter) 20px;
     /* Collapsed by default; .is-open (set by the toggle) reveals it. */
@@ -2509,16 +2535,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
     overscroll-behavior:contain;
   }
   .main-nav.is-open{display:flex}
-
-  /* Scrollsperre hinter dem offenen Panel. Ohne sie schiebt eine Wischbewegung
-     neben dem Panel die Seite darunter weg, waehrend das Panel am Kopf
-     festklebt — man scrollt sichtbar in einer Seite, die man nicht bedienen
-     kann. main.js setzt die Klasse, nimmt den Rest der Seite zugleich per
-     `inert` aus dem Fokus.
-     Zwei Selektoren, weil nicht jeder Browser overflow vom body auf den
-     Viewport durchreicht; das :has() greift am Wurzelelement selbst. */
-  body.nav-offen{overflow:hidden}
-  html:has(body.nav-offen){overflow:hidden}
+  /* Die Scrollsperre steht ausserhalb dieser Abfrage — siehe unten. */
   .main-nav a.nav-link{padding:15px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:15px}
   .main-nav .btn{margin-top:16px;justify-content:center;padding:16px 24px}
   .site-header .wrap{height:70px}

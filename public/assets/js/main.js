@@ -480,12 +480,39 @@
       !['SCRIPT', 'TEMPLATE', 'NOSCRIPT'].includes(el.tagName)
       && !oben.some((k) => el === k || el.contains(k) || k.contains(el)));
 
+    /* Die Scrollsperre nimmt den Rumpf aus dem Scrollfluss (position:fixed im
+       CSS), weil Safari auf iOS `overflow:hidden` beim Wischen ignoriert.
+       Damit die Seite dabei nicht an den Anfang springt, wandert die gemerkte
+       Position als negatives `top` an den Rumpf und kommt beim Schliessen
+       zurueck. */
+    let gemerktesY = 0;
+
     const setzeNav = (offen) => {
+      if (offen) {
+        gemerktesY = window.scrollY;
+        /* Ohne Rumpf im Scrollfluss faellt am Schreibtisch die Bildlaufleiste
+           weg und der Inhalt ruckt nach rechts. Auf dem Handy ist der Wert 0,
+           dort passiert nichts. */
+        const balken = window.innerWidth - document.documentElement.clientWidth;
+        if (balken > 0) { document.body.style.paddingRight = balken + 'px'; }
+        document.body.style.top = -gemerktesY + 'px';
+      }
+
       mainNav.classList.toggle('is-open', offen);
       navToggle.setAttribute('aria-expanded', String(offen));
       navToggle.setAttribute('aria-label', offen ? 'Menü schließen' : 'Menü öffnen');
       document.body.classList.toggle('nav-offen', offen);
       dahinter.forEach((el) => { el.inert = offen; });
+
+      if (!offen) {
+        document.body.style.top = '';
+        document.body.style.paddingRight = '';
+        /* instant, weil html{scroll-behavior:smooth} den Sprung sonst
+           animiert — die Seite fuehre nach dem Schliessen sichtbar an ihre
+           eigene Position zurueck. */
+        window.scrollTo({ top: gemerktesY, left: 0, behavior: 'instant' });
+      }
+
       // Beim Schliessen zurueck auf den Knopf, sonst landet der Fokus im Nichts.
       if (!offen && mainNav.contains(document.activeElement)) {
         navToggle.focus();
