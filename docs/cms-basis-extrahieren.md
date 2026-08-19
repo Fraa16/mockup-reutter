@@ -95,6 +95,23 @@ nicht.
 Der Favicon-Pfad `/assets/favicon.svg` steht an drei Stellen und bleibt so —
 das ist eine Konvention, kein Markenbezug.
 
+### Nachtrag: die Zehn waren die falsche Messung
+
+Beim Umsetzen kam heraus, dass diese Liste **nur Markenzeichenketten** erfasst.
+Der Suchlauf griff auf `reutter|clean-box|Korntal|logo|favicon` — Feldnamen wie
+`marke` konnte er gar nicht finden. Drei strukturelle Verdrahtungen kommen
+dazu, und die sind mehr Arbeit als alle zehn Zeichenketten zusammen:
+
+| Wo | Was |
+|---|---|
+| `app/lib/anfrage.php`, `mail.php`, `public/admin/anfragen.php` | die Fahrzeugfelder des Formulars: `marke`, `modell`, `baujahr`, `lackfarbe`, `fahrzeug`, `leistungen[]` — in allen drei Dateien |
+| `app/lib/seo.php` | `AutoRepair` als Betriebstyp, `makesOffer` aus `leistungen.json`, `/leistungen/<slug>/` in `seo_jsonld_leistung()`, die feste Routenliste in `seo_seitenliste()` |
+| `app/lib/content.php` | `leistungen_mit_seite()` samt Kommentar über „Felgen & Reifen" |
+
+**Lehre für den nächsten Suchlauf:** nach dem Datenmodell suchen, nicht nur nach
+dem Namen des Kunden. Also auch nach Feldnamen, Routenpräfixen und
+Schema.org-Typen.
+
 **Lösung:** eine neue Datei `app/config/projekt.php`, die ins Git gehört. Der
 Ordner `app/config/` existiert als Konvention bereits (`zugangsdaten.php` liegt
 dort und ist bewusst *nicht* im Git — siehe `.gitignore`).
@@ -116,8 +133,12 @@ return [
 ];
 ```
 
-Zugriff über eine kleine Funktion in `render.php` oder `bootstrap.php`, im Stil
-des vorhandenen `get()`. **Kein neues Framework, keine Klasse** — der Rest des
+Zugriff über eine kleine Funktion in `content.php`, im Stil des vorhandenen
+`get()` und `site()` — dort steht schon alles, was Daten lädt.
+
+Die Datei trägt am Ende mehr als nur die zehn Zeichenketten: auch den
+Schema.org-Typ des Betriebs und die Seitenliste für die `sitemap.xml`, weil
+beides pro Projekt verschieden ist und sonst in `seo.php` festhängt. **Kein neues Framework, keine Klasse** — der Rest des
 Projekts ist Funktionen und Arrays, das bleibt so.
 
 ---
