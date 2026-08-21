@@ -225,6 +225,64 @@ Speicherdauer der Logfiles · Aufbewahrungsfrist für Anfragen ohne Auftrag
 
 ---
 
+## E · Nachtrag aus der Suchbegriffs-Recherche (18.08.)
+
+Vier Punkte, die beim Blick auf den Markt aufgetaucht sind. Herleitung steht in
+`docs/suchbegriffe.md`.
+
+### E1 — Zwei frühere Adressen sind abgeschaltet
+
+Neben `clean-box.eu` gab es zwei weitere Seiten des Betriebs:
+`stuttgart-hagelschaden.de` und `stuttgart-dellendoktor.de`. Beide sind heute
+nicht mehr erreichbar; im Suchindex stehen sie noch.
+
+**→ Bewusst aufgegeben, oder ausgelaufen?**
+
+> Nur wenn sie ausgelaufen sind **und** Verweise darauf zeigten, lohnt es,
+> eine davon zurückzuholen und weiterzuleiten. Ansonsten ist der Punkt
+> erledigt. An der Domainfrage in Block D ändert er nichts — die bleibt
+> `clean-box.eu` behalten oder wechseln.
+
+### E2 — Ab-Preise je Leistung
+
+Die mit Abstand häufigste Frage im Netz ist „was kostet das". Der Wettbewerb
+beantwortet sie mit Zahlen — „ab 119,90 €", „Parkdellen ab 49 €". Unsere Seiten
+sagen überall „Festpreis nach Begutachtung". Das stimmt, beantwortet die Frage
+aber nicht.
+
+**→ Eine belastbare Ab-Zahl je Bereich:**
+
+| | ab … € |
+|---|---|
+| Parkdelle, einzeln | |
+| Hagelschaden | |
+| Lackaufbereitung / Politur | |
+| Innenraumaufbereitung | |
+| Lederreparatur | |
+| Ozonbehandlung | |
+
+### E3 — „Smart Repair" und „Dellendoktor"
+
+Sein Google-Profil heißt „Smartrepair Reutter", der Verzeichniseintrag
+„Fahrzeugpflege / Dellendoktor / Smartrepair Reutter". **Auf der neuen Website
+kommt keiner der beiden Begriffe vor** — obwohl beide im Markt fest etabliert
+sind und die Altseiten sie führen.
+
+**→ Versteht er unter „Smart Repair" dasselbe wie der Markt (Dellen, Kratzer,
+Lack, Kunststoff, Innenraum ohne Teiletausch), und will er so gefunden werden?**
+
+### E4 — Ozon: die Frage aus B2, geschärft
+
+Im Markt gilt: Behandlung je nach Intensität vier bis vierundzwanzig Stunden,
+danach etwa eine Stunde, bis das Ozon zerfallen ist, dann lüften. Die „60
+Minuten" von unserer Startseite entsprechen in mehreren Quellen der **Laufzeit
+des Geräts** — nicht der Zeit bis zur Rückgabe.
+
+**→ Wie lange läuft bei ihm das Gerät — und wie lange steht das Fahrzeug
+insgesamt, bis der Kunde es wiederbekommt?**
+
+---
+
 ## Kurzfassung für unterwegs
 
 Wenn nur fünf Minuten bleiben, sind das die fünf Fragen:
