@@ -9,6 +9,26 @@ RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# --- Umzug: alte Adressen und kanonischer Host -------------------------------
+# NOCH NICHT AKTIV. Zum Scharfschalten die Rautezeichen vor den RewriteCond-
+# und RewriteRule-Zeilen entfernen — aber erst, wenn die Domain wirklich auf
+# diesen Server zeigt. Vorher sperrt die Regel die Seite aus.
+#
+# Reihenfolge ist entscheidend: die Zuordnung der alten Adressen steht VOR der
+# Kanonisierung und traegt absolute Ziele. Sonst laeuft jede alte Adresse ueber
+# zwei Weiterleitungen statt ueber eine, und Google bewertet Ketten schlechter.
+#
+# Die Zeilen fuer die einzelnen alten Adressen fehlen noch — sie kommen aus dem
+# Crawl der alten Seite (siehe docs/umzug.md). Je alte Adresse eine Zeile:
+#
+#   RewriteRule ^ozonbehandlung\.html$ https://www.smartrepair-reutter.de/leistungen/ozonbehandlung/ [L,R=301]
+#
+# Nie pauschal auf die Startseite umleiten — das wertet Google als Soft-404 und
+# wirft die Platzierung der Einzelseite weg.
+
+# RewriteCond %{HTTP_HOST} !^www\.smartrepair-reutter\.de$ [NC]
+# RewriteRule ^ https://www.smartrepair-reutter.de%{REQUEST_URI} [L,R=301]
+
 # --- Alles, was keine echte Datei ist, geht an den Front-Controller ----------
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

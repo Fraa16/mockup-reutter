@@ -6,7 +6,7 @@
         "beschreibung": "Anbieterkennzeichnung nach § 5 DDG für Smartrepair Reutter, Lembergstraße 27, 70825 Korntal-Münchingen."
     },
     "titel": "Impressum",
-    "lead": "Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG). Anschrift, Inhaber, Kontaktdaten und Umsatzsteuer-Identifikationsnummer sind eingetragen; die Rechtsform muss der Betrieb noch bestätigen.",
+    "lead": "Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG). Anschrift, Inhaber, Kontaktdaten und Umsatzsteuer-Identifikationsnummer sind eingetragen.",
     "stand": "noch offen",
     "im_aufbau": true,
     "band_hinweis": "Gerüst mit den belegten Daten. Die noch markierten Felder und die abschließende Prüfung gehören zum Anwalt oder Verband des Betriebs — verbindliche Rechtstexte kommen nicht von uns.",
@@ -25,11 +25,7 @@
             ],
             "nachtext": [
                 "Diensteanbieter ist der Inhaber persönlich; „Smartrepair Reutter“ ist die Geschäftsbezeichnung, unter der der Betrieb auftritt."
-            ],
-            "platzhalter": {
-                "titel": "Rechtsform bestätigen",
-                "hinweis": "Die Angabe oben gilt für ein Einzelunternehmen — dann genügen Name und Anschrift des Inhabers. Ist der Betrieb im Handelsregister eingetragen (e. K., GmbH, UG), müssen Rechtsformzusatz, Registergericht und Registernummer ergänzt werden."
-            }
+            ]
         },
         {
             "titel": "Vertreten durch",
@@ -103,5 +99,6 @@
             }
         }
     ],
-    "_korrektur_handwerksrolle": "Abschnitt 'Handwerksrolle und Berufsbezeichnung' entfernt. Der Betrieb ist laut Kunde nicht in der Handwerksrolle eingetragen; Fahrzeugpflege und Aufbereitung sind zulassungsfrei. § 5 Abs. 1 Nr. 5 DDG verlangt die Angabe nur bei zulassungspflichtiger Taetigkeit. 'Meisterbetrieb' darf nirgends auf der Website stehen."
+    "_korrektur_handwerksrolle": "Abschnitt 'Handwerksrolle und Berufsbezeichnung' entfernt. Der Betrieb ist laut Kunde nicht in der Handwerksrolle eingetragen; Fahrzeugpflege und Aufbereitung sind zulassungsfrei. § 5 Abs. 1 Nr. 5 DDG verlangt die Angabe nur bei zulassungspflichtiger Taetigkeit. 'Meisterbetrieb' darf nirgends auf der Website stehen.",
+    "_rechtsform": "Einzelunternehmen. Belegt durch die alten Rechtstexte des Betriebs: Impressum und AGB nennen ausschliesslich 'Daniel Reutter' als Anbieter und Verkaeufer, fuehren eine USt-IdNr. und kein Registergericht. Eine eingetragene Gesellschaft muesste den Rechtsformzusatz und das Register nennen."
 }

@@ -17,8 +17,8 @@
                 "Diese Bedingungen gelten für alle Verträge über Fahrzeugpflege, Aufbereitung, Dellenentfernung, Lackierarbeiten, Lederreparatur und Ozonbehandlung zwischen Daniel Reutter, Smartrepair Reutter, und dem Kunden."
             ],
             "platzhalter": {
-                "titel": "Verbraucher oder Unternehmer",
-                "hinweis": "Hier muss stehen, ob der Betrieb an Verbraucher, an Unternehmer oder an beide leistet. Davon hängt fast alles Weitere ab — Widerrufsrecht, Gewährleistungsfristen, zulässige Haftungsbeschränkungen. Nach unserem Stand richtet sich das Angebot überwiegend an Verbraucher."
+                "titel": "Verbraucher oder Unternehmer — Antwort liegt vor",
+                "hinweis": "BEANTWORTET (alte AGB von 2018, § 1 Abs. 2): Der Betrieb leistet an Verbraucher UND Unternehmer — beide Begriffe sind dort definiert und die Regelungen unterscheiden durchgehend zwischen ihnen. Damit gilt das Widerrufsrecht gegenüber Verbrauchern, und gegenüber Unternehmern sind Verkürzungen möglich. Formulierung noch prüfen lassen."
             }
         },
         {
@@ -69,8 +69,8 @@
                 "Es gelten die gesetzlichen Gewährleistungsrechte. Fällt Ihnen nach der Abholung etwas auf, melden Sie sich — wir sehen es uns an und arbeiten nach, wenn die Arbeit nicht in Ordnung war."
             ],
             "platzhalter": {
-                "titel": "Fristen und Ablauf festlegen",
-                "hinweis": "Innerhalb welcher Frist sollen Beanstandungen gemeldet werden? Gegenüber Unternehmern kann die Gewährleistung auf ein Jahr verkürzt werden, gegenüber Verbrauchern bei neuen Sachen nicht. Diese Formulierung gehört zwingend zum Anwalt."
+                "titel": "Fristen und Ablauf festlegen — Antwort liegt vor",
+                "hinweis": "BEANTWORTET (alte AGB von 2018, § 5): Es gelten die gesetzlichen Mängelhaftungsrechte. Bei gebrauchten Sachen und gegenüber Unternehmern war die Frist auf ein Jahr ab Ablieferung verkürzt, mit den üblichen Ausnahmen (Verletzung von Leben, Körper, Gesundheit; Vorsatz und grobe Fahrlässigkeit; arglistig verschwiegener Mangel; übernommene Garantie). Achtung: Diese Fassung ist vor der Warenkauf-Richtlinie 2022 entstanden — die Verkürzung gegenüber Verbrauchern ist seither anders geregelt. Zwingend prüfen lassen."
             }
         },
         {
@@ -89,8 +89,8 @@
                 "Bis zur vollständigen Bezahlung der Rechnung steht uns an dem Fahrzeug ein Zurückbehaltungsrecht nach den gesetzlichen Vorschriften zu."
             ],
             "platzhalter": {
-                "titel": "Vom Anwalt prüfen lassen",
-                "hinweis": "Werkunternehmerpfandrecht und Zurückbehaltungsrecht sind nicht dasselbe und in AGB unterschiedlich weit vereinbar. Die Formulierung gehört geprüft."
+                "titel": "Vom Anwalt prüfen lassen — Antwort liegt vor",
+                "hinweis": "BEANTWORTET (alte AGB von 2018, § 4 Abs. 1): Ein Zurückbehaltungsrecht des Kunden nur bei Forderungen aus demselben Vertragsverhältnis. Das Werkunternehmerpfandrecht des Betriebs war dort nicht geregelt — es steht als § 647 BGB ohnehin im Gesetz. Formulierung prüfen lassen."
             }
         },
         {
@@ -100,5 +100,6 @@
                 "Sollte eine Bestimmung unwirksam sein, bleibt der Vertrag im Übrigen wirksam."
             ]
         }
-    ]
+    ],
+    "_quelle_alt": "Die alte Website trug AGB und Kundeninformationen des Haendlerbunds, Stand 13.06.2018, erstellt fuer den Online-Verkauf von Waren ueber www.stuttgart-dellendoktor.de. Daraus uebernommen sind nur die Entscheidungen des Betriebs, nicht der Klauseltext: Der Text ist lizenziert, die Haftungszusage des Haendlerbunds haengt an einer laufenden Mitgliedschaft, und er beschreibt einen Warenversand mit Warenkorb, Versandkosten und Ruecksendung, den es hier nicht gibt."
 }
