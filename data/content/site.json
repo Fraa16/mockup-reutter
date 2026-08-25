@@ -11,7 +11,15 @@
         "land": "DE",
         "ustid": "DE257725894",
         "_steuernummer": "Nicht noetig und bewusst nicht veroeffentlicht. § 5 DDG verlangt die Umsatzsteuer-Identifikationsnummer, sofern vorhanden — die liegt vor. Die Steuernummer zusaetzlich anzugeben ist nicht gefordert und wird allgemein davon abgeraten.",
-        "kammer": "Geklaert: Der Betrieb ist nicht in der Handwerksrolle eingetragen. Fahrzeugpflege und Aufbereitung sind zulassungsfrei, gespritzt wird extern. Der Abschnitt im Impressum ist deshalb entfallen. 'Meisterbetrieb' darf nirgends auf der Website stehen — die Abnahme prueft das."
+        "kammer": "Geklaert: Der Betrieb ist nicht in der Handwerksrolle eingetragen. Fahrzeugpflege und Aufbereitung sind zulassungsfrei, gespritzt wird extern. Der Abschnitt im Impressum ist deshalb entfallen. 'Meisterbetrieb' darf nirgends auf der Website stehen — die Abnahme prueft das.",
+        "postanschrift": {
+            "_hinweis": "Rechnungs- und Postanschrift aus dem alten Impressum, vom Kunden am 25.08.2026 bestaetigt. Bewusst getrennt von der Werkstattanschrift: Ins Impressum gehoert nach § 5 DDG die Niederlassung, also die Werkstatt in Korntal. Widerrufserklaerungen gehen hierher.",
+            "strasse": "Zabergäustraße 27",
+            "plz": "70435",
+            "ort": "Stuttgart"
+        },
+        "logo_zusatz": "Smart Repair",
+        "_logo_zusatz_hinweis": "Steht klein neben der Wortmarke im Kopf jeder Seite. Vorher 'Fahrzeugpflege' — das gehoerte zum alten Namen. 'Smart Repair' passt zum neuen und bringt den Suchbegriff auf jede Seite, nicht nur in die Seitentitel. 'Fahrzeugpflege' bleibt als Leistung erhalten: zwei Leistungsseiten heissen so."
     },
     "kontakt": {
         "telefon": "07 11 / 82 85 940",
@@ -125,25 +133,25 @@
     },
     "bewertungen": {
         "titel": "Was Kunden schreiben",
-        "_warnung": "LAUNCH-BLOCKER: Alle drei Zitate hat das Design-Mockup erfunden. Erfundene Bewertungen verstossen gegen § 5b UWG. Vor Launch durch echte Google-Rezensionen ersetzen oder die Sektion entfernen.",
-        "echt": false,
+        "echt": true,
         "eintraege": [
             {
-                "text": "Hagelschaden am ganzen Dach und der Motorhaube. Nach drei Tagen war nichts mehr zu sehen, und lackiert wurde nichts. Preis war genau der, der vorher genannt wurde.",
-                "name": "M. Keller",
-                "ort": "Ditzingen"
+                "text": "Mein Hagelschaden an meinem M3 wurde schnell und völlig unkompliziert behoben. Das Ergebnis hat mich ehrlich gesagt richtig überrascht – man sieht wirklich absolut nichts mehr! … Von der ersten Kontaktaufnahme bis zur fertigen Reparatur hat einfach alles super funktioniert.",
+                "name": "M. Knapp",
+                "auftrag": "Hagelschaden, BMW M3"
             },
             {
-                "text": "Leder an der Fahrerseite war durchgescheuert. Wurde repariert und nachgefärbt, man findet die Stelle nicht mehr. Ehrliche Beratung, was sich lohnt und was nicht.",
-                "name": "S. Brenner",
-                "ort": "Stuttgart-Weilimdorf"
+                "text": "Das Fahrzeug wurde innen und außen sehr gründlich gereinigt. Besonders die Lackaufbereitung ist gut gelungen – der Wagen sieht wieder deutlich frischer aus und hat einen schönen Glanz. Die Innenraumreinigung wurde unter anderem mit Trockeneis durchgeführt, wodurch selbst hartnäckige Verschmutzungen schonend entfernt werden konnten.",
+                "name": "P. Plewe",
+                "auftrag": "Aufbereitung, Porsche 992"
             },
             {
-                "text": "Kam zu uns in die Firmentiefgarage, hat vier Fahrzeuge an einem Tag aufbereitet. Absprache lief per Telefon, alles pünktlich, alles wie vereinbart.",
-                "name": "T. Aydin",
-                "ort": "Ludwigsburg"
+                "text": "Ich habe über 17 Jahre in der Automobilbranche gearbeitet und kann sagen: Er ist der beste Spezialist für Dellenreparaturen, mit dem ich je zu tun hatte. Ich war schon zweimal bei ihm – beide Male war ich beeindruckt von seiner Professionalität, Kundenorientierung und der herausragenden Qualität der Arbeit. Die Preise sind fair.",
+                "name": "S. Ben Kahla",
+                "auftrag": "Dellenreparatur, Škoda"
             }
         ],
-        "_verschoben": "Lag bis zum zweiten Design-Bundle in home.json. Der geteilte Fuss zeigt die Bewertungen jetzt auf jeder Seite, deshalb gehoeren sie zu den Stammdaten."
+        "_verschoben": "Lag bis zum zweiten Design-Bundle in home.json. Der geteilte Fuss zeigt die Bewertungen jetzt auf jeder Seite, deshalb gehoeren sie zu den Stammdaten.",
+        "_quelle": "Echte Google-Rezensionen aus dem Unternehmensprofil, vom Kunden am 25.08.2026 geliefert. Woertliche Auszuege: Auslassungen sind mit … markiert, Emoji entfernt, sonst kein Wort geaendert. Namen abgekuerzt — nachpruefbar sind sie ueber den Link aufs Google-Profil daneben. Frueher standen hier drei vom Design-Mockup erfundene Zitate; erfundene Bewertungen verstossen gegen § 5b UWG."
     }
 }

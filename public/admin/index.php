@@ -51,7 +51,7 @@ $angemeldet = auth_angemeldet();
 
   <main class="login-karte">
     <div class="marke">
-      <img class="wortmarke" src="/assets/logo/reutter-wortmarke-weiss.webp" alt="Smartrepair Reutter" width="527" height="56">
+      <img class="wortmarke" src="/assets/logo/reutter-weiss.svg" alt="Smartrepair Reutter" width="1000" height="78">
       <span class="sub">Inhalte pflegen</span>
     </div>
 
@@ -103,7 +103,7 @@ $angemeldet = auth_angemeldet();
 
   <header class="kopf">
     <div class="marke">
-      <img class="wortmarke" src="/assets/logo/reutter-wortmarke-weiss.webp" alt="Smartrepair Reutter" width="527" height="56">
+      <img class="wortmarke" src="/assets/logo/reutter-weiss.svg" alt="Smartrepair Reutter" width="1000" height="78">
       <span class="sub">Inhalte pflegen</span>
     </div>
     <div class="kopf-rechts">

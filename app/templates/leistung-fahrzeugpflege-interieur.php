@@ -129,6 +129,30 @@ partial('kopf', [
   </div>
 </section>
 
+<?php /* Trockeneis steht bewusst zwischen den Zonen und der Trocknung: es
+        ist ein Verfahren, kein Ort im Fahrzeug, und es erklaert, warum an
+        manchen Stellen eben nicht nass gearbeitet wird. Aufbau wie der
+        Grenzen-Block der anderen Leistungsseiten. */ ?>
+<section class="trockeneis">
+  <div class="wrap">
+    <div class="grenzen-grid">
+      <div class="grenzen-intro">
+        <div class="kicker"><?= swash() ?><span class="label"><?= h(get($seite, 'trockeneis.kicker')) ?></span></div>
+        <h2><?= h(get($seite, 'trockeneis.titel')) ?></h2>
+        <p><?= h(get($seite, 'trockeneis.lead')) ?></p>
+      </div>
+      <div class="grenzen-punkte">
+        <?php foreach (get($seite, 'trockeneis.punkte', []) as $pk): ?>
+        <div class="grenzen-punkt">
+          <h3><?= h($pk['titel']) ?></h3>
+          <p><?= h($pk['text']) ?></p>
+        </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Trocknung -->
 <section class="trocknung">
   <div class="wrap">

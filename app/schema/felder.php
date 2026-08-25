@@ -181,10 +181,16 @@ return [
                 'felder' => [
                     ['pfad' => 'firma.name',    'typ' => 'text', 'label' => 'Firmenname', 'hilfe' => 'Erscheint im Fußbereich und im Impressum.'],
                     ['pfad' => 'firma.inhaber', 'typ' => 'text', 'label' => 'Inhaber'],
+                    ['pfad' => 'firma.logo_zusatz', 'typ' => 'text', 'label' => 'Zusatz neben dem Logo',
+                     'hilfe' => 'Steht klein rechts neben der Wortmarke, z. B. Smart Repair. Zwei Wörter werden untereinander gesetzt.'],
                     ['pfad' => 'firma.strasse', 'typ' => 'text', 'label' => 'Straße und Hausnummer'],
                     ['pfad' => 'firma.plz',     'typ' => 'text', 'label' => 'Postleitzahl'],
                     ['pfad' => 'firma.ort',     'typ' => 'text', 'label' => 'Ort'],
                     ['pfad' => 'firma.ustid',   'typ' => 'text', 'label' => 'USt-IdNr.', 'hilfe' => 'Pflichtangabe im Impressum.'],
+                    ['pfad' => 'firma.postanschrift.strasse', 'typ' => 'text', 'label' => 'Postanschrift — Straße',
+                     'hilfe' => 'Nur falls Post woanders hingeht als in die Werkstatt. Steht in Widerruf und AGB, nicht im Impressum.'],
+                    ['pfad' => 'firma.postanschrift.plz',     'typ' => 'text', 'label' => 'Postanschrift — PLZ'],
+                    ['pfad' => 'firma.postanschrift.ort',     'typ' => 'text', 'label' => 'Postanschrift — Ort'],
                 ],
             ],
             [
@@ -214,14 +220,14 @@ return [
             ],
             [
                 'titel'   => 'Kundenbewertungen',
-                'hinweis' => 'Diese Zitate stehen auf jeder Seite im Fußbereich, deshalb liegen sie bei den Stammdaten. Bitte nur echte Google-Rezensionen eintragen — erfundene Bewertungen verstoßen gegen das Wettbewerbsrecht.',
+                'hinweis' => 'Diese Zitate stehen auf jeder Seite im Fußbereich, deshalb liegen sie bei den Stammdaten. Bitte nur echte Google-Rezensionen eintragen — erfundene Bewertungen verstoßen gegen das Wettbewerbsrecht. Ab vier Einträgen wird daraus ein Schieber mit Knöpfen; sechs bis acht sind eine gute Zahl.',
                 'felder'  => [
                     ['pfad' => 'bewertungen.titel', 'typ' => 'text', 'label' => 'Überschrift'],
-                    ['pfad' => 'bewertungen.eintraege', 'typ' => 'liste', 'label' => 'Bewertung', 'min' => 1, 'max' => 3,
+                    ['pfad' => 'bewertungen.eintraege', 'typ' => 'liste', 'label' => 'Bewertung', 'min' => 1, 'max' => 12, 'sortierbar' => true,
                      'subfelder' => [
-                        ['pfad' => 'text', 'typ' => 'mehrzeilig', 'label' => 'Text der Bewertung', 'hilfe' => 'Ohne Anführungszeichen — die setzt die Seite selbst.'],
-                        ['pfad' => 'name', 'typ' => 'text',       'label' => 'Name', 'hilfe' => 'Abgekürzt, z. B. M. Keller'],
-                        ['pfad' => 'ort',  'typ' => 'text',       'label' => 'Ort'],
+                        ['pfad' => 'text',    'typ' => 'mehrzeilig', 'label' => 'Text der Bewertung', 'hilfe' => 'Ohne Anführungszeichen — die setzt die Seite selbst. Wörtlich übernehmen; Auslassungen mit … markieren.'],
+                        ['pfad' => 'name',    'typ' => 'text',       'label' => 'Name', 'hilfe' => 'Abgekürzt, z. B. M. Knapp'],
+                        ['pfad' => 'auftrag', 'typ' => 'text',       'label' => 'Auftrag', 'hilfe' => 'Was gemacht wurde, z. B. Hagelschaden, BMW M3. Darf leer bleiben.'],
                      ]],
                 ],
             ],
@@ -455,6 +461,20 @@ return [
                         ['pfad' => 'zeit',   'typ' => 'text',       'label' => 'Dauer', 'hilfe' => 'z. B. 2 – 3 Stunden'],
                         ['pfad' => 'text',   'typ' => 'mehrzeilig', 'label' => 'Beschreibung'],
                         ['pfad' => 'grenze', 'typ' => 'mehrzeilig', 'label' => 'Wo die Grenze liegt'],
+                     ]],
+                ],
+            ],
+            [
+                'titel'   => 'Trockeneis',
+                'hinweis' => 'Eigener Abschnitt zwischen den Zonen und der Trocknung.',
+                'felder'  => [
+                    ['pfad' => 'trockeneis.kicker', 'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
+                    ['pfad' => 'trockeneis.titel',  'typ' => 'text',       'label' => 'Überschrift'],
+                    ['pfad' => 'trockeneis.lead',   'typ' => 'mehrzeilig', 'label' => 'Einleitung'],
+                    ['pfad' => 'trockeneis.punkte', 'typ' => 'liste', 'label' => 'Punkt', 'min' => 2, 'max' => 4,
+                     'subfelder' => [
+                        ['pfad' => 'titel', 'typ' => 'text',       'label' => 'Überschrift'],
+                        ['pfad' => 'text',  'typ' => 'mehrzeilig', 'label' => 'Beschreibung'],
                      ]],
                 ],
             ],

@@ -24,6 +24,25 @@ $rechtsseiten = [
     '/widerruf/'    => 'Widerruf',
 ];
 
+/* Anschrift und Kontakt stehen mitten in den Rechtssaetzen — als Platzhalter,
+   nicht abgeschrieben. Sonst muesste man bei jedem Umzug und jeder neuen
+   Rufnummer vier Seiten durchsuchen, und genau das vergisst man.
+   Die Widerrufsanschrift ist bewusst eine andere als die Werkstattanschrift:
+   § 5 DDG will die Niederlassung, Erklaerungen gehen an die Postanschrift. */
+$marken = [
+    '{{firma}}'         => (string) get($s, 'firma.name', ''),
+    '{{inhaber}}'       => (string) get($s, 'firma.inhaber', ''),
+    '{{telefon}}'       => (string) get($s, 'kontakt.telefon', ''),
+    '{{email}}'         => (string) get($s, 'kontakt.email', ''),
+    '{{strasse}}'       => (string) get($s, 'firma.strasse', ''),
+    '{{plzort}}'        => trim(get($s, 'firma.plz', '') . ' ' . get($s, 'firma.ort', '')),
+    '{{ustid}}'         => (string) get($s, 'firma.ustid', ''),
+    '{{mobil}}'         => (string) get($s, 'kontakt.mobil', ''),
+    '{{werkstatt}}'     => trim(get($s, 'firma.strasse', '') . ', ' . get($s, 'firma.plz', '') . ' ' . get($s, 'firma.ort', ''), ', '),
+    '{{postanschrift}}' => trim(get($s, 'firma.postanschrift.strasse', '') . ', ' . get($s, 'firma.postanschrift.plz', '') . ' ' . get($s, 'firma.postanschrift.ort', ''), ', '),
+];
+$einsetzen = static fn (string $t): string => strtr($t, $marken);
+
 $abschnitte = get($seite, 'abschnitte', []);
 $imAufbau   = (bool) get($seite, 'im_aufbau', true);
 
@@ -116,7 +135,7 @@ partial('kopf', [
         </div>
 
         <?php foreach ($a['absaetze'] ?? [] as $p): ?>
-        <p><?= h($p) ?></p>
+        <p><?= h($einsetzen($p)) ?></p>
         <?php endforeach; ?>
 
         <?php if (!empty($a['zeilen'])): ?>
@@ -124,7 +143,7 @@ partial('kopf', [
                 Fliesstext — so sind sie auch maschinell lesbar. */ ?>
         <address class="abschnitt-zeilen">
           <?php foreach ($a['zeilen'] as $z): ?>
-          <span><?= h($z) ?></span>
+          <span><?= h($einsetzen($z)) ?></span>
           <?php endforeach; ?>
         </address>
         <?php endif; ?>
@@ -132,7 +151,7 @@ partial('kopf', [
         <?php if (!empty($a['liste'])): ?>
         <ul class="abschnitt-liste">
           <?php foreach ($a['liste'] as $l): ?>
-          <li><?= swash() ?><span><?= h($l) ?></span></li>
+          <li><?= swash() ?><span><?= h($einsetzen($l)) ?></span></li>
           <?php endforeach; ?>
         </ul>
         <?php endif; ?>

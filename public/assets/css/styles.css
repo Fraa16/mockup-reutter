@@ -729,7 +729,44 @@ a.count{
 }
 a.count:hover{color:var(--rot-schrift);border-color:var(--red)}
 
-.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+/* Die Kundenstimmen liegen auf einer Spur statt in einem festen Dreierraster.
+   So koennen weitere Stimmen dazukommen, ohne dass der Fussbereich jeder Seite
+   mitwaechst. Wischen und Scrollen funktionieren allein hierueber — die
+   Knoepfe darunter setzt erst das Skript ein. */
+.review-schieber{position:relative}
+.review-grid{
+  --sichtbar:3;--luecke:20px;
+  display:grid;grid-auto-flow:column;
+  grid-auto-columns:calc((100% - (var(--sichtbar) - 1) * var(--luecke)) / var(--sichtbar));
+  gap:var(--luecke);
+  overflow-x:auto;overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.review-grid::-webkit-scrollbar{display:none}
+.review-grid>*{scroll-snap-align:start}
+/* Eine scrollbare Flaeche muss mit der Tastatur erreichbar sein — dann soll
+   man auch sehen, dass sie den Fokus hat. */
+.review-grid:focus-visible{outline:2px solid var(--red);outline-offset:5px}
+
+.schieber-bedienung{display:flex;align-items:center;gap:14px;margin-top:24px}
+/* display:flex aus der Klasse schlaegt sonst das [hidden] des Browsers. */
+.schieber-bedienung[hidden]{display:none}
+.schieber-knopf{
+  width:40px;height:40px;flex:none;display:grid;place-items:center;
+  background:#fff;border:1px solid rgba(10,11,13,.16);color:var(--black);
+  font-size:15px;line-height:1;cursor:pointer;
+  transition:border-color .2s,color .2s,opacity .2s;
+}
+.schieber-knopf:hover:not(:disabled){border-color:var(--red);color:var(--rot-schrift)}
+.schieber-knopf:disabled{opacity:.3;cursor:default}
+.schieber-punkte{display:flex;align-items:center;gap:8px}
+.schieber-punkt{
+  width:8px;height:8px;padding:0;border:0;border-radius:0;
+  background:rgba(10,11,13,.22);cursor:pointer;
+  transition:background .2s,width .2s;
+}
+.schieber-punkt[aria-current="true"]{width:24px;background:var(--red)}
 .review-card{
   background:#fff;border:1px solid rgba(10,11,13,.1);padding:32px 30px;
   display:flex;flex-direction:column;gap:18px;
@@ -1520,6 +1557,11 @@ a.count:hover{color:var(--rot-schrift);border-color:var(--red)}
 /* ==========================================================================
    Trocknungs-Zeitstrahl (Interieur)
    ========================================================================== */
+/* Trockeneis und Trocknung sind beide weiss — ohne Trennung lesen sie
+   sich als ein einziger langer Block. Die Linie sitzt am Abschnitt,
+   nicht am wrap, sonst zaehlt der Innenabstand doppelt. */
+.trockeneis{background:#fff;padding:var(--sekt-oben) 0 var(--sekt-unten);
+  border-bottom:1px solid rgba(10,11,13,.1)}
 .trocknung{background:#fff;padding:var(--sekt-oben) 0 var(--sekt-unten)}
 .trocknung-grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:64px;align-items:start}
 .trocknung-intro h2{
@@ -2595,7 +2637,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   .betrieb-photo .badge{right:0;bottom:-20px;max-width:min(300px,80%)}
 
   .reviews-head{flex-direction:column;align-items:flex-start;gap:14px}
-  .review-grid{grid-template-columns:repeat(2,1fr)}
+  .review-grid{--sichtbar:2}
 
   .anfrage-grid{grid-template-columns:minmax(0,1fr);gap:48px}
   .leistung-hero{min-height:0}
@@ -2797,7 +2839,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   .betrieb-stats .stat:not(:first-child){padding-left:0}
   .betrieb-stats .stat:last-child{border-bottom:0}
 
-  .review-grid{grid-template-columns:minmax(0,1fr)}
+  .review-grid{--sichtbar:1}
   .review-card{padding:24px 22px}
 
   .request-card{padding:26px 20px 24px}
@@ -3140,6 +3182,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
    bekommt dieselbe Seite — nur ohne Fahrt, Blende und Puls.
    ========================================================================== */
 @media (prefers-reduced-motion: reduce){
+  .review-grid{scroll-behavior:auto}
   /* Ankersprünge landen sofort statt zu gleiten. */
   html{scroll-behavior:auto}
 

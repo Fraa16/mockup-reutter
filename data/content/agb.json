@@ -14,7 +14,7 @@
         {
             "titel": "Geltungsbereich",
             "absaetze": [
-                "Diese Bedingungen gelten für alle Verträge über Fahrzeugpflege, Aufbereitung, Dellenentfernung, Lackierarbeiten, Lederreparatur und Ozonbehandlung zwischen Daniel Reutter, Smartrepair Reutter, und dem Kunden."
+                "Diese Bedingungen gelten für alle Verträge über Fahrzeugpflege, Aufbereitung, Dellenentfernung, Lackierarbeiten, Lederreparatur und Ozonbehandlung zwischen {{inhaber}}, {{firma}}, und dem Kunden."
             ],
             "platzhalter": {
                 "titel": "Verbraucher oder Unternehmer — Antwort liegt vor",

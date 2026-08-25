@@ -614,6 +614,121 @@
   }
 
   /* ---------------------------------------------------------------------
+     Kundenstimmen-Schieber
+     Die Spur scrollt und schnappt schon ohne Skript — wischen am Handy,
+     scrollen am Rechner. Hier kommen nur die Bedienelemente dazu, und zwar
+     per Skript erzeugt: ohne JavaScript sollen keine toten Knoepfe dastehen.
+
+     Bewusst ohne automatisches Weiterlaufen. Der Block steht im Fuss jeder
+     Seite; Text, der von selbst wegwandert, ist dort eine Zumutung.
+     --------------------------------------------------------------------- */
+  document.querySelectorAll('[data-karussell]').forEach((schieber) => {
+    const spur   = schieber.querySelector('.review-grid');
+    const karten = spur ? Array.from(spur.children) : [];
+    if (karten.length < 2) return;
+
+    let aktuell = 0;
+
+    const sanft = () => (window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth');
+    const zu = (i) => spur.scrollTo({ left: karten[i].offsetLeft - karten[0].offsetLeft, behavior: sanft() });
+
+    const bedienung = document.createElement('div');
+    bedienung.className = 'schieber-bedienung';
+
+    const knopf = (richtung, beschriftung, zeichen) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'schieber-knopf';
+      b.setAttribute('aria-label', beschriftung);
+      b.innerHTML = '<span aria-hidden="true">' + zeichen + '</span>';
+      b.addEventListener('click', () => zu(Math.min(karten.length - 1, Math.max(0, aktuell + richtung))));
+      return b;
+    };
+    const zurueck = knopf(-1, 'Vorherige Bewertung', '←');
+    const weiter  = knopf(1,  'Nächste Bewertung', '→');
+
+    const punkteleiste = document.createElement('div');
+    punkteleiste.className = 'schieber-punkte';
+    const punkte = karten.map((_, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'schieber-punkt';
+      b.setAttribute('aria-label', 'Bewertung ' + (i + 1));
+      b.addEventListener('click', () => zu(i));
+      punkteleiste.appendChild(b);
+      return b;
+    });
+
+    /* Die Zahl steht nur fuer Screenreader da — sichtbar sind die Punkte. */
+    const stand = document.createElement('p');
+    stand.className = 'visually-hidden';
+    stand.setAttribute('aria-live', 'polite');
+
+    bedienung.append(zurueck, weiter, punkteleiste, stand);
+    schieber.appendChild(bedienung);
+
+    /* Die Knopfzustaende haengen an der Scrollposition, nicht am Index: Stehen
+       drei Karten nebeneinander, ruecken die letzten drei nie ganz nach links.
+       Waere 'Weiter' an den Index gebunden, bliebe der Knopf am Ende aktiv. */
+    const zeichne = () => {
+      const rest = spur.scrollWidth - spur.clientWidth;
+      zurueck.disabled = spur.scrollLeft <= 2;
+      weiter.disabled  = spur.scrollLeft >= rest - 2;
+      punkte.forEach((p, i) => p.setAttribute('aria-current', String(i === aktuell)));
+      stand.textContent = 'Bewertung ' + (aktuell + 1) + ' von ' + karten.length;
+    };
+
+    /* Position ueber den Beobachter statt ueber scrollLeft: das ueberlebt
+       Zoom, wechselnde Kartenbreiten und das Schnappen selbst. Gemeldet wird
+       die linke der sichtbaren Karten — sonst gewaenne am Ende der Spur die
+       zuletzt eingeblendete, und die Anzeige spraenge auf die letzte Karte. */
+    if ('IntersectionObserver' in window) {
+      const sichtbare = new Set();
+      const beobachter = new IntersectionObserver((eintraege) => {
+        eintraege.forEach((e) => {
+          const i = karten.indexOf(e.target);
+          if (i < 0) return;
+          if (e.isIntersecting) { sichtbare.add(i); } else { sichtbare.delete(i); }
+        });
+        if (!sichtbare.size) return;
+        const links = Math.min(...sichtbare);
+        if (links !== aktuell) { aktuell = links; }
+        zeichne();
+      }, { root: spur, threshold: 0.6 });
+      karten.forEach((k) => beobachter.observe(k));
+    }
+
+    /* Beim Wischen meldet der Beobachter nur an den Schwellen. Damit die
+       Knoepfe schon waehrend des Scrollens stimmen, hier noch einmal. */
+    let laeuft = false;
+    spur.addEventListener('scroll', () => {
+      if (laeuft) return;
+      laeuft = true;
+      requestAnimationFrame(() => { laeuft = false; zeichne(); });
+    }, { passive: true });
+
+    /* Die Pfeiltasten scrollen sonst um ein paar Pixel statt um eine Karte. */
+    spur.addEventListener('keydown', (e) => {
+      const richtung = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!richtung) return;
+      e.preventDefault();
+      zu(Math.min(karten.length - 1, Math.max(0, aktuell + richtung)));
+    });
+
+    /* Passen alle Karten nebeneinander, braucht es keine Bedienung. Haengt an
+       der Fensterbreite, nicht an der Anzahl — bei drei Karten und drei
+       sichtbaren Spalten waeren die Knoepfe sinnlos, eine Spalte tiefer nicht. */
+    const pruefen = () => {
+      const passtAlles = spur.scrollWidth <= spur.clientWidth + 1;
+      bedienung.hidden = passtAlles;
+      spur.setAttribute('tabindex', passtAlles ? '-1' : '0');
+    };
+    pruefen();
+    zeichne();
+    window.addEventListener('resize', pruefen, { passive: true });
+  });
+
+  /* ---------------------------------------------------------------------
      Einblenden beim Scrollen
      --------------------------------------------------------------------- */
   const reveals = document.querySelectorAll('.rv, .rv-in');

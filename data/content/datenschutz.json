@@ -19,10 +19,10 @@
             "zeilen": [
                 "Daniel Reutter",
                 "Smartrepair Reutter",
-                "Lembergstraße 27",
-                "70825 Korntal-Münchingen",
-                "Telefon: 07 11 / 82 85 940",
-                "E-Mail: info@clean-box.eu"
+                "{{strasse}}",
+                "{{plzort}}",
+                "Telefon: {{telefon}}",
+                "E-Mail: {{email}}"
             ],
             "nachtext": [
                 "Ein Datenschutzbeauftragter ist nicht bestellt und für einen Betrieb dieser Größe auch nicht vorgeschrieben."

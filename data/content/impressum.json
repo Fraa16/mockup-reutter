@@ -19,8 +19,8 @@
             "zeilen": [
                 "Daniel Reutter",
                 "Smartrepair Reutter",
-                "Lembergstraße 27",
-                "70825 Korntal-Münchingen",
+                "{{strasse}}",
+                "{{plzort}}",
                 "Deutschland"
             ],
             "nachtext": [
@@ -36,9 +36,9 @@
         {
             "titel": "Kontakt",
             "zeilen": [
-                "Telefon: 07 11 / 82 85 940",
-                "Mobil: 0172 / 6 28 97 25",
-                "E-Mail: info@clean-box.eu"
+                "Telefon: {{telefon}}",
+                "Mobil: {{mobil}}",
+                "E-Mail: {{email}}"
             ],
             "nachtext": [
                 "Eine E-Mail-Adresse und ein zweiter, unmittelbarer Kommunikationsweg sind nach § 5 Abs. 1 Nr. 2 DDG Pflicht. Beides liegt vor."
@@ -51,7 +51,7 @@
                 "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:"
             ],
             "zeilen": [
-                "DE257725894"
+                "{{ustid}}"
             ],
             "nachtext": [
                 "Die Steuernummer wird bewusst nicht zusätzlich veröffentlicht. § 5 DDG verlangt die Umsatzsteuer-Identifikationsnummer, sofern vorhanden — die liegt vor."

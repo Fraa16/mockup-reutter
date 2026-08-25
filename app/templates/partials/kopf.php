@@ -109,14 +109,17 @@ $lcp_sizes    = $lcp_sizes    ?? null;
             als Halbpixel ohnehin verschwinden.
 
             Vorlage ist 527 × 56 px, dargestellt wird sie halb so groß. Damit
-            bleibt sie auch auf Bildschirmen mit doppelter Pixeldichte scharf.
+            ist sie als Vektor auf jeder Bildschirmdichte scharf und wiegt ein
+            Fuenftel der Rasterfassung.
             Der Alternativtext bleibt leer: der Link daneben trägt bereits ein
             aria-label, sonst würde alles doppelt vorgelesen. */ ?>
     <a href="/" class="logo" aria-label="<?= attr(get($s, 'firma.name')) ?> — zur Startseite">
-      <img class="logo-bild" src="<?= attr(asset('logo/reutter-wortmarke-weiss.webp')) ?>"
-           alt="" width="527" height="56" fetchpriority="high">
+      <img class="logo-bild" src="<?= attr(asset('logo/reutter-weiss.svg')) ?>"
+           alt="" width="1000" height="78" fetchpriority="high">
       <span class="divider"></span>
-      <span class="sub">Fahrzeug<br>pflege</span>
+      <?php /* Zweizeilig gesetzt: der Umbruch faellt auf das Leerzeichen,
+              damit der Zusatz im Panel als ein Wort gepflegt wird. */ ?>
+      <span class="sub"><?= str_replace(' ', '<br>', h(get($s, 'firma.logo_zusatz', ''))) ?></span>
     </a>
     <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav">
       <span></span><span></span><span></span>

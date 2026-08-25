@@ -169,7 +169,8 @@
         "_bild_warnung": "Zeigt aktuell einen Porsche 356 in einer Palmenallee und ist als 'Inhaber/Team vor der Halle' beschriftet. Zwingend durch ein echtes Foto ersetzen.",
         "badge": {
             "name": "Smartrepair Reutter",
-            "text": "Inhabergeführt. Wer Ihr Auto annimmt, arbeitet auch daran."
+            "text": "Inhabergeführt. Kleines Team, feste Gesichter.",
+            "_korrektur": "Vorher: 'Wer Ihr Auto annimmt, arbeitet auch daran.' Eine echte Google-Rezension auf derselben Seite lobt namentlich einen Mitarbeiter fuer die Aufbereitung — die Aussage widersprach also unserem eigenen Beleg zwei Bildschirmhoehen weiter unten."
         },
         "kachel_3": {
             "wert": "6",

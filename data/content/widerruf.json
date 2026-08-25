@@ -1,18 +1,15 @@
 {
     "_hinweis": "Inhalte der Seite /widerruf/. Diese Seite steht NICHT im Design-Bundle — dort ist sie verschwunden und im Fussbereich durch 'Kontakt' ersetzt worden. Sie ist trotzdem noetig: die alte Website hatte eine, und ein Betrieb, der online Anfragen entgegennimmt und an Verbraucher leistet, braucht die Belehrung. Ihr Fehlen ist ein typischer Abmahngrund. Aufbau wie die anderen drei Rechtsseiten.",
     "_warnung": "Die gesetzliche Muster-Widerrufsbelehrung darf man nicht frei umformulieren — nur wer das amtliche Muster verwendet, ist auf der sicheren Seite. Deshalb steht hier bewusst kein ausformulierter Belehrungstext, sondern die Erklaerung drumherum plus ein markierter Platz fuer das Muster.",
-
     "seo": {
         "titel": "Widerrufsrecht — Smartrepair Reutter",
         "beschreibung": "Widerrufsbelehrung für Verbraucher bei Verträgen, die per Telefon, E-Mail oder über das Anfrageformular geschlossen werden."
     },
-
     "titel": "Widerrufsrecht",
-    "lead": "Wenn ein Auftrag zustande kommt, ohne dass wir uns persönlich gegenübergestanden haben — also über das Formular, per E-Mail oder am Telefon — steht Verbrauchern ein Widerrufsrecht zu. Was das bedeutet, steht hier.",
+    "lead": "Widerrufsbelehrung nach dem amtlichen Muster für Verträge, die über das Anfrageformular, per E-Mail, WhatsApp oder am Telefon zustande kommen.",
     "stand": "noch offen",
     "im_aufbau": true,
-    "band_hinweis": "Gerüst. Die eigentliche Belehrung muss dem amtlichen Muster der Anlage 1 zu Art. 246a EGBGB entsprechen — dieses Muster wird eingesetzt, nicht neu formuliert.",
-
+    "band_hinweis": "Belehrung und Formular sind eingesetzt. Was noch fehlt, steht nicht auf dieser Seite, sondern in den Papieren des Betriebs: der Satz auf der Auftragsbestätigung, mit dem der Kunde den vorzeitigen Arbeitsbeginn ausdrücklich verlangt. Ohne ihn greift das vorzeitige Erlöschen nicht.",
     "abschnitte": [
         {
             "titel": "Wann das Widerrufsrecht gilt",
@@ -24,17 +21,19 @@
         },
         {
             "titel": "Widerrufsbelehrung",
-            "platzhalter": {
-                "titel": "Amtliches Muster einsetzen",
-                "hinweis": "Hier gehört die Muster-Widerrufsbelehrung nach Anlage 1 zu Artikel 246a § 1 Abs. 2 Satz 2 EGBGB hinein, ausgefüllt mit Name, Anschrift, Telefonnummer und E-Mail-Adresse des Betriebs. Der Text wird wörtlich übernommen und nicht umformuliert — nur die Verwendung des amtlichen Musters gilt als gesetzeskonform."
-            }
+            "absaetze": [
+                "Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen.",
+                "Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag des Vertragsabschlusses.",
+                "Um Ihr Widerrufsrecht auszuüben, müssen Sie uns ({{inhaber}}, {{firma}}, {{postanschrift}}, Telefon: {{telefon}}, E-Mail: {{email}}) mittels einer eindeutigen Erklärung (z. B. ein mit der Post versandter Brief oder eine E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren. Sie können dafür das unten abgedruckte Muster-Widerrufsformular verwenden, das jedoch nicht vorgeschrieben ist.",
+                "Zur Wahrung der Widerrufsfrist reicht es aus, dass Sie die Mitteilung über die Ausübung des Widerrufsrechts vor Ablauf der Widerrufsfrist absenden."
+            ]
         },
         {
             "titel": "Widerrufsfolgen",
-            "platzhalter": {
-                "titel": "Teil des amtlichen Musters",
-                "hinweis": "Die Folgen des Widerrufs — Rückzahlung binnen vierzehn Tagen, Wertersatz für bereits erbrachte Leistungen — sind Bestandteil desselben Musters und werden mit übernommen."
-            }
+            "absaetze": [
+                "Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, unverzüglich und spätestens binnen vierzehn Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf dieses Vertrags bei uns eingegangen ist. Für diese Rückzahlung verwenden wir dasselbe Zahlungsmittel, das Sie bei der ursprünglichen Transaktion eingesetzt haben, es sei denn, mit Ihnen wurde ausdrücklich etwas anderes vereinbart; in keinem Fall werden Ihnen wegen dieser Rückzahlung Entgelte berechnet.",
+                "Haben Sie verlangt, dass die Dienstleistungen während der Widerrufsfrist beginnen sollen, so haben Sie uns einen angemessenen Betrag zu zahlen, der dem Anteil der bis zu dem Zeitpunkt, zu dem Sie uns von der Ausübung des Widerrufsrechts hinsichtlich dieses Vertrags unterrichten, bereits erbrachten Dienstleistungen im Vergleich zum Gesamtumfang der im Vertrag vorgesehenen Dienstleistungen entspricht."
+            ]
         },
         {
             "titel": "Vorzeitiges Erlöschen bei Dienstleistungen",
@@ -49,10 +48,22 @@
         },
         {
             "titel": "Muster-Widerrufsformular",
-            "platzhalter": {
-                "titel": "Formular nach Anlage 2 EGBGB ergänzen",
-                "hinweis": "Zum Widerrufsrecht gehört ein Muster-Widerrufsformular, das dem Verbraucher zur Verfügung gestellt werden muss. Auch das ist amtlich vorgegeben (Anlage 2 zu Art. 246a § 1 Abs. 2 Satz 1 Nr. 1 EGBGB) und wird mit den Betriebsdaten ausgefüllt."
-            }
+            "absaetze": [
+                "(Wenn Sie den Vertrag widerrufen wollen, dann füllen Sie bitte dieses Formular aus und senden Sie es zurück.)"
+            ],
+            "liste": [
+                "An {{inhaber}}, {{firma}}, {{postanschrift}}, Telefon: {{telefon}}, E-Mail: {{email}}:",
+                "Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über die Erbringung der folgenden Dienstleistung (*)",
+                "Bestellt am (*)/erhalten am (*)",
+                "Name des/der Verbraucher(s)",
+                "Anschrift des/der Verbraucher(s)",
+                "Unterschrift des/der Verbraucher(s) (nur bei Mitteilung auf Papier)",
+                "Datum"
+            ],
+            "nachtext": [
+                "(*) Unzutreffendes streichen."
+            ]
         }
-    ]
+    ],
+    "_quelle": "Belehrung und Formular sind das amtliche Muster nach Anlage 1 und 2 zu Art. 246a EGBGB — Gesetzestext, woertlich zu uebernehmen und frei verwendbar. Vorlage war die Dienstleistungs-Variante von Daniels alter Website. Drei Eingriffe: die Kontaktdaten stehen als Platzhalter statt abgeschrieben, die Warenklauseln (Ruecksendung, Wertverlust, versiegelte Waren) sind entfallen, weil der Betrieb nichts verkauft, und die offene Klammer des alten Generators ('...vorgesehenen Dienstleistungen entspricht ().') ist geschlossen."
 }

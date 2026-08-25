@@ -1,9 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Smartrepair Reutter">
   <!--
-    Übergangslösung: das rote Parallelogramm aus der Wortmarke auf dem
-    Markenschwarz. Ersetzen, sobald das echte Logo als SVG vom Kunden vorliegt
-    (siehe Launch-Checkliste, Punkt 9).
+    Das rote Parallelogramm der Wortmarke auf dem Markenschwarz. Nicht mehr von
+    Hand nachgezeichnet: der Pfad ist aus reutter-logo.JPG nachgezeichnet und
+    stimmt mit dem Zeichen im Logo ueberein.
   -->
   <rect width="64" height="64" fill="#0A0B0D"/>
-  <path d="M26 18 h20 l-8 28 h-20 z" fill="#D80D18"/>
+  <g transform="translate(-156.02 4.04) scale(0.3958)">
+    <path fill="#D80D18" fill-rule="evenodd" d="M450.5,45.25 L448.0,46.0 L445.75,48.25 L427.25,87.75 L427.0,93.0 L429.25,95.25 L431.75,96.0 L501.0,95.75 L502.5,95.0 L504.75,92.0 L523.0,52.0 L522.5,47.5 L517.5,45.25Z"/>
+  </g>
 </svg>
