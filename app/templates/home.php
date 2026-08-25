@@ -9,6 +9,15 @@ $s          = site();
 $leistungen = content('leistungen')['eintraege'];
 $kennzahl   = static fn (string $k): string => (string) get(site(), "kennzahlen.$k.wert", '');
 
+/* Die Jahre im Handwerk werden aus dem Gruendungsjahr gerechnet, nicht
+   eingetragen. Eine feste Zahl waere in zwoelf Monaten falsch, und niemand
+   denkt daran, sie nachzupflegen — genau so ist die erfundene 25 entstanden. */
+$jahre      = static function (): string {
+    $start = (int) get(site(), 'kennzahlen.gruendungsjahr.wert', 0);
+
+    return $start > 0 ? (string) max(0, (int) date('Y') - $start) : '';
+};
+
 /* Der Betrieb steht nur hier — die Unterseiten verweisen ueber @id darauf,
    statt ihn zu wiederholen. */
 $jsonld = [seo_jsonld_betrieb()];
@@ -52,7 +61,7 @@ partial('kopf', [
     </div>
     <div class="hero-stats">
       <div class="stat">
-        <div class="value"><?= h($kennzahl('jahre')) ?></div>
+        <div class="value"><?= h($jahre()) ?></div>
         <div class="label">Jahre im Handwerk</div>
       </div>
       <div class="stat">
@@ -282,13 +291,13 @@ partial('kopf', [
       </div>
       <div class="betrieb-copy">
         <div class="kicker"><?= swash() ?><span class="label"><?= h(get($seite, 'betrieb.kicker')) ?></span></div>
-        <h2><?= h(get($seite, 'betrieb.titel_vorne')) ?><?= h($kennzahl('jahre')) ?><?= h(get($seite, 'betrieb.titel_hinten')) ?></h2>
+        <h2><?= h(get($seite, 'betrieb.titel_vorne')) ?><?= h($jahre()) ?><?= h(get($seite, 'betrieb.titel_hinten')) ?></h2>
         <?php foreach (get($seite, 'betrieb.absaetze', []) as $absatz): ?>
         <p><?= h($absatz) ?></p>
         <?php endforeach; ?>
         <div class="betrieb-stats">
           <div class="stat">
-            <div class="value"><?= h($kennzahl('jahre')) ?>+</div>
+            <div class="value"><?= h($jahre()) ?></div>
             <div class="label">Jahre Erfahrung</div>
           </div>
           <div class="stat">

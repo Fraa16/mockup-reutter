@@ -86,7 +86,7 @@ function anfrage_betreff(array $a): string
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title><?= $einzeln === null ? 'Anfragen' : 'Anfrage von ' . h((string) $einzeln['name']) ?> — Fahrzeugpflege Reutter</title>
+<title><?= $einzeln === null ? 'Anfragen' : 'Anfrage von ' . h((string) $einzeln['name']) ?> — Smartrepair Reutter</title>
 <link rel="stylesheet" href="/admin/assets/admin.css">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 </head>
@@ -167,7 +167,7 @@ function anfrage_betreff(array $a): string
       <a class="knopf primaer" href="tel:<?= attr(preg_replace('/[^0-9+]/', '', $telefon) ?? '') ?>">Anrufen: <?= h($telefon) ?></a>
     <?php endif; ?>
     <?php if ($email !== ''): ?>
-      <a class="knopf schlicht" href="mailto:<?= attr($email) ?>?subject=<?= attr(rawurlencode('Ihre Anfrage bei Fahrzeugpflege Reutter')) ?>">Antworten: <?= h($email) ?></a>
+      <a class="knopf schlicht" href="mailto:<?= attr($email) ?>?subject=<?= attr(rawurlencode('Ihre Anfrage bei Smartrepair Reutter')) ?>">Antworten: <?= h($email) ?></a>
     <?php endif; ?>
   </div>
 

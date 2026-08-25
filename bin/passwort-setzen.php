@@ -21,7 +21,7 @@ $datei = $datenOrdner . '/users.php';
 
 $benutzer = is_file($datei) ? require $datei : [];
 
-echo "\nPanel-Zugang fuer Fahrzeugpflege Reutter\n";
+echo "\nPanel-Zugang fuer Smartrepair Reutter\n";
 echo str_repeat('-', 44), "\n";
 
 if ($benutzer !== []) {

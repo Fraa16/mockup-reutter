@@ -1,12 +1,10 @@
 {
     "_hinweis": "Inhalte der Seite /leistungen/lackierarbeiten/. Uebernommen aus export/project/Leistung Lackierarbeiten.dc.html. Der Abschnitt 'beklebung' steht nicht im Entwurf — er kommt aus der Angebotsklaerung: Fahrzeugbeklebung bekommt keinen eigenen Reiter, sondern hier eine Sprungmarke, auf die spaeter /beklebung.html per 301 zeigt.",
-    "_unbestaetigt": "Fachaussagen sind Entwuerfe des Design-Assistenten, von Daniel Reutter nicht bestaetigt. Zu pruefen: die drei Tiefenstufen mit ihren Standzeiten, die vier Schritte der Farbtonfindung (Messgeraet? Musterblech?), die Gewaehrleistungsaussage in der FAQ und vor allem der komplette Abschnitt 'beklebung' — welche Folierungsarten der Betrieb ueberhaupt anbietet, ist offen.",
-
+    "_unbestaetigt": "Vom Kunden geklaert: Farbtonmessung am Fahrzeug ja, Musterblech ja — beides bleibt, aber knapper. Der Fingernageltest samt Standzeiten ist entfallen. Die Politur des Uebergangs ist NICHT im Preis enthalten; die Zusage ist gestrichen. Offen bleibt allein die Gewaehrleistungsaussage in der FAQ.",
     "seo": {
-        "titel": "Lackierarbeiten Korntal — Beilackierung & Farbton | Fahrzeugpflege Reutter",
+        "titel": "Lackierarbeiten Korntal — Beilackierung & Farbton | Smartrepair Reutter",
         "beschreibung": "Beilackierung und Teillackierung mit gemessenem Farbton und Musterblech statt reiner Werksmischung. Lackierarbeiten in Korntal-Münchingen bei Stuttgart."
     },
-
     "hero": {
         "kicker": "Leistung 04 · Lack",
         "titel": "Der Farbcode ist ein Vorschlag. Nicht das Ergebnis.",
@@ -15,82 +13,36 @@
         "swatch_text": "Fünf Mischungen aus derselben Farbnummer. Nur eine passt zu Ihrem Fahrzeug.",
         "_swatch_hinweis": "hoehe ist ein Designwert in Pixeln und bleibt im Inhalt, weil die Staffelung das Bild traegt. Die Farbwerte sind bewusst dunkle Grautoene — sie stehen fuer Mischungen, nicht fuer echte Farbtoene eines Kundenfahrzeugs.",
         "swatches": [
-            { "farbe": "#1B1D21", "label": "Werksmischung", "hoehe": 54 },
-            { "farbe": "#22252A", "label": "Variante A",    "hoehe": 66 },
-            { "farbe": "#191B1F", "label": "Variante B",    "hoehe": 78 },
-            { "farbe": "#2A2D33", "label": "Variante C",    "hoehe": 66 },
-            { "farbe": "#141619", "label": "gemessen",      "hoehe": 90 }
+            {
+                "farbe": "#1B1D21",
+                "label": "Werksmischung",
+                "hoehe": 54
+            },
+            {
+                "farbe": "#22252A",
+                "label": "Variante A",
+                "hoehe": 66
+            },
+            {
+                "farbe": "#191B1F",
+                "label": "Variante B",
+                "hoehe": 78
+            },
+            {
+                "farbe": "#2A2D33",
+                "label": "Variante C",
+                "hoehe": 66
+            },
+            {
+                "farbe": "#141619",
+                "label": "gemessen",
+                "hoehe": 90
+            }
         ]
     },
-
-    "tiefentest": {
-        "kicker": "Der Fingernageltest",
-        "titel": "Wie tief geht der Kratzer — und was folgt daraus?",
-        "beschreibung": "Fahren Sie quer mit dem Fingernagel über die Stelle. Wählen Sie unten, was Sie spüren.",
-        "schema_titel": "Schnitt durch die Schichten",
-        "hinweis": "Die rote Zone zeigt, bis wohin der Schaden reicht. Ab dem Basislack hilft Polieren nicht mehr — dann muss Material aufgebaut werden.",
-        "vorgehen_kicker": "Unser Vorgehen",
-        "_schichten_hinweis": "Die Schichthoehen sind Design und stehen im CSS. Hier stehen nur die Beschriftungen.",
-        "schichten": [
-            { "rolle": "klarlack", "name": "Klarlack",             "zusatz": "ca. 40 µm" },
-            { "rolle": "basis",    "name": "Basislack — Ihre Farbe", "zusatz": "" },
-            { "rolle": "fueller",  "name": "Füller / Grundierung",  "zusatz": "" },
-            { "rolle": "blech",    "name": "Blech",                 "zusatz": "" }
-        ]
-    },
-
-    "_tiefen_hinweis": "balken_* sind Prozentwerte: wie weit der Schaden in die jeweilige Schicht reicht. Sie gehoeren zum Text und stehen deshalb hier, nicht im Skript.",
-    "tiefen": [
-        {
-            "num": "01",
-            "titel": "Nagel bleibt nicht hängen",
-            "urteil": "polieren",
-            "gefuehl": "Die Stelle fühlt sich glatt an, ist aber sichtbar. Der Schaden liegt im Klarlack.",
-            "balken_klarlack": 45,
-            "balken_basis": 0,
-            "balken_fueller": 0,
-            "aktion": "Politur, keine Lackierung",
-            "text": "Das ist der Regelfall bei Waschkratzern und Schleiern. Wir korrigieren im Klarlack und versiegeln danach — ohne dass Lack aufgetragen werden muss.",
-            "standzeit": "ein halber bis ein Tag",
-            "lack_noetig": "nein",
-            "zustaendig": "Exterieur",
-            "zustaendig_ziel": "/leistungen/fahrzeugpflege-exterieur/"
-        },
-        {
-            "num": "02",
-            "titel": "Nagel hakt leicht ein",
-            "urteil": "beilackieren",
-            "gefuehl": "Ein feiner Widerstand. Der Kratzer geht durch den Klarlack, die Farbe ist angekratzt.",
-            "balken_klarlack": 100,
-            "balken_basis": 40,
-            "balken_fueller": 0,
-            "aktion": "Stelle beilackieren",
-            "text": "Geschliffen, gefüllt, im gemessenen Ton lackiert, Übergang ausgenebelt und danach poliert. Abgeklebt wird bis zur nächsten natürlichen Kante.",
-            "standzeit": "ein bis zwei Tage",
-            "lack_noetig": "ja, Teilfläche",
-            "zustaendig": "Lackierarbeiten",
-            "zustaendig_ziel": ""
-        },
-        {
-            "num": "03",
-            "titel": "Heller Strich, deutlicher Absatz",
-            "urteil": "lackieren",
-            "gefuehl": "Sie sehen grau oder weiß im Kratzer und spüren eine klare Kante.",
-            "balken_klarlack": 100,
-            "balken_basis": 100,
-            "balken_fueller": 65,
-            "aktion": "Aufbau bis zur Grundierung",
-            "text": "Hier ist der Schutz weg — ohne Behandlung beginnt es an der Stelle zu rosten. Geschliffen, grundiert, in Schichten aufgebaut, lackiert und poliert.",
-            "standzeit": "zwei bis drei Tage",
-            "lack_noetig": "ja, mehrschichtig",
-            "zustaendig": "Lackierarbeiten",
-            "zustaendig_ziel": ""
-        }
-    ],
-
     "farbton": {
         "kicker": "Farbtonfindung",
-        "titel": "Vier Schritte, bevor überhaupt Lack aufs Auto kommt.",
+        "titel": "Der Ton wird gemessen, nicht geraten.",
         "lead": "Silber, Weiß und Perleffekt verzeihen keine Näherung. Wenn wir sehen, dass eine Beilackierung sichtbar bliebe, sagen wir das vorher — und schlagen vor, das ganze Bauteil zu machen.",
         "bild": "g5.webp",
         "bild_alt": "Musterblech wird zum Vergleich neben das Bauteil gehalten",
@@ -99,31 +51,19 @@
         "schritte": [
             {
                 "num": "01",
-                "titel": "Farbcode auslesen",
-                "text": "Vom Typenschild im Türrahmen oder unter der Haube. Damit haben wir die Werksmischung — den Zustand von damals."
+                "titel": "Am Fahrzeug messen",
+                "text": "Der Farbcode aus dem Türrahmen ist die Werksmischung — der Zustand von damals. Gemessen wird an einer Fläche neben der Schadstelle."
             },
             {
                 "num": "02",
-                "titel": "Am Fahrzeug messen",
-                "text": "Der tatsächliche Ton weicht nach Jahren in der Sonne ab. Gemessen wird an einer Fläche neben der Schadstelle, nicht am Dach."
-            },
-            {
-                "num": "03",
-                "titel": "Muster spritzen",
-                "text": "Die Mischung geht zuerst auf ein Blech, nicht auf Ihr Auto. Trocknen lassen, denn nass sieht jeder Ton anders aus."
-            },
-            {
-                "num": "04",
-                "titel": "Vergleich bei Tageslicht",
-                "text": "Draußen, nicht unter Hallenlicht. Passt der Ton aus mehreren Winkeln, geht es los. Passt er nicht, wird nachgemischt.",
+                "titel": "Muster vor dem Auto",
+                "text": "Die Mischung geht zuerst auf ein Blech und wird bei Tageslicht verglichen. Passt der Ton aus mehreren Winkeln, geht es los. Passt er nicht, wird nachgemischt.",
                 "betont": true
             }
         ]
     },
-
     "beklebung": {
-        "_hinweis": "NICHT im Design-Entwurf enthalten. Ergaenzt, weil die alte Website dafuer eine eigene Seite hatte (/beklebung.html) und die Leistung laut Kunde zu den Lackierarbeiten gehoert. Die alte URL wird per 301 auf #beklebung umgeleitet.",
-        "_unbestaetigt": "LAUNCH-BLOCKER: Welche der vier Varianten der Betrieb tatsaechlich anbietet, ist unbestaetigt. Vor Launch mit Daniel durchgehen und nicht Angebotenes streichen.",
+        "_hinweis": "NICHT im Design-Entwurf enthalten. Ergaenzt, weil die alte Website dafuer eine eigene Seite hatte (/beklebung.html) und die Leistung laut Kunde zu den Lackierarbeiten gehoert. Alle vier Varianten sind vom Kunden bestaetigt. Die alte URL wird per 301 auf #beklebung umgeleitet.",
         "kicker": "Fahrzeugbeklebung",
         "titel": "Folie statt Lack — wenn der Zustand darunter erhalten bleiben soll.",
         "lead": "Beklebung ist keine billigere Lackierung, sondern eine andere Entscheidung: Die Farbe ist umkehrbar, der Originallack bleibt darunter geschützt. Vorbereitet wird trotzdem wie beim Lackieren — auf einer ungereinigten Fläche hält keine Folie.",
@@ -148,7 +88,6 @@
         "hinweis": "Was wir nicht machen: Folie über Rost oder abblätternden Lack. Das Problem wandert dann nur unter die Folie und kommt beim Ablösen doppelt zurück.",
         "cta": "Beklebung anfragen"
     },
-
     "vergleich": {
         "kicker": "Vorher / Nachher",
         "titel": "Stoßfänger geschliffen, grundiert, lackiert.",
@@ -163,14 +102,12 @@
         "fussnote_vor": "Weitere Arbeiten in der ",
         "fussnote_link": "Galerie"
     },
-
     "preis": {
         "kicker": "Preis",
-        "titel": "Festpreis nach Begutachtung — Politur des Übergangs inklusive.",
-        "text": "Der Aufwand hängt an drei Dingen: Größe der Stelle, betroffenes Bauteil und Schwierigkeit des Farbtons. Was nicht extra berechnet wird, ist das Auspolieren des Übergangs — sonst wäre die Arbeit nicht fertig.",
+        "titel": "Festpreis nach Begutachtung.",
+        "text": "Der Aufwand hängt an drei Dingen: Größe der Stelle, betroffenes Bauteil und Schwierigkeit des Farbtons. Wir sehen uns das an und nennen einen Preis, der steht.",
         "cta": "Einschätzung anfragen"
     },
-
     "faq": {
         "kicker": "Häufige Fragen",
         "titel": "Was Kunden vorher wissen wollen",
@@ -199,15 +136,25 @@
             }
         ]
     },
-
     "verwandt": {
         "titel": "Passt oft dazu",
         "karten": [
-            { "slug": "dellen-hagelschaden",        "kicker": "03 · Karosserie", "text": "Delle mit gerissenem Lack: erst drücken, dann die Stelle beilackieren." },
-            { "slug": "fahrzeugpflege-exterieur",   "kicker": "01 · Exterieur",  "text": "Nach der Lackierung wird poliert — oft lohnt sich gleich die ganze Fläche." },
-            { "slug": "fahrzeugpflege-interieur",   "kicker": "02 · Interieur",  "text": "Wenn das Fahrzeug ohnehin zwei Tage in der Halle steht." }
+            {
+                "slug": "dellen-hagelschaden",
+                "kicker": "03 · Karosserie",
+                "text": "Delle mit gerissenem Lack: erst drücken, dann die Stelle beilackieren."
+            },
+            {
+                "slug": "fahrzeugpflege-exterieur",
+                "kicker": "01 · Exterieur",
+                "text": "Polieren statt lackieren, wenn der Kratzer nur im Klarlack sitzt — und nach der Lackierung."
+            },
+            {
+                "slug": "fahrzeugpflege-interieur",
+                "kicker": "02 · Interieur",
+                "text": "Wenn das Fahrzeug ohnehin zwei Tage in der Halle steht."
+            }
         ]
     },
-
     "cta_ueberschrift": "Lackschaden am Fahrzeug?"
 }

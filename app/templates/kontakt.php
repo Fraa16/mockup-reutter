@@ -121,6 +121,12 @@ partial('kopf', [
             <div><dt>Samstag</dt><dd class="ist-zu">geschlossen</dd></div>
             <div><dt>Sonntag</dt><dd class="ist-zu">geschlossen</dd></div>
           </dl>
+          <?php /* Zwei verschiedene Dinge: der Anruf vorher steht in den
+                  Stammdaten, weil er zu den Zeiten gehoert; die Annahme nach
+                  Termin ist eine Aussage dieser Seite. */ ?>
+          <?php if (($vorlauf = (string) get($s, 'oeffnungszeiten.hinweis', '')) !== ''): ?>
+          <p class="zeiten-hinweis"><?= h($vorlauf) ?></p>
+          <?php endif; ?>
           <p class="zeiten-hinweis"><?= h(get($seite, 'zeiten.hinweis')) ?></p>
         </div>
       </aside>

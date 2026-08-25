@@ -10,8 +10,8 @@
 $s = site();
 
 partial('kopf', [
-    'titel'        => 'Anfrage ist raus — Fahrzeugpflege Reutter',
-    'beschreibung' => 'Ihre Anfrage ist bei uns eingegangen. Wir melden uns in der Regel am selben Werktag.',
+    'titel'        => 'Anfrage ist raus — Smartrepair Reutter',
+    'beschreibung' => 'Ihre Anfrage ist bei uns eingegangen. Wir melden uns, sobald es die Werkstatt zulässt.',
     'aktiv'        => '',
 ]);
 ?>
@@ -22,8 +22,8 @@ partial('kopf', [
     <div class="kicker"><?= swash() ?><span class="label">Anfrage eingegangen</span></div>
     <h1>Danke — wir haben Ihre Anfrage.</h1>
     <p class="lead">
-      Wir sehen sie uns an und melden uns in der Regel am selben Werktag. Wenn es
-      eilig ist oder Sie noch etwas ergänzen möchten, rufen Sie einfach an.
+      Wir sehen sie uns an und melden uns, sobald es die Werkstatt zulässt. Wenn es
+      eilig ist, rufen Sie an — telefonisch sind wir am schnellsten erreichbar.
     </p>
 
     <div class="danke-wege">

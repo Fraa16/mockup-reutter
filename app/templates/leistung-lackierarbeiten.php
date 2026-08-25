@@ -15,7 +15,6 @@
  * @var array<string,mixed> $leistung
  */
 $s      = site();
-$tiefen = get($seite, 'tiefen', []);
 
 /* Der Hero traegt hier kein Foto, sondern die Musterreihe — deshalb kein
    lcp_bild. Vorgeladen wird nichts, es gibt nichts vorzuladen. */
@@ -76,90 +75,6 @@ partial('kopf', [
       <div class="cta-row">
         <a href="#kurzanfrage" class="btn btn-red"><?= h(get($seite, 'hero.cta')) ?> <span class="btn-arrow" aria-hidden="true">→</span></a>
         <a href="tel:<?= attr(get($s, 'kontakt.telefon_link')) ?>" class="btn btn-outline"><?= h(get($s, 'kontakt.telefon')) ?></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Fingernagel-Tiefentest -->
-<section class="tiefentest">
-  <div class="wrap">
-    <div class="section-head light">
-      <div style="max-width:700px">
-        <div class="kicker"><?= swash() ?><span class="label"><?= h(get($seite, 'tiefentest.kicker')) ?></span></div>
-        <h2><?= h(get($seite, 'tiefentest.titel')) ?></h2>
-      </div>
-      <p class="desc"><?= h(get($seite, 'tiefentest.beschreibung')) ?></p>
-    </div>
-
-    <div id="tiefentest">
-      <div class="tiefen-wahl" role="group" aria-label="Kratzertiefe wählen">
-        <?php foreach ($tiefen as $i => $t): ?>
-        <button type="button" class="tiefe<?= $i === 1 ? ' active' : '' ?>" data-tiefe="<?= $i ?>"
-                aria-pressed="<?= $i === 1 ? 'true' : 'false' ?>" aria-controls="tiefen-tafel">
-          <span class="tiefe-kopf">
-            <span class="tiefe-num"><?= h($t['num']) ?></span>
-            <span class="tiefe-urteil"><?= h($t['urteil']) ?></span>
-          </span>
-          <span class="tiefe-titel"><?= h($t['titel']) ?></span>
-          <span class="tiefe-gefuehl"><?= h($t['gefuehl']) ?></span>
-        </button>
-        <?php endforeach; ?>
-      </div>
-
-      <div class="tiefen-panel">
-        <div class="lack-schnitt">
-          <div class="schnitt-titel"><?= h(get($seite, 'tiefentest.schema_titel')) ?></div>
-          <?php /* Die Schichthoehen sind Design und stehen im CSS. Nur die
-                  Breite der Schadenszone wechselt — sie kommt aus den
-                  Tiefendaten und wird vom Skript gesetzt. */ ?>
-          <div class="lack-schichten">
-            <?php foreach (get($seite, 'tiefentest.schichten', []) as $sch): ?>
-            <div class="lack-schicht lack-<?= attr($sch['rolle']) ?>">
-              <span class="schicht-name"><?= h($sch['name']) ?></span>
-              <?php if ($sch['zusatz'] !== ''): ?>
-                <span class="schicht-zusatz"><?= h($sch['zusatz']) ?></span>
-              <?php endif; ?>
-              <?php if ($sch['rolle'] !== 'blech'): ?>
-                <?php $breite = (int) ($tiefen[1]['balken_' . $sch['rolle']] ?? 0); ?>
-                <span class="schadenszone<?= $breite === 0 ? ' ist-leer' : '' ?>" data-schicht="<?= attr($sch['rolle']) ?>"
-                      style="width:<?= $breite ?>%" aria-hidden="true"></span>
-              <?php endif; ?>
-            </div>
-            <?php endforeach; ?>
-          </div>
-          <p class="schnitt-hinweis"><?= h(get($seite, 'tiefentest.hinweis')) ?></p>
-        </div>
-
-        <?php /* Alle drei Tafeln stehen im HTML, JS blendet um. Die
-                Balkenbreiten haengen an der Tafel, damit sie neben dem
-                zugehoerigen Text gepflegt werden. */ ?>
-        <div class="vorgehen" id="tiefen-tafel">
-          <?php foreach ($tiefen as $i => $t): ?>
-          <div class="vorgehen-tafel<?= $i === 1 ? ' is-active' : '' ?>"
-               data-klarlack="<?= (int) $t['balken_klarlack'] ?>"
-               data-basis="<?= (int) $t['balken_basis'] ?>"
-               data-fueller="<?= (int) $t['balken_fueller'] ?>">
-            <div class="vorgehen-kicker"><?= h(get($seite, 'tiefentest.vorgehen_kicker')) ?></div>
-            <h3><?= h($t['aktion']) ?></h3>
-            <p><?= h($t['text']) ?></p>
-            <dl class="vorgehen-werte">
-              <div><dt>Standzeit</dt><dd><?= h($t['standzeit']) ?></dd></div>
-              <div><dt>Lack nötig</dt><dd><?= h($t['lack_noetig']) ?></dd></div>
-              <div>
-                <dt>Zuständig</dt>
-                <dd class="ist-rot">
-                  <?php if ($t['zustaendig_ziel'] !== ''): ?>
-                    <a href="<?= attr($t['zustaendig_ziel']) ?>"><?= h($t['zustaendig']) ?></a>
-                  <?php else: ?>
-                    <?= h($t['zustaendig']) ?>
-                  <?php endif; ?>
-                </dd>
-              </div>
-            </dl>
-          </div>
-          <?php endforeach; ?>
-        </div>
       </div>
     </div>
   </div>

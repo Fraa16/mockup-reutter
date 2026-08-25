@@ -1,5 +1,5 @@
 /**
- * Fahrzeugpflege Reutter — Frontend-Verhalten.
+ * Smartrepair Reutter — Frontend-Verhalten.
  *
  * Grundregel: Die Seite ist ohne dieses Skript vollstaendig bedienbar. Inhalte
  * werden serverseitig gerendert, hier wird nur umgeschaltet, gezogen und
@@ -211,23 +211,6 @@
      Zonen-Waehler (Fahrzeugpflege Interieur)
      --------------------------------------------------------------------- */
   umschalter({ bereich: 'zonenkarte', schalter: '.zone', tafeln: '.zonen-tafel' });
-
-  /* ---------------------------------------------------------------------
-     Fingernagel-Tiefentest (Lackierarbeiten)
-     Zustand waehlen, die rote Schadenszone waechst durch die Schichten. Die
-     Breiten stehen wie beim Querschnitt an der Tafel.
-     --------------------------------------------------------------------- */
-  const schadenszonen = Array.from(document.querySelectorAll('#tiefentest .schadenszone'));
-  umschalter({
-    bereich:  'tiefentest',
-    schalter: '.tiefe',
-    tafeln:   '.vorgehen-tafel',
-    nebenbei: (index, tafel) => schadenszonen.forEach((zone) => {
-      const breite = Number(tafel.dataset[zone.dataset.schicht]) || 0;
-      zone.style.width = breite + '%';
-      zone.classList.toggle('ist-leer', breite === 0);
-    }),
-  });
 
   /* ---------------------------------------------------------------------
      Vier Schadensgrade (Lederreparatur)

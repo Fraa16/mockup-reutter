@@ -1,6 +1,6 @@
 {
     "_hinweis": "Inhalte der Seite /leistungen/ozonbehandlung/. Uebernommen aus export/project/Leistung Ozon.dc.html. Diese Seite hat als einzige bewusst keinen Vorher/Nachher-Regler — Geruch ist nicht fotografierbar. Stattdessen zwei Prozessbilder und ein Absatz, der genau das erklaert.",
-    "_unbestaetigt": "Fachaussagen sind Entwuerfe des Design-Assistenten, von Daniel Reutter nicht bestaetigt. Zu pruefen: die fuenf Geruchsquellen mit ihren Dauern, die Aussage 'wir geben erst frei, wenn nichts mehr messbar ist' (setzt ein Messgeraet voraus!), die Sperrzeit-Phasen, 'Kaeltemittel/Klimaverdampfer mitbehandelt' und die Sicherheitsaussagen zu Gummi, Kunststoff und Elektronik. Achtung: die Startseite nennt '60 Minuten gesperrt', diese Seite 'ein halber Tag' — vor Launch angleichen.",
+    "_unbestaetigt": "Vom Kunden geklaert: keine Zeitangaben und kein Restozon-Messgeraet. Die Dauern, die '60 Minuten' der Startseite, der halbe Tag im Hero und jede 'messbar'-Zusage sind entfernt. Was der Fall braucht, wird telefonisch oder am Fahrzeug geklaert. Die fuenf Geruchsquellen und ihre Reihenfolge bleiben — das ist Erfahrungswissen, keine Zusage.",
     "seo": {
         "titel": "Ozonbehandlung Auto Korntal — Rauchgeruch weg | Reutter",
         "beschreibung": "Rauch, Tiergeruch, Schimmel: Ozon zerlegt Geruchsmoleküle nach der Reinigung. Ozonbehandlung fürs Fahrzeug in Korntal-Münchingen bei Stuttgart, nur in der Halle."
@@ -12,10 +12,6 @@
         "cta": "Termin anfragen",
         "kennzahlen": [
             {
-                "wert": "½ Tag",
-                "label": "Fahrzeug gesperrt"
-            },
-            {
                 "wert": "Halle",
                 "label": "nicht mobil"
             }
@@ -24,7 +20,7 @@
     "diagnose": {
         "kicker": "Diagnose zuerst",
         "titel": "Wonach riecht es bei Ihnen?",
-        "beschreibung": "Wählen Sie die Quelle. Danach steht fest, was vorher passieren muss — und ob Ozon überhaupt der richtige Weg ist.",
+        "beschreibung": "Wählen Sie die Quelle. Danach steht fest, was vorher passieren muss — und ob Ozon überhaupt der richtige Weg ist. Wie lange Ihr Fahrzeug dafür bleibt, sagen wir am Telefon oder wenn wir es gesehen haben.",
         "sitz_titel": "Wo der Geruch sitzt",
         "reihenfolge_titel": "Reihenfolge in diesem Fall",
         "rueckfall_titel": "Kommt zurück, wenn"
@@ -53,7 +49,6 @@
             ],
             "sinnvoll": "ja, nach der Reinigung",
             "vorarbeit": "zwingend",
-            "dauer": "ein halber bis ein Tag",
             "rueckfall": "weiter im Fahrzeug geraucht wird. Dann ist der Geruch in wenigen Wochen zurück."
         },
         {
@@ -78,7 +73,6 @@
             ],
             "sinnvoll": "ja, als letzter Schritt",
             "vorarbeit": "zwingend",
-            "dauer": "ein Tag",
             "rueckfall": "das Tier weiter ohne Decke oder Box mitfährt."
         },
         {
@@ -104,7 +98,6 @@
             ],
             "sinnvoll": "erst nach Trocknung",
             "vorarbeit": "Ursache muss behoben sein",
-            "dauer": "ein bis zwei Tage",
             "rueckfall": "die undichte Stelle bleibt. Dann ist es in vier Wochen wieder da."
         },
         {
@@ -129,7 +122,6 @@
             ],
             "sinnvoll": "ja, nach Extraktion",
             "vorarbeit": "zwingend",
-            "dauer": "ein halber Tag",
             "rueckfall": "unter dem Teppich Reste bleiben. Deshalb heben wir ihn an."
         },
         {
@@ -154,14 +146,13 @@
             ],
             "sinnvoll": "nach Befund",
             "vorarbeit": "Diagnose zuerst",
-            "dauer": "Befund in einer Stunde",
             "rueckfall": "die Ursache nicht gefunden wurde. Deshalb suchen wir, statt zu behandeln."
         }
     ],
     "sperrzeit": {
         "kicker": "Ablauf und Sperrzeit",
         "titel": "Während der Behandlung steigt niemand ein.",
-        "lead": "In der Konzentration, mit der gearbeitet wird, ist Ozon nicht harmlos. Deshalb ist das Fahrzeug verschlossen, und wir geben es erst frei, wenn nichts mehr messbar ist.",
+        "lead": "In der Konzentration, mit der gearbeitet wird, ist Ozon nicht harmlos. Deshalb ist das Fahrzeug während der Behandlung verschlossen, und es wird erst gelüftet und übergeben, wenn die Behandlung durch ist.",
         "_phasen_hinweis": "zustand_art steuert die Farbe: frei (grau), gesperrt (rot), uebergabe (weiss).",
         "phasen": [
             {
@@ -195,7 +186,7 @@
             {
                 "phase": "Phase 05",
                 "titel": "Freigabe",
-                "text": "Kontrolle, dass nichts mehr messbar ist. Abnahme gemeinsam im Fahrzeug, ohne Duftbaum.",
+                "text": "Abnahme gemeinsam im Fahrzeug, ohne Duftbaum. Sie riechen selbst, bevor Sie losfahren.",
                 "zustand": "Übergabe",
                 "zustand_art": "uebergabe"
             }
@@ -259,7 +250,7 @@
         "fragen": [
             {
                 "frage": "Ist Ozon gesundheitsschädlich?",
-                "antwort": "In der Arbeitskonzentration ja — deshalb ist das Fahrzeug während der Behandlung gesperrt und niemand steigt ein. Ozon zerfällt danach von selbst wieder zu Sauerstoff. Freigegeben wird erst, wenn nichts mehr messbar ist."
+                "antwort": "In der Arbeitskonzentration ja — deshalb ist das Fahrzeug während der Behandlung gesperrt und niemand steigt ein. Danach wird gelüftet; Restozon zerfällt von selbst wieder zu Sauerstoff. Übergeben wird erst danach."
             },
             {
                 "frage": "Reicht Ozon allein, ohne Reinigung?",

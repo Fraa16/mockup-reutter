@@ -196,13 +196,16 @@ return [
                     ['pfad' => 'kontakt.mobil_link',   'typ' => 'text', 'label' => 'Mobil zum Anklicken'],
                     ['pfad' => 'kontakt.email',        'typ' => 'text', 'label' => 'E-Mail'],
                     ['pfad' => 'oeffnungszeiten.text', 'typ' => 'text', 'label' => 'Öffnungszeiten', 'hilfe' => 'Kurzform für die Leiste oben, z. B. Mo–Fr 9–17 Uhr'],
+                    ['pfad' => 'oeffnungszeiten.hinweis', 'typ' => 'text', 'label' => 'Zusatz zu den Zeiten',
+                     'hilfe' => 'Steht klein unter den Zeiten, z. B. der Hinweis, vorher anzurufen.'],
                 ],
             ],
             [
                 'titel'  => 'Kennzahlen',
                 'hinweis' => 'Diese Zahlen stehen groß auf der Startseite. Bitte nur eintragen, was sich belegen lässt — erfundene Bewertungen sind abmahnfähig.',
                 'felder' => [
-                    ['pfad' => 'kennzahlen.jahre.wert',            'typ' => 'zahl', 'label' => 'Jahre im Handwerk'],
+                    ['pfad' => 'kennzahlen.gruendungsjahr.wert', 'typ' => 'zahl', 'label' => 'Gegründet im Jahr',
+                     'hilfe' => 'Vierstellig, z. B. 2005. Die Jahre im Handwerk rechnet die Seite daraus — die Zahl altert nicht.'],
                     ['pfad' => 'kennzahlen.google_bewertung.wert', 'typ' => 'text', 'label' => 'Google-Bewertung', 'hilfe' => 'Mit Komma, z. B. 5,0'],
                     ['pfad' => 'kennzahlen.google_anzahl.wert',    'typ' => 'zahl', 'label' => 'Anzahl Google-Rezensionen'],
                     ['pfad' => 'kennzahlen.google_profil_url',     'typ' => 'text', 'label' => 'Link zum Google-Profil',
@@ -564,26 +567,6 @@ return [
         'Beilackierung, Farbtonfindung und Beklebung — die Seite unter /leistungen/lackierarbeiten/.',
         [
             [
-                'titel'   => 'Der Fingernageltest',
-                'hinweis' => 'Drei Zustände. Die Zeichnung mit den Lackschichten baut die Website selbst.',
-                'felder'  => [
-                    ['pfad' => 'tiefentest.kicker',       'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
-                    ['pfad' => 'tiefentest.titel',        'typ' => 'text',       'label' => 'Überschrift'],
-                    ['pfad' => 'tiefentest.beschreibung', 'typ' => 'mehrzeilig', 'label' => 'Text daneben'],
-                    ['pfad' => 'tiefentest.hinweis',      'typ' => 'mehrzeilig', 'label' => 'Hinweis unter der Zeichnung'],
-                    ['pfad' => 'tiefen', 'typ' => 'liste', 'label' => 'Zustand', 'min' => 3, 'max' => 3, 'sortierbar' => false,
-                     'subfelder' => [
-                        ['pfad' => 'titel',       'typ' => 'text',       'label' => 'Überschrift'],
-                        ['pfad' => 'urteil',      'typ' => 'text',       'label' => 'Etikett', 'hilfe' => 'z. B. polieren, beilackieren'],
-                        ['pfad' => 'gefuehl',     'typ' => 'mehrzeilig', 'label' => 'Was man spürt'],
-                        ['pfad' => 'aktion',      'typ' => 'text',       'label' => 'Unser Vorgehen'],
-                        ['pfad' => 'text',        'typ' => 'mehrzeilig', 'label' => 'Beschreibung'],
-                        ['pfad' => 'standzeit',   'typ' => 'text',       'label' => 'Standzeit'],
-                        ['pfad' => 'lack_noetig', 'typ' => 'text',       'label' => 'Lack nötig'],
-                     ]],
-                ],
-            ],
-            [
                 'titel'  => 'Farbtonfindung',
                 'felder' => [
                     ['pfad' => 'farbton.kicker',   'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
@@ -591,7 +574,7 @@ return [
                     ['pfad' => 'farbton.lead',     'typ' => 'mehrzeilig', 'label' => 'Einleitung'],
                     ['pfad' => 'farbton.bild',     'typ' => 'bild',       'label' => 'Bild'],
                     ['pfad' => 'farbton.bild_alt', 'typ' => 'text',       'label' => 'Bildbeschreibung'],
-                    ['pfad' => 'farbton.schritte', 'typ' => 'liste', 'label' => 'Schritt', 'min' => 4, 'max' => 4, 'sortierbar' => false,
+                    ['pfad' => 'farbton.schritte', 'typ' => 'liste', 'label' => 'Schritt', 'min' => 2, 'max' => 4, 'sortierbar' => false,
                      'subfelder' => [
                         ['pfad' => 'titel', 'typ' => 'text',       'label' => 'Überschrift'],
                         ['pfad' => 'text',  'typ' => 'mehrzeilig', 'label' => 'Beschreibung'],

@@ -1,9 +1,9 @@
 {
     "_hinweis": "Globale Daten. Werte mit PRUEFEN: sind noch nicht vom Kunden bestaetigt und duerfen so nicht live gehen.",
     "firma": {
-        "_aufgabe_kunde": "Das Google-Unternehmensprofil laeuft noch unter 'Smartrepair Reutter'. Der offizielle Name ist laut Kunde 'Fahrzeugpflege Reutter' — das Profil muss umbenannt werden, damit Name, Adresse und Telefon auf Website, Google und in Verzeichnissen uebereinstimmen. Die 281 Rezensionen bleiben bei einer Umbenennung erhalten; Google prueft die Aenderung ggf. manuell.",
-        "name": "Fahrzeugpflege Reutter",
-        "inhaber": "PRUEFEN: Daniel Reutter",
+        "_aufgabe_kunde": "Der Betrieb heisst kuenftig 'Smartrepair Reutter' — so, wie das Google-Unternehmensprofil seit Jahren laeuft. Damit bleibt das Profil mit seinen 281 Rezensionen unangetastet und die Website zieht nach. Am Umschalttag ist im Profil nur die Website-Adresse auf die neue Domain zu aendern.",
+        "name": "Smartrepair Reutter",
+        "inhaber": "Daniel Reutter",
         "strasse": "Lembergstraße 27",
         "plz": "70825",
         "ort": "Korntal-Münchingen",
@@ -11,7 +11,7 @@
         "land": "DE",
         "ustid": "DE257725894",
         "_steuernummer": "Nicht noetig und bewusst nicht veroeffentlicht. § 5 DDG verlangt die Umsatzsteuer-Identifikationsnummer, sofern vorhanden — die liegt vor. Die Steuernummer zusaetzlich anzugeben ist nicht gefordert und wird allgemein davon abgeraten.",
-        "kammer": "OFFEN: Ist der Betrieb in der Handwerksrolle eingetragen (Fahrzeuglackierer ist zulassungspflichtiges Handwerk, Anlage A HwO)? Falls ja, muessen Kammer, Berufsbezeichnung und verleihender Staat ins Impressum (§ 5 Abs. 1 Nr. 5 DDG). Falls nein, darf nirgends 'Meisterbetrieb' stehen."
+        "kammer": "Geklaert: Der Betrieb ist nicht in der Handwerksrolle eingetragen. Fahrzeugpflege und Aufbereitung sind zulassungsfrei, gespritzt wird extern. Der Abschnitt im Impressum ist deshalb entfallen. 'Meisterbetrieb' darf nirgends auf der Website stehen — die Abnahme prueft das."
     },
     "kontakt": {
         "telefon": "07 11 / 82 85 940",
@@ -21,7 +21,7 @@
         "email": "info@clean-box.eu"
     },
     "oeffnungszeiten": {
-        "_korrektur": "Das Mockup schrieb 'Mo–Fr 8–18 Uhr · Sa nach Absprache'. Laut Google-Profil und Kunde gilt Mo–Fr 9–17 Uhr, Samstag geschlossen. Die alte Angabe war an zwei Stellen falsch und ist ersetzt.",
+        "_korrektur": "Das Mockup schrieb 'Mo–Fr 8–18 Uhr · Sa nach Absprache'. Laut Google-Profil und Kunde gilt in der Regel Mo–Fr 9–17 Uhr, Samstag geschlossen. Der Betrieb ist eine Werkstatt, keine Rezeption — deshalb der Hinweis auf den Anruf vorher.",
         "text": "Mo–Fr 9–17 Uhr",
         "strukturiert": [
             {
@@ -35,7 +35,8 @@
                 "von": "09:00",
                 "bis": "17:00"
             }
-        ]
+        ],
+        "hinweis": "In der Regel. Rufen Sie am besten eine Stunde vorher an, dann ist jemand da."
     },
     "_einsatzgebiet_hinweis": "Korntal ergaenzt — der Standort des Betriebs gehoerte nicht zur Liste aus dem Mockup, die noch von der alten Stuttgarter Adresse ausging. Ein Betrieb, der seinen eigenen Ort nicht nennt, verschenkt genau die Suchanfragen, die am naechsten liegen.",
     "einsatzgebiet": [
@@ -48,10 +49,10 @@
     ],
     "einsatzgebiet_zusatz": "und Umgebung",
     "kennzahlen": {
-        "_hinweis": "Bewertung und Anzahl stammen aus dem Google-Unternehmensprofil und sind damit belegt. Die Jahreszahl hat das Mockup erfunden und ist weiterhin offen.",
-        "jahre": {
-            "wert": 25,
-            "belegt": false
+        "_hinweis": "Bewertung und Anzahl stammen aus dem Google-Unternehmensprofil. Das Gruendungsjahr hat der Betrieb bestaetigt; die Jahre im Handwerk werden daraus gerechnet und altern nicht.",
+        "gruendungsjahr": {
+            "wert": 2005,
+            "belegt": true
         },
         "google_bewertung": {
             "wert": "5,0",
@@ -92,7 +93,7 @@
         "zusatz": "Mobiler Service im gesamten Raum Stuttgart"
     },
     "sticky_bar": {
-        "headline": "Kostenlose Einschätzung — meist am selben Werktag",
+        "headline": "Kostenlose Einschätzung — am schnellsten am Telefon",
         "subline": "Werkstatt in Korntal bei Stuttgart · mobil im ganzen Raum",
         "ab_scroll": 600,
         "_hinweis": "600 statt bisher 720 — so gibt es das zweite Design-Bundle vor."

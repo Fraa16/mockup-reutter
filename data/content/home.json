@@ -1,6 +1,6 @@
 {
     "seo": {
-        "titel": "Fahrzeugpflege Reutter — Lack, Leder, Dellen. Alles aus einer Hand.",
+        "titel": "Smartrepair Reutter — Lack, Leder, Dellen. Alles aus einer Hand.",
         "beschreibung": "Fahrzeugpflege, KFZ-Aufbereitung, Dellen- und Hagelschadenbeseitigung, Lackierarbeiten, Lederreparatur und Ozonbehandlung in Korntal bei Stuttgart — in der Halle oder mobil bei Ihnen vor Ort."
     },
     "hero": {
@@ -8,7 +8,7 @@
         "titel": "Lack, Leder, Dellen.",
         "titel_zusatz": "Alles aus einer Hand.",
         "lead": "Wir beseitigen Hagelschäden, Parkdellen und Kratzer, lackieren nach, reparieren Leder und bereiten Innenräume auf. In der Halle in Korntal bei Stuttgart — oder mobil bei Ihnen vor Ort.",
-        "fineprint": "Kostenlose Einschätzung · Antwort in der Regel am selben Werktag",
+        "fineprint": "Kostenlose Einschätzung · Am schnellsten geht es telefonisch",
         "bild": "hero.webp",
         "bild_alt": "Dunkles Fahrzeug nach der Aufbereitung, Lichtkante auf der Flanke",
         "bild_platzhalter": true,
@@ -168,7 +168,7 @@
         "bild_platzhalter": true,
         "_bild_warnung": "Zeigt aktuell einen Porsche 356 in einer Palmenallee und ist als 'Inhaber/Team vor der Halle' beschriftet. Zwingend durch ein echtes Foto ersetzen.",
         "badge": {
-            "name": "Fahrzeugpflege Reutter",
+            "name": "Smartrepair Reutter",
             "text": "Inhabergeführt. Wer Ihr Auto annimmt, arbeitet auch daran."
         },
         "kachel_3": {
