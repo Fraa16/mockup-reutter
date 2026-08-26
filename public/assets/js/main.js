@@ -523,6 +523,45 @@
   }
 
   /* ---------------------------------------------------------------------
+     Ortsleiste einfahren
+     Oben steht sie, beim Weiterlesen faehrt sie nach oben aus dem Bild und
+     der Kopf rueckt nach. Damit gibt sie 38 px zurueck, ohne dass die
+     Ortsnamen von der Seite verschwinden — ueber der Falz sind sie das
+     staerkste Signal fuer die lokale Suche.
+
+     Der Abstandhalter im Fluss bleibt dabei unveraendert hoch. Wuerde er
+     mitschrumpfen, rueckte der ganze Inhalt beim Scrollen um 38 px nach oben.
+
+     Ohne dieses Skript bleibt die Leiste stehen — der brauchbare Grundzustand.
+     --------------------------------------------------------------------- */
+  const ortsleiste = document.querySelector('.utility-bar');
+  if (ortsleiste) {
+    /* Zwei Schwellen statt einer. Bei nur einer flackerte die Leiste, sobald
+       jemand genau auf der Grenze zum Stehen kommt oder das Rad ein Stueck
+       zurueckdreht. */
+    const RAUS = 200;
+    const ZURUECK = 140;
+    let kompakt = false;
+
+    const pruefeKopf = () => {
+      /* Waehrend das Menuepanel offen ist, liegt der Rumpf auf position:fixed
+         und window.scrollY steht auf 0. Ohne diese Sperre faehre die Leiste
+         beim Oeffnen zurueck, und das Panel — es haengt am Kopf — ruckte um
+         38 px mit. */
+      if (document.body.classList.contains('nav-offen')) return;
+
+      const y = window.scrollY || document.documentElement.scrollTop;
+      const soll = kompakt ? y > ZURUECK : y > RAUS;
+      if (soll === kompakt) return;
+      kompakt = soll;
+      document.body.classList.toggle('kopf-kompakt', kompakt);
+    };
+
+    window.addEventListener('scroll', pruefeKopf, { passive: true });
+    pruefeKopf();
+  }
+
+  /* ---------------------------------------------------------------------
      Sticky-Anfrageleiste
      --------------------------------------------------------------------- */
   const stickyBar = document.getElementById('sticky-bar');

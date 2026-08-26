@@ -160,6 +160,13 @@
   --utility-hoehe: 38px;
   --kopf-hoehe: 120px;
 
+  /* Wie viel oben tatsaechlich verdeckt ist. Nicht dasselbe wie --kopf-hoehe:
+     die Ortsleiste faehrt beim Scrollen ein, der Abstandhalter im Fluss bleibt
+     aber gleich hoch — sonst rueckte der ganze Inhalt beim Scrollen. Alles,
+     was sich am verdeckten Bereich ausrichtet (Sprungmarken, klebende
+     Spalten, das Navigationspanel), rechnet mit dieser Groesse. */
+  --chrom-hoehe: var(--kopf-hoehe);
+
   /* Senkrechter Rhythmus der Sektionen.
      Der Entwurf hatte je Sektion eigene Zahlen — 104/112, 96/100, 92/96,
      90/96, 88/92, 80/100, 78/84, 76/84, 72/76: neunzehn Werte fuer dieselbe
@@ -331,11 +338,24 @@ img{max-width:100%;display:block}
 
 /* ==========================================================================
    Utility bar
+   ==========================================================================
+   Faehrt beim Scrollen ein und gibt 38 px zurueck. Die Ortsnamen darin sind
+   ueber der Falz das staerkste Signal fuer die lokale Suche — sie sollen oben
+   stehen, aber nicht den halben Bildschirm belegen, waehrend jemand liest.
+   main.js setzt .kopf-kompakt am Rumpf, siehe dort fuer die Schwellen.
    ========================================================================== */
+:root:has(body.kopf-kompakt){ --chrom-hoehe: calc(var(--kopf-hoehe) - var(--utility-hoehe)) }
+
 .utility-bar{
   position:fixed;top:0;left:0;right:0;z-index:70;
   background:var(--off-black);border-bottom:1px solid rgba(255,255,255,.08);
+  transition:transform .3s cubic-bezier(.2,.7,.2,1),visibility .3s;
 }
+/* visibility ist hier nicht Kosmetik: ohne sie bliebe die Telefonnummer der
+   Leiste im Tabweg, obwohl sie ueber dem Bildrand steht. Derselbe Fehler wie
+   frueher bei der unteren Anfrageleiste. Der Wert ist animierbar — beim
+   Einfahren gilt sofort `visible`, beim Ausfahren erst am Ende `hidden`. */
+body.kopf-kompakt .utility-bar{transform:translateY(-100%);visibility:hidden}
 .utility-bar .wrap{
   height:38px;display:flex;align-items:center;justify-content:space-between;
   font:500 12.5px/1 var(--font-body);color:var(--gray-350);letter-spacing:.02em;
@@ -356,7 +376,11 @@ img{max-width:100%;display:block}
   -webkit-backdrop-filter:blur(14px) saturate(140%);
   backdrop-filter:blur(14px) saturate(140%);
   border-bottom:1px solid rgba(255,255,255,.09);
+  transition:transform .3s cubic-bezier(.2,.7,.2,1);
 }
+/* transform statt top: die Bewegung laeuft damit auf der Grafikkarte und
+   stoesst den backdrop-filter nicht bei jedem Bild neu an. */
+body.kopf-kompakt .site-header{transform:translateY(calc(-1 * var(--utility-hoehe)))}
 .site-header .wrap{
   height:82px;display:flex;align-items:center;justify-content:space-between;
 }
@@ -935,7 +959,7 @@ a.count:hover{color:var(--rot-schrift);border-color:var(--red)}
    der Rand gilt dann für alles, was in den Blick gescrollt wird, nicht nur
    für Sprungziele. Gemessen betraf das die Schrittanzeige der Kurzanfrage —
    sie hat keine id und lag beim Durchtabben 22 px hinter dem Kopf. */
-:root{scroll-padding-top:var(--kopf-hoehe)}
+:root{scroll-padding-top:var(--chrom-hoehe)}
 
 /* Dasselbe für die untere Kante. Wer sich mit der Tabulatortaste durch den
    Fuss arbeitet, landete sonst hinter der Leiste: der Browser scrollt das
@@ -1715,7 +1739,7 @@ a.count:hover{color:var(--rot-schrift);border-color:var(--red)}
 .farbton{background:var(--black);padding:var(--sekt-oben) 0 var(--sekt-unten)}
 .farbton-grid{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:64px;align-items:start}
 /* Die Einleitung bleibt beim Scrollen stehen — der Schrittraster ist hoch. */
-.farbton-intro{position:sticky;top:calc(var(--kopf-hoehe) + 40px)}
+.farbton-intro{position:sticky;top:calc(var(--chrom-hoehe) + 40px)}
 .farbton-intro h2{
   margin:0 0 20px;font-family:var(--font-display);font-weight:800;
   font-size:clamp(26px,3.3vw,42px);line-height:1.03;letter-spacing:-.03em;color:#fff;
@@ -1982,7 +2006,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 
 .recht-inhalt{background:#fff;padding:var(--eng-oben) 0 var(--eng-unten)}
 .recht-inhalt .wrap{display:grid;grid-template-columns:300px minmax(0,1fr);gap:80px;align-items:start}
-.recht-verzeichnis{position:sticky;top:calc(var(--kopf-hoehe) + 40px)}
+.recht-verzeichnis{position:sticky;top:calc(var(--chrom-hoehe) + 40px)}
 .verzeichnis-titel{
   color:var(--rot-schrift);margin-bottom:16px;
 }
@@ -2337,7 +2361,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 .index-zeile:hover .index-pfeil,
 .index-zeile:focus-visible .index-pfeil{color:var(--rot-schrift)}
 
-.index-vorschau{position:sticky;top:calc(var(--kopf-hoehe) + 40px);padding-top:60px}
+.index-vorschau{position:sticky;top:calc(var(--chrom-hoehe) + 40px);padding-top:60px}
 .vorschau-rahmen{position:relative;height:520px;border:1px solid rgba(255,255,255,.14);overflow:hidden}
 .vorschau-bild{position:absolute;inset:0;opacity:0;transition:opacity .35s}
 .vorschau-bild.is-active{opacity:1}
@@ -2586,9 +2610,11 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
     /* Solange das Panel offen ist, ist der Seitenscroll gesperrt (siehe
        .nav-offen). Waechst die Navigation im CMS ueber die Bildschirmhoehe
        hinaus, muss sie deshalb selbst scrollen koennen — sonst waere der
-       letzte Punkt unerreichbar. 120px ist die Kopfhoehe samt Ortsleiste. */
-    max-height:calc(100vh - 120px);
-    max-height:calc(100dvh - 120px);
+       letzte Punkt unerreichbar. Abgezogen wird, was oben verdeckt ist: fest
+       eingetragene 120px stimmten nur am Schreibtisch, auf dem Handy sind es
+       104 — und mit der einfahrenden Ortsleiste wechselt der Wert ohnehin. */
+    max-height:calc(100vh - var(--chrom-hoehe));
+    max-height:calc(100dvh - var(--chrom-hoehe));
     overflow-y:auto;
     overscroll-behavior:contain;
   }
