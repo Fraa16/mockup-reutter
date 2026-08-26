@@ -1,11 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Smartrepair Reutter">
   <!--
-    Das rote Parallelogramm der Wortmarke auf dem Markenschwarz. Nicht mehr von
-    Hand nachgezeichnet: der Pfad ist aus reutter-logo.JPG nachgezeichnet und
-    stimmt mit dem Zeichen im Logo ueberein.
+    Das rote Parallelogramm der Wortmarke auf dem Markenschwarz. Nachgezeichnet
+    aus dem Rasterbild im Canva-PDF, derselbe Pfad wie im Logo.
   -->
   <rect width="64" height="64" fill="#0A0B0D"/>
-  <g transform="translate(-156.02 4.04) scale(0.3958)">
-    <path fill="#D80D18" fill-rule="evenodd" d="M450.5,45.25 L448.0,46.0 L445.75,48.25 L427.25,87.75 L427.0,93.0 L429.25,95.25 L431.75,96.0 L501.0,95.75 L502.5,95.0 L504.75,92.0 L523.0,52.0 L522.5,47.5 L517.5,45.25Z"/>
+  <g transform="translate(-155.76 11.17) scale(0.2328)">
+    <path fill="#D80D18" fill-rule="evenodd" d="M768.0,47.0 L762.0,48.0 L758.0,51.5 L757.75,53.0 L756.25,54.25 L752.75,63.0 L748.25,71.25 L747.75,74.0 L743.0,82.5 L740.0,90.25 L733.25,103.25 L733.0,105.25 L727.75,115.0 L725.25,122.0 L725.0,126.5 L726.5,129.75 L729.75,132.0 L852.75,132.0 L856.5,127.75 L859.5,121.75 L860.0,119.25 L865.75,108.25 L866.0,106.25 L871.75,95.25 L872.0,93.25 L876.75,84.5 L877.75,81.25 L878.75,80.5 L879.0,78.25 L884.75,67.5 L884.75,66.25 L885.75,65.5 L886.0,63.25 L887.75,60.5 L888.25,57.0 L888.0,52.0 L887.0,50.75 L882.0,47.75 L878.0,47.25Z"/>
   </g>
 </svg>

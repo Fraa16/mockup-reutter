@@ -115,7 +115,7 @@ $lcp_sizes    = $lcp_sizes    ?? null;
             aria-label, sonst würde alles doppelt vorgelesen. */ ?>
     <a href="/" class="logo" aria-label="<?= attr(get($s, 'firma.name')) ?> — zur Startseite">
       <img class="logo-bild" src="<?= attr(asset('logo/reutter-weiss.svg')) ?>"
-           alt="" width="1000" height="78" fetchpriority="high">
+           alt="" width="1697" height="131" fetchpriority="high">
       <span class="divider"></span>
       <?php /* Zweizeilig gesetzt: der Umbruch faellt auf das Leerzeichen,
               damit der Zusatz im Panel als ein Wort gepflegt wird. */ ?>
