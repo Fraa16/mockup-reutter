@@ -361,13 +361,16 @@ img{max-width:100%;display:block}
   height:82px;display:flex;align-items:center;justify-content:space-between;
 }
 .logo{display:flex;align-items:center;gap:14px;text-decoration:none}
-/* Die echte Wortmarke als Bild. Hoehe steuert, Breite folgt — so bleibt
-   das Seitenverhaeltnis der Vorlage erhalten, egal was der Kunde spaeter
-   austauscht. Die Vorlage ist doppelt so gross wie die Darstellung, damit sie
-   auf dichten Bildschirmen scharf bleibt. */
-.logo-bild{display:block;height:26px;width:auto}
-.logo-bild.ist-gross{height:44px;margin-bottom:20px}
-.logo .divider{width:1px;height:26px;background:rgba(255,255,255,.16)}
+/* Die Wortmarke als SVG. Hoehe steuert, Breite folgt — so bleibt das
+   Seitenverhaeltnis erhalten, egal was der Betrieb spaeter austauscht.
+   Bewusst zurueckhaltend gesetzt: die Marke ist nachgezeichnet und nicht das
+   Original, und je kleiner sie steht, desto weniger faellt die Abweichung an
+   den schraegen Schnittkanten auf. Der Kopf gewinnt dabei Luft. */
+.logo-bild{display:block;height:22px;width:auto}
+.logo-bild.ist-gross{height:36px;margin-bottom:20px}
+/* Der Strich richtet sich nach der Wortmarke — vorher stand er 26 px hoch
+   neben einer 22 px hohen Marke und ueberragte damit, was er trennt. */
+.logo .divider{width:1px;height:20px;background:rgba(255,255,255,.16)}
 .logo .sub{font:600 10.5px/1.35 var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--gray-350)}
 
 /* Hamburger — hidden on desktop, revealed at the nav breakpoint. */
@@ -2599,7 +2602,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
      390 px stiess „Fahrzeugpflege" sonst in den Menueknopf. Auf 21 px Hoehe
      traegt es genauso gross wie vorher, weil der Ausschnitt fast nur aus den
      Buchstaben besteht. */
-  .logo-bild{height:21px}
+  .logo-bild{height:18px}
 
   /* Utility bar: drop the secondary copy, keep location + phone. */
   .utility-bar .left .sep,
