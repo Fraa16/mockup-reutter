@@ -33,7 +33,7 @@ a:hover{color:var(--rot-hell)}
 /* Seit das echte Logo vorliegt ein Bild statt nachgebauter Buchstaben.
    Hoehe steuert, Breite folgt — die Vorlage ist doppelt so gross wie die
    Darstellung und bleibt damit auf dichten Bildschirmen scharf. */
-.wortmarke{display:block;height:20px;width:auto}
+.wortmarke{display:block;height:18px;width:auto}
 .marke .sub{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--grau-400)}
 .zurueck{color:var(--grau-200);font-weight:600}
 .zurueck:hover{color:#fff}

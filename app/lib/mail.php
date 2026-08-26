@@ -144,7 +144,7 @@ function bestaetigung_als_text(array $werte): string
         'Hallo ' . $werte['name'] . ',',
         '',
         'Ihre Anfrage ist bei uns eingegangen. Wir sehen sie uns an und melden',
-        'uns in der Regel am selben Werktag.',
+        'uns, sobald es die Werkstatt zulaesst.',
         '',
         'Wenn es eilig ist, rufen Sie einfach an: ' . get($s, 'kontakt.telefon', ''),
         '',

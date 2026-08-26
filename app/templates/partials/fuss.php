@@ -46,8 +46,8 @@ $ctaUeberschrift  = $ctaUeberschrift  ?? 'Sagen Sie uns, was ansteht.';
       <div class="footer-brand">
         <?php /* Im Fuss ist Platz — hier steht das vollständige Logo mit den
                 Karosserielinien, nicht nur die Buchstaben. */ ?>
-        <img class="logo-bild ist-gross" src="<?= attr(asset('logo/reutter-weiss.webp')) ?>"
-             alt="Fahrzeugpflege Reutter" width="934" height="107" loading="lazy">
+        <img class="logo-bild ist-gross" src="<?= attr(asset('logo/reutter-weiss.svg')) ?>"
+             alt="Smartrepair Reutter" width="1697" height="131" loading="lazy">
         <p><?= h(get($s, 'footer.beschreibung')) ?></p>
         <div class="contact">
           <span>Telefon <?= h(get($s, 'kontakt.telefon')) ?></span>
@@ -95,7 +95,9 @@ $ctaUeberschrift  = $ctaUeberschrift  ?? 'Sagen Sie uns, was ansteht.';
 </footer>
 
 <?php if ($zeigeLeiste): ?>
-<!-- Sticky request bar -->
+<?php /* Anfrageleiste — nur auf schmalen Bildschirmen sichtbar, siehe CSS
+        und main.js. Serverseitig laesst sich das nicht entscheiden, deshalb
+        steht das Markup immer da und wird ab 981 px ausgeblendet. */ ?>
 <div class="sticky-bar" id="sticky-bar" data-ab-scroll="<?= attr((string) get($s, 'sticky_bar.ab_scroll', 600)) ?>">
   <div class="wrap">
     <div class="info">

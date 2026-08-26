@@ -181,10 +181,16 @@ return [
                 'felder' => [
                     ['pfad' => 'firma.name',    'typ' => 'text', 'label' => 'Firmenname', 'hilfe' => 'Erscheint im Fußbereich und im Impressum.'],
                     ['pfad' => 'firma.inhaber', 'typ' => 'text', 'label' => 'Inhaber'],
+                    ['pfad' => 'firma.logo_zusatz', 'typ' => 'text', 'label' => 'Zusatz neben dem Logo',
+                     'hilfe' => 'Steht klein rechts neben der Wortmarke, z. B. Smart Repair. Zwei Wörter werden untereinander gesetzt.'],
                     ['pfad' => 'firma.strasse', 'typ' => 'text', 'label' => 'Straße und Hausnummer'],
                     ['pfad' => 'firma.plz',     'typ' => 'text', 'label' => 'Postleitzahl'],
                     ['pfad' => 'firma.ort',     'typ' => 'text', 'label' => 'Ort'],
                     ['pfad' => 'firma.ustid',   'typ' => 'text', 'label' => 'USt-IdNr.', 'hilfe' => 'Pflichtangabe im Impressum.'],
+                    ['pfad' => 'firma.postanschrift.strasse', 'typ' => 'text', 'label' => 'Postanschrift — Straße',
+                     'hilfe' => 'Nur falls Post woanders hingeht als in die Werkstatt. Steht in Widerruf und AGB, nicht im Impressum.'],
+                    ['pfad' => 'firma.postanschrift.plz',     'typ' => 'text', 'label' => 'Postanschrift — PLZ'],
+                    ['pfad' => 'firma.postanschrift.ort',     'typ' => 'text', 'label' => 'Postanschrift — Ort'],
                 ],
             ],
             [
@@ -196,13 +202,16 @@ return [
                     ['pfad' => 'kontakt.mobil_link',   'typ' => 'text', 'label' => 'Mobil zum Anklicken'],
                     ['pfad' => 'kontakt.email',        'typ' => 'text', 'label' => 'E-Mail'],
                     ['pfad' => 'oeffnungszeiten.text', 'typ' => 'text', 'label' => 'Öffnungszeiten', 'hilfe' => 'Kurzform für die Leiste oben, z. B. Mo–Fr 9–17 Uhr'],
+                    ['pfad' => 'oeffnungszeiten.hinweis', 'typ' => 'text', 'label' => 'Zusatz zu den Zeiten',
+                     'hilfe' => 'Steht klein unter den Zeiten, z. B. der Hinweis, vorher anzurufen.'],
                 ],
             ],
             [
                 'titel'  => 'Kennzahlen',
                 'hinweis' => 'Diese Zahlen stehen groß auf der Startseite. Bitte nur eintragen, was sich belegen lässt — erfundene Bewertungen sind abmahnfähig.',
                 'felder' => [
-                    ['pfad' => 'kennzahlen.jahre.wert',            'typ' => 'zahl', 'label' => 'Jahre im Handwerk'],
+                    ['pfad' => 'kennzahlen.gruendungsjahr.wert', 'typ' => 'zahl', 'label' => 'Gegründet im Jahr',
+                     'hilfe' => 'Vierstellig, z. B. 2005. Die Jahre im Handwerk rechnet die Seite daraus — die Zahl altert nicht.'],
                     ['pfad' => 'kennzahlen.google_bewertung.wert', 'typ' => 'text', 'label' => 'Google-Bewertung', 'hilfe' => 'Mit Komma, z. B. 5,0'],
                     ['pfad' => 'kennzahlen.google_anzahl.wert',    'typ' => 'zahl', 'label' => 'Anzahl Google-Rezensionen'],
                     ['pfad' => 'kennzahlen.google_profil_url',     'typ' => 'text', 'label' => 'Link zum Google-Profil',
@@ -211,14 +220,14 @@ return [
             ],
             [
                 'titel'   => 'Kundenbewertungen',
-                'hinweis' => 'Diese Zitate stehen auf jeder Seite im Fußbereich, deshalb liegen sie bei den Stammdaten. Bitte nur echte Google-Rezensionen eintragen — erfundene Bewertungen verstoßen gegen das Wettbewerbsrecht.',
+                'hinweis' => 'Diese Zitate stehen auf jeder Seite im Fußbereich, deshalb liegen sie bei den Stammdaten. Bitte nur echte Google-Rezensionen eintragen — erfundene Bewertungen verstoßen gegen das Wettbewerbsrecht. Ab vier Einträgen wird daraus ein Schieber mit Knöpfen; sechs bis acht sind eine gute Zahl.',
                 'felder'  => [
                     ['pfad' => 'bewertungen.titel', 'typ' => 'text', 'label' => 'Überschrift'],
-                    ['pfad' => 'bewertungen.eintraege', 'typ' => 'liste', 'label' => 'Bewertung', 'min' => 1, 'max' => 3,
+                    ['pfad' => 'bewertungen.eintraege', 'typ' => 'liste', 'label' => 'Bewertung', 'min' => 1, 'max' => 12, 'sortierbar' => true,
                      'subfelder' => [
-                        ['pfad' => 'text', 'typ' => 'mehrzeilig', 'label' => 'Text der Bewertung', 'hilfe' => 'Ohne Anführungszeichen — die setzt die Seite selbst.'],
-                        ['pfad' => 'name', 'typ' => 'text',       'label' => 'Name', 'hilfe' => 'Abgekürzt, z. B. M. Keller'],
-                        ['pfad' => 'ort',  'typ' => 'text',       'label' => 'Ort'],
+                        ['pfad' => 'text',    'typ' => 'mehrzeilig', 'label' => 'Text der Bewertung', 'hilfe' => 'Ohne Anführungszeichen — die setzt die Seite selbst. Wörtlich übernehmen; Auslassungen mit … markieren.'],
+                        ['pfad' => 'name',    'typ' => 'text',       'label' => 'Name', 'hilfe' => 'Abgekürzt, z. B. M. Knapp'],
+                        ['pfad' => 'auftrag', 'typ' => 'text',       'label' => 'Auftrag', 'hilfe' => 'Was gemacht wurde, z. B. Hagelschaden, BMW M3. Darf leer bleiben.'],
                      ]],
                 ],
             ],
@@ -456,6 +465,20 @@ return [
                 ],
             ],
             [
+                'titel'   => 'Trockeneis',
+                'hinweis' => 'Eigener Abschnitt zwischen den Zonen und der Trocknung.',
+                'felder'  => [
+                    ['pfad' => 'trockeneis.kicker', 'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
+                    ['pfad' => 'trockeneis.titel',  'typ' => 'text',       'label' => 'Überschrift'],
+                    ['pfad' => 'trockeneis.lead',   'typ' => 'mehrzeilig', 'label' => 'Einleitung'],
+                    ['pfad' => 'trockeneis.punkte', 'typ' => 'liste', 'label' => 'Punkt', 'min' => 2, 'max' => 4,
+                     'subfelder' => [
+                        ['pfad' => 'titel', 'typ' => 'text',       'label' => 'Überschrift'],
+                        ['pfad' => 'text',  'typ' => 'mehrzeilig', 'label' => 'Beschreibung'],
+                     ]],
+                ],
+            ],
+            [
                 'titel'  => 'Ablauf und Trocknung',
                 'felder' => [
                     ['pfad' => 'trocknung.kicker', 'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
@@ -564,26 +587,6 @@ return [
         'Beilackierung, Farbtonfindung und Beklebung — die Seite unter /leistungen/lackierarbeiten/.',
         [
             [
-                'titel'   => 'Der Fingernageltest',
-                'hinweis' => 'Drei Zustände. Die Zeichnung mit den Lackschichten baut die Website selbst.',
-                'felder'  => [
-                    ['pfad' => 'tiefentest.kicker',       'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
-                    ['pfad' => 'tiefentest.titel',        'typ' => 'text',       'label' => 'Überschrift'],
-                    ['pfad' => 'tiefentest.beschreibung', 'typ' => 'mehrzeilig', 'label' => 'Text daneben'],
-                    ['pfad' => 'tiefentest.hinweis',      'typ' => 'mehrzeilig', 'label' => 'Hinweis unter der Zeichnung'],
-                    ['pfad' => 'tiefen', 'typ' => 'liste', 'label' => 'Zustand', 'min' => 3, 'max' => 3, 'sortierbar' => false,
-                     'subfelder' => [
-                        ['pfad' => 'titel',       'typ' => 'text',       'label' => 'Überschrift'],
-                        ['pfad' => 'urteil',      'typ' => 'text',       'label' => 'Etikett', 'hilfe' => 'z. B. polieren, beilackieren'],
-                        ['pfad' => 'gefuehl',     'typ' => 'mehrzeilig', 'label' => 'Was man spürt'],
-                        ['pfad' => 'aktion',      'typ' => 'text',       'label' => 'Unser Vorgehen'],
-                        ['pfad' => 'text',        'typ' => 'mehrzeilig', 'label' => 'Beschreibung'],
-                        ['pfad' => 'standzeit',   'typ' => 'text',       'label' => 'Standzeit'],
-                        ['pfad' => 'lack_noetig', 'typ' => 'text',       'label' => 'Lack nötig'],
-                     ]],
-                ],
-            ],
-            [
                 'titel'  => 'Farbtonfindung',
                 'felder' => [
                     ['pfad' => 'farbton.kicker',   'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
@@ -591,7 +594,7 @@ return [
                     ['pfad' => 'farbton.lead',     'typ' => 'mehrzeilig', 'label' => 'Einleitung'],
                     ['pfad' => 'farbton.bild',     'typ' => 'bild',       'label' => 'Bild'],
                     ['pfad' => 'farbton.bild_alt', 'typ' => 'text',       'label' => 'Bildbeschreibung'],
-                    ['pfad' => 'farbton.schritte', 'typ' => 'liste', 'label' => 'Schritt', 'min' => 4, 'max' => 4, 'sortierbar' => false,
+                    ['pfad' => 'farbton.schritte', 'typ' => 'liste', 'label' => 'Schritt', 'min' => 2, 'max' => 4, 'sortierbar' => false,
                      'subfelder' => [
                         ['pfad' => 'titel', 'typ' => 'text',       'label' => 'Überschrift'],
                         ['pfad' => 'text',  'typ' => 'mehrzeilig', 'label' => 'Beschreibung'],

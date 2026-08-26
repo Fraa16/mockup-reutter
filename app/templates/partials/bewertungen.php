@@ -40,16 +40,27 @@ $zeile    = $kennzahl('google_bewertung') . ' auf Google · ' . $kennzahl('googl
   </div>
 </div>
 
-<div class="review-grid">
-  <?php foreach (get($s, 'bewertungen.eintraege', []) as $r): ?>
-  <div class="review-card rv">
-    <span class="stars" aria-hidden="true">★★★★★</span>
-    <p>„<?= h($r['text']) ?>"</p>
-    <div class="author">
-      <?= swash() ?>
-      <span class="name"><?= h($r['name']) ?></span>
-      <span class="loc">· <?= h($r['ort']) ?></span>
+<?php /* Eine Spur statt eines festen Dreierrasters. Gewischt und gescrollt
+        wird allein ueber CSS — die Knoepfe und Punkte darunter setzt das
+        Skript ein, damit ohne JavaScript keine toten Bedienelemente
+        herumstehen. */ ?>
+<div class="review-schieber" data-karussell>
+  <div class="review-grid" role="group" tabindex="0"
+       aria-label="Kundenbewertungen, seitlich scrollbar">
+    <?php foreach (get($s, 'bewertungen.eintraege', []) as $r): ?>
+    <div class="review-card">
+      <span class="stars" aria-hidden="true">★★★★★</span>
+      <p>„<?= h($r['text']) ?>"</p>
+      <div class="author">
+        <?= swash() ?>
+        <span class="name"><?= h($r['name']) ?></span>
+        <?php /* Echte Rezensionen tragen keinen Ort. Steht nichts dabei,
+                darf auch der Trenner nicht dastehen. */ ?>
+        <?php if (($auftrag = (string) ($r['auftrag'] ?? '')) !== ''): ?>
+        <span class="loc">· <?= h($auftrag) ?></span>
+        <?php endif; ?>
+      </div>
     </div>
+    <?php endforeach; ?>
   </div>
-  <?php endforeach; ?>
 </div>

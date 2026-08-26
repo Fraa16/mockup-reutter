@@ -41,7 +41,7 @@ $angemeldet = auth_angemeldet();
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title><?= $angemeldet ? 'Inhalte pflegen' : 'Anmeldung' ?> — Fahrzeugpflege Reutter</title>
+<title><?= $angemeldet ? 'Inhalte pflegen' : 'Anmeldung' ?> — Smartrepair Reutter</title>
 <link rel="stylesheet" href="/admin/assets/admin.css">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 </head>
@@ -51,7 +51,7 @@ $angemeldet = auth_angemeldet();
 
   <main class="login-karte">
     <div class="marke">
-      <img class="wortmarke" src="/assets/logo/reutter-wortmarke-weiss.webp" alt="Fahrzeugpflege Reutter" width="527" height="56">
+      <img class="wortmarke" src="/assets/logo/reutter-weiss.svg" alt="Smartrepair Reutter" width="1697" height="131">
       <span class="sub">Inhalte pflegen</span>
     </div>
 
@@ -103,7 +103,7 @@ $angemeldet = auth_angemeldet();
 
   <header class="kopf">
     <div class="marke">
-      <img class="wortmarke" src="/assets/logo/reutter-wortmarke-weiss.webp" alt="Fahrzeugpflege Reutter" width="527" height="56">
+      <img class="wortmarke" src="/assets/logo/reutter-weiss.svg" alt="Smartrepair Reutter" width="1697" height="131">
       <span class="sub">Inhalte pflegen</span>
     </div>
     <div class="kopf-rechts">

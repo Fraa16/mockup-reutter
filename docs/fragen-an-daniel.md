@@ -10,6 +10,69 @@ Werte lassen sich im Panel pflegen; wo nicht, ändere ich es direkt im Code.
 
 ---
 
+## Antworten vom 25.08.2026 — und was daraus folgt
+
+| # | Antwort | Umgesetzt |
+|---|---|---|
+| A1 | Fotos besorgt er, inkl. Vorher/Nachher | ⏳ warten |
+| A2 | dito — **Launch-Blocker, bis sie da sind** | ⏳ warten |
+| A3 | Kein Vektor, aber saubere JPG | ⏳ JPG ins Repo |
+| A4 | **Name wird „Smartrepair Reutter"** — Google-Profil bleibt, die Website zieht nach | ✅ |
+| B1 | Seit 2005 (21 Jahre) | ✅ wird gerechnet |
+| B2 | Keine Zeitangabe, telefonisch klären | ✅ |
+| B3 | Kein Messgerät | ✅ Zusage entfernt |
+| B4 | Farbtonmessung **ja**, Musterblech **ja**. Lackieren extern — nicht erwähnen | ✅ |
+| B5 | Fingernageltest raus | ✅ |
+| B6 | Politur **nicht** inklusive | ✅ Zusage gestrichen |
+| B7 | Alle vier Folienvarianten | ✅ |
+| C1 | Kein Meisterbetrieb, nicht in der Handwerksrolle | ✅ Abschnitt entfällt |
+| C2 | Daniel Reutter | ✅ |
+| C3 | Alte Texte übernehmen | ⚠️ siehe unten |
+| D | Domain **smartrepair-reutter.de** (vorläufig), neues Postfach mit Weiterleitung | 📄 `docs/umzug.md` |
+
+Zusätzlich: keine Online-Termine (war ohnehin nie so gebaut — alle Knöpfe
+heißen „Termin anfragen"), telefonisch am besten erreichbar, E-Mails können
+liegen bleiben, Öffnungszeiten in der Regel 9–17 Uhr mit einer Stunde Vorlauf.
+
+### Zu C3 — was aus den alten Texten wirklich brauchbar ist
+
+**Übernommen sind die Entscheidungen, nicht der Text:**
+
+- **Rechtsform geklärt.** Impressum und AGB nennen nur „Daniel Reutter", führen
+  eine USt-IdNr. und kein Registergericht → Einzelunternehmen
+- **Drei von sechs offenen AGB-Punkten sind damit beantwortet**: Geltungsbereich
+  (Verbraucher *und* Unternehmer), Gewährleistung (ein Jahr bei Gebrauchtem und
+  gegenüber Unternehmern) und Zurückbehaltungsrecht. Steht jetzt in den
+  Platzhalter-Hinweisen von `agb.json`
+
+**Nicht übernommen, mit Grund:**
+
+- Die alten AGB sind ein **Händlerbund-Text von 2018** für einen Online-Shop
+  unter `stuttgart-dellendoktor.de`. Sie regeln Warenkorb, Versandkosten,
+  Eigentumsvorbehalt und Rücksendung — und enthalten den Satz „Sie tragen die
+  Kosten für die Übersendung des defekten Fahrzeuges an uns"
+- Die Haftungszusage des Händlerbunds hängt an einer **laufenden
+  Mitgliedschaft**. Ohne sie behält man das Abmahnrisiko und verliert den
+  Schutz — und der Text selbst ist lizenziert, nicht frei
+- Impressum und AGB verweisen auf die **OS-Plattform der EU**. Die wurde am
+  **20.07.2025 eingestellt**; ein Verweis darauf ist heute selbst angreifbar.
+  Unsere Fassung hat das bereits richtig
+- Der Datenschutz ist von vor der DSGVO. Unsere Fassung hat drei markierte
+  Lücken, der alte Text hätte zwanzig unmarkierte
+
+### Adresskonflikt — geklärt
+
+Das alte Impressum nennt zwei Anschriften: Werkstatt **Carl-Peters-Straße 27,
+Korntal**, Rechnung **Zabergäustraße 27, Stuttgart**. Unsere Seite führt
+**Lembergstraße 27, Korntal-Münchingen** — und das ist richtig: Google-Profil,
+cylex, 11880, lokalwissen und deutschbranchenbuch nennen alle diese Adresse.
+Die Carl-Peters-Straße ist ein alter Stand, der Betrieb ist innerhalb Korntals
+umgezogen.
+
+Offen bleibt nur: Ist die **Zabergäustraße** noch die Rechnungsanschrift, und
+soll sie im Widerruf als Empfangsadresse stehen? Ins Impressum muss sie nicht —
+§ 5 DDG verlangt die Anschrift der Niederlassung, und das ist die Werkstatt.
+
 ## A · Was er besorgen muss — als Erstes ansprechen, das dauert
 
 Diese vier Punkte blockieren den Launch und liegen nicht in unserer Hand.

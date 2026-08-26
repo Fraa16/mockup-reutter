@@ -95,7 +95,7 @@
 }
 
 /* ==========================================================================
-   Fahrzeugpflege Reutter — design tokens
+   Smartrepair Reutter — design tokens
    ========================================================================== */
 :root{
   --black: #0A0B0D;
@@ -159,6 +159,13 @@
      sonst verschwindet das Ziel hinter dem Kopf. */
   --utility-hoehe: 38px;
   --kopf-hoehe: 120px;
+
+  /* Wie viel oben tatsaechlich verdeckt ist. Nicht dasselbe wie --kopf-hoehe:
+     die Ortsleiste faehrt beim Scrollen ein, der Abstandhalter im Fluss bleibt
+     aber gleich hoch — sonst rueckte der ganze Inhalt beim Scrollen. Alles,
+     was sich am verdeckten Bereich ausrichtet (Sprungmarken, klebende
+     Spalten, das Navigationspanel), rechnet mit dieser Groesse. */
+  --chrom-hoehe: var(--kopf-hoehe);
 
   /* Senkrechter Rhythmus der Sektionen.
      Der Entwurf hatte je Sektion eigene Zahlen — 104/112, 96/100, 92/96,
@@ -331,11 +338,24 @@ img{max-width:100%;display:block}
 
 /* ==========================================================================
    Utility bar
+   ==========================================================================
+   Faehrt beim Scrollen ein und gibt 38 px zurueck. Die Ortsnamen darin sind
+   ueber der Falz das staerkste Signal fuer die lokale Suche — sie sollen oben
+   stehen, aber nicht den halben Bildschirm belegen, waehrend jemand liest.
+   main.js setzt .kopf-kompakt am Rumpf, siehe dort fuer die Schwellen.
    ========================================================================== */
+:root:has(body.kopf-kompakt){ --chrom-hoehe: calc(var(--kopf-hoehe) - var(--utility-hoehe)) }
+
 .utility-bar{
   position:fixed;top:0;left:0;right:0;z-index:70;
   background:var(--off-black);border-bottom:1px solid rgba(255,255,255,.08);
+  transition:transform .3s cubic-bezier(.2,.7,.2,1),visibility .3s;
 }
+/* visibility ist hier nicht Kosmetik: ohne sie bliebe die Telefonnummer der
+   Leiste im Tabweg, obwohl sie ueber dem Bildrand steht. Derselbe Fehler wie
+   frueher bei der unteren Anfrageleiste. Der Wert ist animierbar — beim
+   Einfahren gilt sofort `visible`, beim Ausfahren erst am Ende `hidden`. */
+body.kopf-kompakt .utility-bar{transform:translateY(-100%);visibility:hidden}
 .utility-bar .wrap{
   height:38px;display:flex;align-items:center;justify-content:space-between;
   font:500 12.5px/1 var(--font-body);color:var(--gray-350);letter-spacing:.02em;
@@ -356,18 +376,25 @@ img{max-width:100%;display:block}
   -webkit-backdrop-filter:blur(14px) saturate(140%);
   backdrop-filter:blur(14px) saturate(140%);
   border-bottom:1px solid rgba(255,255,255,.09);
+  transition:transform .3s cubic-bezier(.2,.7,.2,1);
 }
+/* transform statt top: die Bewegung laeuft damit auf der Grafikkarte und
+   stoesst den backdrop-filter nicht bei jedem Bild neu an. */
+body.kopf-kompakt .site-header{transform:translateY(calc(-1 * var(--utility-hoehe)))}
 .site-header .wrap{
   height:82px;display:flex;align-items:center;justify-content:space-between;
 }
 .logo{display:flex;align-items:center;gap:14px;text-decoration:none}
-/* Die echte Wortmarke als Bild. Hoehe steuert, Breite folgt — so bleibt
-   das Seitenverhaeltnis der Vorlage erhalten, egal was der Kunde spaeter
-   austauscht. Die Vorlage ist doppelt so gross wie die Darstellung, damit sie
-   auf dichten Bildschirmen scharf bleibt. */
-.logo-bild{display:block;height:26px;width:auto}
-.logo-bild.ist-gross{height:44px;margin-bottom:20px}
-.logo .divider{width:1px;height:26px;background:rgba(255,255,255,.16)}
+/* Die Wortmarke als SVG. Hoehe steuert, Breite folgt — so bleibt das
+   Seitenverhaeltnis erhalten, egal was der Betrieb spaeter austauscht.
+   Bewusst zurueckhaltend gesetzt: die Marke ist nachgezeichnet und nicht das
+   Original, und je kleiner sie steht, desto weniger faellt die Abweichung an
+   den schraegen Schnittkanten auf. Der Kopf gewinnt dabei Luft. */
+.logo-bild{display:block;height:22px;width:auto}
+.logo-bild.ist-gross{height:36px;margin-bottom:20px}
+/* Der Strich richtet sich nach der Wortmarke — vorher stand er 26 px hoch
+   neben einer 22 px hohen Marke und ueberragte damit, was er trennt. */
+.logo .divider{width:1px;height:20px;background:rgba(255,255,255,.16)}
 .logo .sub{font:600 10.5px/1.35 var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--gray-350)}
 
 /* Hamburger — hidden on desktop, revealed at the nav breakpoint. */
@@ -729,7 +756,44 @@ a.count{
 }
 a.count:hover{color:var(--rot-schrift);border-color:var(--red)}
 
-.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+/* Die Kundenstimmen liegen auf einer Spur statt in einem festen Dreierraster.
+   So koennen weitere Stimmen dazukommen, ohne dass der Fussbereich jeder Seite
+   mitwaechst. Wischen und Scrollen funktionieren allein hierueber — die
+   Knoepfe darunter setzt erst das Skript ein. */
+.review-schieber{position:relative}
+.review-grid{
+  --sichtbar:3;--luecke:20px;
+  display:grid;grid-auto-flow:column;
+  grid-auto-columns:calc((100% - (var(--sichtbar) - 1) * var(--luecke)) / var(--sichtbar));
+  gap:var(--luecke);
+  overflow-x:auto;overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.review-grid::-webkit-scrollbar{display:none}
+.review-grid>*{scroll-snap-align:start}
+/* Eine scrollbare Flaeche muss mit der Tastatur erreichbar sein — dann soll
+   man auch sehen, dass sie den Fokus hat. */
+.review-grid:focus-visible{outline:2px solid var(--red);outline-offset:5px}
+
+.schieber-bedienung{display:flex;align-items:center;gap:14px;margin-top:24px}
+/* display:flex aus der Klasse schlaegt sonst das [hidden] des Browsers. */
+.schieber-bedienung[hidden]{display:none}
+.schieber-knopf{
+  width:40px;height:40px;flex:none;display:grid;place-items:center;
+  background:#fff;border:1px solid rgba(10,11,13,.16);color:var(--black);
+  font-size:15px;line-height:1;cursor:pointer;
+  transition:border-color .2s,color .2s,opacity .2s;
+}
+.schieber-knopf:hover:not(:disabled){border-color:var(--red);color:var(--rot-schrift)}
+.schieber-knopf:disabled{opacity:.3;cursor:default}
+.schieber-punkte{display:flex;align-items:center;gap:8px}
+.schieber-punkt{
+  width:8px;height:8px;padding:0;border:0;border-radius:0;
+  background:rgba(10,11,13,.22);cursor:pointer;
+  transition:background .2s,width .2s;
+}
+.schieber-punkt[aria-current="true"]{width:24px;background:var(--red)}
 .review-card{
   background:#fff;border:1px solid rgba(10,11,13,.1);padding:32px 30px;
   display:flex;flex-direction:column;gap:18px;
@@ -895,7 +959,7 @@ a.count:hover{color:var(--rot-schrift);border-color:var(--red)}
    der Rand gilt dann für alles, was in den Blick gescrollt wird, nicht nur
    für Sprungziele. Gemessen betraf das die Schrittanzeige der Kurzanfrage —
    sie hat keine id und lag beim Durchtabben 22 px hinter dem Kopf. */
-:root{scroll-padding-top:var(--kopf-hoehe)}
+:root{scroll-padding-top:var(--chrom-hoehe)}
 
 /* Dasselbe für die untere Kante. Wer sich mit der Tabulatortaste durch den
    Fuss arbeitet, landete sonst hinter der Leiste: der Browser scrollt das
@@ -1079,6 +1143,19 @@ a.count:hover{color:var(--rot-schrift);border-color:var(--red)}
    unter der letzten Fusszeile stehen. Der Rückfallwert gilt nur für den
    Bruchteil einer Sekunde vor der ersten Messung. */
 .sticky-an .footer-sticky-platz{height:var(--leiste-hoehe,75px)}
+
+/* Am Schreibtisch bleibt die Leiste weg.
+   Sie sagte dort nichts Neues: Telefonnummer und „Termin anfragen" stehen
+   schon im fixierten Kopf, zwei Zeilen darüber. Zusammen mit Infoleiste und
+   Kopf belegten die drei Balken 197 px — auf einem 900-px-Laptop 22 % der
+   Fensterhöhe, bevor der erste Inhalt kommt.
+   Auf dem Handy bleibt sie: dort ist der Kopf zur Lupe zusammengeklappt, die
+   Nummer also nicht sichtbar, und der Daumen erreicht die untere Kante besser
+   als alles andere. main.js schaltet die Mechanik an derselben Grenze ab. */
+@media (min-width: 981px){
+  .sticky-bar{display:none}
+  .footer-sticky-platz{display:none}
+}
 
 /* ==========================================================================
    Leistungsseiten — gemeinsame Bausteine
@@ -1520,6 +1597,11 @@ a.count:hover{color:var(--rot-schrift);border-color:var(--red)}
 /* ==========================================================================
    Trocknungs-Zeitstrahl (Interieur)
    ========================================================================== */
+/* Trockeneis und Trocknung sind beide weiss — ohne Trennung lesen sie
+   sich als ein einziger langer Block. Die Linie sitzt am Abschnitt,
+   nicht am wrap, sonst zaehlt der Innenabstand doppelt. */
+.trockeneis{background:#fff;padding:var(--sekt-oben) 0 var(--sekt-unten);
+  border-bottom:1px solid rgba(10,11,13,.1)}
 .trocknung{background:#fff;padding:var(--sekt-oben) 0 var(--sekt-unten)}
 .trocknung-grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:64px;align-items:start}
 .trocknung-intro h2{
@@ -1657,7 +1739,7 @@ a.count:hover{color:var(--rot-schrift);border-color:var(--red)}
 .farbton{background:var(--black);padding:var(--sekt-oben) 0 var(--sekt-unten)}
 .farbton-grid{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:64px;align-items:start}
 /* Die Einleitung bleibt beim Scrollen stehen — der Schrittraster ist hoch. */
-.farbton-intro{position:sticky;top:calc(var(--kopf-hoehe) + 40px)}
+.farbton-intro{position:sticky;top:calc(var(--chrom-hoehe) + 40px)}
 .farbton-intro h2{
   margin:0 0 20px;font-family:var(--font-display);font-weight:800;
   font-size:clamp(26px,3.3vw,42px);line-height:1.03;letter-spacing:-.03em;color:#fff;
@@ -1924,7 +2006,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 
 .recht-inhalt{background:#fff;padding:var(--eng-oben) 0 var(--eng-unten)}
 .recht-inhalt .wrap{display:grid;grid-template-columns:300px minmax(0,1fr);gap:80px;align-items:start}
-.recht-verzeichnis{position:sticky;top:calc(var(--kopf-hoehe) + 40px)}
+.recht-verzeichnis{position:sticky;top:calc(var(--chrom-hoehe) + 40px)}
 .verzeichnis-titel{
   color:var(--rot-schrift);margin-bottom:16px;
 }
@@ -2279,7 +2361,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 .index-zeile:hover .index-pfeil,
 .index-zeile:focus-visible .index-pfeil{color:var(--rot-schrift)}
 
-.index-vorschau{position:sticky;top:calc(var(--kopf-hoehe) + 40px);padding-top:60px}
+.index-vorschau{position:sticky;top:calc(var(--chrom-hoehe) + 40px);padding-top:60px}
 .vorschau-rahmen{position:relative;height:520px;border:1px solid rgba(255,255,255,.14);overflow:hidden}
 .vorschau-bild{position:absolute;inset:0;opacity:0;transition:opacity .35s}
 .vorschau-bild.is-active{opacity:1}
@@ -2528,9 +2610,11 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
     /* Solange das Panel offen ist, ist der Seitenscroll gesperrt (siehe
        .nav-offen). Waechst die Navigation im CMS ueber die Bildschirmhoehe
        hinaus, muss sie deshalb selbst scrollen koennen — sonst waere der
-       letzte Punkt unerreichbar. 120px ist die Kopfhoehe samt Ortsleiste. */
-    max-height:calc(100vh - 120px);
-    max-height:calc(100dvh - 120px);
+       letzte Punkt unerreichbar. Abgezogen wird, was oben verdeckt ist: fest
+       eingetragene 120px stimmten nur am Schreibtisch, auf dem Handy sind es
+       104 — und mit der einfahrenden Ortsleiste wechselt der Wert ohnehin. */
+    max-height:calc(100vh - var(--chrom-hoehe));
+    max-height:calc(100dvh - var(--chrom-hoehe));
     overflow-y:auto;
     overscroll-behavior:contain;
   }
@@ -2544,7 +2628,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
      390 px stiess „Fahrzeugpflege" sonst in den Menueknopf. Auf 21 px Hoehe
      traegt es genauso gross wie vorher, weil der Ausschnitt fast nur aus den
      Buchstaben besteht. */
-  .logo-bild{height:21px}
+  .logo-bild{height:18px}
 
   /* Utility bar: drop the secondary copy, keep location + phone. */
   .utility-bar .left .sep,
@@ -2595,7 +2679,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   .betrieb-photo .badge{right:0;bottom:-20px;max-width:min(300px,80%)}
 
   .reviews-head{flex-direction:column;align-items:flex-start;gap:14px}
-  .review-grid{grid-template-columns:repeat(2,1fr)}
+  .review-grid{--sichtbar:2}
 
   .anfrage-grid{grid-template-columns:minmax(0,1fr);gap:48px}
   .leistung-hero{min-height:0}
@@ -2797,7 +2881,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   .betrieb-stats .stat:not(:first-child){padding-left:0}
   .betrieb-stats .stat:last-child{border-bottom:0}
 
-  .review-grid{grid-template-columns:minmax(0,1fr)}
+  .review-grid{--sichtbar:1}
   .review-card{padding:24px 22px}
 
   .request-card{padding:26px 20px 24px}
@@ -3140,6 +3224,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
    bekommt dieselbe Seite — nur ohne Fahrt, Blende und Puls.
    ========================================================================== */
 @media (prefers-reduced-motion: reduce){
+  .review-grid{scroll-behavior:auto}
   /* Ankersprünge landen sofort statt zu gleiten. */
   html{scroll-behavior:auto}
 

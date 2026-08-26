@@ -1,5 +1,5 @@
 /**
- * Fahrzeugpflege Reutter — Frontend-Verhalten.
+ * Smartrepair Reutter — Frontend-Verhalten.
  *
  * Grundregel: Die Seite ist ohne dieses Skript vollstaendig bedienbar. Inhalte
  * werden serverseitig gerendert, hier wird nur umgeschaltet, gezogen und
@@ -211,23 +211,6 @@
      Zonen-Waehler (Fahrzeugpflege Interieur)
      --------------------------------------------------------------------- */
   umschalter({ bereich: 'zonenkarte', schalter: '.zone', tafeln: '.zonen-tafel' });
-
-  /* ---------------------------------------------------------------------
-     Fingernagel-Tiefentest (Lackierarbeiten)
-     Zustand waehlen, die rote Schadenszone waechst durch die Schichten. Die
-     Breiten stehen wie beim Querschnitt an der Tafel.
-     --------------------------------------------------------------------- */
-  const schadenszonen = Array.from(document.querySelectorAll('#tiefentest .schadenszone'));
-  umschalter({
-    bereich:  'tiefentest',
-    schalter: '.tiefe',
-    tafeln:   '.vorgehen-tafel',
-    nebenbei: (index, tafel) => schadenszonen.forEach((zone) => {
-      const breite = Number(tafel.dataset[zone.dataset.schicht]) || 0;
-      zone.style.width = breite + '%';
-      zone.classList.toggle('ist-leer', breite === 0);
-    }),
-  });
 
   /* ---------------------------------------------------------------------
      Vier Schadensgrade (Lederreparatur)
@@ -540,6 +523,45 @@
   }
 
   /* ---------------------------------------------------------------------
+     Ortsleiste einfahren
+     Oben steht sie, beim Weiterlesen faehrt sie nach oben aus dem Bild und
+     der Kopf rueckt nach. Damit gibt sie 38 px zurueck, ohne dass die
+     Ortsnamen von der Seite verschwinden — ueber der Falz sind sie das
+     staerkste Signal fuer die lokale Suche.
+
+     Der Abstandhalter im Fluss bleibt dabei unveraendert hoch. Wuerde er
+     mitschrumpfen, rueckte der ganze Inhalt beim Scrollen um 38 px nach oben.
+
+     Ohne dieses Skript bleibt die Leiste stehen — der brauchbare Grundzustand.
+     --------------------------------------------------------------------- */
+  const ortsleiste = document.querySelector('.utility-bar');
+  if (ortsleiste) {
+    /* Zwei Schwellen statt einer. Bei nur einer flackerte die Leiste, sobald
+       jemand genau auf der Grenze zum Stehen kommt oder das Rad ein Stueck
+       zurueckdreht. */
+    const RAUS = 200;
+    const ZURUECK = 140;
+    let kompakt = false;
+
+    const pruefeKopf = () => {
+      /* Waehrend das Menuepanel offen ist, liegt der Rumpf auf position:fixed
+         und window.scrollY steht auf 0. Ohne diese Sperre faehre die Leiste
+         beim Oeffnen zurueck, und das Panel — es haengt am Kopf — ruckte um
+         38 px mit. */
+      if (document.body.classList.contains('nav-offen')) return;
+
+      const y = window.scrollY || document.documentElement.scrollTop;
+      const soll = kompakt ? y > ZURUECK : y > RAUS;
+      if (soll === kompakt) return;
+      kompakt = soll;
+      document.body.classList.toggle('kopf-kompakt', kompakt);
+    };
+
+    window.addEventListener('scroll', pruefeKopf, { passive: true });
+    pruefeKopf();
+  }
+
+  /* ---------------------------------------------------------------------
      Sticky-Anfrageleiste
      --------------------------------------------------------------------- */
   const stickyBar = document.getElementById('sticky-bar');
@@ -561,12 +583,17 @@
        die ist je Breite 75, 69 oder 65 px hoch. Gemessen statt im CSS
        wiederholt, sonst blieben unten 10 px Luft stehen. */
     const messeHoehe = () => {
-      document.documentElement.style.setProperty('--leiste-hoehe', stickyBar.offsetHeight + 'px');
+      // Am Schreibtisch steht die Leiste nicht, dann darf auch der Platzhalter
+      // im Fuss keine Hoehe bekommen.
+      const hoch = eng.matches ? stickyBar.offsetHeight : 0;
+      document.documentElement.style.setProperty('--leiste-hoehe', hoch + 'px');
     };
 
     const pruefe = () => {
       const y = window.scrollY || document.documentElement.scrollTop;
-      const sichtbar = y > schwelle && !(tippt && eng.matches);
+      // Nur auf schmalen Bildschirmen. Am Schreibtisch stehen Nummer und Knopf
+      // schon im fixierten Kopf — die Leiste wiederholte das und kostete 75 px.
+      const sichtbar = eng.matches && y > schwelle && !tippt;
       stickyBar.classList.toggle('visible', sichtbar);
       // Die Leiste ist fixiert und wuerde sonst die letzte Fusszeile verdecken.
       // Das CSS macht daraus einen Platzhalter am Ende des Fusses.
@@ -588,6 +615,10 @@
 
     window.addEventListener('scroll', pruefe, { passive: true });
     window.addEventListener('resize', messeHoehe, { passive: true });
+    // Beim Wechsel ueber die Grenze — Fenster ziehen, Geraet drehen — muss die
+    // Leiste sofort verschwinden oder wiederkommen, nicht erst beim naechsten
+    // Scrollen.
+    eng.addEventListener('change', () => { messeHoehe(); pruefe(); });
     messeHoehe();
     pruefe();
   }
@@ -629,6 +660,121 @@
       if (schmal.matches) setze(false);
     }));
   }
+
+  /* ---------------------------------------------------------------------
+     Kundenstimmen-Schieber
+     Die Spur scrollt und schnappt schon ohne Skript — wischen am Handy,
+     scrollen am Rechner. Hier kommen nur die Bedienelemente dazu, und zwar
+     per Skript erzeugt: ohne JavaScript sollen keine toten Knoepfe dastehen.
+
+     Bewusst ohne automatisches Weiterlaufen. Der Block steht im Fuss jeder
+     Seite; Text, der von selbst wegwandert, ist dort eine Zumutung.
+     --------------------------------------------------------------------- */
+  document.querySelectorAll('[data-karussell]').forEach((schieber) => {
+    const spur   = schieber.querySelector('.review-grid');
+    const karten = spur ? Array.from(spur.children) : [];
+    if (karten.length < 2) return;
+
+    let aktuell = 0;
+
+    const sanft = () => (window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth');
+    const zu = (i) => spur.scrollTo({ left: karten[i].offsetLeft - karten[0].offsetLeft, behavior: sanft() });
+
+    const bedienung = document.createElement('div');
+    bedienung.className = 'schieber-bedienung';
+
+    const knopf = (richtung, beschriftung, zeichen) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'schieber-knopf';
+      b.setAttribute('aria-label', beschriftung);
+      b.innerHTML = '<span aria-hidden="true">' + zeichen + '</span>';
+      b.addEventListener('click', () => zu(Math.min(karten.length - 1, Math.max(0, aktuell + richtung))));
+      return b;
+    };
+    const zurueck = knopf(-1, 'Vorherige Bewertung', '←');
+    const weiter  = knopf(1,  'Nächste Bewertung', '→');
+
+    const punkteleiste = document.createElement('div');
+    punkteleiste.className = 'schieber-punkte';
+    const punkte = karten.map((_, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'schieber-punkt';
+      b.setAttribute('aria-label', 'Bewertung ' + (i + 1));
+      b.addEventListener('click', () => zu(i));
+      punkteleiste.appendChild(b);
+      return b;
+    });
+
+    /* Die Zahl steht nur fuer Screenreader da — sichtbar sind die Punkte. */
+    const stand = document.createElement('p');
+    stand.className = 'visually-hidden';
+    stand.setAttribute('aria-live', 'polite');
+
+    bedienung.append(zurueck, weiter, punkteleiste, stand);
+    schieber.appendChild(bedienung);
+
+    /* Die Knopfzustaende haengen an der Scrollposition, nicht am Index: Stehen
+       drei Karten nebeneinander, ruecken die letzten drei nie ganz nach links.
+       Waere 'Weiter' an den Index gebunden, bliebe der Knopf am Ende aktiv. */
+    const zeichne = () => {
+      const rest = spur.scrollWidth - spur.clientWidth;
+      zurueck.disabled = spur.scrollLeft <= 2;
+      weiter.disabled  = spur.scrollLeft >= rest - 2;
+      punkte.forEach((p, i) => p.setAttribute('aria-current', String(i === aktuell)));
+      stand.textContent = 'Bewertung ' + (aktuell + 1) + ' von ' + karten.length;
+    };
+
+    /* Position ueber den Beobachter statt ueber scrollLeft: das ueberlebt
+       Zoom, wechselnde Kartenbreiten und das Schnappen selbst. Gemeldet wird
+       die linke der sichtbaren Karten — sonst gewaenne am Ende der Spur die
+       zuletzt eingeblendete, und die Anzeige spraenge auf die letzte Karte. */
+    if ('IntersectionObserver' in window) {
+      const sichtbare = new Set();
+      const beobachter = new IntersectionObserver((eintraege) => {
+        eintraege.forEach((e) => {
+          const i = karten.indexOf(e.target);
+          if (i < 0) return;
+          if (e.isIntersecting) { sichtbare.add(i); } else { sichtbare.delete(i); }
+        });
+        if (!sichtbare.size) return;
+        const links = Math.min(...sichtbare);
+        if (links !== aktuell) { aktuell = links; }
+        zeichne();
+      }, { root: spur, threshold: 0.6 });
+      karten.forEach((k) => beobachter.observe(k));
+    }
+
+    /* Beim Wischen meldet der Beobachter nur an den Schwellen. Damit die
+       Knoepfe schon waehrend des Scrollens stimmen, hier noch einmal. */
+    let laeuft = false;
+    spur.addEventListener('scroll', () => {
+      if (laeuft) return;
+      laeuft = true;
+      requestAnimationFrame(() => { laeuft = false; zeichne(); });
+    }, { passive: true });
+
+    /* Die Pfeiltasten scrollen sonst um ein paar Pixel statt um eine Karte. */
+    spur.addEventListener('keydown', (e) => {
+      const richtung = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!richtung) return;
+      e.preventDefault();
+      zu(Math.min(karten.length - 1, Math.max(0, aktuell + richtung)));
+    });
+
+    /* Passen alle Karten nebeneinander, braucht es keine Bedienung. Haengt an
+       der Fensterbreite, nicht an der Anzahl — bei drei Karten und drei
+       sichtbaren Spalten waeren die Knoepfe sinnlos, eine Spalte tiefer nicht. */
+    const pruefen = () => {
+      const passtAlles = spur.scrollWidth <= spur.clientWidth + 1;
+      bedienung.hidden = passtAlles;
+      spur.setAttribute('tabindex', passtAlles ? '-1' : '0');
+    };
+    pruefen();
+    zeichne();
+    window.addEventListener('resize', pruefen, { passive: true });
+  });
 
   /* ---------------------------------------------------------------------
      Einblenden beim Scrollen

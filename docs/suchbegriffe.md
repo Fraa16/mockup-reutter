@@ -3,6 +3,22 @@
 Stand: 18.08.2026 · Grundlage für die Textüberarbeitung nach dem Gespräch mit
 Daniel
 
+> **Nachtrag 25.08.2026 — der Betrieb heißt jetzt „Smartrepair Reutter".**
+> Diese Recherche führte „Smart Repair" als **fehlenden** Suchbegriff: ein Wort
+> mit echtem Volumen, das auf der ganzen Seite nicht vorkam. Es ist jetzt der
+> Markenname. Damit erledigt sich der Punkt — mit einer Einschränkung: Ein
+> Markenname allein rankt nicht für die generische Suche. „Smart Repair" muss
+> deshalb weiterhin im Fließtext der Leistungsseiten stehen, nicht nur im
+> Seitentitel.
+>
+> Umgekehrt darf **„Fahrzeugpflege"** nicht verschwinden. Es fällt als Marke
+> weg, bleibt aber als Leistung: zwei Seiten heißen so
+> (`/leistungen/fahrzeugpflege-exterieur/` und `-interieur/`), und die URLs
+> ändern sich nicht.
+>
+> Die Titelvorschläge unten tragen noch „| Fahrzeugpflege Reutter" als Suffix.
+> Auf der Website ist das bereits „| Smartrepair Reutter".
+
 Diese Recherche liegt **vor** der Überarbeitung, damit die Texte einmal
 angefasst werden und nicht zweimal. Umgesetzt wird nichts davon jetzt.
 

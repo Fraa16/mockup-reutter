@@ -114,7 +114,7 @@ $gespeichert = isset($_GET['gespeichert']);
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title><?= h($schema['titel']) ?> bearbeiten — Fahrzeugpflege Reutter</title>
+<title><?= h($schema['titel']) ?> bearbeiten — Smartrepair Reutter</title>
 <link rel="stylesheet" href="/admin/assets/admin.css">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 </head>

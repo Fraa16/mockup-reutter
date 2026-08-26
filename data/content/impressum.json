@@ -2,11 +2,11 @@
     "_hinweis": "Inhalte der Seite /impressum/. Aufbau aus export/project/Impressum.dc.html. Was belegt ist, steht drin; alles andere ist sichtbar als Platzhalter markiert.",
     "_korrektur": "Der Entwurf schrieb 'Angaben gemaess § 5 TMG'. Das Telemediengesetz ist im Mai 2024 durch das Digitale-Dienste-Gesetz abgeloest worden; die Impressumspflicht steht jetzt in § 5 DDG. Ausserdem hatte der Entwurf einen Abschnitt 'EU-Streitschlichtung' mit Verweis auf die OS-Plattform — die wurde zum 20.07.2025 eingestellt, ein Link darauf waere heute falsch. Der Abschnitt nennt deshalb nur noch den VSBG-Hinweis.",
     "seo": {
-        "titel": "Impressum — Fahrzeugpflege Reutter",
-        "beschreibung": "Anbieterkennzeichnung nach § 5 DDG für Fahrzeugpflege Reutter, Lembergstraße 27, 70825 Korntal-Münchingen."
+        "titel": "Impressum — Smartrepair Reutter",
+        "beschreibung": "Anbieterkennzeichnung nach § 5 DDG für Smartrepair Reutter, Lembergstraße 27, 70825 Korntal-Münchingen."
     },
     "titel": "Impressum",
-    "lead": "Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG). Anschrift, Kontaktdaten und Umsatzsteuer-Identifikationsnummer sind eingetragen; zwei Punkte muss der Betrieb noch bestätigen.",
+    "lead": "Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG). Anschrift, Inhaber, Kontaktdaten und Umsatzsteuer-Identifikationsnummer sind eingetragen.",
     "stand": "noch offen",
     "im_aufbau": true,
     "band_hinweis": "Gerüst mit den belegten Daten. Die noch markierten Felder und die abschließende Prüfung gehören zum Anwalt oder Verband des Betriebs — verbindliche Rechtstexte kommen nicht von uns.",
@@ -17,29 +17,28 @@
                 "Diensteanbieter im Sinne des § 5 DDG ist:"
             ],
             "zeilen": [
-                "Fahrzeugpflege Reutter",
-                "Lembergstraße 27",
-                "70825 Korntal-Münchingen",
+                "Daniel Reutter",
+                "Smartrepair Reutter",
+                "{{strasse}}",
+                "{{plzort}}",
                 "Deutschland"
             ],
             "nachtext": [
-                "Die Rechtsform des Betriebs ist noch zu bestätigen. Handelt es sich um ein Einzelunternehmen, genügen Name und Anschrift des Inhabers; bei einer eingetragenen Gesellschaft kommen Registergericht und Registernummer dazu."
+                "Diensteanbieter ist der Inhaber persönlich; „Smartrepair Reutter“ ist die Geschäftsbezeichnung, unter der der Betrieb auftritt."
             ]
         },
         {
             "titel": "Vertreten durch",
-            "platzhalter": {
-                "titel": "Name des Inhabers bestätigen",
-                "hinweis": "Nach unserer Recherche Daniel Reutter — vom Betrieb bestätigen lassen, bevor die Seite online geht. Der Name muss vollständig und richtig geschrieben hier stehen."
-            },
-            "absaetze": []
+            "absaetze": [
+                "Daniel Reutter"
+            ]
         },
         {
             "titel": "Kontakt",
             "zeilen": [
-                "Telefon: 07 11 / 82 85 940",
-                "Mobil: 0172 / 6 28 97 25",
-                "E-Mail: info@clean-box.eu"
+                "Telefon: {{telefon}}",
+                "Mobil: {{mobil}}",
+                "E-Mail: {{email}}"
             ],
             "nachtext": [
                 "Eine E-Mail-Adresse und ein zweiter, unmittelbarer Kommunikationsweg sind nach § 5 Abs. 1 Nr. 2 DDG Pflicht. Beides liegt vor."
@@ -52,19 +51,11 @@
                 "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:"
             ],
             "zeilen": [
-                "DE257725894"
+                "{{ustid}}"
             ],
             "nachtext": [
                 "Die Steuernummer wird bewusst nicht zusätzlich veröffentlicht. § 5 DDG verlangt die Umsatzsteuer-Identifikationsnummer, sofern vorhanden — die liegt vor."
             ]
-        },
-        {
-            "titel": "Handwerksrolle und Berufsbezeichnung",
-            "platzhalter": {
-                "titel": "Eintrag in der Handwerksrolle klären",
-                "hinweis": "Fahrzeuglackierer ist zulassungspflichtiges Handwerk nach Anlage A der Handwerksordnung, reine Fahrzeugpflege und Aufbereitung dagegen nicht. Ist der Betrieb eingetragen, müssen Kammer, Berufsbezeichnung und verleihender Staat hier stehen (§ 5 Abs. 1 Nr. 5 DDG). Ist er es nicht, darf der Begriff Meisterbetrieb nirgends auf der Website auftauchen."
-            },
-            "absaetze": []
         },
         {
             "titel": "Redaktionell verantwortlich",
@@ -107,5 +98,7 @@
                 "hinweis": "Solange Stock- oder KI-Material auf der Website steht, gehört hierher, woher es stammt und unter welcher Lizenz es verwendet wird. Sobald ausschließlich eigene Fotos des Betriebs verwendet werden, kann der Punkt entfallen."
             }
         }
-    ]
+    ],
+    "_korrektur_handwerksrolle": "Abschnitt 'Handwerksrolle und Berufsbezeichnung' entfernt. Der Betrieb ist laut Kunde nicht in der Handwerksrolle eingetragen; Fahrzeugpflege und Aufbereitung sind zulassungsfrei. § 5 Abs. 1 Nr. 5 DDG verlangt die Angabe nur bei zulassungspflichtiger Taetigkeit. 'Meisterbetrieb' darf nirgends auf der Website stehen.",
+    "_rechtsform": "Einzelunternehmen. Belegt durch die alten Rechtstexte des Betriebs: Impressum und AGB nennen ausschliesslich 'Daniel Reutter' als Anbieter und Verkaeufer, fuehren eine USt-IdNr. und kein Registergericht. Eine eingetragene Gesellschaft muesste den Rechtsformzusatz und das Register nennen."
 }

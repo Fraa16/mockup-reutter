@@ -1,24 +1,32 @@
 {
     "_hinweis": "Inhalte der Seite /datenschutz/. Aufbau aus export/project/Datenschutz.dc.html. Die technischen Aussagen koennen wir belegen — wir haben die Website gebaut und wissen, was sie tut. Die rechtliche Formulierung bleibt Sache des Generators oder Anwalts.",
     "_besonderheit": "Diese Website laedt keine einzige externe Ressource: Schriften liegen lokal, es gibt kein Analytics, kein CDN, keine eingebettete Karte. Deshalb werden keine einwilligungspflichtigen Cookies gesetzt und es braucht keinen Cookie-Banner. Das ist ein Verkaufsargument, kein Versaeumnis — und es sollte hier auch so dastehen.",
-
     "seo": {
-        "titel": "Datenschutzerklärung — Fahrzeugpflege Reutter",
+        "titel": "Datenschutzerklärung — Smartrepair Reutter",
         "beschreibung": "Welche Daten beim Besuch dieser Website und bei einer Anfrage verarbeitet werden. Ohne Tracking, ohne externe Dienste, ohne Cookie-Banner."
     },
-
     "titel": "Datenschutzerklärung",
     "lead": "Was beim Besuch dieser Website und bei einer Anfrage mit Ihren Daten passiert. Kurz vorweg: Diese Seite lädt nichts von fremden Servern nach und setzt keine Cookies, die eine Einwilligung bräuchten.",
     "stand": "noch offen",
     "im_aufbau": true,
     "band_hinweis": "Gerüst mit den technisch belegbaren Angaben. Die verbindliche Fassung zieht der Betrieb über eRecht24 oder die IT-Recht Kanzlei — die hier beschriebenen Verarbeitungen stimmen und können dort eingesetzt werden.",
-
     "abschnitte": [
         {
             "titel": "Verantwortliche Stelle",
-            "absaetze": ["Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der Datenschutz-Grundverordnung ist:"],
-            "zeilen": ["Fahrzeugpflege Reutter", "Lembergstraße 27", "70825 Korntal-Münchingen", "Telefon: 07 11 / 82 85 940", "E-Mail: info@clean-box.eu"],
-            "nachtext": ["Ein Datenschutzbeauftragter ist nicht bestellt und für einen Betrieb dieser Größe auch nicht vorgeschrieben."]
+            "absaetze": [
+                "Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der Datenschutz-Grundverordnung ist:"
+            ],
+            "zeilen": [
+                "Daniel Reutter",
+                "Smartrepair Reutter",
+                "{{strasse}}",
+                "{{plzort}}",
+                "Telefon: {{telefon}}",
+                "E-Mail: {{email}}"
+            ],
+            "nachtext": [
+                "Ein Datenschutzbeauftragter ist nicht bestellt und für einen Betrieb dieser Größe auch nicht vorgeschrieben."
+            ]
         },
         {
             "titel": "Hosting",
@@ -73,7 +81,9 @@
         },
         {
             "titel": "Speicherdauer",
-            "absaetze": ["Anfragen und die dazugehörigen Daten löschen wir, sobald sie für den Zweck nicht mehr erforderlich sind. Kommt ein Auftrag zustande, gelten die handels- und steuerrechtlichen Aufbewahrungsfristen — in der Regel sechs beziehungsweise zehn Jahre."],
+            "absaetze": [
+                "Anfragen und die dazugehörigen Daten löschen wir, sobald sie für den Zweck nicht mehr erforderlich sind. Kommt ein Auftrag zustande, gelten die handels- und steuerrechtlichen Aufbewahrungsfristen — in der Regel sechs beziehungsweise zehn Jahre."
+            ],
             "platzhalter": {
                 "titel": "Frist für Anfragen ohne Auftrag festlegen",
                 "hinweis": "Üblich sind sechs Monate nach der letzten Kommunikation. Der Betrieb sollte eine Frist festlegen, die er auch einhält."
@@ -81,7 +91,9 @@
         },
         {
             "titel": "Ihre Rechte",
-            "absaetze": ["Sie haben jederzeit das Recht auf:"],
+            "absaetze": [
+                "Sie haben jederzeit das Recht auf:"
+            ],
             "liste": [
                 "Auskunft über die zu Ihrer Person gespeicherten Daten (Art. 15 DSGVO)",
                 "Berichtigung unrichtiger Daten (Art. 16 DSGVO)",
@@ -90,11 +102,15 @@
                 "Datenübertragbarkeit (Art. 20 DSGVO)",
                 "Widerspruch gegen eine Verarbeitung auf Grundlage berechtigter Interessen (Art. 21 DSGVO)"
             ],
-            "nachtext": ["Eine formlose Nachricht an die oben genannte E-Mail-Adresse genügt."]
+            "nachtext": [
+                "Eine formlose Nachricht an die oben genannte E-Mail-Adresse genügt."
+            ]
         },
         {
             "titel": "Beschwerderecht bei der Aufsichtsbehörde",
-            "absaetze": ["Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Zuständig ist die Behörde des Bundeslandes, in dem der Betrieb seinen Sitz hat:"],
+            "absaetze": [
+                "Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Zuständig ist die Behörde des Bundeslandes, in dem der Betrieb seinen Sitz hat:"
+            ],
             "zeilen": [
                 "Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg",
                 "Lautenschlagerstraße 20, 70173 Stuttgart",
