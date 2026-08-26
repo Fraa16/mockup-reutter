@@ -95,7 +95,9 @@ $ctaUeberschrift  = $ctaUeberschrift  ?? 'Sagen Sie uns, was ansteht.';
 </footer>
 
 <?php if ($zeigeLeiste): ?>
-<!-- Sticky request bar -->
+<?php /* Anfrageleiste — nur auf schmalen Bildschirmen sichtbar, siehe CSS
+        und main.js. Serverseitig laesst sich das nicht entscheiden, deshalb
+        steht das Markup immer da und wird ab 981 px ausgeblendet. */ ?>
 <div class="sticky-bar" id="sticky-bar" data-ab-scroll="<?= attr((string) get($s, 'sticky_bar.ab_scroll', 600)) ?>">
   <div class="wrap">
     <div class="info">

@@ -1117,6 +1117,19 @@ a.count:hover{color:var(--rot-schrift);border-color:var(--red)}
    Bruchteil einer Sekunde vor der ersten Messung. */
 .sticky-an .footer-sticky-platz{height:var(--leiste-hoehe,75px)}
 
+/* Am Schreibtisch bleibt die Leiste weg.
+   Sie sagte dort nichts Neues: Telefonnummer und „Termin anfragen" stehen
+   schon im fixierten Kopf, zwei Zeilen darüber. Zusammen mit Infoleiste und
+   Kopf belegten die drei Balken 197 px — auf einem 900-px-Laptop 22 % der
+   Fensterhöhe, bevor der erste Inhalt kommt.
+   Auf dem Handy bleibt sie: dort ist der Kopf zur Lupe zusammengeklappt, die
+   Nummer also nicht sichtbar, und der Daumen erreicht die untere Kante besser
+   als alles andere. main.js schaltet die Mechanik an derselben Grenze ab. */
+@media (min-width: 981px){
+  .sticky-bar{display:none}
+  .footer-sticky-platz{display:none}
+}
+
 /* ==========================================================================
    Leistungsseiten — gemeinsame Bausteine
    ==========================================================================

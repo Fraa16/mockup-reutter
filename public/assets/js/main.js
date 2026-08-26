@@ -544,12 +544,17 @@
        die ist je Breite 75, 69 oder 65 px hoch. Gemessen statt im CSS
        wiederholt, sonst blieben unten 10 px Luft stehen. */
     const messeHoehe = () => {
-      document.documentElement.style.setProperty('--leiste-hoehe', stickyBar.offsetHeight + 'px');
+      // Am Schreibtisch steht die Leiste nicht, dann darf auch der Platzhalter
+      // im Fuss keine Hoehe bekommen.
+      const hoch = eng.matches ? stickyBar.offsetHeight : 0;
+      document.documentElement.style.setProperty('--leiste-hoehe', hoch + 'px');
     };
 
     const pruefe = () => {
       const y = window.scrollY || document.documentElement.scrollTop;
-      const sichtbar = y > schwelle && !(tippt && eng.matches);
+      // Nur auf schmalen Bildschirmen. Am Schreibtisch stehen Nummer und Knopf
+      // schon im fixierten Kopf — die Leiste wiederholte das und kostete 75 px.
+      const sichtbar = eng.matches && y > schwelle && !tippt;
       stickyBar.classList.toggle('visible', sichtbar);
       // Die Leiste ist fixiert und wuerde sonst die letzte Fusszeile verdecken.
       // Das CSS macht daraus einen Platzhalter am Ende des Fusses.
@@ -571,6 +576,10 @@
 
     window.addEventListener('scroll', pruefe, { passive: true });
     window.addEventListener('resize', messeHoehe, { passive: true });
+    // Beim Wechsel ueber die Grenze — Fenster ziehen, Geraet drehen — muss die
+    // Leiste sofort verschwinden oder wiederkommen, nicht erst beim naechsten
+    // Scrollen.
+    eng.addEventListener('change', () => { messeHoehe(); pruefe(); });
     messeHoehe();
     pruefe();
   }
