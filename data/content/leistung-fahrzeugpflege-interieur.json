@@ -197,7 +197,7 @@
             },
             {
                 "frage": "Was ist Trockeneisreinigung?",
-                "antwort": "Gefrorenes Kohlendioxid wird als Pellets auf die Fläche geschossen. Der Schmutz wird durch die Kälte spröde und löst sich, das Eis verdampft dabei. Es kommt kein Wasser und kein Strahlmittel ins Fahrzeug. Ob es in Ihrem Fall das richtige Mittel ist, sagen wir Ihnen, wenn wir den Innenraum gesehen haben."
+                "antwort": "Gefrorenes Kohlendioxid wird als Pellets auf die Fläche geschossen. Der Schmutz wird durch die Kälte spröde und löst sich, das Eis verdampft dabei. Es kommt kein Wasser und kein Strahlmittel ins Fahrzeug. Das gehört bei uns zur Innenreinigung dazu — wo es sinnvoll ist, setzen wir es ein."
             }
         ]
     },
@@ -223,10 +223,9 @@
     },
     "cta_ueberschrift": "Innenraum aufbereiten lassen?",
     "trockeneis": {
-        "_unbestaetigt": "Dass der Betrieb mit Trockeneis arbeitet, ist durch eine Google-Rezension belegt (Porsche 992, Aufbereitung). Unbestaetigt ist der Umfang: immer verfuegbar? im Preis oder getrennt? Vor Launch mit Daniel klaeren. Die drei Punkte unten sind Eigenschaften des Verfahrens, keine Zusagen des Betriebs.",
         "kicker": "Verfahren",
         "titel": "Trockeneis: lösen, ohne nass zu machen.",
-        "lead": "Die Pellets kühlen den Schmutz beim Aufprall schlagartig ab, er wird spröde und springt ab. Das Eis geht dabei direkt in Gas über. Deshalb bleibt an der Stelle nichts zurück, was hinterher trocknen müsste.",
+        "lead": "Die Pellets kühlen den Schmutz beim Aufprall schlagartig ab, er wird spröde und springt ab. Das Eis geht dabei direkt in Gas über — an der Stelle bleibt nichts zurück, was trocknen müsste. Bei uns gehört das zur Innenreinigung dazu, nicht als Aufpreis.",
         "punkte": [
             {
                 "titel": "Kein Wasser im Fahrzeug",
@@ -240,6 +239,7 @@
                 "titel": "Nicht für alles",
                 "text": "Wo eine Bürste und Extraktion reichen, nehmen wir die. Was empfindlich ist, sehen wir uns vorher an."
             }
-        ]
+        ],
+        "_quelle": "Vom Kunden am 04.09.2026 bestaetigt: Trockeneis gehoert bei der Innenreinigung zum Standard, nicht als Aufpreis. Die drei Punkte beschreiben Eigenschaften des Verfahrens."
     }
 }

@@ -272,6 +272,21 @@ return [
                 ],
             ],
             [
+                'titel'   => 'Transport & Abschleppdienst',
+                'hinweis' => 'Eigener Abschnitt hinter den Leistungen. Die ausführliche Seite dazu steht unter Leistungen.',
+                'felder'  => [
+                    ['pfad' => 'transport.kicker',    'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
+                    ['pfad' => 'transport.titel',     'typ' => 'text',       'label' => 'Überschrift'],
+                    ['pfad' => 'transport.lead',      'typ' => 'mehrzeilig', 'label' => 'Einleitung'],
+                    ['pfad' => 'transport.link_text', 'typ' => 'text',       'label' => 'Beschriftung des Verweises'],
+                    ['pfad' => 'transport.punkte', 'typ' => 'liste', 'label' => 'Punkt', 'min' => 2, 'max' => 4,
+                     'subfelder' => [
+                        ['pfad' => 'titel', 'typ' => 'text',       'label' => 'Überschrift'],
+                        ['pfad' => 'text',  'typ' => 'mehrzeilig', 'label' => 'Beschreibung'],
+                     ]],
+                ],
+            ],
+            [
                 'titel'   => 'Vorher / Nachher',
                 'hinweis' => 'Beide Bilder müssen dasselbe Fahrzeug aus demselben Winkel zeigen, sonst funktioniert der Schieberegler nicht.',
                 'felder'  => [
@@ -668,6 +683,43 @@ return [
     ),
 
     /* ---------------------------------------------------------------- */
+    'leistung-transport-abschleppdienst' => leistungs_schema(
+        'Transport & Abschleppdienst',
+        'Abschleppen und Transporte — die Seite unter /leistungen/transport-abschleppdienst/.',
+        [
+            [
+                'titel'   => 'Abschleppdienst',
+                'hinweis' => 'Der obere der beiden Blöcke. Bitte keine Reaktionszeiten und keine Erreichbarkeit rund um die Uhr zusagen, solange das nicht abgesprochen ist.',
+                'felder'  => [
+                    ['pfad' => 'abschleppen.kicker', 'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
+                    ['pfad' => 'abschleppen.titel',  'typ' => 'text',       'label' => 'Überschrift'],
+                    ['pfad' => 'abschleppen.lead',   'typ' => 'mehrzeilig', 'label' => 'Einleitung'],
+                    ['pfad' => 'abschleppen.punkte', 'typ' => 'liste', 'label' => 'Punkt', 'min' => 2, 'max' => 6,
+                     'subfelder' => [
+                        ['pfad' => 'titel', 'typ' => 'text',       'label' => 'Überschrift'],
+                        ['pfad' => 'text',  'typ' => 'mehrzeilig', 'label' => 'Beschreibung'],
+                     ]],
+                ],
+            ],
+            [
+                'titel'   => 'Transporte',
+                'hinweis' => 'Der untere Block. Maße, Gewicht und Entfernung bleiben bewusst offen — die klärt der Betrieb je Auftrag.',
+                'felder'  => [
+                    ['pfad' => 'transporte.kicker', 'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
+                    ['pfad' => 'transporte.titel',  'typ' => 'text',       'label' => 'Überschrift'],
+                    ['pfad' => 'transporte.lead',   'typ' => 'mehrzeilig', 'label' => 'Einleitung'],
+                    ['pfad' => 'transporte.punkte', 'typ' => 'liste', 'label' => 'Punkt', 'min' => 2, 'max' => 6,
+                     'subfelder' => [
+                        ['pfad' => 'titel', 'typ' => 'text',       'label' => 'Überschrift'],
+                        ['pfad' => 'text',  'typ' => 'mehrzeilig', 'label' => 'Beschreibung'],
+                     ]],
+                ],
+            ],
+        ],
+        // Kein Vorher/Nachher: ein Transport hat kein Ergebnisbild.
+        ['vergleich' => false]
+    ),
+
     'leistung-ozonbehandlung' => leistungs_schema(
         'Ozonbehandlung',
         'Gegen Rauch, Tiergeruch und Schimmel — die Seite unter /leistungen/ozonbehandlung/.',

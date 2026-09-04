@@ -38,23 +38,19 @@
         {
             "titel": "Preise und Zahlung",
             "absaetze": [
-                "Alle Preise verstehen sich als Endpreise einschließlich der gesetzlichen Umsatzsteuer. Der bei der Begutachtung genannte Festpreis gilt für den vereinbarten Umfang."
+                "Alle Preise verstehen sich als Endpreise einschließlich der gesetzlichen Umsatzsteuer. Der bei der Begutachtung genannte Festpreis gilt für den vereinbarten Umfang.",
+                "Sie können bar, mit EC-Karte, per Überweisung oder auf Rechnung zahlen."
             ],
-            "platzhalter": {
-                "titel": "Zahlungsarten und Fälligkeit eintragen",
-                "hinweis": "Barzahlung, EC-Karte, Überweisung? Fällig bei Abholung oder nach Rechnung mit Zahlungsziel? Wird bei größeren Aufträgen eine Anzahlung verlangt? Diese Punkte kennt nur der Betrieb."
-            }
+            "nachtext": [
+                "Zur Fälligkeit trifft der Betrieb bewusst keine pauschale Regelung — sie wird im Einzelfall vereinbart."
+            ]
         },
         {
             "titel": "Termine, Annahme und Abholung",
             "absaetze": [
                 "Termine werden verbindlich vereinbart. Können Sie einen Termin nicht einhalten, sagen Sie bitte rechtzeitig ab, damit der Platz anderweitig vergeben werden kann.",
                 "Bei der Annahme wird der Zustand des Fahrzeugs gemeinsam angesehen und dokumentiert. Bei der Abholung gehen wir das Ergebnis gemeinsam durch."
-            ],
-            "platzhalter": {
-                "titel": "Stellplatz nach Fertigstellung regeln",
-                "hinweis": "Wie lange kann ein fertiges Fahrzeug kostenfrei stehen bleiben, und was gilt danach? Ohne Regelung trägt der Betrieb das Risiko."
-            }
+            ]
         },
         {
             "titel": "Mitwirkung des Kunden",
@@ -101,5 +97,6 @@
             ]
         }
     ],
-    "_quelle_alt": "Die alte Website trug AGB und Kundeninformationen des Haendlerbunds, Stand 13.06.2018, erstellt fuer den Online-Verkauf von Waren ueber www.stuttgart-dellendoktor.de. Daraus uebernommen sind nur die Entscheidungen des Betriebs, nicht der Klauseltext: Der Text ist lizenziert, die Haftungszusage des Haendlerbunds haengt an einer laufenden Mitgliedschaft, und er beschreibt einen Warenversand mit Warenkorb, Versandkosten und Ruecksendung, den es hier nicht gibt."
+    "_quelle_alt": "Die alte Website trug AGB und Kundeninformationen des Haendlerbunds, Stand 13.06.2018, erstellt fuer den Online-Verkauf von Waren ueber www.stuttgart-dellendoktor.de. Daraus uebernommen sind nur die Entscheidungen des Betriebs, nicht der Klauseltext: Der Text ist lizenziert, die Haftungszusage des Haendlerbunds haengt an einer laufenden Mitgliedschaft, und er beschreibt einen Warenversand mit Warenkorb, Versandkosten und Ruecksendung, den es hier nicht gibt.",
+    "_zahlung": "Vom Kunden am 04.09.2026: Rechnung ist als Zahlungsart ergaenzt, eine Faelligkeit soll ausdruecklich NICHT genannt werden. Ebenso soll der Stellplatz nach Fertigstellung unerwaehnt bleiben — der Platzhalter dort ist deshalb entfallen, ohne Ersatztext."
 }

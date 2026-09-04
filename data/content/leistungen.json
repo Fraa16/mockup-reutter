@@ -148,7 +148,23 @@
             },
             "chip": "Ozonbehandlung",
             "seitenname": "Ozonbehandlung"
+        },
+        {
+            "slug": "transport-abschleppdienst",
+            "eigene_seite": true,
+            "num": "08",
+            "tag": "Transport",
+            "label": "Transport & Abschleppen",
+            "titel": "Transport & Abschleppdienst",
+            "lead": "Abschleppen im Raum Stuttgart, Transporte deutschlandweit. Mit eigenem Fahrzeug, nicht weitervermittelt.",
+            "bullets": [
+                "Auch nicht fahrbereite und nicht zugelassene Fahrzeuge",
+                "Nicht nur Autos — Maschinen und sperriges Gerät"
+            ],
+            "chip": "Abschleppdienst",
+            "seitenname": "Transport & Abschleppdienst"
         }
     ],
-    "_seitenname_hinweis": "seitenname ist der Name der Seite (Navigation, Fussbereich, Brotkrumen); titel ist die Ueberschrift im Hotspot-Panel der Startseite. Die beiden unterscheiden sich bewusst."
+    "_seitenname_hinweis": "seitenname ist der Name der Seite (Navigation, Fussbereich, Brotkrumen); titel ist die Ueberschrift im Hotspot-Panel der Startseite. Die beiden unterscheiden sich bewusst.",
+    "_transport_hinweis": "Der achte Eintrag hat als einziger KEINEN hotspot. Die anderen sieben haengen als Punkte auf dem Fahrzeugfoto der Startseite und beschreiben Arbeit an einer Stelle des Autos. Transport und Abschleppen sind Logistik — und 'Maschinen jeglicher Art' ist nicht einmal aufs Auto begrenzt. home.php filtert das Panel deshalb auf Eintraege mit hotspot."
 }
