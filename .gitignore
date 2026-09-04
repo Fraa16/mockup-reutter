@@ -6,6 +6,10 @@ app/config/zugangsdaten.php
 
 # Vom CMS erzeugt bzw. auf dem Server gepflegt
 data/backups/
+# Der Foto-Posteingang ist Zwischenstand auf dem Server: was dort liegt, ist
+# noch nicht einsortiert. Die Fotos selbst liegen in public/uploads/ und
+# gehoeren ins Repository, der Merkzettel darueber nicht.
+data/fotos-posteingang.json
 # public/uploads/cache/ steht bewusst NICHT hier: die verkleinerten Fassungen
 # gehören ins Repository. Auf Vercel ist das Dateisystem schreibgeschützt,
 # dort kann zur Laufzeit nichts erzeugt werden. Neu erzeugen mit
