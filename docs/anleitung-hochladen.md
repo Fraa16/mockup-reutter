@@ -78,18 +78,78 @@ Datei beim nächsten Aufruf, spätestens nach fünf Minuten.
 
 ## Schritt 2 · Verbindung zum Server herstellen
 
-Im Kundenmenü nach **SFTP** oder **„SFTP & SSH"** suchen und dort einen Zugang
-anlegen. IONOS zeigt dir danach vier Angaben: Serveradresse, Benutzername,
-Passwort und Port (meist 22).
+### FileZilla installieren
 
-Diese vier trägst du in FileZilla oben in die Leiste ein und klickst
-„Verbinden". Links siehst du deinen Rechner, rechts den Server.
+Falls noch nicht geschehen: <https://filezilla-project.org/download.php?type=client>
 
-> **Zwei Dinge zum Zugang:** Vergib ein eigenes Passwort, nicht dasselbe wie
-> fürs IONOS-Konto. Und wenn du fertig bist, kannst du den Zugang im
-> Kundenmenü einfach wieder löschen — beim nächsten Mal legst du einen neuen an.
+> **Auf der Seite stehen mehrere Knöpfe.** Du willst **„Download FileZilla
+> Client"** — die kostenlose Fassung. Nicht *FileZilla Pro* (kostet Geld, wird
+> hier nicht gebraucht) und nicht *FileZilla Server* (das ist das Gegenstück,
+> das man selbst betreibt).
 
-**Geschafft, wenn:** Rechts in FileZilla siehst du Ordner des Servers.
+Auf dem Mac lädst du eine Datei mit `macos` im Namen. Doppelklick darauf im
+Downloads-Ordner, dann die entstandene `FileZilla`-App in den Ordner
+**Programme** ziehen.
+
+Meldet macOS beim ersten Start, das Programm stamme von einem nicht
+verifizierten Entwickler: Rechtsklick auf FileZilla → **Öffnen** → im Dialog
+noch einmal **Öffnen**. Danach startet es künftig normal.
+
+> **Alternative:** IONOS verlinkt auf derselben Seite, auf der die Zugänge
+> stehen, auch **Cyberduck** — ebenfalls kostenlos und auf dem Mac etwas
+> aufgeräumter. Die Schritte hier sind für FileZilla geschrieben; wenn du
+> Cyberduck lieber magst, sag Bescheid, dann schreibe ich sie dafür um.
+
+### Zugang bei IONOS vorbereiten
+
+Im Kundenmenü nach **„Sichere FTP-Zugänge verwalten"** suchen. Dort steht
+bereits ein Zugang, `u113483144`.
+
+> **Den nimmst du — leg keinen neuen an.** Der Knopf „Neues Konto erstellen"
+> steht daneben und lädt dazu ein, aber der vorhandene passt genau: In der
+> Spalte *Verzeichnis* steht `/`, also die oberste Ebene, auf der `html` liegt
+> und `neu` entstehen soll. Und in der Spalte *Protokoll* steht `SFTP + SSH` —
+> beides, was du brauchst: SFTP für Schritt 3, SSH für Schritt 7.
+
+**Passwort setzen.** Auf die drei Punkte (⋮) rechts in der Zeile, dann
+*Passwort ändern*. Das bestehende Passwort zeigt IONOS nicht an, du musst also
+ein neues vergeben — such nicht danach.
+
+Zum Passwort selbst:
+
+* **Nicht dasselbe wie fürs IONOS-Konto.** Dieser Zugang darf alles auf dem
+  Webspace lesen und schreiben, später auch Daniels Fotos und die Anfragen mit
+  Kundendaten.
+* **Lang und zufällig** — Passwortgenerator, 20 Zeichen oder mehr.
+  SSH-Zugänge werden rund um die Uhr automatisch durchprobiert. Bleib bei
+  Buchstaben, Ziffern und einfachen Sonderzeichen; Umlaute machen in Terminal
+  und FTP-Programmen manchmal Ärger.
+* **Vorher wegspeichern.** Nach dem Klick auf *Speichern* zeigt IONOS es nie
+  wieder, und du brauchst es zweimal: hier und in Schritt 7.
+
+**Serveradresse holen.** Auf den Benutzernamen `u113483144` klicken — in der
+Detailansicht steht der Name des Servers.
+
+**In FileZilla eintragen**, oben in die Leiste:
+
+| Feld | Wert |
+|---|---|
+| Server | `sftp://` und direkt dahinter die Serveradresse |
+| Benutzername | `u113483144` |
+| Passwort | das eben vergebene |
+| Port | `22` |
+
+> **Das `sftp://` vorne ist der entscheidende Teil.** Ohne diesen Vorsatz
+> versucht FileZilla eine gewöhnliche, unverschlüsselte FTP-Verbindung auf
+> einem anderen Anschluss — den es hier nicht gibt. Du bekommst dann nur
+> „Verbindung fehlgeschlagen" und suchst den Fehler beim Passwort oder beim
+> Servernamen, wo er nicht liegt.
+
+Beim ersten Verbinden fragt FileZilla nach einem „unbekannten Hostschlüssel".
+Das ist normal, einmal bestätigen.
+
+**Geschafft, wenn:** Rechts in FileZilla erscheint eine Ordnerliste, in der
+`html` steht. Dann bist du an der richtigen Stelle für Schritt 3.
 
 ## Schritt 3 · Die neue Seite in einen eigenen Ordner legen
 
