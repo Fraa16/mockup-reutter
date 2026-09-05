@@ -345,15 +345,23 @@ ist die `.htaccess` nicht mitgekommen — siehe Schritt 3.
 > aller Kunden, die je das Formular ausgefüllt haben. Sofort beide Ordner aus
 > `neu/web` löschen und Schritt 3 wiederholen.
 
-## Schritt 6 · Postfach für das Kontaktformular
+## Schritt 6 · Postfach für das Kontaktformular — kann warten
 
-Das Formular auf der Website verschickt E-Mails über ein echtes Postfach —
-nicht über einen anonymen Versand, denn solche Mails landen im Spam.
+**Dieser Schritt lässt sich aufschieben.** Ohne Postfach wird eine Anfrage
+trotzdem gespeichert und steht im Bearbeitungsbereich unter „Anfragen von der
+Website"; nur die Benachrichtigungsmail bleibt aus. Solange die Seite für
+Google gesperrt ist und die Adresse niemand kennt, kommt ohnehin nichts herein.
+
+**Vor dem Umschalttag muss er aber erledigt sein.** Ab dann kommen echte
+Anfragen, und ein ausbleibender Versand meldet sich nicht von selbst — es fehlt
+einfach eine Mail, die niemand vermisst.
+
+Das Formular verschickt über ein echtes Postfach — nicht über einen anonymen
+Versand, denn solche Mails landen im Spam.
 
 1. Im Kundenmenü unter **E-Mail** eine neue Adresse anlegen:
-   `website@smartrepair-reutter.de`. Bewusst ein eigenes Postfach und nicht
-   `info@` — wenn beim automatischen Versand etwas klemmt, soll das nicht das
-   Postfach betreffen, über das Daniel seine Kundschaft erreicht.
+   `info@smartrepair-reutter.de`. Dasselbe Postfach nimmt Anfragen entgegen und
+   verschickt sie — ein Postfach weniger zu pflegen.
 2. Auf deinem Rechner die Datei `app/config/zugangsdaten.beispiel.php` öffnen,
    die Werte eintragen (Passwort des Postfachs, nicht des IONOS-Kontos), unter
    dem Namen **`zugangsdaten.php`** speichern und nach `neu/app/config/`
