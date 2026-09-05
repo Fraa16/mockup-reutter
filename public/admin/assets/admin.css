@@ -115,7 +115,7 @@ h2{margin:0 0 4px;font-size:19px;letter-spacing:-.01em}
 .feld{margin-bottom:24px}
 .feld label{display:block;margin-bottom:7px;font-weight:600;font-size:15px}
 .feld-hilfe{margin:0 0 8px;font-size:13.5px;line-height:1.45;color:var(--grau-600)}
-.feld input[type=text],.feld input[type=number],.feld textarea{
+.feld input[type=text],.feld input[type=number],.feld textarea,.feld select{
   width:100%;padding:12px 14px;font-size:16px;font-family:inherit;
   border:1px solid var(--grau-200);background:#fff;color:var(--schwarz);
 }
@@ -227,6 +227,38 @@ h2{margin:0 0 4px;font-size:19px;letter-spacing:-.01em}
 .hinweis.erfolg{border-color:var(--gruen);background:#EDF7F1;color:#12532F}
 .hinweis.fehler{border-color:var(--rot);background:#FDEEEF;color:#8A0810}
 .hinweis ul{margin:8px 0 0;padding-left:20px}
+
+/* --- Fotos: Hochladen und Posteingang ------------------------------------ */
+/* Die Liste entsteht erst per Skript. Ohne JavaScript bleibt sie leer und
+   versteckt — dann laedt das Formular ganz normal ab. */
+.upload-liste{list-style:none;margin:0 0 22px;padding:0;border-top:1px solid var(--grau-100)}
+.upload-liste[hidden]{display:none}
+.upload-zeile{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:11px 0;border-bottom:1px solid var(--grau-100);font-size:14.5px;
+}
+.upload-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.upload-stand{flex:none;color:var(--grau-600);font-size:13.5px}
+.upload-stand.ist-gut{color:var(--gruen);font-weight:600}
+.upload-stand.ist-schlecht{color:var(--rot);font-weight:600}
+
+.posteingang-eintrag{
+  display:flex;gap:20px;align-items:flex-start;
+  padding:22px 0;border-top:1px solid var(--grau-100);
+}
+.posteingang-eintrag .vorschau{width:170px;height:128px}
+.posteingang-felder{flex:1;min-width:0}
+.posteingang-felder .feld{margin-bottom:16px}
+.posteingang-knoepfe{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+
+@media (max-width:640px){
+  /* Am Handy steht die Vorschau ueber den Feldern und nutzt die volle Breite —
+     nebeneinander blieben von beidem nur Streifen. */
+  .posteingang-eintrag{flex-direction:column;gap:14px}
+  .posteingang-eintrag .vorschau{width:100%;height:auto;aspect-ratio:4/3}
+  .posteingang-felder{width:100%}
+  .posteingang-knoepfe .knopf{flex:1;justify-content:center;text-align:center}
+}
 
 /* --- Hilfe --------------------------------------------------------------- */
 .hilfe{border-top:1px solid var(--grau-200);padding-top:28px}

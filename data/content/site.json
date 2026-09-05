@@ -1,5 +1,9 @@
 {
     "_hinweis": "Globale Daten. Werte mit PRUEFEN: sind noch nicht vom Kunden bestaetigt und duerfen so nicht live gehen.",
+    "seo": {
+        "_hinweis": "live_domain ist der Schalter, der die Seite fuer Google oeffnet. Solange er leer ist, liefert robots.txt ein 'Disallow: /' und jede Seite traegt ein noindex — egal unter welcher Adresse sie laeuft. Absicht: Der Testaufbau auf test.smartrepair-reutter.de darf nicht in den Index, und eine unfertige Seite bekommt man dort wochenlang nicht mehr heraus. Am Umschalttag hier 'smartrepair-reutter.de' eintragen, dann ist die Seite freigegeben. Genau eine Adresse — die Testadresse passt darauf nicht und bleibt gesperrt.",
+        "live_domain": ""
+    },
     "firma": {
         "_aufgabe_kunde": "Der Betrieb heisst kuenftig 'Smartrepair Reutter' — so, wie das Google-Unternehmensprofil seit Jahren laeuft. Damit bleibt das Profil mit seinen 281 Rezensionen unangetastet und die Website zieht nach. Am Umschalttag ist im Profil nur die Website-Adresse auf die neue Domain zu aendern.",
         "name": "Smartrepair Reutter",

@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 require dirname(__DIR__, 2) . '/app/bootstrap.php';
 require APP_ROOT . '/lib/auth.php';
+require APP_ROOT . '/lib/posteingang.php';
 require APP_ROOT . '/lib/speichern.php';   // inhalte_beschreibbar()
 require APP_ROOT . '/lib/anfrage.php';
 
@@ -137,6 +138,21 @@ $angemeldet = auth_angemeldet();
     </p>
     <?php endif; ?>
 
+    <?php if (!seo_indexierbar()): ?>
+    <?php /* Die Google-Sperre ist absichtlich stumm — sie steht in robots.txt
+            und in einer Zeile im Seitenkopf, beides sieht man im Alltag nie.
+            Genau deshalb steht sie hier: Wer auf der fertigen Domain
+            angemeldet ist und das liest, weiss, dass noch ein Handgriff
+            fehlt. Ohne diesen Hinweis waere der wahrscheinlichste Fehler eine
+            Website, die live geht und monatelang unauffindbar bleibt. */ ?>
+    <p class="hinweis nur-lesen">
+      <strong>Für Google gesperrt.</strong> Diese Adresse taucht in keiner Suche
+      auf — während des Aufbaus ist das richtig so. Sobald die Website
+      offiziell startet, unter <a href="/admin/edit.php?bereich=site">Stammdaten
+      → Sichtbarkeit bei Google</a> die Adresse eintragen.
+    </p>
+    <?php endif; ?>
+
     <?php /* Die Anfragen stehen bewusst vor den Inhalten: wer sich hier
             anmeldet, will meist wissen, ob jemand geschrieben hat. */ ?>
     <section class="bereichsgruppe">
@@ -147,6 +163,17 @@ $angemeldet = auth_angemeldet();
           <span class="kachel-text">Alles, was über die Formulare hereinkommt — mit Fotos, falls welche dabei waren.</span>
           <?php if (($neu = anfragen_ungelesen()) > 0): ?>
           <span class="kachel-zahl"><?= (int) $neu ?> neu</span>
+          <?php endif; ?>
+          <span class="kachel-pfeil" aria-hidden="true">→</span>
+        </a>
+        <?php /* Fotos stehen hier und nicht bei den Inhalten: sie kommen von
+                unterwegs herein, genau wie die Anfragen, und werden hier
+                einsortiert statt in einem Formular bearbeitet. */ ?>
+        <a class="kachel" href="/admin/fotos.php">
+          <span class="kachel-titel">Fotos</span>
+          <span class="kachel-text">Vom Handy hochladen und in die Galerie einsortieren.</span>
+          <?php if (($wartend = count(posteingang_lesen())) > 0): ?>
+          <span class="kachel-zahl"><?= (int) $wartend ?> wartet</span>
           <?php endif; ?>
           <span class="kachel-pfeil" aria-hidden="true">→</span>
         </a>

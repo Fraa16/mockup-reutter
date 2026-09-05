@@ -1,12 +1,10 @@
 {
     "_hinweis": "Eigene Texte der Uebersichtsseite /leistungen/. Uebernommen aus export/project/Leistungen.dc.html. Die Liste der Leistungen selbst kommt aus leistungen.json ueber leistungen_mit_seite() — hier stehen je Slug nur die Zusaetze, die es nur auf dieser Seite gibt: Kurztext, Schlagworte und Vorschaubild.",
     "_unbestaetigt": "Zu pruefen: die drei Punkte unter 'Fuer alle Leistungen gilt' (vor allem 'vieles davon auch mobil vor Ort'), die drei Kombinationen und vor allem der Abschnitt 'Was wir nicht machen'. Letzterer sagt, dass Folierung und Scheibentoenung NICHT gemacht werden — das widerspricht dem Abschnitt #beklebung auf der Lackierarbeiten-Seite. Vor Launch aufloesen.",
-
     "seo": {
         "titel": "Leistungen — Smartrepair Reutter, Korntal-Münchingen",
         "beschreibung": "Sechs Leistungen aus einer Hand: Exterieur, Interieur, Dellen und Hagelschaden, Lackierarbeiten, Lederreparatur und Ozonbehandlung. Bei Stuttgart, auch mobil."
     },
-
     "hero": {
         "kicker": "Sechs Leistungen",
         "titel": "Was wir am Fahrzeug machen — und wie weit wir dabei gehen.",
@@ -22,18 +20,21 @@
             "Vieles davon auch mobil vor Ort"
         ]
     },
-
     "index": {
         "hinweis": "Zeile überfahren für das Bild, klicken für die Details."
     },
-
     "_eintraege_hinweis": "Schluessel ist der Slug aus leistungen.json. num und tag sind die Nummerierung dieser Uebersicht (01–06 fuer die sechs Seiten) — die Startseite zaehlt anders, weil dort 'Felgen & Reifen' als siebter Hotspot mitlaeuft, aber keine eigene Seite hat.",
     "eintraege": {
         "fahrzeugpflege-exterieur": {
             "num": "01",
             "tag": "Exterieur",
             "kurz": "Handwäsche, mehrstufige Politur, Versiegelung. Für Lack, der nach der ersten Wäsche noch so aussieht.",
-            "schlagworte": ["Handwäsche", "Lackdickenmessung", "Versiegelung", "Felgen"],
+            "schlagworte": [
+                "Handwäsche",
+                "Lackdickenmessung",
+                "Versiegelung",
+                "Felgen"
+            ],
             "bild": "g1.webp",
             "bild_alt": "Politur unter der Lichtleiste, Reflexion im Lack",
             "bild_platzhalter": true,
@@ -43,7 +44,12 @@
             "num": "02",
             "tag": "Interieur",
             "kurz": "Sprühextraktion für Polster und Teppich, Kunststoff matt aufgefrischt, Schächte und Fugen inklusive.",
-            "schlagworte": ["Sprühextraktion", "Tierhaare", "Kunststoffpflege", "Scheiben innen"],
+            "schlagworte": [
+                "Sprühextraktion",
+                "Tierhaare",
+                "Kunststoffpflege",
+                "Scheiben innen"
+            ],
             "bild": "g3.webp",
             "bild_alt": "Innenraum, Sitz wird nass extrahiert",
             "bild_platzhalter": true,
@@ -53,7 +59,12 @@
             "num": "03",
             "tag": "Karosserie",
             "kurz": "Ausbeulen ohne Lackieren. Der Originallack bleibt, wo er ist — Parkdelle wie Hagelschaden.",
-            "schlagworte": ["Smart Repair", "Hagel komplett", "ohne Spachtel", "Originallack"],
+            "schlagworte": [
+                "Smart Repair",
+                "Hagel komplett",
+                "ohne Spachtel",
+                "Originallack"
+            ],
             "bild": "g2.webp",
             "bild_alt": "Dellendrücken mit Reflexlampe am Kotflügel",
             "bild_platzhalter": true,
@@ -63,7 +74,12 @@
             "num": "04",
             "tag": "Lack",
             "kurz": "Teil- und Beilackierung mit Farbtonauslesung. Ziel ist ein Übergang, den man auch bei Sonne nicht findet.",
-            "schlagworte": ["Farbtonauslesung", "Beilackierung", "Stoßfänger", "Kunststoffteile"],
+            "schlagworte": [
+                "Farbtonauslesung",
+                "Beilackierung",
+                "Stoßfänger",
+                "Kunststoffteile"
+            ],
             "bild": "g5.webp",
             "bild_alt": "Farbtonbestimmung am Musterblech",
             "bild_platzhalter": true,
@@ -73,7 +89,12 @@
             "num": "05",
             "tag": "Interieur",
             "kurz": "Risse, Brandlöcher, Scheuerstellen, Farbabrieb. Wir reparieren die Stelle und färben die Fläche.",
-            "schlagworte": ["Risse & Brandlöcher", "Nachfärben", "Lenkrad", "Sitzwange"],
+            "schlagworte": [
+                "Risse & Brandlöcher",
+                "Nachfärben",
+                "Lenkrad",
+                "Sitzwange"
+            ],
             "bild": "g6.webp",
             "bild_alt": "Lederreparatur an der Sitzwange",
             "bild_platzhalter": true,
@@ -83,14 +104,33 @@
             "num": "06",
             "tag": "Interieur",
             "kurz": "Gegen Rauch, Tiergeruch und Schimmel. Ozon zerlegt die Geruchsmoleküle, statt sie zu überdecken.",
-            "schlagworte": ["Rauchgeruch", "Tiergeruch", "Klimaanlage", "Schimmel"],
+            "schlagworte": [
+                "Rauchgeruch",
+                "Tiergeruch",
+                "Klimaanlage",
+                "Schimmel"
+            ],
             "bild": "g4.webp",
             "bild_alt": "Ozongerät im Fahrzeuginnenraum",
             "bild_platzhalter": true,
             "_bild_soll": "Ozongerät im Fahrzeuginnenraum"
+        },
+        "transport-abschleppdienst": {
+            "num": "07",
+            "tag": "Transport",
+            "kurz": "Abschleppen im Raum Stuttgart, Transporte deutschlandweit. Fahrzeuge, Maschinen, Sperriges — mit eigenem Fahrzeug.",
+            "schlagworte": [
+                "Abschleppdienst",
+                "Fahrzeugtransport",
+                "Maschinentransport",
+                "Nicht fahrbereit"
+            ],
+            "bild": "img-20.webp",
+            "bild_alt": "Fahrzeug wird auf den Transporter geladen",
+            "bild_platzhalter": true,
+            "_bild_soll": "Der eigene Transporter oder Abschleppwagen mit aufgeladenem Fahrzeug"
         }
     },
-
     "kombinationen": {
         "kicker": "Was meistens zusammengehört",
         "titel": "Drei Fälle, die so bei uns reinkommen.",
@@ -100,40 +140,63 @@
                 "kicker": "Nach dem Hagel",
                 "titel": "Dellen drücken, danach Lack aufbereiten",
                 "text": "Nach der Dellenarbeit sieht man die alten Waschkratzer erst richtig. Wer beides zusammen macht, spart den zweiten Termin.",
-                "slugs": ["dellen-hagelschaden", "fahrzeugpflege-exterieur"],
-                "labels": ["Dellen", "Exterieur"]
+                "slugs": [
+                    "dellen-hagelschaden",
+                    "fahrzeugpflege-exterieur"
+                ],
+                "labels": [
+                    "Dellen",
+                    "Exterieur"
+                ]
             },
             {
                 "kicker": "Vor dem Verkauf",
                 "titel": "Innenraum, Leder und Politur",
                 "text": "Der erste Eindruck entsteht beim Einsteigen, nicht auf dem Parkplatz. Sitzwange, Lenkrad und Geruch sind wichtiger als jede Felge.",
-                "slugs": ["fahrzeugpflege-interieur", "lederreparatur", "fahrzeugpflege-exterieur"],
-                "labels": ["Interieur", "Leder", "Exterieur"]
+                "slugs": [
+                    "fahrzeugpflege-interieur",
+                    "lederreparatur",
+                    "fahrzeugpflege-exterieur"
+                ],
+                "labels": [
+                    "Interieur",
+                    "Leder",
+                    "Exterieur"
+                ]
             },
             {
                 "kicker": "Gebraucht gekauft",
                 "titel": "Geruch raus, Kratzer weg",
                 "text": "Bei Raucherfahrzeugen bringt Ozon nur etwas, wenn der Innenraum vorher gründlich gereinigt wurde. Sonst ist der Geruch nach zwei Wochen zurück.",
-                "slugs": ["fahrzeugpflege-interieur", "ozonbehandlung"],
-                "labels": ["Interieur", "Ozon"]
+                "slugs": [
+                    "fahrzeugpflege-interieur",
+                    "ozonbehandlung"
+                ],
+                "labels": [
+                    "Interieur",
+                    "Ozon"
+                ]
             }
         ]
     },
-
     "grenzen": {
         "titel": "Was wir nicht machen",
         "lead": "Damit Sie nicht umsonst anrufen. Für alles hier haben wir Betriebe in der Nähe, die wir empfehlen können.",
         "punkte": [
-            { "titel": "Unfallinstandsetzung",        "text": "Richtbank, Rahmen, Achsvermessung — das gehört in die Karosseriewerkstatt." },
-            { "titel": "Mechanik und Elektrik",       "text": "Wir sind Aufbereiter, keine Kfz-Werkstatt. Inspektion und Reparatur machen andere." },
             {
-                "titel": "Folierung und Scheibentönung",
-                "_widerspruch": "LAUNCH-BLOCKER: Dieser Punkt sagt, Folierung werde nicht gemacht. Der Abschnitt #beklebung auf /leistungen/lackierarbeiten/ beschreibt sie als Leistung. Eines von beidem ist falsch — mit Daniel klaeren.",
-                "text": "Machen wir nicht selbst. Lackschutzfolie an Einzelstellen auf Anfrage."
+                "titel": "Unfallinstandsetzung",
+                "text": "Richtbank, Rahmen, Achsvermessung — das gehört in die Karosseriewerkstatt."
             },
-            { "titel": "Rost und Durchrostung",       "text": "Oberflächlichen Flugrost bekommen wir weg. Durchgerostetes Blech nicht." }
-        ]
+            {
+                "titel": "Mechanik und Elektrik",
+                "text": "Wir sind Aufbereiter, keine Kfz-Werkstatt. Inspektion und Reparatur machen andere."
+            },
+            {
+                "titel": "Rost und Durchrostung",
+                "text": "Oberflächlichen Flugrost bekommen wir weg. Durchgerostetes Blech nicht."
+            }
+        ],
+        "_korrektur": "Der Punkt 'Folierung und Scheibentoenung: Machen wir nicht selbst' ist entfallen. Der Betrieb bietet beides an — die vier Folienvarianten stehen auf /leistungen/lackierarbeiten/#beklebung, Scheibentoenung ist am 04.09.2026 bestaetigt und dort als fuenfte Variante ergaenzt. Die Liste sagte damit das Gegenteil der Lackseite."
     },
-
     "cta_ueberschrift": "Welche Leistung brauchen Sie?"
 }

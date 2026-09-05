@@ -29,6 +29,26 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 # RewriteCond %{HTTP_HOST} !^www\.smartrepair-reutter\.de$ [NC]
 # RewriteRule ^ https://www.smartrepair-reutter.de%{REQUEST_URI} [L,R=301]
 
+# --- Konfigurationsdateien nicht ausliefern ----------------------------------
+# Apache sperrt von Haus aus nur Dateien, die mit .ht beginnen — .user.ini
+# faellt nicht darunter. Da sie eine echte Datei ist, liefert der Server sie
+# aus, statt sie an den Front-Controller zu geben. Der Inhalt sind zwei
+# Groessenangaben, also nichts Geheimes; Serverkonfiguration gehoert trotzdem
+# nicht ins Netz.
+#
+# Die Fallunterscheidung ist kein Zierrat: Ein blankes „Require" wuerde auf
+# Apache 2.2 die gesamte Seite mit einem 500er beantworten. Lieber eine
+# ungeschuetzte .user.ini als eine tote Website.
+<FilesMatch "^\.user\.ini$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
 # --- Alles, was keine echte Datei ist, geht an den Front-Controller ----------
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

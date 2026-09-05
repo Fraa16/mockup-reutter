@@ -16,6 +16,21 @@ Daniel
 > (`/leistungen/fahrzeugpflege-exterieur/` und `-interieur/`), und die URLs
 > ändern sich nicht.
 >
+> **Nachtrag 04.09.2026 — zwei Leistungen sind dazugekommen.**
+> Abschleppdienst und deutschlandweite Transporte, mit eigenem Fahrzeug. Sie
+> stehen unter `/leistungen/transport-abschleppdienst/`.
+>
+> Das ist ein anderer Markt als Aufbereitung: **„Abschleppdienst Stuttgart"**
+> und **„Fahrzeugtransport deutschlandweit"** sind Suchen mit hoher
+> Kaufabsicht und akutem Anlass — wer sie tippt, steht am Straßenrand oder hat
+> ein Auto gekauft, das er nicht abholen kann. Ganz andere Menschen als die,
+> die nach Politur suchen.
+>
+> Die Recherche unten deckt diesen Bereich **nicht** ab. Sie stammt vom
+> 18.08. und kannte die Leistung nicht. Vor der nächsten Runde: Wettbewerb im
+> Raum Stuttgart getrennt ansehen — Abschleppdienste sind ein eigenes Feld mit
+> eigenen Verzeichnissen.
+
 > Die Titelvorschläge unten tragen noch „| Fahrzeugpflege Reutter" als Suffix.
 > Auf der Website ist das bereits „| Smartrepair Reutter".
 

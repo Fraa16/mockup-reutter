@@ -52,19 +52,47 @@ function seo_pfad(): string
 /**
  * Soll diese Auslieferung in den Suchindex?
  *
- * Die Vorschauen auf Vercel tragen eine eigene Adresse. Waeren sie indexiert,
- * stuende die Seite doppelt im Index und die Vorschau konkurriert mit der
- * echten Domain. Geprueft wird der Host und nicht eine Einstellung, damit
- * niemand daran denken muss: sobald die richtige Domain hierher zeigt, ist
- * die Seite automatisch indexierbar.
+ * Indexiert wird ausschliesslich die eine Adresse, die in den Stammdaten als
+ * Livedomain eingetragen ist. Alles andere — Vorschauen, Testadressen, der
+ * Rechner daheim — bleibt draussen.
+ *
+ * Die Entscheidung liegt bewusst im Inhalt und nicht im Code: Beim Umschalten
+ * ist genau ein Feld im Panel zu fuellen, kein Deployment noetig. Und solange
+ * es leer ist, ist NICHTS indexierbar. Das ist die sichere Richtung — eine
+ * unfertige Seite, die versehentlich in den Index rutscht, bekommt man dort
+ * wochenlang nicht mehr heraus, waehrend eine vergessene Freigabe eine Minute
+ * kostet. Damit sie nicht vergessen wird, warnt das Panel sichtbar, solange
+ * die aufgerufene Adresse gesperrt ist.
+ *
+ * Der Test greift exakt: „test.smartrepair-reutter.de" passt nicht auf
+ * „smartrepair-reutter.de" und bleibt gesperrt, ohne dass dafuer irgendwo
+ * etwas Zusaetzliches eingetragen werden muss.
  */
 function seo_indexierbar(): bool
 {
     $host = strtolower((string) ($_SERVER['HTTP_HOST'] ?? ''));
+    $live = strtolower(trim((string) get(site(), 'seo.live_domain', '')));
 
-    return !str_ends_with($host, '.vercel.app')
-        && !str_starts_with($host, 'localhost')
-        && !str_starts_with($host, '127.0.0.1');
+    if ($live === '') {
+        return false;
+    }
+
+    /* Eingetragen wird von Hand, also kommt hier alles an, was man beim
+       Kopieren aus der Adresszeile mitnimmt: „https://", ein Schraegstrich
+       hinten, ein „www." davor. Alles drei bedeutet dieselbe Domain und darf
+       nicht am Vergleich scheitern. Ein Port bleibt stehen — damit laesst
+       sich die Freigabe lokal mit „localhost:8000" nachpruefen. */
+    $blank = static function (string $wert): string {
+        $wert = (string) preg_replace('#^https?://#', '', trim($wert));
+        $wert = explode('/', $wert)[0];
+
+        return (string) preg_replace('#^www\.#', '', rtrim($wert, '.'));
+    };
+
+    return $blank($host) === $blank($live)
+        // Guertel und Hosentraeger: selbst wenn jemand eine Vorschauadresse
+        // eintraegt, bleibt sie draussen.
+        && !str_ends_with($host, '.vercel.app');
 }
 
 /**

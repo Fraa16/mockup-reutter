@@ -219,6 +219,14 @@ return [
                 ],
             ],
             [
+                'titel'   => 'Sichtbarkeit bei Google',
+                'hinweis' => 'Solange hier nichts steht, ist die Website für Google gesperrt — sie ist erreichbar, taucht aber in keiner Suche auf. Das ist während des Aufbaus so gewollt. Am Tag, an dem die Seite offiziell startet, wird hier die Adresse eingetragen; ab dann darf Google sie aufnehmen.',
+                'felder'  => [
+                    ['pfad' => 'seo.live_domain', 'typ' => 'text', 'label' => 'Adresse der fertigen Website',
+                     'hilfe' => 'Nur die Adresse, ohne https:// und ohne Schrägstrich am Ende, z. B. smartrepair-reutter.de. Es zählt genau diese eine Adresse — eine Testadresse davor bleibt gesperrt.'],
+                ],
+            ],
+            [
                 'titel'   => 'Kundenbewertungen',
                 'hinweis' => 'Diese Zitate stehen auf jeder Seite im Fußbereich, deshalb liegen sie bei den Stammdaten. Bitte nur echte Google-Rezensionen eintragen — erfundene Bewertungen verstoßen gegen das Wettbewerbsrecht. Ab vier Einträgen wird daraus ein Schieber mit Knöpfen; sechs bis acht sind eine gute Zahl.',
                 'felder'  => [
@@ -269,6 +277,21 @@ return [
                     ['pfad' => 'betrieb.bild_alt',   'typ' => 'text',       'label' => 'Bildbeschreibung'],
                     ['pfad' => 'betrieb.badge.name', 'typ' => 'text',       'label' => 'Name im schwarzen Kasten'],
                     ['pfad' => 'betrieb.badge.text', 'typ' => 'mehrzeilig', 'label' => 'Text im schwarzen Kasten'],
+                ],
+            ],
+            [
+                'titel'   => 'Transport & Abschleppdienst',
+                'hinweis' => 'Eigener Abschnitt hinter den Leistungen. Die ausführliche Seite dazu steht unter Leistungen.',
+                'felder'  => [
+                    ['pfad' => 'transport.kicker',    'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
+                    ['pfad' => 'transport.titel',     'typ' => 'text',       'label' => 'Überschrift'],
+                    ['pfad' => 'transport.lead',      'typ' => 'mehrzeilig', 'label' => 'Einleitung'],
+                    ['pfad' => 'transport.link_text', 'typ' => 'text',       'label' => 'Beschriftung des Verweises'],
+                    ['pfad' => 'transport.punkte', 'typ' => 'liste', 'label' => 'Punkt', 'min' => 2, 'max' => 4,
+                     'subfelder' => [
+                        ['pfad' => 'titel', 'typ' => 'text',       'label' => 'Überschrift'],
+                        ['pfad' => 'text',  'typ' => 'mehrzeilig', 'label' => 'Beschreibung'],
+                     ]],
                 ],
             ],
             [
@@ -668,6 +691,43 @@ return [
     ),
 
     /* ---------------------------------------------------------------- */
+    'leistung-transport-abschleppdienst' => leistungs_schema(
+        'Transport & Abschleppdienst',
+        'Abschleppen und Transporte — die Seite unter /leistungen/transport-abschleppdienst/.',
+        [
+            [
+                'titel'   => 'Abschleppdienst',
+                'hinweis' => 'Der obere der beiden Blöcke. Bitte keine Reaktionszeiten und keine Erreichbarkeit rund um die Uhr zusagen, solange das nicht abgesprochen ist.',
+                'felder'  => [
+                    ['pfad' => 'abschleppen.kicker', 'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
+                    ['pfad' => 'abschleppen.titel',  'typ' => 'text',       'label' => 'Überschrift'],
+                    ['pfad' => 'abschleppen.lead',   'typ' => 'mehrzeilig', 'label' => 'Einleitung'],
+                    ['pfad' => 'abschleppen.punkte', 'typ' => 'liste', 'label' => 'Punkt', 'min' => 2, 'max' => 6,
+                     'subfelder' => [
+                        ['pfad' => 'titel', 'typ' => 'text',       'label' => 'Überschrift'],
+                        ['pfad' => 'text',  'typ' => 'mehrzeilig', 'label' => 'Beschreibung'],
+                     ]],
+                ],
+            ],
+            [
+                'titel'   => 'Transporte',
+                'hinweis' => 'Der untere Block. Maße, Gewicht und Entfernung bleiben bewusst offen — die klärt der Betrieb je Auftrag.',
+                'felder'  => [
+                    ['pfad' => 'transporte.kicker', 'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
+                    ['pfad' => 'transporte.titel',  'typ' => 'text',       'label' => 'Überschrift'],
+                    ['pfad' => 'transporte.lead',   'typ' => 'mehrzeilig', 'label' => 'Einleitung'],
+                    ['pfad' => 'transporte.punkte', 'typ' => 'liste', 'label' => 'Punkt', 'min' => 2, 'max' => 6,
+                     'subfelder' => [
+                        ['pfad' => 'titel', 'typ' => 'text',       'label' => 'Überschrift'],
+                        ['pfad' => 'text',  'typ' => 'mehrzeilig', 'label' => 'Beschreibung'],
+                     ]],
+                ],
+            ],
+        ],
+        // Kein Vorher/Nachher: ein Transport hat kein Ergebnisbild.
+        ['vergleich' => false]
+    ),
+
     'leistung-ozonbehandlung' => leistungs_schema(
         'Ozonbehandlung',
         'Gegen Rauch, Tiergeruch und Schimmel — die Seite unter /leistungen/ozonbehandlung/.',

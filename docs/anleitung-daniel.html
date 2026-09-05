@@ -1,0 +1,396 @@
+<!--
+  Die Anleitung fuer Daniel als Webseite — dieselbe Fassung, die unter
+  https://claude.ai/code/artifact/82de8d21-d5c5-417f-9d97-adeefe330aff
+  veroeffentlicht ist, damit er sie am Handy oeffnen kann.
+
+  Textlich identisch mit anleitung-daniel.md. Wer eine der beiden aendert,
+  aendert bitte auch die andere — und veroeffentlicht diese Datei danach neu
+  unter der Adresse oben, sonst zeigt der Link den alten Stand. Wird die
+  Adresse beim Veroeffentlichen nicht mitgegeben, entsteht eine zweite Seite
+  statt einer neuen Fassung, und Daniels Link zeigt weiter auf die alte.
+
+  Diese Datei gehoert NICHT auf den Server. Sie liegt in docs/ und wird beim
+  Hochladen nicht mitgenommen (siehe anleitung-hochladen.md, Schritt 3).
+
+  Farben, Schriften und Formen stammen aus public/admin/assets/admin.css —
+  die Anleitung soll aussehen wie das, was Daniel danach vor sich hat.
+-->
+<title>Reutter Fotoanleitung</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Saira:wght@700;800&display=swap">
+<style>
+/* Farben, Schriften und Abstände sind aus der Website und dem
+   Bearbeitungsbereich übernommen (public/assets/css/styles.css,
+   public/admin/assets/admin.css) — die Anleitung soll aussehen wie das,
+   was Daniel danach auf dem Bildschirm hat. */
+:root{
+  --rot:#D80D18;
+  --rot-schrift:#D80D18;
+  --schwarz:#0A0B0D;
+  --grund:#F5F6F8;
+  --flaeche:#FFFFFF;
+  --linie:#E9ECF0;
+  --linie-stark:#D6DAE0;
+  --ink:#0A0B0D;
+  --gedaempft:#61686F;
+  --leise:#8E959F;
+  --zahl:#939598;
+  --gruen:#1B7A44;
+  --band:#0A0B0D;
+  --band-ink:#F5F6F8;
+  --band-leise:#8E959F;
+  --band-lead:#B4BAC2;
+
+  --display:'Saira','Saira Condensed',system-ui,sans-serif;
+  --body:'Barlow',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --rot-schrift:#E24C54;
+    --grund:#0A0B0D;
+    --flaeche:#16191E;
+    --linie:#242830;
+    --linie-stark:#333944;
+    --ink:#F5F6F8;
+    --gedaempft:#A7ADB6;
+    --leise:#8E959F;
+    --zahl:#5B5F65;
+    --gruen:#4FB37C;
+    --band:#16191E;
+  }
+}
+:root[data-theme="dark"]{
+  --rot-schrift:#E24C54;
+  --grund:#0A0B0D;
+  --flaeche:#16191E;
+  --linie:#242830;
+  --linie-stark:#333944;
+  --ink:#F5F6F8;
+  --gedaempft:#A7ADB6;
+  --leise:#8E959F;
+  --zahl:#5B5F65;
+  --gruen:#4FB37C;
+  --band:#16191E;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--grund);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.62;
+  -webkit-text-size-adjust:100%;
+}
+:where(a,button):focus-visible{outline:3px solid var(--rot);outline-offset:3px;border-radius:2px}
+
+/* --- Kopfband ------------------------------------------------------------ */
+.band{
+  background:var(--band);
+  padding:20px 22px 22px;
+  display:flex;flex-direction:column;gap:14px;
+}
+.band .marke{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.band svg{display:block;height:15px;width:auto}
+.band svg path{fill:#FFFFFF}
+.band .sub{
+  font-family:var(--body);font-weight:600;font-size:11px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--band-leise);
+}
+.band h1{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(28px,8.5vw,40px);line-height:1.04;
+  letter-spacing:-.015em;text-wrap:balance;
+  margin:0;color:var(--band-ink);
+}
+.band p{margin:0;color:var(--band-lead);font-size:15.5px;max-width:34ch}
+
+/* --- Grundgerüst --------------------------------------------------------- */
+main{max-width:36rem;margin:0 auto;padding:0 22px 64px}
+section{padding-top:38px}
+.phase{
+  font-family:var(--body);font-weight:600;font-size:11.5px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--rot-schrift);
+  margin:0 0 4px;
+  display:flex;align-items:center;gap:12px;
+}
+.phase::after{content:"";flex:1;height:1px;background:var(--linie-stark)}
+.phase-satz{margin:0 0 6px;color:var(--gedaempft);font-size:15.5px}
+
+/* --- Schritte ------------------------------------------------------------
+   Die Nummern sind echte Reihenfolge, keine Verzierung: Schritt 5 ergibt
+   ohne Schritt 3 nichts. Deshalb sind sie gross gesetzt und nicht als
+   Aufzählungspunkte versteckt. */
+ol.schritte{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:26px}
+.schritt{display:grid;grid-template-columns:2.6rem 1fr;column-gap:16px;align-items:start}
+.nr{
+  font-family:var(--display);font-weight:800;
+  font-size:38px;line-height:.92;color:var(--zahl);
+  font-variant-numeric:tabular-nums;
+  margin-top:-2px;
+}
+.schritt h2{
+  font-family:var(--display);font-weight:700;
+  font-size:21px;line-height:1.2;letter-spacing:-.005em;
+  margin:0 0 4px;text-wrap:balance;
+}
+.schritt p{margin:0 0 8px}
+.schritt p:last-child{margin-bottom:0}
+.schritt ul{margin:6px 0 0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px}
+.schritt li::marker{color:var(--linie-stark)}
+
+/* --- Was auf dem Bildschirm steht ----------------------------------------
+   Beschriftungen, die Daniel wörtlich so vor sich hat, sehen hier auch so
+   aus wie dort — sonst muss er raten, ob „Fotos" der Knopf oder das Thema
+   ist. Die Formen stammen aus admin.css. */
+.knopf{
+  display:inline-block;background:var(--rot);color:#fff;
+  font-family:var(--body);font-weight:600;font-size:14px;
+  padding:2px 9px;border-radius:2px;white-space:nowrap;
+  vertical-align:baseline;
+}
+.taste{
+  display:inline-block;background:var(--flaeche);color:var(--ink);
+  border:1px solid var(--linie-stark);
+  font-family:var(--body);font-weight:600;font-size:14px;
+  padding:1px 8px;border-radius:2px;white-space:nowrap;
+}
+.fertig{
+  display:inline-block;color:var(--gruen);font-weight:600;
+  font-size:14.5px;white-space:nowrap;
+}
+.fertig::before{content:"✓ "}
+code{
+  font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  font-size:.92em;background:var(--flaeche);
+  border:1px solid var(--linie);border-radius:2px;
+  padding:1px 5px;word-break:break-all;
+}
+
+/* --- Die eine Regel, die Geld kosten kann -------------------------------- */
+.warnung{
+  background:var(--flaeche);
+  border-left:5px solid var(--rot);
+  border-top:1px solid var(--linie);
+  border-right:1px solid var(--linie);
+  border-bottom:1px solid var(--linie);
+  padding:22px 22px 24px;
+  margin-top:8px;
+}
+.warnung h3{
+  font-family:var(--display);font-weight:800;
+  font-size:20px;line-height:1.15;margin:0 0 10px;text-wrap:balance;
+}
+.warnung p{margin:0 0 10px}
+.warnung p:last-child{margin-bottom:0}
+.warnung strong{font-weight:600;color:var(--rot-schrift)}
+.warnung .folge{
+  font-size:15.5px;color:var(--gedaempft);
+  border-top:1px solid var(--linie);padding-top:12px;margin-top:14px;
+}
+
+/* --- Fotoregeln ---------------------------------------------------------- */
+.regeln{display:flex;flex-direction:column;gap:0;margin:0}
+.regeln div{padding:16px 0;border-bottom:1px solid var(--linie)}
+.regeln div:first-child{padding-top:8px}
+.regeln dt{
+  font-family:var(--display);font-weight:700;font-size:17.5px;
+  margin:0 0 3px;
+}
+.regeln dd{margin:0;color:var(--gedaempft);font-size:16px}
+
+/* --- Fragen -------------------------------------------------------------- */
+.fragen{display:flex;flex-direction:column;gap:2px;margin:6px 0 0}
+.fragen details{
+  background:var(--flaeche);border:1px solid var(--linie);
+}
+.fragen summary{
+  cursor:pointer;list-style:none;padding:14px 16px;
+  font-weight:600;font-size:16px;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+.fragen summary::-webkit-details-marker{display:none}
+.fragen summary::after{
+  content:"+";font-family:var(--display);font-weight:700;
+  color:var(--rot-schrift);font-size:20px;line-height:1;flex:none;
+}
+.fragen details[open] summary::after{content:"–"}
+.fragen .antwort{padding:0 16px 16px;color:var(--gedaempft);font-size:16px}
+.fragen .antwort p{margin:0}
+
+/* --- Fuß ----------------------------------------------------------------- */
+footer{
+  margin-top:44px;padding-top:20px;border-top:1px solid var(--linie-stark);
+  color:var(--gedaempft);font-size:14.5px;
+}
+footer a{color:var(--rot-schrift)}
+
+@media (max-width:400px){
+  .schritt{grid-template-columns:1fr;row-gap:2px}
+  .nr{font-size:30px;margin-top:0}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition:none !important}
+}
+</style>
+
+<header class="band">
+  <div class="marke">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1696.75 131.25" role="img" aria-label="Smartrepair Reutter">
+  <title>Smartrepair Reutter</title>
+  <g transform="translate(-1.25 -0.75)">
+    <path fill="#231F20" fill-rule="evenodd" d="M97.0,0.75 L82.0,2.25 L69.5,7.25 L61.0,13.25 L54.25,19.75 L50.75,24.25 L43.25,37.25 L42.25,41.0 L37.25,50.25 L37.25,51.5 L36.25,52.25 L36.25,53.75 L30.25,65.25 L30.25,66.5 L29.25,67.25 L29.25,69.0 L23.25,80.25 L22.25,84.0 L4.5,120.5 L1.25,129.5 L1.25,132.0 L8.0,132.0 L9.0,131.25 L43.0,130.75 L45.5,129.75 L48.5,126.5 L54.75,114.0 L62.75,95.25 L68.75,84.25 L75.0,78.75 L80.25,76.75 L84.0,76.5 L120.5,76.75 L150.5,126.5 L153.75,130.75 L213.75,130.5 L213.5,128.75 L180.0,81.25 L177.75,79.0 L177.0,77.0 L180.5,76.25 L202.5,76.5 L211.0,75.75 L220.25,73.5 L227.75,69.75 L231.75,66.75 L238.25,58.75 L257.75,17.75 L259.5,12.0 L259.5,8.0 L258.5,5.25 L255.0,3.0 L250.75,1.75 L240.25,0.75ZM336.75,0.75 L328.0,1.25 L327.0,2.0 L323.75,2.25 L323.0,3.0 L316.75,4.25 L310.75,7.25 L299.75,15.25 L293.25,22.25 L290.0,27.75 L288.5,29.0 L250.0,112.25 L249.0,117.25 L249.5,124.5 L253.5,128.5 L256.0,129.75 L261.75,130.75 L436.75,131.0 L444.25,130.25 L446.5,128.5 L448.25,124.5 L449.5,123.5 L452.0,116.75 L456.5,108.5 L457.0,105.25 L313.0,105.0 L308.75,102.75 L306.5,100.5 L305.5,98.0 L305.5,93.5 L308.75,86.0 L311.75,82.25 L316.25,78.75 L322.25,76.75 L467.25,76.5 L470.25,75.75 L472.75,73.25 L478.5,61.75 L478.5,60.25 L479.5,59.75 L479.75,57.5 L481.0,55.75 L480.75,54.5 L339.5,54.5 L335.0,53.25 L331.25,50.75 L329.25,47.25 L329.25,43.0 L332.5,35.5 L336.5,30.75 L342.75,27.0 L346.5,26.0 L491.0,25.75 L494.25,24.75 L496.0,22.75 L500.0,14.0 L501.5,12.75 L502.0,10.0 L506.0,2.0 L505.75,0.75ZM551.75,0.75 L546.5,1.25 L544.5,2.25 L540.25,7.0 L535.25,17.0 L533.75,21.75 L532.75,22.5 L532.0,25.5 L527.25,34.0 L526.75,36.75 L525.75,37.5 L525.75,38.75 L519.25,51.0 L518.75,53.75 L517.75,54.5 L517.75,55.75 L512.25,66.0 L511.75,68.75 L510.75,69.5 L510.75,70.75 L504.25,83.0 L502.75,87.75 L492.25,109.0 L490.25,116.75 L490.5,121.5 L492.5,126.0 L496.25,129.0 L503.0,130.75 L653.75,131.0 L666.5,130.5 L678.25,126.5 L687.0,120.75 L696.75,110.0 L747.5,1.75 L746.25,1.0 L740.0,0.75 L707.25,0.75 L699.5,2.25 L695.75,6.25 L695.75,7.75 L694.5,8.5 L692.75,12.0 L692.75,13.75 L691.75,14.25 L691.75,15.75 L686.25,25.75 L685.75,28.5 L684.75,29.25 L684.0,32.25 L679.25,40.75 L677.75,45.5 L676.75,46.25 L676.0,49.25 L671.25,57.75 L670.75,60.5 L669.75,61.25 L669.0,64.25 L664.25,72.75 L663.75,75.25 L656.0,91.25 L654.75,93.5 L648.25,100.0 L642.75,102.75 L638.0,103.75 L563.25,103.75 L556.5,101.5 L554.0,98.5 L552.75,95.75 L554.0,85.75 L568.5,55.5 L568.5,54.25 L569.5,53.5 L569.75,51.5 L575.5,40.75 L577.0,36.0 L582.5,25.75 L582.5,24.25 L583.5,23.75 L584.0,21.0 L589.5,10.75 L589.5,9.25 L590.5,8.75 L590.5,7.25 L593.5,0.75ZM796.25,0.75 L787.75,2.0 L787.0,3.0 L785.5,3.25 L781.25,7.75 L772.25,27.0 L772.75,28.5 L907.5,28.25 L914.25,30.0 L917.75,33.5 L919.0,39.5 L917.5,46.75 L908.25,65.5 L905.0,74.0 L901.25,80.5 L898.0,89.0 L894.25,95.5 L891.0,104.0 L884.5,116.5 L882.0,124.0 L881.25,124.5 L880.5,129.0 L881.25,130.75 L918.25,130.75 L922.25,129.5 L926.75,126.75 L932.75,120.75 L939.0,109.25 L939.25,107.25 L961.0,62.25 L963.0,56.5 L967.75,48.0 L970.0,41.5 L974.75,33.0 L975.25,30.25 L976.25,29.5 L980.5,19.25 L981.25,12.75 L980.75,8.5 L978.0,4.25 L973.5,2.0 L963.75,0.75ZM1028.25,0.75 L1020.25,2.0 L1017.75,3.25 L1014.75,6.25 L1008.25,18.5 L1007.0,23.0 L1004.5,27.25 L1004.75,28.25 L1140.0,28.25 L1147.0,30.0 L1150.25,33.25 L1151.25,36.25 L1151.25,40.75 L1149.5,47.5 L1123.5,102.0 L1123.25,104.0 L1116.5,117.0 L1113.5,125.5 L1113.25,130.75 L1152.25,130.5 L1157.5,127.75 L1163.75,122.25 L1171.0,109.75 L1171.0,108.25 L1186.0,77.75 L1186.0,76.25 L1187.0,75.5 L1187.0,74.25 L1191.5,66.0 L1193.0,61.25 L1194.0,60.5 L1194.0,59.25 L1201.0,45.75 L1201.0,44.25 L1202.0,43.75 L1202.0,42.25 L1207.75,31.5 L1208.0,29.25 L1209.0,28.75 L1209.0,27.25 L1212.0,22.0 L1213.75,13.25 L1212.5,7.5 L1208.75,3.25 L1203.5,1.5 L1196.5,0.75ZM1294.0,0.75 L1279.0,2.25 L1273.0,4.25 L1259.75,12.0 L1249.0,22.75 L1245.0,28.75 L1238.25,42.25 L1237.25,46.0 L1231.25,57.25 L1230.25,61.0 L1225.25,70.25 L1224.25,74.0 L1218.25,85.25 L1217.25,89.0 L1207.25,109.25 L1205.0,118.25 L1205.5,124.25 L1207.25,127.0 L1212.25,129.75 L1217.75,130.75 L1400.0,130.5 L1402.25,128.75 L1404.5,125.25 L1413.5,106.25 L1413.25,105.25 L1270.0,105.0 L1266.75,104.25 L1262.75,100.5 L1261.75,97.0 L1262.75,89.75 L1268.25,81.75 L1273.75,78.0 L1278.25,76.75 L1423.5,76.5 L1426.5,75.75 L1429.75,71.5 L1433.75,63.75 L1433.75,62.25 L1437.25,55.75 L1437.0,54.5 L1295.75,54.5 L1292.75,54.0 L1288.75,52.0 L1286.75,49.75 L1284.5,45.0 L1290.0,33.5 L1295.0,29.0 L1298.75,27.0 L1302.75,26.0 L1447.0,25.75 L1450.5,24.5 L1452.25,22.75 L1462.25,1.75 L1462.0,0.75ZM1536.75,0.75 L1521.0,2.25 L1511.75,5.25 L1498.25,14.25 L1488.75,24.75 L1479.0,43.25 L1479.0,44.75 L1473.5,55.0 L1473.0,57.75 L1472.0,58.5 L1465.0,74.75 L1460.5,83.0 L1459.0,87.75 L1453.5,98.0 L1452.0,102.75 L1446.5,113.0 L1439.0,130.25 L1439.5,131.5 L1449.0,132.0 L1449.75,131.25 L1481.75,130.75 L1484.25,129.75 L1488.0,125.0 L1497.75,103.0 L1498.5,102.75 L1498.75,101.0 L1506.75,85.0 L1511.75,80.0 L1516.0,77.75 L1519.25,76.75 L1525.75,76.5 L1559.25,76.75 L1590.25,128.5 L1592.5,130.75 L1652.25,130.5 L1651.25,127.75 L1642.5,114.75 L1615.5,77.0 L1620.25,76.25 L1642.25,76.5 L1650.0,75.75 L1659.0,73.5 L1669.0,68.0 L1674.0,63.0 L1678.0,57.0 L1682.5,47.75 L1682.5,46.25 L1688.5,34.75 L1688.5,33.25 L1695.5,20.0 L1695.5,18.25 L1698.0,12.5 L1697.5,5.25 L1696.0,5.0 L1694.5,3.25 L1690.75,2.0 L1680.25,0.75ZM106.25,25.75 L191.25,26.0 L194.75,27.0 L199.25,31.0 L200.25,34.5 L200.25,38.25 L198.25,43.5 L194.0,48.75 L191.0,51.0 L184.0,54.0 L96.5,54.5 L91.25,52.75 L88.0,48.25 L88.75,40.5 L90.75,36.5 L97.25,29.0 L101.25,26.75ZM1545.0,25.75 L1629.25,26.0 L1634.75,27.75 L1637.25,30.25 L1639.0,34.25 L1639.0,37.75 L1636.0,44.5 L1632.25,48.75 L1627.75,52.0 L1620.25,54.25 L1537.5,54.5 L1532.75,54.0 L1530.0,52.75 L1527.75,50.25 L1526.75,47.0 L1527.25,41.0 L1528.5,37.5 L1533.0,31.25 L1536.25,28.75 L1541.75,26.0Z"/>
+    <path fill="#E01B22" fill-rule="evenodd" d="M768.0,47.0 L762.0,48.0 L758.0,51.5 L757.75,53.0 L756.25,54.25 L752.75,63.0 L748.25,71.25 L747.75,74.0 L743.0,82.5 L740.0,90.25 L733.25,103.25 L733.0,105.25 L727.75,115.0 L725.25,122.0 L725.0,126.5 L726.5,129.75 L729.75,132.0 L852.75,132.0 L856.5,127.75 L859.5,121.75 L860.0,119.25 L865.75,108.25 L866.0,106.25 L871.75,95.25 L872.0,93.25 L876.75,84.5 L877.75,81.25 L878.75,80.5 L879.0,78.25 L884.75,67.5 L884.75,66.25 L885.75,65.5 L886.0,63.25 L887.75,60.5 L888.25,57.0 L888.0,52.0 L887.0,50.75 L882.0,47.75 L878.0,47.25Z"/>
+  </g>
+</svg>
+    <span class="sub">Bilder pflegen</span>
+  </div>
+  <h1>Fotos auf die Website bringen</h1>
+  <p>Alles, was du brauchst, ist dein Handy. Beim ersten Mal fünf Minuten, danach eine.</p>
+</header>
+
+<main>
+
+  <section>
+    <p class="phase">Einmalig einrichten</p>
+    <p class="phase-satz">Drei Handgriffe, dann liegt der Bereich als Symbol auf dem Startbildschirm — wie eine App.</p>
+    <ol class="schritte">
+      <li class="schritt">
+        <span class="nr" aria-hidden="true">1</span>
+        <div>
+          <h2>Adresse öffnen</h2>
+          <p>Im Browser auf dem Handy eingeben:</p>
+          <p><code>smartrepair-reutter.de/admin/</code></p>
+        </div>
+      </li>
+      <li class="schritt">
+        <span class="nr" aria-hidden="true">2</span>
+        <div>
+          <h2>Auf den Startbildschirm legen</h2>
+          <p>Damit du das nie wieder tippen musst:</p>
+          <ul>
+            <li><strong>iPhone:</strong> unten auf das Teilen-Symbol — das Quadrat mit dem Pfeil nach oben — dann <span class="taste">Zum Home-Bildschirm</span></li>
+            <li><strong>Android:</strong> oben rechts auf die drei Punkte, dann <span class="taste">Zum Startbildschirm hinzufügen</span></li>
+          </ul>
+        </div>
+      </li>
+      <li class="schritt">
+        <span class="nr" aria-hidden="true">3</span>
+        <div>
+          <h2>Anmelden</h2>
+          <p>Benutzername und Passwort eingeben. Wenn das Handy fragt, ob es das Passwort speichern soll: ja. Dann ist es das letzte Mal, dass du es tippst.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <p class="phase">Jedes Mal, wenn Fotos dazukommen</p>
+    <p class="phase-satz">Geht mit einer Hand, im Stehen, zwischen zwei Aufträgen.</p>
+    <ol class="schritte" start="4">
+      <li class="schritt">
+        <span class="nr" aria-hidden="true">4</span>
+        <div>
+          <h2>Auf „Fotos“ tippen</h2>
+          <p>Die Kachel <span class="taste">Fotos</span> steht ganz oben, gleich neben den Anfragen. Steht eine Zahl daneben, warten dort noch Bilder auf ihre Beschriftung.</p>
+        </div>
+      </li>
+      <li class="schritt">
+        <span class="nr" aria-hidden="true">5</span>
+        <div>
+          <h2>Bilder auswählen</h2>
+          <p>Auf <span class="taste">Fotos auswählen</span> tippen. Das Handy fragt, woher:</p>
+          <ul>
+            <li><strong>Fotomediathek</strong> oder <strong>Galerie</strong> — für Bilder, die du schon gemacht hast. Mehrere auf einmal antippen geht.</li>
+            <li><strong>Foto aufnehmen</strong> oder <strong>Kamera</strong> — wenn du direkt jetzt fotografierst.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="schritt">
+        <span class="nr" aria-hidden="true">6</span>
+        <div>
+          <h2>Hochladen und liegen lassen</h2>
+          <p>Auf <span class="knopf">Hochladen</span> tippen. Unter dem Knopf erscheint für jedes Bild eine Zeile. Steht überall <span class="fertig">fertig</span>, sind alle da.</p>
+          <p>Bei schlechtem Empfang dauert das etwas — die Bilder gehen nacheinander. Geht eines nicht durch, laufen die anderen trotzdem weiter, und du siehst an der Zeile, welches gefehlt hat.</p>
+          <p>Mehr ist erst mal nicht zu tun. Die Fotos liegen im Posteingang und warten.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <p class="phase">Später am Rechner</p>
+    <p class="phase-satz">Am Handy schreibt niemand gern. Deshalb ist das Beschriften ein zweiter Arbeitsgang — für einen ruhigen Moment.</p>
+    <ol class="schritte" start="7">
+      <li class="schritt">
+        <span class="nr" aria-hidden="true">7</span>
+        <div>
+          <h2>Einsortieren</h2>
+          <p>Unter <span class="taste">Fotos</span> steht der Posteingang mit allen hochgeladenen Bildern. Je Foto zwei Angaben:</p>
+          <ul>
+            <li><strong>Kategorie</strong> — wozu das Bild gehört, etwa Dellen oder Aufbereitung. Aus der Liste auswählen.</li>
+            <li><strong>Bildbeschreibung</strong> — ein kurzer Satz, was zu sehen ist. Zum Beispiel: <em>Hagelschaden am Dach, von innen gedrückt.</em> Den Satz lassen sich Blinde vorlesen, und Google liest ihn auch. Ohne ihn geht es nicht weiter.</li>
+          </ul>
+          <p style="margin-top:10px">Dann auf <span class="knopf">In die Galerie</span> — und das Bild steht sofort auf der Website. Passt eines doch nicht, auf <span class="taste">Löschen</span>, dann ist es weg.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <p class="phase">Was ein gutes Foto ausmacht</p>
+
+    <div class="warnung">
+      <h3>Vorher und Nachher gehören zusammen</h3>
+      <p>Beide Aufnahmen müssen <strong>dasselbe Fahrzeug aus demselben Winkel im selben Licht</strong> zeigen. Am besten: vor der Arbeit ein Foto machen, sich merken, wo du standest, und nach der Arbeit noch einmal von genau dort.</p>
+      <p class="folge">Auf der Website steht, dass alle Aufnahmen aus eigenen Aufträgen stammen. Steht dort ein Bild als eigene Arbeit und ist es keine, kann das eine Abmahnung nach sich ziehen — also Post vom Anwalt und Kosten. Zwei Fotos vom selben Auto sind die einzige Absicherung, und sie kosten zehn Sekunden.</p>
+    </div>
+
+    <dl class="regeln">
+      <div>
+        <dt>Quer halten, nicht hochkant</dt>
+        <dd>Die Galerie ist auf liegende Bilder gebaut. Hochkant funktioniert, wirkt aber verloren.</dd>
+      </div>
+      <div>
+        <dt>Nichts nachbearbeiten</dt>
+        <dd>Keine Filter, nicht aufhellen. Das Ergebnis soll für sich sprechen — und aufgehübschte Bilder fallen auf.</dd>
+      </div>
+      <div>
+        <dt>Lieber zwanzig ehrliche als drei perfekte</dt>
+        <dd>Handyfotos sind völlig in Ordnung, solange sie scharf sind. Kein Grund, auf gutes Wetter zu warten.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section>
+    <p class="phase">Häufige Fragen</p>
+    <div class="fragen">
+      <details open>
+        <summary>Muss ich die Bilder vorher verkleinern?</summary>
+        <div class="antwort"><p>Nein. Nimm sie so, wie sie aus der Kamera kommen — je größer, desto besser. Die Website rechnet sie selbst klein.</p></div>
+      </details>
+      <details>
+        <summary>Sieht man, wo das Foto gemacht wurde?</summary>
+        <div class="antwort"><p>Nein. Jedes Handy speichert den Standort im Bild mit; das wird beim Hochladen entfernt. Auf der Website landet nur das Bild.</p></div>
+      </details>
+      <details>
+        <summary>Ich habe aus Versehen etwas gelöscht.</summary>
+        <div class="antwort"><p>Melde dich, das ist in einer Minute zurückgeholt.</p></div>
+      </details>
+      <details>
+        <summary>„Das Foto ist zu groß“, sagt die Seite.</summary>
+        <div class="antwort"><p>In der Meldung steht, wie groß es sein darf. Passiert das bei jedem Bild, sag Bescheid — dann muss am Server eine Einstellung nachgezogen werden.</p></div>
+      </details>
+      <details>
+        <summary>Kann ich am Handy auch Texte ändern?</summary>
+        <div class="antwort"><p>Ja. Der ganze Bearbeitungsbereich funktioniert am Handy, nicht nur die Fotos. Bequemer ist es am Rechner.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <footer>
+    <p>Wenn etwas klemmt oder eine Seite anders aussieht, als hier beschrieben: kurz melden, bevor du irgendwo herumprobierst. Kaputtmachen kannst du nichts — die jeweils letzte Fassung wird automatisch gesichert.</p>
+  </footer>
+
+</main>

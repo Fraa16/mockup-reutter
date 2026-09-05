@@ -1,6 +1,6 @@
 # Umzug auf `smartrepair-reutter.de`
 
-Stand: 25.08.2026
+Stand: 05.09.2026 · Domain registriert, Testaufbau vorbereitet
 
 Die alte Seite liegt unter `clean-box.eu`. Der Betrieb heißt künftig
 **Smartrepair Reutter**, deshalb wechselt zugleich die Domain. Das sind zwei
@@ -8,12 +8,30 @@ Wechsel auf einmal — neue Adresse **und** neue Inhalte — und damit die
 riskanteste Variante für die Sichtbarkeit bei Google. Machbar ist sie, wenn
 die Weiterleitungen sitzen.
 
+## Der Aufbau, der den Umschalttag entschärft
+
+`smartrepair-reutter.de` ist registriert und liegt im **selben IONOS-Konto**
+(Vertrag 97829981) wie `clean-box.eu`. Die neue Seite wird deshalb nicht in das
+Verzeichnis der alten gelegt (`html/`), sondern in einen eigenen Zweig `neu/`
+daneben — siehe `deployment.md`.
+
+`smartrepair-reutter.de` zeigt von Anfang an auf `neu/web/`; unsichtbar bleibt
+die Seite über `seo.live_domain`, nicht über eine geheime Adresse. Damit wird
+am Umschalttag **weder eine Datei verschoben noch eine Adresse umgehängt** —
+es bleibt das Freigeben und das Umstellen der alten Domain. Die alte Seite
+läuft bis dahin unangetastet weiter, und ein Rückweg ist jederzeit möglich,
+solange `html/` noch steht.
+
 ## Was uns dabei hilft
 
 `basis_url()` in `app/lib/seo.php` liest den Host aus dem Request statt aus
 einer Einstellung. Canonical, Sitemap, JSON-LD und die Vorschaubilder folgen
-der neuen Domain **ohne Codeänderung**. Auch das `noindex` der
-Vercel-Vorschauen fällt automatisch weg, sobald die echte Domain darauf zeigt.
+der neuen Domain **ohne Codeänderung**.
+
+Die Freigabe für Google hängt dagegen an genau einem Feld: `site.json` →
+`seo.live_domain`, im Panel unter *Stammdaten → Sichtbarkeit bei Google*.
+Solange es leer ist, ist **nichts** indexierbar — auch der Testaufbau nicht.
+Das Panel warnt sichtbar, solange die Sperre greift.
 
 ## Was noch fehlt
 
@@ -71,21 +89,34 @@ Domain-Property bräuchte einen DNS-Eintrag.
 
 ## Umschalttag
 
-1. **Verzeichnis leeren, nicht überschreiben.** Weg müssen alle `*.html`,
+Die Dateien liegen zu diesem Zeitpunkt seit Wochen an Ort und Stelle. Es wird
+nichts hochgeladen und nichts verschoben.
+
+1. **`www.smartrepair-reutter.de` einrichten** und ebenfalls auf `neu/web/`
+   zeigen lassen, SSL-Zertifikat prüfen. Die Domain selbst zeigt bereits
+   dorthin — hier fehlt nur die `www.`-Schreibweise, auf die die `.htaccess`
+   kanonisiert.
+2. **Umzugsblock in der `.htaccess` scharfschalten** — erst jetzt, vorher
+   sperrt die Kanonisierung die Seite aus.
+3. **`seo.live_domain` im Panel eintragen** (*Stammdaten → Sichtbarkeit bei
+   Google*): `smartrepair-reutter.de`. Ohne diesen Schritt bleibt die Seite
+   dauerhaft unsichtbar. Das Warnband im Panel verschwindet, sobald es sitzt.
+4. **Gegenprobe:** `curl https://www.smartrepair-reutter.de/robots.txt` muss
+   `Allow: /` und die Sitemap-Zeile zeigen. Dasselbe für `sitemap.xml`.
+   Zusätzlich eine beliebige Seite auf `noindex` prüfen — darf nicht mehr
+   drinstehen.
+5. **`html/` leeren** — erst jetzt, und nur dort. Weg müssen alle `*.html`,
    `index.php`, `robots.txt`, `sitemap.xml` sowie `logs/`, `counter/`,
-   `cgi-bin/`.
+   `cgi-bin/`. Danach kommt dorthin eine `.htaccess`, die ausschließlich
+   weiterleitet.
    > Die Falle: Die `.htaccess` schickt nur an den Front-Controller, was keine
-   > echte Datei ist. Bleibt die alte `robots.txt` von 2011 liegen, liefert
-   > Apache weiter sie aus — die generierte läuft nie. Ergebnis wäre eine neue
-   > Website, die Google die Sitemap von 2011 zeigt und `/css/` sperrt.
-2. Neue Seite hochladen, Umzugsblock in der `.htaccess` scharfschalten
-3. **Gegenprobe:** `curl https://www.smartrepair-reutter.de/robots.txt` muss
-   den neuen Text zeigen. Dasselbe für `sitemap.xml`
-4. Google-Unternehmensprofil: Website-Adresse auf die neue Domain ändern.
+   > echte Datei ist. Bliebe die alte `robots.txt` von 2011 liegen, lieferte
+   > Apache weiter sie aus — die generierte liefe nie.
+6. Google-Unternehmensprofil: Website-Adresse auf die neue Domain ändern.
    Beim Namenswechsel das stärkste Signal, das wir haben
-5. Search Console: neue Sitemap einreichen, die alte **nicht** löschen —
+7. Search Console: neue Sitemap einreichen, die alte **nicht** löschen —
    Google arbeitet sie ab und lernt daraus die Weiterleitungen
-6. Adressänderungs-Werkzeug in der alten Property auslösen
+8. Adressänderungs-Werkzeug in der alten Property auslösen
 
 ## Danach
 
