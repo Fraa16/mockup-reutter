@@ -1,0 +1,28 @@
+# In diesem Ordner liegt, was ueber das Panel hochgeladen wurde. Hier darf
+# niemals Code laufen — zweite Verteidigungslinie hinter der Upload-Pruefung
+# in app/lib/images.php, falls dort je etwas durchkaeme.
+#
+# Gilt mit fuer cache/: .htaccess wirkt auf alle Unterordner.
+#
+# Bewusst kein <Directory> und kein php_flag: Beides ist in einer .htaccess
+# nicht erlaubt bzw. setzt mod_php voraus und quittiert den Aufruf sonst mit
+# einem 500er. Genau daran ist die erste Fassung gescheitert.
+
+# Erste Linie: Skripte werden gar nicht erst ausgeliefert.
+<FilesMatch "\.(?i:php|phtml|php[3-8]|pht|phar|cgi|pl|py|sh|shtml)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Zweite Linie, falls die erste durch eine Serverkonfiguration ausgehebelt
+# waere: kein Handler, und der Inhalt gilt als Text statt als Programm.
+<IfModule mod_mime.c>
+    RemoveHandler .php .phtml .php3 .php4 .php5 .php6 .php7 .php8 .pht .phar
+    RemoveType .php .phtml .php3 .php4 .php5 .php6 .php7 .php8 .pht .phar
+    AddType text/plain .php .phtml .php3 .php4 .php5 .php6 .php7 .php8 .pht .phar
+</IfModule>
