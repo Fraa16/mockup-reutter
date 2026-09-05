@@ -43,6 +43,23 @@
         "bild_alt": "Fahrzeug in der Seitenansicht — die Marker markieren die Bereiche, die wir bearbeiten",
         "bild_platzhalter": true
     },
+    "transport": {
+        "_hinweis": "Eigener Abschnitt, weil Transport und Abschleppen nicht zur Aufbereitung gehoeren und sich nicht auf dem Fahrzeugfoto verorten lassen. Steht deshalb hinter dem Hotspot-Panel, nicht darin.",
+        "kicker": "Auch das machen wir",
+        "titel": "Abschleppen und Transporte — deutschlandweit.",
+        "lead": "Steht das Fahrzeug, holen wir es. Und wenn etwas von A nach B muss — Auto, Maschine, sperriges Gerät — fahren wir es. Mit eigenem Fahrzeug, nicht weitervermittelt.",
+        "link_text": "Zum Transport & Abschleppdienst",
+        "punkte": [
+            {
+                "titel": "Abschleppdienst",
+                "text": "Im Raum Stuttgart. Auch nicht fahrbereit, auch aus der Tiefgarage — wir klären vorher am Telefon, ob wir herankommen."
+            },
+            {
+                "titel": "Transporte deutschlandweit",
+                "text": "Fahrzeuge, Maschinen und sperriges Gerät. Hin, zurück oder beides."
+            }
+        ]
+    },
     "ergebnisse": {
         "kicker": "Vorher / Nachher",
         "titel": "Das Ergebnis lässt sich nicht beschreiben. Nur ziehen.",
@@ -169,8 +186,8 @@
         "_bild_warnung": "Zeigt aktuell einen Porsche 356 in einer Palmenallee und ist als 'Inhaber/Team vor der Halle' beschriftet. Zwingend durch ein echtes Foto ersetzen.",
         "badge": {
             "name": "Smartrepair Reutter",
-            "text": "Inhabergeführt. Kleines Team, feste Gesichter.",
-            "_korrektur": "Vorher: 'Wer Ihr Auto annimmt, arbeitet auch daran.' Eine echte Google-Rezension auf derselben Seite lobt namentlich einen Mitarbeiter fuer die Aufbereitung — die Aussage widersprach also unserem eigenen Beleg zwei Bildschirmhoehen weiter unten."
+            "text": "Inhabergeführt. Zu dritt, feste Gesichter.",
+            "_korrektur": "Vorher 'Wer Ihr Auto annimmt, arbeitet auch daran' — eine echte Rezension auf derselben Seite lobt namentlich einen Mitarbeiter. Danach 'Kleines Team'; seit dem 04.09.2026 ist die Zahl bekannt: drei insgesamt."
         },
         "kachel_3": {
             "wert": "6",

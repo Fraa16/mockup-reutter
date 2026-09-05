@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 require dirname(__DIR__, 2) . '/app/bootstrap.php';
 require APP_ROOT . '/lib/auth.php';
+require APP_ROOT . '/lib/posteingang.php';
 require APP_ROOT . '/lib/speichern.php';   // inhalte_beschreibbar()
 require APP_ROOT . '/lib/anfrage.php';
 
@@ -147,6 +148,17 @@ $angemeldet = auth_angemeldet();
           <span class="kachel-text">Alles, was über die Formulare hereinkommt — mit Fotos, falls welche dabei waren.</span>
           <?php if (($neu = anfragen_ungelesen()) > 0): ?>
           <span class="kachel-zahl"><?= (int) $neu ?> neu</span>
+          <?php endif; ?>
+          <span class="kachel-pfeil" aria-hidden="true">→</span>
+        </a>
+        <?php /* Fotos stehen hier und nicht bei den Inhalten: sie kommen von
+                unterwegs herein, genau wie die Anfragen, und werden hier
+                einsortiert statt in einem Formular bearbeitet. */ ?>
+        <a class="kachel" href="/admin/fotos.php">
+          <span class="kachel-titel">Fotos</span>
+          <span class="kachel-text">Vom Handy hochladen und in die Galerie einsortieren.</span>
+          <?php if (($wartend = count(posteingang_lesen())) > 0): ?>
+          <span class="kachel-zahl"><?= (int) $wartend ?> wartet</span>
           <?php endif; ?>
           <span class="kachel-pfeil" aria-hidden="true">→</span>
         </a>

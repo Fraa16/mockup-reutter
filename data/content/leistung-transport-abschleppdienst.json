@@ -1,0 +1,114 @@
+{
+    "_hinweis": "Inhalte der Seite /leistungen/transport-abschleppdienst/. Nicht aus dem Design-Bundle — die Leistung kam am 04.09.2026 vom Kunden dazu. Aufgebaut aus vorhandenen Bausteinen (Leistungs-Hero, Grenzen-Raster, Preisband, FAQ, Verwandte), damit kein neues CSS noetig ist.",
+    "_unbestaetigt": "Bestaetigt ist: der Betrieb faehrt mit EIGENEM Fahrzeug, schleppt ab und transportiert deutschlandweit Fahrzeuge, Maschinen und Sperriges. Mehr nicht. Deshalb steht hier bewusst KEINE Reaktionszeit, keine 24/7-Zusage, kein Preis und kein Radius in Kilometern — genau daran ist die Ozon-Seite gescheitert. Offen und vor Launch zu klaeren: Einsatzradius beim Abschleppen, Erreichbarkeit ausserhalb der Oeffnungszeiten, Nutzlast des Haengers, und ein Foto vom Transporter.",
+    "seo": {
+        "titel": "Abschleppdienst & Fahrzeugtransport Korntal — deutschlandweit | Smartrepair Reutter",
+        "beschreibung": "Abschleppen im Raum Stuttgart, Transporte deutschlandweit — Fahrzeuge, Maschinen, Sperriges. Auch nicht fahrbereit. Mit eigenem Fahrzeug, aus Korntal-Münchingen."
+    },
+    "hero": {
+        "kicker": "Leistung 08 · Transport",
+        "titel": "Wenn das Fahrzeug nicht fahren kann. Oder nicht fahren soll.",
+        "lead": "Abschleppen im Raum Stuttgart, Transporte deutschlandweit. Mit eigenem Fahrzeug — wer den Auftrag annimmt, fährt auch.",
+        "cta": "Transport anfragen",
+        "bild": "img-20.webp",
+        "bild_alt": "Fahrzeug wird auf den Transporter geladen",
+        "bild_platzhalter": true,
+        "_bild_soll": "Der eigene Transporter oder Abschleppwagen, am besten mit aufgeladenem Fahrzeug"
+    },
+    "abschleppen": {
+        "kicker": "Abschleppdienst",
+        "titel": "Steht das Fahrzeug, holen wir es.",
+        "lead": "Panne, Unfall, abgelaufener TÜV, Standschaden — der Grund spielt keine Rolle. Wir bringen es dorthin, wo es hin soll: in unsere Halle, in die Werkstatt Ihres Vertrauens oder zu Ihnen nach Hause.",
+        "punkte": [
+            {
+                "titel": "Eigenes Fahrzeug",
+                "text": "Wir geben den Auftrag nicht weiter. Wer ihn annimmt, fährt auch."
+            },
+            {
+                "titel": "Fahrbereit muss es nicht sein",
+                "text": "Kein Gang, keine Bremse, kein Schlüssel — das ist beim Abschleppen der Normalfall, nicht die Ausnahme."
+            },
+            {
+                "titel": "Sagen Sie, wo es steht",
+                "text": "Tiefgarage, Parkhaus, Feldweg. Wir klären am Telefon, ob wir herankommen, bevor wir losfahren."
+            },
+            {
+                "titel": "Und wohin danach",
+                "text": "Wenn am Fahrzeug ohnehin etwas gemacht werden soll, holen wir es ab und bringen es fertig zurück."
+            }
+        ]
+    },
+    "transporte": {
+        "kicker": "Transporte",
+        "titel": "Deutschlandweit — und nicht nur Autos.",
+        "lead": "Der Oldtimer zur Messe, der Gebrauchte vom anderen Ende der Republik, Gerät von A nach B. Sagen Sie uns, was wo steht und wohin es soll.",
+        "punkte": [
+            {
+                "titel": "Fahrzeuge",
+                "text": "Vom Kleinwagen bis zum Transporter. Auch nicht zugelassen und nicht fahrbereit."
+            },
+            {
+                "titel": "Maschinen und Gerät",
+                "text": "Was auf den Hänger passt und sich sichern lässt, nehmen wir mit. Maße und Gewicht klären wir vorher."
+            },
+            {
+                "titel": "Hin, zurück oder beides",
+                "text": "Sagen Sie es bei der Anfrage — zusammen geplant ist es meist günstiger als zweimal einzeln."
+            }
+        ]
+    },
+    "preis": {
+        "kicker": "Preis",
+        "titel": "Preis nach Strecke und Aufwand.",
+        "text": "Was ein Transport kostet, hängt an der Entfernung, am Fahrzeug und daran, wie gut es zugänglich ist. Beschreiben Sie uns beide Adressen und den Zustand — dann bekommen Sie einen Preis, der steht.",
+        "cta": "Transport anfragen"
+    },
+    "faq": {
+        "kicker": "Häufige Fragen",
+        "titel": "Was Kunden vorher wissen wollen",
+        "hinweis_vor": "Steht Ihre Frage nicht dabei: ",
+        "fragen": [
+            {
+                "frage": "Muss das Fahrzeug fahrbereit sein?",
+                "antwort": "Nein. Genau dafür ist der Dienst da. Sagen Sie uns nur vorher, ob es rollt und lenkt — das entscheidet, womit wir kommen."
+            },
+            {
+                "frage": "Wie weit fahren Sie?",
+                "antwort": "Abgeschleppt wird im Raum Stuttgart, transportiert deutschlandweit. Ob Ihre Strecke sinnvoll machbar ist, sagen wir Ihnen am Telefon."
+            },
+            {
+                "frage": "Transportieren Sie auch etwas anderes als Autos?",
+                "antwort": "Ja — Maschinen und sperriges Gerät, solange es auf den Hänger passt und sich sichern lässt. Beschreiben Sie uns Maße und Gewicht, dann sagen wir, ob es geht."
+            },
+            {
+                "frage": "Wie schnell können Sie da sein?",
+                "antwort": "Das hängt davon ab, wo wir gerade unterwegs sind. Rufen Sie an — dann sagen wir Ihnen ehrlich, ob es heute noch geht oder erst morgen."
+            },
+            {
+                "frage": "Läuft das über die Versicherung?",
+                "antwort": "Manche Schutzbriefe und Kaskoverträge übernehmen Abschleppkosten. Ob Ihrer dazugehört, klären Sie am besten direkt mit Ihrer Versicherung."
+            }
+        ]
+    },
+    "verwandt": {
+        "titel": "Passt oft dazu",
+        "karten": [
+            {
+                "slug": "dellen-hagelschaden",
+                "kicker": "03 · Karosserie",
+                "text": "Nach Hagel oder Unfall: Wir holen das Fahrzeug ab und bringen es fertig zurück."
+            },
+            {
+                "slug": "lackierarbeiten",
+                "kicker": "04 · Lack",
+                "text": "Lackarbeiten gehen nur in der Halle — den Weg dorthin übernehmen wir."
+            },
+            {
+                "slug": "fahrzeugpflege-exterieur",
+                "kicker": "01 · Exterieur",
+                "text": "Wenn das Fahrzeug ohnehin bei uns steht, lohnt sich die Aufbereitung gleich mit."
+            }
+        ]
+    },
+    "cta_ueberschrift": "Fahrzeug abzuholen?"
+}

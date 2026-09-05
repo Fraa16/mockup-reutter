@@ -6,7 +6,13 @@
  * @var array<string,mixed> $seite  Inhalt aus data/content/home.json
  */
 $s          = site();
-$leistungen = content('leistungen')['eintraege'];
+/* Nur was sich am Fahrzeug verorten laesst. Transport und Abschleppen sind
+   Logistik und haben deshalb keinen hotspot — ohne diesen Filter griffe die
+   Schleife unten auf $l['hotspot']['x'] zu und die Startseite waere kaputt. */
+$leistungen = array_values(array_filter(
+    content('leistungen')['eintraege'],
+    static fn (array $l): bool => isset($l['hotspot'])
+));
 $kennzahl   = static fn (string $k): string => (string) get(site(), "kennzahlen.$k.wert", '');
 
 /* Die Jahre im Handwerk werden aus dem Gruendungsjahr gerechnet, nicht
@@ -155,6 +161,34 @@ partial('kopf', [
             <a class="hint-link" href="/leistungen/<?= attr($l['slug']) ?>/">Mehr zu <?= h($l['titel']) ?> →</a>
             <?php endif; ?>
           </div>
+        </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </div>
+</section>
+
+<?php /* Transport und Abschleppen stehen hinter dem Hotspot-Panel und nicht
+        darin: sie gehoeren nicht zur Aufbereitung und lassen sich nicht auf
+        dem Fahrzeugfoto verorten. Aufbau wie die Grenzen-Bloecke der
+        Leistungsseiten — links die Einordnung, rechts die Punkte. */ ?>
+<!-- Transport & Abschleppdienst -->
+<section class="section-white">
+  <div class="wrap">
+    <div class="grenzen-grid">
+      <div class="grenzen-intro">
+        <div class="kicker"><?= swash() ?><span class="label"><?= h(get($seite, 'transport.kicker')) ?></span></div>
+        <h2><?= h(get($seite, 'transport.titel')) ?></h2>
+        <p><?= h(get($seite, 'transport.lead')) ?></p>
+        <a class="karte-link" href="/leistungen/transport-abschleppdienst/">
+          <?= h(get($seite, 'transport.link_text')) ?> <span aria-hidden="true">→</span>
+        </a>
+      </div>
+      <div class="grenzen-punkte">
+        <?php foreach (get($seite, 'transport.punkte', []) as $p): ?>
+        <div class="grenzen-punkt">
+          <h3><?= h($p['titel']) ?></h3>
+          <p><?= h($p['text']) ?></p>
         </div>
         <?php endforeach; ?>
       </div>

@@ -22,6 +22,44 @@ const BILD_MAX_KANTE   = 4000;
 const BILD_QUALITAET   = 82;
 
 /**
+ * Was wirklich durchgeht — nicht was wir uns wuenschen.
+ *
+ * BILD_MAX_BYTES ist unsere Obergrenze. Der Server hat aber eigene, und die
+ * sind oft kleiner: upload_max_filesize steht in vielen Standardkonfigurationen
+ * auf 2 MB. Wird post_max_size ueberschritten, verwirft PHP die Anfrage
+ * komplett — $_POST und $_FILES sind dann leer, und ohne diese Zahl koennte
+ * die Seite dem Benutzer nicht sagen, woran es lag.
+ */
+function bild_grenze_bytes(): int
+{
+    $inBytes = static function (string $wert): int {
+        $wert = trim($wert);
+        if ($wert === '') {
+            return PHP_INT_MAX;
+        }
+        $zahl = (int) $wert;
+        return match (strtolower(substr($wert, -1))) {
+            'g'     => $zahl * 1024 * 1024 * 1024,
+            'm'     => $zahl * 1024 * 1024,
+            'k'     => $zahl * 1024,
+            default => $zahl,
+        };
+    };
+
+    return min(
+        BILD_MAX_BYTES,
+        $inBytes((string) ini_get('upload_max_filesize')),
+        $inBytes((string) ini_get('post_max_size'))
+    );
+}
+
+/** Die Grenze als lesbare Angabe, z. B. "2 MB". */
+function bild_grenze_text(): string
+{
+    return round(bild_grenze_bytes() / 1024 / 1024, 1) . ' MB';
+}
+
+/**
  * Erlaubte Typen. Geprueft wird der tatsaechliche Inhalt, nicht die Endung
  * und nicht der vom Browser gemeldete MIME-Typ — beide sind faelschbar.
  */
@@ -30,6 +68,21 @@ const BILD_TYPEN = [
     IMAGETYPE_PNG  => 'imagecreatefrompng',
     IMAGETYPE_WEBP => 'imagecreatefromwebp',
 ];
+
+/**
+ * Ist die Anfrage an post_max_size gescheitert?
+ *
+ * Dann verwirft PHP den ganzen Rumpf: $_POST und $_FILES sind leer, obwohl
+ * der Browser Daten geschickt hat. Ohne diese Pruefung liefe es in die
+ * CSRF-Kontrolle, die mangels Token abbricht — und der Benutzer laese
+ * "Sitzung abgelaufen", waehrend in Wahrheit sein Foto zu gross war.
+ */
+function upload_verworfen(): bool
+{
+    return $_SERVER['REQUEST_METHOD'] === 'POST'
+        && $_POST === [] && $_FILES === []
+        && (int) ($_SERVER['CONTENT_LENGTH'] ?? 0) > 0;
+}
 
 /**
  * Nimmt eine hochgeladene Datei an und legt sie als WebP in public/uploads/ ab.
@@ -71,7 +124,7 @@ function bild_umwandeln(array $datei, string $zielpfad): array
 
     if ($datei['error'] !== UPLOAD_ERR_OK) {
         return [false, match ($datei['error']) {
-            UPLOAD_ERR_INI_SIZE, UPLOAD_ERR_FORM_SIZE => 'Die Datei ist zu groß.',
+            UPLOAD_ERR_INI_SIZE, UPLOAD_ERR_FORM_SIZE => 'Die Datei ist größer als ' . bild_grenze_text() . '.',
             UPLOAD_ERR_PARTIAL                        => 'Die Übertragung wurde abgebrochen.',
             default                                   => 'Die Datei konnte nicht übertragen werden.',
         }];
@@ -82,8 +135,8 @@ function bild_umwandeln(array $datei, string $zielpfad): array
         return [false, 'Ungültiger Upload.'];
     }
 
-    if ($datei['size'] > BILD_MAX_BYTES) {
-        return [false, 'Die Datei ist größer als ' . (BILD_MAX_BYTES / 1024 / 1024) . ' MB.'];
+    if ($datei['size'] > bild_grenze_bytes()) {
+        return [false, 'Die Datei ist größer als ' . bild_grenze_text() . '.'];
     }
 
     $info = @getimagesize($datei['tmp_name']);

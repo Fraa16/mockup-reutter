@@ -1,6 +1,6 @@
 {
     "_hinweis": "Inhalte der Seite /leistungen/lackierarbeiten/. Uebernommen aus export/project/Leistung Lackierarbeiten.dc.html. Der Abschnitt 'beklebung' steht nicht im Entwurf — er kommt aus der Angebotsklaerung: Fahrzeugbeklebung bekommt keinen eigenen Reiter, sondern hier eine Sprungmarke, auf die spaeter /beklebung.html per 301 zeigt.",
-    "_unbestaetigt": "Vom Kunden geklaert: Farbtonmessung am Fahrzeug ja, Musterblech ja — beides bleibt, aber knapper. Der Fingernageltest samt Standzeiten ist entfallen. Die Politur des Uebergangs ist NICHT im Preis enthalten; die Zusage ist gestrichen. Offen bleibt allein die Gewaehrleistungsaussage in der FAQ.",
+    "_unbestaetigt": "Vom Kunden geklaert: Farbtonmessung am Fahrzeug ja, Musterblech ja — beides bleibt, aber knapper. Fingernageltest entfallen. Politur des Uebergangs NICHT im Preis. Garantieaussage entfallen. Alle Folienvarianten einschliesslich Scheibentoenung bestaetigt. Offen ist auf dieser Seite nichts mehr ausser dem Bildpaar.",
     "seo": {
         "titel": "Lackierarbeiten Korntal — Beilackierung & Farbton | Smartrepair Reutter",
         "beschreibung": "Beilackierung und Teillackierung mit gemessenem Farbton und Musterblech statt reiner Werksmischung. Lackierarbeiten in Korntal-Münchingen bei Stuttgart."
@@ -63,7 +63,7 @@
         ]
     },
     "beklebung": {
-        "_hinweis": "NICHT im Design-Entwurf enthalten. Ergaenzt, weil die alte Website dafuer eine eigene Seite hatte (/beklebung.html) und die Leistung laut Kunde zu den Lackierarbeiten gehoert. Alle vier Varianten sind vom Kunden bestaetigt. Die alte URL wird per 301 auf #beklebung umgeleitet.",
+        "_hinweis": "NICHT im Design-Entwurf enthalten. Ergaenzt, weil die alte Website dafuer eine eigene Seite hatte (/beklebung.html) und die Leistung laut Kunde zu den Lackierarbeiten gehoert. Alle Varianten sind vom Kunden bestaetigt: die vier Folienarten am 25.08.2026, die Scheibentoenung am 04.09.2026. Die alte URL wird per 301 auf #beklebung umgeleitet.",
         "kicker": "Fahrzeugbeklebung",
         "titel": "Folie statt Lack — wenn der Zustand darunter erhalten bleiben soll.",
         "lead": "Beklebung ist keine billigere Lackierung, sondern eine andere Entscheidung: Die Farbe ist umkehrbar, der Originallack bleibt darunter geschützt. Vorbereitet wird trotzdem wie beim Lackieren — auf einer ungereinigten Fläche hält keine Folie.",
@@ -83,10 +83,15 @@
             {
                 "titel": "Steinschlagschutz",
                 "text": "Klare Schutzfolie auf Front, Kanten und Ladekante. Sichtbar wird sie nicht, gemerkt hat man sie nach dem ersten Autobahnsommer."
+            },
+            {
+                "titel": "Scheibentönung",
+                "text": "Heck- und hintere Seitenscheiben abgedunkelt. Vorn ist die Lichtdurchlässigkeit vorgeschrieben, da geht wenig — was möglich ist, sehen wir am Fahrzeug."
             }
         ],
         "hinweis": "Was wir nicht machen: Folie über Rost oder abblätternden Lack. Das Problem wandert dann nur unter die Folie und kommt beim Ablösen doppelt zurück.",
-        "cta": "Beklebung anfragen"
+        "cta": "Beklebung anfragen",
+        "_scheibentoenung": "Vom Kunden ist bestaetigt, DASS er Scheibentoenung anbietet — mehr nicht. Der Text nennt deshalb keine Foliengrade und keine Preise. Die Aussage zur Lichtdurchlaessigkeit ist bewusst zurueckhaltend: § 40 StVZO schreibt fuer Frontscheibe und vordere Seitenscheiben Mindestwerte vor, ein absolutes Verbot ist es nicht."
     },
     "vergleich": {
         "kicker": "Vorher / Nachher",
@@ -128,13 +133,9 @@
             {
                 "frage": "Wie lange steht das Fahrzeug bei Ihnen?",
                 "antwort": "Für eine einzelne Stelle ein bis zwei Tage, weil Trocknung und Politur dazugehören. Bei mehreren Bauteilen entsprechend länger. Lackarbeiten gehen nur in der Halle, mobil ist hier nichts machbar."
-            },
-            {
-                "frage": "Gibt es eine Garantie auf die Lackierung?",
-                "_unbestaetigt": "Gewaehrleistungsaussage von Daniel bestaetigen lassen, bevor sie online geht.",
-                "antwort": "Auf unsere Arbeit ja. Nicht abdecken können wir neue Schäden durch äußere Einwirkung. Wenn Ihnen nach der Abholung etwas auffällt, rufen Sie an — wir schauen es uns an."
             }
-        ]
+        ],
+        "_korrektur": "Die Frage 'Gibt es eine Garantie auf die Lackierung?' ist entfallen. Der Kunde will dazu am 04.09.2026 ausdruecklich nichts auf der Seite stehen haben — die bisherige Antwort war ohnehin ein unbestaetigter Entwurf des Design-Assistenten."
     },
     "verwandt": {
         "titel": "Passt oft dazu",
