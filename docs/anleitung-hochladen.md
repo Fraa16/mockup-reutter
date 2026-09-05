@@ -208,16 +208,21 @@ einen mit dem Namen `web`. Am Ende sieht es so aus:
 
 FileZilla ist zweigeteilt: **links dein MacBook, rechts der Server.** Links
 klickst du dich zu dem entpackten Ordner aus Schritt 0 durch — meist
-`fra` → `Downloads` → der Ordner mit dem langen Namen. Rechts stehst du auf der
-obersten Ebene, wo `html` liegt.
+`fra` → `Downloads` → der Ordner mit dem langen Namen.
 
-Gezogen wird von links nach rechts:
+> **Erst die beiden Ordner anlegen, dann ziehen.** Wer gleich zieht, lädt alles
+> auf die oberste Ebene ab, wo es nicht hingehört — und `app`, `bin` und `data`
+> fehlen dann ganz, weil sie außerhalb von `public` liegen.
 
-1. Die Ordner **`app`, `data` und `bin`** ziehst du unverändert nach `neu`.
-2. Den Ordner **`public` ziehst du nicht mit.** Stattdessen öffnest du ihn
-   links per Doppelklick, wählst darin alles aus (⌘A) und ziehst **den Inhalt**
-   nach `neu/web`. Aus `public/index.php` wird also `neu/web/index.php`, nicht
-   `neu/web/public/index.php`.
+Gezogen wird von links nach rechts, und dabei kommt es jedes Mal darauf an,
+**wo die rechte Seite steht**:
+
+1. **Rechts in `neu` stehen.** Links die Ordner `app`, `data` und `bin`
+   markieren und hinüberziehen.
+2. **Rechts per Doppelklick nach `neu/web` wechseln.** Den Ordner **`public`
+   ziehst du nicht mit** — stattdessen links per Doppelklick hineingehen, darin
+   alles auswählen (⌘A) und **den Inhalt** hinüberziehen. Aus `public/index.php`
+   wird also `neu/web/index.php`, nicht `neu/web/public/index.php`.
 3. Alles andere im Projekt — `chats`, `project`, `export`, `docs`, `bildpool`,
    `api`, `vercel.json`, `README.md` — bleibt auf deinem Rechner. Das sind
    Arbeitsmaterialien, die auf dem Server nichts zu suchen haben.
@@ -230,10 +235,9 @@ Gezogen wird von links nach rechts:
 > der Finder blendet FileZilla auf deinem Rechner nichts aus. Wenn du im Ordner
 > `public` alles auswählst (⌘A) und hinüberziehst, sind sie also dabei.
 >
-> In der **rechten** Hälfte, auf dem Server, blendet FileZilla sie dagegen aus.
-> Zum Nachschauen, ob sie angekommen sind: Menü **Server → Erzwinge Anzeigen
-> versteckter Dateien**. Das ist eine Anzeigeeinstellung, hochgeladen wird
-> unabhängig davon.
+> Rechts, auf dem Server, siehst du sie meist ebenfalls. Falls nicht:
+> Menü **Server → Erzwinge Anzeigen versteckter Dateien**. Das ist eine reine
+> Anzeigeeinstellung — hochgeladen wird unabhängig davon.
 
 Warum dieser Umweg über zwei Ordner: `app` und `data` enthalten Passwörter und
 Kundendaten und dürfen **nicht** über den Browser erreichbar sein. Deshalb
@@ -243,6 +247,24 @@ wird nur die Adresse umgehängt.
 
 **Geschafft, wenn:** In `neu` liegen `app`, `data`, `bin` und `web`, und in
 `neu/web` liegt eine `index.php`.
+
+> **Falls doch alles auf der obersten Ebene gelandet ist.** Passiert leicht,
+> wenn man zieht, bevor die Ordner da sind. Es ist nichts kaputt und von außen
+> ist nichts zu sehen, denn auf die oberste Ebene zeigt keine Domain.
+>
+> 1. `neu` und darin `web` anlegen wie oben
+> 2. `app`, `bin` und `data` nach `neu` hochladen — die fehlen in diesem Fall
+>    ganz, weil sie außerhalb von `public` liegen
+> 3. Den Inhalt von `public` nach `neu/web` hochladen
+> 4. Auf der obersten Ebene genau diese sechs löschen: `admin`, `assets`,
+>    `uploads`, `.htaccess`, `.user.ini`, `index.php`
+>
+> **Beim Löschen nichts anderes anfassen.** Deine Sachen erkennst du in der
+> Spalte *Last modified* am heutigen Datum; die Ordner von IONOS und der alten
+> Seite — `backup`, `conf`, `files`, `html`, `log`, `phptmp`, `restore`,
+> `.forward` — sind Jahre alt. **Eine Ausnahme:** `logs` trägt ebenfalls ein
+> frisches Datum, gehört aber IONOS. Dort steht in der Spalte *Owner/Group*
+> `root root` statt deiner Benutzernummer.
 
 ## Schritt 4 · Die Domain auf den neuen Ordner zeigen lassen
 
