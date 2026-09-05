@@ -299,9 +299,18 @@ Webspace verbinden."* Danach kommt das Feld für den Ordner, dort trägst du
 > der Übersicht steht „SSL-Zertifikate: 1 von 2 verwendet“, du hast
 > also noch eines frei. Über „Verwalten“ der neuen Domain zuweisen.
 >
+> Beim Einrichten steht bei *Verwendungszweck* **„Für meine IONOS Website
+> verwenden"** — das ist die richtige Wahl, IONOS installiert das Zertifikat
+> dann selbst. Die Alternative wäre, es herunterzuladen und woanders einzubauen.
+>
+> IONOS stellt ein **Wildcard-Zertifikat** aus: Es sichert
+> `smartrepair-reutter.de` und alles davor, also auch
+> `www.smartrepair-reutter.de`. Für den Umschalttag ist damit kein zweites
+> Zertifikat nötig.
+>
 > Ohne Zertifikat zeigt der Browser eine Sicherheitswarnung statt der Seite,
 > weil die Website konsequent auf verschlüsselte Verbindungen umleitet. Nach
-> dem Zuweisen dauert es ein paar Minuten, bis es greift.
+> dem Einrichten dauert es ein paar Minuten, bis es greift.
 
 **Geschafft, wenn:** `https://smartrepair-reutter.de` zeigt die Website, mit
 Bildern und Farben, ohne Warnung. Fehlt die Gestaltung und es kommt nur Text,

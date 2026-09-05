@@ -93,9 +93,10 @@ Die Dateien liegen zu diesem Zeitpunkt seit Wochen an Ort und Stelle. Es wird
 nichts hochgeladen und nichts verschoben.
 
 1. **`www.smartrepair-reutter.de` einrichten** und ebenfalls auf `neu/web/`
-   zeigen lassen, SSL-Zertifikat prüfen. Die Domain selbst zeigt bereits
-   dorthin — hier fehlt nur die `www.`-Schreibweise, auf die die `.htaccess`
-   kanonisiert.
+   zeigen lassen. Die Domain selbst zeigt bereits dorthin — hier fehlt nur die
+   `www.`-Schreibweise, auf die die `.htaccess` kanonisiert. Das
+   Wildcard-Zertifikat von `smartrepair-reutter.de` deckt sie mit ab, ein
+   zweites Zertifikat ist nicht nötig.
 2. **Umzugsblock in der `.htaccess` scharfschalten** — erst jetzt, vorher
    sperrt die Kanonisierung die Seite aus.
 3. **`seo.live_domain` im Panel eintragen** (*Stammdaten → Sichtbarkeit bei
