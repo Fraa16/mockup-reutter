@@ -9,18 +9,18 @@ Stand: 04.09.2026 · was beim Deployment stimmen muss
 `public/` wird **nicht als Ordner** hochgeladen — sein **Inhalt** kommt in den
 Ordner, auf den die Domain zeigt. `app/` und `data/` liegen eine Ebene darüber.
 
-Auf diesem Vertrag liegt bereits die alte Seite (`clean-box.eu` in `htdocs/`).
+Auf diesem Vertrag liegt bereits die alte Seite (`clean-box.eu` in `html/`).
 Die neue Seite bekommt deshalb einen **eigenen Zweig daneben**, nicht deren
 Verzeichnis:
 
 ```
 /homepages/xx/dxxxxxxx/            ← Vertragswurzel, kein Web-Zugriff
-├── htdocs/                        ← clean-box.eu, alte Seite, unangetastet
+├── html/                          ← clean-box.eu, alte Seite, unangetastet
 └── neu/
     ├── app/                       ← Code, Templates, Schema
     ├── data/                      ← Inhalte, Anfragen, users.php
     ├── bin/
-    └── web/                       ← hierhin zeigt test.smartrepair-reutter.de
+    └── web/                       ← hierhin zeigt smartrepair-reutter.de
         ├── index.php
         ├── .htaccess
         ├── admin/
@@ -33,11 +33,12 @@ Verzeichnis:
 (`BASE_ROOT = dirname(__DIR__)`), deshalb muss diese Verschachtelung stimmen.
 Wie der Zweig heißt, ist dagegen egal — nur die Ebenen müssen passen.
 
-**Warum getrennt und nicht in `htdocs/`:** Die alte Seite bleibt so während der
+**Warum getrennt und nicht in `html/`:** Die alte Seite bleibt so während der
 gesamten Bauzeit online, und am Umschalttag wird keine einzige Datei verschoben
-— es wird nur die Domain von `htdocs/` auf `neu/web/` umgehängt. Der in
+— `smartrepair-reutter.de` zeigt von Anfang an auf `neu/web/`. Der in
 `umzug.md` beschriebene Schritt „Verzeichnis leeren" betrifft danach nur noch
-`htdocs/`, das ab dann ausschließlich Weiterleitungen ausliefert.
+`html/`, das ab dann ausschließlich Weiterleitungen für `clean-box.eu`
+ausliefert.
 
 > **Die Falle:** Wer das Repository versehentlich komplett in die Dokumentwurzel
 > schiebt, macht `data/users.php` (Passwort-Hash), `app/config/zugangsdaten.php`
@@ -61,8 +62,14 @@ rechnet die tatsächliche Grenze selbst aus (`bild_grenze_text()`) und schreibt
 sie in die Hilfe, statt 12 MB zu behaupten — der Benutzer sieht also, was
 wirklich geht. Aber bei 2 MB scheitert praktisch jedes Handyfoto.
 
-Bei IONOS stehen beide Werte im Kundenmenü unter PHP-Einstellungen, alternativ
-in einer `.user.ini` in der Dokumentwurzel.
+**Bei IONOS stehen die beiden Größenwerte nicht im Kundenmenü** — dort lässt
+sich nur die Version wählen. Deshalb liegen sie als `public/.user.ini` im
+Repository und gehen mit dem Inhalt von `public/` hoch. Beide sind
+`PHP_INI_PERDIR`, PHP liest die Datei vom Skriptverzeichnis bis zur
+Dokumentwurzel — der Front-Controller liegt genau dort, also gilt sie für die
+ganze Seite. Änderungen greifen erst nach bis zu fünf Minuten
+(`user_ini.cache_ttl`), und ohne CGI/FastCGI wird die Datei stillschweigend
+ignoriert.
 
 ## Was beim Hochladen **nicht** mit hochgeladen wird
 
@@ -104,7 +111,7 @@ eine Minute. Damit sie nicht vergessen wird, zeigt `/admin/` ein Warnband,
 solange die aufgerufene Adresse gesperrt ist.
 
 Der Vergleich ist exakt und ignoriert nur `https://`, einen Schrägstrich am
-Ende und ein führendes `www.`. `test.smartrepair-reutter.de` passt damit
+Ende und ein führendes `www.`. `smartrepair-reutter.de` passt damit
 **nicht** auf `smartrepair-reutter.de` — die Testadresse bleibt gesperrt, ohne
 dass dafür etwas Zusätzliches konfiguriert werden muss.
 

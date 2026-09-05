@@ -1,6 +1,6 @@
 # Die Website auf IONOS bringen
 
-Stand: 05.09.2026 · Anleitung zum Mitklicken
+Stand: 05.09.2026 · Anleitung zum Mitklicken · Vertrag 97829981
 
 ---
 
@@ -9,13 +9,14 @@ Stand: 05.09.2026 · Anleitung zum Mitklicken
 Das hier ist **nicht** der Livegang. Es ist der Aufbau eines Probeexemplars auf
 dem echten Server, unter einer eigenen Testadresse. Drei Phasen:
 
-1. **Jetzt:** Die Seite kommt auf IONOS, unter `test.smartrepair-reutter.de`.
-   Für Google ist sie gesperrt, niemand außer euch findet sie. Damit ist
-   Daniels Foto-Upload freigeschaltet — das ist der eigentliche Zweck.
+1. **Jetzt:** Die Seite kommt auf IONOS, unter `smartrepair-reutter.de`.
+   Für Google ist sie gesperrt — sie ist erreichbar, taucht aber in keiner
+   Suche auf. Damit ist Daniels Foto-Upload freigeschaltet, und das ist der
+   eigentliche Zweck.
 2. **Danach:** Daniel lädt Fotos hoch, ihr füllt die letzten Lücken.
-3. **Zum Schluss:** Der Umschalttag. Dann zeigt `smartrepair-reutter.de` auf
-   dieselben Dateien, `clean-box.eu` leitet nur noch weiter, und Google
-   bekommt die Seite frei. Das steht in `umzug.md` und ist ein eigener Termin.
+3. **Zum Schluss:** Der Umschalttag. Dann leitet `clean-box.eu` nur noch
+   weiter, und Google bekommt die Seite frei. Das steht in `umzug.md` und ist
+   ein eigener Termin — an den Dateien ändert sich dabei nichts mehr.
 
 **Die alte Seite bleibt die ganze Zeit online und wird nicht angefasst.**
 
@@ -31,7 +32,7 @@ wäre nur verwirrend.
 IONOS ist das **Zuhause**. Ganz normaler Webspace, und dort darf geschrieben
 werden. Erst wenn die Website dort liegt, gibt es:
 
-* den Bearbeitungsbereich unter `test.smartrepair-reutter.de/admin/`
+* den Bearbeitungsbereich unter `smartrepair-reutter.de/admin/`
 * Daniels Foto-Upload vom Handy
 * das Kontaktformular, das wirklich E-Mails verschickt
 
@@ -52,43 +53,28 @@ deshalb dazu, **wonach** du suchst, nicht nur, wo es angeblich steht.
 
 ---
 
-## Schritt 1 · PHP einstellen
+## Schritt 1 · PHP einstellen — schon erledigt
 
 PHP ist die Technik, mit der der Server die Seiten zusammensetzt — dasselbe,
-was später Daniels Änderungen entgegennimmt. IONOS hat das eingebaut, es muss
-nur richtig eingestellt sein.
+was später Daniels Änderungen entgegennimmt.
 
-Im IONOS-Kundenmenü den Bereich für **PHP** suchen — meist unter „Hosting" oder
-„Webspace", dann „PHP-Einstellungen" oder „PHP konfigurieren".
+**Die Version steht bei dir bereits auf 8.4.** Damit ist dieser Schritt durch.
 
-Drei Werte setzen:
+Die beiden anderen Werte — `upload_max_filesize` und `post_max_size`, die
+maximale Größe eines hochgeladenen Fotos — **gibt es im IONOS-Menü nicht.**
+Dort lässt sich nur die Version wählen. Such nicht weiter danach.
 
-| Was | Worauf |
-|---|---|
-| PHP-Version | **8.4** |
-| `upload_max_filesize` | **12M** |
-| `post_max_size` | **12M** |
+Stattdessen liegen sie als Datei im Projekt (`public/.user.ini`) und gehen in
+Schritt 3 ganz normal mit hoch. Du musst dafür nichts tun. IONOS liest die
+Datei beim nächsten Aufruf, spätestens nach fünf Minuten.
 
-Die letzten beiden sind die maximale Größe einer hochgeladenen Datei. IONOS
-liefert oft 2 MB aus — damit scheitert praktisch jedes Handyfoto, denn die sind
-3 bis 8 MB groß. Ohne diesen Schritt funktioniert Daniels Foto-Upload nicht.
-
-> **Achtung, die alte Seite läuft mit.** Falls sich die PHP-Version nur für den
-> ganzen Vertrag umstellen lässt und nicht je Ordner: Prüf danach kurz, ob
-> `clean-box.eu` noch normal aussieht. Alte Seiten vertragen neue PHP-Versionen
-> nicht immer. Sieht sie kaputt aus, stell zurück und sag mir Bescheid — dann
-> lösen wir das anders.
-
-> **Falls du die Felder nicht findest:** Sie lassen sich auch als Datei setzen.
-> Lege eine Textdatei namens `.user.ini` an mit genau diesen zwei Zeilen —
-> wo sie hinkommt, steht in Schritt 3:
+> **Warum das überhaupt wichtig ist:** Ohne diese beiden Werte erlaubt der
+> Server nur 2 MB je Datei. Handyfotos sind 3 bis 8 MB groß — Daniels Upload
+> würde bei praktisch jedem Bild abbrechen.
 >
-> ```
-> upload_max_filesize = 12M
-> post_max_size = 12M
-> ```
-
-**Geschafft, wenn:** In der Übersicht steht PHP 8.4.
+> Ob es geklappt hat, siehst du am Ende in Schritt 8: Auf der Fotoseite im
+> Bearbeitungsbereich steht die Größe, die der Server **wirklich** erlaubt.
+> Die Seite behauptet dort nichts, sie rechnet nach.
 
 ## Schritt 2 · Verbindung zum Server herstellen
 
@@ -108,9 +94,8 @@ Diese vier trägst du in FileZilla oben in die Leiste ein und klickst
 ## Schritt 3 · Die neue Seite in einen eigenen Ordner legen
 
 Auf diesem Webspace liegt schon eine Website: die alte, unter `clean-box.eu`.
-Sie steckt in einem Ordner, der meist `htdocs` heißt — du erkennst ihn an
-Dateien wie `index.php`, an vielen `.html`-Dateien und oft an Ordnern namens
-`logs` oder `cgi-bin`.
+Laut deiner Domainübersicht steckt sie im Ordner **`html`** — in der Liste
+steht bei `clean-box.eu` genau das als Ziel: `/html`.
 
 > **In diesen Ordner kommt nichts hinein, und daraus wird nichts gelöscht.**
 > Die alte Seite bleibt, wie sie ist, und läuft weiter.
@@ -121,12 +106,12 @@ einen mit dem Namen `web`. Am Ende sieht es so aus:
 
 ```
   (die oberste Ebene deines Vertrags)
-  ├── htdocs/       ← die alte Seite, unangetastet
+  ├── html/         ← die alte Seite, unangetastet
   └── neu/
       ├── app/      ← nicht im Browser erreichbar
       ├── data/     ← nicht im Browser erreichbar
       ├── bin/      ← nicht im Browser erreichbar
-      └── web/      ← hierauf zeigt gleich die Testadresse
+      └── web/      ← hierauf zeigt gleich smartrepair-reutter.de
           ├── index.php
           ├── .htaccess
           ├── admin/
@@ -144,12 +129,14 @@ Und so wird aus dem Projekt auf deinem Rechner dieser Baum:
    `api`, `vercel.json`, `README.md` — bleibt auf deinem Rechner. Das sind
    Arbeitsmaterialien, die auf dem Server nichts zu suchen haben.
 
-Die `.user.ini` aus Schritt 1, falls du sie brauchst, kommt nach `neu/web`.
-
-> **Die versteckten Dateien:** FileZilla blendet Dateien aus, deren Name mit
-> einem Punkt beginnt — und genau so heißt `.htaccess`, ohne die die Website
-> nicht läuft. Im Menü unter „Server" den Punkt **„Versteckte Dateien
-> anzeigen"** einschalten, sonst fehlt sie hinterher.
+> **Die versteckten Dateien — der wichtigste Handgriff in diesem Schritt.**
+> FileZilla blendet Dateien aus, deren Name mit einem Punkt beginnt. In
+> `public/` liegen davon **zwei**, und beide werden gebraucht:
+> `.htaccess` (ohne sie läuft alles außer der Startseite ins Leere) und
+> `.user.ini` (die beiden Größenwerte aus Schritt 1).
+>
+> Im Menü unter „Server“ den Punkt **„Versteckte Dateien anzeigen“**
+> einschalten, **bevor** du den Inhalt von `public` hinüberziehst.
 
 Warum dieser Umweg über zwei Ordner: `app` und `data` enthalten Passwörter und
 Kundendaten und dürfen **nicht** über den Browser erreichbar sein. Deshalb
@@ -160,32 +147,42 @@ wird nur die Adresse umgehängt.
 **Geschafft, wenn:** In `neu` liegen `app`, `data`, `bin` und `web`, und in
 `neu/web` liegt eine `index.php`.
 
-## Schritt 4 · Die Testadresse einrichten
+## Schritt 4 · Die Domain auf den neuen Ordner zeigen lassen
 
-Im Kundenmenü zu den **Domains**, dort `smartrepair-reutter.de` auswählen und
-eine **Subdomain** anlegen: `test.smartrepair-reutter.de`. Kostet nichts, ist
-in zwei Minuten erledigt.
+In deiner Domainübersicht steht bei `smartrepair-reutter.de` heute
+„Domain nicht verwendet“ und daneben der Link „Domain verwenden“.
+Genau den klickst du an.
 
-Bei der Subdomain trägst du als **Ziel** (heißt je nach Ansicht „Zielordner"
-oder „Zielverzeichnis") den Ordner **`neu/web`** ein.
+Als **Ziel** (heißt je nach Ansicht „Zielordner“ oder
+„Zielverzeichnis“) trägst du **`neu/web`** ein.
 
-> **Die Falle: das Sicherheitszertifikat.** Die neue Adresse braucht ein
-> eigenes SSL-Zertifikat — bei IONOS gibt es dafür einen Schalter an der
-> Subdomain, oft „SSL aktivieren". Ohne das zeigt der Browser eine
-> Sicherheitswarnung statt der Seite, weil die Website konsequent auf
-> verschlüsselte Verbindungen umleitet. Das Zertifikat braucht danach ein paar
-> Minuten, bis es greift.
+> **Warum die echte Domain und nicht erst eine Testadresse:** Die Domain zeigt
+> heute nirgendwohin, es kann also nichts kaputtgehen. Für Google ist die Seite
+> ohnehin gesperrt, und niemand außer euch kennt die Adresse — sie ist seit ein
+> paar Tagen registriert und stand nie irgendwo. Dafür ändert sich am
+> Umschalttag an den Adressen **gar nichts** mehr: kein Umhängen, kein zweites
+> Zertifikat, keine Testadresse, die man wieder abschalten muss. Das ist der
+> Tag, an dem am wenigsten schiefgehen soll.
 
-**Geschafft, wenn:** `https://test.smartrepair-reutter.de` zeigt die Website,
-mit Bildern und Farben, ohne Warnung. Fehlt die Gestaltung und es kommt nur
-Text, ist die `.htaccess` nicht mitgekommen — siehe Schritt 3.
+> **Das Sicherheitszertifikat nicht vergessen.** Bei `smartrepair-reutter.de`
+> steht in der Liste ein rotes Schlosssymbol — es gibt noch keins. Rechts in
+> der Übersicht steht „SSL-Zertifikate: 1 von 2 verwendet“, du hast
+> also noch eines frei. Über „Verwalten“ der neuen Domain zuweisen.
+>
+> Ohne Zertifikat zeigt der Browser eine Sicherheitswarnung statt der Seite,
+> weil die Website konsequent auf verschlüsselte Verbindungen umleitet. Nach
+> dem Zuweisen dauert es ein paar Minuten, bis es greift.
+
+**Geschafft, wenn:** `https://smartrepair-reutter.de` zeigt die Website, mit
+Bildern und Farben, ohne Warnung. Fehlt die Gestaltung und es kommt nur Text,
+ist die `.htaccess` nicht mitgekommen — siehe Schritt 3.
 
 ## Schritt 5 · Die Gegenprobe · **nicht überspringen**
 
 > Ruf diese beiden Adressen im Browser auf:
 >
-> * `test.smartrepair-reutter.de/data/users.php`
-> * `test.smartrepair-reutter.de/app/bootstrap.php`
+> * `smartrepair-reutter.de/data/users.php`
+> * `smartrepair-reutter.de/app/bootstrap.php`
 >
 > **Beide müssen einen Fehler zeigen** — „404", „Nicht gefunden" oder
 > „Zugriff verweigert". Das ist hier das gute Ergebnis.
@@ -254,12 +251,12 @@ für Daniel. Es ergänzt vorhandene Zugänge und überschreibt nichts.
 
 ## Schritt 8 · Ausprobieren
 
-1. `test.smartrepair-reutter.de/admin/` aufrufen und anmelden.
+1. `smartrepair-reutter.de/admin/` aufrufen und anmelden.
 2. Oben auf **„Fotos"** und ein Testbild hochladen. Läuft es durch, stimmen die
    Einstellungen aus Schritt 1.
 3. Auf der Website einmal das Kontaktformular abschicken und schauen, ob die
    E-Mail ankommt.
-4. Zum Schluss `test.smartrepair-reutter.de/robots.txt` aufrufen. Dort muss
+4. Zum Schluss `smartrepair-reutter.de/robots.txt` aufrufen. Dort muss
    `Disallow: /` stehen — das ist die Sperre für Google, und sie soll jetzt
    noch stehen.
 
@@ -270,8 +267,9 @@ der letzte Handgriff des ganzen Projekts, und er dauert zehn Sekunden.
 
 Fertig. Ab hier kann Daniel loslegen — seine Anleitung liegt in
 [`anleitung-daniel.md`](anleitung-daniel.md), zum Weiterschicken gibt es sie
-auch als Webseite fürs Handy (Link steht oben in der Datei). Seine Adresse ist
-vorerst `test.smartrepair-reutter.de/admin/`.
+auch als Webseite fürs Handy (Link steht oben in der Datei). Seine Adresse
+ist `smartrepair-reutter.de/admin/` — und die bleibt so, auch nach dem
+Umschalttag.
 
 ---
 
@@ -306,12 +304,13 @@ dann liegt es mit im Projekt und ist gesichert.
 
 | Was du siehst | Woran es liegt |
 |---|---|
-| Sicherheitswarnung statt Seite | Das SSL-Zertifikat der Testadresse fehlt oder greift noch nicht. Schritt 4. |
+| Sicherheitswarnung statt Seite | Das SSL-Zertifikat fehlt oder greift noch nicht. Schritt 4. |
 | Weiße Seite, sonst nichts | Fast immer die PHP-Version. Steht sie auf 8.4? |
+| „Domain nicht verwendet“ bleibt stehen | Das Ziel wurde nicht gespeichert. Schritt 4 noch einmal; IONOS braucht dafür manchmal einige Minuten. |
 | Startseite geht, alles andere ist „404" | Die `.htaccess` fehlt in `neu/web`. Versteckte Dateien einblenden, Schritt 3. |
 | Seite ohne Gestaltung, nur Text | Der Ordner `assets` fehlt, oder `public` wurde als Ordner hochgeladen statt sein Inhalt. |
 | „Es ist noch kein Zugang eingerichtet" | Schritt 7 fehlt. |
-| Foto-Upload bricht ab | Die Werte aus Schritt 1 sind nicht angekommen. Auf der Fotoseite steht, welche Größe der Server gerade erlaubt — steht dort 2 MB, hat IONOS die Einstellung nicht übernommen. |
+| Foto-Upload bricht ab | Die `.user.ini` ist nicht mitgekommen oder greift noch nicht (bis zu fünf Minuten). Auf der Fotoseite steht, welche Größe der Server gerade erlaubt — steht dort 2 MB, fehlt die Datei in `neu/web`. Versteckte Dateien einblenden, Schritt 3. |
 | Anfragen kommen an, aber keine Mail | Schritt 6 fehlt oder das Postfach-Passwort stimmt nicht. |
 | Der Bearbeitungsbereich sagt „nur zum Ansehen" | `neu/data` ist nicht beschreibbar. In FileZilla Rechtsklick auf den Ordner → Dateirechte → 775. |
 | Die alte Seite sieht plötzlich kaputt aus | Die PHP-Umstellung aus Schritt 1 hat sie erwischt. Zurückstellen und mir Bescheid sagen. |

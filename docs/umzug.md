@@ -11,13 +11,16 @@ die Weiterleitungen sitzen.
 ## Der Aufbau, der den Umschalttag entschärft
 
 `smartrepair-reutter.de` ist registriert und liegt im **selben IONOS-Konto**
-wie `clean-box.eu`. Die neue Seite wird deshalb nicht in das Verzeichnis der
-alten gelegt, sondern in einen eigenen Zweig `neu/` daneben (siehe
-`deployment.md`), erreichbar über `test.smartrepair-reutter.de`.
+(Vertrag 97829981) wie `clean-box.eu`. Die neue Seite wird deshalb nicht in das
+Verzeichnis der alten gelegt (`html/`), sondern in einen eigenen Zweig `neu/`
+daneben — siehe `deployment.md`.
 
-Damit wird am Umschalttag **keine Datei verschoben** — es wird nur eine
-Zuordnung geändert. Die alte Seite bleibt bis dahin unangetastet online, und
-ein Rückweg ist jederzeit möglich, solange `htdocs/` noch steht.
+`smartrepair-reutter.de` zeigt von Anfang an auf `neu/web/`; unsichtbar bleibt
+die Seite über `seo.live_domain`, nicht über eine geheime Adresse. Damit wird
+am Umschalttag **weder eine Datei verschoben noch eine Adresse umgehängt** —
+es bleibt das Freigeben und das Umstellen der alten Domain. Die alte Seite
+läuft bis dahin unangetastet weiter, und ein Rückweg ist jederzeit möglich,
+solange `html/` noch steht.
 
 ## Was uns dabei hilft
 
@@ -89,9 +92,10 @@ Domain-Property bräuchte einen DNS-Eintrag.
 Die Dateien liegen zu diesem Zeitpunkt seit Wochen an Ort und Stelle. Es wird
 nichts hochgeladen und nichts verschoben.
 
-1. **`smartrepair-reutter.de` und `www.` auf `neu/web/` umhängen.** Damit ist
-   die neue Seite unter ihrer echten Adresse erreichbar. SSL-Zertifikat für
-   beide Schreibweisen prüfen.
+1. **`www.smartrepair-reutter.de` einrichten** und ebenfalls auf `neu/web/`
+   zeigen lassen, SSL-Zertifikat prüfen. Die Domain selbst zeigt bereits
+   dorthin — hier fehlt nur die `www.`-Schreibweise, auf die die `.htaccess`
+   kanonisiert.
 2. **Umzugsblock in der `.htaccess` scharfschalten** — erst jetzt, vorher
    sperrt die Kanonisierung die Seite aus.
 3. **`seo.live_domain` im Panel eintragen** (*Stammdaten → Sichtbarkeit bei
@@ -101,21 +105,18 @@ nichts hochgeladen und nichts verschoben.
    `Allow: /` und die Sitemap-Zeile zeigen. Dasselbe für `sitemap.xml`.
    Zusätzlich eine beliebige Seite auf `noindex` prüfen — darf nicht mehr
    drinstehen.
-5. **`test.`-Subdomain abschalten.** Sonst steht dieselbe Seite unter zwei
-   Adressen; die Sperre greift zwar weiter, aber die Adresse hat keinen Zweck
-   mehr.
-6. **`htdocs/` leeren** — erst jetzt, und nur dort. Weg müssen alle `*.html`,
+5. **`html/` leeren** — erst jetzt, und nur dort. Weg müssen alle `*.html`,
    `index.php`, `robots.txt`, `sitemap.xml` sowie `logs/`, `counter/`,
    `cgi-bin/`. Danach kommt dorthin eine `.htaccess`, die ausschließlich
    weiterleitet.
    > Die Falle: Die `.htaccess` schickt nur an den Front-Controller, was keine
    > echte Datei ist. Bliebe die alte `robots.txt` von 2011 liegen, lieferte
    > Apache weiter sie aus — die generierte liefe nie.
-7. Google-Unternehmensprofil: Website-Adresse auf die neue Domain ändern.
+6. Google-Unternehmensprofil: Website-Adresse auf die neue Domain ändern.
    Beim Namenswechsel das stärkste Signal, das wir haben
-8. Search Console: neue Sitemap einreichen, die alte **nicht** löschen —
+7. Search Console: neue Sitemap einreichen, die alte **nicht** löschen —
    Google arbeitet sie ab und lernt daraus die Weiterleitungen
-9. Adressänderungs-Werkzeug in der alten Property auslösen
+8. Adressänderungs-Werkzeug in der alten Property auslösen
 
 ## Danach
 
