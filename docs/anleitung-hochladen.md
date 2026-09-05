@@ -189,14 +189,18 @@ Und so wird aus dem Projekt auf deinem Rechner dieser Baum:
    `api`, `vercel.json`, `README.md` — bleibt auf deinem Rechner. Das sind
    Arbeitsmaterialien, die auf dem Server nichts zu suchen haben.
 
-> **Die versteckten Dateien — der wichtigste Handgriff in diesem Schritt.**
-> FileZilla blendet Dateien aus, deren Name mit einem Punkt beginnt. In
-> `public/` liegen davon **zwei**, und beide werden gebraucht:
+> **Zwei Dateien mit einem Punkt am Anfang.** In `public/` liegen
 > `.htaccess` (ohne sie läuft alles außer der Startseite ins Leere) und
-> `.user.ini` (die beiden Größenwerte aus Schritt 1).
+> `.user.ini` (die beiden Größenwerte aus Schritt 1). Beide werden gebraucht.
 >
-> Im Menü unter „Server“ den Punkt **„Versteckte Dateien anzeigen“**
-> einschalten, **bevor** du den Inhalt von `public` hinüberziehst.
+> In der **linken** Hälfte von FileZilla siehst du sie ganz normal — anders als
+> der Finder blendet FileZilla auf deinem Rechner nichts aus. Wenn du im Ordner
+> `public` alles auswählst (⌘A) und hinüberziehst, sind sie also dabei.
+>
+> In der **rechten** Hälfte, auf dem Server, blendet FileZilla sie dagegen aus.
+> Zum Nachschauen, ob sie angekommen sind: Menü **Server → Erzwinge Anzeigen
+> versteckter Dateien**. Das ist eine Anzeigeeinstellung, hochgeladen wird
+> unabhängig davon.
 
 Warum dieser Umweg über zwei Ordner: `app` und `data` enthalten Passwörter und
 Kundendaten und dürfen **nicht** über den Browser erreichbar sein. Deshalb
