@@ -138,6 +138,21 @@ $angemeldet = auth_angemeldet();
     </p>
     <?php endif; ?>
 
+    <?php if (!seo_indexierbar()): ?>
+    <?php /* Die Google-Sperre ist absichtlich stumm — sie steht in robots.txt
+            und in einer Zeile im Seitenkopf, beides sieht man im Alltag nie.
+            Genau deshalb steht sie hier: Wer auf der fertigen Domain
+            angemeldet ist und das liest, weiss, dass noch ein Handgriff
+            fehlt. Ohne diesen Hinweis waere der wahrscheinlichste Fehler eine
+            Website, die live geht und monatelang unauffindbar bleibt. */ ?>
+    <p class="hinweis nur-lesen">
+      <strong>Für Google gesperrt.</strong> Diese Adresse taucht in keiner Suche
+      auf — während des Aufbaus ist das richtig so. Sobald die Website
+      offiziell startet, unter <a href="/admin/edit.php?bereich=site">Stammdaten
+      → Sichtbarkeit bei Google</a> die Adresse eintragen.
+    </p>
+    <?php endif; ?>
+
     <?php /* Die Anfragen stehen bewusst vor den Inhalten: wer sich hier
             anmeldet, will meist wissen, ob jemand geschrieben hat. */ ?>
     <section class="bereichsgruppe">

@@ -15,8 +15,12 @@ danach eine.
 **1. Die Adresse öffnen.** Im Browser am Handy eingeben:
 
 ```
-smartrepair-reutter.de/admin/
+test.smartrepair-reutter.de/admin/
 ```
+
+> Solange die Website noch aufgebaut wird, ist das die Adresse. Wenn sie
+> offiziell startet, fällt das `test.` vorne weg — Sie bekommen rechtzeitig
+> Bescheid.
 
 **2. Auf den Startbildschirm legen.** Damit Sie das nicht jedes Mal tippen
 müssen:

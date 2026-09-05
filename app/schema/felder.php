@@ -219,6 +219,14 @@ return [
                 ],
             ],
             [
+                'titel'   => 'Sichtbarkeit bei Google',
+                'hinweis' => 'Solange hier nichts steht, ist die Website für Google gesperrt — sie ist erreichbar, taucht aber in keiner Suche auf. Das ist während des Aufbaus so gewollt. Am Tag, an dem die Seite offiziell startet, wird hier die Adresse eingetragen; ab dann darf Google sie aufnehmen.',
+                'felder'  => [
+                    ['pfad' => 'seo.live_domain', 'typ' => 'text', 'label' => 'Adresse der fertigen Website',
+                     'hilfe' => 'Nur die Adresse, ohne https:// und ohne Schrägstrich am Ende, z. B. smartrepair-reutter.de. Es zählt genau diese eine Adresse — eine Testadresse davor bleibt gesperrt.'],
+                ],
+            ],
+            [
                 'titel'   => 'Kundenbewertungen',
                 'hinweis' => 'Diese Zitate stehen auf jeder Seite im Fußbereich, deshalb liegen sie bei den Stammdaten. Bitte nur echte Google-Rezensionen eintragen — erfundene Bewertungen verstoßen gegen das Wettbewerbsrecht. Ab vier Einträgen wird daraus ein Schieber mit Knöpfen; sechs bis acht sind eine gute Zahl.',
                 'felder'  => [

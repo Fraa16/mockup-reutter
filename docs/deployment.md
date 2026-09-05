@@ -6,27 +6,40 @@ Stand: 04.09.2026 · was beim Deployment stimmen muss
 
 ## Der Ordnerbaum
 
-`public/` wird **nicht als Ordner** hochgeladen — sein **Inhalt** kommt in die
-Dokumentwurzel. `app/` und `data/` liegen eine Ebene darüber:
+`public/` wird **nicht als Ordner** hochgeladen — sein **Inhalt** kommt in den
+Ordner, auf den die Domain zeigt. `app/` und `data/` liegen eine Ebene darüber.
+
+Auf diesem Vertrag liegt bereits die alte Seite (`clean-box.eu` in `htdocs/`).
+Die neue Seite bekommt deshalb einen **eigenen Zweig daneben**, nicht deren
+Verzeichnis:
 
 ```
 /homepages/xx/dxxxxxxx/            ← Vertragswurzel, kein Web-Zugriff
-├── app/                           ← Code, Templates, Schema
-├── data/                          ← Inhalte, Anfragen, users.php
-├── bin/
-└── htdocs/                        ← hierhin zeigt die Domain
-    ├── index.php
-    ├── .htaccess
-    ├── admin/
-    ├── assets/
-    └── uploads/
-        └── cache/
+├── htdocs/                        ← clean-box.eu, alte Seite, unangetastet
+└── neu/
+    ├── app/                       ← Code, Templates, Schema
+    ├── data/                      ← Inhalte, Anfragen, users.php
+    ├── bin/
+    └── web/                       ← hierhin zeigt test.smartrepair-reutter.de
+        ├── index.php
+        ├── .htaccess
+        ├── admin/
+        ├── assets/
+        └── uploads/
+            └── cache/
 ```
 
 `app/bootstrap.php` setzt die Wurzeln relativ zueinander
 (`BASE_ROOT = dirname(__DIR__)`), deshalb muss diese Verschachtelung stimmen.
+Wie der Zweig heißt, ist dagegen egal — nur die Ebenen müssen passen.
 
-> **Die Falle:** Wer das Repository versehentlich komplett nach `htdocs/`
+**Warum getrennt und nicht in `htdocs/`:** Die alte Seite bleibt so während der
+gesamten Bauzeit online, und am Umschalttag wird keine einzige Datei verschoben
+— es wird nur die Domain von `htdocs/` auf `neu/web/` umgehängt. Der in
+`umzug.md` beschriebene Schritt „Verzeichnis leeren" betrifft danach nur noch
+`htdocs/`, das ab dann ausschließlich Weiterleitungen ausliefert.
+
+> **Die Falle:** Wer das Repository versehentlich komplett in die Dokumentwurzel
 > schiebt, macht `data/users.php` (Passwort-Hash), `app/config/zugangsdaten.php`
 > (SMTP) und `data/anfragen/` (Namen, Telefonnummern und Fotos fremder Kunden)
 > über den Browser erreichbar. Die `.htaccess` fängt das nicht ab — sie kennt
@@ -55,14 +68,14 @@ in einer `.user.ini` in der Dokumentwurzel.
 
 | Pfad | Warum |
 |---|---|
-| `public/uploads/` | Was der Betrieb selbst hochlädt, liegt nur auf dem Server. Blind überschreiben löscht seine Fotos |
+| `web/uploads/` | Was der Betrieb selbst hochlädt, liegt nur auf dem Server. Blind überschreiben löscht seine Fotos |
 | `data/anfragen/` | Personenbezogene Daten fremder Kunden, gehören nicht ins Repository |
 | `data/users.php` | Passwort-Hashes, wird auf dem Server angelegt |
 | `data/fotos-posteingang.json` | Zwischenstand, gehört dem Server |
-| `app/config/zugangsdaten.php` | SMTP-Zugang |
+| `app/config/zugangsdaten.php` | SMTP-Zugang. Vorlage: `zugangsdaten.beispiel.php` liegt im Repository, kopieren und ausfüllen |
 
 Umgekehrt gilt: **Es gibt keine Sicherung der hochgeladenen Fotos.** Nach
-größeren Uploads durch den Betrieb `public/uploads/` per SFTP herunterladen und
+größeren Uploads durch den Betrieb `web/uploads/` per SFTP herunterladen und
 mitcommitten — sonst hängt alles an der IONOS-Sicherung.
 
 ## Zugänge anlegen
@@ -77,3 +90,22 @@ ein eigenes, damit es einzeln gewechselt und gesperrt werden kann.
 
 Rollen gibt es keine: Wer angemeldet ist, darf alles. Das ist Absicht — am
 Ende des Projekts ist das CMS Daniels Selbstpflegesystem.
+
+## Sichtbarkeit bei Google
+
+`seo_indexierbar()` (`app/lib/seo.php`) gibt nur `true` zurück, wenn der
+aufgerufene Host der Adresse in `site.json` → `seo.live_domain` entspricht.
+Ist das Feld leer, liefert `robots.txt` ein `Disallow: /` und jede Seite trägt
+ein `noindex` — **unabhängig vom Host**.
+
+Das ist die sichere Richtung: Eine unfertige Seite, die in den Index rutscht,
+ist wochenlang nicht mehr herauszubekommen; eine vergessene Freigabe kostet
+eine Minute. Damit sie nicht vergessen wird, zeigt `/admin/` ein Warnband,
+solange die aufgerufene Adresse gesperrt ist.
+
+Der Vergleich ist exakt und ignoriert nur `https://`, einen Schrägstrich am
+Ende und ein führendes `www.`. `test.smartrepair-reutter.de` passt damit
+**nicht** auf `smartrepair-reutter.de` — die Testadresse bleibt gesperrt, ohne
+dass dafür etwas Zusätzliches konfiguriert werden muss.
+
+Am Umschalttag wird das Feld im Panel gefüllt. Kein Deployment nötig.
