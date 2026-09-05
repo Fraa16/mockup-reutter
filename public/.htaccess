@@ -66,13 +66,18 @@ RewriteRule ^ index.php [L]
 </IfModule>
 
 # --- In uploads/ wird niemals Code ausgefuehrt -------------------------------
-# Zweite Verteidigungslinie hinter der Upload-Pruefung: selbst wenn eine
-# getarnte Datei durchkaeme, laeuft sie hier nicht.
-<Directory "uploads">
-    php_flag engine off
-    RemoveHandler .php .phtml .php3 .php4 .php5 .php7 .php8 .pht .phar
-    AddType text/plain .php .phtml .phar
-</Directory>
+# Die Regeln dafuer stehen in uploads/.htaccess und nicht hier.
+#
+# Hier standen sie in einem <Directory>-Block, und das war ein Fehler mit
+# durchschlagender Wirkung: <Directory> ist ausschliesslich in der
+# Serverkonfiguration erlaubt, nicht in einer .htaccess. Apache bricht die
+# Datei dann mit „<Directory> not allowed here" ab — und zwar fuer JEDE
+# Anfrage, auch fuer die Fehlerseite. Sichtbar wurde das als „Internal Server
+# Error", zusaetzlich beim Versuch, das ErrorDocument auszuliefern.
+#
+# Im selben Block stand „php_flag engine off". Auch das haette 500 ergeben:
+# php_flag kennt nur mod_php. IONOS faehrt PHP als CGI/FastCGI, dort ist die
+# Anweisung unbekannt.
 
 # --- Caching -----------------------------------------------------------------
 <IfModule mod_expires.c>

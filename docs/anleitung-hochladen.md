@@ -444,6 +444,7 @@ dann liegt es mit im Projekt und ist gesichert.
 | Was du siehst | Woran es liegt |
 |---|---|
 | Sicherheitswarnung statt Seite | Das SSL-Zertifikat fehlt oder greift noch nicht. Schritt 4. |
+| **Internal Server Error** | Eine ungültige Zeile in einer `.htaccess`. Erkennungszeichen: Die Meldung sagt zusätzlich, dass auch beim Fehlerdokument ein 500er auftrat — dann scheitert jede Anfrage, bevor PHP überhaupt startet. Schick mir die Adresse, das ist ein Fehler in meiner Datei, nicht in deinem Vorgehen. |
 | Weiße Seite, sonst nichts | Fast immer die PHP-Version. Steht sie auf 8.4? |
 | „Domain nicht verwendet“ bleibt stehen | Das Ziel wurde nicht gespeichert. Schritt 4 noch einmal; IONOS braucht dafür manchmal einige Minuten. |
 | Startseite geht, alles andere ist „404" | Die `.htaccess` fehlt in `neu/web`. Versteckte Dateien einblenden, Schritt 3. |
