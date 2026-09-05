@@ -45,13 +45,40 @@ Vorschau für Zwischenstände, IONOS die echte Website.
 * Ein Programm zum Dateiübertragen. **FileZilla** ist kostenlos und läuft auf
   Mac und Windows: <https://filezilla-project.org> — die *Client*-Fassung, nicht
   den Server.
-* Die Dateien des Projekts auf deinem Rechner, so wie sie sind
+* Die Dateien des Projekts auf deinem Rechner — wie du drankommst, steht
+  gleich in Schritt 0
 * Ungefähr eine Stunde beim ersten Mal
 
 Die Menüs bei IONOS heißen je nach Vertrag und Jahr etwas anders. Ich schreibe
 deshalb dazu, **wonach** du suchst, nicht nur, wo es angeblich steht.
 
 ---
+
+## Schritt 0 · Die Dateien auf deinen Rechner holen
+
+Hochgeladen wird von deinem Mac aus. Die Dateien liegen aber auf GitHub, also
+müssen sie erst herunter.
+
+1. <https://github.com/Fraa16/mockup-reutter> öffnen
+2. Oben links steht ein Umschalter auf `main`. **Draufklicken und
+   `claude/website-mockup-implementation-x303oy` auswählen.**
+3. Grüner Knopf **Code** → **Download ZIP**
+4. Im Downloads-Ordner auf die Datei doppelklicken. Daraus wird ein Ordner mit
+   einem langen Namen — darin liegen `app`, `bin`, `data`, `public` und der
+   Rest.
+
+> **Der Umschalter auf den Branch ist der Punkt, an dem es schiefgeht.** In
+> `main` steht ein alter Stand: ohne Foto-Upload, ohne Transportseite, ohne die
+> `.user.ini` aus Schritt 1. Sieht die Seite nach dem Hochladen aus wie vor
+> Wochen, ist hier der Fehler.
+
+> **Der Finder zeigt weniger, als da ist.** `.htaccess` und `.user.ini`
+> beginnen mit einem Punkt und sind im Finder unsichtbar. In FileZilla siehst
+> du sie. Der Ordner ist also vollständig, auch wenn er im Finder kleiner
+> wirkt.
+
+**Geschafft, wenn:** Der entpackte Ordner enthält `app`, `bin`, `data` und
+`public`.
 
 ## Schritt 1 · PHP einstellen — schon erledigt
 
@@ -179,12 +206,18 @@ einen mit dem Namen `web`. Am Ende sieht es so aus:
           └── uploads/
 ```
 
-Und so wird aus dem Projekt auf deinem Rechner dieser Baum:
+FileZilla ist zweigeteilt: **links dein MacBook, rechts der Server.** Links
+klickst du dich zu dem entpackten Ordner aus Schritt 0 durch — meist
+`fra` → `Downloads` → der Ordner mit dem langen Namen. Rechts stehst du auf der
+obersten Ebene, wo `html` liegt.
+
+Gezogen wird von links nach rechts:
 
 1. Die Ordner **`app`, `data` und `bin`** ziehst du unverändert nach `neu`.
-2. Den Ordner **`public` ziehst du nicht mit.** Stattdessen öffnest du ihn und
-   ziehst **seinen Inhalt** nach `neu/web`. Aus `public/index.php` wird also
-   `neu/web/index.php`, nicht `neu/web/public/index.php`.
+2. Den Ordner **`public` ziehst du nicht mit.** Stattdessen öffnest du ihn
+   links per Doppelklick, wählst darin alles aus (⌘A) und ziehst **den Inhalt**
+   nach `neu/web`. Aus `public/index.php` wird also `neu/web/index.php`, nicht
+   `neu/web/public/index.php`.
 3. Alles andere im Projekt — `chats`, `project`, `export`, `docs`, `bildpool`,
    `api`, `vercel.json`, `README.md` — bleibt auf deinem Rechner. Das sind
    Arbeitsmaterialien, die auf dem Server nichts zu suchen haben.
