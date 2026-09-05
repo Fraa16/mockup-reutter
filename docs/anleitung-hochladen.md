@@ -272,8 +272,19 @@ In deiner Domainübersicht steht bei `smartrepair-reutter.de` heute
 „Domain nicht verwendet“ und daneben der Link „Domain verwenden“.
 Genau den klickst du an.
 
-Als **Ziel** (heißt je nach Ansicht „Zielordner“ oder
-„Zielverzeichnis“) trägst du **`neu/web`** ein.
+Es öffnet sich eine lange Liste. Du willst die Zeile **„Webspace verbinden"** —
+erkennbar an der Beschreibung *„Domain mit Website bzw. Ordner auf Ihrem
+Webspace verbinden."* Danach kommt das Feld für den Ordner, dort trägst du
+**`neu/web`** ein.
+
+> **Drei Zeilen in derselben Liste klingen richtig und sind es nicht:**
+>
+> * **„Website erstellen"** installiert WordPress, Typo3 oder Ähnliches in den
+>   Ordner — das würde die hochgeladenen Dateien überschreiben.
+> * **„Bestehende Website verbinden"** meint Websites, die *bei IONOS* gebaut
+>   wurden, also Homepage-Baukasten oder Shop. Nicht selbst hochgeladene
+>   Dateien.
+> * **„Externe Seite verbinden"** ist für Hosting bei einem anderen Anbieter.
 
 > **Warum die echte Domain und nicht erst eine Testadresse:** Die Domain zeigt
 > heute nirgendwohin, es kann also nichts kaputtgehen. Für Google ist die Seite
