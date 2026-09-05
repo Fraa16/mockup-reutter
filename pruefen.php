@@ -47,6 +47,8 @@ const SOLL = [
     'app/templates/partials/trust-strip.php' => 1033,
     'app/templates/partials/vergleich.php' => 1015,
     'app/templates/rechtstext.php' => 7078,
+    'bin/ableitungen.php' => 1578,
+    'bin/passwort-setzen.php' => 2665,
     'data/content/agb.json' => 8106,
     'data/content/datenschutz.json' => 8309,
     'data/content/galerie.json' => 8213,
@@ -64,9 +66,7 @@ const SOLL = [
     'data/content/leistungen.json' => 7918,
     'data/content/site.json' => 8904,
     'data/content/widerruf.json' => 6783,
-    'bin/ableitungen.php' => 1578,
-    'bin/passwort-setzen.php' => 2665,
-    'web/.htaccess' => 5050,
+    'web/.htaccess' => 6018,
     'web/.user.ini' => 1217,
     'web/admin/anfragen.php' => 9272,
     'web/admin/assets/admin.css' => 12579,
@@ -189,5 +189,47 @@ if ($falsch !== []) {
 echo "<h3>Bilder in web/uploads/</h3>";
 echo "<p>" . $bilder . " von " . UPLOADS_ANZAHL . " Dateien, "
    . number_format($bytes) . " von " . number_format(UPLOADS_BYTES) . " Bytes</p>";
+
+/* Das Fehlerprotokoll selbst suchen. IONOS legt es je nach Tarif woanders ab,
+   und im Kundenmenue war keins zu finden. Gesucht wird von der Vertragswurzel
+   aus — von web/ aus zwei Ebenen hoeher.
+
+   IP-Adressen werden vor der Ausgabe unkenntlich gemacht: In einem
+   Apache-Protokoll steht zu jeder Zeile die Adresse des Besuchers, und die
+   geht niemanden etwas an, der hier nur einen Fehler sucht. */
+echo "<hr><h3>Fehlerprotokoll</h3>";
+
+$vertrag = dirname($wurzel);
+$treffer = [];
+foreach ([$vertrag, $vertrag . '/logs', $vertrag . '/log', $wurzel, $wurzel . '/logs'] as $ordner) {
+    if (!is_dir($ordner)) {
+        continue;
+    }
+    foreach ((array) scandir($ordner) as $name) {
+        $pfad = $ordner . '/' . $name;
+        if (is_file($pfad) && preg_match('/error|fehler|\.log$/i', $name)) {
+            $treffer[$pfad] = filemtime($pfad);
+        }
+    }
+}
+arsort($treffer);
+
+if ($treffer === []) {
+    echo "<p>Keine Protokolldatei gefunden. Gesucht in: "
+       . htmlspecialchars($vertrag) . ", darin logs/ und log/, sowie in "
+       . htmlspecialchars($wurzel) . ".</p>";
+} else {
+    $pfad = array_key_first($treffer);
+    echo "<p>Neueste: <code>" . htmlspecialchars($pfad) . "</code> ("
+       . count($treffer) . " gefunden)</p><pre>";
+    $zeilen = @file($pfad, FILE_IGNORE_NEW_LINES);
+    $zeilen = $zeilen === false ? ['(nicht lesbar)'] : array_slice($zeilen, -40);
+    foreach ($zeilen as $zeile) {
+        $zeile = preg_replace('/\b\d{1,3}(\.\d{1,3}){3}\b/', '[IP]', $zeile);
+        $zeile = preg_replace('/\b[0-9a-f]{1,4}(:[0-9a-f]{0,4}){3,7}\b/i', '[IP]', (string) $zeile);
+        echo htmlspecialchars((string) $zeile) . "\n";
+    }
+    echo "</pre>";
+}
 
 echo "<hr><p><a href=\"?fehler=1\">Zweiter Schritt: /leistungen/ mit sichtbaren Fehlermeldungen aufrufen</a></p>";

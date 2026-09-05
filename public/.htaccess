@@ -50,9 +50,29 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </FilesMatch>
 
 # --- Alles, was keine echte Datei ist, geht an den Front-Controller ----------
+# Drei Vorkehrungen, die auf dem eigenen Rechner alle ueberfluessig aussehen
+# und auf geteiltem Hosting den Unterschied machen:
+#
+# RewriteBase / sagt Apache, welcher URL-Pfad zu diesem Verzeichnis gehoert.
+# Ohne die Zeile loest ein relatives Ziel wie „index.php" ueber den Dateipfad
+# auf. Zeigt eine Domain — wie hier — auf einen Unterordner tief im Webspace,
+# entsteht daraus eine Adresse, die es nicht gibt: Apache schreibt erneut um,
+# wieder und wieder, und beendet das nach zehn Runden mit einem 500er.
+#
+# Die Zeile fuer index.php ist die Bremse dahinter: Steht die Anfrage bereits
+# auf dem Front-Controller, ist Schluss. Damit kann keine Schleife entstehen,
+# selbst wenn die Dateipruefung darunter einmal daneben greift.
+#
+# Und das Ziel ist /index.php statt index.php — ein URL-Pfad, kein relativer.
+# Genau diese Form liefert WordPress seit Jahren aus; sie laeuft auf allem,
+# was Apache heisst.
+RewriteBase /
+
+RewriteRule ^index\.php$ - [L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.php [L]
+RewriteRule . /index.php [L]
 
 # --- Sicherheits-Header ------------------------------------------------------
 <IfModule mod_headers.c>
