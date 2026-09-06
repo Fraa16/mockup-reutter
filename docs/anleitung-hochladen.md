@@ -494,8 +494,22 @@ exit
 
 **Geschafft, wenn:** Zweimal „Zugang gespeichert" auf dem Bildschirm stand.
 
-> **Wenn `php` nicht gefunden wird:** Manche Tarife bringen unter SSH eine
-> andere PHP-Fassung mit. Dann `php8.4 bin/passwort-setzen.php` versuchen.
+> **Wenn nur `Content-type: text/html` erscheint und sonst nichts:** Dann
+> liegt unter SSH nicht die Kommandozeilen-Fassung von PHP im Pfad, sondern
+> die, die sonst Webseiten ausliefert. Mit
+>
+> ```
+> ls /usr/bin/php*
+> ```
+>
+> siehst du, welche es gibt; meist ist eine mit `cli` im Namen dabei, dann
+> `php8.4-cli bin/passwort-setzen.php`. Das Skript selbst kommt inzwischen
+> auch mit der Web-Fassung zurecht, solange es aus einer Shell gestartet wird —
+> vorausgesetzt, `bin/passwort-setzen.php` auf dem Server ist auf dem
+> aktuellen Stand.
+>
+> **Wenn `php` gar nicht gefunden wird:** `php8.4 bin/passwort-setzen.php`
+> versuchen.
 >
 > **Wenn „Zu kurz" kommt:** Das Passwort hatte weniger als 12 Zeichen. Das
 > Skript bricht dann ganz ab — einfach neu starten.

@@ -11,9 +11,29 @@ declare(strict_types=1);
  * uebernommen wird.
  */
 
-if (PHP_SAPI !== 'cli') {
+/* Der Test war frueher „PHP_SAPI !== 'cli'" und hat auf IONOS den legitimen
+   Aufruf gesperrt: Dort liegt unter SSH nicht die CLI-Fassung von PHP im Pfad,
+   sondern die CGI-Fassung. Sichtbar wurde das an einer Zeile
+   „Content-type: text/html" und einem sofortigen Abbruch.
+
+   Entscheidend ist nicht, welche PHP-Fassung laeuft, sondern ob eine
+   Web-Anfrage dahintersteckt. Kommt der Aufruf ueber den Webserver, setzt
+   dieser REQUEST_METHOD und HTTP_HOST; aus einer Shell heraus steht dort
+   nichts. Der Schutz bleibt damit erhalten und der Aufruf per SSH
+   funktioniert unabhaengig davon, wie der Hoster seine Binaerdateien benennt.
+
+   Zweite Verteidigungslinie ohnehin: bin/ liegt ausserhalb des Webroots und
+   ist ueber den Browser gar nicht erreichbar. */
+if (PHP_SAPI !== 'cli' && (isset($_SERVER['REQUEST_METHOD']) || isset($_SERVER['HTTP_HOST']))) {
     http_response_code(403);
     exit("Dieses Skript laeuft nur auf der Kommandozeile.\n");
+}
+
+/* Die CGI-Fassung stellt jeder Ausgabe HTTP-Kopfzeilen voran. Auf der
+   Kommandozeile ist das nur Rauschen vor der ersten Frage. */
+if (PHP_SAPI !== 'cli' && !headers_sent()) {
+    header_remove();
+    header('Content-Type:');
 }
 
 $datenOrdner = dirname(__DIR__) . '/data';
