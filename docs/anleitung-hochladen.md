@@ -379,34 +379,129 @@ In der Beispieldatei steht bei jeder Zeile, was hineingehört.
 
 ## Schritt 7 · Zugänge anlegen
 
-Der Bearbeitungsbereich hat noch kein Passwort — das legst du auf dem Server an.
-Dafür brauchst du **SSH**: eine Textkonsole zum Server. Im Kundenmenü ist das
-derselbe Bereich wie SFTP in Schritt 2, meist mit einem eigenen Schalter zum
-Aktivieren.
+Der Bearbeitungsbereich hat noch kein Passwort. Das legst du **auf dem Server**
+an, und dafür brauchst du ein Fenster, in dem du Befehle tippst statt zu
+klicken. Das ist alles, was hinter „SSH" steckt: dieselbe Verbindung wie bei
+FileZilla, nur ohne Mausbedienung.
 
-Auf dem Mac öffnest du „Terminal", unter Windows die „Eingabeaufforderung", und
-tippst (mit deinen Angaben aus Schritt 2):
+Insgesamt sind es acht Zeilen zum Tippen. Der Reihe nach.
+
+### 7.1 · SSH bei IONOS einschalten
+
+Im Kundenmenü zu **„Sichere FTP-Zugänge verwalten"**, dieselbe Seite wie in
+Schritt 2. In der Spalte *Protokoll* muss bei `u113483144` **`SFTP + SSH`**
+stehen. Steht dort nur `SFTP`, über die drei Punkte (⋮) SSH dazuschalten.
+
+### 7.2 · Das Terminal öffnen
+
+Auf dem Mac: **⌘ + Leertaste**, `Terminal` tippen, Enter. Es öffnet sich ein
+Fenster mit einer Zeile Text und einem blinkenden Strich.
+
+### 7.3 · Mit dem Server verbinden
+
+Tipp diese Zeile und drück Enter — die Adresse ist dieselbe wie in FileZilla:
 
 ```
-ssh BENUTZERNAME@SERVERADRESSE
+ssh u113483144@access975427118.webspace-data.io
 ```
 
-Dann wechselst du in den neuen Ordner und startest das Skript:
+Beim allerersten Mal fragt es:
+
+```
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
+
+Dann `yes` tippen und Enter. Ausgeschrieben, nicht nur `y`.
+
+Danach kommt:
+
+```
+u113483144@access975427118.webspace-data.io's password:
+```
+
+> **Hier ist die Stelle, an der die meisten hängenbleiben:** Beim Tippen des
+> Passworts **passiert auf dem Bildschirm nichts.** Keine Punkte, keine
+> Sternchen, der Strich bewegt sich nicht. Das ist Absicht und kein Fehler —
+> das Passwort wird trotzdem entgegengenommen. Einfach blind eintippen (oder
+> einfügen) und Enter drücken.
+
+Es ist dasselbe Passwort wie in FileZilla. Danach steht da eine
+Begrüßungsmeldung und wieder ein blinkender Strich — du bist drin.
+
+### 7.4 · In den richtigen Ordner wechseln
 
 ```
 cd neu
+```
+
+`cd` heißt „wechsle in den Ordner". Es passiert sichtbar nichts, das ist
+richtig so.
+
+### 7.5 · Das Skript starten
+
+```
 php bin/passwort-setzen.php
 ```
 
-Das Skript fragt nach Benutzername, Anzeigename und Passwort. Mindestens
-12 Zeichen, sonst bricht es ab. Führ es **zweimal** aus: einmal für dich, einmal
-für Daniel. Es ergänzt vorhandene Zugänge und überschreibt nichts.
+Jetzt läuft ein Frage-und-Antwort-Spiel ab. So sieht es aus, hier mit
+Beispielantworten:
 
-> **Kein SSH im Vertrag?** Dann sag mir Bescheid — es gibt einen zweiten Weg
-> über zwei Einträge in der `.htaccess`. Der ist umständlicher, deshalb steht er
-> hier nicht als Standard.
+```
+Panel-Zugang fuer Smartrepair Reutter
+--------------------------------------------
+Benutzername (z. B. reutter): francesco
+Anzeigename (z. B. Daniel Reutter): Francesco
+Passwort (mindestens 12 Zeichen):
+Passwort wiederholen:
 
-**Geschafft, wenn:** In der Konsole steht „Zugang gespeichert".
+Zugang gespeichert: francesco
+Anmeldung unter /admin/
+```
+
+Was in die vier Zeilen gehört:
+
+| Frage | Was du tippst |
+|---|---|
+| Benutzername | Womit du dich anmeldest. Klein, ohne Leerzeichen, z. B. `francesco` |
+| Anzeigename | Wie du im Panel oben rechts stehst, z. B. `Francesco` |
+| Passwort | **Mindestens 12 Zeichen**, sonst bricht es ab. Wieder unsichtbar |
+| Passwort wiederholen | Dasselbe nochmal |
+
+Das ist **nicht** dasselbe Passwort wie fürs Hochladen — das hier ist der
+Zugang zum Bearbeitungsbereich. Ein eigenes nehmen und wegspeichern.
+
+### 7.6 · Dasselbe nochmal für Daniel
+
+```
+php bin/passwort-setzen.php
+```
+
+Diesmal steht oben zusätzlich:
+
+```
+Vorhandene Zugaenge: francesco
+```
+
+Das ist der Beweis, dass nichts überschrieben wird — das Skript ergänzt nur.
+Als Benutzername `daniel`, als Anzeigename `Daniel Reutter`, und ein Passwort,
+das du ihm weitergeben kannst.
+
+### 7.7 · Fenster schließen
+
+```
+exit
+```
+
+**Geschafft, wenn:** Zweimal „Zugang gespeichert" auf dem Bildschirm stand.
+
+> **Wenn `php` nicht gefunden wird:** Manche Tarife bringen unter SSH eine
+> andere PHP-Fassung mit. Dann `php8.4 bin/passwort-setzen.php` versuchen.
+>
+> **Wenn „Zu kurz" kommt:** Das Passwort hatte weniger als 12 Zeichen. Das
+> Skript bricht dann ganz ab — einfach neu starten.
+>
+> **Wenn „Die Eingaben stimmen nicht ueberein" kommt:** Beim zweiten Mal hat
+> sich ein Tippfehler eingeschlichen. Auch hier: neu starten.
 
 ## Schritt 8 · Ausprobieren
 
