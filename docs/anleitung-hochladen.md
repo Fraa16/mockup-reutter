@@ -440,8 +440,13 @@ richtig so.
 ### 7.5 · Das Skript starten
 
 ```
-php bin/passwort-setzen.php
+php8.4-cli bin/passwort-setzen.php
 ```
+
+> **Warum nicht einfach `php`:** Unter SSH liegt bei IONOS im Pfad die
+> Fassung, die sonst Webseiten ausliefert. Die gibt nur
+> `Content-type: text/html` aus und bricht ab. Die Kommandozeilen-Fassung
+> heißt dort `php8.4-cli`. Welche es gibt, zeigt `ls /usr/bin/php*`.
 
 Jetzt läuft ein Frage-und-Antwort-Spiel ab. So sieht es aus, hier mit
 Beispielantworten:
@@ -473,7 +478,7 @@ Zugang zum Bearbeitungsbereich. Ein eigenes nehmen und wegspeichern.
 ### 7.6 · Dasselbe nochmal für Daniel
 
 ```
-php bin/passwort-setzen.php
+php8.4-cli bin/passwort-setzen.php
 ```
 
 Diesmal steht oben zusätzlich:
@@ -495,21 +500,7 @@ exit
 **Geschafft, wenn:** Zweimal „Zugang gespeichert" auf dem Bildschirm stand.
 
 > **Wenn nur `Content-type: text/html` erscheint und sonst nichts:** Dann
-> liegt unter SSH nicht die Kommandozeilen-Fassung von PHP im Pfad, sondern
-> die, die sonst Webseiten ausliefert. Mit
->
-> ```
-> ls /usr/bin/php*
-> ```
->
-> siehst du, welche es gibt; meist ist eine mit `cli` im Namen dabei, dann
-> `php8.4-cli bin/passwort-setzen.php`. Das Skript selbst kommt inzwischen
-> auch mit der Web-Fassung zurecht, solange es aus einer Shell gestartet wird —
-> vorausgesetzt, `bin/passwort-setzen.php` auf dem Server ist auf dem
-> aktuellen Stand.
->
-> **Wenn `php` gar nicht gefunden wird:** `php8.4 bin/passwort-setzen.php`
-> versuchen.
+> wurde `php` statt `php8.4-cli` benutzt — siehe den Kasten bei 7.5.
 >
 > **Wenn „Zu kurz" kommt:** Das Passwort hatte weniger als 12 Zeichen. Das
 > Skript bricht dann ganz ab — einfach neu starten.
