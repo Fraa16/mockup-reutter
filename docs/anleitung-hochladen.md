@@ -428,6 +428,19 @@ u113483144@access975427118.webspace-data.io's password:
 Es ist dasselbe Passwort wie in FileZilla. Danach steht da eine
 Begrüßungsmeldung und wieder ein blinkender Strich — du bist drin.
 
+> **Woran du erkennst, wo du gerade bist.** Die Eingabezeile sagt es:
+>
+> | Was da steht | Wo du bist |
+> |---|---|
+> | `fra@Mac ~ %` | dein MacBook |
+> | `(uiserver):u113483144:~$` | der Server |
+>
+> Das ist wichtiger, als es klingt: Beim Schließen des Fensters ist die
+> Verbindung weg, und ein frisch geöffnetes Terminal steht wieder auf dem
+> eigenen Rechner. Die Befehle unten funktionieren dort nicht — `php8.4-cli`
+> gibt es nur auf dem Server. Kommt „command not found" oder „no such file or
+> directory", ist fast immer das die Ursache: Es fehlt die Verbindung.
+
 ### 7.4 · In den richtigen Ordner wechseln
 
 ```
