@@ -30,9 +30,20 @@ $lcp_sizes    = $lcp_sizes    ?? null;
 <meta name="description" content="<?= attr($beschreibung) ?>">
 
 <?php /* Die zwei Schnitte, die ueber der Falz gebraucht werden. Der Rest laedt
-        nach — so blockiert nichts das erste Rendern. */ ?>
-<link rel="preload" href="<?= attr(asset('fonts/saira-800-latin.woff2')) ?>" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="<?= attr(asset('fonts/barlow-400-latin.woff2')) ?>" as="font" type="font/woff2" crossorigin>
+        nach — so blockiert nichts das erste Rendern.
+
+        Bewusst ohne asset() und damit ohne ?v=: Der Browser bringt ein
+        Vorladen nur dann mit der spaeteren Anfrage zusammen, wenn die Adresse
+        buchstabengleich ist. styles.css fordert die Schriften in ihren
+        @font-face-Regeln ohne Anhaengsel an — mit Cache-Buster im Vorladen
+        passte keine der beiden Adressen zur anderen, und jede Schrift kam
+        zweimal ueber die Leitung. Sichtbar war das nur in der Browserkonsole:
+        „preloaded using link preload but not used within a few seconds".
+
+        Ein Cache-Buster fehlt hier auch nicht: Schriftdateien tragen ihren
+        Schnitt im Namen und aendern sich nicht. */ ?>
+<link rel="preload" href="/assets/fonts/saira-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/barlow-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <?php if ($lcp_bild !== null): ?>
 <?php
   /* Das Vorladen muss dieselben Groessen kennen wie das <img> weiter unten.
