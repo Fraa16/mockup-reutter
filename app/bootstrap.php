@@ -10,7 +10,34 @@ declare(strict_types=1);
 define('APP_ROOT',  __DIR__);
 define('BASE_ROOT', dirname(__DIR__));
 define('DATA_ROOT', BASE_ROOT . '/data');
-define('PUBLIC_ROOT', BASE_ROOT . '/public');
+
+/* Wo der oeffentliche Ordner liegt, weiss der Einstiegspunkt am besten — er
+   liegt selbst darin. index.php und die Panel-Seiten setzen PUBLIC_ROOT
+   deshalb, bevor sie diese Datei einbinden.
+ *
+   Vorher stand hier fest BASE_ROOT . '/public'. Das ging so lange gut, wie der
+   Ordner beim Hochladen auch „public" hiess. Auf dem IONOS-Server heisst er
+   „web" — und damit legte bild_annehmen() jedes hochgeladene Foto in einem
+   frisch angelegten Ordner „public" NEBEN dem Webbereich ab. Die Datei war da,
+   der Browser fand sie nie: 404, obwohl der Eintrag in der Galerie stand.
+   Nebenwirkung war stiller: bild_quellen() suchte die verkleinerten Fassungen
+   an derselben falschen Stelle, fand keine, und jede Seite lieferte
+   Handybesuchern das volle Bild ohne srcset aus.
+ *
+   Der Rueckfall unten ist fuer Aufrufe von der Kommandozeile. Er sucht den
+   Ordner, in dem index.php liegt, statt auf einen Namen zu wetten — je nach
+   Hoster heisst er public, web, htdocs oder httpdocs. */
+if (!defined('PUBLIC_ROOT')) {
+    $oeffentlich = BASE_ROOT . '/public';
+    if (!is_file($oeffentlich . '/index.php')) {
+        foreach ((array) glob(BASE_ROOT . '/*/index.php') as $treffer) {
+            $oeffentlich = dirname((string) $treffer);
+            break;
+        }
+    }
+    define('PUBLIC_ROOT', $oeffentlich);
+    unset($oeffentlich);
+}
 
 // Fehler gehoeren ins Log, nicht auf die Seite. Lokal wird das ueber
 // config.local.php wieder aufgedreht.

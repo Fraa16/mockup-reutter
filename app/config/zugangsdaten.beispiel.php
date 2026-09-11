@@ -34,19 +34,14 @@ return [
 
         // Die vollstaendige Mailadresse des Postfachs, nicht nur der Teil vor
         // dem @. Das ist der haeufigste Grund, warum die Anmeldung scheitert.
-        'benutzer' => 'website@smartrepair-reutter.de',
+        'benutzer' => 'info@smartrepair-reutter.de',
 
         // Das Passwort des Postfachs — nicht das Passwort des IONOS-Kontos.
         'passwort' => '',
 
         // Absenderadresse der Formularmails. Muss zum Postfach oben passen,
         // sonst weist der Server sie ab. Weglassen nimmt 'benutzer'.
-        //
-        // Bewusst ein eigenes Postfach und nicht info@: Formularmails laufen
-        // automatisch, und wenn dabei etwas klemmt, soll das nicht das
-        // Postfach beruehren, ueber das der Betrieb seine Kundschaft
-        // erreicht.
-        'absender' => 'website@smartrepair-reutter.de',
+        'absender' => 'info@smartrepair-reutter.de',
 
         // Steht im Posteingang als Absendername.
         'absendername' => 'Smartrepair Reutter — Website',

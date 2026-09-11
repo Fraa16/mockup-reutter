@@ -345,15 +345,23 @@ ist die `.htaccess` nicht mitgekommen — siehe Schritt 3.
 > aller Kunden, die je das Formular ausgefüllt haben. Sofort beide Ordner aus
 > `neu/web` löschen und Schritt 3 wiederholen.
 
-## Schritt 6 · Postfach für das Kontaktformular
+## Schritt 6 · Postfach für das Kontaktformular — kann warten
 
-Das Formular auf der Website verschickt E-Mails über ein echtes Postfach —
-nicht über einen anonymen Versand, denn solche Mails landen im Spam.
+**Dieser Schritt lässt sich aufschieben.** Ohne Postfach wird eine Anfrage
+trotzdem gespeichert und steht im Bearbeitungsbereich unter „Anfragen von der
+Website"; nur die Benachrichtigungsmail bleibt aus. Solange die Seite für
+Google gesperrt ist und die Adresse niemand kennt, kommt ohnehin nichts herein.
+
+**Vor dem Umschalttag muss er aber erledigt sein.** Ab dann kommen echte
+Anfragen, und ein ausbleibender Versand meldet sich nicht von selbst — es fehlt
+einfach eine Mail, die niemand vermisst.
+
+Das Formular verschickt über ein echtes Postfach — nicht über einen anonymen
+Versand, denn solche Mails landen im Spam.
 
 1. Im Kundenmenü unter **E-Mail** eine neue Adresse anlegen:
-   `website@smartrepair-reutter.de`. Bewusst ein eigenes Postfach und nicht
-   `info@` — wenn beim automatischen Versand etwas klemmt, soll das nicht das
-   Postfach betreffen, über das Daniel seine Kundschaft erreicht.
+   `info@smartrepair-reutter.de`. Dasselbe Postfach nimmt Anfragen entgegen und
+   verschickt sie — ein Postfach weniger zu pflegen.
 2. Auf deinem Rechner die Datei `app/config/zugangsdaten.beispiel.php` öffnen,
    die Werte eintragen (Passwort des Postfachs, nicht des IONOS-Kontos), unter
    dem Namen **`zugangsdaten.php`** speichern und nach `neu/app/config/`
@@ -371,34 +379,147 @@ In der Beispieldatei steht bei jeder Zeile, was hineingehört.
 
 ## Schritt 7 · Zugänge anlegen
 
-Der Bearbeitungsbereich hat noch kein Passwort — das legst du auf dem Server an.
-Dafür brauchst du **SSH**: eine Textkonsole zum Server. Im Kundenmenü ist das
-derselbe Bereich wie SFTP in Schritt 2, meist mit einem eigenen Schalter zum
-Aktivieren.
+Der Bearbeitungsbereich hat noch kein Passwort. Das legst du **auf dem Server**
+an, und dafür brauchst du ein Fenster, in dem du Befehle tippst statt zu
+klicken. Das ist alles, was hinter „SSH" steckt: dieselbe Verbindung wie bei
+FileZilla, nur ohne Mausbedienung.
 
-Auf dem Mac öffnest du „Terminal", unter Windows die „Eingabeaufforderung", und
-tippst (mit deinen Angaben aus Schritt 2):
+Insgesamt sind es acht Zeilen zum Tippen. Der Reihe nach.
+
+### 7.1 · SSH bei IONOS einschalten
+
+Im Kundenmenü zu **„Sichere FTP-Zugänge verwalten"**, dieselbe Seite wie in
+Schritt 2. In der Spalte *Protokoll* muss bei `u113483144` **`SFTP + SSH`**
+stehen. Steht dort nur `SFTP`, über die drei Punkte (⋮) SSH dazuschalten.
+
+### 7.2 · Das Terminal öffnen
+
+Auf dem Mac: **⌘ + Leertaste**, `Terminal` tippen, Enter. Es öffnet sich ein
+Fenster mit einer Zeile Text und einem blinkenden Strich.
+
+### 7.3 · Mit dem Server verbinden
+
+Tipp diese Zeile und drück Enter — die Adresse ist dieselbe wie in FileZilla:
 
 ```
-ssh BENUTZERNAME@SERVERADRESSE
+ssh u113483144@access975427118.webspace-data.io
 ```
 
-Dann wechselst du in den neuen Ordner und startest das Skript:
+Beim allerersten Mal fragt es:
+
+```
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
+
+Dann `yes` tippen und Enter. Ausgeschrieben, nicht nur `y`.
+
+Danach kommt:
+
+```
+u113483144@access975427118.webspace-data.io's password:
+```
+
+> **Hier ist die Stelle, an der die meisten hängenbleiben:** Beim Tippen des
+> Passworts **passiert auf dem Bildschirm nichts.** Keine Punkte, keine
+> Sternchen, der Strich bewegt sich nicht. Das ist Absicht und kein Fehler —
+> das Passwort wird trotzdem entgegengenommen. Einfach blind eintippen (oder
+> einfügen) und Enter drücken.
+
+Es ist dasselbe Passwort wie in FileZilla. Danach steht da eine
+Begrüßungsmeldung und wieder ein blinkender Strich — du bist drin.
+
+> **Woran du erkennst, wo du gerade bist.** Die Eingabezeile sagt es:
+>
+> | Was da steht | Wo du bist |
+> |---|---|
+> | `fra@Mac ~ %` | dein MacBook |
+> | `(uiserver):u113483144:~$` | der Server |
+>
+> Das ist wichtiger, als es klingt: Beim Schließen des Fensters ist die
+> Verbindung weg, und ein frisch geöffnetes Terminal steht wieder auf dem
+> eigenen Rechner. Die Befehle unten funktionieren dort nicht — `php8.4-cli`
+> gibt es nur auf dem Server. Kommt „command not found" oder „no such file or
+> directory", ist fast immer das die Ursache: Es fehlt die Verbindung.
+
+### 7.4 · In den richtigen Ordner wechseln
 
 ```
 cd neu
-php bin/passwort-setzen.php
 ```
 
-Das Skript fragt nach Benutzername, Anzeigename und Passwort. Mindestens
-12 Zeichen, sonst bricht es ab. Führ es **zweimal** aus: einmal für dich, einmal
-für Daniel. Es ergänzt vorhandene Zugänge und überschreibt nichts.
+`cd` heißt „wechsle in den Ordner". Es passiert sichtbar nichts, das ist
+richtig so.
 
-> **Kein SSH im Vertrag?** Dann sag mir Bescheid — es gibt einen zweiten Weg
-> über zwei Einträge in der `.htaccess`. Der ist umständlicher, deshalb steht er
-> hier nicht als Standard.
+### 7.5 · Das Skript starten
 
-**Geschafft, wenn:** In der Konsole steht „Zugang gespeichert".
+```
+php8.4-cli bin/passwort-setzen.php
+```
+
+> **Warum nicht einfach `php`:** Unter SSH liegt bei IONOS im Pfad die
+> Fassung, die sonst Webseiten ausliefert. Die gibt nur
+> `Content-type: text/html` aus und bricht ab. Die Kommandozeilen-Fassung
+> heißt dort `php8.4-cli`. Welche es gibt, zeigt `ls /usr/bin/php*`.
+
+Jetzt läuft ein Frage-und-Antwort-Spiel ab. So sieht es aus, hier mit
+Beispielantworten:
+
+```
+Panel-Zugang fuer Smartrepair Reutter
+--------------------------------------------
+Benutzername (z. B. reutter): francesco
+Anzeigename (z. B. Daniel Reutter): Francesco
+Passwort (mindestens 12 Zeichen):
+Passwort wiederholen:
+
+Zugang gespeichert: francesco
+Anmeldung unter /admin/
+```
+
+Was in die vier Zeilen gehört:
+
+| Frage | Was du tippst |
+|---|---|
+| Benutzername | Womit du dich anmeldest. Klein, ohne Leerzeichen, z. B. `francesco` |
+| Anzeigename | Wie du im Panel oben rechts stehst, z. B. `Francesco` |
+| Passwort | **Mindestens 12 Zeichen**, sonst bricht es ab. Wieder unsichtbar |
+| Passwort wiederholen | Dasselbe nochmal |
+
+Das ist **nicht** dasselbe Passwort wie fürs Hochladen — das hier ist der
+Zugang zum Bearbeitungsbereich. Ein eigenes nehmen und wegspeichern.
+
+### 7.6 · Dasselbe nochmal für Daniel
+
+```
+php8.4-cli bin/passwort-setzen.php
+```
+
+Diesmal steht oben zusätzlich:
+
+```
+Vorhandene Zugaenge: francesco
+```
+
+Das ist der Beweis, dass nichts überschrieben wird — das Skript ergänzt nur.
+Als Benutzername `daniel`, als Anzeigename `Daniel Reutter`, und ein Passwort,
+das du ihm weitergeben kannst.
+
+### 7.7 · Fenster schließen
+
+```
+exit
+```
+
+**Geschafft, wenn:** Zweimal „Zugang gespeichert" auf dem Bildschirm stand.
+
+> **Wenn nur `Content-type: text/html` erscheint und sonst nichts:** Dann
+> wurde `php` statt `php8.4-cli` benutzt — siehe den Kasten bei 7.5.
+>
+> **Wenn „Zu kurz" kommt:** Das Passwort hatte weniger als 12 Zeichen. Das
+> Skript bricht dann ganz ab — einfach neu starten.
+>
+> **Wenn „Die Eingaben stimmen nicht ueberein" kommt:** Beim zweiten Mal hat
+> sich ein Tippfehler eingeschlichen. Auch hier: neu starten.
 
 ## Schritt 8 · Ausprobieren
 

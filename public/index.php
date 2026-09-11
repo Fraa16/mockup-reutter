@@ -1,6 +1,10 @@
 <?php
 declare(strict_types=1);
 
+// Der oeffentliche Ordner heisst je nach Hoster anders. Wer ihn kennt, sagt es:
+// diese Datei liegt darin.
+define('PUBLIC_ROOT', __DIR__);
+
 require dirname(__DIR__) . '/app/bootstrap.php';
 
 /**

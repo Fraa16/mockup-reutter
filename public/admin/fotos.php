@@ -13,6 +13,9 @@ declare(strict_types=1);
  * POST passt. Beide Wege landen in derselben Verarbeitung.
  */
 
+// Siehe app/bootstrap.php: der Name des oeffentlichen Ordners steht nicht fest.
+define('PUBLIC_ROOT', dirname(__DIR__));
+
 require dirname(__DIR__, 2) . '/app/bootstrap.php';
 require APP_ROOT . '/lib/auth.php';
 require APP_ROOT . '/lib/speichern.php';

@@ -142,6 +142,23 @@ Panik zurückdrehen. Die Weiterleitungen bleiben dauerhaft.
 ## Postfach
 
 Neues Postfach auf der neuen Domain, Weiterleitung vom alten
-`info@clean-box.eu`. Dazu ein getrenntes `website@` für den Formularversand,
-damit `info@` unangetastet bleibt. **SPF und DKIM für die neue Domain setzen** —
-sonst landen die Formularmails im Spam.
+`info@clean-box.eu`. **SPF und DKIM für die neue Domain setzen** — sonst landen
+die Formularmails im Spam.
+
+**Entschieden am 05.09.2026: ein Postfach, `info@smartrepair-reutter.de`**, für
+Empfang und Formularversand zusammen. Die ursprünglich vorgesehene Trennung mit
+einem eigenen `website@` war ein Nice-to-have — sie hätte `info@` davor
+geschützt, von Problemen beim automatischen Versand berührt zu werden. Für
+einen Betrieb dieser Größe wiegt ein Postfach weniger zu pflegen schwerer.
+
+**Zwei Dinge hängen daran, und beide gehören vor den Umschalttag:**
+
+* Das Postfach muss stehen und der Versand einmal geprüft sein. Ohne
+  `app/config/zugangsdaten.php` wird jede Anfrage zwar gespeichert und im
+  Panel angezeigt, aber nicht verschickt — und das fällt niemandem auf, weil
+  eine fehlende Mail nichts meldet.
+* `kontakt.email` in den Stammdaten steht noch auf `info@clean-box.eu` und
+  erscheint damit im Impressum und im Fußbereich. Ob Daniel die Adresse
+  wechseln will, entscheidet **er**: Visitenkarten, Google-Profil und
+  Kundschaft mit der alten Adresse im Telefon hängen daran. Die Weiterleitung
+  vom alten Postfach macht beide Wege gangbar.

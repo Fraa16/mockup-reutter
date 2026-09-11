@@ -116,6 +116,50 @@ function bild_annehmen(array $datei, string $wunschname = ''): array
  * @param array{name?:string,type?:string,tmp_name?:string,error?:int,size?:int} $datei
  * @return array{0:bool,1:string|null} Erfolg und, im Fehlerfall, die Meldung
  */
+/**
+ * Dreht und spiegelt ein Bild gemaess der EXIF-Angabe zurecht.
+ *
+ * Die acht Werte des Standards decken jede Kombination aus Vierteldrehung und
+ * Spiegelung ab. Die gespiegelten (2, 4, 5, 7) entstehen vor allem an
+ * Frontkameras und kosten hier je eine Zeile mit.
+ *
+ * imagerotate() dreht gegen den Uhrzeigersinn. Wert 6 heisst „das Geraet lag
+ * im Uhrzeigersinn gedreht" und wird deshalb mit -90 Grad zurueckgeholt.
+ */
+function bild_ausrichten(GdImage $bild, int $ausrichtung): GdImage
+{
+    if ($ausrichtung < 2 || $ausrichtung > 8) {
+        return $bild;
+    }
+
+    /* Wert 4 steht fuer eine reine Spiegelung ohne Drehung — er gehoert
+       nicht zu 3, auch wenn beide „auf dem Kopf" wirken. */
+    $grad = match ($ausrichtung) {
+        3       => 180,
+        5, 6    => -90,
+        7, 8    => 90,
+        default => 0,
+    };
+
+    if ($grad !== 0) {
+        $gedreht = imagerotate($bild, $grad, 0);
+        if ($gedreht instanceof GdImage) {
+            imagedestroy($bild);
+            imagealphablending($gedreht, true);
+            imagesavealpha($gedreht, true);
+            $bild = $gedreht;
+        }
+    }
+
+    // Gespiegelt wird nach dem Drehen — in der anderen Reihenfolge landen
+    // die Werte 5 und 7 seitenverkehrt.
+    if (in_array($ausrichtung, [2, 4, 5, 7], true)) {
+        imageflip($bild, $ausrichtung === 4 ? IMG_FLIP_VERTICAL : IMG_FLIP_HORIZONTAL);
+    }
+
+    return $bild;
+}
+
 function bild_umwandeln(array $datei, string $zielpfad): array
 {
     if (($datei['error'] ?? UPLOAD_ERR_NO_FILE) === UPLOAD_ERR_NO_FILE) {
@@ -159,6 +203,25 @@ function bild_umwandeln(array $datei, string $zielpfad): array
     imagepalettetotruecolor($quelle);
     imagealphablending($quelle, true);
     imagesavealpha($quelle, true);
+
+    /* Handys und Kameras speichern die Drehung nicht in den Bilddaten, sondern
+       als Zusatzangabe daneben. Der Browser beachtet sie beim Anzeigen der
+       Originaldatei, GD beim Einlesen nicht — und beim Neukodieren nach WebP
+       faellt sie ersatzlos weg. Ohne den Ausgleich hier kaeme jedes hochkant
+       fotografierte Bild liegend heraus, und zwar endgueltig.
+
+       Die Angabe traegt in der Praxis nur JPEG. exif_read_data() steckt in
+       einer eigenen Erweiterung, die nicht ueberall aktiv ist; fehlt sie,
+       bleibt es beim bisherigen Verhalten statt bei einem Fehler. */
+    if ($info[2] === IMAGETYPE_JPEG && function_exists('exif_read_data')) {
+        $exif = @exif_read_data($datei['tmp_name']);
+        $quelle = bild_ausrichten($quelle, (int) ($exif['Orientation'] ?? 1));
+
+        // Nach einer Vierteldrehung sind Breite und Hoehe vertauscht. Die
+        // Verkleinerung unten rechnet sonst mit den alten Werten.
+        $breite = imagesx($quelle);
+        $hoehe  = imagesy($quelle);
+    }
 
     if ($breite > BILD_MAX_KANTE || $hoehe > BILD_MAX_KANTE) {
         $quelle = bild_skalieren($quelle, min(BILD_MAX_KANTE, $breite));
