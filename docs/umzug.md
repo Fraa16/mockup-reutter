@@ -35,24 +35,47 @@ Das Panel warnt sichtbar, solange die Sperre greift.
 
 ## Was noch fehlt
 
-Die vollständige Liste der alten Adressen. Aus dieser Umgebung ist
-`clean-box.eu` nicht erreichbar — der Proxy lässt sie nicht durch. Die Liste
-muss deshalb von außen kommen:
+Die vollständige Liste der alten Adressen. Aus dieser Umgebung ist weder
+`clean-box.eu` noch das Internet-Archiv erreichbar — der Proxy lässt beides
+nicht durch. Die Liste muss deshalb von außen kommen.
+
+**Der wget-Befehl, der hier früher stand, hilft auf einem Mac nicht weiter:**
+wget gehört nicht zum Lieferumfang von macOS, der Aufruf endet in
+`command not found`. Vier Wege, vom geringsten Aufwand aufwärts:
+
+1. **`clean-box.eu/sitemap.xml` und `/robots.txt` im Browser aufrufen.**
+   Dreißig Sekunden, und alte Baukasten- und CMS-Seiten haben oft eine, ohne
+   dass es jemand weiß. Hier stand frueher, damit sei die Liste vollständig —
+   dieser Fall hat das widerlegt: Die Sitemap ist von 2011 und nennt eine
+   fremde, längst tote Domain. Sie ist ein Anhaltspunkt, kein Nachweis; den
+   liefert erst Nummer 2.
+
+2. **Search Console, Property `clean-box.eu`: *Seiten → Indexiert →
+   Exportieren*.** Die wertvollste Liste, denn sie enthält genau die Adressen,
+   die Google kennt und die Besucher bringen. Rückwirkend verfügbar, sobald
+   die Property bestätigt ist.
+
+3. **Screaming Frog SEO Spider** — kostenlos bis 500 Seiten, Mac-Programm mit
+   Oberfläche. Findet auch, was Google nicht indexiert hat.
+
+4. Nur wenn es unbedingt das Terminal sein soll: Homebrew installieren, dann
+   `brew install wget`, dann der Befehl unten. Aufwändiger als die ersten drei.
 
 ```bash
-# 1 — Alles, was intern verlinkt ist
+# Alles, was intern verlinkt ist — setzt ein installiertes wget voraus
 wget --spider -r -l inf -np -e robots=off \
      --reject-regex '\.(jpg|jpeg|png|gif|css|js|ico)$' \
      https://www.clean-box.eu/ 2>&1 \
   | grep -oE 'https?://[^ ]*clean-box\.eu[^ ]*' | sort -u > alte-urls.txt
+```
 
-# 2 — Verwaiste Seiten, die nicht mehr verlinkt sind, aber noch ranken
+Verwaiste Seiten, die nicht mehr verlinkt sind, aber noch ranken, kennt das
+Internet-Archiv:
+
+```bash
 curl -s "http://web.archive.org/cdx/search/cdx?url=clean-box.eu*&fl=original&collapse=urlkey&limit=1000" \
   > archiv-urls.txt
 ```
-
-Dazu der Seitenbericht aus der Search Console (*Seiten → Indexiert →
-Exportieren*).
 
 ## Weiterleitungen
 
@@ -66,9 +89,24 @@ Der vorbereitete Block steht in `public/.htaccess`, auskommentiert. Regeln:
 - Jede Regel wird einzeln geprüft: genau ein 301, das Ziel liefert 200, keine
   Kette, keine Schleife.
 
-Bekannt sind bisher `/beklebung.html` und `/gallerie_beklebung.html` →
-`/leistungen/lackierarbeiten/#beklebung`, und `/ozonbehandlung.html` →
-`/leistungen/ozonbehandlung/`.
+**Erledigt am 11.09.2026.** Die `sitemap.xml` der alten Seite lieferte
+vierzehn Adressen; dazu kamen drei, die dort fehlen, weil die Seiten nach 2011
+entstanden: `ozonbehandlung.html`, `beklebung.html` und
+`gallerie_beklebung.html`. Alles steht in `public/.htaccess`, auskommentiert
+bis zum Umschalttag.
+
+Wer nachzählt, kommt auf **sechzehn** eigene `RewriteRule`-Zeilen und nicht auf
+siebzehn Adressen. Das ist richtig so: Eine der vierzehn Adressen aus der
+Sitemap ist die blanke Startseite `/`, und die braucht keine eigene Regel — sie
+läuft über die Kanonisierung ganz am Ende des Blocks auf die neue Startseite.
+Bleiben dreizehn plus die drei nachgetragenen, macht sechzehn Zeilen, und mit
+der Kanonisierung siebzehn Regeln.
+
+Die Sitemap selbst ist ein Fundstück: Sie trägt `lastmod` vom 21.05.2011 und
+nennt durchgehend `www.stuttgart-hagelschaden.de` — eine Domain, die heute
+nicht mehr auflöst. Dasselbe bei der `robots.txt`, die zusätzlich `/css/`
+sperrt. Beide Dateien liegen in `html/` und sind nach dem Umschalten aus dem
+Weg.
 
 ## Search Console
 
@@ -84,40 +122,124 @@ rückwirkend — was Google heute im Index hat, sieht man sofort nach der
 Bestätigung. Klicks und Impressionen dagegen fangen bei null an. Ohne die
 Property fehlt der Vergleichsmaßstab für „hat der Umzug geschadet?".
 
-Bestätigung per **URL-Präfix** und HTML-Datei ins Wurzelverzeichnis; die
-Domain-Property bräuchte einen DNS-Eintrag.
+Bestätigung als **Domain-Property über einen TXT-Eintrag im DNS**, nicht per
+URL-Präfix. Hier stand frueher das Gegenteil.
+
+Eine URL-Präfix-Property deckt immer genau eine Schreibweise ab — und welche
+Schreibweise die alte Seite im Index hat, wissen wir nicht. Die Sitemap hilft
+dabei ausdrücklich **nicht** weiter (siehe unten), es gibt also keine Quelle,
+aus der sich die richtige Variante ableiten liesse. Man saehe demnach nur einen
+Teil des Index und wuesste nicht einmal, welchen.
+
+Die Domain-Property deckt alle vier Varianten auf einmal ab und macht die Frage
+gegenstandslos. Der TXT-Eintrag ist bei IONOS unter *Domains & SSL → Domain →
+DNS* in einer Minute gesetzt: Typ `TXT`, Host `@`, Wert der
+`google-site-verification=…`-Text aus der Search Console.
+
+> **Die `sitemap.xml` der alten Seite ist wertlos — auch als Quelle für die
+> Weiterleitungen.** Sie liegt zwar unter `clean-box.eu/sitemap.xml`, aber
+> jede der vierzehn Adressen darin lautet `http://www.stuttgart-hagelschaden.de/…`.
+> Diese Domain löst heute nicht mehr auf (geprüft am 11.09.2026, kein
+> DNS-Eintrag); `clean-box.eu` dagegen schon.
+>
+> Eine Sitemap, die auf eine fremde Domain zeigt, verwertet Google für die
+> eigene Property nicht. Was Google unter `clean-box.eu` im Index hat, stammt
+> also **nicht** aus dieser Datei, sondern aus dem normalen Crawl. Daraus folgt
+> zweierlei: Die Adressliste für die Weiterleitungen kann die Sitemap nur als
+> Anhaltspunkt liefern, nicht als Nachweis — verbindlich ist allein der
+> Seitenbericht (*Indexierung → Seiten → Exportieren*). Und die Zahl der
+> „erkannten Seiten" in der Sitemap-Übersicht ist ohne Aussagekraft: Sie steht
+> dort auf 16, zuletzt gelesen am 20.09.2022, während die Datei heute vierzehn
+> Adressen enthält.
+
+> **Die Verknüpfung von IONOS ablehnen — sie wirft das Postfach ab.**
+> Google bietet für IONOS-Domains eine Schaltfläche an, die den TXT-Eintrag
+> automatisch setzt („Domain Connect"). Die Bestätigungsseite meldet dabei, sie
+> müsse *„nicht vereinbare DNS-Einträge entfernen"* — und listet den
+> **MX-Eintrag** auf, `@ → mx00.ionos.de`. Das ist genau der Eintrag, über den
+> `info@clean-box.eu` seine Mails bekommt.
+>
+> Ein Klick auf „Verbinden" legt also das Postfach still, und zwar lautlos:
+> Eingehende Mails prallen ab, und eine ausbleibende Mail meldet sich nicht.
+> Die Automatik ersetzt die ganze Zone durch eine Vorlage, statt einen Eintrag
+> zu ergänzen.
+>
+> Also **„Nein"**, und den TXT-Eintrag in der normalen DNS-Verwaltung von Hand
+> anlegen: *Domains & SSL → Domain → DNS → Record hinzufügen*, Typ `TXT`,
+> Host `@`. Danach prüfen, dass der MX-Eintrag unverändert dasteht. Mehrere
+> TXT-Einträge nebeneinander sind normal — SPF und DKIM kommen später dazu.
+>
+> Dieselbe Falle stellt sich bei `smartrepair-reutter.de`, sobald dort ein
+> Postfach eingerichtet ist.
 
 ## Umschalttag
 
 Die Dateien liegen zu diesem Zeitpunkt seit Wochen an Ort und Stelle. Es wird
 nichts hochgeladen und nichts verschoben.
 
-1. **`www.smartrepair-reutter.de` einrichten** und ebenfalls auf `neu/web/`
-   zeigen lassen. Die Domain selbst zeigt bereits dorthin — hier fehlt nur die
-   `www.`-Schreibweise, auf die die `.htaccess` kanonisiert. Das
-   Wildcard-Zertifikat von `smartrepair-reutter.de` deckt sie mit ab, ein
-   zweites Zertifikat ist nicht nötig.
-2. **Umzugsblock in der `.htaccess` scharfschalten** — erst jetzt, vorher
-   sperrt die Kanonisierung die Seite aus.
-3. **`seo.live_domain` im Panel eintragen** (*Stammdaten → Sichtbarkeit bei
+**Der Zuschnitt hat sich vereinfacht:** `html/` wird nicht mehr leergeräumt und
+mit einer Weiterleitungsdatei bestückt. Stattdessen zeigen **beide Domains auf
+`neu/web/`**, und der Umzugsblock in der einen `.htaccess` erledigt die
+Weiterleitungen. Damit ist auch die alte Falle vom Tisch: Die `robots.txt` und
+`sitemap.xml` von 2011 liegen in `html/` und werden schlicht nicht mehr
+ausgeliefert.
+
+1. **`www.smartrepair-reutter.de` einrichten** und auf `neu/web/` zeigen lassen.
+   Das Wildcard-Zertifikat deckt die Schreibweise mit ab.
+2. **`clean-box.eu` und `www.clean-box.eu` auf `neu/web/` umhängen.** Ab diesem
+   Moment ist die alte Seite offline und alles läuft über die Weiterleitungen.
+3. **Umzugsblock in der `.htaccess` scharfschalten** — die Rautezeichen vor den
+   `RewriteRule`- und `RewriteCond`-Zeilen entfernen.
+4. **`seo.live_domain` im Panel eintragen** (*Stammdaten → Sichtbarkeit bei
    Google*): `smartrepair-reutter.de`. Ohne diesen Schritt bleibt die Seite
    dauerhaft unsichtbar. Das Warnband im Panel verschwindet, sobald es sitzt.
-4. **Gegenprobe:** `curl https://www.smartrepair-reutter.de/robots.txt` muss
-   `Allow: /` und die Sitemap-Zeile zeigen. Dasselbe für `sitemap.xml`.
-   Zusätzlich eine beliebige Seite auf `noindex` prüfen — darf nicht mehr
-   drinstehen.
-5. **`html/` leeren** — erst jetzt, und nur dort. Weg müssen alle `*.html`,
-   `index.php`, `robots.txt`, `sitemap.xml` sowie `logs/`, `counter/`,
-   `cgi-bin/`. Danach kommt dorthin eine `.htaccess`, die ausschließlich
-   weiterleitet.
-   > Die Falle: Die `.htaccess` schickt nur an den Front-Controller, was keine
-   > echte Datei ist. Bliebe die alte `robots.txt` von 2011 liegen, lieferte
-   > Apache weiter sie aus — die generierte liefe nie.
-6. Google-Unternehmensprofil: Website-Adresse auf die neue Domain ändern.
-   Beim Namenswechsel das stärkste Signal, das wir haben
-7. Search Console: neue Sitemap einreichen, die alte **nicht** löschen —
-   Google arbeitet sie ab und lernt daraus die Weiterleitungen
-8. Adressänderungs-Werkzeug in der alten Property auslösen
+5. **Die beiden Hinweisbänder abschalten**, in `impressum.json` und
+   `datenschutz.json` jeweils `im_aufbau` auf `false` — aber erst, wenn die
+   darin genannte Bedingung wirklich erfüllt ist.
+6. **Gegenprobe** — mit `http://`, nicht `https://`:
+
+   ```bash
+   curl -sIL http://www.clean-box.eu/ozonbehandlung.html | grep -iE '^(HTTP|location)'
+   ```
+
+   Es darf **genau ein** `301` erscheinen, direkt auf
+   `https://www.smartrepair-reutter.de/leistungen/ozonbehandlung/`, gefolgt von
+   einem `200`. Das `http` ist der Kern der Prüfung: Die alte Seite lief nur
+   über http, also lauten alle Adressen im Google-Index so. Mit `https` geprüft
+   sähe eine Kette aus zwei Sprüngen genauso gut aus wie ein einzelner.
+
+   Dazu: `curl https://www.smartrepair-reutter.de/robots.txt` muss `Allow: /`
+   liefern, und eine beliebige Seite darf kein `noindex` mehr tragen.
+7. Google-Unternehmensprofil: Website-Adresse auf die neue Domain ändern.
+   Beim Namenswechsel das stärkste Signal, das wir haben.
+8. **Search Console: die neue Sitemap einreichen** — `sitemap.xml`, in der
+   Property `smartrepair-reutter.de`. Sie wird vom CMS erzeugt und ist damit
+   immer vollständig.
+
+   Die **alte** Sitemap bringt dabei nichts. Hier stand frueher, man solle sie
+   stehen lassen, weil Google daraus die Weiterleitungen lerne — das war
+   falsch: Ihre Adressen zeigen auf `stuttgart-hagelschaden.de`, eine Domain
+   ohne DNS-Eintrag (siehe den Kasten oben). Google kann daraus nichts
+   ablaufen, also lernt es daraus auch keine Weiterleitung. Sie in der alten
+   Property zu entfernen ist sauberer, als sie als Dauerfehler stehen zu
+   lassen; nötig ist beides nicht.
+
+   Was die Weiterleitungen tatsächlich bekannt macht, sind die 301er selbst:
+   Google ruft die alten Adressen von sich aus wieder auf, weil sie im Index
+   stehen, und sieht dabei das Ziel. Beschleunigen lässt sich das über Schritt 9
+   und über *URL-Prüfung → Indexierung beantragen* für die wichtigsten drei bis
+   vier alten Adressen.
+9. Adressänderungs-Werkzeug in der alten Property auslösen.
+
+`html/` kann danach in Ruhe archiviert und gelöscht werden. Solange es steht,
+ist der Rückweg offen.
+
+> **Ein Detail, das leicht übersehen wird:** Auch `clean-box.eu/robots.txt`
+> läuft über die Kanonisierung auf die neue Domain. Das ist richtig so —
+> Googlebot folgt bei der robots.txt bis zu fünf Weiterleitungen und benutzt
+> die am Ende. Bekäme die alte Domain dagegen ihre eigene robots.txt, stünde
+> dort `Disallow: /`, weil `seo_indexierbar()` nur die eingetragene Livedomain
+> freigibt — und Google käme nie dazu, die Weiterleitungen überhaupt zu sehen.
 
 ## Danach
 

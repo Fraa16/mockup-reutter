@@ -3,31 +3,88 @@
 # Getestet gegen IONOS Webhosting Plus (Apache, PHP 8.4)
 # =============================================================================
 
-# --- HTTPS erzwingen ---------------------------------------------------------
 RewriteEngine On
-RewriteCond %{HTTPS} !=on
-RewriteCond %{HTTP:X-Forwarded-Proto} !https
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # --- Umzug: alte Adressen und kanonischer Host -------------------------------
 # NOCH NICHT AKTIV. Zum Scharfschalten die Rautezeichen vor den RewriteCond-
-# und RewriteRule-Zeilen entfernen — aber erst, wenn die Domain wirklich auf
-# diesen Server zeigt. Vorher sperrt die Regel die Seite aus.
+# und RewriteRule-Zeilen entfernen — aber erst am Umschalttag, wenn beide
+# Domains auf diesen Ordner zeigen. Vorher sperrt die Kanonisierung die Seite
+# aus.
+#
+# Die Liste stammt aus der sitemap.xml der alten Seite (Stand 21.05.2011) plus
+# drei Adressen, die dort fehlen, weil die Seiten spaeter dazukamen:
+# ozonbehandlung, beklebung und gallerie_beklebung.
 #
 # Reihenfolge ist entscheidend: die Zuordnung der alten Adressen steht VOR der
 # Kanonisierung und traegt absolute Ziele. Sonst laeuft jede alte Adresse ueber
 # zwei Weiterleitungen statt ueber eine, und Google bewertet Ketten schlechter.
 #
-# Die Zeilen fuer die einzelnen alten Adressen fehlen noch — sie kommen aus dem
-# Crawl der alten Seite (siehe docs/umzug.md). Je alte Adresse eine Zeile:
-#
-#   RewriteRule ^ozonbehandlung\.html$ https://www.smartrepair-reutter.de/leistungen/ozonbehandlung/ [L,R=301]
-#
 # Nie pauschal auf die Startseite umleiten — das wertet Google als Soft-404 und
-# wirft die Platzierung der Einzelseite weg.
+# wirft die Platzierung der Einzelseite weg. Deshalb hat jede Adresse ihr
+# eigenes, thematisch passendes Ziel. Eine alte Adresse, die hier fehlt, endet
+# bewusst im 404: ehrlicher als ein falsches Ziel, und der Seitenbericht der
+# Search Console zeigt sie dann zum Nachtragen.
 
-# RewriteCond %{HTTP_HOST} !^www\.smartrepair-reutter\.de$ [NC]
-# RewriteRule ^ https://www.smartrepair-reutter.de%{REQUEST_URI} [L,R=301]
+# Die sechs Leistungsseiten
+#RewriteRule ^fahrzeugpflege_exterieur\.html$            https://www.smartrepair-reutter.de/leistungen/fahrzeugpflege-exterieur/ [L,R=301]
+#RewriteRule ^fahrzeugpflege_interieur\.html$            https://www.smartrepair-reutter.de/leistungen/fahrzeugpflege-interieur/ [L,R=301]
+#RewriteRule ^lackierarbeiten\.html$                     https://www.smartrepair-reutter.de/leistungen/lackierarbeiten/ [L,R=301]
+#RewriteRule ^dellenbeseitigung_hagelschaden\.html$      https://www.smartrepair-reutter.de/leistungen/dellen-hagelschaden/ [L,R=301]
+#RewriteRule ^lederreparatur\.html$                      https://www.smartrepair-reutter.de/leistungen/lederreparatur/ [L,R=301]
+#RewriteRule ^ozonbehandlung\.html$                      https://www.smartrepair-reutter.de/leistungen/ozonbehandlung/ [L,R=301]
+
+# Beklebung war nie eine eigene Seite, sondern ein Abschnitt der
+# Lackierarbeiten. [NE] ist hier noetig, sonst macht Apache aus dem # ein %23
+# und die Sprungmarke greift nicht.
+#RewriteRule ^beklebung\.html$                           https://www.smartrepair-reutter.de/leistungen/lackierarbeiten/#beklebung [L,NE,R=301]
+#RewriteRule ^gallerie_beklebung\.html$                  https://www.smartrepair-reutter.de/leistungen/lackierarbeiten/#beklebung [L,NE,R=301]
+
+# Die alte Galerie war nach Leistung aufgeteilt. Die neue filtert im Browser,
+# nicht ueber die Adresse — alle fuenf landen deshalb auf derselben Seite.
+# Thematisch richtig und allemal besser als ein 404.
+#RewriteRule ^gallerie\.html$                            https://www.smartrepair-reutter.de/galerie/ [L,R=301]
+#RewriteRule ^gallerie_exterieur\.html$                  https://www.smartrepair-reutter.de/galerie/ [L,R=301]
+#RewriteRule ^gallerie_interieur\.html$                  https://www.smartrepair-reutter.de/galerie/ [L,R=301]
+#RewriteRule ^gallerie_dellenbeseitigung_hagelschaden\.html$ https://www.smartrepair-reutter.de/galerie/ [L,R=301]
+#RewriteRule ^gallerie_lederreparatur\.html$             https://www.smartrepair-reutter.de/galerie/ [L,R=301]
+
+# Kontakt und Impressum
+#RewriteRule ^kontakt_und_anfahrt\.html$                 https://www.smartrepair-reutter.de/kontakt/ [L,R=301]
+#RewriteRule ^impressum\.html$                           https://www.smartrepair-reutter.de/impressum/ [L,R=301]
+
+# Die alte Startseite lag unter /index.php. Die Bedingung darueber ist kein
+# Zierrat: Ohne sie trifft diese Regel auch jeden internen Umschrieb des
+# Front-Controllers — der endet ja ebenfalls auf index.php — und jede einzelne
+# Seite der neuen Website liefe in eine Weiterleitungsschleife.
+# REDIRECT_STATUS ist beim ersten Aufruf leer und danach gesetzt.
+#RewriteCond %{ENV:REDIRECT_STATUS} ^$
+#RewriteRule ^index\.php$                                https://www.smartrepair-reutter.de/ [L,R=301]
+
+# Zum Schluss: alles, was nicht schon oben abgebogen ist, auf den kanonischen
+# Host. Das faengt auch die alte Startseite ab.
+#RewriteCond %{HTTP_HOST} !^www\.smartrepair-reutter\.de$ [NC]
+#RewriteRule ^ https://www.smartrepair-reutter.de%{REQUEST_URI} [L,R=301]
+
+# --- HTTPS erzwingen ---------------------------------------------------------
+# Steht bewusst NACH dem Umzugsblock, nicht davor. Die Reihenfolge entscheidet
+# darueber, ob eine alte Adresse ueber einen oder ueber zwei Spruenge ans Ziel
+# kommt — und sie betrifft nicht ein paar Randfaelle, sondern praktisch jeden
+# Besucher, der von aussen kommt: Die alte Seite laeuft nur ueber http, also
+# lauten auch alle Adressen im Google-Index und in fremden Links „http://".
+#
+# Stuende diese Regel oben, griffe sie zuerst und machte aus
+#   http://www.clean-box.eu/ozonbehandlung.html
+# erst  https://www.clean-box.eu/ozonbehandlung.html  (Sprung 1, ohne Nutzen)
+# und daraus https://www.smartrepair-reutter.de/leistungen/ozonbehandlung/
+# (Sprung 2). Die Umzugsregeln tragen ihre Ziele bereits mit https, der Umweg
+# ist also reine Verschwendung. Google bewertet Ketten schlechter als einen
+# einzelnen Sprung, und jeder Sprung kostet den Besucher eine Rundreise.
+#
+# Ein Loch entsteht durch die neue Reihenfolge nicht: Was keine Umzugsregel
+# trifft, faellt hier herunter und wird weiterhin auf https gezwungen.
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # --- Konfigurationsdateien nicht ausliefern ----------------------------------
 # Apache sperrt von Haus aus nur Dateien, die mit .ht beginnen — .user.ini
