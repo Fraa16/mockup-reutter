@@ -3,11 +3,7 @@
 # Getestet gegen IONOS Webhosting Plus (Apache, PHP 8.4)
 # =============================================================================
 
-# --- HTTPS erzwingen ---------------------------------------------------------
 RewriteEngine On
-RewriteCond %{HTTPS} !=on
-RewriteCond %{HTTP:X-Forwarded-Proto} !https
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # --- Umzug: alte Adressen und kanonischer Host -------------------------------
 # NOCH NICHT AKTIV. Zum Scharfschalten die Rautezeichen vor den RewriteCond-
@@ -68,6 +64,27 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 # Host. Das faengt auch die alte Startseite ab.
 #RewriteCond %{HTTP_HOST} !^www\.smartrepair-reutter\.de$ [NC]
 #RewriteRule ^ https://www.smartrepair-reutter.de%{REQUEST_URI} [L,R=301]
+
+# --- HTTPS erzwingen ---------------------------------------------------------
+# Steht bewusst NACH dem Umzugsblock, nicht davor. Die Reihenfolge entscheidet
+# darueber, ob eine alte Adresse ueber einen oder ueber zwei Spruenge ans Ziel
+# kommt — und sie betrifft nicht ein paar Randfaelle, sondern praktisch jeden
+# Besucher, der von aussen kommt: Die alte Seite laeuft nur ueber http, also
+# lauten auch alle Adressen im Google-Index und in fremden Links „http://".
+#
+# Stuende diese Regel oben, griffe sie zuerst und machte aus
+#   http://www.clean-box.eu/ozonbehandlung.html
+# erst  https://www.clean-box.eu/ozonbehandlung.html  (Sprung 1, ohne Nutzen)
+# und daraus https://www.smartrepair-reutter.de/leistungen/ozonbehandlung/
+# (Sprung 2). Die Umzugsregeln tragen ihre Ziele bereits mit https, der Umweg
+# ist also reine Verschwendung. Google bewertet Ketten schlechter als einen
+# einzelnen Sprung, und jeder Sprung kostet den Besucher eine Rundreise.
+#
+# Ein Loch entsteht durch die neue Reihenfolge nicht: Was keine Umzugsregel
+# trifft, faellt hier herunter und wird weiterhin auf https gezwungen.
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # --- Konfigurationsdateien nicht ausliefern ----------------------------------
 # Apache sperrt von Haus aus nur Dateien, die mit .ht beginnen — .user.ini

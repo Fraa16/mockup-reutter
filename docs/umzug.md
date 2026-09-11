@@ -44,8 +44,11 @@ wget gehört nicht zum Lieferumfang von macOS, der Aufruf endet in
 `command not found`. Vier Wege, vom geringsten Aufwand aufwärts:
 
 1. **`clean-box.eu/sitemap.xml` und `/robots.txt` im Browser aufrufen.**
-   Dreißig Sekunden. Existiert eine Sitemap, ist die Liste damit vollständig —
-   alte Baukasten- und CMS-Seiten haben oft eine, ohne dass es jemand weiß.
+   Dreißig Sekunden, und alte Baukasten- und CMS-Seiten haben oft eine, ohne
+   dass es jemand weiß. Hier stand frueher, damit sei die Liste vollständig —
+   dieser Fall hat das widerlegt: Die Sitemap ist von 2011 und nennt eine
+   fremde, längst tote Domain. Sie ist ein Anhaltspunkt, kein Nachweis; den
+   liefert erst Nummer 2.
 
 2. **Search Console, Property `clean-box.eu`: *Seiten → Indexiert →
    Exportieren*.** Die wertvollste Liste, denn sie enthält genau die Adressen,
@@ -89,8 +92,15 @@ Der vorbereitete Block steht in `public/.htaccess`, auskommentiert. Regeln:
 **Erledigt am 11.09.2026.** Die `sitemap.xml` der alten Seite lieferte
 vierzehn Adressen; dazu kamen drei, die dort fehlen, weil die Seiten nach 2011
 entstanden: `ozonbehandlung.html`, `beklebung.html` und
-`gallerie_beklebung.html`. Alle siebzehn stehen als Regeln in
-`public/.htaccess`, auskommentiert bis zum Umschalttag.
+`gallerie_beklebung.html`. Alles steht in `public/.htaccess`, auskommentiert
+bis zum Umschalttag.
+
+Wer nachzählt, kommt auf **sechzehn** eigene `RewriteRule`-Zeilen und nicht auf
+siebzehn Adressen. Das ist richtig so: Eine der vierzehn Adressen aus der
+Sitemap ist die blanke Startseite `/`, und die braucht keine eigene Regel — sie
+läuft über die Kanonisierung ganz am Ende des Blocks auf die neue Startseite.
+Bleiben dreizehn plus die drei nachgetragenen, macht sechzehn Zeilen, und mit
+der Kanonisierung siebzehn Regeln.
 
 Die Sitemap selbst ist ein Fundstück: Sie trägt `lastmod` vom 21.05.2011 und
 nennt durchgehend `www.stuttgart-hagelschaden.de` — eine Domain, die heute
@@ -113,15 +123,34 @@ Bestätigung. Klicks und Impressionen dagegen fangen bei null an. Ohne die
 Property fehlt der Vergleichsmaßstab für „hat der Umzug geschadet?".
 
 Bestätigung als **Domain-Property über einen TXT-Eintrag im DNS**, nicht per
-URL-Präfix. Hier stand frueher das Gegenteil — die Sitemap der alten Seite hat
-den Ausschlag gegeben: Sie nennt durchgehend `http://www.clean-box.eu`, also
-weder https noch die Variante ohne www.
+URL-Präfix. Hier stand frueher das Gegenteil.
 
-Eine URL-Präfix-Property deckt immer genau eine Schreibweise ab. Man saehe also
-nur einen Teil des Index und wuesste nicht einmal, welchen. Die Domain-Property
-deckt alle vier Varianten auf einmal ab, und der TXT-Eintrag ist bei IONOS
-unter *Domains & SSL → Domain → DNS* in einer Minute gesetzt: Typ `TXT`,
-Host `@`, Wert der `google-site-verification=…`-Text aus der Search Console.
+Eine URL-Präfix-Property deckt immer genau eine Schreibweise ab — und welche
+Schreibweise die alte Seite im Index hat, wissen wir nicht. Die Sitemap hilft
+dabei ausdrücklich **nicht** weiter (siehe unten), es gibt also keine Quelle,
+aus der sich die richtige Variante ableiten liesse. Man saehe demnach nur einen
+Teil des Index und wuesste nicht einmal, welchen.
+
+Die Domain-Property deckt alle vier Varianten auf einmal ab und macht die Frage
+gegenstandslos. Der TXT-Eintrag ist bei IONOS unter *Domains & SSL → Domain →
+DNS* in einer Minute gesetzt: Typ `TXT`, Host `@`, Wert der
+`google-site-verification=…`-Text aus der Search Console.
+
+> **Die `sitemap.xml` der alten Seite ist wertlos — auch als Quelle für die
+> Weiterleitungen.** Sie liegt zwar unter `clean-box.eu/sitemap.xml`, aber
+> jede der vierzehn Adressen darin lautet `http://www.stuttgart-hagelschaden.de/…`.
+> Diese Domain löst heute nicht mehr auf (geprüft am 11.09.2026, kein
+> DNS-Eintrag); `clean-box.eu` dagegen schon.
+>
+> Eine Sitemap, die auf eine fremde Domain zeigt, verwertet Google für die
+> eigene Property nicht. Was Google unter `clean-box.eu` im Index hat, stammt
+> also **nicht** aus dieser Datei, sondern aus dem normalen Crawl. Daraus folgt
+> zweierlei: Die Adressliste für die Weiterleitungen kann die Sitemap nur als
+> Anhaltspunkt liefern, nicht als Nachweis — verbindlich ist allein der
+> Seitenbericht (*Indexierung → Seiten → Exportieren*). Und die Zahl der
+> „erkannten Seiten" in der Sitemap-Übersicht ist ohne Aussagekraft: Sie steht
+> dort auf 16, zuletzt gelesen am 20.09.2022, während die Datei heute vierzehn
+> Adressen enthält.
 
 > **Die Verknüpfung von IONOS ablehnen — sie wirft das Postfach ab.**
 > Google bietet für IONOS-Domains eine Schaltfläche an, die den TXT-Eintrag
@@ -167,15 +196,39 @@ ausgeliefert.
 5. **Die beiden Hinweisbänder abschalten**, in `impressum.json` und
    `datenschutz.json` jeweils `im_aufbau` auf `false` — aber erst, wenn die
    darin genannte Bedingung wirklich erfüllt ist.
-6. **Gegenprobe:**
-   `curl -sI https://www.clean-box.eu/ozonbehandlung.html` muss **ein** 301 auf
-   `https://www.smartrepair-reutter.de/leistungen/ozonbehandlung/` zeigen, nicht
-   zwei. `curl https://www.smartrepair-reutter.de/robots.txt` muss `Allow: /`
+6. **Gegenprobe** — mit `http://`, nicht `https://`:
+
+   ```bash
+   curl -sIL http://www.clean-box.eu/ozonbehandlung.html | grep -iE '^(HTTP|location)'
+   ```
+
+   Es darf **genau ein** `301` erscheinen, direkt auf
+   `https://www.smartrepair-reutter.de/leistungen/ozonbehandlung/`, gefolgt von
+   einem `200`. Das `http` ist der Kern der Prüfung: Die alte Seite lief nur
+   über http, also lauten alle Adressen im Google-Index so. Mit `https` geprüft
+   sähe eine Kette aus zwei Sprüngen genauso gut aus wie ein einzelner.
+
+   Dazu: `curl https://www.smartrepair-reutter.de/robots.txt` muss `Allow: /`
    liefern, und eine beliebige Seite darf kein `noindex` mehr tragen.
 7. Google-Unternehmensprofil: Website-Adresse auf die neue Domain ändern.
    Beim Namenswechsel das stärkste Signal, das wir haben.
-8. Search Console: neue Sitemap einreichen, die alte **nicht** löschen —
-   Google arbeitet sie ab und lernt daraus die Weiterleitungen.
+8. **Search Console: die neue Sitemap einreichen** — `sitemap.xml`, in der
+   Property `smartrepair-reutter.de`. Sie wird vom CMS erzeugt und ist damit
+   immer vollständig.
+
+   Die **alte** Sitemap bringt dabei nichts. Hier stand frueher, man solle sie
+   stehen lassen, weil Google daraus die Weiterleitungen lerne — das war
+   falsch: Ihre Adressen zeigen auf `stuttgart-hagelschaden.de`, eine Domain
+   ohne DNS-Eintrag (siehe den Kasten oben). Google kann daraus nichts
+   ablaufen, also lernt es daraus auch keine Weiterleitung. Sie in der alten
+   Property zu entfernen ist sauberer, als sie als Dauerfehler stehen zu
+   lassen; nötig ist beides nicht.
+
+   Was die Weiterleitungen tatsächlich bekannt macht, sind die 301er selbst:
+   Google ruft die alten Adressen von sich aus wieder auf, weil sie im Index
+   stehen, und sieht dabei das Ziel. Beschleunigen lässt sich das über Schritt 9
+   und über *URL-Prüfung → Indexierung beantragen* für die wichtigsten drei bis
+   vier alten Adressen.
 9. Adressänderungs-Werkzeug in der alten Property auslösen.
 
 `html/` kann danach in Ruhe archiviert und gelöscht werden. Solange es steht,
