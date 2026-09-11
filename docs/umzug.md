@@ -112,8 +112,16 @@ rückwirkend — was Google heute im Index hat, sieht man sofort nach der
 Bestätigung. Klicks und Impressionen dagegen fangen bei null an. Ohne die
 Property fehlt der Vergleichsmaßstab für „hat der Umzug geschadet?".
 
-Bestätigung per **URL-Präfix** und HTML-Datei ins Wurzelverzeichnis; die
-Domain-Property bräuchte einen DNS-Eintrag.
+Bestätigung als **Domain-Property über einen TXT-Eintrag im DNS**, nicht per
+URL-Präfix. Hier stand frueher das Gegenteil — die Sitemap der alten Seite hat
+den Ausschlag gegeben: Sie nennt durchgehend `http://www.clean-box.eu`, also
+weder https noch die Variante ohne www.
+
+Eine URL-Präfix-Property deckt immer genau eine Schreibweise ab. Man saehe also
+nur einen Teil des Index und wuesste nicht einmal, welchen. Die Domain-Property
+deckt alle vier Varianten auf einmal ab, und der TXT-Eintrag ist bei IONOS
+unter *Domains & SSL → Domain → DNS* in einer Minute gesetzt: Typ `TXT`,
+Host `@`, Wert der `google-site-verification=…`-Text aus der Search Console.
 
 ## Umschalttag
 
