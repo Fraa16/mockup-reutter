@@ -7,19 +7,19 @@
     },
     "titel": "Allgemeine Geschäftsbedingungen",
     "lead": "Was zwischen Ihnen und uns gilt, wenn Sie ein Fahrzeug zur Aufbereitung oder Reparatur bringen. Verständlich gehalten — die verbindliche Fassung wird gerade geprüft.",
-    "stand": "noch offen",
+    "stand": "September 2026",
     "im_aufbau": true,
     "band_hinweis": "Gerüst mit den Punkten, die geregelt werden müssen. Die verbindliche Fassung kommt vom Anwalt oder Verband des Betriebs. Unwirksame Klauseln in AGB fallen ersatzlos weg — deshalb schreibt man sie nicht selbst.",
     "abschnitte": [
         {
             "titel": "Geltungsbereich",
             "absaetze": [
-                "Diese Bedingungen gelten für alle Verträge über Fahrzeugpflege, Aufbereitung, Dellenentfernung, Lackierarbeiten, Lederreparatur und Ozonbehandlung zwischen {{inhaber}}, {{firma}}, und dem Kunden."
+                "Diese Bedingungen gelten für alle Verträge über Fahrzeugpflege, Aufbereitung, Dellenentfernung, Lackierarbeiten, Lederreparatur, Ozonbehandlung, Abschleppen und Transporte zwischen {{inhaber}}, {{firma}}, und dem Kunden.",
+                "Eigenen Bedingungen des Kunden wird widersprochen, soweit nichts anderes ausdrücklich vereinbart ist.",
+                "Verbraucher ist jede natürliche Person, die ein Rechtsgeschäft zu Zwecken abschließt, die überwiegend weder ihrer gewerblichen noch ihrer selbständigen beruflichen Tätigkeit zugerechnet werden können. Unternehmer ist jede natürliche oder juristische Person oder rechtsfähige Personengesellschaft, die dabei in Ausübung ihrer selbständigen beruflichen oder gewerblichen Tätigkeit handelt.",
+                "Wir arbeiten für beide. Wo diese Bedingungen zwischen Verbrauchern und Unternehmern unterscheiden, ist das ausdrücklich gesagt."
             ],
-            "platzhalter": {
-                "titel": "Verbraucher oder Unternehmer — Antwort liegt vor",
-                "hinweis": "BEANTWORTET (alte AGB von 2018, § 1 Abs. 2): Der Betrieb leistet an Verbraucher UND Unternehmer — beide Begriffe sind dort definiert und die Regelungen unterscheiden durchgehend zwischen ihnen. Damit gilt das Widerrufsrecht gegenüber Verbrauchern, und gegenüber Unternehmern sind Verkürzungen möglich. Formulierung noch prüfen lassen."
-            }
+            "_quelle": "Uebernommen aus den alten AGB von 2018, § 1 — die Begriffsbestimmungen geben §§ 13, 14 BGB wieder. Ergaenzt um Abschleppen und Transporte, die es 2018 noch nicht auf der Website gab."
         },
         {
             "titel": "Angebot und Vertragsschluss",
@@ -62,12 +62,11 @@
         {
             "titel": "Gewährleistung und Nacharbeit",
             "absaetze": [
-                "Es gelten die gesetzlichen Gewährleistungsrechte. Fällt Ihnen nach der Abholung etwas auf, melden Sie sich — wir sehen es uns an und arbeiten nach, wenn die Arbeit nicht in Ordnung war."
+                "Es gelten die gesetzlichen Rechte bei Mängeln.",
+                "Fällt Ihnen nach der Abholung etwas auf, melden Sie sich — wir sehen es uns an und arbeiten nach, wenn die Arbeit nicht in Ordnung war. Am besten möglichst bald, solange sich der Zustand noch zuordnen lässt. Versäumen Sie das, ändert es an Ihren gesetzlichen Rechten nichts.",
+                "Gegenüber Unternehmern beträgt die Verjährungsfrist für Mängelansprüche ein Jahr ab Abnahme. Das gilt nicht für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit, nicht für vorsätzlich oder grob fahrlässig verursachte Schäden, nicht für arglistig verschwiegene Mängel und nicht, soweit wir eine Garantie übernommen haben."
             ],
-            "platzhalter": {
-                "titel": "Fristen und Ablauf festlegen — Antwort liegt vor",
-                "hinweis": "BEANTWORTET (alte AGB von 2018, § 5): Es gelten die gesetzlichen Mängelhaftungsrechte. Bei gebrauchten Sachen und gegenüber Unternehmern war die Frist auf ein Jahr ab Ablieferung verkürzt, mit den üblichen Ausnahmen (Verletzung von Leben, Körper, Gesundheit; Vorsatz und grobe Fahrlässigkeit; arglistig verschwiegener Mangel; übernommene Garantie). Achtung: Diese Fassung ist vor der Warenkauf-Richtlinie 2022 entstanden — die Verkürzung gegenüber Verbrauchern ist seither anders geregelt. Zwingend prüfen lassen."
-            }
+            "_quelle": "Alte AGB von 2018, § 5 — aber bewusst NICHT vollstaendig uebernommen. Dort war die Frist auch bei gebrauchten Sachen gegenueber Verbrauchern auf ein Jahr verkuerzt. Das stammt aus der Zeit vor der Warenkauf-Richtlinie: Seit dem 1.1.2022 verlangt § 476 Abs. 2 BGB dafuer eine eigens getroffene, ausdrueckliche Vereinbarung mit vorheriger Information — ueber AGB allein geht es nicht mehr. Und hier liegt ueberwiegend Werkvertrag vor, nicht Kauf; § 309 Nr. 8 b) ff) BGB steckt die Grenzen enger. Deshalb steht die Verkuerzung nur gegenueber Unternehmern, wo sie unstreitig zulaessig bleibt. Die sichere Richtung: lieber die gesetzliche Frist als eine Klausel, die unwirksam ist und ersatzlos wegfaellt."
         },
         {
             "titel": "Haftung",
@@ -82,12 +81,10 @@
         {
             "titel": "Zurückbehaltungsrecht",
             "absaetze": [
-                "Bis zur vollständigen Bezahlung der Rechnung steht uns an dem Fahrzeug ein Zurückbehaltungsrecht nach den gesetzlichen Vorschriften zu."
+                "Bis zur vollständigen Bezahlung der Rechnung steht uns an dem Fahrzeug ein Zurückbehaltungsrecht nach den gesetzlichen Vorschriften zu. Das gesetzliche Werkunternehmerpfandrecht bleibt unberührt.",
+                "Ein Zurückbehaltungsrecht können Sie ausüben, soweit es sich um Forderungen aus demselben Vertragsverhältnis handelt."
             ],
-            "platzhalter": {
-                "titel": "Vom Anwalt prüfen lassen — Antwort liegt vor",
-                "hinweis": "BEANTWORTET (alte AGB von 2018, § 4 Abs. 1): Ein Zurückbehaltungsrecht des Kunden nur bei Forderungen aus demselben Vertragsverhältnis. Das Werkunternehmerpfandrecht des Betriebs war dort nicht geregelt — es steht als § 647 BGB ohnehin im Gesetz. Formulierung prüfen lassen."
-            }
+            "_quelle": "Alte AGB von 2018, § 4 Abs. 1. Das Werkunternehmerpfandrecht war dort nicht geregelt — es steht als § 647 BGB ohnehin im Gesetz und wird hier nur benannt, nicht erweitert. Die Beschraenkung des Kunden auf Forderungen aus demselben Vertrag ist genau das, was § 309 Nr. 2 b) BGB zulaesst."
         },
         {
             "titel": "Schlussbestimmungen",

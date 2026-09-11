@@ -1,14 +1,14 @@
 {
     "_hinweis": "Inhalte der Seite /leistungen/transport-abschleppdienst/. Nicht aus dem Design-Bundle — die Leistung kam am 04.09.2026 vom Kunden dazu. Aufgebaut aus vorhandenen Bausteinen (Leistungs-Hero, Grenzen-Raster, Preisband, FAQ, Verwandte), damit kein neues CSS noetig ist.",
-    "_unbestaetigt": "Bestaetigt ist: der Betrieb faehrt mit EIGENEM Fahrzeug, schleppt ab und transportiert deutschlandweit Fahrzeuge, Maschinen und Sperriges. Mehr nicht. Deshalb steht hier bewusst KEINE Reaktionszeit, keine 24/7-Zusage, kein Preis und kein Radius in Kilometern — genau daran ist die Ozon-Seite gescheitert. Offen und vor Launch zu klaeren: Einsatzradius beim Abschleppen, Erreichbarkeit ausserhalb der Oeffnungszeiten, Nutzlast des Haengers, und ein Foto vom Transporter.",
+    "_unbestaetigt": "Bestaetigt ist: der Betrieb faehrt mit EIGENEM Fahrzeug, schleppt ab und transportiert deutschlandweit Fahrzeuge, Maschinen und Sperriges. Mehr nicht. Am 11.09.2026 bestaetigt: Abschleppen gilt ebenfalls deutschlandweit, nicht nur im Raum Stuttgart. Erreichbarkeit ausserhalb der Oeffnungszeiten und Nutzlast des Anhaengers werden auf Wunsch des Betriebs NICHT genannt. Deshalb steht hier bewusst KEINE Reaktionszeit, keine 24/7-Zusage, kein Preis und kein Radius in Kilometern — genau daran ist die Ozon-Seite gescheitert. Offen und vor Launch zu klaeren: Einsatzradius beim Abschleppen, Erreichbarkeit ausserhalb der Oeffnungszeiten, Nutzlast des Haengers, und ein Foto vom Transporter.",
     "seo": {
         "titel": "Abschleppdienst & Fahrzeugtransport Korntal — deutschlandweit | Smartrepair Reutter",
-        "beschreibung": "Abschleppen im Raum Stuttgart, Transporte deutschlandweit — Fahrzeuge, Maschinen, Sperriges. Auch nicht fahrbereit. Mit eigenem Fahrzeug, aus Korntal-Münchingen."
+        "beschreibung": "Abschleppen und Transporte deutschlandweit — Fahrzeuge, Maschinen, Sperriges. Auch nicht fahrbereit. Mit eigenem Fahrzeug, aus Korntal-Münchingen."
     },
     "hero": {
         "kicker": "Leistung 08 · Transport",
         "titel": "Wenn das Fahrzeug nicht fahren kann. Oder nicht fahren soll.",
-        "lead": "Abschleppen im Raum Stuttgart, Transporte deutschlandweit. Mit eigenem Fahrzeug — wer den Auftrag annimmt, fährt auch.",
+        "lead": "Abschleppen und Transporte deutschlandweit. Mit eigenem Fahrzeug — wer den Auftrag annimmt, fährt auch.",
         "cta": "Transport anfragen",
         "bild": "img-20.webp",
         "bild_alt": "Fahrzeug wird auf den Transporter geladen",
@@ -74,7 +74,7 @@
             },
             {
                 "frage": "Wie weit fahren Sie?",
-                "antwort": "Abgeschleppt wird im Raum Stuttgart, transportiert deutschlandweit. Ob Ihre Strecke sinnvoll machbar ist, sagen wir Ihnen am Telefon."
+                "antwort": "Abgeschleppt und transportiert wird deutschlandweit — der Betrieb sitzt in Korntal bei Stuttgart. Ob Ihre Strecke sinnvoll machbar ist, sagen wir Ihnen am Telefon."
             },
             {
                 "frage": "Transportieren Sie auch etwas anderes als Autos?",
