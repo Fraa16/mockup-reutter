@@ -4,6 +4,10 @@
         "_hinweis": "live_domain ist der Schalter, der die Seite fuer Google oeffnet. Solange er leer ist, liefert robots.txt ein 'Disallow: /' und jede Seite traegt ein noindex — egal unter welcher Adresse sie laeuft. Absicht: Der Testaufbau auf test.smartrepair-reutter.de darf nicht in den Index, und eine unfertige Seite bekommt man dort wochenlang nicht mehr heraus. Am Umschalttag hier 'smartrepair-reutter.de' eintragen, dann ist die Seite freigegeben. Genau eine Adresse — die Testadresse passt darauf nicht und bleibt gesperrt.",
         "live_domain": ""
     },
+    "anfragen": {
+        "_hinweis": "Nach dieser Frist loescht die Website Anfragen ohne Auftrag von selbst — samt mitgeschickter Fotos. Die Zahl steht zugleich in der Datenschutzerklaerung ({{anfragefrist}}), damit Zusage und Verhalten nicht auseinanderlaufen koennen. 0 schaltet das Aufraeumen ab; dann muss von Hand geloescht werden. Anfragen, die zu einem Auftrag gefuehrt haben, nimmt man im Panel von der Frist aus — fuer sie gelten sechs bis zehn Jahre.",
+        "frist_monate": 6
+    },
     "firma": {
         "_aufgabe_kunde": "Der Betrieb heisst kuenftig 'Smartrepair Reutter' — so, wie das Google-Unternehmensprofil seit Jahren laeuft. Damit bleibt das Profil mit seinen 281 Rezensionen unangetastet und die Website zieht nach. Am Umschalttag ist im Profil nur die Website-Adresse auf die neue Domain zu aendern.",
         "name": "Smartrepair Reutter",
@@ -30,7 +34,7 @@
         "telefon_link": "+4971182859400",
         "mobil": "0172 / 6 28 97 25",
         "mobil_link": "+491726289725",
-        "email": "info@clean-box.eu"
+        "email": "info@smartrepair-reutter.de"
     },
     "oeffnungszeiten": {
         "_korrektur": "Das Mockup schrieb 'Mo–Fr 8–18 Uhr · Sa nach Absprache'. Laut Google-Profil und Kunde gilt in der Regel Mo–Fr 9–17 Uhr, Samstag geschlossen. Der Betrieb ist eine Werkstatt, keine Rezeption — deshalb der Hinweis auf den Anruf vorher.",

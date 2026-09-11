@@ -12,6 +12,20 @@ require dirname(__DIR__) . '/app/bootstrap.php';
  * hierher um, was keine echte Datei ist.
  */
 
+/* Einmal taeglich alte Anfragen loeschen, angestossen von einem beliebigen
+   Seitenaufruf. Bewusst kein zeitgesteuerter Auftrag beim Hoster: Der muesste
+   eingerichtet werden, und nach der Uebergabe soll niemand mehr etwas
+   einrichten muessen.
+
+   Als Shutdown-Funktion, damit es nach der Antwort laeuft — der Besucher
+   wartet nicht darauf — und damit es auch greift, wenn eine Route vorher mit
+   exit aussteigt. Im Normalfall kostet es einen Blick auf den Zeitstempel
+   einer Datei. */
+register_shutdown_function(static function (): void {
+    require_once APP_ROOT . '/lib/anfrage.php';
+    anfragen_aufraeumen_faellig((int) get(site(), 'anfragen.frist_monate', 0));
+});
+
 $pfad = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
 $pfad = '/' . trim(rawurldecode($pfad), '/');
 $pfad = $pfad === '/' ? '/' : $pfad . '/';

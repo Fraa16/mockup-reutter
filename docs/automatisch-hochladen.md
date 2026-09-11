@@ -101,3 +101,33 @@ Webspace. Zwei Wege, beide in Ordnung:
 * Geheimnisse löschen und das SFTP-Passwort bei IONOS neu setzen
 
 Was nicht geht: das Repository liegen lassen und die Geheimnisse vergessen.
+
+---
+
+## Anfragen löschen sich selbst
+
+Unabhängig von der Übertragung, aber aus demselben Gedanken: Jede Anfrage aus
+dem Formular liegt als Datei auf dem Server — mit Namen, Telefonnummer und den
+mitgeschickten Fotos. Die Datenschutzerklärung verspricht, dass sie nach einer
+Frist verschwinden. Bisher hätte das jemand von Hand tun müssen.
+
+Die Frist steht in den **Stammdaten → Anfragen aufbewahren** und liegt bei
+**6 Monaten**. Dieselbe Zahl erscheint in der Datenschutzerklärung — sie kommt
+aus derselben Quelle, Zusage und Verhalten können also nicht auseinanderlaufen.
+Eine `0` schaltet das automatische Löschen ab; die Erklärung formuliert den
+Satz dann entsprechend um.
+
+Angestoßen wird das Aufräumen von einem beliebigen Seitenaufruf, höchstens
+einmal am Tag. Kein zeitgesteuerter Auftrag beim Hoster, der eingerichtet
+werden müsste — nach der Übergabe soll niemand mehr etwas einrichten.
+
+**Angefasst wird ausschließlich `data/anfragen/`.** Die Fotos, die der Betrieb
+für die Website hochlädt, liegen in `web/uploads/` und haben mit dieser Frist
+nichts zu tun.
+
+### Anfragen, aus denen ein Auftrag wurde
+
+Für die gelten sechs bis zehn Jahre, nicht sechs Monate. Die Website kann das
+nicht wissen, deshalb gibt es in der Anfragenliste den Knopf **„Von der Frist
+ausnehmen"**. Ausgenommene Anfragen bleiben liegen, bis sie jemand von Hand
+löscht.

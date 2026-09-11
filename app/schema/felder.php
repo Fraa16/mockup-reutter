@@ -8,7 +8,12 @@ declare(strict_types=1);
  * der Sektionen und CSS bleiben unangetastet. Genau das schuetzt das
  * abgenommene Design.
  *
- * Feldtypen: text, mehrzeilig, absaetze, zahl, bild, auswahl, liste
+ * Feldtypen: text, mehrzeilig, absaetze, zahl, bild, liste
+ *
+ * Hier stand frueher auch 'auswahl'. Den Typ gibt es in edit.php nicht — ein
+ * Feld damit waere stillschweigend als Textfeld erschienen, und gespeichert
+ * haette speichern.php einen ungeprueften Wert. Wer ihn braucht, baut ihn an
+ * beiden Stellen ein, statt sich auf diese Zeile zu verlassen.
  * 'pfad' ist die Punktnotation in die jeweilige JSON-Datei.
  * 'gruppe' bestimmt, unter welcher Ueberschrift der Eintrag im Panel steht.
  */
@@ -216,6 +221,14 @@ return [
                     ['pfad' => 'kennzahlen.google_anzahl.wert',    'typ' => 'zahl', 'label' => 'Anzahl Google-Rezensionen'],
                     ['pfad' => 'kennzahlen.google_profil_url',     'typ' => 'text', 'label' => 'Link zum Google-Profil',
                      'hilfe' => 'Die Bewertung im Fußbereich wird damit anklickbar — so kann jeder sie nachprüfen. Leer lassen schaltet den Link ab.'],
+                ],
+            ],
+            [
+                'titel'   => 'Anfragen aufbewahren',
+                'hinweis' => 'Anfragen enthalten Namen, Telefonnummern und mitgeschickte Fotos. Nach dieser Frist löscht die Website sie von selbst. Dieselbe Zahl steht in der Datenschutzerklärung — ändern Sie sie hier, ändert sie sich dort mit. Eine Anfrage, aus der ein Auftrag wurde, nehmen Sie in der Anfragenliste einzeln von der Frist aus.',
+                'felder'  => [
+                    ['pfad' => 'anfragen.frist_monate', 'typ' => 'zahl', 'label' => 'Löschen nach … Monaten',
+                     'hilfe' => 'Üblich sind 6. Eine 0 schaltet das automatische Löschen ab — dann muss von Hand gelöscht werden.'],
                 ],
             ],
             [

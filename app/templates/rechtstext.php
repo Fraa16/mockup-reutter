@@ -40,6 +40,21 @@ $marken = [
     '{{mobil}}'         => (string) get($s, 'kontakt.mobil', ''),
     '{{werkstatt}}'     => trim(get($s, 'firma.strasse', '') . ', ' . get($s, 'firma.plz', '') . ' ' . get($s, 'firma.ort', ''), ', '),
     '{{postanschrift}}' => trim(get($s, 'firma.postanschrift.strasse', '') . ', ' . get($s, 'firma.postanschrift.plz', '') . ' ' . get($s, 'firma.postanschrift.ort', ''), ', '),
+    /* Die Frist steht nur an einer Stelle — in den Stammdaten. Zwei Quellen
+       waeren hier besonders heikel: Eine Datenschutzerklaerung, die eine
+       andere Frist nennt als die, nach der wirklich geloescht wird, ist
+       schlimmer als gar keine Angabe. */
+    /* Geliefert wird die ganze Wendung, nicht nur die Zahl. Zwei Gruende:
+       „6 Monaten nach Eingang" waere grammatisch falsch, und bei einer 0 —
+       automatisches Loeschen abgeschaltet — muss der Satz etwas anderes sagen,
+       sonst verspricht die Erklaerung etwas, das nicht stattfindet. */
+    '{{anfragefrist}}' => (static function (): string {
+        $m = (int) get(site(), 'anfragen.frist_monate', 0);
+        if ($m <= 0) {
+            return 'von Hand, sobald sie für den Zweck nicht mehr erforderlich sind';
+        }
+        return 'automatisch ' . ($m === 1 ? 'einen Monat' : $m . ' Monate') . ' nach Eingang';
+    })(),
 ];
 $einsetzen = static fn (string $t): string => strtr($t, $marken);
 
