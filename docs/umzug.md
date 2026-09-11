@@ -118,9 +118,28 @@ Weg.
 | `smartrepair-reutter.de` | ab dem Umschalttag |
 
 Die alte Property **jetzt** anlegen, nicht später: Der Seitenbericht ist
-rückwirkend — was Google heute im Index hat, sieht man sofort nach der
-Bestätigung. Klicks und Impressionen dagegen fangen bei null an. Ohne die
-Property fehlt der Vergleichsmaßstab für „hat der Umzug geschadet?".
+rückwirkend — er zeigt, was Google im Index hat, nicht erst das, was ab heute
+passiert. Klicks und Impressionen dagegen fangen bei null an. Ohne die Property
+fehlt der Vergleichsmaßstab für „hat der Umzug geschadet?".
+
+> **Direkt nach der Bestätigung ist der Bericht leer.** Es steht dort *„Die
+> Daten werden verarbeitet — bitte versuch es in einem Tag noch einmal"*, und
+> zwar in beiden Kästen. Das ist kein Fehler und kein Zeichen dafür, dass die
+> Bestätigung nicht gegriffen hat: Google baut die Berichte für eine neue
+> Property erst auf. Ein bis drei Tage sind normal. Hier stand frueher, man
+> sehe den Bestand „sofort nach der Bestätigung" — das stimmt nicht.
+>
+> Ein weiterer Grund, die Property früh anzulegen: Diese Wartezeit will man
+> nicht am Umschalttag haben.
+>
+> Solange der Bericht lädt, gibt es zwei Auskünfte, die sofort funktionieren:
+>
+> * **`site:clean-box.eu`** in die normale Google-Suche. Braucht keinen Login
+>   und zeigt ungefähr, welche Adressen im Index stehen. Nicht vollständig und
+>   nicht verbindlich, aber in dreißig Sekunden da.
+> * **URL-Prüfung** oben in der Search Console. Sie arbeitet sofort und
+>   beantwortet für **eine** Adresse verbindlich, ob Google sie kennt — gut, um
+>   einzelne alte Adressen gezielt nachzuschlagen.
 
 Bestätigung als **Domain-Property über einen TXT-Eintrag im DNS**, nicht per
 URL-Präfix. Hier stand frueher das Gegenteil.
