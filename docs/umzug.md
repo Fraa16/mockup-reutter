@@ -123,6 +123,26 @@ deckt alle vier Varianten auf einmal ab, und der TXT-Eintrag ist bei IONOS
 unter *Domains & SSL → Domain → DNS* in einer Minute gesetzt: Typ `TXT`,
 Host `@`, Wert der `google-site-verification=…`-Text aus der Search Console.
 
+> **Die Verknüpfung von IONOS ablehnen — sie wirft das Postfach ab.**
+> Google bietet für IONOS-Domains eine Schaltfläche an, die den TXT-Eintrag
+> automatisch setzt („Domain Connect"). Die Bestätigungsseite meldet dabei, sie
+> müsse *„nicht vereinbare DNS-Einträge entfernen"* — und listet den
+> **MX-Eintrag** auf, `@ → mx00.ionos.de`. Das ist genau der Eintrag, über den
+> `info@clean-box.eu` seine Mails bekommt.
+>
+> Ein Klick auf „Verbinden" legt also das Postfach still, und zwar lautlos:
+> Eingehende Mails prallen ab, und eine ausbleibende Mail meldet sich nicht.
+> Die Automatik ersetzt die ganze Zone durch eine Vorlage, statt einen Eintrag
+> zu ergänzen.
+>
+> Also **„Nein"**, und den TXT-Eintrag in der normalen DNS-Verwaltung von Hand
+> anlegen: *Domains & SSL → Domain → DNS → Record hinzufügen*, Typ `TXT`,
+> Host `@`. Danach prüfen, dass der MX-Eintrag unverändert dasteht. Mehrere
+> TXT-Einträge nebeneinander sind normal — SPF und DKIM kommen später dazu.
+>
+> Dieselbe Falle stellt sich bei `smartrepair-reutter.de`, sobald dort ein
+> Postfach eingerichtet ist.
+
 ## Umschalttag
 
 Die Dateien liegen zu diesem Zeitpunkt seit Wochen an Ort und Stelle. Es wird
