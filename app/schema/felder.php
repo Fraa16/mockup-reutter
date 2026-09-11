@@ -8,7 +8,12 @@ declare(strict_types=1);
  * der Sektionen und CSS bleiben unangetastet. Genau das schuetzt das
  * abgenommene Design.
  *
- * Feldtypen: text, mehrzeilig, absaetze, zahl, bild, auswahl, liste
+ * Feldtypen: text, mehrzeilig, absaetze, zahl, bild, liste
+ *
+ * Hier stand frueher auch 'auswahl'. Den Typ gibt es in edit.php nicht — ein
+ * Feld damit waere stillschweigend als Textfeld erschienen, und gespeichert
+ * haette speichern.php einen ungeprueften Wert. Wer ihn braucht, baut ihn an
+ * beiden Stellen ein, statt sich auf diese Zeile zu verlassen.
  * 'pfad' ist die Punktnotation in die jeweilige JSON-Datei.
  * 'gruppe' bestimmt, unter welcher Ueberschrift der Eintrag im Panel steht.
  */

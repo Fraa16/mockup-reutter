@@ -7,9 +7,9 @@
     },
     "titel": "Datenschutzerklärung",
     "lead": "Was beim Besuch dieser Website und bei einer Anfrage mit Ihren Daten passiert. Kurz vorweg: Diese Seite lädt nichts von fremden Servern nach und setzt keine Cookies, die eine Einwilligung bräuchten.",
-    "stand": "noch offen",
+    "stand": "September 2026",
     "im_aufbau": true,
-    "band_hinweis": "Gerüst mit den technisch belegbaren Angaben. Die verbindliche Fassung zieht der Betrieb über eRecht24 oder die IT-Recht Kanzlei — die hier beschriebenen Verarbeitungen stimmen und können dort eingesetzt werden.",
+    "band_hinweis": "Bis auf einen Punkt vollständig. Der Vertrag zur Auftragsverarbeitung mit IONOS muss geschlossen sein, bevor die Seite öffentlich geht — er wird im IONOS-Kundenkonto angenommen und dauert zwei Minuten. Dieser Hinweis darf am Tag des Livegangs weg.",
     "abschnitte": [
         {
             "titel": "Verantwortliche Stelle",
@@ -31,24 +31,22 @@
         {
             "titel": "Hosting",
             "absaetze": [
-                "Diese Website wird bei einem Hoster in Deutschland betrieben. Der Hoster verarbeitet dabei Daten, die beim Aufruf der Seiten anfallen — insbesondere die in den Server-Logfiles genannten.",
+                "Diese Website wird bei der IONOS SE, Elgendorfer Straße 57, 56410 Montabaur, Deutschland, betrieben. Die Server stehen in Deutschland.",
+                "Der Hoster verarbeitet dabei Daten, die beim Aufruf der Seiten anfallen — insbesondere die im nächsten Abschnitt genannten Server-Logfiles.",
+                "Mit dem Hoster besteht ein Vertrag über die Auftragsverarbeitung nach Art. 28 DSGVO. Er verarbeitet die Daten ausschließlich nach unseren Weisungen und für den Betrieb dieser Website.",
                 "Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO: Wir haben ein berechtigtes Interesse an einer sicheren und zuverlässigen Bereitstellung unserer Website."
             ],
-            "platzhalter": {
-                "titel": "Hoster benennen und Auftragsverarbeitungsvertrag prüfen",
-                "hinweis": "Hier gehört der Name des Hosters mit Anschrift hin (nach jetzigem Stand IONOS SE, Elgendorfer Str. 57, 56410 Montabaur). Mit dem Hoster muss ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO bestehen — bei IONOS wird er im Kundenkonto abgeschlossen."
-            }
+            "_aufgabe_kunde": "Der Satz zum Auftragsverarbeitungsvertrag muss stimmen, bevor die Seite oeffentlich geht. Bei IONOS wird der Vertrag im Kundenkonto geschlossen — suchen nach 'Auftragsverarbeitung' oder 'AV-Vertrag', annehmen, fertig. Dauert zwei Minuten und ist ohnehin Pflicht, unabhaengig von dieser Seite."
         },
         {
             "titel": "Server-Logfiles",
             "absaetze": [
-                "Beim Aufruf dieser Website erhebt der Hoster automatisch Informationen, die Ihr Browser übermittelt: aufgerufene Seite, Datum und Uhrzeit, übertragene Datenmenge, Browsertyp und -version, Betriebssystem, verweisende Seite und die IP-Adresse.",
-                "Diese Daten werden nicht mit anderen Datenquellen zusammengeführt und dienen dem sicheren Betrieb der Website. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO."
+                "Beim Aufruf dieser Website erhebt der Hoster automatisch Informationen, die Ihr Browser übermittelt: aufgerufene Seite, Datum und Uhrzeit, übertragene Datenmenge, Browsertyp und -version, Betriebssystem, die zuvor besuchte Seite und die IP-Adresse.",
+                "Diese Daten werden nicht mit anderen Datenquellen zusammengeführt und nicht dazu verwendet, das Verhalten einzelner Besucher auszuwerten. Sie dienen dem sicheren und störungsfreien Betrieb der Website.",
+                "Die Protokolle löscht der Hoster automatisch, sobald sie für diesen Zweck nicht mehr erforderlich sind — üblicherweise nach wenigen Tagen bis Wochen. Die genaue Frist legt der Hoster fest; sie lässt sich bei ihm erfragen.",
+                "Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO."
             ],
-            "platzhalter": {
-                "titel": "Speicherdauer der Logfiles beim Hoster erfragen",
-                "hinweis": "Üblich sind sieben bis dreißig Tage. Die tatsächliche Frist beim Hoster erfragen und hier eintragen, statt eine zu schätzen."
-            }
+            "_hinweis": "Kein Platzhalter mehr, aber verbesserungsfaehig: Art. 13 Abs. 2 lit. a DSGVO laesst ausdruecklich die Kriterien zu, wenn sich keine feste Dauer angeben laesst — und die Protokolle gehoeren dem Hoster, nicht uns. Sobald IONOS die tatsaechliche Frist nennt, gehoert sie hier als Zahl hinein; das ist praeziser als 'wenige Tage bis Wochen'."
         },
         {
             "titel": "Anfrageformular, Telefon und E-Mail",

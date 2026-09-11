@@ -7,9 +7,9 @@
     },
     "titel": "Impressum",
     "lead": "Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG). Anschrift, Inhaber, Kontaktdaten und Umsatzsteuer-Identifikationsnummer sind eingetragen.",
-    "stand": "noch offen",
+    "stand": "September 2026",
     "im_aufbau": true,
-    "band_hinweis": "Gerüst mit den belegten Daten. Die noch markierten Felder und die abschließende Prüfung gehören zum Anwalt oder Verband des Betriebs — verbindliche Rechtstexte kommen nicht von uns.",
+    "band_hinweis": "Bis auf einen Punkt vollständig. Der Satz zu den Fotos stimmt erst, wenn die Platzhalterbilder ersetzt sind — derselbe Punkt, der auch über der Galerie steht. Dieser Hinweis darf am Tag des Livegangs weg.",
     "abschnitte": [
         {
             "titel": "Angaben gemäß § 5 DDG",
@@ -90,13 +90,12 @@
         {
             "titel": "Urheberrecht",
             "absaetze": [
-                "Die durch die Betreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors beziehungsweise Erstellers.",
-                "Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet."
+                "Die durch die Betreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors oder Erstellers.",
+                "Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.",
+                "Alle Fotos auf dieser Website sind eigene Aufnahmen des Betriebs. Fremdmaterial wird nicht verwendet.",
+                "Die verwendeten Schriften Barlow und Saira stehen unter der SIL Open Font License und werden vom eigenen Server ausgeliefert."
             ],
-            "platzhalter": {
-                "titel": "Bildnachweise ergänzen",
-                "hinweis": "Solange Stock- oder KI-Material auf der Website steht, gehört hierher, woher es stammt und unter welcher Lizenz es verwendet wird. Sobald ausschließlich eigene Fotos des Betriebs verwendet werden, kann der Punkt entfallen."
-            }
+            "_aufgabe_kunde": "Der Satz 'Alle Fotos sind eigene Aufnahmen' wird erst mit dem Austausch der Platzhalterbilder wahr. Er steht wortgleich schon ueber der Galerie und gehoert zur selben Abnahme — solange Platzhalter drin sind, darf die Seite nicht oeffentlich gehen. Die Google-Sperre haelt sie bis dahin zurueck."
         }
     ],
     "_korrektur_handwerksrolle": "Abschnitt 'Handwerksrolle und Berufsbezeichnung' entfernt. Der Betrieb ist laut Kunde nicht in der Handwerksrolle eingetragen; Fahrzeugpflege und Aufbereitung sind zulassungsfrei. § 5 Abs. 1 Nr. 5 DDG verlangt die Angabe nur bei zulassungspflichtiger Taetigkeit. 'Meisterbetrieb' darf nirgends auf der Website stehen.",
