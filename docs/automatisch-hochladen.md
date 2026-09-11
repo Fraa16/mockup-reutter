@@ -87,7 +87,7 @@ Der letzte Schritt ruft die Website auf und meldet einen Fehlschlag, wenn
 
 | Meldung | Ursache |
 |---|---|
-| `Das Repository-Geheimnis IONOS_… fehlt` | Name vertippt — Groß-/Kleinschreibung zählt |
+| `Ein Repository-Geheimnis fehlt (…)` | Name vertippt — Groß-/Kleinschreibung zählt |
 | `Login failed` | Passwort stimmt nicht mehr. Wurde es bei IONOS geändert, gehört es auch hier neu hinterlegt |
 | `Fatal error: Host key verification failed` | Der Server hat einen neuen Schlüssel. Dann melden, bevor irgendetwas bestätigt wird |
 | Die Änderung erscheint nicht | Lag sie in `data/`? Siehe oben |

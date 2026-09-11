@@ -39,37 +39,47 @@ jobs:
 
       - name: Uebertragen
         env:
-          SERVER:   ${{ secrets.IONOS_SERVER }}
-          BENUTZER: ${{ secrets.IONOS_BENUTZER }}
-          PASSWORT: ${{ secrets.IONOS_PASSWORT }}
-          TROCKEN:  ${{ inputs.probelauf && '--dry-run' || '' }}
+          SERVER:       ${{ secrets.IONOS_SERVER }}
+          BENUTZER:     ${{ secrets.IONOS_BENUTZER }}
+          LFTP_PASSWORD: ${{ secrets.IONOS_PASSWORT }}
+          TROCKEN:      ${{ inputs.probelauf && '--dry-run' || '' }}
         run: |
           set -euo pipefail
-          for name in SERVER BENUTZER PASSWORT; do
+          for name in SERVER BENUTZER LFTP_PASSWORD; do
             if [ -z "${!name}" ]; then
-              echo "::error::Das Repository-Geheimnis IONOS_$name fehlt. Siehe docs/automatisch-hochladen.md."
+              echo "::error::Ein Repository-Geheimnis fehlt ($name). Siehe docs/automatisch-hochladen.md."
               exit 1
             fi
           done
 
-          # --only-newer waere hier wirkungslos: Der Checkout setzt allen
-          # Dateien den aktuellen Zeitstempel, sie gaelten also immer als neuer.
-          # Die Seite ist klein genug, dass ein vollstaendiger Durchlauf
-          # weniger Aufwand ist als eine Zeitstempel-Buchhaltung.
+          # Die Befehle kommen ueber die Standardeingabe, nicht als -c "…".
+          # Grund: In der Zeichenkette hinter -c muesste jedes $ vor der Shell
+          # geschuetzt werden — dann bekommt lftp sie woertlich, und lftp setzt
+          # keine Shell-Variablen ein. Genau daran ist der erste Lauf
+          # gescheitert: „hostname contains invalid characters", weil dort
+          # buchstaeblich $SERVER als Servername ankam.
           #
-          # public/uploads/ bleibt bewusst aussen vor: Dort liegen die Fotos,
-          # die ueber das Panel hereinkommen. Die gehoeren dem Server, nicht
-          # dem Repository — und jeder Durchlauf wuerde sonst sieben Megabyte
-          # Platzhalterbilder erneut hochschieben.
-          lftp -c "
-            set sftp:auto-confirm yes;
-            set net:max-retries 3;
-            set net:timeout 20;
-            open -u \"\$BENUTZER\",\"\$PASSWORT\" sftp://\"\$SERVER\";
-            mirror -R --verbose $TROCKEN                    app/    neu/app/;
-            mirror -R --verbose $TROCKEN                    bin/    neu/bin/;
-            mirror -R --verbose $TROCKEN --exclude ^uploads/ public/ neu/web/;
-          "
+          # Das Passwort steht in LFTP_PASSWORD und wird mit --env-password
+          # gelesen, statt in der Befehlszeile zu stehen, wo es jeder Blick in
+          # die Prozessliste mitnaehme.
+          #
+          # --only-newer waere wirkungslos: Der Checkout setzt allen Dateien
+          # den aktuellen Zeitstempel, sie gaelten also immer als neuer.
+          #
+          # public/uploads/ bleibt aussen vor: Dort liegen die Fotos aus dem
+          # Panel. Die gehoeren dem Server, nicht dem Repository — und jeder
+          # Durchlauf schoebe sonst sieben Megabyte Platzhalter erneut hoch.
+          lftp -u "$BENUTZER" --env-password "sftp://$SERVER" <<ENDE
+          set sftp:auto-confirm yes;
+          set net:max-retries 2;
+          set net:timeout 15;
+          set net:reconnect-interval-base 5;
+          set xfer:log no;
+          mirror -R --verbose $TROCKEN                     app/     neu/app/;
+          mirror -R --verbose $TROCKEN                     bin/     neu/bin/;
+          mirror -R --verbose $TROCKEN --exclude ^uploads/ public/  neu/web/;
+          bye
+          ENDE
 
       - name: Gegenprobe
         if: ${{ !inputs.probelauf }}
