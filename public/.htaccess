@@ -12,8 +12,15 @@ RewriteEngine On
 # aus.
 #
 # Die Liste stammt aus der sitemap.xml der alten Seite (Stand 21.05.2011) plus
-# drei Adressen, die dort fehlen, weil die Seiten spaeter dazukamen:
-# ozonbehandlung, beklebung und gallerie_beklebung.
+# fuenf Adressen, die dort fehlen, weil die Seiten spaeter dazukamen:
+# ozonbehandlung, beklebung, gallerie_beklebung, datenschutz und agb.
+#
+# Diese fuenf tragen die Endung als „(\.html?|\.php)?" statt fest als „.html".
+# Grund: Fuer die dreizehn Adressen aus der Sitemap ist die Endung belegt, fuer
+# diese fuenf nicht — Google zeigt in den Suchergebnissen nur „… › datenschutz"
+# und laesst die Endung weg. Eine Regel, die zu breit greift, kostet nichts:
+# Die Namen kommen auf der neuen Website nicht vor. Eine Regel, die wegen einer
+# falsch geratenen Endung danebengreift, kostet eine indexierte Seite.
 #
 # Reihenfolge ist entscheidend: die Zuordnung der alten Adressen steht VOR der
 # Kanonisierung und traegt absolute Ziele. Sonst laeuft jede alte Adresse ueber
@@ -31,13 +38,13 @@ RewriteEngine On
 #RewriteRule ^lackierarbeiten\.html$                     https://www.smartrepair-reutter.de/leistungen/lackierarbeiten/ [L,R=301]
 #RewriteRule ^dellenbeseitigung_hagelschaden\.html$      https://www.smartrepair-reutter.de/leistungen/dellen-hagelschaden/ [L,R=301]
 #RewriteRule ^lederreparatur\.html$                      https://www.smartrepair-reutter.de/leistungen/lederreparatur/ [L,R=301]
-#RewriteRule ^ozonbehandlung\.html$                      https://www.smartrepair-reutter.de/leistungen/ozonbehandlung/ [L,R=301]
+#RewriteRule ^ozonbehandlung(\.html?|\.php)?$            https://www.smartrepair-reutter.de/leistungen/ozonbehandlung/ [L,R=301]
 
 # Beklebung war nie eine eigene Seite, sondern ein Abschnitt der
 # Lackierarbeiten. [NE] ist hier noetig, sonst macht Apache aus dem # ein %23
 # und die Sprungmarke greift nicht.
-#RewriteRule ^beklebung\.html$                           https://www.smartrepair-reutter.de/leistungen/lackierarbeiten/#beklebung [L,NE,R=301]
-#RewriteRule ^gallerie_beklebung\.html$                  https://www.smartrepair-reutter.de/leistungen/lackierarbeiten/#beklebung [L,NE,R=301]
+#RewriteRule ^beklebung(\.html?|\.php)?$                 https://www.smartrepair-reutter.de/leistungen/lackierarbeiten/#beklebung [L,NE,R=301]
+#RewriteRule ^gallerie_beklebung(\.html?|\.php)?$        https://www.smartrepair-reutter.de/leistungen/lackierarbeiten/#beklebung [L,NE,R=301]
 
 # Die alte Galerie war nach Leistung aufgeteilt. Die neue filtert im Browser,
 # nicht ueber die Adresse — alle fuenf landen deshalb auf derselben Seite.
@@ -51,6 +58,17 @@ RewriteEngine On
 # Kontakt und Impressum
 #RewriteRule ^kontakt_und_anfahrt\.html$                 https://www.smartrepair-reutter.de/kontakt/ [L,R=301]
 #RewriteRule ^impressum\.html$                           https://www.smartrepair-reutter.de/impressum/ [L,R=301]
+
+# Datenschutz und AGB. Beide stehen weder in der Sitemap von 2011 noch waren
+# sie sonst bekannt — sie kamen erst spaeter dazu (die AGB tragen im Google-
+# Auszug den 13.06.2018). Gefunden ueber eine Suche nach „site:clean-box.eu",
+# also genau der Weg, den docs/umzug.md dafuer beschreibt.
+#
+# Waeren sie hier nicht aufgefuehrt, liefe ausgerechnet die Datenschutz-
+# erklaerung der alten Seite auf einen 404 — eine Adresse, die aus jedem
+# Impressum und jedem Formular verlinkt war.
+#RewriteRule ^datenschutz(\.html?|\.php)?$               https://www.smartrepair-reutter.de/datenschutz/ [L,R=301]
+#RewriteRule ^agb(\.html?|\.php)?$                       https://www.smartrepair-reutter.de/agb/ [L,R=301]
 
 # Die alte Startseite lag unter /index.php. Die Bedingung darueber ist kein
 # Zierrat: Ohne sie trifft diese Regel auch jeden internen Umschrieb des
