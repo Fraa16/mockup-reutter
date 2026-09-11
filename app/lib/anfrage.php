@@ -445,6 +445,113 @@ function anfrage_loeschen(string $kennung): bool
     return @rmdir($ordner);
 }
 
+/**
+ * Markiert eine Anfrage als aufzubewahren — oder nimmt die Markierung zurueck.
+ *
+ * Die Datenschutzerklaerung unterscheidet zwei Faelle: Anfragen ohne Auftrag
+ * werden nach der eingetragenen Frist geloescht, aus einem Auftrag entstandene
+ * Unterlagen unterliegen den handels- und steuerrechtlichen Fristen von sechs
+ * bis zehn Jahren. Welcher Fall vorliegt, kann die Website nicht wissen —
+ * deshalb dieser Schalter im Panel.
+ */
+function anfrage_aufbewahren_setzen(string $kennung, bool $aufbewahren = true): void
+{
+    $satz = anfrage_lesen($kennung);
+    if ($satz === null || ($satz['aufbewahren'] ?? false) === $aufbewahren) {
+        return;
+    }
+
+    $satz['aufbewahren'] = $aufbewahren;
+    $ziel = DATA_ROOT . '/anfragen/' . $kennung . '/anfrage.json';
+    $json = json_encode($satz, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    if ($json !== false) {
+        file_put_contents($ziel, $json . "\n", LOCK_EX);
+    }
+}
+
+/**
+ * Loescht Anfragen, die aelter sind als die eingetragene Frist.
+ *
+ * Ohne das bliebe jede Anfrage samt Namen, Telefonnummer und mitgeschickten
+ * Fotos unbegrenzt liegen — und die Datenschutzerklaerung verspraeche etwas,
+ * das nicht passiert. Von Hand loeschen kann man im Panel jederzeit; darauf
+ * angewiesen sein sollte die Zusage aber nicht.
+ *
+ * Angefasst wird ausschliesslich data/anfragen/. Die Fotos, die der Betrieb
+ * ueber das Panel fuer die Website hochlaedt, liegen in public/uploads/ und
+ * haben mit dieser Frist nichts zu tun.
+ *
+ * @return int Anzahl der geloeschten Anfragen
+ */
+function anfragen_aufraeumen(int $monate): int
+{
+    if ($monate <= 0) {
+        return 0;   // 0 schaltet das Aufraeumen ab
+    }
+
+    $grenze = strtotime('-' . $monate . ' months');
+    if ($grenze === false) {
+        return 0;
+    }
+
+    $anzahl = 0;
+    foreach (glob(DATA_ROOT . '/anfragen/*', GLOB_ONLYDIR) ?: [] as $ordner) {
+        $kennung = basename($ordner);
+        $satz = anfrage_lesen($kennung);
+
+        if ($satz !== null && ($satz['aufbewahren'] ?? false) === true) {
+            continue;
+        }
+
+        /* Ohne lesbaren Satz bleibt der Zeitstempel des Ordners. Das ist der
+           Fall einer beschaedigten oder halb geschriebenen Datei — die soll
+           nicht ewig liegenbleiben, aber auch nicht vor der Frist verschwinden. */
+        $zeitpunkt = $satz !== null && isset($satz['zeitpunkt'])
+            ? strtotime((string) $satz['zeitpunkt'])
+            : filemtime($ordner);
+
+        if ($zeitpunkt !== false && $zeitpunkt < $grenze && anfrage_loeschen($kennung)) {
+            $anzahl++;
+        }
+    }
+
+    return $anzahl;
+}
+
+/**
+ * Raeumt hoechstens einmal taeglich auf, angestossen von einem beliebigen
+ * Seitenaufruf.
+ *
+ * Bewusst ohne zeitgesteuerten Auftrag beim Hoster: Der muesste eingerichtet
+ * werden, und genau das soll nach der Uebergabe niemand mehr tun muessen.
+ * Kostet im Normalfall einen Blick auf den Zeitstempel einer Datei.
+ *
+ * Der Merker wird VOR dem Aufraeumen gesetzt. Rufen zwei Besucher gleichzeitig
+ * auf, laeuft der Durchgang damit trotzdem nur einmal.
+ */
+function anfragen_aufraeumen_faellig(int $monate): void
+{
+    $merker = DATA_ROOT . '/.aufgeraeumt';
+
+    if (is_file($merker) && time() - (int) filemtime($merker) < 86400) {
+        return;
+    }
+
+    // Auf einer schreibgeschuetzten Vorschau gibt es nichts aufzuraeumen.
+    if (!is_writable(DATA_ROOT)) {
+        return;
+    }
+
+    touch($merker);
+
+    try {
+        anfragen_aufraeumen($monate);
+    } catch (Throwable $e) {
+        // Ein Seitenaufruf darf daran niemals scheitern.
+        error_log('Aufraeumen der Anfragen fehlgeschlagen: ' . $e->getMessage());
+    }
+}
+
 /** Liefert den Pfad zu einem Anfragefoto — oder null, wenn es das nicht gibt. */
 function anfrage_fotopfad(string $kennung, string $dateiname): ?string
 {

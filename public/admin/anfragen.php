@@ -40,8 +40,17 @@ $meldung  = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_pruefen();
 
+    $aktion = (string) ($_POST['aktion'] ?? 'loeschen');
+
     if ($nurLesen) {
-        $meldung = 'Auf dieser Vorschau kann nichts gelöscht werden.';
+        $meldung = 'Auf dieser Vorschau kann nichts geändert werden.';
+    } elseif ($aktion === 'aufbewahren') {
+        anfrage_aufbewahren_setzen(
+            (string) ($_POST['kennung'] ?? ''),
+            ($_POST['wert'] ?? '0') === '1'
+        );
+        header('Location: /admin/anfragen.php?a=' . rawurlencode((string) ($_POST['kennung'] ?? '')));
+        exit;
     } elseif (anfrage_loeschen((string) ($_POST['kennung'] ?? ''))) {
         header('Location: /admin/anfragen.php?geloescht=1');
         exit;
@@ -237,10 +246,42 @@ function anfrage_betreff(array $a): string
   </section>
 
   <?php if (!$nurLesen): ?>
+  <?php $frist = (int) get(site(), 'anfragen.frist_monate', 0); ?>
+
+  <section class="anfrage-block">
+    <h2>Aufbewahren</h2>
+    <?php if ($frist > 0): ?>
+    <form method="post" class="anfrage-aufbewahren">
+      <?= csrf_feld() ?>
+      <input type="hidden" name="kennung" value="<?= attr($kennung) ?>">
+      <input type="hidden" name="aktion" value="aufbewahren">
+      <input type="hidden" name="wert" value="<?= ($einzeln['aufbewahren'] ?? false) ? '0' : '1' ?>">
+      <p class="anfrage-text">
+        <?php if ($einzeln['aufbewahren'] ?? false): ?>
+          Diese Anfrage ist von der Frist ausgenommen und bleibt dauerhaft liegen.
+        <?php else: ?>
+          Diese Anfrage wird <?= (int) $frist ?> Monate nach Eingang automatisch gelöscht.
+          Ist daraus ein Auftrag geworden, nehmen Sie sie hier aus — dann gelten
+          die steuerlichen Fristen von sechs bis zehn Jahren.
+        <?php endif; ?>
+      </p>
+      <button type="submit" class="knopf schlicht">
+        <?= ($einzeln['aufbewahren'] ?? false) ? 'Doch löschen lassen' : 'Von der Frist ausnehmen' ?>
+      </button>
+    </form>
+    <?php else: ?>
+    <p class="anfrage-text">
+      Das automatische Löschen ist abgeschaltet. Anfragen bleiben liegen, bis
+      sie hier von Hand gelöscht werden.
+    </p>
+    <?php endif; ?>
+  </section>
+
   <form method="post" class="anfrage-loeschen"
-        onsubmit="return confirm('Diese Anfrage endgültig löschen? Auch die Fotos werden gelöscht.')">
+        data-bestaetigen="Diese Anfrage endgültig löschen? Auch die Fotos werden gelöscht.">
     <?= csrf_feld() ?>
     <input type="hidden" name="kennung" value="<?= attr($kennung) ?>">
+    <input type="hidden" name="aktion" value="loeschen">
     <button type="submit" class="knopf schlicht">Anfrage löschen</button>
     <span class="loesch-hinweis">Erledigt? Dann darf sie weg — gespeicherte Kundendaten sollen nicht länger liegen als nötig.</span>
   </form>
@@ -249,5 +290,7 @@ function anfrage_betreff(array $a): string
 <?php endif; ?>
 
 </main>
+
+<script src="/admin/assets/admin.js" defer></script>
 </body>
 </html>

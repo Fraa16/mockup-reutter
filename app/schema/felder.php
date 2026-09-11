@@ -219,6 +219,14 @@ return [
                 ],
             ],
             [
+                'titel'   => 'Anfragen aufbewahren',
+                'hinweis' => 'Anfragen enthalten Namen, Telefonnummern und mitgeschickte Fotos. Nach dieser Frist löscht die Website sie von selbst. Dieselbe Zahl steht in der Datenschutzerklärung — ändern Sie sie hier, ändert sie sich dort mit. Eine Anfrage, aus der ein Auftrag wurde, nehmen Sie in der Anfragenliste einzeln von der Frist aus.',
+                'felder'  => [
+                    ['pfad' => 'anfragen.frist_monate', 'typ' => 'zahl', 'label' => 'Löschen nach … Monaten',
+                     'hilfe' => 'Üblich sind 6. Eine 0 schaltet das automatische Löschen ab — dann muss von Hand gelöscht werden.'],
+                ],
+            ],
+            [
                 'titel'   => 'Sichtbarkeit bei Google',
                 'hinweis' => 'Solange hier nichts steht, ist die Website für Google gesperrt — sie ist erreichbar, taucht aber in keiner Suche auf. Das ist während des Aufbaus so gewollt. Am Tag, an dem die Seite offiziell startet, wird hier die Adresse eingetragen; ab dann darf Google sie aufnehmen.',
                 'felder'  => [

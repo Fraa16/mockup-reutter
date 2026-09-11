@@ -82,12 +82,10 @@
         {
             "titel": "Speicherdauer",
             "absaetze": [
-                "Anfragen und die dazugehörigen Daten löschen wir, sobald sie für den Zweck nicht mehr erforderlich sind. Kommt ein Auftrag zustande, gelten die handels- und steuerrechtlichen Aufbewahrungsfristen — in der Regel sechs beziehungsweise zehn Jahre."
-            ],
-            "platzhalter": {
-                "titel": "Frist für Anfragen ohne Auftrag festlegen",
-                "hinweis": "Üblich sind sechs Monate nach der letzten Kommunikation. Der Betrieb sollte eine Frist festlegen, die er auch einhält."
-            }
+                "Anfragen über das Formular löschen wir {{anfragefrist}} — samt der Fotos, die dabei mitgeschickt wurden.",
+                "Kommt ein Auftrag zustande, gelten die handels- und steuerrechtlichen Aufbewahrungsfristen — in der Regel sechs beziehungsweise zehn Jahre. Solche Anfragen nehmen wir von der Löschfrist aus.",
+                "Sie können jederzeit verlangen, dass wir Ihre Anfrage sofort löschen. Die Kontaktdaten dafür stehen im Impressum."
+            ]
         },
         {
             "titel": "Ihre Rechte",
