@@ -35,24 +35,44 @@ Das Panel warnt sichtbar, solange die Sperre greift.
 
 ## Was noch fehlt
 
-Die vollständige Liste der alten Adressen. Aus dieser Umgebung ist
-`clean-box.eu` nicht erreichbar — der Proxy lässt sie nicht durch. Die Liste
-muss deshalb von außen kommen:
+Die vollständige Liste der alten Adressen. Aus dieser Umgebung ist weder
+`clean-box.eu` noch das Internet-Archiv erreichbar — der Proxy lässt beides
+nicht durch. Die Liste muss deshalb von außen kommen.
+
+**Der wget-Befehl, der hier früher stand, hilft auf einem Mac nicht weiter:**
+wget gehört nicht zum Lieferumfang von macOS, der Aufruf endet in
+`command not found`. Vier Wege, vom geringsten Aufwand aufwärts:
+
+1. **`clean-box.eu/sitemap.xml` und `/robots.txt` im Browser aufrufen.**
+   Dreißig Sekunden. Existiert eine Sitemap, ist die Liste damit vollständig —
+   alte Baukasten- und CMS-Seiten haben oft eine, ohne dass es jemand weiß.
+
+2. **Search Console, Property `clean-box.eu`: *Seiten → Indexiert →
+   Exportieren*.** Die wertvollste Liste, denn sie enthält genau die Adressen,
+   die Google kennt und die Besucher bringen. Rückwirkend verfügbar, sobald
+   die Property bestätigt ist.
+
+3. **Screaming Frog SEO Spider** — kostenlos bis 500 Seiten, Mac-Programm mit
+   Oberfläche. Findet auch, was Google nicht indexiert hat.
+
+4. Nur wenn es unbedingt das Terminal sein soll: Homebrew installieren, dann
+   `brew install wget`, dann der Befehl unten. Aufwändiger als die ersten drei.
 
 ```bash
-# 1 — Alles, was intern verlinkt ist
+# Alles, was intern verlinkt ist — setzt ein installiertes wget voraus
 wget --spider -r -l inf -np -e robots=off \
      --reject-regex '\.(jpg|jpeg|png|gif|css|js|ico)$' \
      https://www.clean-box.eu/ 2>&1 \
   | grep -oE 'https?://[^ ]*clean-box\.eu[^ ]*' | sort -u > alte-urls.txt
+```
 
-# 2 — Verwaiste Seiten, die nicht mehr verlinkt sind, aber noch ranken
+Verwaiste Seiten, die nicht mehr verlinkt sind, aber noch ranken, kennt das
+Internet-Archiv:
+
+```bash
 curl -s "http://web.archive.org/cdx/search/cdx?url=clean-box.eu*&fl=original&collapse=urlkey&limit=1000" \
   > archiv-urls.txt
 ```
-
-Dazu der Seitenbericht aus der Search Console (*Seiten → Indexiert →
-Exportieren*).
 
 ## Weiterleitungen
 
