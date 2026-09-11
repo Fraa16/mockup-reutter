@@ -86,9 +86,17 @@ Der vorbereitete Block steht in `public/.htaccess`, auskommentiert. Regeln:
 - Jede Regel wird einzeln geprüft: genau ein 301, das Ziel liefert 200, keine
   Kette, keine Schleife.
 
-Bekannt sind bisher `/beklebung.html` und `/gallerie_beklebung.html` →
-`/leistungen/lackierarbeiten/#beklebung`, und `/ozonbehandlung.html` →
-`/leistungen/ozonbehandlung/`.
+**Erledigt am 11.09.2026.** Die `sitemap.xml` der alten Seite lieferte
+vierzehn Adressen; dazu kamen drei, die dort fehlen, weil die Seiten nach 2011
+entstanden: `ozonbehandlung.html`, `beklebung.html` und
+`gallerie_beklebung.html`. Alle siebzehn stehen als Regeln in
+`public/.htaccess`, auskommentiert bis zum Umschalttag.
+
+Die Sitemap selbst ist ein Fundstück: Sie trägt `lastmod` vom 21.05.2011 und
+nennt durchgehend `www.stuttgart-hagelschaden.de` — eine Domain, die heute
+nicht mehr auflöst. Dasselbe bei der `robots.txt`, die zusätzlich `/css/`
+sperrt. Beide Dateien liegen in `html/` und sind nach dem Umschalten aus dem
+Weg.
 
 ## Search Console
 
@@ -112,32 +120,45 @@ Domain-Property bräuchte einen DNS-Eintrag.
 Die Dateien liegen zu diesem Zeitpunkt seit Wochen an Ort und Stelle. Es wird
 nichts hochgeladen und nichts verschoben.
 
-1. **`www.smartrepair-reutter.de` einrichten** und ebenfalls auf `neu/web/`
-   zeigen lassen. Die Domain selbst zeigt bereits dorthin — hier fehlt nur die
-   `www.`-Schreibweise, auf die die `.htaccess` kanonisiert. Das
-   Wildcard-Zertifikat von `smartrepair-reutter.de` deckt sie mit ab, ein
-   zweites Zertifikat ist nicht nötig.
-2. **Umzugsblock in der `.htaccess` scharfschalten** — erst jetzt, vorher
-   sperrt die Kanonisierung die Seite aus.
-3. **`seo.live_domain` im Panel eintragen** (*Stammdaten → Sichtbarkeit bei
+**Der Zuschnitt hat sich vereinfacht:** `html/` wird nicht mehr leergeräumt und
+mit einer Weiterleitungsdatei bestückt. Stattdessen zeigen **beide Domains auf
+`neu/web/`**, und der Umzugsblock in der einen `.htaccess` erledigt die
+Weiterleitungen. Damit ist auch die alte Falle vom Tisch: Die `robots.txt` und
+`sitemap.xml` von 2011 liegen in `html/` und werden schlicht nicht mehr
+ausgeliefert.
+
+1. **`www.smartrepair-reutter.de` einrichten** und auf `neu/web/` zeigen lassen.
+   Das Wildcard-Zertifikat deckt die Schreibweise mit ab.
+2. **`clean-box.eu` und `www.clean-box.eu` auf `neu/web/` umhängen.** Ab diesem
+   Moment ist die alte Seite offline und alles läuft über die Weiterleitungen.
+3. **Umzugsblock in der `.htaccess` scharfschalten** — die Rautezeichen vor den
+   `RewriteRule`- und `RewriteCond`-Zeilen entfernen.
+4. **`seo.live_domain` im Panel eintragen** (*Stammdaten → Sichtbarkeit bei
    Google*): `smartrepair-reutter.de`. Ohne diesen Schritt bleibt die Seite
    dauerhaft unsichtbar. Das Warnband im Panel verschwindet, sobald es sitzt.
-4. **Gegenprobe:** `curl https://www.smartrepair-reutter.de/robots.txt` muss
-   `Allow: /` und die Sitemap-Zeile zeigen. Dasselbe für `sitemap.xml`.
-   Zusätzlich eine beliebige Seite auf `noindex` prüfen — darf nicht mehr
-   drinstehen.
-5. **`html/` leeren** — erst jetzt, und nur dort. Weg müssen alle `*.html`,
-   `index.php`, `robots.txt`, `sitemap.xml` sowie `logs/`, `counter/`,
-   `cgi-bin/`. Danach kommt dorthin eine `.htaccess`, die ausschließlich
-   weiterleitet.
-   > Die Falle: Die `.htaccess` schickt nur an den Front-Controller, was keine
-   > echte Datei ist. Bliebe die alte `robots.txt` von 2011 liegen, lieferte
-   > Apache weiter sie aus — die generierte liefe nie.
-6. Google-Unternehmensprofil: Website-Adresse auf die neue Domain ändern.
-   Beim Namenswechsel das stärkste Signal, das wir haben
-7. Search Console: neue Sitemap einreichen, die alte **nicht** löschen —
-   Google arbeitet sie ab und lernt daraus die Weiterleitungen
-8. Adressänderungs-Werkzeug in der alten Property auslösen
+5. **Die beiden Hinweisbänder abschalten**, in `impressum.json` und
+   `datenschutz.json` jeweils `im_aufbau` auf `false` — aber erst, wenn die
+   darin genannte Bedingung wirklich erfüllt ist.
+6. **Gegenprobe:**
+   `curl -sI https://www.clean-box.eu/ozonbehandlung.html` muss **ein** 301 auf
+   `https://www.smartrepair-reutter.de/leistungen/ozonbehandlung/` zeigen, nicht
+   zwei. `curl https://www.smartrepair-reutter.de/robots.txt` muss `Allow: /`
+   liefern, und eine beliebige Seite darf kein `noindex` mehr tragen.
+7. Google-Unternehmensprofil: Website-Adresse auf die neue Domain ändern.
+   Beim Namenswechsel das stärkste Signal, das wir haben.
+8. Search Console: neue Sitemap einreichen, die alte **nicht** löschen —
+   Google arbeitet sie ab und lernt daraus die Weiterleitungen.
+9. Adressänderungs-Werkzeug in der alten Property auslösen.
+
+`html/` kann danach in Ruhe archiviert und gelöscht werden. Solange es steht,
+ist der Rückweg offen.
+
+> **Ein Detail, das leicht übersehen wird:** Auch `clean-box.eu/robots.txt`
+> läuft über die Kanonisierung auf die neue Domain. Das ist richtig so —
+> Googlebot folgt bei der robots.txt bis zu fünf Weiterleitungen und benutzt
+> die am Ende. Bekäme die alte Domain dagegen ihre eigene robots.txt, stünde
+> dort `Disallow: /`, weil `seo_indexierbar()` nur die eingetragene Livedomain
+> freigibt — und Google käme nie dazu, die Weiterleitungen überhaupt zu sehen.
 
 ## Danach
 
