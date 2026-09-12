@@ -90,17 +90,47 @@ Der vorbereitete Block steht in `public/.htaccess`, auskommentiert. Regeln:
   Kette, keine Schleife.
 
 **Erledigt am 11.09.2026.** Die `sitemap.xml` der alten Seite lieferte
-vierzehn Adressen; dazu kamen drei, die dort fehlen, weil die Seiten nach 2011
-entstanden: `ozonbehandlung.html`, `beklebung.html` und
-`gallerie_beklebung.html`. Alles steht in `public/.htaccess`, auskommentiert
-bis zum Umschalttag.
+vierzehn Adressen; dazu kamen fünf, die dort fehlen, weil die Seiten nach 2011
+entstanden: `ozonbehandlung`, `beklebung`, `gallerie_beklebung`, `datenschutz`
+und `agb`. Alles steht in `public/.htaccess`, auskommentiert bis zum
+Umschalttag.
 
-Wer nachzählt, kommt auf **sechzehn** eigene `RewriteRule`-Zeilen und nicht auf
-siebzehn Adressen. Das ist richtig so: Eine der vierzehn Adressen aus der
+Wer nachzählt, kommt auf **achtzehn** eigene `RewriteRule`-Zeilen und nicht auf
+neunzehn Adressen. Das ist richtig so: Eine der vierzehn Adressen aus der
 Sitemap ist die blanke Startseite `/`, und die braucht keine eigene Regel — sie
 läuft über die Kanonisierung ganz am Ende des Blocks auf die neue Startseite.
-Bleiben dreizehn plus die drei nachgetragenen, macht sechzehn Zeilen, und mit
-der Kanonisierung siebzehn Regeln.
+Bleiben dreizehn plus die fünf nachgetragenen, macht achtzehn Zeilen, und mit
+der Kanonisierung neunzehn Regeln.
+
+### `datenschutz` und `agb` — gefunden über `site:`
+
+Beide standen in keiner Liste, die wir hatten. Gefunden hat sie die Suche nach
+`site:clean-box.eu`, also genau der Weg, der oben unter Punkt 1 steht.
+
+Das ist der Grund, warum sich der Handgriff lohnt, auch wenn er unscheinbar
+aussieht: Ohne ihn wäre ausgerechnet die **Datenschutzerklärung** der alten
+Seite im 404 gelandet — eine Adresse, die aus jedem Impressum und aus jedem
+Formular der alten Seite verlinkt war. Die AGB lagen daneben, im Auszug datiert
+auf den 13.06.2018.
+
+Zwei Beobachtungen aus derselben Suche, beide mit Folgen:
+
+- **Google zeigt mindestens eine Seite ohne `www`** (`http://clean-box.eu ›
+  fahrzeugpflege_interieur`), die übrigen mit. Eine URL-Präfix-Property hätte
+  je nach Wahl die eine oder die andere Hälfte nicht gesehen. Die
+  Domain-Property war also nicht nur die bequemere, sondern die einzig
+  richtige Wahl. Für die Weiterleitungen selbst ist es folgenlos: Die Regeln
+  greifen über den Pfad, nicht über den Host.
+- **Google blendet die Dateiendung aus** — angezeigt wird `… › datenschutz`,
+  nicht `datenschutz.html`. Für die fünf nachgetragenen Adressen ist die
+  Endung damit *nicht* belegt. Ihre Regeln tragen deshalb
+  `(\.html?|\.php)?` statt eines festen `.html`. Zu breit zu greifen kostet
+  hier nichts — die Namen kommen auf der neuen Website nicht vor. Eine falsch
+  geratene Endung kostet eine indexierte Seite.
+
+Die Suche meldete außerdem, sie habe *„einige Einträge ausgelassen, die den 10
+angezeigten Treffern sehr ähnlich sind"*. Es kann also noch mehr geben; der
+Seitenbericht der Search Console klärt das abschließend.
 
 Die Sitemap selbst ist ein Fundstück: Sie trägt `lastmod` vom 21.05.2011 und
 nennt durchgehend `www.stuttgart-hagelschaden.de` — eine Domain, die heute
@@ -118,9 +148,28 @@ Weg.
 | `smartrepair-reutter.de` | ab dem Umschalttag |
 
 Die alte Property **jetzt** anlegen, nicht später: Der Seitenbericht ist
-rückwirkend — was Google heute im Index hat, sieht man sofort nach der
-Bestätigung. Klicks und Impressionen dagegen fangen bei null an. Ohne die
-Property fehlt der Vergleichsmaßstab für „hat der Umzug geschadet?".
+rückwirkend — er zeigt, was Google im Index hat, nicht erst das, was ab heute
+passiert. Klicks und Impressionen dagegen fangen bei null an. Ohne die Property
+fehlt der Vergleichsmaßstab für „hat der Umzug geschadet?".
+
+> **Direkt nach der Bestätigung ist der Bericht leer.** Es steht dort *„Die
+> Daten werden verarbeitet — bitte versuch es in einem Tag noch einmal"*, und
+> zwar in beiden Kästen. Das ist kein Fehler und kein Zeichen dafür, dass die
+> Bestätigung nicht gegriffen hat: Google baut die Berichte für eine neue
+> Property erst auf. Ein bis drei Tage sind normal. Hier stand frueher, man
+> sehe den Bestand „sofort nach der Bestätigung" — das stimmt nicht.
+>
+> Ein weiterer Grund, die Property früh anzulegen: Diese Wartezeit will man
+> nicht am Umschalttag haben.
+>
+> Solange der Bericht lädt, gibt es zwei Auskünfte, die sofort funktionieren:
+>
+> * **`site:clean-box.eu`** in die normale Google-Suche. Braucht keinen Login
+>   und zeigt ungefähr, welche Adressen im Index stehen. Nicht vollständig und
+>   nicht verbindlich, aber in dreißig Sekunden da.
+> * **URL-Prüfung** oben in der Search Console. Sie arbeitet sofort und
+>   beantwortet für **eine** Adresse verbindlich, ob Google sie kennt — gut, um
+>   einzelne alte Adressen gezielt nachzuschlagen.
 
 Bestätigung als **Domain-Property über einen TXT-Eintrag im DNS**, nicht per
 URL-Präfix. Hier stand frueher das Gegenteil.
