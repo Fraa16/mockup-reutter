@@ -8,8 +8,8 @@
     "titel": "Datenschutzerklärung",
     "lead": "Was beim Besuch dieser Website und bei einer Anfrage mit Ihren Daten passiert. Kurz vorweg: Diese Seite lädt nichts von fremden Servern nach und setzt keine Cookies, die eine Einwilligung bräuchten.",
     "stand": "September 2026",
-    "im_aufbau": true,
-    "band_hinweis": "Bis auf einen Punkt vollständig. Der Vertrag zur Auftragsverarbeitung mit IONOS muss geschlossen sein, bevor die Seite öffentlich geht — er wird im IONOS-Kundenkonto angenommen und dauert zwei Minuten. Dieser Hinweis darf am Tag des Livegangs weg.",
+    "im_aufbau": false,
+    "_band_erledigt": "Das Hinweisband ist am 12.09.2026 entfallen. Es stand nur wegen eines einzigen offenen Punktes da — des Auftragsverarbeitungsvertrags mit IONOS — und der ist seit dem 12.09.2026 geschlossen (IONOS-Kundenkonto, Kundennummer des Betriebs, Nachweis per Mail). Damit stimmt der Satz im Abschnitt Hosting, und das Band hat keinen Gegenstand mehr. 'band_hinweis' ist bewusst entfernt und nicht nur leer gesetzt: Bei im_aufbau=false rendert die Vorlage es ohnehin nicht, und ein zurueckgelassener Text waere beim naechsten Umschalten auf true sofort wieder sichtbar — mit einer Aussage, die dann falsch ist.",
     "abschnitte": [
         {
             "titel": "Verantwortliche Stelle",
@@ -36,7 +36,7 @@
                 "Mit dem Hoster besteht ein Vertrag über die Auftragsverarbeitung nach Art. 28 DSGVO. Er verarbeitet die Daten ausschließlich nach unseren Weisungen und für den Betrieb dieser Website.",
                 "Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO: Wir haben ein berechtigtes Interesse an einer sicheren und zuverlässigen Bereitstellung unserer Website."
             ],
-            "_aufgabe_kunde": "Der Satz zum Auftragsverarbeitungsvertrag muss stimmen, bevor die Seite oeffentlich geht. Bei IONOS wird der Vertrag im Kundenkonto geschlossen — suchen nach 'Auftragsverarbeitung' oder 'AV-Vertrag', annehmen, fertig. Dauert zwei Minuten und ist ohnehin Pflicht, unabhaengig von dieser Seite."
+            "_erledigt": "Der Satz zum Auftragsverarbeitungsvertrag stimmt: Der Vertrag ist am 12.09.2026 im IONOS-Kundenkonto geschlossen worden (Mein Konto → Datenschutz & Privatsphaere → AVV, dort als 'Abgeschlossen am 12.09.2026' ausgewiesen). Den Vertragstext schickt IONOS per Mail an die im Konto hinterlegte Adresse, mit bis zu 24 Stunden Verzoegerung; es gibt keinen Download-Knopf. Die technischen und organisatorischen Massnahmen sind Anlage dieses Vertrags. Beides gehoert zu den Unterlagen des Betriebs — ohne Nachweis nuetzt der Vertrag im Ernstfall wenig. Unabhaengig von dieser Website ohnehin Pflicht."
         },
         {
             "titel": "Server-Logfiles",
