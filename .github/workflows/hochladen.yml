@@ -81,6 +81,36 @@ jobs:
           bye
           ENDE
 
+      # Inhalte liegen in data/ und werden bewusst NICHT uebertragen (siehe
+      # docs/automatisch-hochladen.md). Die Folge vergisst man leicht, und sie
+      # ist unsichtbar: Ein Text, den man im Repository aendert und merged,
+      # steht danach nicht auf der Website — ohne Fehlermeldung, ohne Hinweis.
+      #
+      # Genau das ist am 12.09.2026 passiert. Die Kontaktadresse war im
+      # Repository seit einem Tag auf info@smartrepair-reutter.de geaendert,
+      # auf dem Server stand weiter die alte. Aufgefallen ist es erst, als eine
+      # Testanfrage im falschen Postfach landete.
+      #
+      # Diese Probe faengt den Fall ab. Sie prueft eine einzige Angabe, aber
+      # eine, die auf jeder Seite steht und die man unmoeglich uebersieht, wenn
+      # sie falsch ist. Bewusst nur eine Warnung: Nach der Uebergabe pflegt
+      # Daniel die Inhalte im Panel, und dann ist der Server im Recht, nicht
+      # das Repository. Ein Fehlschlag waere dann falsch.
+      - name: Stehen die Inhalte des Servers noch auf dem Stand des Repositorys?
+        if: ${{ !inputs.probelauf }}
+        run: |
+          set -euo pipefail
+          soll=$(grep -o '"email": *"[^"]*"' data/content/site.json | head -1 | sed 's/.*"\([^"]*\)"$/\1/')
+          if [ -z "$soll" ]; then
+            echo "::warning::Keine Kontaktadresse in data/content/site.json gefunden — Probe uebersprungen."
+            exit 0
+          fi
+          if curl -sS --max-time 20 https://smartrepair-reutter.de/ | grep -qF "$soll"; then
+            echo "  Kontaktadresse stimmt ueberein: $soll"
+          else
+            echo "::warning::Die Website zeigt NICHT die Adresse aus dem Repository ($soll). Entweder ist data/content/ auf dem Server veraltet — dann die Datei von Hand hochladen oder im Panel nachtragen — oder sie wurde im Panel bewusst geaendert. Nach der Uebergabe ist der Server im Recht."
+          fi
+
       - name: Gegenprobe
         if: ${{ !inputs.probelauf }}
         run: |

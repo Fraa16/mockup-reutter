@@ -68,6 +68,41 @@ dieselbe Entscheidung von der anderen Seite. Inhaltsänderungen laufen deshalb
 in drei Schritten: die aktuelle Datei vom Server holen, darin ändern, wieder
 hochladen. So bleibt erhalten, was im Panel entstanden ist.
 
+> **Diese Falle hat einmal zugeschlagen — sie ist nicht theoretisch.**
+> Am 12.09.2026 landete eine Testanfrage im alten Postfach
+> `info@clean-box.eu`. Die Adresse war im Repository seit einem Tag geändert,
+> der Merge war durch, die Automatik gelaufen — auf dem Server stand trotzdem
+> die alte, weil `site.json` in `data/` liegt.
+>
+> Das Tückische daran ist nicht der Fehler, sondern seine Lautlosigkeit: Es
+> gibt keine Fehlermeldung, kein rotes Häkchen, keinen Unterschied im Log. Die
+> Website läuft, sie zeigt nur ältere Inhalte. Aufgefallen ist es durch Zufall.
+>
+> Seitdem prüft der letzte Schritt der Automatik, ob die Website die
+> Kontaktadresse aus dem Repository zeigt, und warnt, wenn nicht. Nur eine
+> Warnung, kein Fehlschlag: Nach der Übergabe pflegt Daniel die Inhalte im
+> Panel, und dann ist der Server im Recht.
+
+### Inhalte von Hand übertragen
+
+Zwei Wege, je nach Umfang:
+
+**Eine einzelne Angabe** — im Panel ändern. Nichts herunterladen, nichts
+hochladen, kein Risiko, dass dabei etwas anderes überschrieben wird. Das ist
+der richtige Weg für die Kontaktadresse, die Öffnungszeiten, einen Textabsatz.
+
+**Eine ganze Datei** — etwa eine fertig überarbeitete Rechtsseite. Dann:
+
+1. In FileZilla `neu/data/content/` öffnen und die betroffene Datei auf den
+   Schreibtisch ziehen. Das ist die Sicherung; ohne sie gibt es keinen Rückweg.
+2. Die Fassung aus dem Repository hochladen und die alte überschreiben.
+3. Die Seite im Browser aufrufen und nachsehen, ob der neue Text dasteht.
+
+**`galerie.json` gehört nicht dazu.** Sobald im Panel ein Foto einsortiert
+wurde, steht in dieser Datei etwas, das es im Repository nicht gibt. Sie zu
+überschreiben wirft die Einsortierung weg. Dasselbe gilt für alles, was
+sonst im Panel entstanden ist.
+
 ### Warum `uploads/` außen vor bleibt
 
 Dort liegen die Fotos aus dem Panel. Sie gehören dem Server. Nebeneffekt: Ohne
