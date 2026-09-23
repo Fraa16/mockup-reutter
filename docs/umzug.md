@@ -132,6 +132,44 @@ Die Suche meldete außerdem, sie habe *„einige Einträge ausgelassen, die den 
 angezeigten Treffern sehr ähnlich sind"*. Es kann also noch mehr geben; der
 Seitenbericht der Search Console klärt das abschließend.
 
+### Was der Seitenbericht sagt (Stand 18.09.2026)
+
+Zahlen aus der Property `clean-box.eu`, stabil über fünf Tage:
+
+| | |
+|---|---|
+| Indexiert | **12** |
+| Nicht indexiert | **4** |
+| Impressionen pro Tag | 104 – 296, im Mittel rund 185 |
+
+**Die Impressionen sind die Zahl, um die es beim Umzug geht.** Rund 5.500 im
+Monat — so oft taucht die alte Seite heute in Suchergebnissen auf. Jede alte
+Adresse ohne Weiterleitung wirft ihren Anteil daran weg, und zwar dauerhaft:
+Was einmal aus dem Index fällt, kommt für dieselben Suchbegriffe nicht von
+allein zurück.
+
+Die vier nicht indexierten Seiten verteilen sich so:
+
+* **3 × „Duplikat – vom Nutzer nicht als kanonisch festgelegt".** Die alte
+  Seite setzt keine `canonical`-Angaben. Wo zwei Adressen denselben Inhalt
+  zeigen, sucht Google sich selbst eine aus und lässt die anderen fallen. Der
+  offensichtliche Fall steht in der Sitemap von 2011 gleich doppelt drin:
+  die Startseite einmal als `/` und einmal als `/index.php`.
+* **1 × „Soft 404".** Eine Seite, die zwar `200` liefert, für Google aber
+  leer wirkt.
+
+**Beides sind Krankheiten der alten Seite, und beide heilt der Umzug.** Die
+Weiterleitungen führen die doppelten Adressen auf je ein Ziel zusammen —
+`index.php` hat dafür eine eigene Regel —, und die neue Website setzt auf
+*jeder* Seite ein `canonical`. Nachgeprüft am 23.09.2026, einschließlich des
+Falls, der solche Duplikate am häufigsten erzeugt: `/kontakt/?utm_source=…`
+zeigt auf `/kontakt/`, nicht auf sich selbst.
+
+Für den Abgleich mit den Weiterleitungsregeln fehlt noch die Liste der zwölf
+Adressen. Der Export vom Hauptbildschirm liefert sie **nicht** — der enthält
+nur Diagramm und Gründe. Man muss im Bericht erst auf *Indexierte Seiten*
+gehen; die Tabelle, die sich dort öffnet, hat einen eigenen Export.
+
 Die Sitemap selbst ist ein Fundstück: Sie trägt `lastmod` vom 21.05.2011 und
 nennt durchgehend `www.stuttgart-hagelschaden.de` — eine Domain, die heute
 nicht mehr auflöst. Dasselbe bei der `robots.txt`, die zusätzlich `/css/`
