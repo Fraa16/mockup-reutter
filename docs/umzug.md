@@ -165,10 +165,47 @@ Weiterleitungen führen die doppelten Adressen auf je ein Ziel zusammen —
 Falls, der solche Duplikate am häufigsten erzeugt: `/kontakt/?utm_source=…`
 zeigt auf `/kontakt/`, nicht auf sich selbst.
 
-Für den Abgleich mit den Weiterleitungsregeln fehlt noch die Liste der zwölf
-Adressen. Der Export vom Hauptbildschirm liefert sie **nicht** — der enthält
-nur Diagramm und Gründe. Man muss im Bericht erst auf *Indexierte Seiten*
-gehen; die Tabelle, die sich dort öffnet, hat einen eigenen Export.
+Die Liste der Adressen liefert der Export vom Hauptbildschirm **nicht** — der
+enthält nur Diagramm und Gründe. Man muss im Bericht erst auf *Indexierte
+Seiten* gehen; die Tabelle, die sich dort öffnet, hat einen eigenen Export.
+
+### Abgleich: zwölf von zwölf (23.09.2026)
+
+| Adresse im Index | zuletzt gecrawlt | Ziel |
+|---|---|---|
+| `www.clean-box.eu/` | 12.09. | `/` |
+| `clean-box.eu/fahrzeugpflege_interieur.html` ⚠ ohne www | 11.09. | `/leistungen/fahrzeugpflege-interieur/` |
+| `www.clean-box.eu/agb.html` | 06.09. | `/agb/` |
+| `www.clean-box.eu/impressum.html` | 09.08. | `/impressum/` |
+| `www.clean-box.eu/ozonbehandlung.html` | 08.08. | `/leistungen/ozonbehandlung/` |
+| `www.clean-box.eu/kontakt_und_anfahrt.html` | 08.08. | `/kontakt/` |
+| `www.clean-box.eu/fahrzeugpflege_exterieur.html` | 05.08. | `/leistungen/fahrzeugpflege-exterieur/` |
+| `www.clean-box.eu/datenschutz.html` | 01.08. | `/datenschutz/` |
+| `www.clean-box.eu/dellenbeseitigung_hagelschaden.html` | 28.07. | `/leistungen/dellen-hagelschaden/` |
+| `www.clean-box.eu/gallerie.html` | 05.07. | `/galerie/` |
+| `www.clean-box.eu/lackierarbeiten.html` | 04.07. | `/leistungen/lackierarbeiten/` |
+| `www.clean-box.eu/lederreparatur.html` | 29.06. | `/leistungen/lederreparatur/` |
+
+**Geprüft, nicht gelesen:** Alle zwölf Adressen, exakt so wie der Export sie
+nennt, liefen unter Apache 2.4.58 durch die scharfgeschaltete `.htaccess` —
+jede in **einem** Sprung auf ihr Ziel, jedes Ziel mit `200`. Es gibt keine
+indexierte Adresse ohne Regel. Nebenbei belegt der Export die Endung `.html`
+für `agb`, `datenschutz` und `ozonbehandlung`, die bis dahin nur vermutet war.
+
+Umgekehrt stehen sieben Regeln für Adressen, die **nicht** im Index sind: die
+vier Galerie-Unterseiten, `beklebung`, `gallerie_beklebung` und `index.php`.
+Unter ihnen stecken vermutlich die vier nicht indexierten Seiten aus dem
+Bericht. Die Regeln bleiben — Lesezeichen und fremde Links auf diese Adressen
+gibt es weiterhin, und sie kosten nichts.
+
+**Die Spalte „zuletzt gecrawlt" ist der eigentliche Fund.** Google besucht
+manche dieser Seiten nur alle paar Monate: `lederreparatur.html` zuletzt am
+29.06., `lackierarbeiten.html` am 04.07. Eine Weiterleitung wirkt aber erst,
+wenn Google sie beim nächsten Besuch *sieht*. Ohne Nachhilfe stünde die alte
+Lederreparatur-Seite nach dem Umschalten also womöglich noch monatelang im
+Index — mit einem Ziel, das sich erst beim nächsten Crawl auflöst. Deshalb
+Schritt 8 am Umschalttag: die alten Adressen einzeln zur Prüfung einreichen,
+die am längsten nicht besuchten zuerst.
 
 Die Sitemap selbst ist ein Fundstück: Sie trägt `lastmod` vom 21.05.2011 und
 nennt durchgehend `www.stuttgart-hagelschaden.de` — eine Domain, die heute
@@ -313,9 +350,22 @@ ausgeliefert.
 
    Was die Weiterleitungen tatsächlich bekannt macht, sind die 301er selbst:
    Google ruft die alten Adressen von sich aus wieder auf, weil sie im Index
-   stehen, und sieht dabei das Ziel. Beschleunigen lässt sich das über Schritt 9
-   und über *URL-Prüfung → Indexierung beantragen* für die wichtigsten drei bis
-   vier alten Adressen.
+   stehen, und sieht dabei das Ziel. Nur tut Google das bei manchen Seiten
+   bloß alle paar Monate (siehe die Tabelle im Abgleich oben). Deshalb nicht
+   warten, sondern nachhelfen:
+
+   In der Property **`clean-box.eu`** oben in die URL-Prüfung jede der zwölf
+   alten Adressen einzeln eingeben, genau wie sie im Abgleich stehen, und
+   jeweils *Live-URL testen* → *Indexierung beantragen*. Reihenfolge nach dem
+   Datum des letzten Crawls, die ältesten zuerst: `lederreparatur.html`,
+   `lackierarbeiten.html`, `gallerie.html`, `dellenbeseitigung_hagelschaden.html`
+   — und so weiter bis zur Startseite. Meldet Google zwischendurch ein
+   Tageslimit, am nächsten Tag weitermachen.
+
+   Der Live-Test ist dabei zugleich die Kontrolle: Er muss für jede alte
+   Adresse eine Weiterleitung melden. Steht dort „Seite ist verfügbar" oder
+   ein Fehler, greift die Regel nicht — dann **vor** allem anderen die
+   `.htaccess` prüfen.
 9. Adressänderungs-Werkzeug in der alten Property auslösen.
 
 `html/` kann danach in Ruhe archiviert und gelöscht werden. Solange es steht,
