@@ -16,11 +16,21 @@ RewriteEngine On
 # ozonbehandlung, beklebung, gallerie_beklebung, datenschutz und agb.
 #
 # Diese fuenf tragen die Endung als „(\.html?|\.php)?" statt fest als „.html".
-# Grund: Fuer die dreizehn Adressen aus der Sitemap ist die Endung belegt, fuer
-# diese fuenf nicht — Google zeigt in den Suchergebnissen nur „… › datenschutz"
-# und laesst die Endung weg. Eine Regel, die zu breit greift, kostet nichts:
-# Die Namen kommen auf der neuen Website nicht vor. Eine Regel, die wegen einer
-# falsch geratenen Endung danebengreift, kostet eine indexierte Seite.
+# Als die Regeln entstanden, war die Endung fuer sie nicht belegt — Google
+# zeigt in den Suchergebnissen nur „… › datenschutz" und laesst sie weg.
+#
+# Inzwischen ist sie es fuer drei davon: Der Seitenbericht der Search Console
+# (Stand 18.09.2026) fuehrt agb.html, datenschutz.html und ozonbehandlung.html
+# woertlich. Fuer beklebung und gallerie_beklebung bleibt es offen, beide
+# stehen nicht im Index. Die breite Form bleibt trotzdem fuer alle fuenf: Sie
+# faengt zusaetzlich Links ohne Endung ab, und sie kostet nichts — die Namen
+# kommen auf der neuen Website nicht vor.
+#
+# Abgleich mit dem Index: Alle zwoelf Adressen, die Google von clean-box.eu
+# fuehrt, landen hier in EINEM Sprung auf ihrem Ziel — geprueft, nicht
+# gelesen, mit den Adressen exakt so, wie der Export sie nennt, eine davon
+# ohne www. Die sieben Regeln fuer Adressen, die nicht (mehr) im Index stehen,
+# bleiben stehen: Lesezeichen und fremde Links darauf gibt es weiterhin.
 #
 # Reihenfolge ist entscheidend: die Zuordnung der alten Adressen steht VOR der
 # Kanonisierung und traegt absolute Ziele. Sonst laeuft jede alte Adresse ueber

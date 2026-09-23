@@ -132,6 +132,81 @@ Die Suche meldete außerdem, sie habe *„einige Einträge ausgelassen, die den 
 angezeigten Treffern sehr ähnlich sind"*. Es kann also noch mehr geben; der
 Seitenbericht der Search Console klärt das abschließend.
 
+### Was der Seitenbericht sagt (Stand 18.09.2026)
+
+Zahlen aus der Property `clean-box.eu`, stabil über fünf Tage:
+
+| | |
+|---|---|
+| Indexiert | **12** |
+| Nicht indexiert | **4** |
+| Impressionen pro Tag | 104 – 296, im Mittel rund 185 |
+
+**Die Impressionen sind die Zahl, um die es beim Umzug geht.** Rund 5.500 im
+Monat — so oft taucht die alte Seite heute in Suchergebnissen auf. Jede alte
+Adresse ohne Weiterleitung wirft ihren Anteil daran weg, und zwar dauerhaft:
+Was einmal aus dem Index fällt, kommt für dieselben Suchbegriffe nicht von
+allein zurück.
+
+Die vier nicht indexierten Seiten verteilen sich so:
+
+* **3 × „Duplikat – vom Nutzer nicht als kanonisch festgelegt".** Die alte
+  Seite setzt keine `canonical`-Angaben. Wo zwei Adressen denselben Inhalt
+  zeigen, sucht Google sich selbst eine aus und lässt die anderen fallen. Der
+  offensichtliche Fall steht in der Sitemap von 2011 gleich doppelt drin:
+  die Startseite einmal als `/` und einmal als `/index.php`.
+* **1 × „Soft 404".** Eine Seite, die zwar `200` liefert, für Google aber
+  leer wirkt.
+
+**Beides sind Krankheiten der alten Seite, und beide heilt der Umzug.** Die
+Weiterleitungen führen die doppelten Adressen auf je ein Ziel zusammen —
+`index.php` hat dafür eine eigene Regel —, und die neue Website setzt auf
+*jeder* Seite ein `canonical`. Nachgeprüft am 23.09.2026, einschließlich des
+Falls, der solche Duplikate am häufigsten erzeugt: `/kontakt/?utm_source=…`
+zeigt auf `/kontakt/`, nicht auf sich selbst.
+
+Die Liste der Adressen liefert der Export vom Hauptbildschirm **nicht** — der
+enthält nur Diagramm und Gründe. Man muss im Bericht erst auf *Indexierte
+Seiten* gehen; die Tabelle, die sich dort öffnet, hat einen eigenen Export.
+
+### Abgleich: zwölf von zwölf (23.09.2026)
+
+| Adresse im Index | zuletzt gecrawlt | Ziel |
+|---|---|---|
+| `www.clean-box.eu/` | 12.09. | `/` |
+| `clean-box.eu/fahrzeugpflege_interieur.html` ⚠ ohne www | 11.09. | `/leistungen/fahrzeugpflege-interieur/` |
+| `www.clean-box.eu/agb.html` | 06.09. | `/agb/` |
+| `www.clean-box.eu/impressum.html` | 09.08. | `/impressum/` |
+| `www.clean-box.eu/ozonbehandlung.html` | 08.08. | `/leistungen/ozonbehandlung/` |
+| `www.clean-box.eu/kontakt_und_anfahrt.html` | 08.08. | `/kontakt/` |
+| `www.clean-box.eu/fahrzeugpflege_exterieur.html` | 05.08. | `/leistungen/fahrzeugpflege-exterieur/` |
+| `www.clean-box.eu/datenschutz.html` | 01.08. | `/datenschutz/` |
+| `www.clean-box.eu/dellenbeseitigung_hagelschaden.html` | 28.07. | `/leistungen/dellen-hagelschaden/` |
+| `www.clean-box.eu/gallerie.html` | 05.07. | `/galerie/` |
+| `www.clean-box.eu/lackierarbeiten.html` | 04.07. | `/leistungen/lackierarbeiten/` |
+| `www.clean-box.eu/lederreparatur.html` | 29.06. | `/leistungen/lederreparatur/` |
+
+**Geprüft, nicht gelesen:** Alle zwölf Adressen, exakt so wie der Export sie
+nennt, liefen unter Apache 2.4.58 durch die scharfgeschaltete `.htaccess` —
+jede in **einem** Sprung auf ihr Ziel, jedes Ziel mit `200`. Es gibt keine
+indexierte Adresse ohne Regel. Nebenbei belegt der Export die Endung `.html`
+für `agb`, `datenschutz` und `ozonbehandlung`, die bis dahin nur vermutet war.
+
+Umgekehrt stehen sieben Regeln für Adressen, die **nicht** im Index sind: die
+vier Galerie-Unterseiten, `beklebung`, `gallerie_beklebung` und `index.php`.
+Unter ihnen stecken vermutlich die vier nicht indexierten Seiten aus dem
+Bericht. Die Regeln bleiben — Lesezeichen und fremde Links auf diese Adressen
+gibt es weiterhin, und sie kosten nichts.
+
+**Die Spalte „zuletzt gecrawlt" ist der eigentliche Fund.** Google besucht
+manche dieser Seiten nur alle paar Monate: `lederreparatur.html` zuletzt am
+29.06., `lackierarbeiten.html` am 04.07. Eine Weiterleitung wirkt aber erst,
+wenn Google sie beim nächsten Besuch *sieht*. Ohne Nachhilfe stünde die alte
+Lederreparatur-Seite nach dem Umschalten also womöglich noch monatelang im
+Index — mit einem Ziel, das sich erst beim nächsten Crawl auflöst. Deshalb
+Schritt 8 am Umschalttag: die alten Adressen einzeln zur Prüfung einreichen,
+die am längsten nicht besuchten zuerst.
+
 Die Sitemap selbst ist ein Fundstück: Sie trägt `lastmod` vom 21.05.2011 und
 nennt durchgehend `www.stuttgart-hagelschaden.de` — eine Domain, die heute
 nicht mehr auflöst. Dasselbe bei der `robots.txt`, die zusätzlich `/css/`
@@ -275,9 +350,22 @@ ausgeliefert.
 
    Was die Weiterleitungen tatsächlich bekannt macht, sind die 301er selbst:
    Google ruft die alten Adressen von sich aus wieder auf, weil sie im Index
-   stehen, und sieht dabei das Ziel. Beschleunigen lässt sich das über Schritt 9
-   und über *URL-Prüfung → Indexierung beantragen* für die wichtigsten drei bis
-   vier alten Adressen.
+   stehen, und sieht dabei das Ziel. Nur tut Google das bei manchen Seiten
+   bloß alle paar Monate (siehe die Tabelle im Abgleich oben). Deshalb nicht
+   warten, sondern nachhelfen:
+
+   In der Property **`clean-box.eu`** oben in die URL-Prüfung jede der zwölf
+   alten Adressen einzeln eingeben, genau wie sie im Abgleich stehen, und
+   jeweils *Live-URL testen* → *Indexierung beantragen*. Reihenfolge nach dem
+   Datum des letzten Crawls, die ältesten zuerst: `lederreparatur.html`,
+   `lackierarbeiten.html`, `gallerie.html`, `dellenbeseitigung_hagelschaden.html`
+   — und so weiter bis zur Startseite. Meldet Google zwischendurch ein
+   Tageslimit, am nächsten Tag weitermachen.
+
+   Der Live-Test ist dabei zugleich die Kontrolle: Er muss für jede alte
+   Adresse eine Weiterleitung melden. Steht dort „Seite ist verfügbar" oder
+   ein Fehler, greift die Regel nicht — dann **vor** allem anderen die
+   `.htaccess` prüfen.
 9. Adressänderungs-Werkzeug in der alten Property auslösen.
 
 `html/` kann danach in Ruhe archiviert und gelöscht werden. Solange es steht,
