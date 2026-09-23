@@ -255,3 +255,109 @@ function feld_schluessel(string $pfad): string
 {
     return str_replace('.', '__', $pfad);
 }
+
+/**
+ * Das Listenfeld, aus dem im Panel entfernt werden darf — oder null.
+ *
+ * Nur wo das Schema es ausdruecklich erlaubt ('entfernbar' => true). Die
+ * meisten Listen der Website haben eine feste Zahl von Plaetzen, auf die das
+ * Layout gebaut ist: sieben Kacheln, drei Stationen, drei Vergleiche. Dort
+ * wird ersetzt, nicht entfernt. Die Galerie dagegen ist eine Sammlung, die
+ * waechst — und aus einer Sammlung muss man auch wieder etwas herausnehmen
+ * koennen, spaetestens wenn ein Kunde sein Fahrzeug dort nicht mehr sehen will.
+ *
+ * Zugleich die Pruefung fuer den Listennamen aus dem Formular: Was hier nicht
+ * gefunden wird, wird nicht angefasst.
+ *
+ * @param array<string,mixed> $schema
+ * @return array<string,mixed>|null
+ */
+function listenfeld_entfernbar(array $schema, string $pfad): ?array
+{
+    foreach ($schema['gruppen'] as $gruppe) {
+        foreach ($gruppe['felder'] as $feld) {
+            if ($feld['typ'] === 'liste' && $feld['pfad'] === $pfad && ($feld['entfernbar'] ?? false) === true) {
+                return $feld;
+            }
+        }
+    }
+
+    return null;
+}
+
+/**
+ * Kurzer Fingerabdruck eines Listeneintrags.
+ *
+ * Das Formular schickt ihn mit, und entfernt wird nur, wenn er noch passt.
+ * Ohne diese Probe traefe eine Nummer nach jeder zwischenzeitlichen Aenderung
+ * den falschen Eintrag: Ist in einem zweiten Fenster Bild 3 schon entfernt
+ * worden, ist das alte Bild 4 jetzt Bild 3 — und ein Klick im ersten Fenster
+ * naehme das falsche Foto von der Website.
+ */
+function listeneintrag_kennung(mixed $eintrag): string
+{
+    return substr(sha1((string) json_encode($eintrag, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)), 0, 16);
+}
+
+/**
+ * Nimmt einen Eintrag aus einer Liste und raeumt seine Bilder auf.
+ *
+ * Eine Bilddatei wird nur geloescht, wenn sie danach nirgends mehr im Inhalt
+ * steht. Die Platzhalter der Website stehen an bis zu fuenf Stellen zugleich;
+ * verschwaende die Datei beim Entfernen aus der Galerie, fehlte sie danach
+ * auf der Startseite und auf zwei Leistungsseiten.
+ *
+ * @param array<string,mixed> $feld Listenfeld aus dem Schema
+ * @return array{0:string|null,1:list<string>} Fehlermeldung oder null, dazu
+ *         die Orte, an denen ein Bild des Eintrags weiter verwendet wird
+ */
+function listeneintrag_entfernen(string $bereich, array $feld, int $index, string $kennung): array
+{
+    $daten = content($bereich);
+    $liste = get($daten, $feld['pfad'], []);
+
+    if (!is_array($liste) || !array_is_list($liste) || !isset($liste[$index])) {
+        return ['Diesen Eintrag gibt es nicht mehr. Bitte die Seite neu laden.', []];
+    }
+    if (!hash_equals(listeneintrag_kennung($liste[$index]), $kennung)) {
+        return ['Die Liste hat sich inzwischen geändert, vermutlich in einem anderen Fenster. '
+              . 'Bitte die Seite neu laden und noch einmal versuchen.', []];
+    }
+    if (count($liste) - 1 < (int) ($feld['min'] ?? 0)) {
+        return ['Der letzte Eintrag lässt sich nicht entfernen, sonst wäre dieser Bereich leer. '
+              . 'Setzen Sie stattdessen ein anderes Foto ein.', []];
+    }
+
+    // Die Bilder des Eintrags merken, bevor er weg ist.
+    $bilder = [];
+    foreach ($feld['subfelder'] as $sub) {
+        $wert = get($liste[$index], $sub['pfad']);
+        if ($sub['typ'] === 'bild' && is_string($wert) && $wert !== '') {
+            $bilder[] = $wert;
+        }
+    }
+
+    array_splice($liste, $index, 1);
+    setze($daten, $feld['pfad'], $liste);
+    content_speichern($bereich, $daten);
+
+    /* Erst NACH dem Speichern nachsehen, wo die Bilder noch stehen — sonst
+       zaehlte der gerade entfernte Eintrag selbst als Verwendung. Ist eine
+       Inhaltsdatei unlesbar, weiss niemand sicher, was noch gebraucht wird;
+       dann bleiben die Dateien liegen. */
+    $verwendungen = bild_verwendungen();
+    $weiterhin = [];
+    foreach (array_unique($bilder) as $bild) {
+        if ($verwendungen === null) {
+            break;
+        }
+        $orte = $verwendungen[basename($bild)] ?? [];
+        if ($orte === []) {
+            bilddatei_loeschen($bild);
+        } else {
+            array_push($weiterhin, ...array_keys($orte));
+        }
+    }
+
+    return [null, array_values(array_unique($weiterhin))];
+}
