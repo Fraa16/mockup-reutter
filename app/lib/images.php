@@ -349,3 +349,89 @@ function bild_quellen(string $name): array
 
     return ['srcset' => implode(', ', $teile), 'breite' => $info[0], 'hoehe' => $info[1]];
 }
+
+/**
+ * Loescht ein hochgeladenes Bild samt seiner verkleinerten Fassungen.
+ *
+ * Die Fassungen muessen mit, und zwar nicht nur der Ordnung halber: Unter ihren
+ * Adressen waere das Bild sonst weiter abrufbar. Wer ein Foto von der Website
+ * nehmen will — etwa weil ein Kunde sein Fahrzeug dort nicht mehr sehen
+ * moechte —, muss alle Groessen loswerden, nicht nur die grosse.
+ *
+ * Der Name stammt aus dem Inhalt, nicht aus einer Eingabe. Geprueft wird er
+ * trotzdem: nur ein blanker Dateiname, kein Weg in einen anderen Ordner.
+ */
+function bilddatei_loeschen(string $name): void
+{
+    if (!preg_match('/^[a-z0-9][a-z0-9._-]*\.(webp|jpe?g|png)$/i', $name)) {
+        return;
+    }
+
+    @unlink(PUBLIC_ROOT . '/uploads/' . $name);
+
+    $basis = pathinfo($name, PATHINFO_FILENAME);
+    foreach (BILD_BREITEN as $breite) {
+        @unlink(PUBLIC_ROOT . "/uploads/cache/{$basis}-{$breite}.webp");
+    }
+}
+
+/**
+ * Wo steht welches Bild im Inhalt — und wie oft?
+ *
+ * Gezaehlt wird jeder Wert, der auf eine Bildendung ausgeht, und zwar unter
+ * seinem blanken Dateinamen. Damit wird „g1.webp" nie in „big1.webp" gefunden,
+ * und ein Eintrag mit Pfad davor („/uploads/g1.webp") zaehlt trotzdem als
+ * Verwendung. Heute steht ueberall der blanke Name; die zweite Regel schuetzt
+ * nur davor, dass eine spaetere Aenderung am Inhalt Fotos loeschen laesst,
+ * die noch gebraucht werden.
+ *
+ * Gelesen wird direkt von der Platte, nicht ueber content(). Dessen
+ * Zwischenspeicher haelt den Stand vom Anfang der Anfrage fest — gleich nach
+ * dem Entfernen eines Eintrags saehe er das Bild noch dort, wo es gerade
+ * herausgenommen wurde, und keine Datei wuerde je geloescht.
+ *
+ * Der Foto-Posteingang zaehlt mit: Was dort auf Einsortierung wartet, steht in
+ * keiner Inhaltsdatei, darf aber trotzdem nicht verschwinden.
+ *
+ * @return array<string,array<string,int>>|null Dateiname => [Ort => Anzahl].
+ *         null, wenn eine Datei nicht lesbar war — dann weiss niemand sicher,
+ *         was noch gebraucht wird, und geloescht werden darf nichts.
+ */
+function bild_verwendungen(): ?array
+{
+    $index = [];
+
+    $zaehlen = static function (mixed $wert, string $ort) use (&$zaehlen, &$index): void {
+        if (is_array($wert)) {
+            foreach ($wert as $w) {
+                $zaehlen($w, $ort);
+            }
+        } elseif (is_string($wert) && preg_match('/\.(webp|jpe?g|png)$/i', $wert)) {
+            $name = basename($wert);
+            $index[$name][$ort] = ($index[$name][$ort] ?? 0) + 1;
+        }
+    };
+
+    foreach (glob(DATA_ROOT . '/content/*.json') ?: [] as $datei) {
+        $daten = json_decode((string) @file_get_contents($datei), true);
+        if (!is_array($daten)) {
+            return null;
+        }
+        $zaehlen($daten, basename($datei, '.json'));
+    }
+
+    $posteingang = DATA_ROOT . '/fotos-posteingang.json';
+    if (is_file($posteingang)) {
+        $liste = json_decode((string) @file_get_contents($posteingang), true);
+        if (!is_array($liste)) {
+            return null;
+        }
+        foreach ($liste as $e) {
+            if (is_array($e) && is_string($e['datei'] ?? null)) {
+                $zaehlen($e['datei'], 'posteingang');
+            }
+        }
+    }
+
+    return $index;
+}

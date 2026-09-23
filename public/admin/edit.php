@@ -27,8 +27,33 @@ $fehler = [];
    Das Formular bleibt lesbar, der Knopf verschwindet. */
 $nurLesen = !inhalte_beschreibbar();
 
+/* Entfernen -------------------------------------------------------------- */
+/* Kommt aus einem eigenen kleinen Formular je Eintrag, nicht aus dem grossen.
+   Es schickt nur mit, was es braucht; die Rueckfrage vorher steht in admin.js
+   und sagt auch, wenn im grossen Formular noch Ungespeichertes steht. */
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$nurLesen && ($_POST['aktion'] ?? '') === 'entfernen') {
+    csrf_pruefen();
+
+    $feld  = listenfeld_entfernbar($schema, (string) ($_POST['liste'] ?? ''));
+    $index = filter_var($_POST['index'] ?? null, FILTER_VALIDATE_INT, ['options' => ['min_range' => 0]]);
+    if ($feld === null || $index === false) {
+        http_response_code(400);
+        exit('Ungültige Anfrage.');
+    }
+
+    [$meldung, $weiterhin] = listeneintrag_entfernen($bereich, $feld, $index, (string) ($_POST['kennung'] ?? ''));
+    if ($meldung === null) {
+        header('Location: /admin/edit.php?bereich=' . rawurlencode($bereich)
+            . '&entfernt=' . rawurlencode($feld['pfad'])
+            . ($weiterhin !== [] ? '&weiterhin=' . rawurlencode(implode(',', $weiterhin)) : '')
+            . '#' . listen_anker($feld['pfad']));
+        exit;
+    }
+    $fehler['entfernen'] = $meldung;
+}
+
 /* Speichern ------------------------------------------------------------- */
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$nurLesen) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$nurLesen && ($_POST['aktion'] ?? '') !== 'entfernen') {
     csrf_pruefen();
 
     [$daten, $fehler] = eingaben_uebernehmen($schema, $daten, $_POST);
@@ -109,7 +134,94 @@ function datei_aus_post(string $name): ?array
     return $_FILES[$name];
 }
 
+/** Sprungmarke einer Liste — nach dem Entfernen landet man wieder dort. */
+function listen_anker(string $pfad): string
+{
+    return 'liste-' . trim((string) preg_replace('/[^a-z0-9]+/i', '-', $pfad), '-');
+}
+
+/**
+ * Aus Inhaltsnamen werden Seitennamen, wie sie im Panel stehen.
+ *
+ * Die Namen kommen auch aus der Adresszeile (&weiterhin=…). Deshalb zaehlt nur,
+ * was im Schema steht; alles andere faellt stillschweigend heraus.
+ *
+ * @param list<string> $namen
+ * @param array<string,mixed> $schemas
+ * @return list<string>
+ */
+function orte_benennen(array $namen, array $schemas): array
+{
+    $titel = [];
+    foreach ($namen as $name) {
+        if ($name === 'posteingang') {
+            $titel[] = 'Foto-Posteingang';
+        } elseif (isset($schemas[$name]['titel'])) {
+            $titel[] = (string) $schemas[$name]['titel'];
+        }
+    }
+
+    return array_values(array_unique($titel));
+}
+
+/**
+ * Die Rueckfrage vor dem Entfernen eines Listeneintrags.
+ *
+ * Sie sagt vorher, was nachher passiert: ob die Bilddatei vom Server
+ * verschwindet oder an anderer Stelle stehen bleibt. Gerade der zweite Fall
+ * ueberrascht sonst — wer ein Foto auf Wunsch eines Kunden entfernt, muss
+ * wissen, dass es auf der Startseite noch zu sehen ist.
+ *
+ * @param array<string,mixed> $feld
+ * @param array<string,array<string,int>>|null $verwendungen aus bild_verwendungen()
+ * @param array<string,mixed> $schemas
+ */
+function entfernen_frage(array $feld, mixed $eintrag, int $nummer, string $bereich, ?array $verwendungen, array $schemas): string
+{
+    $frage = $feld['label'] . ' ' . $nummer . ' entfernen?';
+
+    $anderswo = [];
+    $hatBild  = false;
+    foreach ($feld['subfelder'] as $sub) {
+        $bild = get((array) $eintrag, $sub['pfad']);
+        if ($sub['typ'] !== 'bild' || !is_string($bild) || $bild === '') {
+            continue;
+        }
+        $hatBild = true;
+        // Die eigene Stelle abziehen — sie ist ja gerade die, die wegfaellt.
+        $orte = $verwendungen[basename($bild)] ?? [];
+        $orte[$bereich] = ($orte[$bereich] ?? 1) - 1;
+        array_push($anderswo, ...array_keys(array_filter($orte, static fn (int $n): bool => $n > 0)));
+    }
+
+    if (!$hatBild || $verwendungen === null) {
+        return $frage;
+    }
+    if ($anderswo !== []) {
+        return $frage . "\n\nDas Foto wird außerdem hier verwendet und bleibt dort zu sehen: "
+            . implode(', ', orte_benennen($anderswo, $schemas)) . '.';
+    }
+
+    return $frage . "\n\nDas Foto wird danach vom Server gelöscht. Das lässt sich nicht rückgängig machen.";
+}
+
 $gespeichert = isset($_GET['gespeichert']);
+$entfernt    = (string) ($_GET['entfernt'] ?? '');
+$weiterhin   = orte_benennen(explode(',', (string) ($_GET['weiterhin'] ?? '')), $schemas);
+
+// Nur einmal ermitteln, nicht je Eintrag — es wird jede Inhaltsdatei gelesen.
+$verwendungen = null;
+foreach ($schema['gruppen'] as $gruppe) {
+    foreach ($gruppe['felder'] as $feld) {
+        if (($feld['entfernbar'] ?? false) === true) {
+            $verwendungen = bild_verwendungen();
+            break 2;
+        }
+    }
+}
+
+/** @var list<array{id:string,liste:string,index:int,kennung:string,frage:string}> $entfernenFormulare */
+$entfernenFormulare = [];
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -157,7 +269,11 @@ $gespeichert = isset($_GET['gespeichert']);
   </p>
   <?php endif; ?>
 
-  <form method="post" enctype="multipart/form-data" class="formular">
+  <?php /* Ziel ausdruecklich angeben: Ohne action schickte das Formular an die
+          aktuelle Adresse — nach einem Entfernen also samt &entfernt=…, und
+          bei einem Eingabefehler stuende der alte Hinweis wieder da. */ ?>
+  <form method="post" enctype="multipart/form-data" class="formular"
+        action="/admin/edit.php?bereich=<?= attr(rawurlencode($bereich)) ?>">
     <?= csrf_feld() ?>
 
     <?php foreach ($schema['gruppen'] as $gruppe): ?>
@@ -170,9 +286,26 @@ $gespeichert = isset($_GET['gespeichert']);
       <?php foreach ($gruppe['felder'] as $feld): ?>
         <?php if ($feld['typ'] === 'liste'): ?>
 
-          <?php $eintraege = (array) get($daten, $feld['pfad'], []); ?>
-          <div class="liste">
-            <?php foreach (array_values($eintraege) as $i => $eintrag): ?>
+          <?php
+            $eintraege  = array_values((array) get($daten, $feld['pfad'], []));
+            // Am Minimum verschwindet der Knopf, statt nach dem Klick zu scheitern.
+            $entfernbar = ($feld['entfernbar'] ?? false) === true && !$nurLesen
+                && count($eintraege) > (int) ($feld['min'] ?? 0);
+          ?>
+          <div class="liste" id="<?= attr(listen_anker($feld['pfad'])) ?>">
+            <?php if ($entfernt === $feld['pfad']): ?>
+              <p class="hinweis erfolg">
+                <?= h($feld['label']) ?> entfernt.
+                <?php if ($weiterhin !== []): ?>
+                  Das Foto wird außerdem noch hier verwendet und ist dort weiter zu sehen:
+                  <strong><?= h(implode(', ', $weiterhin)) ?></strong>. Um es ganz von der
+                  Website zu nehmen, dort ein anderes Foto einsetzen.
+                <?php else: ?>
+                  Das Foto ist von der Website und vom Server gelöscht.
+                <?php endif; ?>
+              </p>
+            <?php endif; ?>
+            <?php foreach ($eintraege as $i => $eintrag): ?>
             <fieldset class="listen-eintrag">
               <legend><?= h($feld['label']) ?> <?= $i + 1 ?></legend>
               <?php foreach ($feld['subfelder'] as $sub): ?>
@@ -182,6 +315,27 @@ $gespeichert = isset($_GET['gespeichert']);
                   feld_ausgeben($sub, get($eintrag, $sub['pfad']), $name, $dateiName);
                 ?>
               <?php endforeach; ?>
+              <?php if ($entfernbar): ?>
+                <?php
+                  /* Der Knopf steht hier im grossen Formular, gehoert aber
+                     ueber form="…" zu einem eigenen kleinen weiter unten.
+                     Formulare lassen sich nicht verschachteln — und so
+                     schickt ein Klick nicht das ganze Formular mit. */
+                  $formularId = listen_anker($feld['pfad']) . '-entfernen-' . $i;
+                  $entfernenFormulare[] = [
+                      'id'      => $formularId,
+                      'liste'   => $feld['pfad'],
+                      'index'   => $i,
+                      'kennung' => listeneintrag_kennung($eintrag),
+                      'frage'   => entfernen_frage($feld, $eintrag, $i + 1, $bereich, $verwendungen, $schemas),
+                  ];
+                ?>
+                <div class="eintrag-aktionen">
+                  <button type="submit" form="<?= attr($formularId) ?>" class="knopf schlicht">
+                    <?= h($feld['entfernen_text'] ?? $feld['label'] . ' entfernen') ?>
+                  </button>
+                </div>
+              <?php endif; ?>
             </fieldset>
             <?php endforeach; ?>
           </div>
@@ -200,6 +354,18 @@ $gespeichert = isset($_GET['gespeichert']);
       <a href="/admin/" class="knopf schlicht"><?= $nurLesen ? 'Zurück zur Übersicht' : 'Abbrechen' ?></a>
     </div>
   </form>
+
+  <?php foreach ($entfernenFormulare as $f): ?>
+  <form method="post" id="<?= attr($f['id']) ?>" class="entfernen-formular"
+        action="/admin/edit.php?bereich=<?= attr(rawurlencode($bereich)) ?>"
+        data-bestaetigen="<?= attr($f['frage']) ?>">
+    <?= csrf_feld() ?>
+    <input type="hidden" name="aktion" value="entfernen">
+    <input type="hidden" name="liste" value="<?= attr($f['liste']) ?>">
+    <input type="hidden" name="index" value="<?= (int) $f['index'] ?>">
+    <input type="hidden" name="kennung" value="<?= attr($f['kennung']) ?>">
+  </form>
+  <?php endforeach; ?>
 </main>
 
 <?php
@@ -252,5 +418,9 @@ function feld_ausgeben(array $feld, mixed $wert, string $name, ?string $dateiNam
     <?php
 }
 ?>
+<?php /* Ohne diese Zeile kaeme die Rueckfrage vor dem Entfernen nie — ein
+        Klick naehme das Foto sofort von der Website. Genau das war bei den
+        Anfragen schon einmal passiert. */ ?>
+<script src="/admin/assets/admin.js" defer></script>
 </body>
 </html>

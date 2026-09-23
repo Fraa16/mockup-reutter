@@ -855,6 +855,9 @@ return [
                     ['pfad' => 'raster.beschreibung', 'typ' => 'mehrzeilig', 'label' => 'Text daneben'],
                     ['pfad' => 'raster.fussnote',     'typ' => 'mehrzeilig', 'label' => 'Hinweis unter dem Raster'],
                     ['pfad' => 'raster.bilder', 'typ' => 'liste', 'label' => 'Bild', 'min' => 1, 'max' => 40,
+                     // Die einzige Liste mit Entfernen-Knopf: Das Raster ist eine
+                     // Sammlung, alle anderen Listen sind feste Plaetze im Layout.
+                     'entfernbar' => true, 'entfernen_text' => 'Aus der Galerie entfernen',
                      'subfelder' => [
                         ['pfad' => 'bild',      'typ' => 'bild', 'label' => 'Foto'],
                         ['pfad' => 'alt',       'typ' => 'text', 'label' => 'Bildbeschreibung'],

@@ -92,11 +92,13 @@ function posteingang_entfernen(string $datei): void
 }
 
 /**
- * Loescht ein Foto samt seiner verkleinerten Fassungen.
+ * Loescht ein Foto aus dem Posteingang samt seiner verkleinerten Fassungen.
  *
  * Ohne die Ableitungen blieben je Bild bis zu fuenf Dateien im Cache liegen,
  * die niemand mehr findet — und beim naechsten Bild mit demselben Namen waere
- * das alte Bild in den kleinen Groessen wieder da.
+ * das alte Bild in den kleinen Groessen wieder da. Wie das geht, weiss
+ * bilddatei_loeschen(); dieselbe Funktion raeumt auch beim Entfernen aus der
+ * Galerie auf.
  */
 function foto_loeschen(string $datei): void
 {
@@ -104,13 +106,7 @@ function foto_loeschen(string $datei): void
         return;
     }
 
-    @unlink(PUBLIC_ROOT . '/uploads/' . $datei);
-
-    $basis = pathinfo($datei, PATHINFO_FILENAME);
-    foreach (BILD_BREITEN as $breite) {
-        @unlink(PUBLIC_ROOT . "/uploads/cache/{$basis}-{$breite}.webp");
-    }
-
+    bilddatei_loeschen($datei);
     posteingang_entfernen($datei);
 }
 
