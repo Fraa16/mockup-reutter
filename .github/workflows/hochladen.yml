@@ -105,7 +105,19 @@ jobs:
             echo "::warning::Keine Kontaktadresse in data/content/site.json gefunden — Probe uebersprungen."
             exit 0
           fi
-          if curl -sS --max-time 20 https://smartrepair-reutter.de/ | grep -qF "$soll"; then
+          # Erst vollstaendig laden, DANN suchen — nicht „curl | grep -q".
+          # In der Pipe hoert grep -q beim ersten Treffer auf zu lesen; die
+          # Adresse steht schon bei Byte ~2200 im Seitenkopf. Kommt die Seite
+          # uebers Netz in Stuecken, will curl danach noch schreiben, bekommt
+          # „(23) Failure writing output" — und mit pipefail galt die ganze
+          # Probe als gescheitert. Sie warnte also genau dann, wenn die Adresse
+          # GEFUNDEN wurde. So geschehen beim ersten echten Lauf am 23.09.2026;
+          # lokal trat es nicht auf, weil 50 KB in den Pipe-Puffer passen.
+          if ! seite=$(curl -sS --max-time 20 https://smartrepair-reutter.de/); then
+            echo "::warning::Startseite nicht abrufbar — Probe uebersprungen. Die Gegenprobe im naechsten Schritt sagt, ob die Seite laeuft."
+            exit 0
+          fi
+          if grep -qF "$soll" <<<"$seite"; then
             echo "  Kontaktadresse stimmt ueberein: $soll"
           else
             echo "::warning::Die Website zeigt NICHT die Adresse aus dem Repository ($soll). Entweder ist data/content/ auf dem Server veraltet — dann die Datei von Hand hochladen oder im Panel nachtragen — oder sie wurde im Panel bewusst geaendert. Nach der Uebergabe ist der Server im Recht."
