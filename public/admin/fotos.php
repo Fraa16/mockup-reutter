@@ -215,7 +215,7 @@ $inGalerie   = count(content('galerie')['raster']['bilder'] ?? []);
     <h2>Was gute Fotos ausmacht</h2>
     <dl>
       <dt>Quer halten, nicht hochkant</dt>
-      <dd>Die Galerie ist auf liegende Bilder gebaut. Hochkant funktioniert, wirkt aber verloren.</dd>
+      <dd>Jeder Bildplatz der Website ist querformatig. Ein Hochkant-Foto wird oben und unten abgeschnitten — bei einem Auto fehlen dann Dach oder Räder.</dd>
 
       <dt>Nichts nachbearbeiten</dt>
       <dd>Keine Filter, nicht aufhellen. Das Ergebnis soll für sich sprechen — und aufgehübschte Bilder fallen auf.</dd>

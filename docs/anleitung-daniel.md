@@ -75,8 +75,10 @@ Passt ein Foto doch nicht, auf **„Löschen"**, dann ist es weg.
 
 ## Was ein gutes Foto ausmacht
 
-**Quer halten, nicht hochkant.** Die Galerie ist auf liegende Bilder gebaut.
-Hochkant funktioniert, wirkt aber verloren.
+**Quer halten, nicht hochkant.** Jeder Bildplatz auf der Website ist
+querformatig. Ein Hochkant-Foto schneidet die Seite oben und unten ab — bei
+einem Auto fehlen dann Dach oder Räder. Und um das Motiv herum etwas Platz
+lassen: Je nach Bildschirm werden die Ränder ein wenig beschnitten.
 
 **Nichts nachbearbeiten.** Keine Filter, nicht aufhellen. Das Ergebnis soll für
 sich sprechen — und aufgehübschte Bilder fallen auf.
@@ -107,8 +109,24 @@ besser. Die Website rechnet sie selbst klein.
 Nein. Jedes Handy speichert den Standort im Bild mit; das wird beim Hochladen
 entfernt. Auf der Website landet nur das Bild.
 
+**Wie nehme ich ein Foto wieder von der Website?**
+Zum Beispiel, wenn ein Kunde sein Auto dort nicht mehr sehen möchte. In der
+Übersicht auf **„Galerie"** tippen, nach unten bis zum Bildraster, beim
+richtigen Foto unten rechts auf **„Aus der Galerie entfernen"** und bestätigen.
+Die Seite sagt vorher, was passieren wird.
+
+Meistens ist das Foto danach vom Server gelöscht, auch in allen kleineren
+Größen. Wird es noch an anderer Stelle verwendet, etwa auf der Startseite,
+nennt die Seite diese Stellen — dort ist es dann weiter zu sehen. Um es ganz
+herunterzunehmen, dort beim Foto ein anderes Bild einsetzen und speichern.
+Genauso beim letzten Foto der Galerie: Das lässt sich nicht entfernen, sonst
+wäre die Seite leer.
+
 **Ich habe aus Versehen etwas gelöscht.**
-Melden Sie sich, das ist in einer Minute zurückgeholt.
+Ein Text ist schnell zurückgeholt: Jede Fassung wird beim Speichern gesichert,
+melden Sie sich einfach. Ein **Foto** dagegen wird beim Löschen oder Entfernen
+vom Server genommen. Das holt niemand zurück — laden Sie es einfach noch
+einmal vom Handy hoch.
 
 **Das Foto ist zu groß, sagt die Seite.**
 Dann steht in der Meldung, wie groß es sein darf. Passiert das bei jedem Bild,
