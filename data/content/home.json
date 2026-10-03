@@ -9,9 +9,8 @@
         "titel_zusatz": "Alles aus einer Hand.",
         "lead": "Wir beseitigen Hagelschäden, Parkdellen und Kratzer, lackieren nach, reparieren Leder und bereiten Innenräume auf. In der Halle in Korntal bei Stuttgart — oder mobil bei Ihnen vor Ort.",
         "fineprint": "Kostenlose Einschätzung · Am schnellsten geht es telefonisch",
-        "bild": "hero.webp",
-        "bild_alt": "Dunkles Fahrzeug nach der Aufbereitung, Lichtkante auf der Flanke",
-        "bild_platzhalter": true,
+        "bild": "porsche-carrera-gt-d8514.webp",
+        "bild_alt": "Roter Porsche Carrera GT in der Halle",
         "kachel_3": {
             "wert": "7",
             "label": "Leistungen, ein Ansprechpartner"
@@ -39,9 +38,8 @@
         "kicker": "Leistungen",
         "titel": "Sagen Sie uns, wo es weh tut.",
         "beschreibung": "Klicken Sie die Stelle am Fahrzeug an. Sie sehen sofort, was wir dort machen — und was das für Ihren Lack bedeutet.",
-        "bild": "hotspot-car.webp",
-        "bild_alt": "Fahrzeug in der Seitenansicht — die Marker markieren die Bereiche, die wir bearbeiten",
-        "bild_platzhalter": true
+        "bild": "dodge-viper-halle-05789.webp",
+        "bild_alt": "Dodge Viper in der Seitenansicht — die Marker zeigen die Bereiche, die wir bearbeiten"
     },
     "transport": {
         "_hinweis": "Eigener Abschnitt, weil Transport und Abschleppen nicht zur Aufbereitung gehoeren und sich nicht auf dem Fahrzeugfoto verorten lassen. Steht deshalb hinter dem Hotspot-Panel, nicht darin.",
@@ -64,32 +62,32 @@
         "kicker": "Vorher / Nachher",
         "titel": "Das Ergebnis lässt sich nicht beschreiben. Nur ziehen.",
         "hinweis": "Ziehen zum Vergleichen. Alle Aufnahmen aus eigener Arbeit, unbearbeitet, gleiches Licht.",
-        "start_position": 52,
-        "_warnung": "LAUNCH-BLOCKER: Jeder Fall zeigt aktuell dasselbe Foto auf beiden Seiten, die Vorher-Haelfte ist nur per CSS-Filter abgedunkelt. Der Hinweistext behauptet 'aus eigener Arbeit' — das ist mit Stockfotos irrefuehrende Werbung (§ 5 UWG). Vor Launch echte Paare vom Kunden einsetzen oder Sektion und Text anpassen.",
+        "start_position": 66,
+        "_quelle": "Drei echte Paare aus Daniels Fotos (Oktober 2026). Uhrzeiten und Monat stammen aus den Aufnahmedaten der Kamera. Vorher und nachher je vom selben Standort, in derselben Halle.",
         "faelle": [
             {
-                "name": "Hagelschaden Dach",
-                "meta": "3 Tage",
-                "note": "Über 40 Dellen auf Dach und Motorhaube, komplett gedrückt. Kein Lackauftrag, Originallack erhalten.",
-                "vorher": "ba-1.webp",
-                "nachher": "ba-1.webp",
-                "echtes_paar": false
+                "name": "Heckklappe Cayenne S",
+                "meta": "Feb. 2021",
+                "note": "Delle direkt unter dem Schriftzug, der auf dem Nachher-Bild noch abgenommen ist. Vorher um 11:31 Uhr, nachher um 13:21 Uhr fotografiert.",
+                "vorher": "cayenne-heckklappe-vorher-b2a3b.webp",
+                "nachher": "cayenne-heckklappe-nachher-75e67.webp",
+                "echtes_paar": true
             },
             {
-                "name": "Lack & Politur",
-                "meta": "1 Tag",
-                "note": "Waschkratzer und Hologramme über die ganze Flanke. Zweistufige Politur, danach versiegelt.",
-                "vorher": "ba-2.webp",
-                "nachher": "ba-2.webp",
-                "echtes_paar": false
+                "name": "Dachkante hinten",
+                "meta": "Feb. 2022",
+                "note": "Delle an der hinteren Dachkante, direkt über der Rückleuchte. Vorher um 9:04 Uhr, nachher um 11:05 Uhr fotografiert.",
+                "vorher": "dachkante-vorher-cd9c2.webp",
+                "nachher": "dachkante-nachher-221a4.webp",
+                "echtes_paar": true
             },
             {
-                "name": "Leder Fahrersitz",
-                "meta": "2 Tage",
-                "note": "Durchgescheuerte Sitzwange, repariert, strukturiert und im Originalfarbton nachgefärbt.",
-                "vorher": "ba-3.webp",
-                "nachher": "ba-3.webp",
-                "echtes_paar": false
+                "name": "Seitenwand Evoque",
+                "meta": "Mai 2017",
+                "note": "Range Rover Evoque, Delle in der hinteren Seitenwand über dem Radlauf. Zwischen den beiden Aufnahmen liegen 17 Minuten.",
+                "vorher": "evoque-seitenwand-vorher-66c83.webp",
+                "nachher": "evoque-seitenwand-nachher-c26b8.webp",
+                "echtes_paar": true
             }
         ]
     },
@@ -128,42 +126,41 @@
         "kicker": "Galerie",
         "titel": "Aus der Halle.",
         "link_text": "Alle Arbeiten ansehen →",
-        "_hinweis": "Alle Bilder sind Stockmaterial und zeigen nicht die Arbeit des Betriebs. Vor Launch tauschen.",
         "kacheln": [
             {
-                "bild": "g1.webp",
-                "alt": "Maschinenpolitur an der Fahrzeugflanke",
-                "caption": "Lackaufbereitung",
+                "bild": "mercedes-g-klasse-grau-f4c1b.webp",
+                "alt": "Mattgraue Mercedes G-Klasse in der Werkstatt",
+                "caption": "Mercedes G-Klasse",
                 "span": 2,
                 "row": 2
             },
             {
-                "bild": "g2.webp",
-                "alt": "Politur am vorderen Kotflügel"
+                "bild": "mazda-mx5-403d5.webp",
+                "alt": "Roter Mazda MX-5 mit goldenen Felgen in der Halle"
             },
             {
-                "bild": "g3.webp",
-                "alt": "Fertig aufbereitetes Fahrzeug, Frontansicht",
-                "caption": "Nach der Aufbereitung",
+                "bild": "blechteil-vorher-94414.webp",
+                "alt": "Ausgebautes Blechteil auf dem Bock, darüber die Prüflampe",
+                "caption": "Unter der Prüflampe",
                 "row": 2
             },
             {
-                "bild": "g4.webp",
-                "alt": "Heckpartie nach der Politur im Detail"
+                "bild": "audi-r8-f5995.webp",
+                "alt": "Roter Audi R8 vor der Halle"
             },
             {
-                "bild": "g5.webp",
-                "alt": "Poliermaschine an der Seitenwand"
+                "bild": "bmw-m2-front-d4a25.webp",
+                "alt": "Schwarzer BMW M2 in der Werkstatt, Frontansicht"
             },
             {
-                "bild": "g6.webp",
-                "alt": "Fahrzeug nach der Politur im Tageslicht",
-                "caption": "Ergebnis im Tageslicht",
+                "bild": "porsche-964-carrera-ab831.webp",
+                "alt": "Schwarzer Porsche 911 (964) mit gelbem Carrera-Schriftzug, Seitenansicht",
+                "caption": "Porsche 911 (964)",
                 "span": 2
             },
             {
-                "bild": "g7.webp",
-                "alt": "Politur an der hinteren Seitenwand"
+                "bild": "tuerkante-lichtlinien-b4a1b.webp",
+                "alt": "Knick an der Türkante, sichtbar in den Lichtlinien der Prüflampe"
             }
         ]
     },
@@ -180,10 +177,8 @@
             "Wir sind ein kleiner Betrieb im Raum Stuttgart und machen Fahrzeugpflege, Aufbereitung und Smart Repair. Kein Waschstraßen-Tempo, keine Pakete, die keiner braucht: Wir schauen uns das Fahrzeug an und sagen, was sinnvoll ist — auch wenn das heißt, dass wir Ihnen etwas ausreden.",
             "Viele Kunden kommen seit Jahren mit dem zweiten und dritten Fahrzeug. Das ist die Referenz, die zählt."
         ],
-        "bild": "betrieb.webp",
-        "bild_alt": "Fertig aufbereitetes Fahrzeug des Betriebs",
-        "bild_platzhalter": true,
-        "_bild_warnung": "Zeigt aktuell einen Porsche 356 in einer Palmenallee und ist als 'Inhaber/Team vor der Halle' beschriftet. Zwingend durch ein echtes Foto ersetzen.",
+        "bild": "porsche-993-hellgelb-3e048.webp",
+        "bild_alt": "Hellgelber Porsche 911 (993) in der Werkstatt",
         "badge": {
             "name": "Smartrepair Reutter",
             "text": "Inhabergeführt. Zu dritt, feste Gesichter.",

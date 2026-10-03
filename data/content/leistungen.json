@@ -16,8 +16,8 @@
                 "Versiegelung oder Keramikschutz zum Abschluss"
             ],
             "hotspot": {
-                "x": 16,
-                "y": 55
+                "x": 29,
+                "y": 43
             },
             "chip": "Exterieur-Pflege",
             "seitenname": "Fahrzeugpflege Exterieur"
@@ -36,8 +36,8 @@
                 "Einzelne Parkdellen meist am selben Tag"
             ],
             "hotspot": {
-                "x": 38,
-                "y": 38
+                "x": 56,
+                "y": 53
             },
             "chip": "Dellen / Hagelschaden",
             "seitenname": "Dellen / Hagelschaden"
@@ -56,8 +56,8 @@
                 "Kunststoff-, Stoßfänger- und Anbauteile"
             ],
             "hotspot": {
-                "x": 79,
-                "y": 47
+                "x": 78,
+                "y": 45
             },
             "chip": "Lackierarbeiten",
             "themen": [
@@ -84,8 +84,8 @@
                 "Versiegelung gegen eingebrannten Bremsstaub"
             ],
             "hotspot": {
-                "x": 87,
-                "y": 66
+                "x": 26,
+                "y": 60
             },
             "chip": "Felgenaufbereitung",
             "seitenname": "Felgen- & Reifenpflege"
@@ -104,8 +104,8 @@
                 "Scheiben innen streifenfrei, auch die Kanten"
             ],
             "hotspot": {
-                "x": 50,
-                "y": 52
+                "x": 74,
+                "y": 36
             },
             "chip": "Interieur-Pflege",
             "seitenname": "Fahrzeugpflege Interieur"
@@ -124,8 +124,8 @@
                 "Lenkrad, Schaltsack und Türgriffe"
             ],
             "hotspot": {
-                "x": 60,
-                "y": 64
+                "x": 64,
+                "y": 37
             },
             "chip": "Lederreparatur",
             "seitenname": "Lederreparatur"
@@ -143,8 +143,8 @@
                 "Lüftungs- und Klimasystem mitbehandelt"
             ],
             "hotspot": {
-                "x": 66,
-                "y": 48
+                "x": 52,
+                "y": 37
             },
             "chip": "Ozonbehandlung",
             "seitenname": "Ozonbehandlung"

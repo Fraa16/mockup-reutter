@@ -1,82 +1,80 @@
 {
     "_hinweis": "Inhalte der Seite /galerie/. Uebernommen aus export/project/Galerie.dc.html.",
-    "_warnung": "LAUNCH-BLOCKER, groesster der ganzen Website. Der Einleitungssatz behauptet woertlich 'Alle Aufnahmen stammen aus eigenen Auftraegen'. Tatsaechlich ist jedes Bild auf dieser Seite Stock- bzw. KI-Material, und die drei Vorher/Nachher-Paare zeigen zweimal dasselbe Bild. Das ist irrefuehrende Werbung nach § 5 UWG. Entweder echte Bilder vom Betrieb — oder der Satz und die Vergleichsregler muessen vor dem Launch raus.",
-    "_unbestaetigt": "Die drei Fallstudien sind erfunden: Dellenzahl, Dauern, Verfahren und Ergebnisse hat der Design-Assistent geschrieben. Vor Launch durch echte Auftraege ersetzen oder streichen.",
+    "_quelle": "Seit Oktober 2026 nur noch Daniels eigene Fotos. Die drei Faelle sind echte Paare vom selben Standort; Uhrzeiten, Monat und Abstand stammen aus den Aufnahmedaten der Kamera. Kennzeichen sind weichgezeichnet, sonst ist nichts bearbeitet.",
 
     "seo": {
         "titel": "Galerie — Arbeiten aus der Halle | Smartrepair Reutter",
-        "beschreibung": "Vorher und Nachher aus eigenen Aufträgen: Hagelschaden, Lackaufbereitung, Lederreparatur. Smartrepair Reutter in Korntal-Münchingen bei Stuttgart."
+        "beschreibung": "Vorher und Nachher aus eigenen Aufträgen: Dellen ohne Lackieren und Fahrzeuge aus der Halle. Smartrepair Reutter in Korntal-Münchingen bei Stuttgart."
     },
 
     "hero": {
         "kicker": "Galerie",
         "titel": "Arbeiten aus der Halle. Ohne Filter, ohne Rendering.",
-        "_lead_warnung": "Dieser Satz ist der abmahnfaehige Teil. Solange Platzhalter stehen, darf er nicht online.",
-        "lead": "Alle Aufnahmen stammen aus eigenen Aufträgen. Vorher und Nachher immer aus derselben Perspektive und im selben Licht — sonst kann man es sich sparen.",
+        "_lead_hinweis": "Der Satz ist eine Zusage. Er stimmt nur, solange hier ausschliesslich eigene Fotos stehen und jeder Vergleichsregler ein Paar vom selben Standort zeigt.",
+        "lead": "Alle Aufnahmen stammen aus eigenen Aufträgen. In den Vergleichen: vorher und nachher aus derselben Perspektive und im selben Licht — sonst kann man es sich sparen.",
         "cta_titel": "Ihr Fahrzeug soll hier stehen?",
         "cta": "Termin anfragen"
     },
 
     "faelle": {
         "kicker": "Drei Aufträge im Detail",
-        "_warnung": "Alle drei Vergleiche zeigen dasselbe Bild auf beiden Seiten.",
         "eintraege": [
             {
-                "kicker": "Fall 01 · Dellen & Hagel",
-                "titel": "Hagelschaden auf Dach und Motorhaube",
-                "text": "Über vierzig Dellen, das Fahrzeug stand im Freien. Himmel und Verkleidungen mussten raus, gedrückt wurde von innen. Es wurde nichts gespachtelt und nichts lackiert.",
+                "kicker": "Fall 01 · Dellen",
+                "titel": "Heckklappe, direkt unter dem Leuchtband",
+                "text": "Die Delle sitzt am Rand der Heckklappe, wenige Zentimeter unter dem Leuchtband eines Porsche. Beide Aufnahmen sind vom selben Standort gemacht, knapp zwei Stunden auseinander.",
                 "vergleich": {
-                    "start_position": 50,
-                    "vorher": "ba-1.webp",
-                    "vorher_alt": "Hagelschaden auf dem Dach vor der Reparatur",
-                    "nachher": "ba-1.webp",
-                    "nachher_alt": "Dach nach dem Drücken, Dellen entfernt",
-                    "echtes_paar": false
+                    "start_position": 55,
+                    "vorher": "porsche-leuchtband-vorher-75f45.webp",
+                    "vorher_alt": "Vorher: weiße Porsche-Heckklappe mit Delle unter dem Leuchtband",
+                    "nachher": "porsche-leuchtband-nachher-afd20.webp",
+                    "nachher_alt": "Nachher: dieselbe Heckklappe ohne Delle",
+                    "echtes_paar": true
                 },
                 "werte": [
-                    { "label": "Dauer",     "wert": "3 Tage" },
-                    { "label": "Verfahren", "wert": "Drücken von innen" },
-                    { "label": "Lack",      "wert": "Original erhalten" }
+                    { "label": "Bauteil",     "wert": "Heckklappe" },
+                    { "label": "Aufnahmen",   "wert": "12:17 und 14:09 Uhr" },
+                    { "label": "Aufgenommen", "wert": "März 2021" }
                 ],
                 "slug": "dellen-hagelschaden"
             },
             {
-                "kicker": "Fall 02 · Exterieur",
-                "titel": "Waschkratzer über die ganze Flanke",
-                "text": "Schwarzer Metalliclack, jahrelang durch die Waschstraße. Lackdicke gemessen, Testfläche angelegt, danach zweistufig poliert und versiegelt.",
+                "kicker": "Fall 02 · Dellen",
+                "titel": "Kotflügel vorn, zehn Minuten",
+                "text": "Eine Delle hinter dem Vorderrad eines BMW. Die Streifenlampe steht während der Arbeit neben dem Kotflügel: Solange ihre Lichtlinien sich biegen, ist das Blech nicht gerade.",
                 "vergleich": {
-                    "start_position": 50,
-                    "vorher": "ba-2.webp",
-                    "vorher_alt": "Waschkratzer im Streiflicht vor der Politur",
-                    "nachher": "ba-2.webp",
-                    "nachher_alt": "Klare Reflexion nach der Politur",
-                    "echtes_paar": false
+                    "start_position": 78,
+                    "vorher": "bmw-kotfluegel-vorher-0f71c.webp",
+                    "vorher_alt": "Vorher: Kotflügel eines BMW unter der Streifenlampe, die Lichtlinien zeigen die Delle",
+                    "nachher": "bmw-kotfluegel-nachher-fe162.webp",
+                    "nachher_alt": "Nachher: derselbe Kotflügel, die Lichtlinien laufen gerade",
+                    "echtes_paar": true
                 },
                 "werte": [
-                    { "label": "Dauer",     "wert": "1 Tag" },
-                    { "label": "Verfahren", "wert": "Politur, zweistufig" },
-                    { "label": "Abschluss", "wert": "Versiegelung" }
+                    { "label": "Bauteil",     "wert": "Kotflügel vorn" },
+                    { "label": "Aufnahmen",   "wert": "10 Minuten auseinander" },
+                    { "label": "Aufgenommen", "wert": "April 2017" }
                 ],
-                "slug": "fahrzeugpflege-exterieur"
+                "slug": "dellen-hagelschaden"
             },
             {
-                "kicker": "Fall 03 · Leder",
-                "titel": "Fahrersitz, Wange durchgescheuert",
-                "text": "Die Faser lag frei. Stelle entfettet, in dünnen Schichten aufgebaut, Narbung vom Originalleder abgenommen und geprägt, danach bis zur Naht nachgefärbt.",
+                "kicker": "Fall 03 · Dellen",
+                "titel": "Ausgebaut und auf dem Bock",
+                "text": "Manche Teile lassen sich besser bearbeiten, wenn sie nicht am Fahrzeug hängen. Dieses Blechteil lag ausgebaut auf dem Bock, die Prüflampe darüber.",
                 "vergleich": {
-                    "start_position": 50,
-                    "vorher": "ba-3.webp",
-                    "vorher_alt": "Sitzwange mit freiliegender Faser vor der Reparatur",
-                    "nachher": "ba-3.webp",
-                    "nachher_alt": "Sitzwange nach Aufbau und Nachfärben",
-                    "echtes_paar": false
+                    "start_position": 62,
+                    "vorher": "blechteil-vorher-94414.webp",
+                    "vorher_alt": "Vorher: ausgebautes Blechteil auf dem Bock, die Lichtlinien der Prüflampe zeigen die Delle",
+                    "nachher": "blechteil-nachher-96e77.webp",
+                    "nachher_alt": "Nachher: dasselbe Blechteil, die Lichtlinien laufen ruhig durch",
+                    "echtes_paar": true
                 },
                 "werte": [
-                    { "label": "Dauer",     "wert": "2 Tage" },
-                    { "label": "Verfahren", "wert": "Aufbau & Prägung" },
-                    { "label": "Farbe",     "wert": "auf Original gemischt" }
+                    { "label": "Bauteil",     "wert": "ausgebaut" },
+                    { "label": "Aufnahmen",   "wert": "17:06 und 18:16 Uhr" },
+                    { "label": "Aufgenommen", "wert": "Dezember 2022" }
                 ],
-                "slug": "lederreparatur"
+                "slug": "dellen-hagelschaden"
             }
         ],
         "link_text": "Zur Leistung"
@@ -86,29 +84,46 @@
         "titel": "Alle Arbeiten",
         "beschreibung": "Nach Leistung filtern. Ein Klick auf ein Bild zeigt es groß.",
         "alle_label": "Alle",
-        "fussnote": "Zwanzig Plätze. Sobald echte Fotos vorliegen, werden sie hier eingesetzt und einer Leistung zugeordnet.",
-        "_bilder_warnung": "Alle zwanzig Bilder sind Platzhalter aus dem Bildpool. Die Zuordnung zur Kategorie ist geraten, die Bildunterschriften beschreiben, was dort stehen SOLL — nicht, was zu sehen ist.",
+        "fussnote": "Aufnahmen aus den Jahren 2016 bis 2026. Kennzeichen sind unkenntlich gemacht.",
+        "_kategorien_hinweis": "'Dellen & Hagel' steht nur bei Fotos, auf denen die Arbeit selbst zu sehen ist (Pruefleuchte, Werkzeug, Delle). Bei allen anderen ist nicht bekannt, was am Fahrzeug gemacht wurde — deshalb neutral 'Fahrzeuge'. Daniel kann das im Panel genauer zuordnen.",
         "bilder": [
-            { "kategorie": "Exterieur",      "bild": "g1.webp",     "alt": "Politur unter der Lichtleiste",            "platzhalter": true },
-            { "kategorie": "Dellen & Hagel", "bild": "g2.webp",     "alt": "Dellendrücken, Werkzeug am Blech",         "platzhalter": true },
-            { "kategorie": "Interieur",      "bild": "g3.webp",     "alt": "Sitz wird extrahiert",                     "platzhalter": true },
-            { "kategorie": "Exterieur",      "bild": "img-11.webp", "alt": "Felge, Detailaufnahme",                    "platzhalter": true },
-            { "kategorie": "Leder",          "bild": "g6.webp",     "alt": "Sitzwange nach der Reparatur",             "platzhalter": true },
-            { "kategorie": "Lack",           "bild": "g5.webp",     "alt": "Musterblech neben dem Bauteil",            "platzhalter": true },
-            { "kategorie": "Exterieur",      "bild": "img-12.webp", "alt": "Reflexion auf der Motorhaube",             "platzhalter": true },
-            { "kategorie": "Dellen & Hagel", "bild": "img-14.webp", "alt": "Hagelschaden, markierte Dellen",           "platzhalter": true },
-            { "kategorie": "Interieur",      "bild": "img-16.webp", "alt": "Fußraum nach der Reinigung",               "platzhalter": true },
-            { "kategorie": "Ozon",           "bild": "g4.webp",     "alt": "Ozongerät im Innenraum",                   "platzhalter": true },
-            { "kategorie": "Exterieur",      "bild": "img-18.webp", "alt": "Handwäsche, Schaum auf dem Lack",          "platzhalter": true },
-            { "kategorie": "Lack",           "bild": "img-19.webp", "alt": "Stoßfänger nach der Lackierung",           "platzhalter": true },
-            { "kategorie": "Interieur",      "bild": "img-20.webp", "alt": "Armaturenbrett, matt aufgefrischt",        "platzhalter": true },
-            { "kategorie": "Leder",          "bild": "g7.webp",     "alt": "Lenkradkranz nachgefärbt",                 "platzhalter": true },
-            { "kategorie": "Dellen & Hagel", "bild": "img-21.webp", "alt": "Streifenlampe spiegelt im Dach",           "platzhalter": true },
-            { "kategorie": "Exterieur",      "bild": "img-22.webp", "alt": "Fahrzeug fertig in der Halle",             "platzhalter": true },
-            { "kategorie": "Interieur",      "bild": "img-23.webp", "alt": "Kofferraum nach der Aufbereitung",         "platzhalter": true },
-            { "kategorie": "Lack",           "bild": "img-25.webp", "alt": "Beilackierung, Übergang poliert",          "platzhalter": true },
-            { "kategorie": "Leder",          "bild": "img-26.webp", "alt": "Rissreparatur im Detail",                  "platzhalter": true },
-            { "kategorie": "Dellen & Hagel", "bild": "img-27.webp", "alt": "Verkleidung demontiert, Zugang zum Blech", "platzhalter": true }
+            { "kategorie": "Fahrzeuge", "bild": "porsche-carrera-gt-d8514.webp", "alt": "Roter Porsche Carrera GT in der Halle" },
+            { "kategorie": "Dellen & Hagel", "bild": "blaues-blech-lichtlinien-78e87.webp", "alt": "Blaues Karosserieteil unter der Prüflampe, die gebogenen Lichtlinien zeigen die Delle" },
+            { "kategorie": "Fahrzeuge", "bild": "buick-super-front-2ccc5.webp", "alt": "Schwarzer Buick mit Weißwandreifen und Chromgrill in der Halle" },
+            { "kategorie": "Dellen & Hagel", "bild": "macan-vorher-a6d72.webp", "alt": "Vorher: Delle im hinteren Seitenteil eines grauen Porsche Macan, neben der Rückleuchte" },
+            { "kategorie": "Dellen & Hagel", "bild": "macan-vorher-nah-a9403.webp", "alt": "Vorher, aus der Nähe: dieselbe Delle mit Knick in der Mitte" },
+            { "kategorie": "Dellen & Hagel", "bild": "macan-nachher-01a0c.webp", "alt": "Nachher: dieselbe Stelle in der Werkstatt unter der Prüflampe, die Lichtlinien laufen glatt" },
+            { "kategorie": "Fahrzeuge", "bild": "mercedes-190-evo-front-8acb5.webp", "alt": "Mercedes 190 E Evolution II in der Werkstatt" },
+            { "kategorie": "Fahrzeuge", "bild": "mercedes-190-evo-heck-9ba8f.webp", "alt": "Mercedes 190 E Evolution II von hinten, mit Heckflügel" },
+            { "kategorie": "Dellen & Hagel", "bild": "radhaus-zugang-0d4ba.webp", "alt": "Offenes Radhaus von innen, daneben die Prüflampe: der Zugang zur Delle" },
+            { "kategorie": "Fahrzeuge", "bild": "porsche-993-gelb-d1fe9.webp", "alt": "Gelber Porsche 911 (993) mit Heckflügel in der Werkstatt" },
+            { "kategorie": "Fahrzeuge", "bild": "buick-super-heck-362a2.webp", "alt": "Buick Super von hinten, Heckflossen und Chromleisten, in der Werkstatt" },
+            { "kategorie": "Dellen & Hagel", "bild": "mercedes-tuer-offen-7dd3d.webp", "alt": "Mercedes-Tür unter der Prüflampe, die Zierleiste ist abgenommen" },
+            { "kategorie": "Fahrzeuge", "bild": "ford-mustang-fastback-c3b57.webp", "alt": "Blauer Ford Mustang Fastback in der Werkstatt" },
+            { "kategorie": "Fahrzeuge", "bild": "dodge-viper-halle-05789.webp", "alt": "Dunkelgraue Dodge Viper in der Halle, Seitenansicht" },
+            { "kategorie": "Dellen & Hagel", "bild": "g-klasse-rot-delle-1d7f6.webp", "alt": "Rote Mercedes G-Klasse: Delle unter der hinteren Dachkante, vor der Reparatur" },
+            { "kategorie": "Dellen & Hagel", "bild": "g-klasse-rot-zugwerkzeug-5d4f0.webp", "alt": "Dieselbe G-Klasse in der Werkstatt, Werkzeug an der Karosserie angesetzt" },
+            { "kategorie": "Fahrzeuge", "bild": "mercedes-g-klasse-grau-f4c1b.webp", "alt": "Mattgraue Mercedes G-Klasse in der Werkstatt" },
+            { "kategorie": "Fahrzeuge", "bild": "porsche-993-hellgelb-3e048.webp", "alt": "Hellgelber Porsche 911 (993) in der Werkstatt" },
+            { "kategorie": "Dellen & Hagel", "bild": "tuerkante-lichtlinien-b4a1b.webp", "alt": "Knick an der Türkante, sichtbar in den Lichtlinien der Prüflampe" },
+            { "kategorie": "Fahrzeuge", "bild": "porsche-964-carrera-ab831.webp", "alt": "Schwarzer Porsche 911 (964) mit gelbem Carrera-Schriftzug" },
+            { "kategorie": "Fahrzeuge", "bild": "audi-r8-f5995.webp", "alt": "Roter Audi R8 vor der Halle" },
+            { "kategorie": "Dellen & Hagel", "bild": "kofferraumdeckel-ausgebaut-9cae8.webp", "alt": "Ausgebauter schwarzer Kofferraumdeckel unter der Prüflampe" },
+            { "kategorie": "Fahrzeuge", "bild": "mazda-mx5-403d5.webp", "alt": "Roter Mazda MX-5 mit goldenen Felgen in der Halle" },
+            { "kategorie": "Fahrzeuge", "bild": "bmw-m2-seite-da099.webp", "alt": "Schwarzer BMW M2 in der Werkstatt" },
+            { "kategorie": "Dellen & Hagel", "bild": "mini-kotfluegel-b333b.webp", "alt": "Vorderer Kotflügel eines Mini unter der Prüflampe, die Motorhaube ist offen" },
+            { "kategorie": "Fahrzeuge", "bild": "bmw-m2-front-d4a25.webp", "alt": "Schwarzer BMW M2, Frontansicht" },
+            { "kategorie": "Fahrzeuge", "bild": "cayman-gt4-defender-a2a44.webp", "alt": "Blauer Porsche Cayman GT4 und Land Rover Defender in einer hellen Halle" },
+            { "kategorie": "Dellen & Hagel", "bild": "transporter-seitenwand-f4cee.webp", "alt": "Silberne Seitenwand eines Transporters unter der Prüflampe" },
+            { "kategorie": "Fahrzeuge", "bild": "bmw-m3-e46-eae17.webp", "alt": "Silberner BMW M3 (E46) in der Werkstatt, Seitenansicht" },
+            { "kategorie": "Fahrzeuge", "bild": "aston-martin-18102.webp", "alt": "Silberner Aston Martin in der Werkstatt" },
+            { "kategorie": "Fahrzeuge", "bild": "mercedes-s-klasse-w126-e08d2.webp", "alt": "Mercedes S-Klasse (W126) im Lager" },
+            { "kategorie": "Fahrzeuge", "bild": "mercedes-cabriolet-heck-5ad32.webp", "alt": "Schwarzes Mercedes-Cabriolet der 1950er-Jahre von hinten, in der Werkstatt" },
+            { "kategorie": "Fahrzeuge", "bild": "porsche-911-cabriolet-a1d02.webp", "alt": "Schwarzer Porsche 911 Cabriolet in der Werkstatt" },
+            { "kategorie": "Fahrzeuge", "bild": "mercedes-coupe-gruen-58ee7.webp", "alt": "Grünes Mercedes-Coupé der 1960er-Jahre im Hof" },
+            { "kategorie": "Fahrzeuge", "bild": "dodge-challenger-srt-eb025.webp", "alt": "Schwarzer Dodge Challenger SRT im Hof" },
+            { "kategorie": "Fahrzeuge", "bild": "land-rover-defender-43e67.webp", "alt": "Grüner Land Rover Defender im Hof" },
+            { "kategorie": "Fahrzeuge", "bild": "dodge-viper-hof-ce7ca.webp", "alt": "Dodge Viper im Hof" }
         ]
     },
 

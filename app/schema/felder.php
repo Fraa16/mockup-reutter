@@ -339,7 +339,7 @@ return [
         'gruppen' => [
             [
                 'titel'   => 'Bereiche',
-                'hinweis' => 'Die Position bestimmt, wo der Marker auf dem Fahrzeugfoto sitzt: 0 % ist links bzw. oben, 100 % rechts bzw. unten. Nach einem neuen Fahrzeugfoto müssen alle sieben Marker neu gesetzt werden.',
+                'hinweis' => 'Die Position bestimmt, wo der Marker auf dem Fahrzeugfoto sitzt: 0 % ist der linke bzw. obere Rand des Fotos, 100 % der rechte bzw. untere. Je nach Bildschirm wird das Foto an den Seiten etwas beschnitten — zwischen 20 und 80 % ist ein Marker überall zu sehen. Nach einem neuen Fahrzeugfoto müssen alle sieben Marker neu gesetzt werden.',
                 'felder'  => [
                     ['pfad' => 'eintraege', 'typ' => 'liste', 'label' => 'Bereiche', 'min' => 7, 'max' => 7, 'sortierbar' => false,
                      'subfelder' => [

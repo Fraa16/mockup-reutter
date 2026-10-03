@@ -105,7 +105,13 @@ partial('kopf', [
         ]) ?>
         <div class="scrim" aria-hidden="true"></div>
         <div class="tag">Interaktiv · <?= count($leistungen) ?> Bereiche</div>
-        <div id="hotspot-dots">
+        <?php /* Die Marker stehen in Prozent des Fotos, nicht des Rahmens.
+                Der Rahmen hat je nach Bildschirm ein anderes Seitenverhaeltnis
+                und schneidet das Foto anders zu; die Ebene der Marker wird
+                deshalb im CSS genauso gross gerechnet wie das zugeschnittene
+                Foto. Dafuer braucht sie dessen Seitenverhaeltnis. */ ?>
+        <?php $hq = bild_quellen((string) get($seite, 'leistungen_sektion.bild')); ?>
+        <div id="hotspot-dots" class="hotspot-dots"<?= $hq['hoehe'] > 0 ? ' style="--bild-ar:' . round($hq['breite'] / $hq['hoehe'], 4) . '"' : '' ?>>
           <?php foreach ($leistungen as $i => $l): ?>
           <button type="button" class="hotspot-dot<?= $i === 0 ? ' active' : '' ?>"
                   style="left:<?= (float) $l['hotspot']['x'] ?>%;top:<?= (float) $l['hotspot']['y'] ?>%"
@@ -215,6 +221,7 @@ partial('kopf', [
                 data-vorher="<?= attr(upload($f['vorher'])) ?>" data-nachher="<?= attr(upload($f['nachher'])) ?>"
                 data-vorher-srcset="<?= attr($qv['srcset']) ?>" data-nachher-srcset="<?= attr($qn['srcset']) ?>"
                 data-name="<?= attr($f['name']) ?>" data-note="<?= attr($f['note']) ?>"
+                data-echt="<?= ($f['echtes_paar'] ?? false) === true ? '1' : '0' ?>"
                 aria-pressed="<?= $i === 0 ? 'true' : 'false' ?>">
           <?= h($f['name']) ?><span class="meta"><?= h($f['meta']) ?></span>
         </button>
@@ -223,17 +230,25 @@ partial('kopf', [
     </div>
 
     <?php $erst = get($seite, 'ergebnisse.faelle.0'); ?>
-    <div class="ba-frame" id="ba-frame" data-start="<?= attr((string) get($seite, 'ergebnisse.start_position', 52)) ?>">
+    <?php /* Die Beschriftung steht neben dem Regler, nicht darin: Auf dem
+            Desktop liegt sie trotzdem unten rechts auf dem Bild, auf dem Handy
+            darunter — dort verdeckte sie sonst ein Drittel des Fotos, und
+            genau da sitzt oft die Delle.
+
+            ist-attrappe: siehe partials/vergleich.php. Beim Fallwechsel
+            setzt main.js die Klasse nach data-echt neu. */ ?>
+    <div class="ba-buehne">
+    <div class="ba-frame<?= ($erst['echtes_paar'] ?? false) === true ? '' : ' ist-attrappe' ?>" id="ba-frame" data-start="<?= attr((string) get($seite, 'ergebnisse.start_position', 52)) ?>">
       <div class="layer layer-before">
         <?= bild($erst['vorher'], 'Vorher — Zustand vor der Bearbeitung', [
             'class' => 'slot-img', 'id' => 'ba-img-before',
-            'sizes' => '(max-width: 980px) 92vw, 55vw',
+            'sizes' => '(max-width: 980px) 92vw, min(92vw, 1312px)',
         ]) ?>
       </div>
       <div class="layer layer-after" id="ba-after">
         <?= bild($erst['nachher'], 'Nachher — Zustand nach der Bearbeitung', [
             'class' => 'slot-img', 'id' => 'ba-img-after',
-            'sizes' => '(max-width: 980px) 92vw, 55vw',
+            'sizes' => '(max-width: 980px) 92vw, min(92vw, 1312px)',
         ]) ?>
       </div>
       <div class="ba-handle" id="ba-handle" aria-hidden="true">
@@ -241,10 +256,11 @@ partial('kopf', [
       </div>
       <div class="ba-label before">Vorher</div>
       <div class="ba-label after">Nachher</div>
-      <div class="ba-caption">
-        <div class="name" id="ba-case-name"><?= h($erst['name']) ?></div>
-        <div class="note" id="ba-case-note"><?= h($erst['note']) ?></div>
-      </div>
+    </div>
+    <div class="ba-caption">
+      <div class="name" id="ba-case-name"><?= h($erst['name']) ?></div>
+      <div class="note" id="ba-case-note"><?= h($erst['note']) ?></div>
+    </div>
     </div>
     <p class="ba-hint"><?= h(get($seite, 'ergebnisse.hinweis')) ?></p>
   </div>

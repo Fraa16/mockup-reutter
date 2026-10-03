@@ -9,10 +9,8 @@
         "kicker": "Sechs Leistungen",
         "titel": "Was wir am Fahrzeug machen — und wie weit wir dabei gehen.",
         "lead": "Sechs Bereiche, ein Betrieb. Meistens kommen zwei oder drei davon zusammen: Wer eine Delle drücken lässt, will hinterher auch keine Waschkratzer mehr sehen. Wir sagen Ihnen vorher, was zusammengehört und was Sie sich sparen können.",
-        "bild": "hero.webp",
-        "bild_alt": "Fahrzeug in der Halle unter der Lichtleiste",
-        "bild_platzhalter": true,
-        "_bild_soll": "Halle, Fahrzeug unter Lichtleiste",
+        "bild": "buick-super-heck-362a2.webp",
+        "bild_alt": "Buick Super von hinten in der Werkstatt",
         "gilt_titel": "Für alle Leistungen gilt",
         "gilt": [
             "Festpreis nach Begutachtung",
@@ -35,10 +33,9 @@
                 "Versiegelung",
                 "Felgen"
             ],
-            "bild": "g1.webp",
-            "bild_alt": "Politur unter der Lichtleiste, Reflexion im Lack",
-            "bild_platzhalter": true,
-            "_bild_soll": "Politur unter Lichtleiste, Reflexion im Lack"
+            "bild": "porsche-993-gelb-d1fe9.webp",
+            "bild_alt": "Gelber Porsche 911 (993) in der Werkstatt",
+            "_bild_soll": "Besser waere spaeter ein Foto, das die Arbeit selbst zeigt: Politur unter Lichtleiste, Reflexion im Lack."
         },
         "fahrzeugpflege-interieur": {
             "num": "02",
@@ -65,10 +62,8 @@
                 "ohne Spachtel",
                 "Originallack"
             ],
-            "bild": "g2.webp",
-            "bild_alt": "Dellendrücken mit Reflexlampe am Kotflügel",
-            "bild_platzhalter": true,
-            "_bild_soll": "Dellendrücken mit Reflexlampe"
+            "bild": "porsche-leuchtband-vorher-75f45.webp",
+            "bild_alt": "Delle in einer weißen Porsche-Heckklappe, direkt unter dem Leuchtband"
         },
         "lackierarbeiten": {
             "num": "04",
