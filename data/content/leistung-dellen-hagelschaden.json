@@ -10,10 +10,8 @@
         "titel": "Die Delle geht raus. Der Lack bleibt drauf.",
         "lead": "Wir drücken das Blech von innen zurück, statt zu spachteln und zu lackieren. Was Ihr Fahrzeug behält: den Werkslack — und damit den Wert, den ein Lackschichtmessgerät später bestätigt.",
         "cta": "Schaden begutachten lassen",
-        "bild": "hero.webp",
-        "bild_alt": "Streifenlampe spiegelt sich im Dach, Dellen werden sichtbar",
-        "bild_platzhalter": true,
-        "_bild_soll": "Streifenlampe spiegelt sich im Dach, Dellen sichtbar"
+        "bild": "blaues-blech-lichtlinien-78e87.webp",
+        "bild_alt": "Blaues Karosserieteil unter der Prüflampe, die gebogenen Lichtlinien zeigen die Delle"
     },
     "machbarkeit": {
         "kicker": "Zuerst die ehrliche Frage",
@@ -143,31 +141,26 @@
     "stationen": {
         "kicker": "Drei Stationen",
         "titel": "Bei Dellen zeigt der Zwischenschritt mehr als das Ergebnis.",
-        "lead": "Deshalb hier keine Schieberegler, sondern drei Aufnahmen aus demselben Auftrag: markiert, offen, fertig.",
+        "_bilder_hinweis": "Alle drei Fotos stammen aus einem Auftrag vom 10.02.2020 (9:48, 10:05 und 11:04 Uhr): dieselbe Mercedes-Tuer vorher, mit abgenommener Zierleiste unter der Pruefleuchte, und fertig mit Leiste. Wer ein Bild tauscht, muss den Satz darueber anpassen, solange nicht wieder alle drei aus einem Auftrag sind.",
+        "lead": "Deshalb hier keine Schieberegler, sondern drei Aufnahmen aus demselben Auftrag: vorher, offen, fertig.",
         "eintraege": [
             {
                 "titel": "Zählen und markieren",
                 "text": "Jede Delle wird unter der Streifenlampe gefunden und angezeichnet. Was hier nicht auf der Liste steht, wird später auch nicht abgerechnet.",
-                "bild": "g1.webp",
-                "bild_alt": "Markierte Dellen auf einem Bauteil unter der Streifenlampe",
-                "bild_platzhalter": true,
-                "_bild_soll": "Dellen markiert unter der Streifenlampe"
+                "bild": "mercedes-tuer-vorher-076d6.webp",
+                "bild_alt": "Vorher: Delle vorn in der Fahrertür eines Mercedes"
             },
             {
                 "titel": "Zugang schaffen, drücken",
                 "text": "Himmel, Verkleidung oder Radhausschale kommen raus. Danach wird in vielen kleinen Schritten von innen zurückgeführt — nicht in einem Zug.",
-                "bild": "g2.webp",
-                "bild_alt": "Demontierte Verkleidung, Werkzeug am Blech",
-                "bild_platzhalter": true,
-                "_bild_soll": "Verkleidung demontiert, Werkzeug am Blech"
+                "bild": "mercedes-tuer-offen-7dd3d.webp",
+                "bild_alt": "Dieselbe Tür mit abgenommener Zierleiste unter der Streifenlampe"
             },
             {
                 "titel": "Kontrolle im Streiflicht",
                 "text": "Fertig ist es, wenn die Reflexionslinie über das ganze Bauteil gerade durchläuft. Erst dann kommt die Verkleidung zurück.",
-                "bild": "g3.webp",
-                "bild_alt": "Fertiges Bauteil mit gerader Reflexionslinie",
-                "bild_platzhalter": true,
-                "_bild_soll": "Fertiges Panel, gerade Reflexionslinie"
+                "bild": "mercedes-tuer-fertig-55492.webp",
+                "bild_alt": "Dieselbe Tür fertig, Zierleiste wieder dran, die Lichtlinien laufen gerade"
             }
         ]
     },
