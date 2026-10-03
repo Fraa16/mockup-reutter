@@ -11,8 +11,9 @@ declare(strict_types=1);
  * Aufruf:  php bin/ableitungen.php
  */
 
+// Laedt images.php mit — ein zweites require brach hier mit "Cannot
+// redeclare function" ab, seit bild() es fuer srcset im Bootstrap braucht.
 require dirname(__DIR__) . '/app/bootstrap.php';
-require APP_ROOT . '/lib/images.php';
 
 $bilder = glob(PUBLIC_ROOT . '/uploads/*.webp') ?: [];
 if ($bilder === []) {

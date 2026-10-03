@@ -545,6 +545,19 @@ html:has(body.nav-offen){overflow:hidden}
 }
 .hotspot-visual{
   position:relative;min-height:560px;overflow:hidden;border-right:1px solid rgba(255,255,255,.12);
+  container-type:size;
+}
+/* The marker layer covers exactly the part of the photo object-fit:cover
+   produces, so x/y in percent mean "on the photo" at every frame ratio —
+   desktop is near square, tablet 4:3, phone 3:2. Without container units
+   the layer just fills the frame, as before. */
+.hotspot-dots{position:absolute;inset:0}
+@supports (width:1cqw){
+  .hotspot-dots{
+    inset:auto;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:max(100cqw, 100cqh * var(--bild-ar, 1.3333));
+    height:max(100cqh, 100cqw / var(--bild-ar, 1.3333));
+  }
 }
 .hotspot-visual .scrim{
   position:absolute;inset:0;pointer-events:none;
@@ -626,10 +639,11 @@ html:has(body.nav-offen){overflow:hidden}
 .ba-frame:focus-visible{outline:2px solid var(--red);outline-offset:3px}
 .ba-frame .layer{pointer-events:none}
 .ba-frame .layer{position:absolute;inset:0}
-/* MOCKUP DEVICE: both halves show the same photo; the "before" side is dulled
-   to stand in for unpolished paint, so angle and light stay matched. Delete
-   this rule once real paired before/after photographs replace them. */
-.ba-frame .layer-before .slot-img{
+/* MOCKUP DEVICE: while a slider still shows the same placeholder photo on both
+   sides, the "before" side is dulled to stand in for unpolished paint. Only
+   on frames marked ist-attrappe (echtes_paar not set) — a real pair is shown
+   exactly as photographed, as the page promises. */
+.ba-frame.ist-attrappe .layer-before .slot-img{
   filter:saturate(.42) contrast(.86) brightness(.78);
 }
 .ba-frame .layer-after{clip-path:inset(0 0 0 52%)}
@@ -647,6 +661,9 @@ html:has(body.nav-offen){overflow:hidden}
 .ba-label{position:absolute;top:24px;padding:9px 16px;font:700 11.5px/1 var(--font-display);letter-spacing:.2em;text-transform:uppercase;color:#fff;pointer-events:none}
 .ba-label.before{left:26px;background:rgba(10,11,13,.8);border:1px solid rgba(255,255,255,.16)}
 .ba-label.after{right:26px;background:var(--red)}
+/* The caption is a sibling of the frame, not inside it, so phones can drop it
+   below the photo. On wider screens it still sits on the frame's corner. */
+.ba-buehne{position:relative}
 .ba-caption{
   position:absolute;right:26px;bottom:24px;padding:12px 18px;background:rgba(10,11,13,.82);
   border:1px solid rgba(255,255,255,.14);pointer-events:none;max-width:390px;
@@ -2859,7 +2876,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   .case-btn{flex:1 1 100%;padding:13px 16px}
   .ba-frame{aspect-ratio:4/3}
   .ba-handle .grip{width:46px;height:46px}
-  .ba-caption{left:14px;right:14px;bottom:14px;max-width:none;padding:10px 14px}
+  .ba-caption{position:static;max-width:none;padding:12px 14px;border-top:0}
   .ba-label{top:14px;padding:7px 12px;font-size:10.5px}
   .ba-label.before{left:14px}
   .ba-label.after{right:14px}
