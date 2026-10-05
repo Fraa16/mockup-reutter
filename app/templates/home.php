@@ -394,8 +394,21 @@ partial('kopf', [
             <a href="mailto:<?= attr(get($s, 'kontakt.email')) ?>"><?= h(get($s, 'kontakt.email')) ?></a>
           </div>
         </div>
+        <?php /* Dasselbe Kartenbild wie auf der Kontaktseite — es wird dort im
+                Panel gepflegt, nicht zweimal. */ ?>
+        <?php $karte = (array) get(content('kontakt'), 'anfahrt.karte', []); ?>
         <div class="map-frame">
-          <div class="img-placeholder"><span><?= h(get($seite, 'anfrage.karte_platzhalter')) ?></span></div>
+          <?php if (trim((string) ($karte['bild'] ?? '')) !== ''): ?>
+            <a class="map-link" href="/kontakt/#anfahrt" aria-label="Anfahrt auf der Kontaktseite">
+              <?= bild((string) $karte['bild'], (string) ($karte['bild_alt'] ?? ''), [
+                  'class' => 'slot-img',
+                  'sizes' => '(max-width: 980px) 92vw, 40vw',
+              ]) ?>
+            </a>
+            <?php partial('karten-quelle', ['karte' => $karte]); ?>
+          <?php else: ?>
+            <div class="img-placeholder"><span><?= h(get($seite, 'anfrage.karte_platzhalter')) ?></span></div>
+          <?php endif; ?>
         </div>
       </div>
 

@@ -135,7 +135,7 @@ partial('kopf', [
 </section>
 
 <!-- Anfahrt -->
-<section class="anfahrt">
+<section class="anfahrt" id="anfahrt">
   <div class="wrap">
     <div class="anfahrt-grid">
       <div class="anfahrt-karte">
@@ -144,6 +144,7 @@ partial('kopf', [
               'class' => 'slot-img',
               'sizes' => '(max-width: 980px) 92vw, 45vw',
           ]) ?>
+          <?php partial('karten-quelle', ['karte' => $karte]); ?>
         <?php else: ?>
           <?php /* Lieber ein sichtbarer Platzhalter als ein Foto an der Stelle,
                   an der eine Karte stehen soll. */ ?>
