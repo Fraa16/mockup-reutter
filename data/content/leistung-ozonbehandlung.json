@@ -219,19 +219,17 @@
         "_hinweis": "Ersetzt bewusst den Vorher/Nachher-Regler der anderen Leistungsseiten.",
         "bilder": [
             {
-                "bild": "g1.webp",
+                "bild": "",
                 "alt": "Innenraum eines Raucherfahrzeugs vor der Reinigung",
                 "label": "Schritt 1 · Reinigung",
                 "ist_rot": false,
-                "platzhalter": true,
                 "_bild_soll": "Innenraum vor der Reinigung — Raucherfahrzeug"
             },
             {
-                "bild": "g2.webp",
+                "bild": "",
                 "alt": "Ozongerät im geschlossenen Fahrzeug während der Behandlung",
                 "label": "Schritt 2 · Ozon",
                 "ist_rot": true,
-                "platzhalter": true,
                 "_bild_soll": "Ozongerät im geschlossenen Fahrzeug"
             }
         ],

@@ -114,7 +114,11 @@ partial('kopf', [
             <dl class="werte-liste">
               <div><dt>Ozon sinnvoll</dt><dd><?= h($q['sinnvoll']) ?></dd></div>
               <div><dt>Vorarbeit</dt><dd><?= h($q['vorarbeit']) ?></dd></div>
+              <?php /* Zeitangaben hat der Betrieb im August 2026 gestrichen — die
+                      Zeile erscheint nur, wenn wieder eine eingetragen ist. */ ?>
+              <?php if (trim((string) ($q['dauer'] ?? '')) !== ''): ?>
               <div><dt>Dauer gesamt</dt><dd><?= h($q['dauer']) ?></dd></div>
+              <?php endif; ?>
             </dl>
             <div class="werte-kasten">
               <div class="kasten-titel"><?= h(get($seite, 'diagnose.rueckfall_titel')) ?></div>
@@ -178,8 +182,15 @@ partial('kopf', [
 <!-- Beleg statt Vorher/Nachher -->
 <section class="beleg">
   <div class="wrap">
+    <?php /* Nur Eintraege mit Foto. Fehlen beide, bleibt der Absatz darunter
+            allein stehen — er traegt die Aussage auch ohne Bilder. */ ?>
+    <?php $belegBilder = array_values(array_filter(
+        get($seite, 'beleg.bilder', []),
+        static fn (array $b): bool => trim((string) ($b['bild'] ?? '')) !== ''
+    )); ?>
+    <?php if ($belegBilder !== []): ?>
     <div class="beleg-grid">
-      <?php foreach (get($seite, 'beleg.bilder', []) as $b): ?>
+      <?php foreach ($belegBilder as $b): ?>
       <figure class="beleg-bild">
         <?= bild($b['bild'], $b['alt'], [
             'class' => 'slot-img',
@@ -189,6 +200,7 @@ partial('kopf', [
       </figure>
       <?php endforeach; ?>
     </div>
+    <?php endif; ?>
     <?php /* Der Absatz ersetzt den Vorher/Nachher-Regler und begruendet, warum
             es ihn hier nicht gibt. Er gehoert damit zur Sache, nicht zur
             Bebilderung. */ ?>

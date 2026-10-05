@@ -639,13 +639,6 @@ html:has(body.nav-offen){overflow:hidden}
 .ba-frame:focus-visible{outline:2px solid var(--red);outline-offset:3px}
 .ba-frame .layer{pointer-events:none}
 .ba-frame .layer{position:absolute;inset:0}
-/* MOCKUP DEVICE: while a slider still shows the same placeholder photo on both
-   sides, the "before" side is dulled to stand in for unpolished paint. Only
-   on frames marked ist-attrappe (echtes_paar not set) — a real pair is shown
-   exactly as photographed, as the page promises. */
-.ba-frame.ist-attrappe .layer-before .slot-img{
-  filter:saturate(.42) contrast(.86) brightness(.78);
-}
 .ba-frame .layer-after{clip-path:inset(0 0 0 52%)}
 .ba-handle{
   position:absolute;top:0;bottom:0;width:2px;background:var(--red);left:52%;pointer-events:none;
@@ -1939,6 +1932,7 @@ a.count:hover{color:var(--rot-schrift);border-color:var(--red)}
 }
 .leder-ba-head p{margin:0;font:400 16.5px/1.65 var(--font-body);color:var(--gray-450)}
 .leder-ba-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px}
+.leder-ba-grid.ohne-makros{grid-template-columns:minmax(0,1fr)}
 .leder-ba-grid .ba-frame{height:520px;border:1px solid rgba(10,11,13,.14)}
 .leder-makros{display:grid;grid-template-rows:1fr 1fr;gap:20px;min-height:0}
 .leder-makro{

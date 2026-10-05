@@ -59,6 +59,12 @@ partial('kopf', [
 </section>
 
 <!-- Drei Fallstudien -->
+<?php /* Nur Faelle mit zwei verschiedenen Fotos, siehe vergleich_echt(). */ ?>
+<?php $faelle = array_values(array_filter(
+    get($seite, 'faelle.eintraege', []),
+    static fn (array $f): bool => vergleich_echt($f['vergleich'] ?? [])
+)); ?>
+<?php if ($faelle !== []): ?>
 <section class="faelle">
   <div class="wrap">
     <div class="abschnitt-linie">
@@ -66,7 +72,7 @@ partial('kopf', [
       <span class="linie" aria-hidden="true"></span>
     </div>
 
-    <?php foreach (get($seite, 'faelle.eintraege', []) as $i => $f): ?>
+    <?php foreach ($faelle as $i => $f): ?>
     <?php
       $ziel = null;
       foreach (leistungen_mit_seite() as $l) {
@@ -97,6 +103,7 @@ partial('kopf', [
     <?php endforeach; ?>
   </div>
 </section>
+<?php endif; ?>
 
 <!-- Bildraster -->
 <section class="bildraster">

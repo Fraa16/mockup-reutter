@@ -130,6 +130,29 @@ function bild(string $datei, string $alt, array $o = []): string
 }
 
 /**
+ * Ob ein Vorher/Nachher-Paar gezeigt werden darf: zwei Bilder, und zwar zwei
+ * verschiedene.
+ *
+ * Fehlt eines, oder steht zweimal dasselbe Foto drin, entfaellt der Regler
+ * samt Abschnitt. Frueher zeigten solche Regler ein Platzhalterfoto auf beiden
+ * Seiten, die Vorher-Haelfte per CSS abgedunkelt — auf einer Seite, die
+ * unbearbeitete eigene Aufnahmen verspricht. Jetzt erscheint ein Vergleich
+ * erst, wenn im Panel zwei echte Fotos eingetragen sind.
+ *
+ * Das Feld echtes_paar in aelteren Inhaltsdateien wird nicht mehr gelesen:
+ * Im Panel liess es sich nie setzen.
+ *
+ * @param array<string,mixed> $v  mit den Schluesseln vorher und nachher
+ */
+function vergleich_echt(array $v): bool
+{
+    $vorher  = trim((string) ($v['vorher'] ?? ''));
+    $nachher = trim((string) ($v['nachher'] ?? ''));
+
+    return $vorher !== '' && $nachher !== '' && $vorher !== $nachher;
+}
+
+/**
  * Das rote Parallelogramm aus dem Logo — im Mockup das durchgehende
  * Akzentelement. Groesse variiert je Einsatzort.
  */

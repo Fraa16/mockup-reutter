@@ -10,10 +10,9 @@
         "titel": "Wenn das Fahrzeug nicht fahren kann. Oder nicht fahren soll.",
         "lead": "Abschleppen und Transporte deutschlandweit. Mit eigenem Fahrzeug — wer den Auftrag annimmt, fährt auch.",
         "cta": "Transport anfragen",
-        "bild": "img-20.webp",
-        "bild_alt": "Fahrzeug wird auf den Transporter geladen",
-        "bild_platzhalter": true,
-        "_bild_soll": "Der eigene Transporter oder Abschleppwagen, am besten mit aufgeladenem Fahrzeug"
+        "bild": "land-rover-defender-43e67.webp",
+        "bild_alt": "Grüner Land Rover Defender im Hof",
+        "_bild_soll": "Besser waere spaeter: der eigene Transporter oder Abschleppwagen, am besten mit aufgeladenem Fahrzeug."
     },
     "abschleppen": {
         "kicker": "Abschleppdienst",
