@@ -38,9 +38,12 @@
         "kicker": "Anfahrt",
         "titel": "So finden Sie uns.",
         "karte": {
-            "_hinweis": "Bewusst kein eingebettetes Google-Maps-iframe: das waere ein Request an Google beim Seitenaufruf und damit einwilligungspflichtig. Vorgesehen ist ein statisches Kartenbild plus Link. Solange keins vorliegt, steht hier ein sichtbarer Platzhalter statt eines falschen Fotos.",
-            "bild": "",
-            "bild_alt": "Kartenausschnitt mit dem Standort in Korntal-Münchingen",
+            "_hinweis": "Bewusst kein eingebettetes Google-Maps-iframe: das waere ein Request an Google beim Seitenaufruf und damit einwilligungspflichtig. Stattdessen ein statisches Kartenbild auf dem eigenen Server plus Link. Es erscheint auch auf der Startseite.",
+            "_quelle": "Oktober 2026 aus OpenStreetMap-Kacheln gebaut: Zoom 16, Farben gedaempft, Punkt und Schild ergaenzt. Kartendarstellung CC BY-SA 2.0, Daten ODbL — die Quellenangabe auf dem Bild ist Pflicht und muss mit dem Bild stehen bleiben. Der Punkt sitzt zwischen Lembergstrasse 25 und 29; die 27 selbst ist in OpenStreetMap nicht erfasst.",
+            "bild": "karte-lembergstrasse-7cf16.webp",
+            "bild_alt": "Kartenausschnitt von Korntal: Smartrepair Reutter in der Lembergstraße 27, zwischen Bahnlinie und Lembergstraße, nahe der Solitudeallee",
+            "quelle": "© OpenStreetMap-Mitwirkende",
+            "quelle_link": "https://www.openstreetmap.org/copyright",
             "platzhalter_text": "Kartenausschnitt folgt",
             "link_text": "Route planen"
         },

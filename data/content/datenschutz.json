@@ -74,7 +74,7 @@
             "titel": "Keine eingebundenen Dienste Dritter",
             "absaetze": [
                 "Diese Website lädt keine Inhalte von fremden Servern nach. Die Schriftarten liegen auf unserem eigenen Webspace, es sind keine Google Fonts, kein Content Delivery Network, keine Analyse- oder Trackingdienste und keine Social-Media-Elemente eingebunden.",
-                "Auch die Karte auf der Kontaktseite ist kein eingebettetes Kartenfenster, sondern ein Bild mit einem Link. Ihre IP-Adresse wird also erst dann an einen Kartendienst übertragen, wenn Sie den Link selbst anklicken. Dasselbe gilt für den WhatsApp-Link auf der Kontaktseite."
+                "Auch die Karte auf der Startseite und der Kontaktseite ist kein eingebettetes Kartenfenster, sondern ein Bild auf unserem eigenen Server. Ihre IP-Adresse wird erst dann an einen Kartendienst übertragen, wenn Sie auf der Kontaktseite den Link „Route planen“ selbst anklicken. Dasselbe gilt für den WhatsApp-Link auf der Kontaktseite."
             ]
         },
         {
