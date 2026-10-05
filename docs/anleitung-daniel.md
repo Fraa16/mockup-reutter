@@ -62,8 +62,9 @@ Arbeitsgang — machen Sie ihn am Rechner, wenn Sie fünf Minuten haben.
 Unter „Fotos" steht der **Posteingang** mit allen hochgeladenen Bildern. Je
 Foto zwei Angaben:
 
-* **Kategorie** — wozu das Bild gehört, zum Beispiel „Dellen" oder „Aufbereitung".
-  Auswählen aus der Liste.
+* **Kategorie** — wozu das Bild gehört, zum Beispiel „Dellen & Hagel" oder
+  „Leder". Zeigt das Foto nur das fertige Auto und nicht die Arbeit:
+  „Fahrzeuge". Auswählen aus der Liste.
 * **Bildbeschreibung** — ein kurzer Satz, was zu sehen ist. Zum Beispiel:
   *Hagelschaden am Dach, von innen gedrückt.* Den Satz lesen sich Blinde vorlesen,
   und Google liest ihn auch. Ohne ihn geht es nicht weiter.
