@@ -47,10 +47,9 @@
                 "Kunststoffpflege",
                 "Scheiben innen"
             ],
-            "bild": "g3.webp",
-            "bild_alt": "Innenraum, Sitz wird nass extrahiert",
-            "bild_platzhalter": true,
-            "_bild_soll": "Innenraum, Sitz wird extrahiert"
+            "bild": "cayman-gt4-defender-a2a44.webp",
+            "bild_alt": "Blauer Porsche Cayman GT4 und Land Rover Defender in einer hellen Halle",
+            "_bild_soll": "Besser waere spaeter ein Foto aus dem Innenraum: Sitz wird extrahiert."
         },
         "dellen-hagelschaden": {
             "num": "03",
@@ -75,10 +74,9 @@
                 "Stoßfänger",
                 "Kunststoffteile"
             ],
-            "bild": "g5.webp",
-            "bild_alt": "Farbtonbestimmung am Musterblech",
-            "bild_platzhalter": true,
-            "_bild_soll": "Farbtonbestimmung / Musterblech"
+            "bild": "ford-mustang-fastback-c3b57.webp",
+            "bild_alt": "Blauer Ford Mustang Fastback in der Werkstatt",
+            "_bild_soll": "Besser waere spaeter ein Foto, das die Arbeit selbst zeigt: Farbtonbestimmung am Musterblech."
         },
         "lederreparatur": {
             "num": "05",
@@ -90,10 +88,9 @@
                 "Lenkrad",
                 "Sitzwange"
             ],
-            "bild": "g6.webp",
-            "bild_alt": "Lederreparatur an der Sitzwange",
-            "bild_platzhalter": true,
-            "_bild_soll": "Lederreparatur an der Sitzwange"
+            "bild": "aston-martin-18102.webp",
+            "bild_alt": "Silberner Aston Martin in der Werkstatt",
+            "_bild_soll": "Besser waere spaeter ein Foto, das die Arbeit selbst zeigt: Lederreparatur an der Sitzwange."
         },
         "ozonbehandlung": {
             "num": "06",
@@ -105,10 +102,9 @@
                 "Klimaanlage",
                 "Schimmel"
             ],
-            "bild": "g4.webp",
-            "bild_alt": "Ozongerät im Fahrzeuginnenraum",
-            "bild_platzhalter": true,
-            "_bild_soll": "Ozongerät im Fahrzeuginnenraum"
+            "bild": "mercedes-s-klasse-w126-e08d2.webp",
+            "bild_alt": "Mercedes S-Klasse (W126) im Lager",
+            "_bild_soll": "Besser waere spaeter ein Foto, das die Arbeit selbst zeigt: Ozongeraet im Fahrzeuginnenraum."
         },
         "transport-abschleppdienst": {
             "num": "07",
@@ -120,10 +116,9 @@
                 "Maschinentransport",
                 "Nicht fahrbereit"
             ],
-            "bild": "img-20.webp",
-            "bild_alt": "Fahrzeug wird auf den Transporter geladen",
-            "bild_platzhalter": true,
-            "_bild_soll": "Der eigene Transporter oder Abschleppwagen mit aufgeladenem Fahrzeug"
+            "bild": "land-rover-defender-43e67.webp",
+            "bild_alt": "Grüner Land Rover Defender im Hof",
+            "_bild_soll": "Besser waere spaeter: der eigene Transporter oder Abschleppwagen mit aufgeladenem Fahrzeug."
         }
     },
     "kombinationen": {

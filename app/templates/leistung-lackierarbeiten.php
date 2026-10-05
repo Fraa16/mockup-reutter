@@ -88,12 +88,16 @@ partial('kopf', [
         <div class="kicker"><?= swash() ?><span class="label"><?= h(get($seite, 'farbton.kicker')) ?></span></div>
         <h2><?= h(get($seite, 'farbton.titel')) ?></h2>
         <p><?= h(get($seite, 'farbton.lead')) ?></p>
+        <?php /* Ohne eigenes Foto vom Musterblech kein Bild — ein Werkstattfoto
+                an dieser Stelle wuerde etwas belegen, was es nicht zeigt. */ ?>
+        <?php if (trim((string) get($seite, 'farbton.bild', '')) !== ''): ?>
         <div class="farbton-bild">
           <?= bild(get($seite, 'farbton.bild'), get($seite, 'farbton.bild_alt'), [
               'class' => 'slot-img',
               'sizes' => '(max-width: 980px) 92vw, 30vw',
           ]) ?>
         </div>
+        <?php endif; ?>
       </div>
       <ol class="farbton-schritte">
         <?php foreach (get($seite, 'farbton.schritte', []) as $sch): ?>
@@ -131,6 +135,8 @@ partial('kopf', [
   </div>
 </section>
 
+<?php /* Nur mit zwei verschiedenen Fotos, siehe vergleich_echt(). */ ?>
+<?php if (vergleich_echt($seite['vergleich'] ?? [])): ?>
 <!-- Vorher / Nachher -->
 <section class="ba-section leistung-vergleich ist-hell">
   <div class="wrap">
@@ -147,6 +153,7 @@ partial('kopf', [
     </p>
   </div>
 </section>
+<?php endif; ?>
 
 <!-- Preisrahmen -->
 <section class="preis-band">

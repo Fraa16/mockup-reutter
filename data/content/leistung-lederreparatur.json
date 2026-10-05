@@ -12,10 +12,9 @@
         "titel": "Auffällig ist nicht die Farbe. Auffällig ist die fehlende Narbung.",
         "lead": "Eine reparierte Stelle verrät sich, wenn sie glatt und glänzend bleibt. Deshalb nehmen wir die Struktur vom Originalleder ab und prägen sie in die Reparatur, bevor überhaupt Farbe kommt.",
         "cta": "Termin anfragen",
-        "bild": "g6.webp",
-        "bild_alt": "Nahaufnahme der Lederstruktur an einer Sitzwange",
-        "bild_platzhalter": true,
-        "_bild_soll": "Makro: Lederstruktur an der Sitzwange"
+        "bild": "aston-martin-18102.webp",
+        "bild_alt": "Silberner Aston Martin in der Werkstatt",
+        "_bild_soll": "Besser waere spaeter eine Nahaufnahme: Lederstruktur an der Sitzwange."
     },
 
     "material": {
@@ -127,25 +126,22 @@
         "titel": "Fahrersitz, Wange aufgebaut und nachgefärbt.",
         "beschreibung": "Bei Leder entscheidet die Makroaufnahme. Aus zwei Metern sieht fast jede Reparatur gut aus.",
         "start_position": 50,
-        "_warnung": "LAUNCH-BLOCKER: vorher und nachher zeigen dasselbe Platzhalterbild. Vor Launch echtes Paar einsetzen.",
-        "vorher": "ba-2.webp",
+        "_vergleich_hinweis": "Kein Vorher/Nachher-Paar fuer diese Leistung in Daniels Fotos. Der Abschnitt erscheint erst, wenn im Panel zwei verschiedene Fotos eingetragen sind.",
+        "vorher": "",
         "vorher_alt": "Sitzwange vor der Reparatur, Leder durchgescheuert",
-        "nachher": "ba-2.webp",
+        "nachher": "",
         "nachher_alt": "Sitzwange nach der Reparatur, Struktur und Farbe zurück",
-        "echtes_paar": false,
         "makros": [
             {
-                "bild": "g4.webp",
+                "bild": "",
                 "alt": "Makroaufnahme der geprägten Narbung nach der Reparatur",
                 "label": "Narbung",
-                "platzhalter": true,
                 "_bild_soll": "Makro: geprägte Narbung nach der Reparatur"
             },
             {
-                "bild": "g7.webp",
+                "bild": "",
                 "alt": "Makroaufnahme eines nachgefärbten Lenkradkranzes",
                 "label": "Lenkrad",
-                "platzhalter": true,
                 "_bild_soll": "Makro: Lenkradkranz nachgefärbt"
             }
         ]

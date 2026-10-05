@@ -185,7 +185,6 @@
         tausche(bildNachher, btn.dataset.nachher, btn.dataset.nachherSrcset);
         if (fallName)  fallName.textContent  = btn.dataset.name;
         if (fallNotiz) fallNotiz.textContent = btn.dataset.note;
-        rahmen.classList.toggle('ist-attrappe', btn.dataset.echt !== '1');
       });
     });
 

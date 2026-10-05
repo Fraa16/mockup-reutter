@@ -29,7 +29,7 @@ declare(strict_types=1);
  * deshalb einzeln abschalten.
  *
  * @param list<array<string,mixed>>   $eigene   Zusaetzliche Gruppen dieser Seite
- * @param array{preis?:bool,vergleich?:bool,hero_bild?:bool,faq_kicker?:bool} $optionen
+ * @param array{preis?:bool,vergleich?:bool,makros?:bool,hero_bild?:bool,faq_kicker?:bool} $optionen
  * @return array<string,mixed>
  */
 function leistungs_schema(string $titel, string $beschreibung, array $eigene, array $optionen = []): array
@@ -100,7 +100,7 @@ function leistungs_schema(string $titel, string $beschreibung, array $eigene, ar
     $vergleichBlock = [
         [
             'titel'  => 'Vorher / Nachher',
-            'hinweis' => 'Beide Bilder müssen dasselbe Fahrzeug aus demselben Winkel im selben Licht zeigen.',
+            'hinweis' => 'Beide Bilder müssen dasselbe Fahrzeug aus demselben Winkel im selben Licht zeigen. Der Abschnitt erscheint auf der Seite erst, wenn beide Bilder eingetragen sind.',
             'felder' => [
                 ['pfad' => 'vergleich.titel',       'typ' => 'text', 'label' => 'Überschrift'],
                 ['pfad' => 'vergleich.beschreibung','typ' => 'mehrzeilig', 'label' => 'Text daneben'],
@@ -108,6 +108,23 @@ function leistungs_schema(string $titel, string $beschreibung, array $eigene, ar
                 ['pfad' => 'vergleich.vorher_alt',  'typ' => 'text', 'label' => 'Bildbeschreibung vorher'],
                 ['pfad' => 'vergleich.nachher',     'typ' => 'bild', 'label' => 'Bild nachher'],
                 ['pfad' => 'vergleich.nachher_alt', 'typ' => 'text', 'label' => 'Bildbeschreibung nachher'],
+            ],
+        ],
+    ];
+
+    // Nur Lederreparatur: zwei Nahaufnahmen neben dem Regler. Sie stehen im
+    // selben Abschnitt und erscheinen deshalb nur zusammen mit einem Paar.
+    $makroBlock = [
+        [
+            'titel'   => 'Zwei Nahaufnahmen neben dem Vorher/Nachher',
+            'hinweis' => 'Erscheinen nur zusammen mit einem Vorher/Nachher-Paar. Nahaufnahmen der reparierten Stelle, quer fotografiert.',
+            'felder'  => [
+                ['pfad' => 'vergleich.makros', 'typ' => 'liste', 'label' => 'Nahaufnahme', 'min' => 2, 'max' => 2, 'sortierbar' => false,
+                 'subfelder' => [
+                    ['pfad' => 'bild',  'typ' => 'bild', 'label' => 'Foto'],
+                    ['pfad' => 'alt',   'typ' => 'text', 'label' => 'Bildbeschreibung'],
+                    ['pfad' => 'label', 'typ' => 'text', 'label' => 'Beschriftung unter dem Foto'],
+                 ]],
             ],
         ],
     ];
@@ -126,6 +143,7 @@ function leistungs_schema(string $titel, string $beschreibung, array $eigene, ar
     if ($optionen['preis']     ?? true) { $gruppen = array_merge($gruppen, $preisBlock); }
     $gruppen = array_merge($gruppen, $fragenBlock);
     if ($optionen['vergleich'] ?? true) { $gruppen = array_merge($gruppen, $vergleichBlock); }
+    if ($optionen['makros']    ?? false) { $gruppen = array_merge($gruppen, $makroBlock); }
     $gruppen = array_merge($gruppen, $schlussBlock);
 
     return [
@@ -628,7 +646,7 @@ return [
                     ['pfad' => 'farbton.kicker',   'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
                     ['pfad' => 'farbton.titel',    'typ' => 'text',       'label' => 'Überschrift'],
                     ['pfad' => 'farbton.lead',     'typ' => 'mehrzeilig', 'label' => 'Einleitung'],
-                    ['pfad' => 'farbton.bild',     'typ' => 'bild',       'label' => 'Bild'],
+                    ['pfad' => 'farbton.bild',     'typ' => 'bild',       'label' => 'Bild', 'hilfe' => 'Ein Musterblech neben dem Bauteil. Ohne Foto bleibt der Platz leer.'],
                     ['pfad' => 'farbton.bild_alt', 'typ' => 'text',       'label' => 'Bildbeschreibung'],
                     ['pfad' => 'farbton.schritte', 'typ' => 'liste', 'label' => 'Schritt', 'min' => 2, 'max' => 4, 'sortierbar' => false,
                      'subfelder' => [
@@ -700,7 +718,7 @@ return [
                 ],
             ],
         ],
-        ['faq_kicker' => false]
+        ['faq_kicker' => false, 'makros' => true]
     ),
 
     /* ---------------------------------------------------------------- */
@@ -794,8 +812,14 @@ return [
             ],
             [
                 'titel'   => 'Zwei Bilder statt Vorher/Nachher',
-                'hinweis' => 'Diese Seite hat bewusst keinen Schieberegler — Geruch lässt sich nicht fotografieren.',
+                'hinweis' => 'Diese Seite hat bewusst keinen Schieberegler — Geruch lässt sich nicht fotografieren. Die zwei Fotos erscheinen, sobald sie eingetragen sind: eines vom Innenraum vor der Reinigung, eines vom Ozongerät im geschlossenen Fahrzeug.',
                 'felder'  => [
+                    ['pfad' => 'beleg.bilder', 'typ' => 'liste', 'label' => 'Foto', 'min' => 2, 'max' => 2, 'sortierbar' => false,
+                     'subfelder' => [
+                        ['pfad' => 'bild',  'typ' => 'bild', 'label' => 'Foto'],
+                        ['pfad' => 'alt',   'typ' => 'text', 'label' => 'Bildbeschreibung'],
+                        ['pfad' => 'label', 'typ' => 'text', 'label' => 'Beschriftung unter dem Foto'],
+                     ]],
                     ['pfad' => 'beleg.hinweis', 'typ' => 'mehrzeilig', 'label' => 'Text im hellen Kasten'],
                 ],
             ],

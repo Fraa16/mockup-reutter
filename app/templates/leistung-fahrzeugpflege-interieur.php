@@ -179,6 +179,8 @@ partial('kopf', [
   </div>
 </section>
 
+<?php /* Nur mit zwei verschiedenen Fotos, siehe vergleich_echt(). */ ?>
+<?php if (vergleich_echt($seite['vergleich'] ?? [])): ?>
 <!-- Vorher / Nachher -->
 <section class="ba-section leistung-vergleich">
   <div class="wrap">
@@ -195,6 +197,7 @@ partial('kopf', [
     </p>
   </div>
 </section>
+<?php endif; ?>
 
 <!-- Preisrahmen -->
 <section class="preis-band">

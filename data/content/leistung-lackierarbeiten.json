@@ -44,10 +44,9 @@
         "kicker": "Farbtonfindung",
         "titel": "Der Ton wird gemessen, nicht geraten.",
         "lead": "Silber, Weiß und Perleffekt verzeihen keine Näherung. Wenn wir sehen, dass eine Beilackierung sichtbar bliebe, sagen wir das vorher — und schlagen vor, das ganze Bauteil zu machen.",
-        "bild": "g5.webp",
+        "bild": "",
         "bild_alt": "Musterblech wird zum Vergleich neben das Bauteil gehalten",
-        "bild_platzhalter": true,
-        "_bild_soll": "Musterblech wird neben das Bauteil gehalten",
+        "_bild_soll": "Musterblech wird neben das Bauteil gehalten. Solange keins da ist, bleibt der Platz leer.",
         "schritte": [
             {
                 "num": "01",
@@ -98,12 +97,11 @@
         "titel": "Stoßfänger geschliffen, grundiert, lackiert.",
         "beschreibung": "Der Übergang wird zum Schluss poliert. Erst dann ist die Stelle unsichtbar.",
         "start_position": 50,
-        "_warnung": "LAUNCH-BLOCKER: vorher und nachher zeigen dasselbe Platzhalterbild. Vor Launch echtes Paar einsetzen.",
-        "vorher": "ba-1.webp",
+        "_vergleich_hinweis": "Kein Vorher/Nachher-Paar fuer diese Leistung in Daniels Fotos. Der Abschnitt erscheint erst, wenn im Panel zwei verschiedene Fotos eingetragen sind.",
+        "vorher": "",
         "vorher_alt": "Stoßfänger vor der Lackierung, Schramme sichtbar",
-        "nachher": "ba-1.webp",
+        "nachher": "",
         "nachher_alt": "Stoßfänger nach der Lackierung, Übergang auspoliert",
-        "echtes_paar": false,
         "fussnote_vor": "Weitere Arbeiten in der ",
         "fussnote_link": "Galerie"
     },

@@ -155,6 +155,8 @@ partial('kopf', [
   </div>
 </section>
 
+<?php /* Nur mit zwei verschiedenen Fotos, siehe vergleich_echt(). Die Makros haengen am Vergleich: Ohne Paar entfaellt der Abschnitt ganz. */ ?>
+<?php if (vergleich_echt($seite['vergleich'] ?? [])): ?>
 <!-- Vorher / Nachher mit zwei Makroaufnahmen -->
 <section class="ba-section leder-vergleich">
   <div class="wrap">
@@ -163,10 +165,17 @@ partial('kopf', [
       <h2><?= h(get($seite, 'vergleich.titel')) ?></h2>
       <p><?= h(get($seite, 'vergleich.beschreibung')) ?></p>
     </div>
-    <div class="leder-ba-grid">
+    <?php /* Leere Bildfelder ueberspringen: Die Makros lassen sich im Panel
+            einzeln nachtragen. Ohne eines steht der Regler allein in der Zeile. */ ?>
+    <?php $makros = array_values(array_filter(
+        get($seite, 'vergleich.makros', []),
+        static fn (array $m): bool => trim((string) ($m['bild'] ?? '')) !== ''
+    )); ?>
+    <div class="leder-ba-grid<?= $makros === [] ? ' ohne-makros' : '' ?>">
       <?php partial('vergleich', ['v' => $seite['vergleich']]); ?>
+      <?php if ($makros !== []): ?>
       <div class="leder-makros">
-        <?php foreach (get($seite, 'vergleich.makros', []) as $m): ?>
+        <?php foreach ($makros as $m): ?>
         <figure class="leder-makro">
           <?= bild($m['bild'], $m['alt'], [
               'class' => 'slot-img',
@@ -176,9 +185,11 @@ partial('kopf', [
         </figure>
         <?php endforeach; ?>
       </div>
+      <?php endif; ?>
     </div>
   </div>
 </section>
+<?php endif; ?>
 
 <!-- Preis und Pflege -->
 <section class="leder-preis">

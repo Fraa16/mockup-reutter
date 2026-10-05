@@ -203,6 +203,10 @@ partial('kopf', [
 </section>
 
 <!-- Vorher / Nachher -->
+<?php /* Nur Faelle mit zwei verschiedenen Fotos, siehe vergleich_echt().
+        Bleibt keiner uebrig, entfaellt der Abschnitt ganz. */ ?>
+<?php $faelle = array_values(array_filter(get($seite, 'ergebnisse.faelle', []), 'vergleich_echt')); ?>
+<?php if ($faelle !== []): ?>
 <section id="ergebnisse" class="section section-dark ba-section">
   <div class="top-rule" aria-hidden="true"></div>
   <div class="wrap">
@@ -212,7 +216,7 @@ partial('kopf', [
         <h2><?= h(get($seite, 'ergebnisse.titel')) ?></h2>
       </div>
       <div class="case-list" id="case-list">
-        <?php foreach (get($seite, 'ergebnisse.faelle', []) as $i => $f): ?>
+        <?php foreach ($faelle as $i => $f): ?>
         <?php /* Auch die srcset-Listen mitgeben: seit die Bilder in mehreren
                 Groessen ausgeliefert werden, genuegt ein Tausch von src nicht
                 mehr — der Browser bleibt sonst bei der Fassung aus srcset. */ ?>
@@ -221,7 +225,6 @@ partial('kopf', [
                 data-vorher="<?= attr(upload($f['vorher'])) ?>" data-nachher="<?= attr(upload($f['nachher'])) ?>"
                 data-vorher-srcset="<?= attr($qv['srcset']) ?>" data-nachher-srcset="<?= attr($qn['srcset']) ?>"
                 data-name="<?= attr($f['name']) ?>" data-note="<?= attr($f['note']) ?>"
-                data-echt="<?= ($f['echtes_paar'] ?? false) === true ? '1' : '0' ?>"
                 aria-pressed="<?= $i === 0 ? 'true' : 'false' ?>">
           <?= h($f['name']) ?><span class="meta"><?= h($f['meta']) ?></span>
         </button>
@@ -229,16 +232,13 @@ partial('kopf', [
       </div>
     </div>
 
-    <?php $erst = get($seite, 'ergebnisse.faelle.0'); ?>
+    <?php $erst = $faelle[0]; ?>
     <?php /* Die Beschriftung steht neben dem Regler, nicht darin: Auf dem
             Desktop liegt sie trotzdem unten rechts auf dem Bild, auf dem Handy
             darunter — dort verdeckte sie sonst ein Drittel des Fotos, und
-            genau da sitzt oft die Delle.
-
-            ist-attrappe: siehe partials/vergleich.php. Beim Fallwechsel
-            setzt main.js die Klasse nach data-echt neu. */ ?>
+            genau da sitzt oft die Delle. */ ?>
     <div class="ba-buehne">
-    <div class="ba-frame<?= ($erst['echtes_paar'] ?? false) === true ? '' : ' ist-attrappe' ?>" id="ba-frame" data-start="<?= attr((string) get($seite, 'ergebnisse.start_position', 52)) ?>">
+    <div class="ba-frame" id="ba-frame" data-start="<?= attr((string) get($seite, 'ergebnisse.start_position', 52)) ?>">
       <div class="layer layer-before">
         <?= bild($erst['vorher'], 'Vorher — Zustand vor der Bearbeitung', [
             'class' => 'slot-img', 'id' => 'ba-img-before',
@@ -265,6 +265,7 @@ partial('kopf', [
     <p class="ba-hint"><?= h(get($seite, 'ergebnisse.hinweis')) ?></p>
   </div>
 </section>
+<?php endif; ?>
 
 <!-- Ablauf -->
 <section id="ablauf" class="section-white">
