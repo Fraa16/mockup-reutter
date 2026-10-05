@@ -39,9 +39,9 @@
         "titel": "So finden Sie uns.",
         "karte": {
             "_hinweis": "Bewusst kein eingebettetes Google-Maps-iframe: das waere ein Request an Google beim Seitenaufruf und damit einwilligungspflichtig. Stattdessen ein statisches Kartenbild auf dem eigenen Server plus Link. Es erscheint auch auf der Startseite.",
-            "_quelle": "Oktober 2026 aus OpenStreetMap-Kacheln gebaut: Zoom 16, Farben gedaempft, Punkt und Schild ergaenzt. Kartendarstellung CC BY-SA 2.0, Daten ODbL — die Quellenangabe auf dem Bild ist Pflicht und muss mit dem Bild stehen bleiben. Der Punkt sitzt zwischen Lembergstrasse 25 und 29; die 27 selbst ist in OpenStreetMap nicht erfasst.",
-            "bild": "karte-lembergstrasse-7cf16.webp",
-            "bild_alt": "Kartenausschnitt von Korntal: Smartrepair Reutter in der Lembergstraße 27, zwischen Bahnlinie und Lembergstraße, nahe der Solitudeallee",
+            "_quelle": "Oktober 2026 aus OpenStreetMap-Kacheln gebaut: Zoom 16, Farben gedaempft (Saettigung 0,28, Kontrast 1,06), Punkt und Schild ergaenzt, Bildmitte bei 48.8283626 N / 9.1302482 O. Kartendarstellung CC BY-SA 2.0, Daten ODbL — die Quellenangabe auf dem Bild ist Pflicht und muss mit dem Bild stehen bleiben. Der Punkt sitzt auf der Hofeinfahrt des grossen Gebaeudes zwischen Bahnlinie und Lembergstrasse (Angabe von Francesco, 05.10.2026); die Hausnummer 27 selbst ist in OpenStreetMap nicht erfasst.",
+            "bild": "karte-lembergstrasse-3a81b.webp",
+            "bild_alt": "Kartenausschnitt von Korntal: Smartrepair Reutter in der Lembergstraße 27, Hofeinfahrt des großen Gebäudes zwischen Bahnlinie und Lembergstraße",
             "quelle": "© OpenStreetMap-Mitwirkende",
             "quelle_link": "https://www.openstreetmap.org/copyright",
             "platzhalter_text": "Kartenausschnitt folgt",
