@@ -932,8 +932,10 @@ return [
                 'felder'  => [
                     ['pfad' => 'anfahrt.kicker',            'typ' => 'text', 'label' => 'Zeile über der Überschrift'],
                     ['pfad' => 'anfahrt.titel',             'typ' => 'text', 'label' => 'Überschrift'],
-                    ['pfad' => 'anfahrt.karte.bild',        'typ' => 'bild', 'label' => 'Kartenbild', 'hilfe' => 'Ein Bildschirmfoto des Kartenausschnitts. Absichtlich keine eingebettete Karte — die würde Daten an Google senden, bevor jemand zustimmt.'],
+                    ['pfad' => 'anfahrt.karte.bild',        'typ' => 'bild', 'label' => 'Kartenbild', 'hilfe' => 'Ein Kartenausschnitt als Bild, am besten von openstreetmap.org — dort ist das mit Quellenangabe erlaubt, bei Google Maps nicht. Absichtlich keine eingebettete Karte: die würde Daten an Google senden, bevor jemand zustimmt. Das Bild erscheint auch auf der Startseite.'],
                     ['pfad' => 'anfahrt.karte.bild_alt',    'typ' => 'text', 'label' => 'Bildbeschreibung'],
+                    ['pfad' => 'anfahrt.karte.quelle',      'typ' => 'text', 'label' => 'Quellenangabe auf der Karte', 'hilfe' => 'Bei OpenStreetMap Pflicht: © OpenStreetMap-Mitwirkende'],
+                    ['pfad' => 'anfahrt.karte.quelle_link', 'typ' => 'text', 'label' => 'Link der Quellenangabe', 'hilfe' => 'Bei OpenStreetMap: https://www.openstreetmap.org/copyright'],
                     ['pfad' => 'anfahrt.punkte', 'typ' => 'liste', 'label' => 'Punkt', 'min' => 1, 'max' => 6,
                      'subfelder' => [
                         ['pfad' => 'titel', 'typ' => 'text',       'label' => 'Überschrift'],

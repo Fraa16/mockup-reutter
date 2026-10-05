@@ -834,6 +834,18 @@ a.count:hover{color:var(--rot-schrift);border-color:var(--red)}
 .contact-list .row.email a{font-size:19px}
 
 .map-frame{margin-top:28px;position:relative;height:200px;border:1px solid rgba(255,255,255,.12)}
+.map-frame{overflow:hidden}
+.map-link{display:block;height:100%}
+.map-link .slot-img{transition:opacity .2s}
+.map-link:hover .slot-img{opacity:.9}
+.map-link:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+/* Quellenangabe auf Kartenbildern: bei OpenStreetMap Lizenzpflicht, deshalb
+   sichtbar und lesbar, aber klein in der Ecke. */
+.karten-quelle{
+  position:absolute;right:0;bottom:0;padding:3px 7px;
+  font:500 11px/1.3 var(--font-body);color:#3A3F46;background:rgba(255,255,255,.86);
+}
+a.karten-quelle:hover{color:var(--black);text-decoration:underline}
 
 .request-card{background:var(--black);border:1px solid rgba(255,255,255,.13);padding:44px 46px 40px}
 
