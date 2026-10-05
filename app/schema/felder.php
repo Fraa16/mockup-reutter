@@ -861,7 +861,7 @@ return [
                      'subfelder' => [
                         ['pfad' => 'bild',      'typ' => 'bild', 'label' => 'Foto'],
                         ['pfad' => 'alt',       'typ' => 'text', 'label' => 'Bildbeschreibung'],
-                        ['pfad' => 'kategorie', 'typ' => 'text', 'label' => 'Kategorie', 'hilfe' => 'Exterieur, Interieur, Dellen & Hagel, Lack, Leder oder Ozon'],
+                        ['pfad' => 'kategorie', 'typ' => 'text', 'label' => 'Kategorie', 'hilfe' => 'Dellen & Hagel, Exterieur, Interieur, Lack, Leder, Ozon oder Transport. Zeigt das Foto nur das Fahrzeug und nicht die Arbeit: Fahrzeuge.'],
                      ]],
                 ],
             ],

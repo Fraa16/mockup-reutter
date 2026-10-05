@@ -146,15 +146,32 @@ function posteingang_in_galerie(string $datei, string $kategorie, string $alt): 
 }
 
 /**
- * Die Kategorien des Galerierasters — aus dem Inhalt gelesen, nicht fest
- * eingetragen. Legt der Betrieb spaeter eine neue an, steht sie hier von
- * selbst zur Auswahl.
+ * Kategorien, die beim Einsortieren immer zur Auswahl stehen: eine je
+ * Leistung, dazu "Fahrzeuge" fuer Aufnahmen, auf denen nicht zu sehen ist,
+ * was gemacht wurde.
+ *
+ * Frueher kam die Auswahl allein aus den Bildern, die schon im Raster
+ * stehen. Solange dort Platzhalter fuer jede Leistung lagen, fiel das nicht
+ * auf. Nach dem Tausch gegen echte Fotos blieben zwei Kategorien uebrig, und
+ * ein Leder-Foto haette sich nicht mehr unter "Leder" einsortieren lassen.
+ */
+const GALERIE_GRUNDKATEGORIEN = [
+    'Dellen & Hagel', 'Exterieur', 'Interieur', 'Lack', 'Leder', 'Ozon', 'Transport', 'Fahrzeuge',
+];
+
+/**
+ * Die Kategorien fuer den Posteingang: die feste Grundliste und dazu alles,
+ * was im Raster schon vorkommt. Legt der Betrieb im Panel eine neue an, steht
+ * sie hier von selbst zur Auswahl.
+ *
+ * Der Filter ueber dem Raster nimmt diese Liste nicht — er zeigt nur, was
+ * auch Bilder hat, damit kein Knopf ins Leere fuehrt.
  *
  * @return list<string>
  */
 function galerie_kategorien(): array
 {
-    $aus = [];
+    $aus = array_fill_keys(GALERIE_GRUNDKATEGORIEN, true);
     foreach (content('galerie')['raster']['bilder'] ?? [] as $b) {
         if (!empty($b['kategorie'])) {
             $aus[$b['kategorie']] = true;
