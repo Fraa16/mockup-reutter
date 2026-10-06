@@ -1,0 +1,40 @@
+# Oeffnet die echte Website im Browser und meldet, was Besucher kaputt sehen
+# wuerden. Einzelheiten in .github/scripts/live-pruefung.mjs.
+#
+# Laeuft von selbst nach jedem Hochladen und laesst sich jederzeit von Hand
+# starten — etwa nachdem Inhalte per FileZilla hochgeladen wurden:
+# Actions → Live-Prüfung → Run workflow.
+#
+# Liest nur. Kein Geheimnis, kein Zugang zum Server.
+
+name: Live-Prüfung
+
+on:
+  workflow_run:
+    workflows: ['Auf IONOS hochladen']
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pruefen:
+    # Nach einem fehlgeschlagenen Hochladen gibt es nichts Neues zu pruefen.
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Browser bereitstellen
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Seiten im Browser pruefen
+        run: node .github/scripts/live-pruefung.mjs https://smartrepair-reutter.de
