@@ -87,7 +87,16 @@ async function pruefeSeite(kontext, pfad, breite) {
       await new Promise((r) => setTimeout(r, 80));
     }
   });
-  await seite.waitForLoadState('networkidle').catch(() => {});
+  // Dann warten, bis jedes sichtbare Bild fertig ist — geladen oder
+  // gescheitert. Ohne das blieb das fehlende Kartenbild auf der Startseite
+  // unentdeckt: Es steht ganz unten und war beim Pruefen noch unterwegs.
+  // Bilder in ausgeblendeten Tafeln laden nie und zaehlen deshalb nicht.
+  await seite.waitForFunction(
+    () => [...document.images].filter((b) => b.getClientRects().length > 0).every((b) => b.complete),
+    null,
+    { timeout: 15000 },
+  ).catch(() => probleme.push('Bilder nach 15 Sekunden noch nicht fertig geladen'));
+  await seite.waitForTimeout(300);
 
   const leer = await seite.$$eval('img', (bilder) => bilder
     .filter((b) => b.complete && b.naturalWidth === 0)
