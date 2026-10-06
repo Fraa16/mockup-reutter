@@ -163,7 +163,22 @@ RewriteRule . /index.php [L]
 <IfModule mod_headers.c>
     # Die Seite laedt ausschliesslich eigene Ressourcen — keine CDN, keine
     # Google Fonts, kein Tracking. Genau das sagt die CSP auch aus.
-    Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'"
+    #
+    # style-src-attr 'unsafe-inline' erlaubt Stile direkt am Element
+    # (style="…"). Ohne den Zusatz verwarf jeder Browser sie still — auf dem
+    # Server, nicht aber beim Testen ohne Apache, weil dort diese Datei nicht
+    # gelesen wird. Bis Oktober 2026 lagen deshalb live alle sieben Marker auf
+    # dem Fahrzeugfoto uebereinander ausserhalb des Bildes, die Farbmuster auf
+    # der Lack-Seite waren flache Striche, die Gradpunkte beim Leder fehlten
+    # und die Fahrzeugskizze auf der Dellen-Seite stand in Leserichtung.
+    # Diese Werte kommen aus dem Inhalt (Markerposition, Farbe, Rasterplatz)
+    # und lassen sich deshalb nicht ins Stylesheet verlegen.
+    #
+    # Das Risiko ist klein: Ein Stil am Element kennt keine Selektoren, kann
+    # also nichts auslesen, und Bilder darf er nur vom eigenen Server laden
+    # (img-src). Eigene <style>-Bloecke bleiben verboten (style-src), Skripte
+    # sowieso (script-src).
+    Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self'; style-src-attr 'unsafe-inline'; script-src 'self'; font-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'"
     Header always set X-Content-Type-Options "nosniff"
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
     Header always set Permissions-Policy "geolocation=(), camera=(), microphone=(), interest-cohort=()"
