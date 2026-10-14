@@ -98,8 +98,8 @@
         "schritte": [
             {
                 "num": "01",
-                "titel": "Anfrage mit Fotos",
-                "text": "Formular ausfüllen, zwei bis drei Fotos vom Schaden dazu. Oder anrufen — wir schreiben es dann auf.",
+                "titel": "Anruf oder Fotos",
+                "text": "Rufen Sie an und beschreiben Sie kurz, was ansteht. Oder schicken Sie zwei bis drei Fotos vom Schaden per WhatsApp — wir melden uns dann.",
                 "dauer": "2 Minuten<br>für Sie"
             },
             {
@@ -190,9 +190,10 @@
         }
     },
     "anfrage": {
-        "kicker": "Termin anfragen",
-        "titel": "Drei Angaben, dann melden wir uns.",
-        "lead": "Kein Konto, keine Terminsoftware. Sie schreiben, was los ist, wir rufen zurück und sagen Ihnen einen Preis.",
+        "kicker": "Kontakt",
+        "_geaendert": "Oktober 2026: Der Abschnitt zeigt kein Formular mehr, sondern Anruf und WhatsApp — der Inhaber will angerufen werden. chips, schritte und hinweise gehoeren zum Formular, das jetzt nur noch ganz unten auf der Kontaktseite steht, und werden dort weiter gelesen.",
+        "titel": "Am schnellsten am Telefon.",
+        "lead": "Kein Formular, kein Konto: Rufen Sie an und beschreiben Sie kurz, was ansteht. Oder schicken Sie zwei Fotos per WhatsApp — dann können wir meist schon etwas dazu sagen.",
         "karte_platzhalter": "Kartenausschnitt Standort",
         "chips": [
             "Exterieur-Pflege",

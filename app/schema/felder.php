@@ -49,7 +49,6 @@ function leistungs_schema(string $titel, string $beschreibung, array $eigene, ar
                 ['pfad' => 'hero.kicker',   'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
                 ['pfad' => 'hero.titel',    'typ' => 'text',       'label' => 'Überschrift'],
                 ['pfad' => 'hero.lead',     'typ' => 'mehrzeilig', 'label' => 'Einleitungstext'],
-                ['pfad' => 'hero.cta',      'typ' => 'text',       'label' => 'Beschriftung der roten Schaltfläche'],
             ],
         ],
     ];
@@ -70,7 +69,6 @@ function leistungs_schema(string $titel, string $beschreibung, array $eigene, ar
                 ['pfad' => 'preis.kicker', 'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
                 ['pfad' => 'preis.titel',  'typ' => 'text',       'label' => 'Überschrift'],
                 ['pfad' => 'preis.text',   'typ' => 'mehrzeilig', 'label' => 'Text'],
-                ['pfad' => 'preis.cta',    'typ' => 'text',       'label' => 'Beschriftung der Schaltfläche'],
             ],
         ],
     ];
@@ -133,7 +131,7 @@ function leistungs_schema(string $titel, string $beschreibung, array $eigene, ar
         [
             'titel'  => 'Ganz unten',
             'felder' => [
-                ['pfad' => 'cta_ueberschrift', 'typ' => 'text', 'label' => 'Überschrift über dem Kurzformular'],
+                ['pfad' => 'cta_ueberschrift', 'typ' => 'text', 'label' => 'Überschrift über Anruf und WhatsApp'],
             ],
         ],
     ];
@@ -219,11 +217,14 @@ return [
             [
                 'titel'  => 'Erreichbarkeit',
                 'felder' => [
-                    ['pfad' => 'kontakt.telefon',      'typ' => 'text', 'label' => 'Telefon', 'hilfe' => 'So wie es auf der Seite stehen soll, z. B. 07 11 / 82 85 940'],
-                    ['pfad' => 'kontakt.telefon_link', 'typ' => 'text', 'label' => 'Telefon zum Anklicken', 'hilfe' => 'Ohne Leerzeichen, mit Ländervorwahl: +4971182859400'],
-                    ['pfad' => 'kontakt.mobil',        'typ' => 'text', 'label' => 'Mobil'],
-                    ['pfad' => 'kontakt.mobil_link',   'typ' => 'text', 'label' => 'Mobil zum Anklicken'],
-                    ['pfad' => 'kontakt.email',        'typ' => 'text', 'label' => 'E-Mail'],
+                    ['pfad' => 'kontakt.mobil',        'typ' => 'text', 'label' => 'Mobil — die Nummer für alle Anrufknöpfe',
+                     'hilfe' => 'So wie es auf der Seite stehen soll, z. B. 0172 / 6 28 97 25. Jeder Anrufknopf der Seite wählt diese Nummer, und WhatsApp läuft ebenfalls darüber.'],
+                    ['pfad' => 'kontakt.mobil_link',   'typ' => 'text', 'label' => 'Mobil zum Anklicken', 'hilfe' => 'Ohne Leerzeichen, mit Ländervorwahl: +491726289725'],
+                    ['pfad' => 'kontakt.telefon',      'typ' => 'text', 'label' => 'Werkstatt (Festnetz)',
+                     'hilfe' => 'Steht als zweite Nummer im Fußbereich, auf der Kontaktseite und im Impressum, z. B. 07 11 / 82 85 940'],
+                    ['pfad' => 'kontakt.telefon_link', 'typ' => 'text', 'label' => 'Werkstatt zum Anklicken', 'hilfe' => 'Ohne Leerzeichen, mit Ländervorwahl: +4971182859400'],
+                    ['pfad' => 'kontakt.email',        'typ' => 'text', 'label' => 'E-Mail',
+                     'hilfe' => 'Steht nur in Impressum und Datenschutzerklärung — dort ist sie Pflicht. Anfragen aus dem Formular auf der Kontaktseite gehen ebenfalls hierhin.'],
                     ['pfad' => 'oeffnungszeiten.text', 'typ' => 'text', 'label' => 'Öffnungszeiten', 'hilfe' => 'Kurzform für die Leiste oben, z. B. Mo–Fr 9–17 Uhr'],
                     ['pfad' => 'oeffnungszeiten.hinweis', 'typ' => 'text', 'label' => 'Zusatz zu den Zeiten',
                      'hilfe' => 'Steht klein unter den Zeiten, z. B. der Hinweis, vorher anzurufen.'],
@@ -344,6 +345,15 @@ return [
                 'felder' => [
                     ['pfad' => 'mobiler_service.titel', 'typ' => 'text',       'label' => 'Überschrift'],
                     ['pfad' => 'mobiler_service.text',  'typ' => 'mehrzeilig', 'label' => 'Text'],
+                ],
+            ],
+            [
+                'titel'   => 'Kontakt ganz unten',
+                'hinweis' => 'Daneben stehen Anrufknopf, WhatsApp und die Karte — Nummern und Zeiten kommen aus den Stammdaten.',
+                'felder'  => [
+                    ['pfad' => 'anfrage.kicker', 'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
+                    ['pfad' => 'anfrage.titel',  'typ' => 'text',       'label' => 'Überschrift'],
+                    ['pfad' => 'anfrage.lead',   'typ' => 'mehrzeilig', 'label' => 'Text'],
                 ],
             ],
         ],
@@ -663,7 +673,6 @@ return [
                     ['pfad' => 'beklebung.titel',   'typ' => 'text',       'label' => 'Überschrift'],
                     ['pfad' => 'beklebung.lead',    'typ' => 'mehrzeilig', 'label' => 'Einleitung'],
                     ['pfad' => 'beklebung.hinweis', 'typ' => 'mehrzeilig', 'label' => 'Hinweis im hellen Kasten'],
-                    ['pfad' => 'beklebung.cta',     'typ' => 'text',       'label' => 'Beschriftung der Schaltfläche'],
                     ['pfad' => 'beklebung.varianten', 'typ' => 'liste', 'label' => 'Variante', 'min' => 1, 'max' => 6,
                      'subfelder' => [
                         ['pfad' => 'titel', 'typ' => 'text',       'label' => 'Überschrift'],
@@ -850,8 +859,7 @@ return [
                     ['pfad' => 'hero.kicker',     'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
                     ['pfad' => 'hero.titel',      'typ' => 'text',       'label' => 'Überschrift'],
                     ['pfad' => 'hero.lead',       'typ' => 'mehrzeilig', 'label' => 'Einleitungstext'],
-                    ['pfad' => 'hero.cta_titel',  'typ' => 'text',       'label' => 'Überschrift über der Schaltfläche'],
-                    ['pfad' => 'hero.cta',        'typ' => 'text',       'label' => 'Beschriftung der Schaltfläche'],
+                    ['pfad' => 'hero.cta_titel',  'typ' => 'text',       'label' => 'Überschrift über den Kontaktknöpfen'],
                 ],
             ],
             [
@@ -911,6 +919,15 @@ return [
                     ['pfad' => 'hero.kicker', 'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
                     ['pfad' => 'hero.titel',  'typ' => 'text',       'label' => 'Überschrift'],
                     ['pfad' => 'hero.lead',   'typ' => 'mehrzeilig', 'label' => 'Einleitungstext'],
+                ],
+            ],
+            [
+                'titel'   => 'Formular ganz unten',
+                'hinweis' => 'Anrufen und WhatsApp stehen oben auf der Seite. Das Formular steht zuletzt, für alle, die lieber schreiben — kein Knopf der Website führt mehr dorthin.',
+                'felder'  => [
+                    ['pfad' => 'formular.kicker', 'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
+                    ['pfad' => 'formular.titel',  'typ' => 'text',       'label' => 'Überschrift'],
+                    ['pfad' => 'formular.text',   'typ' => 'mehrzeilig', 'label' => 'Text darunter'],
                 ],
             ],
             [

@@ -13,16 +13,9 @@
  */
 $s = site();
 
-/* Index und Zusatztexte zusammenfuehren. Leistungen ohne Hub-Eintrag fallen
-   raus, statt halbfertig zu erscheinen. */
-$zusatz    = get($seite, 'eintraege', []);
-$leistungen = [];
-foreach (leistungen_mit_seite() as $l) {
-    if (isset($zusatz[$l['slug']])) {
-        $leistungen[] = $zusatz[$l['slug']] + $l;
-    }
-}
-usort($leistungen, static fn(array $a, array $b): int => strcmp($a['num'], $b['num']));
+/* Index und Zusatztexte zusammengefuehrt — dieselbe Liste wie im
+   Aufklappmenue des Kopfs, siehe leistungen_mit_zusatz(). */
+$leistungen = leistungen_mit_zusatz();
 
 /* Der Weg dorthin — dieselbe Liste, die oben sichtbar steht. */
 $jsonld = [seo_jsonld_brotkrumen([

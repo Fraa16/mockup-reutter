@@ -134,8 +134,11 @@ function seo_jsonld_betrieb(): array
         '@id'       => absolut('/') . '#betrieb',
         'name'      => get($s, 'firma.name'),
         'url'       => absolut('/'),
+        // Die Werkstattnummer, wie im Google-Unternehmensprofil — Name,
+        // Anschrift und Nummer sollen dort und hier gleich lauten. Keine
+        // E-Mail-Adresse: Der Betrieb will angerufen werden, die Adresse steht
+        // nur noch im Impressum.
         'telephone' => get($s, 'kontakt.telefon_link'),
-        'email'     => get($s, 'kontakt.email'),
         'address'   => [
             '@type'           => 'PostalAddress',
             'streetAddress'   => get($s, 'firma.strasse'),

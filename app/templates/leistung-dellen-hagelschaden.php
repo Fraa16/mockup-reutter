@@ -64,12 +64,7 @@ partial('kopf', [
         <p class="lead"><?= h(get($seite, 'hero.lead')) ?></p>
       </div>
       <div class="leistung-hero-cta">
-        <?php /* Der Entwurf zeigt hier auf #anfrage, was dort die Sektion
-                "Passt oft dazu" ist. Gemeint ist das Formular — also dorthin. */ ?>
-        <a href="#kurzanfrage" class="btn btn-red">
-          <?= h(get($seite, 'hero.cta')) ?> <span class="btn-arrow" aria-hidden="true">→</span>
-        </a>
-        <a href="tel:<?= attr(get($s, 'kontakt.telefon_link')) ?>" class="btn btn-outline"><?= h(get($s, 'kontakt.telefon')) ?></a>
+        <?php partial('anruf-knoepfe', ['leistung' => $leistung['titel']]); ?>
       </div>
     </div>
   </div>
@@ -189,7 +184,8 @@ partial('kopf', [
         <div class="kicker"><?= swash() ?><span class="label"><?= h(get($seite, 'versicherung.kicker')) ?></span></div>
         <h2><?= h(get($seite, 'versicherung.titel')) ?></h2>
         <p><?= h(get($seite, 'versicherung.text')) ?></p>
-        <a class="hint-link" href="/kontakt/#anfrage"><?= h(get($seite, 'versicherung.link_text')) ?></a>
+        <?php $anruf = anruf(); ?>
+        <a class="hint-link" href="<?= attr($anruf['ziel']) ?>">Fall am Telefon schildern: <?= h($anruf['anzeige']) ?> →</a>
       </div>
       <div class="versicherung-punkte">
         <?php foreach (get($seite, 'versicherung.punkte', []) as $p): ?>
@@ -220,9 +216,9 @@ partial('kopf', [
       <div class="faq-intro">
         <div class="kicker"><?= swash() ?><span class="label"><?= h(get($seite, 'faq.kicker')) ?></span></div>
         <h2><?= h(get($seite, 'faq.titel')) ?></h2>
-        <a href="#kurzanfrage" class="btn btn-dark">
-          <?= h(get($seite, 'faq.cta')) ?> <span class="btn-arrow" aria-hidden="true">→</span>
-        </a>
+        <div class="cta-row">
+          <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'anruf_klasse' => 'btn-dark', 'wa_klasse' => 'btn-linie', 'leistung' => $leistung['titel']]); ?>
+        </div>
       </div>
       <?php /* <details> statt eigener Klapplogik: funktioniert ohne JavaScript
               und ist von Haus aus per Tastatur bedienbar. Das gemeinsame name
@@ -275,4 +271,4 @@ partial('kopf', [
   </div>
 </section>
 
-<?php partial('fuss', ['ctaUeberschrift' => get($seite, 'cta_ueberschrift')]); ?>
+<?php partial('fuss', ['ctaUeberschrift' => get($seite, 'cta_ueberschrift'), 'leistung' => $leistung['titel']]); ?>

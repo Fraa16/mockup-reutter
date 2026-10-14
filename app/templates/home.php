@@ -60,8 +60,7 @@ partial('kopf', [
       <h1><?= h(get($seite, 'hero.titel')) ?><br><span class="muted"><?= h(get($seite, 'hero.titel_zusatz')) ?></span></h1>
       <p class="lead"><?= h(get($seite, 'hero.lead')) ?></p>
       <div class="cta-row">
-        <a href="/kontakt/#anfrage" class="btn btn-red">Termin anfragen <span class="btn-arrow" aria-hidden="true">→</span></a>
-        <a href="tel:<?= attr(get($s, 'kontakt.telefon_link')) ?>" class="btn btn-outline"><?= h(get($s, 'kontakt.telefon')) ?></a>
+        <?php partial('anruf-knoepfe'); ?>
       </div>
       <p class="fineprint"><?= h(get($seite, 'hero.fineprint')) ?></p>
     </div>
@@ -160,9 +159,7 @@ partial('kopf', [
             <?php endforeach; ?>
           </ul>
           <div class="cta">
-            <a href="/kontakt/#anfrage?leistung=<?= attr(rawurlencode($l['chip'])) ?>" class="btn btn-red">
-              Diese Leistung anfragen <span class="btn-arrow" aria-hidden="true">→</span>
-            </a>
+            <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'leistung' => $l['titel']]); ?>
             <?php if ($l['eigene_seite']): ?>
             <a class="hint-link" href="/leistungen/<?= attr($l['slug']) ?>/">Mehr zu <?= h($l['titel']) ?> →</a>
             <?php endif; ?>
@@ -275,7 +272,9 @@ partial('kopf', [
         <div class="kicker"><?= swash() ?><span class="label"><?= h(get($seite, 'ablauf.kicker')) ?></span></div>
         <h2><?= h(get($seite, 'ablauf.titel')) ?></h2>
         <p><?= h(get($seite, 'ablauf.lead')) ?></p>
-        <a href="/kontakt/#anfrage" class="btn btn-dark">Mit Schritt 1 beginnen <span class="btn-arrow" aria-hidden="true">→</span></a>
+        <div class="cta-row">
+          <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'anruf_klasse' => 'btn-dark', 'wa_klasse' => 'btn-linie']); ?>
+        </div>
       </div>
       <div class="step-list">
         <?php $schritte = get($seite, 'ablauf.schritte', []); ?>
@@ -371,29 +370,24 @@ partial('kopf', [
   </div>
 </section>
 
-<!-- Anfrage -->
+<!-- Kontakt -->
+<?php /* Bis Oktober 2026 stand hier das dreistufige Anfrageformular. Der
+        Inhaber will angerufen werden, hoechstens noch WhatsApp — deshalb jetzt
+        die zwei Kacheln und daneben, wo die Werkstatt liegt. Das Formular gibt
+        es nur noch ganz unten auf der Kontaktseite. Die Sprungmarke #anfrage
+        bleibt, damit alte Verweise ankommen. */ ?>
 <section id="anfrage" class="section anfrage-section">
   <div class="deco" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="anfrage-grid">
+    <div class="anfrage-grid ist-kontakt">
       <div class="anfrage-intro">
         <div class="kicker"><?= swash() ?><span class="label"><?= h(get($seite, 'anfrage.kicker')) ?></span></div>
         <h2><?= h(get($seite, 'anfrage.titel')) ?></h2>
         <p><?= h(get($seite, 'anfrage.lead')) ?></p>
-        <div class="contact-list">
-          <div class="row">
-            <div class="label">Werkstatt</div>
-            <a href="tel:<?= attr(get($s, 'kontakt.telefon_link')) ?>"><?= h(get($s, 'kontakt.telefon')) ?></a>
-          </div>
-          <div class="row">
-            <div class="label">Mobil</div>
-            <a href="tel:<?= attr(get($s, 'kontakt.mobil_link')) ?>"><?= h(get($s, 'kontakt.mobil')) ?></a>
-          </div>
-          <div class="row email">
-            <div class="label">E-Mail</div>
-            <a href="mailto:<?= attr(get($s, 'kontakt.email')) ?>"><?= h(get($s, 'kontakt.email')) ?></a>
-          </div>
-        </div>
+        <?php partial('kontakt-kacheln'); ?>
+      </div>
+
+      <div class="anfrage-ort">
         <?php /* Dasselbe Kartenbild wie auf der Kontaktseite — es wird dort im
                 Panel gepflegt, nicht zweimal. */ ?>
         <?php $karte = (array) get(content('kontakt'), 'anfahrt.karte', []); ?>
@@ -402,7 +396,7 @@ partial('kopf', [
             <a class="map-link" href="/kontakt/#anfahrt" aria-label="Anfahrt auf der Kontaktseite">
               <?= bild((string) $karte['bild'], (string) ($karte['bild_alt'] ?? ''), [
                   'class' => 'slot-img',
-                  'sizes' => '(max-width: 980px) 92vw, 40vw',
+                  'sizes' => '(max-width: 980px) 92vw, 45vw',
               ]) ?>
             </a>
             <?php partial('karten-quelle', ['karte' => $karte]); ?>
@@ -410,13 +404,24 @@ partial('kopf', [
             <div class="img-placeholder"><span><?= h(get($seite, 'anfrage.karte_platzhalter')) ?></span></div>
           <?php endif; ?>
         </div>
+        <div class="ort-zeile">
+          <?= swash() ?>
+          <div>
+            <address>
+              <strong><?= h(get($s, 'firma.name')) ?></strong><br>
+              <?= h(get($s, 'firma.strasse')) ?>, <?= h(get($s, 'firma.plz')) ?> <?= h(get($s, 'firma.ort')) ?>
+            </address>
+            <?php if (($vorlauf = (string) get($s, 'oeffnungszeiten.hinweis', '')) !== ''): ?>
+            <p><?= h($vorlauf) ?></p>
+            <?php endif; ?>
+          </div>
+          <a class="ort-link" href="/kontakt/#anfahrt">Anfahrt <span aria-hidden="true">→</span></a>
+        </div>
       </div>
-
-      <?php partial('anfrage-form', ['a' => $seite['anfrage']]); ?>
     </div>
   </div>
 </section>
 
 <?php /* Beide Bloecke aus: Bewertungen stehen oben im Abschnitt "Betrieb", und
-        das ausfuehrliche Formular sitzt bereits in der Anfrage-Sektion. */ ?>
+        Anruf und WhatsApp stehen direkt darueber im Kontaktabschnitt. */ ?>
 <?php partial('fuss', ['zeigeBewertungen' => false, 'zeigeFormular' => false]); ?>

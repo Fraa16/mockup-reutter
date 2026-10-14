@@ -26,18 +26,19 @@ partial('kopf', [
       eilig ist, rufen Sie an — telefonisch sind wir am schnellsten erreichbar.
     </p>
 
+    <?php /* Keine E-Mail-Adresse: Der Betrieb will angerufen werden. */ ?>
     <div class="danke-wege">
+      <a class="danke-weg" href="<?= attr(anruf()['ziel']) ?>">
+        <span class="weg-label">Mobil</span>
+        <span class="weg-wert"><?= h(anruf()['anzeige']) ?></span>
+      </a>
+      <a class="danke-weg" href="<?= attr(whatsapp_link()) ?>" target="_blank" rel="noopener noreferrer">
+        <span class="weg-label">WhatsApp</span>
+        <span class="weg-wert">Fotos nachreichen</span>
+      </a>
       <a class="danke-weg" href="tel:<?= attr(get($s, 'kontakt.telefon_link')) ?>">
         <span class="weg-label">Werkstatt</span>
         <span class="weg-wert"><?= h(get($s, 'kontakt.telefon')) ?></span>
-      </a>
-      <a class="danke-weg" href="tel:<?= attr(get($s, 'kontakt.mobil_link')) ?>">
-        <span class="weg-label">Mobil</span>
-        <span class="weg-wert"><?= h(get($s, 'kontakt.mobil')) ?></span>
-      </a>
-      <a class="danke-weg" href="mailto:<?= attr(get($s, 'kontakt.email')) ?>">
-        <span class="weg-label">E-Mail</span>
-        <span class="weg-wert"><?= h(get($s, 'kontakt.email')) ?></span>
       </a>
     </div>
 

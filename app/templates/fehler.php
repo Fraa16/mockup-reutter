@@ -29,7 +29,7 @@ partial('kopf', [
     <?php endif; ?>
     <div class="cta-row">
       <a href="/" class="btn btn-red">Zur Startseite <span class="btn-arrow" aria-hidden="true">→</span></a>
-      <a href="tel:<?= attr(get(site(), 'kontakt.telefon_link')) ?>" class="btn btn-outline"><?= h(get(site(), 'kontakt.telefon')) ?></a>
+      <a href="<?= attr(anruf()['ziel']) ?>" class="btn btn-outline btn-anruf"><?= icon('telefon') ?><span><?= h(anruf()['anzeige']) ?></span></a>
     </div>
   </div>
 </section>

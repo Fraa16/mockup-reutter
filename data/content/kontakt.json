@@ -3,30 +3,33 @@
     "_unbestaetigt": "Zu pruefen: die Anfahrtsbeschreibung (Hof hinter dem Gebaeude? Rolltor? Kundenparkplaetze?) ist reine Annahme des Design-Assistenten und beschreibt eine Halle, die niemand gesehen hat.",
     "seo": {
         "titel": "Kontakt & Anfahrt — Smartrepair Reutter, Korntal",
-        "beschreibung": "Anfrage mit Fotos, Telefon 07 11 / 82 85 940 oder WhatsApp. Smartrepair Reutter, Lembergstraße 27, 70825 Korntal-Münchingen bei Stuttgart."
+        "beschreibung": "Anrufen unter 0172 / 6 28 97 25 oder Fotos per WhatsApp schicken. Smartrepair Reutter, Lembergstraße 27, 70825 Korntal-Münchingen bei Stuttgart."
     },
     "hero": {
         "kicker": "Kontakt",
         "titel": "Sagen Sie uns, was ansteht.",
-        "lead": "Am schnellsten geht es mit Fotos: zwei Aufnahmen vom Schaden bei Tageslicht, und wir können meist schon etwas dazu sagen. Wir antworten, sobald es die Werkstatt zulässt — eilig wird es am Telefon schneller."
+        "lead": "Am schnellsten am Telefon — das meiste ist in ein paar Minuten geklärt. Oder schicken Sie zwei Fotos vom Schaden bei Tageslicht per WhatsApp, dann können wir meist schon etwas dazu sagen."
     },
     "formular": {
-        "kicker": "Anfrage",
-        "titel": "Anfrage mit Fotos"
+        "_hinweis": "Seit Oktober 2026 ganz unten auf der Seite und von keinem Knopf mehr verlinkt: Der Inhaber will angerufen werden, das Formular bleibt nur fuer die, die lieber schreiben. Telefon ist Pflicht, damit zurueckgerufen werden kann.",
+        "kicker": "Lieber schriftlich?",
+        "titel": "Anfrage mit Fotos",
+        "text": "Das Formular geht direkt in die Werkstatt. Wir rufen Sie zurück, sobald wir es uns angesehen haben — schneller ist trotzdem der Anruf."
     },
     "ohne_formular": {
-        "titel": "Lieber kein Formular?",
+        "titel": "Schneller geht es so",
         "wege": [
+            {
+                "titel": "Anrufen",
+                "text": "Das meiste ist in ein paar Minuten geklärt.",
+                "art": "telefon",
+                "_hinweis": "Waehlt die Mobilnummer aus site.json — dieselbe wie jeder Anrufknopf der Seite."
+            },
             {
                 "titel": "Fotos per WhatsApp",
                 "text": "Zwei Bilder vom Schaden reichen meist.",
                 "art": "whatsapp",
                 "_hinweis": "Das Ziel wird aus der Mobilnummer in site.json gebildet. Es ist ein Link, kein eingebetteter Dienst — es geht also kein Request an Meta, solange niemand klickt."
-            },
-            {
-                "titel": "Kurz anrufen",
-                "text": "Wenn es schnell gehen soll: Werkstatt 07 11 / 82 85 940, mobil auch unterwegs erreichbar.",
-                "art": "telefon"
             }
         ]
     },

@@ -146,15 +146,16 @@ function bestaetigung_als_text(array $werte): string
         'Ihre Anfrage ist bei uns eingegangen. Wir sehen sie uns an und melden',
         'uns, sobald es die Werkstatt zulaesst.',
         '',
-        'Wenn es eilig ist, rufen Sie einfach an: ' . get($s, 'kontakt.telefon', ''),
+        'Wir rufen Sie zurück. Wenn es eilig ist, rufen Sie einfach an:',
+        get($s, 'kontakt.mobil', '') . ' (mobil, auch WhatsApp)',
         '',
         'Viele Grüße',
         get($s, 'firma.name', ''),
         get($s, 'firma.strasse', '') . ', ' . get($s, 'firma.plz', '') . ' ' . get($s, 'firma.ort', ''),
-        get($s, 'kontakt.telefon', ''),
+        'Mobil ' . get($s, 'kontakt.mobil', '') . ' · Werkstatt ' . get($s, 'kontakt.telefon', ''),
         '',
         '--',
-        'Diese Nachricht wurde automatisch erzeugt. Sie können darauf antworten.',
+        'Diese Nachricht wurde automatisch erzeugt. Am schnellsten erreichen Sie uns telefonisch.',
     ]) . "\n";
 }
 
