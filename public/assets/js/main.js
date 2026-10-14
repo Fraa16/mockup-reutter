@@ -509,17 +509,81 @@
     // Nach dem Antippen eines Links schliessen, sonst verdeckt das Panel den
     // Abschnitt, zu dem es gerade gesprungen ist.
     mainNav.addEventListener('click', (e) => {
-      if (e.target.closest('a')) setzeNav(false);
+      if (e.target.closest('a') && mainNav.classList.contains('is-open')) setzeNav(false);
     });
 
+    /* Nur wenn das Panel offen ist: setzeNav(false) stellt die gemerkte
+       Scrollposition wieder her. Ohne die Abfrage sprang die Seite am
+       Schreibtisch bei jedem Esc an den Anfang — und Esc schliesst jetzt auch
+       das Aufklappmenue der Leistungen. */
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') setzeNav(false);
+      if (e.key === 'Escape' && mainNav.classList.contains('is-open')) setzeNav(false);
     });
 
     // Zurueck am Desktop muss den mobilen Zustand aufraeumen, sonst haengt das
     // Panel offen hinter der normalen Navigation.
     const breite = window.matchMedia('(min-width: 981px)');
-    breite.addEventListener('change', () => { if (breite.matches) setzeNav(false); });
+    breite.addEventListener('change', () => { if (breite.matches && mainNav.classList.contains('is-open')) setzeNav(false); });
+  }
+
+  /* ---------------------------------------------------------------------
+     Aufklappmenue Leistungen
+     Am Schreibtisch oeffnet die Tafel schon beim Ueberfahren — das macht das
+     CSS allein. Hier kommt dazu, was CSS nicht kann: der Winkel neben
+     „Leistungen" schaltet per Klick oder Tastatur und meldet seinen Zustand
+     in aria-expanded, Esc und ein Klick daneben schliessen, und das Foto
+     rechts wechselt mit der Zeile, ueber der man steht. Auf dem Handy klappt
+     derselbe Winkel die Liste im Menuepanel auf.
+     --------------------------------------------------------------------- */
+  const mega = document.querySelector('[data-mega]');
+  if (mega) {
+    const schalter = mega.querySelector('.mega-schalter');
+    const tafel    = mega.querySelector('[data-mega-tafel]');
+    const breit    = window.matchMedia('(min-width: 981px)');
+
+    const setzeMega = (offen) => {
+      mega.classList.toggle('is-open', offen);
+      schalter.setAttribute('aria-expanded', String(offen));
+    };
+
+    schalter.addEventListener('click', () => setzeMega(!mega.classList.contains('is-open')));
+
+    document.addEventListener('click', (e) => {
+      if (breit.matches && !mega.contains(e.target)) setzeMega(false);
+    });
+
+    /* Esc schliesst auch eine Tafel, die nur vom Ueberfahren offen steht —
+       so verlangt es WCAG 1.4.13 fuer Inhalte, die beim Ueberfahren
+       erscheinen. Sie bleibt zu, bis die Maus den Bereich einmal verlassen
+       hat. */
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      if (mega.matches(':hover')) mega.classList.add('hover-aus');
+      if (mega.classList.contains('is-open')) {
+        setzeMega(false);
+        if (mega.contains(document.activeElement)) schalter.focus();
+      }
+    });
+    mega.addEventListener('mouseleave', () => mega.classList.remove('hover-aus'));
+
+    // Wer mit der Tastatur aus der Tafel heraus weitergeht, schliesst sie.
+    mega.addEventListener('focusout', (e) => {
+      if (breit.matches && !mega.contains(e.relatedTarget)) setzeMega(false);
+    });
+
+    const bilder = tafel.querySelectorAll('[data-mega-bild]');
+    const infos  = tafel.querySelectorAll('[data-mega-info]');
+    tafel.querySelectorAll('[data-mega-eintrag]').forEach((zeile) => {
+      const zeige = () => {
+        const n = zeile.dataset.megaEintrag;
+        bilder.forEach((b) => b.classList.toggle('is-aktiv', b.dataset.megaBild === n));
+        infos.forEach((i) => i.classList.toggle('is-aktiv', i.dataset.megaInfo === n));
+      };
+      zeile.addEventListener('mouseenter', zeige);
+      zeile.addEventListener('focus', zeige);
+    });
+
+    breit.addEventListener('change', () => setzeMega(false));
   }
 
   /* ---------------------------------------------------------------------

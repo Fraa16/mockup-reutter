@@ -75,3 +75,28 @@ function leistungen_mit_seite(): array
         static fn (array $l): bool => $l['eigene_seite'] === true
     ));
 }
+
+/**
+ * Die Leistungen mit eigener Seite samt den Zusaetzen der Uebersichtsseite —
+ * Nummer, Kurztext, Schlagworte, Vorschaubild — in deren Reihenfolge.
+ *
+ * Gebraucht von der Uebersicht /leistungen/ und vom Aufklappmenue im Kopf
+ * jeder Seite, damit beide dieselbe Liste in derselben Ordnung zeigen.
+ * Leistungen ohne Eintrag in leistungen-hub.json fallen raus, statt
+ * halbfertig zu erscheinen.
+ *
+ * @return list<array<string,mixed>>
+ */
+function leistungen_mit_zusatz(): array
+{
+    $zusatz = content('leistungen-hub')['eintraege'] ?? [];
+    $liste  = [];
+    foreach (leistungen_mit_seite() as $l) {
+        if (isset($zusatz[$l['slug']])) {
+            $liste[] = $zusatz[$l['slug']] + $l;
+        }
+    }
+    usort($liste, static fn (array $a, array $b): int => strcmp((string) $a['num'], (string) $b['num']));
+
+    return $liste;
+}

@@ -20,6 +20,7 @@ $beschreibung = $beschreibung ?? '';
 $aktiv        = $aktiv        ?? '';
 $lcp_bild     = $lcp_bild     ?? null;
 $lcp_sizes    = $lcp_sizes    ?? null;
+$anruf        = anruf();
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -105,7 +106,7 @@ $lcp_sizes    = $lcp_sizes    ?? null;
     <div class="right">
       <span class="hours"><?= h(get($s, 'oeffnungszeiten.text')) ?></span>
       <span class="sep">|</span>
-      <a class="phone" href="tel:<?= attr(get($s, 'kontakt.telefon_link')) ?>"><?= h(get($s, 'kontakt.telefon')) ?></a>
+      <a class="phone" href="<?= attr($anruf['ziel']) ?>"><?= icon('telefon') ?><?= h($anruf['anzeige']) ?></a>
     </div>
   </div>
 </div>
@@ -138,9 +139,22 @@ $lcp_sizes    = $lcp_sizes    ?? null;
     <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
       <?php foreach (get($s, 'navigation', []) as $punkt): ?>
         <?php $ist_aktiv = $punkt['schluessel'] === $aktiv; ?>
+        <?php if ($punkt['schluessel'] === 'leistungen'): ?>
+          <?php partial('mega-menue', ['punkt' => $punkt, 'ist_aktiv' => $ist_aktiv]); ?>
+        <?php else: ?>
         <a href="<?= attr($punkt['ziel']) ?>" class="nav-link<?= $ist_aktiv ? ' is-active' : '' ?>"<?= $ist_aktiv ? ' aria-current="page"' : '' ?>><?= h($punkt['label']) ?></a>
+        <?php endif; ?>
       <?php endforeach; ?>
-      <a href="/kontakt/#anfrage" class="btn btn-red">Termin anfragen</a>
+      <?php /* Bis Oktober 2026 stand hier „Termin anfragen" und fuehrte zum
+              Formular. Der Inhaber will aber angerufen werden — deshalb die
+              Mobilnummer selbst als Knopf, daneben WhatsApp. Am Schreibtisch
+              ist WhatsApp nur das Zeichen, im Menuepanel auf dem Handy
+              stehen beide als volle Knoepfe untereinander. */ ?>
+      <div class="nav-kontakt">
+        <a href="<?= attr(whatsapp_link()) ?>" class="btn btn-outline btn-whatsapp nav-whatsapp" target="_blank" rel="noopener noreferrer"
+           title="Per WhatsApp schreiben"><?= icon('whatsapp') ?><span class="nav-wa-text">WhatsApp</span></a>
+        <a href="<?= attr($anruf['ziel']) ?>" class="btn btn-red btn-anruf"><?= icon('telefon') ?><span><?= h($anruf['anzeige']) ?></span></a>
+      </div>
     </nav>
   </div>
 </header>

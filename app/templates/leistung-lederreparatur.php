@@ -65,8 +65,7 @@ partial('kopf', [
       <h1><?= h(get($seite, 'hero.titel')) ?></h1>
       <p class="lead"><?= h(get($seite, 'hero.lead')) ?></p>
       <div class="cta-row">
-        <a href="#kurzanfrage" class="btn btn-red"><?= h(get($seite, 'hero.cta')) ?> <span class="btn-arrow" aria-hidden="true">→</span></a>
-        <a href="tel:<?= attr(get($s, 'kontakt.telefon_link')) ?>" class="btn btn-outline"><?= h(get($s, 'kontakt.telefon')) ?></a>
+        <?php partial('anruf-knoepfe', ['leistung' => $leistung['titel']]); ?>
       </div>
     </div>
   </div>
@@ -199,7 +198,9 @@ partial('kopf', [
         <div class="preis-kicker"><?= h(get($seite, 'preis.kicker')) ?></div>
         <h2><?= h(get($seite, 'preis.titel')) ?></h2>
         <p><?= h(get($seite, 'preis.text')) ?></p>
-        <a href="#kurzanfrage" class="btn btn-red"><?= h(get($seite, 'preis.cta')) ?> <span class="btn-arrow" aria-hidden="true">→</span></a>
+        <div class="cta-row">
+          <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'leistung' => $leistung['titel']]); ?>
+        </div>
       </div>
       <div class="pflege">
         <div class="pflege-titel"><?= h(get($seite, 'preis.pflege_titel')) ?></div>
@@ -220,7 +221,7 @@ partial('kopf', [
       <h2><?= h(get($seite, 'faq.titel')) ?></h2>
       <p>
         <?= h(get($seite, 'faq.hinweis_vor')) ?><br>
-        <a href="tel:<?= attr(get($s, 'kontakt.telefon_link')) ?>"><?= h(get($s, 'kontakt.telefon')) ?></a>
+        <a href="<?= attr(anruf()['ziel']) ?>"><?= h(anruf()['anzeige']) ?></a>
       </p>
     </div>
     <div class="faq-offen-grid">
@@ -257,4 +258,4 @@ partial('kopf', [
   </div>
 </section>
 
-<?php partial('fuss', ['ctaUeberschrift' => get($seite, 'cta_ueberschrift')]); ?>
+<?php partial('fuss', ['ctaUeberschrift' => get($seite, 'cta_ueberschrift'), 'leistung' => $leistung['titel']]); ?>

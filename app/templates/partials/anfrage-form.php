@@ -80,18 +80,18 @@ $w = static fn (string $name): string => attr($werte[$name] ?? '');
     <fieldset class="form-step" data-step="3">
       <legend class="visually-hidden">Schritt 3 von 3: Kontakt</legend>
       <h3>Wie erreichen wir Sie?</h3>
-      <p>Wir rufen an, wenn wir eine Frage haben — sonst kommt die Einschätzung per Mail.</p>
+      <p>Wir rufen Sie zurück, sobald wir uns die Anfrage angesehen haben.</p>
       <div class="field-grid" style="margin-bottom:24px">
         <label class="field<?= isset($fehler['name']) ? ' has-error' : '' ?>">
           <span>Name <em aria-hidden="true">*</em></span>
           <input type="text" name="name" placeholder="Vor- und Nachname" autocomplete="name" required value="<?= $w('name') ?>">
         </label>
         <label class="field<?= isset($fehler['telefon']) ? ' has-error' : '' ?>">
-          <span>Telefon</span>
-          <input type="tel" name="telefon" placeholder="0170 000 0000" autocomplete="tel" value="<?= $w('telefon') ?>">
+          <span>Telefon <em aria-hidden="true">*</em></span>
+          <input type="tel" name="telefon" placeholder="0170 000 0000" autocomplete="tel" required value="<?= $w('telefon') ?>">
         </label>
         <label class="field<?= isset($fehler['email']) ? ' has-error' : '' ?>">
-          <span>E-Mail</span>
+          <span>E-Mail, freiwillig</span>
           <input type="email" name="email" placeholder="name@mail.de" autocomplete="email" value="<?= $w('email') ?>">
         </label>
         <label class="field">
@@ -103,7 +103,9 @@ $w = static fn (string $name): string => attr($werte[$name] ?? '');
           </select>
         </label>
       </div>
-      <p class="pflicht-hinweis">Wir brauchen mindestens Telefon <em>oder</em> E-Mail, sonst können wir nicht antworten.</p>
+      <?php /* Der Betrieb antwortet am Telefon, nicht per Mail. Die Adresse
+              dient nur der automatischen Eingangsbestaetigung. */ ?>
+      <p class="pflicht-hinweis">Wir antworten telefonisch. Die E-Mail-Adresse brauchen wir nur, wenn Sie eine Eingangsbestätigung möchten.</p>
       <label class="consent<?= isset($fehler['datenschutz']) ? ' has-error' : '' ?>">
         <input type="checkbox" name="datenschutz" value="1" required <?= isset($werte['datenschutz']) ? 'checked' : '' ?>>
         <span>Ich habe die <a href="/datenschutz/">Datenschutzerklärung</a> gelesen. Meine Daten werden nur für die Bearbeitung dieser Anfrage genutzt.</span>

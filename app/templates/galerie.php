@@ -52,7 +52,9 @@ partial('kopf', [
       </div>
       <div class="galerie-hero-cta">
         <div class="cta-titel"><?= h(get($seite, 'hero.cta_titel')) ?></div>
-        <a href="/kontakt/#anfrage" class="btn btn-red"><?= h(get($seite, 'hero.cta')) ?> <span class="btn-arrow" aria-hidden="true">→</span></a>
+        <div class="galerie-hero-knoepfe">
+          <?php partial('anruf-knoepfe', ['groesse' => 'kompakt']); ?>
+        </div>
       </div>
     </div>
   </div>
@@ -123,7 +125,9 @@ partial('kopf', [
               Kategorien werden oben aus den vorhandenen Bildern gebildet. */ ?>
       <div class="raster-leer">
         <p><?= h(get($seite, 'raster.leer_text', 'Aktuell sind hier keine Aufnahmen hinterlegt. Rufen Sie uns an — wir zeigen Ihnen Arbeiten aus der Werkstatt.')) ?></p>
-        <a href="/kontakt/#anfrage" class="btn btn-dark">Termin anfragen <span class="btn-arrow" aria-hidden="true">→</span></a>
+        <div class="cta-row">
+          <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'anruf_klasse' => 'btn-dark', 'wa_klasse' => 'btn-linie']); ?>
+        </div>
       </div>
     <?php else: ?>
 

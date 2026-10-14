@@ -30,9 +30,15 @@ Werte lassen sich im Panel pflegen; wo nicht, ändere ich es direkt im Code.
 | C3 | Alte Texte übernehmen | ⚠️ siehe unten |
 | D | Domain **smartrepair-reutter.de** (vorläufig), neues Postfach mit Weiterleitung | 📄 `docs/umzug.md` |
 
-Zusätzlich: keine Online-Termine (war ohnehin nie so gebaut — alle Knöpfe
-heißen „Termin anfragen"), telefonisch am besten erreichbar, E-Mails können
-liegen bleiben, Öffnungszeiten in der Regel 9–17 Uhr mit einer Stunde Vorlauf.
+Zusätzlich: keine Online-Termine, telefonisch am besten erreichbar, E-Mails
+können liegen bleiben, Öffnungszeiten in der Regel 9–17 Uhr mit einer Stunde
+Vorlauf.
+
+Nachgezogen im Oktober 2026 — Daniel will Anrufe, höchstens noch WhatsApp:
+Jeder Knopf der Seite wählt jetzt die Mobilnummer, daneben steht WhatsApp.
+„Termin anfragen" und das Kurzformular im Fuß sind weg, das Formular steht nur
+noch ganz unten auf der Kontaktseite (mit Telefon als Pflichtfeld), und die
+E-Mail-Adresse erscheint nur noch in Impressum und Datenschutzerklärung.
 
 ### Zu C3 — was aus den alten Texten wirklich brauchbar ist
 

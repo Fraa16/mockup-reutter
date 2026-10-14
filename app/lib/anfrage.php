@@ -175,8 +175,11 @@ function anfrage_pruefen(array $werte): array
         $fehler['name'] = 'Bitte tragen Sie Ihren Namen ein.';
     }
 
-    if ($werte['telefon'] === '' && $werte['email'] === '') {
-        $fehler['telefon'] = 'Wir brauchen eine Telefonnummer oder eine E-Mail-Adresse — sonst können wir nicht antworten.';
+    // Pflicht seit Oktober 2026: Der Betrieb ruft zurueck und antwortet nicht
+    // per Mail. Eine Anfrage nur mit E-Mail-Adresse liesse sich so nicht
+    // beantworten.
+    if ($werte['telefon'] === '') {
+        $fehler['telefon'] = 'Bitte geben Sie eine Telefonnummer an — wir rufen Sie zurück.';
     }
 
     if ($werte['email'] !== '' && !filter_var($werte['email'], FILTER_VALIDATE_EMAIL)) {

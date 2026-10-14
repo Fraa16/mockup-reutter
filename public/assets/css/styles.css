@@ -244,7 +244,6 @@ img{max-width:100%;display:block}
    Bewusst eine Aufzählung statt einer neuen Klasse im Markup: die Templates
    sind 1:1 aus dem Entwurf gebaut, und eine Umbenennung quer durch sechzehn
    Dateien wäre Risiko ohne Gegenwert. */
-.contact-list .row .label,
 .panelkarte-kopf .bildunterschrift,
 .tafel-name,
 .preis-kicker,
@@ -300,6 +299,24 @@ img{max-width:100%;display:block}
   clip-path:none;
 }
 .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08);color:#fff}
+/* Gegenstueck zu .btn-outline fuer helle Flaechen. */
+.btn-linie{
+  background:transparent;color:var(--black);border:1px solid rgba(10,11,13,.28);
+  clip-path:none;
+}
+.btn-linie:hover{border-color:var(--black);background:rgba(10,11,13,.04);color:var(--black)}
+
+/* --- Anruf und WhatsApp ---------------------------------------------------
+   Seit Oktober 2026 die beiden einzigen Wege, die die Seite anbietet: der
+   Inhaber will angerufen werden, hoechstens noch WhatsApp. Die Bildzeichen
+   kommen aus icon() in render.php und folgen per currentColor dem Knopf. */
+.btn .icon{width:18px;height:18px;flex:none}
+.btn-zeilen{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left}
+.btn-klein{font:600 10.5px/1 var(--font-body);letter-spacing:.18em;opacity:.8}
+.btn-nummer{letter-spacing:.05em;white-space:nowrap}
+.btn:has(.btn-zeilen){padding-top:13px;padding-bottom:13px;gap:14px}
+.btn:has(.btn-zeilen) .icon{width:22px;height:22px}
+.btn-zeilen > :last-child{font-size:16px}
 
 /* Real photo filling a slot. Slots are sized by their wrapper, so the image
    just covers it — same box the placeholder occupied. */
@@ -365,7 +382,8 @@ body.kopf-kompakt .utility-bar{transform:translateY(-100%);visibility:hidden}
 .utility-bar .sep{color:var(--gray-500)}
 .utility-bar .right{display:flex;align-items:center;gap:22px}
 .utility-bar .hours{color:var(--gray-150)}
-.utility-bar .phone{color:#fff;font-weight:600;letter-spacing:.03em}
+.utility-bar .phone{display:inline-flex;align-items:center;gap:7px;color:#fff;font-weight:600;letter-spacing:.03em}
+.utility-bar .phone .icon{width:13px;height:13px;color:var(--rot-schrift)}
 
 /* ==========================================================================
    Header
@@ -381,7 +399,7 @@ body.kopf-kompakt .utility-bar{transform:translateY(-100%);visibility:hidden}
 /* transform statt top: die Bewegung laeuft damit auf der Grafikkarte und
    stoesst den backdrop-filter nicht bei jedem Bild neu an. */
 body.kopf-kompakt .site-header{transform:translateY(calc(-1 * var(--utility-hoehe)))}
-.site-header .wrap{
+.site-header > .wrap{
   height:82px;display:flex;align-items:center;justify-content:space-between;
 }
 .logo{display:flex;align-items:center;gap:14px;text-decoration:none}
@@ -418,6 +436,146 @@ body.kopf-kompakt .site-header{transform:translateY(calc(-1 * var(--utility-hoeh
 }
 .main-nav a.nav-link:hover{color:#fff}
 .main-nav .btn{padding:14px 24px;font-size:13px}
+.nav-kontakt{display:flex;align-items:center;gap:10px}
+.nav-kontakt .btn{height:44px;padding-top:0;padding-bottom:0}
+.nav-kontakt .btn-anruf{padding-left:20px;padding-right:22px;gap:10px}
+.nav-kontakt .btn-anruf .icon{width:16px;height:16px}
+/* Am Schreibtisch nur das Zeichen — die Beschriftung bleibt fuer
+   Screenreader stehen und erscheint im Menuepanel auf dem Handy. */
+.nav-whatsapp{width:44px;padding:0 !important;justify-content:center}
+.nav-whatsapp .icon{width:19px;height:19px}
+.nav-wa-text{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ==========================================================================
+   Aufklappmenue Leistungen
+   ==========================================================================
+   Tafel ueber die ganze Breite direkt unter dem Kopf. Der Kopf ist ihr
+   Bezugsrahmen (position:fixed), deshalb steht sie mit top:100% genau an
+   seiner Unterkante. Der Menuepunkt reicht ueber die volle Kopfhoehe — so
+   verlaesst die Maus auf dem Weg nach unten nie den Bereich, und die Tafel
+   klappt nicht unterwegs zu.
+
+   Bewusst ohne backdrop-filter: Der Kopf traegt schon einen, und ein
+   zweiter darin saehe nur den Kopf, nicht die Seite dahinter. Die Flaeche
+   ist deshalb deckend — schon bei 98 % schimmerten die grossen weissen
+   Ueberschriften der Seite durch. */
+.main-nav{align-self:stretch}
+.hat-mega{display:flex;align-items:center;gap:2px;align-self:stretch}
+.hat-mega:hover .nav-link,
+.hat-mega.is-open .nav-link{color:#fff}
+.mega-schalter{
+  width:26px;height:26px;padding:0;margin-right:-6px;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  background:transparent;border:0;color:var(--gray-300);cursor:pointer;
+  transition:color .18s,transform .25s cubic-bezier(.2,.7,.2,1);
+}
+.mega-schalter .icon{width:20px;height:20px}
+.mega-schalter:hover,
+.hat-mega:hover .mega-schalter{color:#fff}
+.hat-mega.is-open .mega-schalter{transform:rotate(180deg);color:var(--rot-schrift)}
+.mega-schalter:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+
+.mega{
+  display:none;position:absolute;left:0;right:0;top:100%;
+  background:var(--black);
+  border-top:1px solid rgba(255,255,255,.09);border-bottom:1px solid rgba(255,255,255,.12);
+  box-shadow:0 40px 80px -30px rgba(0,0,0,.75);
+}
+.mega::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--red)}
+/* Die Seite darunter tritt zurueck. Klicks gehen durch — wer daneben
+   klickt, landet auf der Seite, und die Tafel schliesst. */
+.mega::after{
+  content:"";position:absolute;left:0;right:0;top:100%;height:100vh;
+  background:rgba(5,6,8,.5);pointer-events:none;
+}
+@keyframes megaAuf{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.hat-mega.is-open .mega{display:block;animation:megaAuf .22s cubic-bezier(.2,.7,.2,1) both}
+@media (min-width: 981px) and (hover: hover){
+  /* Kleine Verzoegerung: wer mit der Maus nur ueber den Kopf faehrt, soll
+     nicht jedes Mal die Tafel aufblitzen sehen. */
+  .hat-mega:hover:not(.hover-aus) .mega{display:block;animation:megaAuf .22s cubic-bezier(.2,.7,.2,1) .08s both}
+}
+
+.mega-grid{
+  display:grid;grid-template-columns:250px minmax(0,1fr) 290px;gap:44px;
+  padding-top:40px;padding-bottom:44px;
+}
+.mega-intro .kicker{margin-bottom:16px}
+.mega-titel{margin:0 0 22px;font:800 26px/1.08 var(--font-display);letter-spacing:-.025em;color:#fff}
+.mega-gilt{list-style:none;margin:0 0 26px;padding:0;border-top:1px solid rgba(255,255,255,.1)}
+.mega-gilt li{
+  display:flex;align-items:center;gap:12px;padding:11px 0;
+  border-bottom:1px solid rgba(255,255,255,.1);
+  font:500 14.5px/1.4 var(--font-body);color:var(--gray-150);
+}
+.mega-anruf{display:inline-flex;align-items:center;gap:12px;color:#fff}
+.mega-anruf .icon{width:18px;height:18px;color:var(--rot-schrift)}
+.mega-anruf > span{display:flex;flex-direction:column;gap:6px;font:700 17px/1 var(--font-display);letter-spacing:.02em}
+.mega-anruf-klein{font:600 10.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--gray-400)}
+.mega-anruf:hover{color:var(--rot-schrift)}
+
+.mega-liste{
+  list-style:none;margin:0;padding:0;align-content:start;
+  display:grid;grid-template-columns:1fr 1fr;gap:0 28px;
+}
+.mega-liste li{border-bottom:1px solid rgba(255,255,255,.1)}
+.mega-liste li:nth-child(-n+2){border-top:1px solid rgba(255,255,255,.1)}
+.mega-eintrag{
+  position:relative;display:grid;grid-template-columns:32px minmax(0,1fr) auto;gap:12px;align-items:center;
+  padding:15px 12px 15px 12px;color:#fff;transition:background .16s;
+}
+.mega-eintrag:hover{color:#fff;background:rgba(255,255,255,.045)}
+/* Der rote Strich links: beim Ueberfahren, und dauerhaft auf der Seite,
+   auf der man gerade ist. */
+.mega-eintrag::before{
+  content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;background:var(--red);
+  transform:scaleY(0);transition:transform .2s cubic-bezier(.2,.7,.2,1);
+}
+.mega-eintrag:hover::before,
+.mega-eintrag:focus-visible::before,
+.mega-eintrag.is-hier::before{transform:none}
+.mega-num{font:800 15px/1 var(--font-display);color:var(--zahl-auf-dunkel);transition:color .16s}
+.mega-eintrag:hover .mega-num,
+.mega-eintrag:focus-visible .mega-num,
+.mega-eintrag.is-hier .mega-num{color:var(--rot-schrift)}
+.mega-text{display:flex;flex-direction:column;gap:6px;min-width:0}
+.mega-name{font:700 16.5px/1.2 var(--font-display);letter-spacing:-.01em}
+.mega-worte{
+  font:500 13px/1.35 var(--font-body);color:var(--gray-400);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.mega-pfeil{
+  font:700 16px/1 var(--font-display);color:var(--rot-schrift);
+  opacity:0;transform:translateX(-6px);transition:opacity .16s,transform .16s;
+}
+.mega-eintrag:hover .mega-pfeil,
+.mega-eintrag:focus-visible .mega-pfeil{opacity:1;transform:none}
+.mega-alle{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;height:100%;
+  padding:15px 12px;font:700 13px/1.2 var(--font-display);letter-spacing:.08em;text-transform:uppercase;
+  color:var(--rot-schrift);transition:background .16s,color .16s;
+}
+.mega-alle:hover{background:var(--red);color:#fff}
+
+.mega-vorschau{display:flex;flex-direction:column;gap:16px}
+.mega-bilder{
+  position:relative;aspect-ratio:4/3;overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);background:#16191E;
+}
+.mega-bild{position:absolute;inset:0;opacity:0;transition:opacity .35s ease}
+.mega-bild.is-aktiv{opacity:1}
+.mega-verlauf{position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,11,13,.6));pointer-events:none}
+.mega-bilder::after{
+  content:"";position:absolute;right:16px;bottom:16px;width:26px;height:10px;
+  background:var(--red);transform:skewX(-20deg);
+}
+.mega-info{display:none}
+.mega-info.is-aktiv{display:block}
+.mega-tag{
+  display:block;margin-bottom:8px;
+  font:600 11px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--rot-schrift);
+}
+.mega-info p{margin:0;font:400 14px/1.55 var(--font-body);color:var(--gray-300)}
 
 /* Scrollsperre hinter dem offenen Menuepanel.
    Ohne sie schiebt eine Wischbewegung neben dem Panel die Seite darunter weg,
@@ -482,8 +640,8 @@ html:has(body.nav-offen){overflow:hidden}
   display:flex;align-items:center;gap:16px;pointer-events:auto;
   animation:rvUp 1s cubic-bezier(.2,.7,.2,1) .12s both;
 }
-.hero .cta-row .btn-red{padding:20px 32px;font-size:15px;box-shadow:0 18px 44px -18px rgba(216,13,24,.75)}
-.hero .cta-row .btn-outline{padding:20px 28px;font:700 15px/1 var(--font-display);letter-spacing:.06em;clip-path:none}
+.hero .cta-row .btn-red{padding:15px 30px 15px 26px;font-size:15px;box-shadow:0 18px 44px -18px rgba(216,13,24,.75)}
+.hero .cta-row .btn-outline{padding:15px 28px 15px 24px;font:700 15px/1 var(--font-display);letter-spacing:.06em;clip-path:none}
 .hero .fineprint{
   margin:22px 0 0;font:500 13.5px/1.5 var(--font-body);color:var(--gray-400);letter-spacing:.02em;
   animation:rvUp 1s cubic-bezier(.2,.7,.2,1) .12s both;
@@ -604,8 +762,9 @@ html:has(body.nav-offen){overflow:hidden}
 }
 .hotspot-detail .bullets li .swash{margin-top:8px}
 .hotspot-detail .bullets li span{font:500 15.5px/1.5 var(--font-body);color:var(--gray-100)}
-.hotspot-detail .cta{margin-top:auto;padding-top:34px;display:flex;align-items:center;gap:18px}
-.hotspot-detail .cta .btn{padding:17px 26px;font-size:13.5px}
+.hotspot-detail .cta{margin-top:auto;padding-top:34px;display:flex;align-items:center;gap:12px}
+.hotspot-detail .cta .btn{padding:16px 22px;font-size:13.5px}
+.hotspot-detail .cta .hint-link{flex-basis:100%;align-self:flex-start;margin-top:8px}
 .hotspot-detail .cta .hint{font:500 13.5px/1.4 var(--font-body);color:var(--gray-400)}
 
 /* ==========================================================================
@@ -826,14 +985,23 @@ a.count:hover{color:var(--rot-schrift);border-color:var(--red)}
 .anfrage-intro h2{margin:0 0 22px;font-family:var(--font-display);font-weight:800;font-size:50px;line-height:1;letter-spacing:-.03em;color:#fff}
 .anfrage-intro > p{margin:0 0 40px;font:400 17px/1.68 var(--font-body);color:var(--gray-250)}
 
-.contact-list{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,.12)}
-.contact-list .row{padding:18px 0;border-bottom:1px solid rgba(255,255,255,.12)}
-.contact-list .row .label{color:var(--gray-400);margin-bottom:8px}
-.contact-list .row a{font:700 22px/1.2 var(--font-display);letter-spacing:-.01em;color:#fff}
-.contact-list .row a:hover{color:var(--rot-schrift)}
-.contact-list .row.email a{font-size:19px}
-
 .map-frame{margin-top:28px;position:relative;height:200px;border:1px solid rgba(255,255,255,.12)}
+
+/* Seit Oktober 2026 ohne Formular: links Anruf und WhatsApp, rechts wo die
+   Werkstatt liegt. */
+.anfrage-grid.ist-kontakt{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:stretch}
+.anfrage-ort{display:flex;flex-direction:column;min-height:100%}
+.anfrage-ort .map-frame{margin-top:0;flex:1;height:auto;min-height:340px}
+.ort-zeile{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:start;margin-top:20px}
+.ort-zeile .swash{margin-top:8px}
+.ort-zeile address{font:400 15.5px/1.6 var(--font-body);font-style:normal;color:var(--gray-200)}
+.ort-zeile address strong{font:700 16px/1.5 var(--font-display);color:#fff}
+.ort-zeile p{margin-top:6px;font:400 14px/1.5 var(--font-body);color:var(--gray-400)}
+.ort-link{
+  font:600 14.5px/1 var(--font-body);color:#fff;white-space:nowrap;
+  border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:4px;margin-top:4px;
+}
+.ort-link:hover{color:#fff;border-color:var(--red)}
 .map-frame{overflow:hidden}
 .map-link{display:block;height:100%}
 .map-link .slot-img{transition:opacity .2s}
@@ -975,6 +1143,8 @@ a.karten-quelle:hover{color:var(--black);text-decoration:underline}
 .sticky-bar .actions{display:flex;align-items:center;gap:12px}
 .sticky-bar .btn-outline{padding:14px 22px;font:700 13.5px/1 var(--font-display);letter-spacing:.05em}
 .sticky-bar .btn-red{padding:14px 24px;font-size:13.5px}
+.sticky-bar .btn{gap:9px}
+.sticky-bar .btn .icon{width:17px;height:17px}
 
 /* Der Kopf ist fixiert und würde sonst über dem Ziel jedes Ankersprungs
    liegen. scroll-padding am Wurzelelement statt scroll-margin an jedem [id]:
@@ -1140,18 +1310,62 @@ a.karten-quelle:hover{color:var(--black);text-decoration:underline}
   margin:0 0 16px;font-family:var(--font-display);font-weight:800;font-size:40px;
   line-height:1.03;letter-spacing:-.03em;color:#fff;
 }
-.kurzanfrage-intro p{margin:0 0 22px;max-width:460px;font:400 16.5px/1.65 var(--font-body);color:var(--gray-250)}
-.kurzanfrage-links{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
-.kurzanfrage-links a{
-  font:600 14.5px/1 var(--font-body);color:var(--gray-100);
-  border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:5px;
-}
-.kurzanfrage-links a:hover{color:#fff;border-color:var(--red)}
+.kurzanfrage-intro p{margin:0;max-width:460px;font:400 16.5px/1.65 var(--font-body);color:var(--gray-250)}
 
-.kurzanfrage-karte{background:var(--black);border:1px solid rgba(255,255,255,.13);padding:34px 36px}
-.kurzanfrage-karte .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;margin-bottom:20px}
-.kurzanfrage-fuss{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.kurzanfrage-fuss .consent{max-width:340px}
+/* ==========================================================================
+   Kontaktkacheln — Anruf und WhatsApp als grosse Flaechen
+   ==========================================================================
+   Stehen im Kontaktband am Fuss, im Kontaktabschnitt der Startseite und
+   oben auf der Kontaktseite — immer auf dunklem Grund. Der Anruf ist rot und
+   traegt die Ecke der Knoepfe, WhatsApp ist die zurueckgenommene Linie. */
+.kontakt-kacheln{display:flex;flex-direction:column;gap:12px}
+.kontakt-kachel{
+  display:flex;align-items:center;gap:20px;padding:22px 26px 22px 22px;color:#fff;
+  transition:background .18s,border-color .18s;
+}
+.kontakt-kachel:hover{color:#fff}
+.kontakt-kachel.ist-anruf{
+  background:var(--red);
+  clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px);
+}
+.kontakt-kachel.ist-anruf:hover{background:var(--red-hover)}
+.kontakt-kachel.ist-whatsapp{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.18)}
+.kontakt-kachel.ist-whatsapp:hover{background:rgba(255,255,255,.07);border-color:#fff}
+.kachel-icon{
+  width:54px;height:54px;flex:none;display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(255,255,255,.3);
+}
+.ist-anruf .kachel-icon{background:rgba(10,11,13,.16);border-color:rgba(255,255,255,.42)}
+.kachel-icon .icon{width:24px;height:24px}
+.kachel-text{display:flex;flex-direction:column;gap:7px;min-width:0;flex:1}
+.kachel-label{font:600 11.5px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+.ist-whatsapp .kachel-label{color:var(--rot-schrift)}
+.kachel-wert{
+  font:800 clamp(21px,2.2vw,28px)/1.05 var(--font-display);letter-spacing:-.005em;color:#fff;
+  white-space:nowrap;
+}
+.kachel-zusatz{font:500 14px/1.45 var(--font-body);color:rgba(255,255,255,.86)}
+.ist-whatsapp .kachel-zusatz{color:var(--gray-300)}
+.kachel-pfeil{flex:none;font:700 22px/1 var(--font-display);transition:transform .18s}
+.kontakt-kachel:hover .kachel-pfeil{transform:translateX(4px)}
+.kachel-werkstatt{margin:8px 0 0;font:500 14.5px/1.5 var(--font-body);color:var(--gray-350)}
+.kachel-werkstatt a{color:var(--gray-100);font-weight:600;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:2px}
+.kachel-werkstatt a:hover{color:#fff;border-color:var(--red)}
+.kontakt-kachel:focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+/* Knopfpaare in Abschnitten, die vorher einen einzelnen Knopf hatten. */
+.ablauf-intro .cta-row,
+.raster-leer .cta-row,
+.leder-preis .cta-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+/* Schmale Spalten: untereinander und gleich breit, statt dass der zweite
+   Knopf kuerzer darunter haengt. */
+.beklebung .cta-row,
+.faq-intro .cta-row{display:inline-flex;flex-direction:column;align-items:stretch;gap:10px}
+.ozon-hero-werte .cta-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.preis-knoepfe{display:flex;align-items:center;gap:12px;flex-wrap:wrap;flex:none}
+.preis-band .btn-outline{border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.06)}
+.preis-band .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.14)}
+.galerie-hero-knoepfe{display:flex;flex-direction:column;gap:10px}
 
 /* ==========================================================================
    Platz unter der Sticky-Leiste
@@ -1223,6 +1437,8 @@ a.karten-quelle:hover{color:var(--black);text-decoration:underline}
 .leistung-hero-cta .btn{justify-content:space-between;padding:20px 28px;font-size:14.5px}
 .leistung-hero-cta .btn-red{box-shadow:0 18px 44px -18px rgba(216,13,24,.8)}
 .leistung-hero-cta .btn-outline{justify-content:center;border-color:rgba(255,255,255,.28);background:rgba(10,11,13,.5)}
+.leistung-hero-cta .btn-anruf,
+.leistung-hero-cta .btn-whatsapp{justify-content:flex-start;padding-top:14px;padding-bottom:14px}
 
 /* --- Abschnittslinie mit Beschriftung ------------------------------------ */
 .abschnitt-linie{display:flex;align-items:center;gap:14px;padding:26px 0 34px}
@@ -2114,26 +2330,16 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 .kontakt-hero .accent-bar{position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--red)}
 .kontakt-hero .wrap{position:relative;padding-top:70px;padding-bottom:66px}
 .kontakt-hero .brotkrumen{margin-bottom:36px}
-.kontakt-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:70px;align-items:end}
+.kontakt-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 470px;gap:70px;align-items:end}
 .kontakt-hero h1{
   margin:0 0 20px;max-width:840px;font-family:var(--font-display);font-weight:800;
   font-size:clamp(36px,5.2vw,66px);line-height:.98;letter-spacing:-.035em;color:#fff;text-wrap:balance;
 }
 .kontakt-hero .lead{margin:0;max-width:620px;font:400 18px/1.68 var(--font-body);color:var(--gray-200)}
-.kontakt-wege{
-  display:flex;flex-direction:column;gap:1px;
-  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);
-}
-.kontakt-weg{
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-  background:var(--black);padding:20px 24px;
-}
-.kontakt-weg:hover{background:#14171B}
 .weg-label{
   color:var(--gray-400);
 }
 .weg-wert{font:700 20px/1 var(--font-display);letter-spacing:-.01em;color:#fff;text-align:right}
-.kontakt-weg:last-child .weg-wert{font-size:17px}
 
 /* --- Formularabschnitt mit Seitenspalte ---------------------------------- */
 .anfrage-seite{background:#101216;padding:var(--sekt-oben) 0 var(--sekt-unten);position:relative;overflow:hidden}
@@ -2144,6 +2350,11 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 .anfrage-seite .wrap{position:relative}
 .anfrage-seite-grid{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:64px;align-items:start}
 .anfrage-seite .kicker{margin-bottom:22px}
+.formular-titel{
+  margin:0 0 12px;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(26px,3vw,36px);line-height:1.05;letter-spacing:-.025em;color:#fff;
+}
+.formular-text{margin:0 0 32px;max-width:620px;font:400 16.5px/1.65 var(--font-body);color:var(--gray-250)}
 .anfrage-seitenspalte{display:flex;flex-direction:column;gap:20px}
 .seiten-karte{border:1px solid rgba(255,255,255,.13);background:var(--black);padding:30px 28px}
 .karte-titel{
@@ -2231,7 +2442,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 .galerie-hero-cta .cta-titel{
   color:var(--gray-400);margin-bottom:14px;
 }
-.galerie-hero-cta .btn{justify-content:space-between}
+.galerie-hero-cta .btn{justify-content:flex-start}
 
 /* --- Drei Fallstudien --------------------------------------------------- */
 .faelle{background:var(--black);padding:var(--sekt-oben) 0 var(--sekt-unten)}
@@ -2607,6 +2818,9 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 /* --- Tablet / narrow desktop ------------------------------------------- */
 @media (max-width: 1200px){
   :root{--gutter: 40px}
+  .main-nav{gap:26px}
+  .mega-grid{grid-template-columns:240px minmax(0,1fr);gap:40px}
+  .mega-vorschau{display:none}
   .hero .wrap{grid-template-columns:minmax(0,1fr) 300px;gap:40px;min-height:560px;padding:90px var(--gutter) 72px}
   .ablauf-grid{gap:48px}
   .betrieb-top{gap:48px}
@@ -2614,6 +2828,15 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   .request-card{padding:36px 32px 32px}
   .hotspot-detail{padding:38px 32px}
   .footer-grid{gap:36px}
+}
+
+/* Zwischen Handy-Menue und voller Breite wird es im Kopf eng: Mobilnummer,
+   WhatsApp und der Winkel am Menuepunkt kosten Platz. Der Logozusatz ist der
+   entbehrlichste Teil — er steht auf jeder Seite noch im Titel. */
+@media (min-width: 981px) and (max-width: 1120px){
+  .logo .divider,
+  .logo .sub{display:none}
+  .main-nav{gap:22px}
 }
 
 /* --- Stack the two-column modules -------------------------------------- */
@@ -2625,7 +2848,10 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   .main-nav{
     position:absolute;left:0;right:0;top:100%;
     flex-direction:column;align-items:stretch;gap:0;
-    background:rgba(10,11,13,.98);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    /* Deckend und ohne eigenen Weichzeichner: Der Kopf traegt schon einen,
+       ein zweiter darin sieht die Seite dahinter nicht. Mit 98 % Deckkraft
+       standen die grossen Ueberschriften lesbar hinter den Menuepunkten. */
+    background:var(--black);
     border-bottom:1px solid rgba(255,255,255,.12);
     padding:8px var(--gutter) 20px;
     /* Collapsed by default; .is-open (set by the toggle) reveals it. */
@@ -2645,7 +2871,39 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   /* Die Scrollsperre steht ausserhalb dieser Abfrage — siehe unten. */
   .main-nav a.nav-link{padding:15px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:15px}
   .main-nav .btn{margin-top:16px;justify-content:center;padding:16px 24px}
-  .site-header .wrap{height:70px}
+  /* Im Panel stehen Anruf und WhatsApp als volle Knoepfe untereinander,
+     der Anruf zuerst. */
+  .nav-kontakt{flex-direction:column-reverse;align-items:stretch;gap:10px;margin-top:16px}
+  .nav-kontakt .btn{margin-top:0;height:auto;padding:16px 24px !important;justify-content:center}
+  .nav-whatsapp{width:auto}
+  .nav-wa-text{position:static;width:auto;height:auto;overflow:visible;clip:auto}
+
+  /* Leistungen klappen im Panel als Liste auf — ohne Einleitung und Foto. */
+  .main-nav{align-self:auto}
+  .hat-mega{flex-wrap:wrap;align-self:auto;gap:0;border-bottom:1px solid rgba(255,255,255,.08)}
+  .main-nav .hat-mega a.nav-link{flex:1;border-bottom:0}
+  .mega-schalter{width:44px;height:44px;margin-right:-10px}
+  .mega{
+    position:static;flex-basis:100%;
+    background:transparent;border:0;box-shadow:none;animation:none !important;
+  }
+  .mega::before,
+  .mega::after{display:none}
+  .mega-grid.wrap{display:block;padding:0 0 12px;height:auto}
+  .mega-intro,
+  .mega-vorschau{display:none}
+  .mega-liste{grid-template-columns:minmax(0,1fr);gap:0;border-left:1px solid rgba(255,255,255,.12);margin-left:2px}
+  .mega-liste li,
+  .mega-liste li:nth-child(-n+2){border:0}
+  .mega-eintrag{grid-template-columns:28px minmax(0,1fr);padding:11px 0 11px 16px}
+  .mega-eintrag::before{top:10px;bottom:10px;left:-1px}
+  .mega-worte,
+  .mega-pfeil{display:none}
+  .mega-name{font:600 15px/1.3 var(--font-body);letter-spacing:0;color:var(--gray-100)}
+  .mega-eintrag.is-hier .mega-name{color:#fff}
+  .mega-num{font-size:13px}
+  .mega-alle{padding:12px 0 8px 16px;font-size:12px}
+  .site-header > .wrap{height:70px}
 
   /* Das echte Logo ist breiter als die nachgebaute Wortmarke davor — bei
      390 px stiess „Fahrzeugpflege" sonst in den Menueknopf. Auf 21 px Hoehe
@@ -2818,6 +3076,8 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   .grenzen-grid{grid-template-columns:minmax(0,1fr);gap:34px}
   .beleg-bild{height:320px}
   .kurzanfrage-grid{grid-template-columns:minmax(0,1fr);gap:38px}
+  .anfrage-grid.ist-kontakt{grid-template-columns:minmax(0,1fr);gap:48px}
+  .anfrage-ort .map-frame{flex:none;height:300px;min-height:0}
   .kurzanfrage-intro h2{font-size:clamp(26px,4vw,40px)}
 
   .footer-grid{grid-template-columns:repeat(2,1fr);gap:40px}
@@ -2961,9 +3221,7 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   .recht-band p{font-size:14px}
   .danke{min-height:0}
   .weiter-links a{flex:1 1 100%;text-align:center}
-  .kontakt-weg{padding:16px 18px;gap:12px}
   .weg-wert{font-size:17px}
-  .kontakt-weg:last-child .weg-wert{font-size:15px}
   .seiten-karte{padding:24px 20px}
   .anfahrt-karte{height:240px}
   .fall-bild .ba-frame{aspect-ratio:4/3}
@@ -2989,11 +3247,19 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   .zonen-detail{padding:26px 20px}
   .zeitstrahl-schritt{grid-template-columns:minmax(0,1fr);gap:8px}
   .hero-kennzahl{padding-right:20px;margin-right:20px}
-  .kurzanfrage-karte{padding:24px 20px}
-  .kurzanfrage-karte .field-grid{grid-template-columns:minmax(0,1fr)}
-  .kurzanfrage-fuss{flex-direction:column;align-items:stretch;gap:16px}
-  .kurzanfrage-fuss .consent{max-width:none}
-  .kurzanfrage-fuss .btn{justify-content:center}
+  .kontakt-kachel{gap:14px;padding:18px 18px 18px 16px}
+  .kachel-icon{width:44px;height:44px}
+  .kachel-icon .icon{width:21px;height:21px}
+  .kachel-zusatz{font-size:13.5px}
+  .ort-zeile{grid-template-columns:auto minmax(0,1fr)}
+  .ort-link{grid-column:2;justify-self:start}
+  .preis-knoepfe{width:100%}
+  .preis-knoepfe .btn,
+  .ablauf-intro .cta-row .btn,
+  .beklebung .cta-row .btn,
+  .faq-intro .cta-row .btn,
+  .leder-preis .cta-row .btn,
+  .ozon-hero-werte .cta-row .btn{flex:1 1 200px;justify-content:center}
   .reviews-section .reviews-head h2{font-size:26px}
   .field-grid{grid-template-columns:minmax(0,1fr)}
   /* Tracker labels don't fit three-across on a phone; numbers carry it. */
@@ -3004,7 +3270,6 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   .form-nav .btn-next{justify-content:center}
   .form-nav .btn-back{text-align:center}
   .form-nav .hint{text-align:center}
-  .contact-list .row a{font-size:20px}
 
   .footer-grid{grid-template-columns:minmax(0,1fr);gap:32px;padding-bottom:40px}
   .footer-bottom{flex-direction:column;align-items:flex-start;gap:8px}
@@ -3104,7 +3369,6 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 .material-karte,
 .schnitt,
 .request-card,
-.kurzanfrage-karte,
 .danke-weg,
 .quellen-urteil.ist-dunkel,
 .quellen-reihenfolge li.ist-betont,
@@ -3190,9 +3454,9 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
   .karte-link,
   .fall-link,
   .hint-link,
-  .kurzanfrage-links a,
+  .kachel-werkstatt a,
+  .ort-link,
   .brotkrumen a,
-  .contact-list .row a,
   .weiter-links a,
   a.count{min-height:44px;display:inline-flex;align-items:center}
 

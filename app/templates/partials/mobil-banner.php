@@ -14,8 +14,7 @@ $b = $b ?? content('home')['mobiler_service'];
       <p><?= h($b['text']) ?></p>
     </div>
     <div class="actions">
-      <a href="/kontakt/#anfrage" class="btn btn-dark">Mobilen Termin anfragen</a>
-      <a href="tel:<?= attr(get($s, 'kontakt.mobil_link')) ?>" class="btn btn-outline">Mobil <?= h(get($s, 'kontakt.mobil')) ?></a>
+      <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'anruf_klasse' => 'btn-dark', 'leistung' => $leistung ?? '']); ?>
     </div>
   </div>
 </section>

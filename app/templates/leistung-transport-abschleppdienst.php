@@ -63,10 +63,7 @@ partial('kopf', [
               Formular — wer liegen bleibt, tippt nicht. Deshalb steht die
               Nummer hier oben und nicht erst im Fuss. */ ?>
       <div class="leistung-hero-cta">
-        <a href="tel:<?= attr(get($s, 'kontakt.telefon_link')) ?>" class="btn btn-red">
-          <?= h(get($s, 'kontakt.telefon')) ?> <span class="btn-arrow" aria-hidden="true">→</span>
-        </a>
-        <a href="#kurzanfrage" class="btn btn-outline"><?= h(get($seite, 'hero.cta')) ?></a>
+        <?php partial('anruf-knoepfe', ['leistung' => $leistung['titel']]); ?>
       </div>
     </div>
   </div>
@@ -126,7 +123,9 @@ partial('kopf', [
       <h2><?= h(get($seite, 'preis.titel')) ?></h2>
       <p><?= h(get($seite, 'preis.text')) ?></p>
     </div>
-    <a href="#kurzanfrage" class="btn btn-black"><?= h(get($seite, 'preis.cta')) ?></a>
+    <div class="preis-knoepfe">
+      <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'anruf_klasse' => 'btn-black', 'leistung' => $leistung['titel']]); ?>
+    </div>
   </div>
 </section>
 
@@ -138,7 +137,7 @@ partial('kopf', [
         <div class="kicker"><?= swash() ?><span class="label"><?= h(get($seite, 'faq.kicker')) ?></span></div>
         <h2><?= h(get($seite, 'faq.titel')) ?></h2>
         <p class="faq-hinweis">
-          <?= h(get($seite, 'faq.hinweis_vor')) ?><a href="tel:<?= attr(get($s, 'kontakt.telefon_link')) ?>"><?= h(get($s, 'kontakt.telefon')) ?></a>
+          <?= h(get($seite, 'faq.hinweis_vor')) ?><a href="<?= attr(anruf()['ziel']) ?>"><?= h(anruf()['anzeige']) ?></a>
         </p>
       </div>
       <div class="faq-liste">
@@ -181,4 +180,4 @@ partial('kopf', [
   </div>
 </section>
 
-<?php partial('fuss', ['ctaUeberschrift' => get($seite, 'cta_ueberschrift')]); ?>
+<?php partial('fuss', ['ctaUeberschrift' => get($seite, 'cta_ueberschrift'), 'leistung' => $leistung['titel']]); ?>
