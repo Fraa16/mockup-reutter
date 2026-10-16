@@ -66,6 +66,14 @@ jobs:
           # --only-newer waere wirkungslos: Der Checkout setzt allen Dateien
           # den aktuellen Zeitstempel, sie gaelten also immer als neuer.
           #
+          # Reihenfolge: erst public/ (Stile, Skripte), dann app/ (Vorlagen).
+          # Andersherum stand eine halbe Minute lang neues HTML neben der alten
+          # Stildatei — wer in diesem Moment die Seite aufrief, bekam am
+          # 14.10.2026 das neue Aufklappmenue ungestaltet und offen ueber den
+          # Hero gelegt, und sein Browser hielt die alte Datei danach fest.
+          # So herum steht hoechstens kurz altes HTML neben neuen Stilen; die
+          # behalten die alten Regeln fast alle, das faellt nicht auf.
+          #
           # public/uploads/ bleibt aussen vor: Dort liegen die Fotos aus dem
           # Panel. Die gehoeren dem Server, nicht dem Repository — und jeder
           # Durchlauf schoebe sonst sieben Megabyte Platzhalter erneut hoch.
@@ -75,9 +83,9 @@ jobs:
           set net:timeout 15;
           set net:reconnect-interval-base 5;
           set xfer:log no;
+          mirror -R --verbose $TROCKEN --exclude ^uploads/ public/  neu/web/;
           mirror -R --verbose $TROCKEN                     app/     neu/app/;
           mirror -R --verbose $TROCKEN                     bin/     neu/bin/;
-          mirror -R --verbose $TROCKEN --exclude ^uploads/ public/  neu/web/;
           bye
           ENDE
 
