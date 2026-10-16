@@ -22,7 +22,7 @@
  * Der Lauf schlaegt fehl, sobald etwas gefunden wird.
  */
 import { chromium } from 'playwright';
-import { appendFileSync } from 'node:fs';
+import { appendFileSync, readFileSync } from 'node:fs';
 
 const basis = (process.argv[2] || 'https://smartrepair-reutter.de').replace(/\/+$/, '');
 
@@ -133,10 +133,67 @@ async function pruefeSeite(kontext, pfad, breite) {
   return { status, probleme: [...gezaehlt].map(([p, n]) => (n > 1 ? `${p} (${n}×)` : p)) };
 }
 
+/**
+ * Kommt beim Besucher die CSS- und JS-Datei an, die im Repository steht?
+ *
+ * Entstanden am 16.10.2026: Nach dem Hochladen zeigte die Seite das neue HTML
+ * mit der alten styles.css — das Aufklappmenue lag offen und ungestaltet
+ * ueber dem Hero. Die Pruefung unten fand nichts, weil eine veraltete
+ * Stildatei keinen Fehler wirft. Deshalb hier der direkte Vergleich: Adresse
+ * aus der Startseite lesen, Datei abrufen, Inhalt mit dem Repository
+ * vergleichen. Die Antwortkoepfe stehen im Protokoll, damit sichtbar wird,
+ * wer eine alte Fassung ausliefert — Server, Zwischenspeicher oder Browser.
+ */
+async function auslieferungPruefen() {
+  const probleme = [];
+  let html = '';
+  try {
+    html = await (await fetch(basis + '/', { cache: 'no-store' })).text();
+  } catch (fehler) {
+    return [`Startseite fuer den Dateivergleich nicht abrufbar: ${fehler.message}`];
+  }
+  const dateien = [
+    ['css/styles.css', /href="(\/assets\/css\/styles\.css[^"]*)"/],
+    ['js/main.js', /src="(\/assets\/js\/main\.js[^"]*)"/],
+  ];
+  for (const [datei, muster] of dateien) {
+    const treffer = html.match(muster);
+    if (!treffer) {
+      probleme.push(`${datei}: kein Verweis in der Startseite gefunden`);
+      continue;
+    }
+    const adresse = treffer[1].replace(/&amp;/g, '&');
+    let soll = '';
+    try {
+      soll = readFileSync(new URL(`../../public/assets/${datei}`, import.meta.url), 'utf8');
+    } catch {
+      console.log(`${datei}: Repository-Fassung nicht lesbar — Vergleich uebersprungen.`);
+      continue;
+    }
+    for (const [name, url] of [['wie verlinkt', adresse], ['am Zwischenspeicher vorbei', adresse + (adresse.includes('?') ? '&' : '?') + 'frisch=' + Date.now()]]) {
+      const antwort = await fetch(basis + url, { cache: 'no-store' });
+      const ist = await antwort.text();
+      const koepfe = ['cache-control', 'expires', 'age', 'last-modified', 'etag', 'server', 'x-cache', 'cf-cache-status', 'via']
+        .map((k) => [k, antwort.headers.get(k)]).filter(([, v]) => v).map(([k, v]) => `${k}=${v}`).join(' · ');
+      const gleich = ist === soll;
+      console.log(`${datei} (${name}): ${url} → ${antwort.status}, ${ist.length} Zeichen, ${gleich ? 'wie im Repository' : `ABWEICHEND (Repository ${soll.length} Zeichen)`}`);
+      console.log(`    ${koepfe}`);
+      if (!gleich) probleme.push(`${datei} ${name}: ausgeliefert wird nicht die Fassung aus dem Repository (${ist.length} statt ${soll.length} Zeichen)`);
+    }
+  }
+  return probleme;
+}
+
 const browser = await chromium.launch();
 const pfade = await seitenliste();
 const zeilen = [];
 let summe = 0;
+
+const auslieferung = await auslieferungPruefen();
+summe += auslieferung.length;
+for (const p of auslieferung) console.log(`Auslieferung: ${p}`);
+zeilen.push(`| – | Dateien | – | ${auslieferung.length === 0 ? '✓ CSS und JS wie im Repository' : auslieferung.map((p) => p.replace(/\|/g, '\\|')).join('<br>')} |`);
+console.log('');
 
 console.log(`Prüfe ${pfade.length} Seiten auf ${basis}\n`);
 for (const breite of breiten) {
