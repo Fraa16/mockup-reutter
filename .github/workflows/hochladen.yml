@@ -66,6 +66,14 @@ jobs:
           # --only-newer waere wirkungslos: Der Checkout setzt allen Dateien
           # den aktuellen Zeitstempel, sie gaelten also immer als neuer.
           #
+          # Reihenfolge: erst public/ (Stile, Skripte), dann app/ (Vorlagen).
+          # Andersherum stand eine halbe Minute lang neues HTML neben der alten
+          # Stildatei — wer in diesem Moment die Seite aufrief, bekam am
+          # 14.10.2026 das neue Aufklappmenue ungestaltet und offen ueber den
+          # Hero gelegt, und sein Browser hielt die alte Datei danach fest.
+          # So herum steht hoechstens kurz altes HTML neben neuen Stilen; die
+          # behalten die alten Regeln fast alle, das faellt nicht auf.
+          #
           # public/uploads/ bleibt aussen vor: Dort liegen die Fotos aus dem
           # Panel. Die gehoeren dem Server, nicht dem Repository — und jeder
           # Durchlauf schoebe sonst sieben Megabyte Platzhalter erneut hoch.
@@ -75,9 +83,9 @@ jobs:
           set net:timeout 15;
           set net:reconnect-interval-base 5;
           set xfer:log no;
+          mirror -R --verbose $TROCKEN --exclude ^uploads/ public/  neu/web/;
           mirror -R --verbose $TROCKEN                     app/     neu/app/;
           mirror -R --verbose $TROCKEN                     bin/     neu/bin/;
-          mirror -R --verbose $TROCKEN --exclude ^uploads/ public/  neu/web/;
           bye
           ENDE
 
@@ -107,14 +115,18 @@ jobs:
           fi
           # Erst vollstaendig laden, DANN suchen — nicht „curl | grep -q".
           # In der Pipe hoert grep -q beim ersten Treffer auf zu lesen; die
-          # Adresse steht schon bei Byte ~2200 im Seitenkopf. Kommt die Seite
+          # Adresse stand damals bei Byte ~2200 im Seitenkopf. Kommt die Seite
           # uebers Netz in Stuecken, will curl danach noch schreiben, bekommt
           # „(23) Failure writing output" — und mit pipefail galt die ganze
           # Probe als gescheitert. Sie warnte also genau dann, wenn die Adresse
           # GEFUNDEN wurde. So geschehen beim ersten echten Lauf am 23.09.2026;
           # lokal trat es nicht auf, weil 50 KB in den Pipe-Puffer passen.
-          if ! seite=$(curl -sS --max-time 20 https://smartrepair-reutter.de/); then
-            echo "::warning::Startseite nicht abrufbar — Probe uebersprungen. Die Gegenprobe im naechsten Schritt sagt, ob die Seite laeuft."
+          #
+          # Seit Oktober 2026 steht die Adresse nur noch im Impressum — der
+          # Betrieb will angerufen werden, Kopf und Fuss zeigen sie nicht mehr.
+          # Auf der Startseite gesucht, warnte die Probe bei jedem Lauf.
+          if ! seite=$(curl -sS --max-time 20 https://smartrepair-reutter.de/impressum/); then
+            echo "::warning::Impressum nicht abrufbar — Probe uebersprungen. Die Gegenprobe im naechsten Schritt sagt, ob die Seite laeuft."
             exit 0
           fi
           if grep -qF "$soll" <<<"$seite"; then

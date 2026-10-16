@@ -57,17 +57,32 @@ function partial(string $name, array $vars = []): void
 }
 
 /**
- * URL fuer eine Datei aus public/assets/ — mit Zeitstempel als Cache-Buster,
- * damit Aenderungen an CSS/JS beim Besucher sofort ankommen, obwohl die
- * Dateien mit langer Lebensdauer ausgeliefert werden.
+ * URL fuer eine Datei aus public/assets/ — mit einer Pruefsumme des Inhalts
+ * als Cache-Buster, damit Aenderungen an CSS/JS beim Besucher sofort
+ * ankommen, obwohl die Dateien ein Jahr lang im Browser liegen duerfen.
+ *
+ * Bis Oktober 2026 stand hier der Zeitstempel der Datei. Der sagt aber nur,
+ * wann sie hochgeladen wurde, nicht was drinsteht — und beim Hochladen
+ * entstehen Augenblicke, in denen Adresse und Inhalt nicht zusammenpassen.
+ * Ein Besucher hielt danach die alte Stildatei unter der Adresse fest, und
+ * das neue Aufklappmenue lag ungestaltet ueber der Startseite. Die
+ * Pruefsumme haengt nur am Inhalt: gleiche Adresse heisst gleiche Datei.
+ *
+ * Gerechnet wird je Aufruf hoechstens einmal pro Datei; zwei Dateien mit
+ * zusammen gut 200 KB kosten dabei unter einer Millisekunde.
  */
 function asset(string $path): string
 {
-    $path = ltrim($path, '/');
-    $file = PUBLIC_ROOT . '/assets/' . $path;
-    $version = is_file($file) ? substr((string) filemtime($file), -6) : '';
+    static $versionen = [];
 
-    return '/assets/' . $path . ($version !== '' ? '?v=' . $version : '');
+    $path = ltrim($path, '/');
+    if (!isset($versionen[$path])) {
+        $file = PUBLIC_ROOT . '/assets/' . $path;
+        $summe = is_file($file) ? md5_file($file) : false;
+        $versionen[$path] = $summe !== false ? substr($summe, 0, 10) : '';
+    }
+
+    return '/assets/' . $path . ($versionen[$path] !== '' ? '?v=' . $versionen[$path] : '');
 }
 
 /**
