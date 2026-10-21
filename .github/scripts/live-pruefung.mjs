@@ -184,6 +184,102 @@ async function auslieferungPruefen() {
   return probleme;
 }
 
+/**
+ * Inhaltsabgleich: Stehen auf dem Server die Texte aus dem Repository?
+ *
+ * Inhalte (data/content/) laedt das Hochladen bewusst nicht mit hoch — sie
+ * gehen von Hand per FileZilla auf den Server, und nach der Uebergabe pflegt
+ * Daniel sie im Panel. Ob ein Upload angekommen ist, liess sich bisher nur
+ * durch Hinsehen klaeren.
+ *
+ * Dafuer rendert der Lauf dieselben Seiten zusaetzlich aus dem Repository
+ * (PHP-Server im Workflow, Adresse in REPO_STAND) und vergleicht die Texte
+ * beider Fassungen: was im Repository steht, live aber fehlt, und umgekehrt.
+ * Weil beide Seiten durch denselben Code laufen, bleiben nur Unterschiede im
+ * Inhalt uebrig.
+ *
+ * Nur ein Hinweis, kein Fehler: Nach der Uebergabe ist der Server im Recht,
+ * und Abweichungen sind dann gewollt.
+ */
+const REPO_STAND = (process.env.REPO_STAND || '').replace(/\/+$/, '');
+
+// Welche Inhaltsdatei hinter einer Seite steht — nur fuer die Meldung.
+const INHALTSDATEI = {
+  '/': 'home.json, leistungen.json, site.json',
+  '/leistungen/': 'leistungen-hub.json',
+  '/galerie/': 'galerie.json',
+  '/kontakt/': 'kontakt.json',
+  '/impressum/': 'impressum.json',
+  '/datenschutz/': 'datenschutz.json',
+  '/agb/': 'agb.json',
+  '/widerruf/': 'widerruf.json',
+};
+const inhaltsdatei = (pfad) => INHALTSDATEI[pfad]
+  ?? (pfad.startsWith('/leistungen/') ? `leistung-${pfad.split('/')[2]}.json` : 'site.json');
+
+function entschluesseln(t) {
+  return t
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"').replace(/&#0?39;/g, "'").replace(/&#x27;/gi, "'")
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+    .replace(/&amp;/g, '&');
+}
+
+// Alle Textstuecke einer Seite: Text zwischen den Tags, dazu Bildbeschreibungen
+// und die Beschreibung fuer Google. Skripte, Stile und Kommentare fallen weg.
+function texte(html) {
+  const ohne = html
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<!--[\s\S]*?-->/g, ' ');
+  const stuecke = ohne.split(/<[^>]+>/);
+  for (const m of ohne.matchAll(/\salt="([^"]*)"/g)) stuecke.push(m[1]);
+  const meta = ohne.match(/<meta name="description" content="([^"]*)"/);
+  if (meta) stuecke.push(meta[1]);
+  return new Set(stuecke
+    .map((t) => entschluesseln(t).replace(/\s+/g, ' ').trim())
+    .filter((t) => t.length >= 3));
+}
+
+async function inhaltAbgleichen(pfade) {
+  const zeilen = [];
+  if (!REPO_STAND) return zeilen;
+  console.log('\nInhaltsabgleich (Repository gegen Server, nur Hinweis):');
+  for (const pfad of pfade.filter((p) => !p.startsWith('/admin'))) {
+    let lokal;
+    let live;
+    try {
+      const [a, b] = await Promise.all([fetch(REPO_STAND + pfad), fetch(basis + pfad, { cache: 'no-store' })]);
+      if (a.status !== 200 || b.status !== 200) {
+        console.log(`  ${pfad.padEnd(42)} nicht verglichen (Repository ${a.status}, live ${b.status})`);
+        zeilen.push(`| \`${pfad}\` | – | nicht verglichen (Repository ${a.status}, live ${b.status}) |`);
+        continue;
+      }
+      [lokal, live] = [texte(await a.text()), texte(await b.text())];
+    } catch (fehler) {
+      console.log(`  ${pfad.padEnd(42)} nicht verglichen: ${fehler.message}`);
+      continue;
+    }
+    const fehlt = [...lokal].filter((t) => !live.has(t));
+    const nurLive = [...live].filter((t) => !lokal.has(t));
+    const kurz = (t) => (t.length > 90 ? t.slice(0, 87) + '…' : t);
+    if (fehlt.length === 0 && nurLive.length === 0) {
+      console.log(`  ${pfad.padEnd(42)} wie im Repository`);
+      zeilen.push(`| \`${pfad}\` | ${inhaltsdatei(pfad)} | ✓ wie im Repository |`);
+      continue;
+    }
+    console.log(`  ${pfad.padEnd(42)} ABWEICHEND (${inhaltsdatei(pfad)}): ${fehlt.length} Text(e) aus dem Repository fehlen live, ${nurLive.length} stehen nur live`);
+    for (const t of fehlt.slice(0, 6)) console.log(`      fehlt live:  ${kurz(t)}`);
+    for (const t of nurLive.slice(0, 6)) console.log(`      nur live:    ${kurz(t)}`);
+    const beispiel = (liste) => liste.slice(0, 2).map((t) => `„${kurz(t).replace(/\|/g, '\\|')}“`).join('<br>');
+    zeilen.push(`| \`${pfad}\` | ${inhaltsdatei(pfad)} | ⚠️ ${fehlt.length} fehlen live, ${nurLive.length} nur live`
+      + (fehlt.length ? `<br>fehlt live: ${beispiel(fehlt)}` : '')
+      + (nurLive.length ? `<br>nur live: ${beispiel(nurLive)}` : '') + ' |');
+  }
+  return zeilen;
+}
+
 const browser = await chromium.launch();
 const pfade = await seitenliste();
 const zeilen = [];
@@ -210,6 +306,8 @@ for (const breite of breiten) {
 }
 await browser.close();
 
+const abgleich = await inhaltAbgleichen(pfade);
+
 const fazit = summe === 0
   ? `Alles in Ordnung: ${pfade.length} Seiten, je Desktop und Handy.`
   : `${summe} Problem(e) gefunden.`;
@@ -219,6 +317,11 @@ if (process.env.GITHUB_STEP_SUMMARY) {
   appendFileSync(process.env.GITHUB_STEP_SUMMARY, [
     `## Live-Prüfung ${basis}`, '', fazit, '',
     '| Breite | Seite | Status | Befund |', '|---|---|---|---|', ...zeilen, '',
+    ...(abgleich.length ? [
+      '### Inhalte: Repository gegen Server', '',
+      'Nur ein Hinweis. Abweichungen heißen: Eine Inhaltsdatei auf dem Server ist nicht auf dem Stand des Repositorys — noch nicht hochgeladen, oder im Panel bewusst geändert.', '',
+      '| Seite | Inhaltsdatei | Befund |', '|---|---|---|', ...abgleich, '',
+    ] : []),
   ].join('\n'));
 }
 
