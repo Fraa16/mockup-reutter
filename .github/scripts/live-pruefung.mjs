@@ -21,7 +21,7 @@
  * Ergebnis steht im Protokoll und in der Zusammenfassung des Laufs.
  * Der Lauf schlaegt fehl, sobald etwas gefunden wird.
  */
-import { chromium } from 'playwright';
+import { chromium, request } from 'playwright';
 import { appendFileSync, readFileSync } from 'node:fs';
 
 const basis = (process.argv[2] || 'https://smartrepair-reutter.de').replace(/\/+$/, '');
@@ -246,19 +246,31 @@ async function inhaltAbgleichen(pfade) {
   const zeilen = [];
   if (!REPO_STAND) return zeilen;
   console.log('\nInhaltsabgleich (Repository gegen Server, nur Hinweis):');
+  /* Playwrights eigener HTTP-Client statt fetch: Gegen den PHP-Testserver
+     brach fetch (undici in Node 22) beim zweiten Lauf mit einem internen
+     Fehler ab — ausserhalb jedes try, der ganze Lauf war rot. Abgefragt
+     wird nacheinander, der Testserver bearbeitet ohnehin eine Anfrage nach
+     der anderen. */
+  const http = await request.newContext({ extraHTTPHeaders: { 'Cache-Control': 'no-cache' } });
+  const holen = async (url) => {
+    const antwort = await http.get(url, { timeout: 30000 });
+    return { status: antwort.status(), html: await antwort.text() };
+  };
   for (const pfad of pfade.filter((p) => !p.startsWith('/admin'))) {
     let lokal;
     let live;
     try {
-      const [a, b] = await Promise.all([fetch(REPO_STAND + pfad), fetch(basis + pfad, { cache: 'no-store' })]);
+      const a = await holen(REPO_STAND + pfad);
+      const b = await holen(basis + pfad);
       if (a.status !== 200 || b.status !== 200) {
         console.log(`  ${pfad.padEnd(42)} nicht verglichen (Repository ${a.status}, live ${b.status})`);
         zeilen.push(`| \`${pfad}\` | – | nicht verglichen (Repository ${a.status}, live ${b.status}) |`);
         continue;
       }
-      [lokal, live] = [texte(await a.text()), texte(await b.text())];
+      [lokal, live] = [texte(a.html), texte(b.html)];
     } catch (fehler) {
-      console.log(`  ${pfad.padEnd(42)} nicht verglichen: ${fehler.message}`);
+      console.log(`  ${pfad.padEnd(42)} nicht verglichen: ${String(fehler.message).split('\n')[0]}`);
+      zeilen.push(`| \`${pfad}\` | – | nicht verglichen |`);
       continue;
     }
     const fehlt = [...lokal].filter((t) => !live.has(t));
@@ -277,6 +289,7 @@ async function inhaltAbgleichen(pfade) {
       + (fehlt.length ? `<br>fehlt live: ${beispiel(fehlt)}` : '')
       + (nurLive.length ? `<br>nur live: ${beispiel(nurLive)}` : '') + ' |');
   }
+  await http.dispose();
   return zeilen;
 }
 
