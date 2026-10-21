@@ -3,7 +3,7 @@
     "_unbestaetigt": "ACHTUNG: Die Fachaussagen zur Drucktechnik auf dieser Seite sind Entwuerfe des Design-Assistenten und von Daniel Reutter nicht bestaetigt. Der Versicherungsabschnitt ist geklaert und entschaerft, siehe versicherung._korrektur.",
     "seo": {
         "titel": "Dellen & Hagelschaden Korntal — ohne Lackieren | Smartrepair Reutter",
-        "beschreibung": "Dellen drücken statt spachteln: Der Originallack bleibt erhalten. Hagelschaden Panel für Panel, Aufstellung für die Versicherung. Korntal bei Stuttgart, auch mobil."
+        "beschreibung": "Dellen drücken statt spachteln: Der Originallack bleibt erhalten. Parkdelle bis Hagelschaden, Panel für Panel. Korntal bei Stuttgart, auch mobil."
     },
     "hero": {
         "kicker": "Leistung 03 · Karosserie",
@@ -51,7 +51,8 @@
     "panelkarte": {
         "kicker": "Hagelschaden, Panel für Panel",
         "titel": "So sieht unsere Aufstellung aus.",
-        "beschreibung": "Beispiel aus einem echten Auftrag. Jedes Bauteil wird gezählt, bewertet und einzeln kalkuliert — das ist auch die Grundlage für Ihre Versicherung.",
+        "beschreibung": "Ein Beispiel. Jedes Bauteil wird gezählt, bewertet und einzeln kalkuliert.",
+        "_korrektur": "Oktober 2026: Vorher 'Beispiel aus einem echten Auftrag … das ist auch die Grundlage fuer Ihre Versicherung'. Die Zahlen sind ausgedacht (Francesco: 'schreib Beispiel'), und die Versicherung soll laut Daniel (04.09.) nicht erwaehnt werden.",
         "bildunterschrift": "Fahrzeug, schematisch von oben",
         "hinweis": "Ein Bauteil anklicken. Die Zahl ist die Anzahl der Dellen, nicht der Stunden.",
         "_spalten_hinweis": "spalte und zeile bestimmen die Position im Schema und sind Design, nicht Inhalt — sie erscheinen deshalb nicht im CMS.",
