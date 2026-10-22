@@ -2166,7 +2166,10 @@ a.karten-quelle:hover{color:var(--black);text-decoration:underline}
 .leder-makro{
   position:relative;margin:0;overflow:hidden;border:1px solid rgba(10,11,13,.14);min-height:0;
 }
-.leder-makro img{width:100%;height:100%;object-fit:cover;display:block}
+/* Absolut gesetzt, damit die Nahaufnahmen keine eigene Hoehe mitbringen: Die
+   Spalte richtet sich nach dem Regler daneben, nicht umgekehrt. Sonst ragten
+   zwei 4:3-Bilder untereinander weit ueber den Regler hinaus. */
+.leder-makro img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .leder-makro figcaption{
   position:absolute;left:14px;bottom:12px;padding:6px 11px;background:rgba(10,11,13,.82);
   font:600 11px/1 var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:#fff;
@@ -2788,6 +2791,13 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 .beleg-hinweis span:not(.swash){max-width:900px;font:400 16.5px/1.65 var(--font-body);color:#41474F}
 
 /* --- Heller Vergleich (Lackierarbeiten) ---------------------------------- */
+/* Kleine Vorlagen (siehe partials/vergleich.php): schmaler Rahmen in 4:3,
+   damit nichts beschnitten und nichts unscharf aufgezogen wird. Steht nach
+   den festen Hoehen oben und gilt auf jeder Breite. */
+.leistung-vergleich .ba-frame.ist-klein,
+.leder-ba-grid .ba-frame.ist-klein{height:auto;aspect-ratio:4/3}
+.leistung-vergleich .ba-frame.ist-klein{max-width:760px;margin-inline:auto}
+
 .leistung-vergleich.ist-hell{background:var(--light-bg)}
 .leistung-vergleich.ist-hell h2{color:var(--black)}
 .leistung-vergleich.ist-hell .ba-desc{color:var(--gray-450)}

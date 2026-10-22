@@ -1,12 +1,10 @@
 {
     "_hinweis": "Inhalte der Seite /galerie/. Uebernommen aus export/project/Galerie.dc.html.",
     "_quelle": "Seit Oktober 2026 nur noch Daniels eigene Fotos. Die drei Faelle sind echte Paare vom selben Standort; Uhrzeiten, Monat und Abstand stammen aus den Aufnahmedaten der Kamera. Kennzeichen sind weichgezeichnet, sonst ist nichts bearbeitet.",
-
     "seo": {
         "titel": "Galerie — Arbeiten aus der Halle | Smartrepair Reutter",
         "beschreibung": "Vorher und Nachher aus eigenen Aufträgen: Dellen ohne Lackieren und Fahrzeuge aus der Halle. Smartrepair Reutter in Korntal-Münchingen bei Stuttgart."
     },
-
     "hero": {
         "kicker": "Galerie",
         "titel": "Arbeiten aus der Halle. Ohne Filter, ohne Rendering.",
@@ -15,7 +13,6 @@
         "cta_titel": "Ihr Fahrzeug soll hier stehen?",
         "cta": "Termin anfragen"
     },
-
     "faelle": {
         "kicker": "Drei Aufträge im Detail",
         "eintraege": [
@@ -32,9 +29,18 @@
                     "echtes_paar": true
                 },
                 "werte": [
-                    { "label": "Bauteil",     "wert": "Heckklappe" },
-                    { "label": "Aufnahmen",   "wert": "12:17 und 14:09 Uhr" },
-                    { "label": "Aufgenommen", "wert": "März 2021" }
+                    {
+                        "label": "Bauteil",
+                        "wert": "Heckklappe"
+                    },
+                    {
+                        "label": "Aufnahmen",
+                        "wert": "12:17 und 14:09 Uhr"
+                    },
+                    {
+                        "label": "Aufgenommen",
+                        "wert": "März 2021"
+                    }
                 ],
                 "slug": "dellen-hagelschaden"
             },
@@ -51,9 +57,18 @@
                     "echtes_paar": true
                 },
                 "werte": [
-                    { "label": "Bauteil",     "wert": "Kotflügel vorn" },
-                    { "label": "Aufnahmen",   "wert": "10 Minuten auseinander" },
-                    { "label": "Aufgenommen", "wert": "April 2017" }
+                    {
+                        "label": "Bauteil",
+                        "wert": "Kotflügel vorn"
+                    },
+                    {
+                        "label": "Aufnahmen",
+                        "wert": "10 Minuten auseinander"
+                    },
+                    {
+                        "label": "Aufgenommen",
+                        "wert": "April 2017"
+                    }
                 ],
                 "slug": "dellen-hagelschaden"
             },
@@ -70,62 +85,322 @@
                     "echtes_paar": true
                 },
                 "werte": [
-                    { "label": "Bauteil",     "wert": "ausgebaut" },
-                    { "label": "Aufnahmen",   "wert": "17:06 und 18:16 Uhr" },
-                    { "label": "Aufgenommen", "wert": "Dezember 2022" }
+                    {
+                        "label": "Bauteil",
+                        "wert": "ausgebaut"
+                    },
+                    {
+                        "label": "Aufnahmen",
+                        "wert": "17:06 und 18:16 Uhr"
+                    },
+                    {
+                        "label": "Aufgenommen",
+                        "wert": "Dezember 2022"
+                    }
                 ],
                 "slug": "dellen-hagelschaden"
             }
         ],
         "link_text": "Zur Leistung"
     },
-
     "raster": {
         "titel": "Alle Arbeiten",
         "beschreibung": "Nach Leistung filtern. Ein Klick auf ein Bild zeigt es groß.",
         "alle_label": "Alle",
-        "fussnote": "Aufnahmen aus den Jahren 2016 bis 2026. Kennzeichen sind unkenntlich gemacht.",
+        "fussnote": "Aufnahmen aus vielen Jahren Werkstattarbeit, die älteren von unserer früheren Website. Kennzeichen sind unkenntlich gemacht.",
         "_kategorien_hinweis": "'Dellen & Hagel' steht nur bei Fotos, auf denen die Arbeit selbst zu sehen ist (Pruefleuchte, Werkzeug, Delle). Bei allen anderen ist nicht bekannt, was am Fahrzeug gemacht wurde — deshalb neutral 'Fahrzeuge'. Daniel kann das im Panel genauer zuordnen.",
         "bilder": [
-            { "kategorie": "Fahrzeuge", "bild": "porsche-carrera-gt-d8514.webp", "alt": "Roter Porsche Carrera GT in der Halle" },
-            { "kategorie": "Dellen & Hagel", "bild": "blaues-blech-lichtlinien-78e87.webp", "alt": "Blaues Karosserieteil unter der Prüflampe, die gebogenen Lichtlinien zeigen die Delle" },
-            { "kategorie": "Fahrzeuge", "bild": "buick-super-front-2ccc5.webp", "alt": "Schwarzer Buick mit Weißwandreifen und Chromgrill in der Halle" },
-            { "kategorie": "Dellen & Hagel", "bild": "macan-vorher-a6d72.webp", "alt": "Vorher: Delle im hinteren Seitenteil eines grauen Porsche Macan, neben der Rückleuchte" },
-            { "kategorie": "Dellen & Hagel", "bild": "macan-vorher-nah-a9403.webp", "alt": "Vorher, aus der Nähe: dieselbe Delle mit Knick in der Mitte" },
-            { "kategorie": "Dellen & Hagel", "bild": "macan-nachher-01a0c.webp", "alt": "Nachher: dieselbe Stelle in der Werkstatt unter der Prüflampe, die Lichtlinien laufen glatt" },
-            { "kategorie": "Fahrzeuge", "bild": "mercedes-190-evo-front-8acb5.webp", "alt": "Mercedes 190 E Evolution II in der Werkstatt" },
-            { "kategorie": "Fahrzeuge", "bild": "mercedes-190-evo-heck-9ba8f.webp", "alt": "Mercedes 190 E Evolution II von hinten, mit Heckflügel" },
-            { "kategorie": "Dellen & Hagel", "bild": "radhaus-zugang-0d4ba.webp", "alt": "Offenes Radhaus von innen, daneben die Prüflampe: der Zugang zur Delle" },
-            { "kategorie": "Fahrzeuge", "bild": "porsche-993-gelb-d1fe9.webp", "alt": "Gelber Porsche 911 (993) mit Heckflügel in der Werkstatt" },
-            { "kategorie": "Fahrzeuge", "bild": "buick-super-heck-362a2.webp", "alt": "Buick Super von hinten, Heckflossen und Chromleisten, in der Werkstatt" },
-            { "kategorie": "Dellen & Hagel", "bild": "mercedes-tuer-offen-7dd3d.webp", "alt": "Mercedes-Tür unter der Prüflampe, die Zierleiste ist abgenommen" },
-            { "kategorie": "Fahrzeuge", "bild": "ford-mustang-fastback-c3b57.webp", "alt": "Blauer Ford Mustang Fastback in der Werkstatt" },
-            { "kategorie": "Fahrzeuge", "bild": "dodge-viper-halle-05789.webp", "alt": "Dunkelgraue Dodge Viper in der Halle, Seitenansicht" },
-            { "kategorie": "Dellen & Hagel", "bild": "g-klasse-rot-delle-1d7f6.webp", "alt": "Rote Mercedes G-Klasse: Delle unter der hinteren Dachkante, vor der Reparatur" },
-            { "kategorie": "Dellen & Hagel", "bild": "g-klasse-rot-zugwerkzeug-5d4f0.webp", "alt": "Dieselbe G-Klasse in der Werkstatt, Werkzeug an der Karosserie angesetzt" },
-            { "kategorie": "Fahrzeuge", "bild": "mercedes-g-klasse-grau-f4c1b.webp", "alt": "Mattgraue Mercedes G-Klasse in der Werkstatt" },
-            { "kategorie": "Fahrzeuge", "bild": "porsche-993-hellgelb-3e048.webp", "alt": "Hellgelber Porsche 911 (993) in der Werkstatt" },
-            { "kategorie": "Dellen & Hagel", "bild": "tuerkante-lichtlinien-b4a1b.webp", "alt": "Knick an der Türkante, sichtbar in den Lichtlinien der Prüflampe" },
-            { "kategorie": "Fahrzeuge", "bild": "porsche-964-carrera-ab831.webp", "alt": "Schwarzer Porsche 911 (964) mit gelbem Carrera-Schriftzug" },
-            { "kategorie": "Fahrzeuge", "bild": "audi-r8-f5995.webp", "alt": "Roter Audi R8 vor der Halle" },
-            { "kategorie": "Dellen & Hagel", "bild": "kofferraumdeckel-ausgebaut-9cae8.webp", "alt": "Ausgebauter schwarzer Kofferraumdeckel unter der Prüflampe" },
-            { "kategorie": "Fahrzeuge", "bild": "mazda-mx5-403d5.webp", "alt": "Roter Mazda MX-5 mit goldenen Felgen in der Halle" },
-            { "kategorie": "Fahrzeuge", "bild": "bmw-m2-seite-da099.webp", "alt": "Schwarzer BMW M2 in der Werkstatt" },
-            { "kategorie": "Dellen & Hagel", "bild": "mini-kotfluegel-b333b.webp", "alt": "Vorderer Kotflügel eines Mini unter der Prüflampe, die Motorhaube ist offen" },
-            { "kategorie": "Fahrzeuge", "bild": "bmw-m2-front-d4a25.webp", "alt": "Schwarzer BMW M2, Frontansicht" },
-            { "kategorie": "Fahrzeuge", "bild": "cayman-gt4-defender-a2a44.webp", "alt": "Blauer Porsche Cayman GT4 und Land Rover Defender in einer hellen Halle" },
-            { "kategorie": "Dellen & Hagel", "bild": "transporter-seitenwand-f4cee.webp", "alt": "Silberne Seitenwand eines Transporters unter der Prüflampe" },
-            { "kategorie": "Fahrzeuge", "bild": "bmw-m3-e46-eae17.webp", "alt": "Silberner BMW M3 (E46) in der Werkstatt, Seitenansicht" },
-            { "kategorie": "Fahrzeuge", "bild": "aston-martin-18102.webp", "alt": "Silberner Aston Martin in der Werkstatt" },
-            { "kategorie": "Fahrzeuge", "bild": "mercedes-s-klasse-w126-e08d2.webp", "alt": "Mercedes S-Klasse (W126) im Lager" },
-            { "kategorie": "Fahrzeuge", "bild": "mercedes-cabriolet-heck-5ad32.webp", "alt": "Schwarzes Mercedes-Cabriolet der 1950er-Jahre von hinten, in der Werkstatt" },
-            { "kategorie": "Fahrzeuge", "bild": "porsche-911-cabriolet-a1d02.webp", "alt": "Schwarzer Porsche 911 Cabriolet in der Werkstatt" },
-            { "kategorie": "Fahrzeuge", "bild": "mercedes-coupe-gruen-58ee7.webp", "alt": "Grünes Mercedes-Coupé der 1960er-Jahre im Hof" },
-            { "kategorie": "Fahrzeuge", "bild": "dodge-challenger-srt-eb025.webp", "alt": "Schwarzer Dodge Challenger SRT im Hof" },
-            { "kategorie": "Fahrzeuge", "bild": "land-rover-defender-43e67.webp", "alt": "Grüner Land Rover Defender im Hof" },
-            { "kategorie": "Fahrzeuge", "bild": "dodge-viper-hof-ce7ca.webp", "alt": "Dodge Viper im Hof" }
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "porsche-carrera-gt-d8514.webp",
+                "alt": "Roter Porsche Carrera GT in der Halle"
+            },
+            {
+                "kategorie": "Dellen & Hagel",
+                "bild": "blaues-blech-lichtlinien-78e87.webp",
+                "alt": "Blaues Karosserieteil unter der Prüflampe, die gebogenen Lichtlinien zeigen die Delle"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "buick-super-front-2ccc5.webp",
+                "alt": "Schwarzer Buick mit Weißwandreifen und Chromgrill in der Halle"
+            },
+            {
+                "kategorie": "Dellen & Hagel",
+                "bild": "macan-vorher-a6d72.webp",
+                "alt": "Vorher: Delle im hinteren Seitenteil eines grauen Porsche Macan, neben der Rückleuchte"
+            },
+            {
+                "kategorie": "Dellen & Hagel",
+                "bild": "macan-vorher-nah-a9403.webp",
+                "alt": "Vorher, aus der Nähe: dieselbe Delle mit Knick in der Mitte"
+            },
+            {
+                "kategorie": "Dellen & Hagel",
+                "bild": "macan-nachher-01a0c.webp",
+                "alt": "Nachher: dieselbe Stelle in der Werkstatt unter der Prüflampe, die Lichtlinien laufen glatt"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "mercedes-190-evo-front-8acb5.webp",
+                "alt": "Mercedes 190 E Evolution II in der Werkstatt"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "mercedes-190-evo-heck-9ba8f.webp",
+                "alt": "Mercedes 190 E Evolution II von hinten, mit Heckflügel"
+            },
+            {
+                "kategorie": "Dellen & Hagel",
+                "bild": "radhaus-zugang-0d4ba.webp",
+                "alt": "Offenes Radhaus von innen, daneben die Prüflampe: der Zugang zur Delle"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "porsche-993-gelb-d1fe9.webp",
+                "alt": "Gelber Porsche 911 (993) mit Heckflügel in der Werkstatt"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "buick-super-heck-362a2.webp",
+                "alt": "Buick Super von hinten, Heckflossen und Chromleisten, in der Werkstatt"
+            },
+            {
+                "kategorie": "Dellen & Hagel",
+                "bild": "mercedes-tuer-offen-7dd3d.webp",
+                "alt": "Mercedes-Tür unter der Prüflampe, die Zierleiste ist abgenommen"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "ford-mustang-fastback-c3b57.webp",
+                "alt": "Blauer Ford Mustang Fastback in der Werkstatt"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "dodge-viper-halle-05789.webp",
+                "alt": "Dunkelgraue Dodge Viper in der Halle, Seitenansicht"
+            },
+            {
+                "kategorie": "Dellen & Hagel",
+                "bild": "g-klasse-rot-delle-1d7f6.webp",
+                "alt": "Rote Mercedes G-Klasse: Delle unter der hinteren Dachkante, vor der Reparatur"
+            },
+            {
+                "kategorie": "Dellen & Hagel",
+                "bild": "g-klasse-rot-zugwerkzeug-5d4f0.webp",
+                "alt": "Dieselbe G-Klasse in der Werkstatt, Werkzeug an der Karosserie angesetzt"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "mercedes-g-klasse-grau-f4c1b.webp",
+                "alt": "Mattgraue Mercedes G-Klasse in der Werkstatt"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "porsche-993-hellgelb-3e048.webp",
+                "alt": "Hellgelber Porsche 911 (993) in der Werkstatt"
+            },
+            {
+                "kategorie": "Dellen & Hagel",
+                "bild": "tuerkante-lichtlinien-b4a1b.webp",
+                "alt": "Knick an der Türkante, sichtbar in den Lichtlinien der Prüflampe"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "porsche-964-carrera-ab831.webp",
+                "alt": "Schwarzer Porsche 911 (964) mit gelbem Carrera-Schriftzug"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "audi-r8-f5995.webp",
+                "alt": "Roter Audi R8 vor der Halle"
+            },
+            {
+                "kategorie": "Dellen & Hagel",
+                "bild": "kofferraumdeckel-ausgebaut-9cae8.webp",
+                "alt": "Ausgebauter schwarzer Kofferraumdeckel unter der Prüflampe"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "mazda-mx5-403d5.webp",
+                "alt": "Roter Mazda MX-5 mit goldenen Felgen in der Halle"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "bmw-m2-seite-da099.webp",
+                "alt": "Schwarzer BMW M2 in der Werkstatt"
+            },
+            {
+                "kategorie": "Dellen & Hagel",
+                "bild": "mini-kotfluegel-b333b.webp",
+                "alt": "Vorderer Kotflügel eines Mini unter der Prüflampe, die Motorhaube ist offen"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "bmw-m2-front-d4a25.webp",
+                "alt": "Schwarzer BMW M2, Frontansicht"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "cayman-gt4-defender-a2a44.webp",
+                "alt": "Blauer Porsche Cayman GT4 und Land Rover Defender in einer hellen Halle"
+            },
+            {
+                "kategorie": "Dellen & Hagel",
+                "bild": "transporter-seitenwand-f4cee.webp",
+                "alt": "Silberne Seitenwand eines Transporters unter der Prüflampe"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "bmw-m3-e46-eae17.webp",
+                "alt": "Silberner BMW M3 (E46) in der Werkstatt, Seitenansicht"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "aston-martin-18102.webp",
+                "alt": "Silberner Aston Martin in der Werkstatt"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "mercedes-s-klasse-w126-e08d2.webp",
+                "alt": "Mercedes S-Klasse (W126) im Lager"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "mercedes-cabriolet-heck-5ad32.webp",
+                "alt": "Schwarzes Mercedes-Cabriolet der 1950er-Jahre von hinten, in der Werkstatt"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "porsche-911-cabriolet-a1d02.webp",
+                "alt": "Schwarzer Porsche 911 Cabriolet in der Werkstatt"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "mercedes-coupe-gruen-58ee7.webp",
+                "alt": "Grünes Mercedes-Coupé der 1960er-Jahre im Hof"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "dodge-challenger-srt-eb025.webp",
+                "alt": "Schwarzer Dodge Challenger SRT im Hof"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "land-rover-defender-43e67.webp",
+                "alt": "Grüner Land Rover Defender im Hof"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "dodge-viper-hof-ce7ca.webp",
+                "alt": "Dodge Viper im Hof"
+            },
+            {
+                "kategorie": "Dellen & Hagel",
+                "bild": "delle-tuer-linienlampe-13ea6.webp",
+                "alt": "Delle in einer Tür unter der Linienlampe, die gelbe Lichtlinie knickt an der Schadstelle ein"
+            },
+            {
+                "kategorie": "Dellen & Hagel",
+                "bild": "delle-silberne-tuer-lampe-cb2c5.webp",
+                "alt": "Silberne Tür unter der Prüflampe, die Lichtlinien zeigen die Delle"
+            },
+            {
+                "kategorie": "Dellen & Hagel",
+                "bild": "delle-motorhaube-stern-79863.webp",
+                "alt": "Delle in einer weißen Motorhaube neben dem Mercedes-Stern"
+            },
+            {
+                "kategorie": "Dellen & Hagel",
+                "bild": "delle-dunkle-tuer-lampe-dedea.webp",
+                "alt": "Dunkle Tür unter der Linienlampe während des Ausbeulens"
+            },
+            {
+                "kategorie": "Exterieur",
+                "bild": "politur-halb-halb-spiegelung-44e7b.webp",
+                "alt": "Dunkelblauer Kofferraumdeckel, links vor der Politur stumpf und verkratzt, rechts poliert mit klarer Spiegelung",
+                "caption": "Halb poliert"
+            },
+            {
+                "kategorie": "Exterieur",
+                "bild": "politur-halb-halb-heckdeckel-e6335.webp",
+                "alt": "Kofferraumdeckel eines Mercedes, links matt und fleckig, rechts nach der Politur tiefschwarz",
+                "caption": "Halb poliert"
+            },
+            {
+                "kategorie": "Exterieur",
+                "bild": "vw-bus-haube-poliert-55942.webp",
+                "alt": "Rote Motorhaube eines VW-Busses nach der Politur"
+            },
+            {
+                "kategorie": "Interieur",
+                "bild": "polster-spruehextraktion-5fb0f.webp",
+                "alt": "Stoffsitz wird mit der Sprühextraktion gereinigt"
+            },
+            {
+                "kategorie": "Interieur",
+                "bild": "fond-leder-cognac-5bbc5.webp",
+                "alt": "Fond einer Limousine mit cognacfarbenem Leder nach der Innenreinigung"
+            },
+            {
+                "kategorie": "Lack",
+                "bild": "nissan-350z-folierung-53636.webp",
+                "alt": "Nissan 350Z, mattschwarz foliert mit orangefarbenen Streifen",
+                "caption": "Folierung"
+            },
+            {
+                "kategorie": "Lack",
+                "bild": "smart-beschriftung-d34b6.webp",
+                "alt": "Smart mit Firmenbeschriftung als Folie",
+                "caption": "Beschriftung"
+            },
+            {
+                "kategorie": "Transport",
+                "bild": "anhaenger-mercedes-gl-ebd11.webp",
+                "alt": "Silberner Mercedes GL auf dem eigenen Autoanhänger"
+            },
+            {
+                "kategorie": "Transport",
+                "bild": "anhaenger-vor-der-halle-02206.webp",
+                "alt": "Autoanhänger mit aufgeladenem BMW vor der Halle"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "bmw-30-cs-blau-ec0d0.webp",
+                "alt": "Blaues BMW 3.0 CS Coupé vor der Halle",
+                "caption": "BMW 3.0 CS"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "porsche-928-silber-f74f8.webp",
+                "alt": "Silberner Porsche 928 vor der Halle",
+                "caption": "Porsche 928"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "ferrari-612-scaglietti-498c0.webp",
+                "alt": "Grauer Ferrari 612 Scaglietti vor der Halle",
+                "caption": "Ferrari 612 Scaglietti"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "opel-oldtimer-rot-ea2bf.webp",
+                "alt": "Roter Opel-Oldtimer mit weißem Dach vor der Halle"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "bmw-6er-e24-silber-7072b.webp",
+                "alt": "Silbernes BMW 6er Coupé (E24) in der Halle",
+                "caption": "BMW 6er (E24)"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "porsche-993-rot-044af.webp",
+                "alt": "Roter Porsche 911 (993) in der Waschhalle",
+                "caption": "Porsche 911 (993)"
+            }
         ]
     },
-
-    "cta_ueberschrift": "Ihr Fahrzeug als nächstes?"
+    "cta_ueberschrift": "Ihr Fahrzeug als nächstes?",
+    "_quelle_altseite": "Die letzten 19 Bilder im Raster (ab delle-tuer-linienlampe) stammen von Daniels alter Seite clean-box.eu, Oktober 2026 uebernommen, je 600 x 450 Pixel. Kennzeichen waren dort schon unkenntlich gemacht; Messefotos und Bilder mit Personen sind bewusst nicht dabei. Die Originale liegen unter bildpool/altseite/."
 }

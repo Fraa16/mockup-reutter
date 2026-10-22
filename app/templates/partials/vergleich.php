@@ -9,10 +9,20 @@
  * Wer ihn einbindet, fragt vorher vergleich_echt(): Ohne zwei verschiedene
  * Fotos entfaellt der ganze Abschnitt, nicht nur der Regler.
  *
+ * Kleine Vorlagen — etwa die 600 × 450 Pixel grossen Fotos von Daniels alter
+ * Seite — bekommen einen schmaleren Rahmen im Seitenverhaeltnis 4:3. Ueber die
+ * volle Breite gezogen waeren sie mehr als doppelt vergroessert und unscharf,
+ * und der flache Rahmen schnitte oben und unten fast die Haelfte weg.
+ *
  * @var array<string,mixed> $v  Abschnitt 'vergleich' der Seiteninhalte
  */
+$breiten = array_filter([
+    bild_quellen(ltrim((string) $v['vorher'], '/'))['breite'],
+    bild_quellen(ltrim((string) $v['nachher'], '/'))['breite'],
+]);
+$klein = $breiten !== [] && min($breiten) < 1200;
 ?>
-<div class="ba-frame" data-start="<?= attr((string) ($v['start_position'] ?? 50)) ?>">
+<div class="ba-frame<?= $klein ? ' ist-klein' : '' ?>" data-start="<?= attr((string) ($v['start_position'] ?? 50)) ?>">
   <div class="layer layer-before">
     <?= bild($v['vorher'], $v['vorher_alt'], [
         'class' => 'slot-img',

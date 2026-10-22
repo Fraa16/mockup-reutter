@@ -1,12 +1,10 @@
 {
     "_hinweis": "Inhalte der Seite /leistungen/lederreparatur/. Uebernommen aus export/project/Leistung Leder.dc.html.",
     "_unbestaetigt": "Fachaussagen sind Entwuerfe des Design-Assistenten, von Daniel Reutter nicht bestaetigt. Zu pruefen: die Materialaussagen zu Kunstleder und Alcantara, die vier Schadensgrade mit Aufwand, Dauer und 'mobil moeglich', die Aussage 'Narbung vom Originalleder abnehmen und praegen' (setzt Praegepapiere oder Silikonabdruecke voraus), die 24-Stunden-Angabe und die Pflegehinweise.",
-
     "seo": {
         "titel": "Lederreparatur Korntal — Sitze, Lenkrad | Smartrepair Reutter",
         "beschreibung": "Farbabrieb, durchgescheuerte Sitzwange, Risse und Brandlöcher. Lederreparatur mit geprägter Narbung statt glatter Stelle — in Korntal-Münchingen bei Stuttgart."
     },
-
     "hero": {
         "kicker": "Leistung 05 · Interieur",
         "titel": "Auffällig ist nicht die Farbe. Auffällig ist die fehlende Narbung.",
@@ -16,7 +14,6 @@
         "bild_alt": "Silberner Aston Martin in der Werkstatt",
         "_bild_soll": "Besser waere spaeter eine Nahaufnahme: Lederstruktur an der Sitzwange."
     },
-
     "material": {
         "kicker": "Zuerst: welches Material",
         "karten": [
@@ -40,7 +37,6 @@
             }
         ]
     },
-
     "grade_sektion": {
         "kicker": "Vier Schadensgrade",
         "titel": "Wie weit ist es bei Ihnen?",
@@ -48,7 +44,6 @@
         "schritte_titel": "Was wir dafür tun",
         "erwartung_titel": "Ehrliche Erwartung"
     },
-
     "_grade_hinweis": "punkt_farbe ist Design (Ampelwirkung von hell nach rot) und bleibt im Inhalt, weil sie zur Reihenfolge gehoert.",
     "grade": [
         {
@@ -58,10 +53,22 @@
             "ueberschrift": "Die Farbe ist weg, das Leder ist ganz",
             "text": "Typisch an Sitzwange, Lenkradkranz und Türgriff. Die Oberfläche ist noch geschlossen, nur das Pigment ist abgerieben. Der günstigste Zeitpunkt für eine Reparatur — hier muss nichts aufgebaut werden.",
             "schritte": [
-                { "n": "01", "t": "Reinigen und entfetten, bis nichts mehr abfärbt" },
-                { "n": "02", "t": "Farbton auf das gealterte Leder mischen" },
-                { "n": "03", "t": "Bis zur nächsten Naht nachfärben" },
-                { "n": "04", "t": "Matt versiegeln" }
+                {
+                    "n": "01",
+                    "t": "Reinigen und entfetten, bis nichts mehr abfärbt"
+                },
+                {
+                    "n": "02",
+                    "t": "Farbton auf das gealterte Leder mischen"
+                },
+                {
+                    "n": "03",
+                    "t": "Bis zur nächsten Naht nachfärben"
+                },
+                {
+                    "n": "04",
+                    "t": "Matt versiegeln"
+                }
             ],
             "aufwand": "gering",
             "dauer": "ein halber Tag",
@@ -75,10 +82,22 @@
             "ueberschrift": "Die Oberfläche ist durchgescheuert",
             "text": "Man sieht die helle Faser, die Stelle fühlt sich rau an. Ab hier muss Material aufgebaut werden — in dünnen Schichten, jede getrocknet. Zu dick aufgetragen reißt es beim ersten Einsteigen wieder.",
             "schritte": [
-                { "n": "01", "t": "Reinigen und entfetten" },
-                { "n": "02", "t": "In dünnen Schichten füllen und zwischentrocknen" },
-                { "n": "03", "t": "Narbung vom Originalleder abnehmen und prägen" },
-                { "n": "04", "t": "Nachfärben und versiegeln" }
+                {
+                    "n": "01",
+                    "t": "Reinigen und entfetten"
+                },
+                {
+                    "n": "02",
+                    "t": "In dünnen Schichten füllen und zwischentrocknen"
+                },
+                {
+                    "n": "03",
+                    "t": "Narbung vom Originalleder abnehmen und prägen"
+                },
+                {
+                    "n": "04",
+                    "t": "Nachfärben und versiegeln"
+                }
             ],
             "aufwand": "mittel",
             "dauer": "ein Tag",
@@ -92,10 +111,22 @@
             "ueberschrift": "Das Leder ist eingerissen",
             "text": "Meist entlang der Naht oder an einer Knickkante. Der Riss wird von unten stabilisiert, bevor er gefüllt wird — sonst arbeitet er sich unter der neuen Schicht weiter.",
             "schritte": [
-                { "n": "01", "t": "Kanten säubern und von unten stabilisieren" },
-                { "n": "02", "t": "Schichtweise füllen, jede Lage trocknen" },
-                { "n": "03", "t": "Struktur prägen und angleichen" },
-                { "n": "04", "t": "Flächig nachfärben und versiegeln" }
+                {
+                    "n": "01",
+                    "t": "Kanten säubern und von unten stabilisieren"
+                },
+                {
+                    "n": "02",
+                    "t": "Schichtweise füllen, jede Lage trocknen"
+                },
+                {
+                    "n": "03",
+                    "t": "Struktur prägen und angleichen"
+                },
+                {
+                    "n": "04",
+                    "t": "Flächig nachfärben und versiegeln"
+                }
             ],
             "aufwand": "erhöht",
             "dauer": "ein bis zwei Tage",
@@ -109,10 +140,22 @@
             "ueberschrift": "Es fehlt Material",
             "text": "Bei kleinen Löchern setzen wir ein Stück Leder ein und arbeiten es ein. Ist die Fläche größer oder liegt sie mitten auf dem Sitzkissen, ist Beziehen die ehrlichere Empfehlung.",
             "schritte": [
-                { "n": "01", "t": "Loch ausschneiden, Unterlage einsetzen" },
-                { "n": "02", "t": "Passstück einlegen und einarbeiten" },
-                { "n": "03", "t": "Struktur prägen, Übergang angleichen" },
-                { "n": "04", "t": "Flächig nachfärben und versiegeln" }
+                {
+                    "n": "01",
+                    "t": "Loch ausschneiden, Unterlage einsetzen"
+                },
+                {
+                    "n": "02",
+                    "t": "Passstück einlegen und einarbeiten"
+                },
+                {
+                    "n": "03",
+                    "t": "Struktur prägen, Übergang angleichen"
+                },
+                {
+                    "n": "04",
+                    "t": "Flächig nachfärben und versiegeln"
+                }
             ],
             "aufwand": "hoch",
             "dauer": "zwei Tage",
@@ -120,33 +163,29 @@
             "erwartung": "Von oben gut, im Streiflicht findbar. Bei Löchern in der Sitzmitte sagen wir Ihnen, wenn Beziehen sinnvoller ist."
         }
     ],
-
     "vergleich": {
         "kicker": "Vorher / Nachher",
-        "titel": "Fahrersitz, Wange aufgebaut und nachgefärbt.",
+        "titel": "Fahrersitz, aufgearbeitet und nachgefärbt.",
         "beschreibung": "Bei Leder entscheidet die Makroaufnahme. Aus zwei Metern sieht fast jede Reparatur gut aus.",
         "start_position": 50,
-        "_vergleich_hinweis": "Kein Vorher/Nachher-Paar fuer diese Leistung in Daniels Fotos. Der Abschnitt erscheint erst, wenn im Panel zwei verschiedene Fotos eingetragen sind.",
-        "vorher": "",
-        "vorher_alt": "Sitzwange vor der Reparatur, Leder durchgescheuert",
-        "nachher": "",
-        "nachher_alt": "Sitzwange nach der Reparatur, Struktur und Farbe zurück",
+        "_vergleich_hinweis": "Oktober 2026 von Daniels alter Seite clean-box.eu uebernommen (gallerie_lederreparatur, 7.jpg und 10.jpg, Nahaufnahmen 6.jpg und 9.jpg), Original 600 x 450 Pixel. Deshalb zeigt der Regler das Paar im schmaleren 4:3-Rahmen, siehe partials/vergleich.php. Bessere Fotos lassen sich jederzeit im Panel eintragen.",
+        "vorher": "ledersitz-fahrer-vorher-96a55.webp",
+        "vorher_alt": "Fahrersitz aus schwarzem Leder vor der Aufbereitung: Farbe abgerieben, Oberfläche rissig",
+        "nachher": "ledersitz-fahrer-nachher-ea422.webp",
+        "nachher_alt": "Derselbe Fahrersitz nach der Aufbereitung und Nachfärbung",
         "makros": [
             {
-                "bild": "",
-                "alt": "Makroaufnahme der geprägten Narbung nach der Reparatur",
-                "label": "Narbung",
-                "_bild_soll": "Makro: geprägte Narbung nach der Reparatur"
+                "bild": "lederlehne-nah-vorher-4b307.webp",
+                "alt": "Nahaufnahme einer Sitzlehne vor der Reparatur: Farbabrieb und feine Risse",
+                "label": "Lehne vorher"
             },
             {
-                "bild": "",
-                "alt": "Makroaufnahme eines nachgefärbten Lenkradkranzes",
-                "label": "Lenkrad",
-                "_bild_soll": "Makro: Lenkradkranz nachgefärbt"
+                "bild": "lederlehne-nah-nachher-a44a6.webp",
+                "alt": "Dieselbe Sitzlehne nach der Reparatur",
+                "label": "Lehne nachher"
             }
         ]
     },
-
     "preis": {
         "kicker": "Preis",
         "titel": "Festpreis nach zwei scharfen Fotos.",
@@ -160,7 +199,6 @@
             "Bei hellem Leder Jeansfärbung früh entfernen, nicht einwirken lassen"
         ]
     },
-
     "faq": {
         "_hinweis": "Diese Seite zeigt die Antworten offen in zwei Spalten statt als Aufklapper — so im Entwurf. Der Text steht damit ohne Interaktion im Quelltext, was fuer Antwortboxen in der Suche der bessere Fall ist.",
         "titel": "Sechs Fragen, die uns jede Woche gestellt werden",
@@ -192,15 +230,25 @@
             }
         ]
     },
-
     "verwandt": {
         "titel": "Passt oft dazu",
         "karten": [
-            { "slug": "fahrzeugpflege-interieur", "kicker": "02 · Interieur", "text": "Leder wird nach der Reparatur gereinigt und rückgefettet — meist im selben Termin." },
-            { "slug": "ozonbehandlung",           "kicker": "06 · Interieur", "text": "Bei Rauchgeruch im Leder hilft Reinigung allein oft nicht." },
-            { "slug": "fahrzeugpflege-exterieur", "kicker": "01 · Exterieur", "text": "Innen fertig, außen stumpf — das fällt beim Verkauf sofort auf." }
+            {
+                "slug": "fahrzeugpflege-interieur",
+                "kicker": "02 · Interieur",
+                "text": "Leder wird nach der Reparatur gereinigt und rückgefettet — meist im selben Termin."
+            },
+            {
+                "slug": "ozonbehandlung",
+                "kicker": "06 · Interieur",
+                "text": "Bei Rauchgeruch im Leder hilft Reinigung allein oft nicht."
+            },
+            {
+                "slug": "fahrzeugpflege-exterieur",
+                "kicker": "01 · Exterieur",
+                "text": "Innen fertig, außen stumpf — das fällt beim Verkauf sofort auf."
+            }
         ]
     },
-
     "cta_ueberschrift": "Leder reparieren lassen?"
 }
