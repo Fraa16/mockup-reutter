@@ -285,8 +285,11 @@ partial('kopf', [
             <h3><?= h($sch['titel']) ?></h3>
             <p><?= h($sch['text']) ?></p>
           </div>
-          <?php /* Zeilenumbruch ist Teil des Layouts, deshalb bewusst als Markup. */ ?>
-          <div class="duration"><?= strip_tags($sch['dauer'], '<br>') ?></div>
+          <?php /* Zeilenumbruch ist Teil des Layouts, deshalb bewusst als Markup.
+                  Das Leerzeichen davor traegt die Zeile, wenn das Stylesheet
+                  den Umbruch unter 1200 px ausblendet — dort steht die Dauer
+                  unter dem Text und hat Platz fuer eine Zeile. */ ?>
+          <div class="duration"><?= preg_replace('~\s*<br\s*/?>\s*~i', ' <br>', strip_tags($sch['dauer'], '<br>')) ?></div>
         </div>
         <?php endforeach; ?>
       </div>
