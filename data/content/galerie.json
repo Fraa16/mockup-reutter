@@ -365,6 +365,31 @@
                 "alt": "Autoanhänger mit aufgeladenem BMW vor der Halle"
             },
             {
+                "kategorie": "Transport",
+                "bild": "transporter-dtm-mercedes-anhaenger-88fd7.webp",
+                "alt": "Schwarzer Reutter-Transporter mit Anhänger, darauf ein DTM-Rennwagen von Mercedes-AMG"
+            },
+            {
+                "kategorie": "Transport",
+                "bild": "porsche-auf-anhaenger-unterwegs-6e914.webp",
+                "alt": "Grauer Porsche 911 auf dem Autoanhänger, unterwegs hinter dem Reutter-Transporter"
+            },
+            {
+                "kategorie": "Transport",
+                "bild": "transporter-anhaenger-porsche-halle-a2d38.webp",
+                "alt": "Schwarzer Reutter-Transporter mit Autoanhänger und Porsche vor der Halle"
+            },
+            {
+                "kategorie": "Transport",
+                "bild": "servicewagen-sprinter-4x4-d27bf.webp",
+                "alt": "Silberner Reutter-Servicewagen mit Allrad und Rundumleuchten im Abendlicht"
+            },
+            {
+                "kategorie": "Fahrzeuge",
+                "bild": "porsche-964-rot-halle-5b789.webp",
+                "alt": "Roter Porsche 911 (964) in der Halle"
+            },
+            {
                 "kategorie": "Fahrzeuge",
                 "bild": "bmw-30-cs-blau-ec0d0.webp",
                 "alt": "Blaues BMW 3.0 CS Coupé vor der Halle",
@@ -402,5 +427,6 @@
         ]
     },
     "cta_ueberschrift": "Ihr Fahrzeug als nächstes?",
-    "_quelle_altseite": "Die letzten 19 Bilder im Raster (ab delle-tuer-linienlampe) stammen von Daniels alter Seite clean-box.eu, Oktober 2026 uebernommen, je 600 x 450 Pixel. Kennzeichen waren dort schon unkenntlich gemacht; Messefotos und Bilder mit Personen sind bewusst nicht dabei. Die Originale liegen unter bildpool/altseite/."
+    "_quelle_altseite": "Die letzten 19 Bilder im Raster (ab delle-tuer-linienlampe) stammen von Daniels alter Seite clean-box.eu, Oktober 2026 uebernommen, je 600 x 450 Pixel. Kennzeichen waren dort schon unkenntlich gemacht; Messefotos und Bilder mit Personen sind bewusst nicht dabei. Die Originale liegen unter bildpool/altseite/.",
+    "_instagram_november_2026": "Fuenf Fotos aus Daniels Instagram (daniel_reutter_stuttgart), von Francesco ausgesucht am 24.11.2026. Aus Bildschirmfotos ausgeschnitten, daher nur 820–920 px breit; Kennzeichen unkenntlich gemacht. Nicht genommen: Nahaufnahme des DTM-Wagens (Person im Hintergrund, Instagram-Knoepfe im Bild) und das Heck des silbernen Sprinters (Aufkleber)."
 }
