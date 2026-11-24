@@ -57,7 +57,11 @@ partial('kopf', [
   <div class="wrap">
     <div class="hero-copy">
       <div class="kicker"><?= swash() ?><span class="label"><?= h(get($seite, 'hero.kicker')) ?></span></div>
-      <h1><?= h(get($seite, 'hero.titel')) ?><br><span class="muted"><?= h(get($seite, 'hero.titel_zusatz')) ?></span></h1>
+      <?php /* Die graue zweite Zeile ist frei: „Alles aus einer Hand." ist im
+              November 2026 entfallen. Bleibt das Feld leer, steht nur die
+              erste Zeile da — ohne leeren Umbruch darunter. */ ?>
+      <?php $zusatz = (string) get($seite, 'hero.titel_zusatz', ''); ?>
+      <h1><?= h(get($seite, 'hero.titel')) ?><?php if ($zusatz !== ''): ?><br><span class="muted"><?= h($zusatz) ?></span><?php endif; ?></h1>
       <p class="lead"><?= h(get($seite, 'hero.lead')) ?></p>
       <div class="cta-row">
         <?php partial('anruf-knoepfe'); ?>
@@ -65,13 +69,12 @@ partial('kopf', [
       <p class="fineprint"><?= h(get($seite, 'hero.fineprint')) ?></p>
     </div>
     <div class="hero-stats">
+      <?php /* Das Siegel klebt schraeg an der Ecke des Kastens — es ersetzt
+              die fruehere Zeile „5,0 ★★★★★ Google-Bewertungen". */ ?>
+      <?php partial('bewertungs-siegel', ['klasse' => 'ist-hero']); ?>
       <div class="stat">
         <div class="value"><?= h($jahre()) ?></div>
         <div class="label">Jahre im Handwerk</div>
-      </div>
-      <div class="stat">
-        <div class="value"><span><?= h($kennzahl('google_bewertung')) ?></span><span class="stars" aria-hidden="true">★★★★★</span></div>
-        <div class="label">Google-Bewertungen</div>
       </div>
       <div class="stat">
         <div class="value"><?= h(get($seite, 'hero.kachel_3.wert')) ?></div>
@@ -159,7 +162,7 @@ partial('kopf', [
             <?php endforeach; ?>
           </ul>
           <div class="cta">
-            <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'leistung' => $l['titel']]); ?>
+            <?php partial('anruf-knoepfe', ['groesse' => 'kompakt']); ?>
             <?php if ($l['eigene_seite']): ?>
             <a class="hint-link" href="/leistungen/<?= attr($l['slug']) ?>/">Mehr zu <?= h($l['titel']) ?> →</a>
             <?php endif; ?>
@@ -273,7 +276,7 @@ partial('kopf', [
         <h2><?= h(get($seite, 'ablauf.titel')) ?></h2>
         <p><?= h(get($seite, 'ablauf.lead')) ?></p>
         <div class="cta-row">
-          <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'anruf_klasse' => 'btn-dark', 'wa_klasse' => 'btn-linie']); ?>
+          <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'anruf_klasse' => 'btn-dark', 'zweit_klasse' => 'btn-linie']); ?>
         </div>
       </div>
       <div class="step-list">
@@ -375,8 +378,8 @@ partial('kopf', [
 
 <!-- Kontakt -->
 <?php /* Bis Oktober 2026 stand hier das dreistufige Anfrageformular. Der
-        Inhaber will angerufen werden, hoechstens noch WhatsApp — deshalb jetzt
-        die zwei Kacheln und daneben, wo die Werkstatt liegt. Das Formular gibt
+        Inhaber will angerufen werden — deshalb jetzt die zwei Kacheln (Mobil
+        und Werkstatt) und daneben, wo die Werkstatt liegt. Das Formular gibt
         es nur noch ganz unten auf der Kontaktseite. Die Sprungmarke #anfrage
         bleibt, damit alte Verweise ankommen. */ ?>
 <section id="anfrage" class="section anfrage-section">
@@ -426,5 +429,5 @@ partial('kopf', [
 </section>
 
 <?php /* Beide Bloecke aus: Bewertungen stehen oben im Abschnitt "Betrieb", und
-        Anruf und WhatsApp stehen direkt darueber im Kontaktabschnitt. */ ?>
+        beide Nummern stehen direkt darueber im Kontaktabschnitt. */ ?>
 <?php partial('fuss', ['zeigeBewertungen' => false, 'zeigeFormular' => false]); ?>

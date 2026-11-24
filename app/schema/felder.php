@@ -131,7 +131,7 @@ function leistungs_schema(string $titel, string $beschreibung, array $eigene, ar
         [
             'titel'  => 'Ganz unten',
             'felder' => [
-                ['pfad' => 'cta_ueberschrift', 'typ' => 'text', 'label' => 'Überschrift über Anruf und WhatsApp'],
+                ['pfad' => 'cta_ueberschrift', 'typ' => 'text', 'label' => 'Überschrift über den beiden Nummern'],
             ],
         ],
     ];
@@ -218,7 +218,7 @@ return [
                 'titel'  => 'Erreichbarkeit',
                 'felder' => [
                     ['pfad' => 'kontakt.mobil',        'typ' => 'text', 'label' => 'Mobil — die Nummer für alle Anrufknöpfe',
-                     'hilfe' => 'So wie es auf der Seite stehen soll, z. B. 0172 / 6 28 97 25. Jeder Anrufknopf der Seite wählt diese Nummer, und WhatsApp läuft ebenfalls darüber.'],
+                     'hilfe' => 'So wie es auf der Seite stehen soll, z. B. 0172 / 6 28 97 25. Der rote Anrufknopf jeder Seite wählt diese Nummer.'],
                     ['pfad' => 'kontakt.mobil_link',   'typ' => 'text', 'label' => 'Mobil zum Anklicken', 'hilfe' => 'Ohne Leerzeichen, mit Ländervorwahl: +491726289725'],
                     ['pfad' => 'kontakt.telefon',      'typ' => 'text', 'label' => 'Werkstatt (Festnetz)',
                      'hilfe' => 'Steht als zweite Nummer im Fußbereich, auf der Kontaktseite und im Impressum, z. B. 07 11 / 82 85 940'],
@@ -236,8 +236,8 @@ return [
                 'felder' => [
                     ['pfad' => 'kennzahlen.gruendungsjahr.wert', 'typ' => 'zahl', 'label' => 'Gegründet im Jahr',
                      'hilfe' => 'Vierstellig, z. B. 2005. Die Jahre im Handwerk rechnet die Seite daraus — die Zahl altert nicht.'],
-                    ['pfad' => 'kennzahlen.google_bewertung.wert', 'typ' => 'text', 'label' => 'Google-Bewertung', 'hilfe' => 'Mit Komma, z. B. 5,0'],
-                    ['pfad' => 'kennzahlen.google_anzahl.wert',    'typ' => 'zahl', 'label' => 'Anzahl Google-Rezensionen'],
+                    ['pfad' => 'kennzahlen.google_bewertung.wert', 'typ' => 'text', 'label' => 'Google-Bewertung', 'hilfe' => 'Mit Komma, z. B. 4,9. Steht auch im runden Siegel.'],
+                    ['pfad' => 'kennzahlen.google_anzahl.wert',    'typ' => 'text', 'label' => 'Anzahl Google-Rezensionen', 'hilfe' => 'Gerundet mit Plus, z. B. 300+ — dann muss die Zahl nicht bei jeder neuen Rezension nachgezogen werden.'],
                     ['pfad' => 'kennzahlen.google_profil_url',     'typ' => 'text', 'label' => 'Link zum Google-Profil',
                      'hilfe' => 'Die Bewertung im Fußbereich wird damit anklickbar — so kann jeder sie nachprüfen. Leer lassen schaltet den Link ab.'],
                 ],
@@ -349,7 +349,7 @@ return [
             ],
             [
                 'titel'   => 'Kontakt ganz unten',
-                'hinweis' => 'Daneben stehen Anrufknopf, WhatsApp und die Karte — Nummern und Zeiten kommen aus den Stammdaten.',
+                'hinweis' => 'Daneben stehen beide Nummern und die Karte — Nummern und Zeiten kommen aus den Stammdaten.',
                 'felder'  => [
                     ['pfad' => 'anfrage.kicker', 'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
                     ['pfad' => 'anfrage.titel',  'typ' => 'text',       'label' => 'Überschrift'],
@@ -592,7 +592,7 @@ return [
                      'subfelder' => [
                         ['pfad' => 'name',           'typ' => 'text',       'label' => 'Bauteil'],
                         ['pfad' => 'anzahl',         'typ' => 'zahl',       'label' => 'Anzahl Dellen'],
-                        ['pfad' => 'demontage',      'typ' => 'text',       'label' => 'Demontage'],
+                        ['pfad' => 'technik',        'typ' => 'text',       'label' => 'Technik', 'hilfe' => 'z. B. Hebel von innen, Klebetechnik von außen'],
                         ['pfad' => 'zugang',         'typ' => 'text',       'label' => 'Zugang'],
                         ['pfad' => 'schwierigkeit',  'typ' => 'text',       'label' => 'Schwierigkeit'],
                         ['pfad' => 'text',           'typ' => 'mehrzeilig', 'label' => 'Beschreibung'],
@@ -923,7 +923,7 @@ return [
             ],
             [
                 'titel'   => 'Formular ganz unten',
-                'hinweis' => 'Anrufen und WhatsApp stehen oben auf der Seite. Das Formular steht zuletzt, für alle, die lieber schreiben — kein Knopf der Website führt mehr dorthin.',
+                'hinweis' => 'Beide Nummern stehen oben auf der Seite. Das Formular steht zuletzt, für alle, die lieber schreiben — kein Knopf der Website führt mehr dorthin.',
                 'felder'  => [
                     ['pfad' => 'formular.kicker', 'typ' => 'text',       'label' => 'Zeile über der Überschrift'],
                     ['pfad' => 'formular.titel',  'typ' => 'text',       'label' => 'Überschrift'],

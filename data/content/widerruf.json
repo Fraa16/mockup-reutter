@@ -6,7 +6,7 @@
         "beschreibung": "Widerrufsbelehrung für Verbraucher bei Verträgen, die per Telefon, E-Mail oder über das Anfrageformular geschlossen werden."
     },
     "titel": "Widerrufsrecht",
-    "lead": "Widerrufsbelehrung nach dem amtlichen Muster für Verträge, die über das Anfrageformular, per E-Mail, WhatsApp oder am Telefon zustande kommen.",
+    "lead": "Widerrufsbelehrung nach dem amtlichen Muster für Verträge, die über das Anfrageformular, per E-Mail oder am Telefon zustande kommen.",
     "stand": "noch offen",
     "im_aufbau": true,
     "band_hinweis": "Belehrung und Formular sind eingesetzt. Was noch fehlt, steht nicht auf dieser Seite, sondern in den Papieren des Betriebs: der Satz auf der Auftragsbestätigung, mit dem der Kunde den vorzeitigen Arbeitsbeginn ausdrücklich verlangt. Ohne ihn greift das vorzeitige Erlöschen nicht.",
@@ -14,7 +14,7 @@
         {
             "titel": "Wann das Widerrufsrecht gilt",
             "absaetze": [
-                "Das Widerrufsrecht betrifft Verträge, die ausschließlich über Fernkommunikationsmittel geschlossen werden — also über das Anfrageformular auf dieser Website, per E-Mail, per WhatsApp oder am Telefon.",
+                "Das Widerrufsrecht betrifft Verträge, die ausschließlich über Fernkommunikationsmittel geschlossen werden — also über das Anfrageformular auf dieser Website, per E-Mail oder am Telefon.",
                 "Kommt der Vertrag dagegen bei uns in der Werkstatt zustande, weil Sie mit dem Fahrzeug vorbeikommen und wir uns vor Ort einig werden, liegt kein Fernabsatzvertrag vor und es gibt kein Widerrufsrecht.",
                 "Das Recht steht Verbrauchern zu, also natürlichen Personen, die den Vertrag zu Zwecken abschließen, die überwiegend weder ihrer gewerblichen noch ihrer selbständigen beruflichen Tätigkeit zugerechnet werden können."
             ]

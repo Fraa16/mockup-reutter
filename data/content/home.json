@@ -1,12 +1,12 @@
 {
     "seo": {
-        "titel": "Smartrepair Reutter — Lack, Leder, Dellen. Alles aus einer Hand.",
+        "titel": "Smartrepair Reutter — Lack, Leder, Dellen in Korntal",
         "beschreibung": "Fahrzeugpflege, KFZ-Aufbereitung, Dellen- und Hagelschadenbeseitigung, Lackierarbeiten, Lederreparatur und Ozonbehandlung in Korntal bei Stuttgart — in der Halle oder mobil bei Ihnen vor Ort."
     },
     "hero": {
         "kicker": "Fahrzeugpflege & KFZ-Aufbereitung",
         "titel": "Lack, Leder, Dellen.",
-        "titel_zusatz": "Alles aus einer Hand.",
+        "titel_zusatz": "",
         "lead": "Wir beseitigen Hagelschäden, Parkdellen und Kratzer, lackieren nach, reparieren Leder und bereiten Innenräume auf. In der Halle in Korntal bei Stuttgart — oder mobil bei Ihnen vor Ort.",
         "fineprint": "Kostenlose Einschätzung · Am schnellsten geht es telefonisch",
         "bild": "porsche-carrera-gt-d8514.webp",
@@ -98,8 +98,8 @@
         "schritte": [
             {
                 "num": "01",
-                "titel": "Anruf oder Fotos",
-                "text": "Rufen Sie an und beschreiben Sie kurz, was ansteht. Oder schicken Sie zwei bis drei Fotos vom Schaden per WhatsApp — wir melden uns dann.",
+                "titel": "Anrufen",
+                "text": "Rufen Sie an und beschreiben Sie kurz, was ansteht — mobil oder direkt in der Werkstatt. Wir sagen Ihnen, wie es weitergeht.",
                 "dauer": "2 Minuten<br>für Sie"
             },
             {
@@ -191,9 +191,9 @@
     },
     "anfrage": {
         "kicker": "Kontakt",
-        "_geaendert": "Oktober 2026: Der Abschnitt zeigt kein Formular mehr, sondern Anruf und WhatsApp — der Inhaber will angerufen werden. chips, schritte und hinweise gehoeren zum Formular, das jetzt nur noch ganz unten auf der Kontaktseite steht, und werden dort weiter gelesen.",
+        "_geaendert": "Oktober 2026: Der Abschnitt zeigt kein Formular mehr, sondern Anruf (seit November 2026 Mobil und Werkstatt, WhatsApp entfaellt) — der Inhaber will angerufen werden. chips, schritte und hinweise gehoeren zum Formular, das jetzt nur noch ganz unten auf der Kontaktseite steht, und werden dort weiter gelesen.",
         "titel": "Am schnellsten am Telefon.",
-        "lead": "Kein Formular, kein Konto: Rufen Sie an und beschreiben Sie kurz, was ansteht. Oder schicken Sie zwei Fotos per WhatsApp — dann können wir meist schon etwas dazu sagen.",
+        "lead": "Kein Formular, kein Konto: Rufen Sie an und beschreiben Sie kurz, was ansteht — mobil oder direkt in der Werkstatt. Das meiste ist in ein paar Minuten geklärt.",
         "karte_platzhalter": "Kartenausschnitt Standort",
         "chips": [
             "Exterieur-Pflege",

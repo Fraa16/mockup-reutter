@@ -14,30 +14,16 @@
  */
 $s        = site();
 $ebene    = in_array($ebene ?? 'h2', ['h2', 'h3'], true) ? $ebene : 'h2';
-$kennzahl = static fn (string $k): string => (string) get(site(), "kennzahlen.$k.wert", '');
-$profil   = (string) get($s, 'kennzahlen.google_profil_url', '');
-$zeile    = $kennzahl('google_bewertung') . ' auf Google · ' . $kennzahl('google_anzahl') . ' Bewertungen';
 ?>
 <div class="reviews-head">
   <<?= $ebene ?>><?= h(get($s, 'bewertungen.titel', 'Was Kunden schreiben')) ?></<?= $ebene ?>>
 
-  <?php /* Die Bewertung war eine Behauptung ohne Nachweis — die Profil-URL
-          stand in site.json und wurde nirgends benutzt. Als Link kann sie
-          jeder nachpruefen, und die drei Zitate darunter stehen nicht mehr
-          allein da. Ein gewoehnlicher Link, kein eingebetteter Dienst: beim
+  <?php /* Seit November 2026 das runde Siegel statt der Zeile mit Sternen.
+          Es bleibt ein gewoehnlicher Link zum Google-Profil: beim
           Seitenaufruf geht nichts an Google, die strikte CSP bleibt gueltig
-          und es braucht weiterhin keinen Einwilligungsbanner. */ ?>
-  <div class="rating">
-    <span class="stars" aria-hidden="true">★★★★★</span>
-    <?php if ($profil !== ''): ?>
-    <a class="count" href="<?= attr($profil) ?>" rel="noopener noreferrer nofollow" target="_blank">
-      <?= h($zeile) ?><span class="visually-hidden"> — Profil bei Google, öffnet in neuem Tab</span>
-      <span aria-hidden="true">↗</span>
-    </a>
-    <?php else: ?>
-    <span class="count"><?= h($zeile) ?></span>
-    <?php endif; ?>
-  </div>
+          und es braucht keinen Einwilligungsbanner. Wer klickt, kann die Zahl
+          dort nachpruefen. */ ?>
+  <?php partial('bewertungs-siegel', ['klasse' => 'ist-bewertungen']); ?>
 </div>
 
 <?php /* Eine Spur statt eines festen Dreierrasters. Gewischt und gescrollt

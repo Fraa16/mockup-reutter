@@ -64,7 +64,7 @@ partial('kopf', [
         <p class="lead"><?= h(get($seite, 'hero.lead')) ?></p>
       </div>
       <div class="leistung-hero-cta">
-        <?php partial('anruf-knoepfe', ['leistung' => $leistung['titel']]); ?>
+        <?php partial('anruf-knoepfe'); ?>
       </div>
     </div>
   </div>
@@ -139,9 +139,15 @@ partial('kopf', [
           </div>
           <p><?= h($p['text']) ?></p>
           <dl class="tafel-werte">
-            <div><dt>Demontage</dt><dd><?= h($p['demontage']) ?></dd></div>
+            <?php /* Bis November 2026 stand hier „Demontage" — der Betrieb baut
+                    aber nichts aus. Jetzt die Technik: Hebelwerkzeug von innen
+                    oder Klebetechnik von aussen. Ein alter Eintrag ohne Technik
+                    zeigt die Zeile gar nicht, statt ein Ausbauteil zu nennen. */ ?>
+            <?php if (($p['technik'] ?? '') !== ''): ?>
+            <div><dt>Technik</dt><dd><?= h($p['technik']) ?></dd></div>
+            <?php endif; ?>
             <div><dt>Zugang</dt><dd><?= h($p['zugang']) ?></dd></div>
-            <div><dt>Schwierigkeit</dt><dd class="stufe"><?= h($p['schwierigkeit']) ?></dd></div>
+            <div><dt>Schwierigkeit</dt><dd class="tafel-stufe"><?= h($p['schwierigkeit']) ?></dd></div>
           </dl>
         </div>
         <?php endforeach; ?>
@@ -217,7 +223,7 @@ partial('kopf', [
         <div class="kicker"><?= swash() ?><span class="label"><?= h(get($seite, 'faq.kicker')) ?></span></div>
         <h2><?= h(get($seite, 'faq.titel')) ?></h2>
         <div class="cta-row">
-          <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'anruf_klasse' => 'btn-dark', 'wa_klasse' => 'btn-linie', 'leistung' => $leistung['titel']]); ?>
+          <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'anruf_klasse' => 'btn-dark', 'zweit_klasse' => 'btn-linie']); ?>
         </div>
       </div>
       <?php /* <details> statt eigener Klapplogik: funktioniert ohne JavaScript
@@ -271,4 +277,4 @@ partial('kopf', [
   </div>
 </section>
 
-<?php partial('fuss', ['ctaUeberschrift' => get($seite, 'cta_ueberschrift'), 'leistung' => $leistung['titel']]); ?>
+<?php partial('fuss', ['ctaUeberschrift' => get($seite, 'cta_ueberschrift')]); ?>

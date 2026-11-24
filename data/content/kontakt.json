@@ -3,12 +3,12 @@
     "_unbestaetigt": "Zu pruefen: die Anfahrtsbeschreibung (Hof hinter dem Gebaeude? Rolltor? Kundenparkplaetze?) ist reine Annahme des Design-Assistenten und beschreibt eine Halle, die niemand gesehen hat.",
     "seo": {
         "titel": "Kontakt & Anfahrt — Smartrepair Reutter, Korntal",
-        "beschreibung": "Anrufen unter 0172 / 6 28 97 25 oder Fotos per WhatsApp schicken. Smartrepair Reutter, Lembergstraße 27, 70825 Korntal-Münchingen bei Stuttgart."
+        "beschreibung": "Anrufen unter 0172 / 6 28 97 25 oder in der Werkstatt unter 07 11 / 82 85 940. Smartrepair Reutter, Lembergstraße 27, 70825 Korntal-Münchingen bei Stuttgart."
     },
     "hero": {
         "kicker": "Kontakt",
         "titel": "Sagen Sie uns, was ansteht.",
-        "lead": "Am schnellsten am Telefon — das meiste ist in ein paar Minuten geklärt. Oder schicken Sie zwei Fotos vom Schaden bei Tageslicht per WhatsApp, dann können wir meist schon etwas dazu sagen."
+        "lead": "Am schnellsten am Telefon — mobil oder direkt in der Werkstatt. Das meiste ist in ein paar Minuten geklärt."
     },
     "formular": {
         "_hinweis": "Seit Oktober 2026 ganz unten auf der Seite und von keinem Knopf mehr verlinkt: Der Inhaber will angerufen werden, das Formular bleibt nur fuer die, die lieber schreiben. Telefon ist Pflicht, damit zurueckgerufen werden kann.",
@@ -20,16 +20,16 @@
         "titel": "Schneller geht es so",
         "wege": [
             {
-                "titel": "Anrufen",
+                "titel": "Mobil anrufen",
                 "text": "Das meiste ist in ein paar Minuten geklärt.",
                 "art": "telefon",
                 "_hinweis": "Waehlt die Mobilnummer aus site.json — dieselbe wie jeder Anrufknopf der Seite."
             },
             {
-                "titel": "Fotos per WhatsApp",
-                "text": "Zwei Bilder vom Schaden reichen meist.",
-                "art": "whatsapp",
-                "_hinweis": "Das Ziel wird aus der Mobilnummer in site.json gebildet. Es ist ein Link, kein eingebetteter Dienst — es geht also kein Request an Meta, solange niemand klickt."
+                "titel": "Werkstatt anrufen",
+                "text": "Festnetz, direkt in der Halle in Korntal.",
+                "art": "festnetz",
+                "_hinweis": "Waehlt die Festnetznummer aus site.json. Bis November 2026 stand hier WhatsApp; das bietet der Betrieb nicht mehr an."
             }
         ]
     },

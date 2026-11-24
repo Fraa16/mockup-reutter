@@ -65,20 +65,20 @@
     ],
     "einsatzgebiet_zusatz": "und Umgebung",
     "kennzahlen": {
-        "_hinweis": "Bewertung und Anzahl stammen aus dem Google-Unternehmensprofil. Das Gruendungsjahr hat der Betrieb bestaetigt; die Jahre im Handwerk werden daraus gerechnet und altern nicht.",
+        "_hinweis": "Bewertung und Anzahl stammen aus dem Google-Unternehmensprofil. Das Gruendungsjahr hat der Betrieb bestaetigt; die Jahre im Handwerk werden daraus gerechnet und altern nicht. Seit November 2026 steht die Anzahl gerundet da („300+“), damit sie nicht bei jeder neuen Rezension nachgepflegt werden muss.",
         "gruendungsjahr": {
             "wert": 2005,
             "belegt": true
         },
         "google_bewertung": {
-            "wert": "5,0",
+            "wert": "4,9",
             "belegt": true,
-            "stand": "2026-08"
+            "stand": "2026-11"
         },
         "google_anzahl": {
-            "wert": 281,
+            "wert": "300+",
             "belegt": true,
-            "stand": "2026-08"
+            "stand": "2026-11"
         },
         "google_profil_url": "https://share.google/9aGgJZc8acsdxbPXd"
     },

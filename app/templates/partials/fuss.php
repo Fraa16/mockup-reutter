@@ -6,7 +6,7 @@
  * @var bool   $zeigeBewertungen  Bewertungsblock. Auf der Startseite aus, weil
  *                                die Bewertungen dort schon im Abschnitt
  *                                "Betrieb" stehen — sonst stuenden sie zweimal.
- * @var bool   $zeigeFormular     Kontaktband mit Anruf und WhatsApp (bis
+ * @var bool   $zeigeFormular     Kontaktband mit beiden Nummern (bis
  *                                Oktober 2026 ein Kurzformular, daher der
  *                                Name). Aus auf Startseite und Kontaktseite,
  *                                die dieselben Kacheln schon weiter oben
@@ -14,8 +14,6 @@
  * @var bool   $zeigeLeiste       Sticky-Leiste. Auf /danke/ aus, weil die
  *                                Anfrage gerade heraus ist.
  * @var string $ctaUeberschrift   Ueberschrift ueber dem Kontaktband.
- * @var string $leistung          Name der Leistung, steht dann schon in der
- *                                WhatsApp-Nachricht.
  */
 $s = site();
 
@@ -23,8 +21,8 @@ $zeigeBewertungen = $zeigeBewertungen ?? true;
 $zeigeFormular    = $zeigeFormular    ?? true;
 $zeigeLeiste      = $zeigeLeiste      ?? true;
 $ctaUeberschrift  = $ctaUeberschrift  ?? 'Sagen Sie uns, was ansteht.';
-$leistung         = $leistung         ?? '';
 $anruf            = anruf();
+$werkstatt        = festnetz();
 
 ?>
 </main>
@@ -39,7 +37,7 @@ $anruf            = anruf();
 <?php endif; ?>
 
 <?php if ($zeigeFormular): ?>
-  <?php partial('kurzanfrage', ['ueberschrift' => $ctaUeberschrift, 'leistung' => $leistung]); ?>
+  <?php partial('kurzanfrage', ['ueberschrift' => $ctaUeberschrift]); ?>
 <?php endif; ?>
 
 <!-- Footer -->
@@ -56,8 +54,7 @@ $anruf            = anruf();
                 Die Adresse steht weiter im Impressum, wo sie Pflicht ist. */ ?>
         <div class="contact">
           <a href="<?= attr($anruf['ziel']) ?>">Mobil <?= h($anruf['anzeige']) ?></a>
-          <a href="<?= attr(whatsapp_link($leistung)) ?>" target="_blank" rel="noopener noreferrer">WhatsApp an dieselbe Nummer</a>
-          <a href="tel:<?= attr(get($s, 'kontakt.telefon_link')) ?>">Werkstatt <?= h(get($s, 'kontakt.telefon')) ?></a>
+          <a href="<?= attr($werkstatt['ziel']) ?>">Werkstatt <?= h($werkstatt['anzeige']) ?></a>
         </div>
       </div>
       <div class="footer-col">
@@ -112,8 +109,8 @@ $anruf            = anruf();
       <span class="subline"><?= h(get($s, 'sticky_bar.subline')) ?></span>
     </div>
     <div class="actions">
-      <a href="<?= attr(whatsapp_link($leistung)) ?>" class="btn btn-outline btn-whatsapp" target="_blank" rel="noopener noreferrer"><?= icon('whatsapp') ?><span>WhatsApp</span></a>
-      <a href="<?= attr($anruf['ziel']) ?>" class="btn btn-red btn-anruf"><?= icon('telefon') ?><span>Anrufen</span></a>
+      <a href="<?= attr($werkstatt['ziel']) ?>" class="btn btn-outline btn-festnetz"><?= icon('werkstatt') ?><span>Werkstatt</span></a>
+      <a href="<?= attr($anruf['ziel']) ?>" class="btn btn-red btn-anruf"><?= icon('telefon') ?><span>Mobil</span></a>
     </div>
   </div>
 </div>

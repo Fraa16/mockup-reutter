@@ -21,6 +21,7 @@ $aktiv        = $aktiv        ?? '';
 $lcp_bild     = $lcp_bild     ?? null;
 $lcp_sizes    = $lcp_sizes    ?? null;
 $anruf        = anruf();
+$werkstatt    = festnetz();
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -103,10 +104,13 @@ $anruf        = anruf();
       <span class="sep">|</span>
       <span><?= h(get($s, 'utility_bar.zusatz')) ?></span>
     </div>
+    <?php /* Beide Nummern: die Werkstatt zuerst, weil sie sonst im Kopf
+            nirgends steht — der rote Knopf darunter ist die Mobilnummer. */ ?>
     <div class="right">
       <span class="hours"><?= h(get($s, 'oeffnungszeiten.text')) ?></span>
       <span class="sep">|</span>
-      <a class="phone" href="<?= attr($anruf['ziel']) ?>"><?= icon('telefon') ?><?= h($anruf['anzeige']) ?></a>
+      <a class="phone ist-festnetz" href="<?= attr($werkstatt['ziel']) ?>"><?= icon('werkstatt') ?><span class="phone-label">Werkstatt</span><?= h($werkstatt['anzeige']) ?></a>
+      <a class="phone" href="<?= attr($anruf['ziel']) ?>"><?= icon('telefon') ?><span class="phone-label">Mobil</span><?= h($anruf['anzeige']) ?></a>
     </div>
   </div>
 </div>
@@ -147,12 +151,12 @@ $anruf        = anruf();
       <?php endforeach; ?>
       <?php /* Bis Oktober 2026 stand hier „Termin anfragen" und fuehrte zum
               Formular. Der Inhaber will aber angerufen werden — deshalb die
-              Mobilnummer selbst als Knopf, daneben WhatsApp. Am Schreibtisch
-              ist WhatsApp nur das Zeichen, im Menuepanel auf dem Handy
-              stehen beide als volle Knoepfe untereinander. */ ?>
+              Mobilnummer selbst als Knopf. Die Werkstattnummer steht am
+              Schreibtisch in der Servicezeile darueber (fuer zwei volle
+              Nummern ist der Kopf zu schmal), im Menuepanel auf dem Handy
+              als zweiter voller Knopf. */ ?>
       <div class="nav-kontakt">
-        <a href="<?= attr(whatsapp_link()) ?>" class="btn btn-outline btn-whatsapp nav-whatsapp" target="_blank" rel="noopener noreferrer"
-           title="Per WhatsApp schreiben"><?= icon('whatsapp') ?><span class="nav-wa-text">WhatsApp</span></a>
+        <a href="<?= attr($werkstatt['ziel']) ?>" class="btn btn-outline btn-festnetz nav-festnetz"><?= icon('werkstatt') ?><span>Werkstatt <?= h($werkstatt['anzeige']) ?></span></a>
         <a href="<?= attr($anruf['ziel']) ?>" class="btn btn-red btn-anruf"><?= icon('telefon') ?><span><?= h($anruf['anzeige']) ?></span></a>
       </div>
     </nav>

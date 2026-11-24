@@ -7,7 +7,7 @@
     },
     "titel": "Datenschutzerklärung",
     "lead": "Was beim Besuch dieser Website und bei einer Anfrage mit Ihren Daten passiert. Kurz vorweg: Diese Seite lädt nichts von fremden Servern nach und setzt keine Cookies, die eine Einwilligung bräuchten.",
-    "stand": "September 2026",
+    "stand": "November 2026",
     "im_aufbau": false,
     "_band_erledigt": "Das Hinweisband ist am 12.09.2026 entfallen. Es stand nur wegen eines einzigen offenen Punktes da — des Auftragsverarbeitungsvertrags mit IONOS — und der ist seit dem 12.09.2026 geschlossen (IONOS-Kundenkonto, Kundennummer des Betriebs, Nachweis per Mail). Damit stimmt der Satz im Abschnitt Hosting, und das Band hat keinen Gegenstand mehr. 'band_hinweis' ist bewusst entfernt und nicht nur leer gesetzt: Bei im_aufbau=false rendert die Vorlage es ohnehin nicht, und ein zurueckgelassener Text waere beim naechsten Umschalten auf true sofort wieder sichtbar — mit einer Aussage, die dann falsch ist.",
     "abschnitte": [
@@ -57,14 +57,6 @@
             ]
         },
         {
-            "titel": "Kontakt über WhatsApp",
-            "_pruefen": "Oktober 2026 ergaenzt, weil die Seite jetzt ueberall WhatsApp als zweiten Weg neben dem Anruf anbietet. Technisch belegt: Die Links sind gewoehnliche Verweise auf wa.me, beim Seitenaufruf geht nichts an Meta. Vom Anwalt mitpruefen lassen, zusammen mit der Frage, wie der Betrieb WhatsApp auf dem Handy nutzt (WhatsApp Business, Zugriff aufs Adressbuch).",
-            "absaetze": [
-                "Auf dieser Website stehen Links zu WhatsApp. Es sind gewöhnliche Links, keine eingebetteten Inhalte: Beim Aufruf der Website werden keine Daten an WhatsApp übertragen. Erst wenn Sie einen solchen Link anklicken, öffnet sich WhatsApp, und es gelten die Datenschutzbestimmungen der WhatsApp Ireland Limited mit Sitz in Dublin, Irland. Dabei können Daten auch an die Muttergesellschaft Meta Platforms Inc. in den USA übermittelt werden.",
-                "Wenn Sie uns per WhatsApp schreiben, verarbeiten wir Ihre Telefonnummer, Ihren Namen in WhatsApp, Ihre Nachricht und die mitgeschickten Fotos, um Ihre Anfrage zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Wenn Sie WhatsApp nicht nutzen möchten, erreichen Sie uns ebenso telefonisch."
-            ]
-        },
-        {
             "titel": "Fotos zur Schadensbeurteilung",
             "absaetze": [
                 "Sie können Ihrer Anfrage Fotos des Schadens anhängen. Diese Bilder werden ausschließlich zur Einschätzung des Aufwands verwendet und der Anfrage-E-Mail angehängt.",
@@ -82,7 +74,7 @@
             "titel": "Keine eingebundenen Dienste Dritter",
             "absaetze": [
                 "Diese Website lädt keine Inhalte von fremden Servern nach. Die Schriftarten liegen auf unserem eigenen Webspace, es sind keine Google Fonts, kein Content Delivery Network, keine Analyse- oder Trackingdienste und keine Social-Media-Elemente eingebunden.",
-                "Auch die Karte auf der Startseite und der Kontaktseite ist kein eingebettetes Kartenfenster, sondern ein Bild auf unserem eigenen Server. Ihre IP-Adresse wird erst dann an einen Kartendienst übertragen, wenn Sie auf der Kontaktseite den Link „Route planen“ selbst anklicken. Dasselbe gilt für die WhatsApp-Links auf dieser Website."
+                "Auch die Karte auf der Startseite und der Kontaktseite ist kein eingebettetes Kartenfenster, sondern ein Bild auf unserem eigenen Server. Ihre IP-Adresse wird erst dann an einen Kartendienst übertragen, wenn Sie auf der Kontaktseite den Link „Route planen“ selbst anklicken."
             ]
         },
         {
@@ -121,5 +113,6 @@
                 "www.baden-wuerttemberg.datenschutz.de"
             ]
         }
-    ]
+    ],
+    "_whatsapp_entfernt": "November 2026: Der Abschnitt „Kontakt über WhatsApp“ ist entfallen, weil die Website keine WhatsApp-Links mehr hat. Falls der Betrieb WhatsApp wieder anbietet, muss er zurueck."
 }

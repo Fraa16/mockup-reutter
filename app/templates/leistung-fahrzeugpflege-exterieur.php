@@ -60,7 +60,7 @@ partial('kopf', [
       <h1><?= h(get($seite, 'hero.titel')) ?></h1>
       <p class="lead"><?= h(get($seite, 'hero.lead')) ?></p>
       <div class="cta-row">
-        <?php partial('anruf-knoepfe', ['leistung' => $leistung['titel']]); ?>
+        <?php partial('anruf-knoepfe'); ?>
       </div>
     </div>
   </div>
@@ -211,7 +211,7 @@ partial('kopf', [
         <p><?= h(get($seite, 'preis.text')) ?></p>
       </div>
       <div class="preis-knoepfe">
-        <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'leistung' => $leistung['titel']]); ?>
+        <?php partial('anruf-knoepfe', ['groesse' => 'kompakt']); ?>
       </div>
     </div>
 
@@ -268,4 +268,4 @@ partial('kopf', [
   </div>
 </section>
 
-<?php partial('fuss', ['ctaUeberschrift' => get($seite, 'cta_ueberschrift'), 'leistung' => $leistung['titel']]); ?>
+<?php partial('fuss', ['ctaUeberschrift' => get($seite, 'cta_ueberschrift')]); ?>
