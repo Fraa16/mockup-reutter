@@ -73,7 +73,7 @@ partial('kopf', [
         <p class="muster-text"><?= h(get($seite, 'hero.swatch_text')) ?></p>
       </div>
       <div class="cta-row">
-        <?php partial('anruf-knoepfe', ['leistung' => $leistung['titel']]); ?>
+        <?php partial('anruf-knoepfe'); ?>
       </div>
     </div>
   </div>
@@ -120,7 +120,7 @@ partial('kopf', [
         <h2><?= h(get($seite, 'beklebung.titel')) ?></h2>
         <p><?= h(get($seite, 'beklebung.lead')) ?></p>
         <div class="cta-row">
-          <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'wa_klasse' => 'btn-linie', 'leistung' => 'Beklebung']); ?>
+          <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'zweit_klasse' => 'btn-linie']); ?>
         </div>
       </div>
       <div class="beklebung-varianten">
@@ -166,7 +166,7 @@ partial('kopf', [
       <p><?= h(get($seite, 'preis.text')) ?></p>
     </div>
     <div class="preis-knoepfe">
-      <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'anruf_klasse' => 'btn-black', 'leistung' => $leistung['titel']]); ?>
+      <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'anruf_klasse' => 'btn-black']); ?>
     </div>
   </div>
 </section>
@@ -227,4 +227,4 @@ partial('kopf', [
   </div>
 </section>
 
-<?php partial('fuss', ['ctaUeberschrift' => get($seite, 'cta_ueberschrift'), 'leistung' => $leistung['titel']]); ?>
+<?php partial('fuss', ['ctaUeberschrift' => get($seite, 'cta_ueberschrift')]); ?>

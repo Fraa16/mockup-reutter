@@ -126,7 +126,7 @@ partial('kopf', [
       <div class="raster-leer">
         <p><?= h(get($seite, 'raster.leer_text', 'Aktuell sind hier keine Aufnahmen hinterlegt. Rufen Sie uns an — wir zeigen Ihnen Arbeiten aus der Werkstatt.')) ?></p>
         <div class="cta-row">
-          <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'anruf_klasse' => 'btn-dark', 'wa_klasse' => 'btn-linie']); ?>
+          <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'anruf_klasse' => 'btn-dark', 'zweit_klasse' => 'btn-linie']); ?>
         </div>
       </div>
     <?php else: ?>

@@ -14,7 +14,7 @@ $b = $b ?? content('home')['mobiler_service'];
       <p><?= h($b['text']) ?></p>
     </div>
     <div class="actions">
-      <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'anruf_klasse' => 'btn-dark', 'leistung' => $leistung ?? '']); ?>
+      <?php partial('anruf-knoepfe', ['groesse' => 'kompakt', 'anruf_klasse' => 'btn-dark']); ?>
     </div>
   </div>
 </section>

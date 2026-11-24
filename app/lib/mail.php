@@ -147,7 +147,7 @@ function bestaetigung_als_text(array $werte): string
         'uns, sobald es die Werkstatt zulaesst.',
         '',
         'Wir rufen Sie zurück. Wenn es eilig ist, rufen Sie einfach an:',
-        get($s, 'kontakt.mobil', '') . ' (mobil, auch WhatsApp)',
+        get($s, 'kontakt.mobil', '') . ' (mobil) oder ' . get($s, 'kontakt.telefon', '') . ' (Werkstatt)',
         '',
         'Viele Grüße',
         get($s, 'firma.name', ''),

@@ -32,10 +32,6 @@ partial('kopf', [
         <span class="weg-label">Mobil</span>
         <span class="weg-wert"><?= h(anruf()['anzeige']) ?></span>
       </a>
-      <a class="danke-weg" href="<?= attr(whatsapp_link()) ?>" target="_blank" rel="noopener noreferrer">
-        <span class="weg-label">WhatsApp</span>
-        <span class="weg-wert">Fotos nachreichen</span>
-      </a>
       <a class="danke-weg" href="tel:<?= attr(get($s, 'kontakt.telefon_link')) ?>">
         <span class="weg-label">Werkstatt</span>
         <span class="weg-wert"><?= h(get($s, 'kontakt.telefon')) ?></span>

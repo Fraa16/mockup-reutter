@@ -2,7 +2,7 @@
 /**
  * Kontakt & Anfahrt — nachgebaut aus export/project/Kontakt.dc.html.
  *
- * Reihenfolge seit Oktober 2026: Anruf und WhatsApp ganz oben, dann Anfahrt
+ * Reihenfolge seit Oktober 2026: beide Nummern ganz oben, dann Anfahrt
  * und Versicherung, das Formular ganz unten. Der Inhaber will angerufen
  * werden; das Formular bleibt nur fuer die, die lieber schreiben. Das
  * Kontaktband im Fuss ist abgeschaltet, weil dieselben Kacheln schon im
@@ -149,14 +149,18 @@ partial('kopf', [
           <div class="karte-titel"><?= h(get($seite, 'ohne_formular.titel')) ?></div>
           <?php foreach (get($seite, 'ohne_formular.wege', []) as $w): ?>
           <?php
-            /* WhatsApp-Ziel aus der Mobilnummer bilden — ein Link, kein
-               eingebetteter Dienst. Beim Seitenaufruf geht nichts an Meta. */
-            $ziel = $w['art'] === 'whatsapp' ? whatsapp_link() : anruf()['ziel'];
-            $zusatz = $w['art'] === 'whatsapp'
-                ? 'An ' . get($s, 'kontakt.mobil') . '. '
-                : anruf()['anzeige'] . '. ';
+            /* Die Nummer kommt aus den Stammdaten, nicht aus dem Text — so
+               stimmt sie auch, wenn sie sich einmal aendert. WhatsApp bietet
+               der Betrieb seit November 2026 nicht mehr an; ein alter Eintrag
+               dieser Art wird uebersprungen statt ins Leere zu fuehren. */
+            if (($w['art'] ?? '') === 'whatsapp') {
+                continue;
+            }
+            $nummer = ($w['art'] ?? '') === 'festnetz' ? festnetz() : anruf();
+            $ziel   = $nummer['ziel'];
+            $zusatz = $nummer['anzeige'] . '. ';
           ?>
-          <a class="karte-weg" href="<?= attr($ziel) ?>"<?= $w['art'] === 'whatsapp' ? ' target="_blank" rel="noopener noreferrer"' : '' ?>>
+          <a class="karte-weg" href="<?= attr($ziel) ?>">
             <?= swash() ?>
             <span>
               <span class="weg-titel"><?= h($w['titel']) ?></span>
