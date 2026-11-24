@@ -1,6 +1,6 @@
 {
     "_hinweis": "Inhalte der Seite /galerie/. Uebernommen aus export/project/Galerie.dc.html.",
-    "_quelle": "Seit Oktober 2026 nur noch Daniels eigene Fotos. Die drei Faelle sind echte Paare vom selben Standort; Uhrzeiten, Monat und Abstand stammen aus den Aufnahmedaten der Kamera. Kennzeichen sind weichgezeichnet, sonst ist nichts bearbeitet.",
+    "_quelle": "Seit Oktober 2026 nur noch Daniels eigene Fotos. Die Faelle sind echte Paare vom selben Standort; Uhrzeiten, Monat und Abstand stammen aus den Aufnahmedaten der Kamera. Kennzeichen sind weichgezeichnet, sonst ist nichts bearbeitet.",
     "seo": {
         "titel": "Galerie — Arbeiten aus der Halle | Smartrepair Reutter",
         "beschreibung": "Vorher und Nachher aus eigenen Aufträgen: Dellen ohne Lackieren und Fahrzeuge aus der Halle. Smartrepair Reutter in Korntal-Münchingen bei Stuttgart."
@@ -14,7 +14,7 @@
         "cta": "Termin anfragen"
     },
     "faelle": {
-        "kicker": "Drei Aufträge im Detail",
+        "kicker": "Zwei Aufträge im Detail",
         "eintraege": [
             {
                 "kicker": "Fall 01 · Dellen",
@@ -71,34 +71,6 @@
                     }
                 ],
                 "slug": "dellen-hagelschaden"
-            },
-            {
-                "kicker": "Fall 03 · Dellen",
-                "titel": "Ausgebaut und auf dem Bock",
-                "text": "Manche Teile lassen sich besser bearbeiten, wenn sie nicht am Fahrzeug hängen. Dieses Blechteil lag ausgebaut auf dem Bock, die Prüflampe darüber.",
-                "vergleich": {
-                    "start_position": 62,
-                    "vorher": "blechteil-vorher-94414.webp",
-                    "vorher_alt": "Vorher: ausgebautes Blechteil auf dem Bock, die Lichtlinien der Prüflampe zeigen die Delle",
-                    "nachher": "blechteil-nachher-96e77.webp",
-                    "nachher_alt": "Nachher: dasselbe Blechteil, die Lichtlinien laufen ruhig durch",
-                    "echtes_paar": true
-                },
-                "werte": [
-                    {
-                        "label": "Bauteil",
-                        "wert": "ausgebaut"
-                    },
-                    {
-                        "label": "Aufnahmen",
-                        "wert": "17:06 und 18:16 Uhr"
-                    },
-                    {
-                        "label": "Aufgenommen",
-                        "wert": "Dezember 2022"
-                    }
-                ],
-                "slug": "dellen-hagelschaden"
             }
         ],
         "link_text": "Zur Leistung"
@@ -149,11 +121,6 @@
                 "kategorie": "Fahrzeuge",
                 "bild": "mercedes-190-evo-heck-9ba8f.webp",
                 "alt": "Mercedes 190 E Evolution II von hinten, mit Heckflügel"
-            },
-            {
-                "kategorie": "Dellen & Hagel",
-                "bild": "radhaus-zugang-0d4ba.webp",
-                "alt": "Offenes Radhaus von innen, daneben die Prüflampe: der Zugang zur Delle"
             },
             {
                 "kategorie": "Fahrzeuge",
@@ -214,11 +181,6 @@
                 "kategorie": "Fahrzeuge",
                 "bild": "audi-r8-f5995.webp",
                 "alt": "Roter Audi R8 vor der Halle"
-            },
-            {
-                "kategorie": "Dellen & Hagel",
-                "bild": "kofferraumdeckel-ausgebaut-9cae8.webp",
-                "alt": "Ausgebauter schwarzer Kofferraumdeckel unter der Prüflampe"
             },
             {
                 "kategorie": "Fahrzeuge",
@@ -428,5 +390,6 @@
     },
     "cta_ueberschrift": "Ihr Fahrzeug als nächstes?",
     "_quelle_altseite": "Die letzten 19 Bilder im Raster (ab delle-tuer-linienlampe) stammen von Daniels alter Seite clean-box.eu, Oktober 2026 uebernommen, je 600 x 450 Pixel. Kennzeichen waren dort schon unkenntlich gemacht; Messefotos und Bilder mit Personen sind bewusst nicht dabei. Die Originale liegen unter bildpool/altseite/.",
-    "_instagram_november_2026": "Fuenf Fotos aus Daniels Instagram (daniel_reutter_stuttgart), von Francesco ausgesucht am 24.11.2026. Aus Bildschirmfotos ausgeschnitten, daher nur 820–920 px breit; Kennzeichen unkenntlich gemacht. Nicht genommen: Nahaufnahme des DTM-Wagens (Person im Hintergrund, Instagram-Knoepfe im Bild) und das Heck des silbernen Sprinters (Aufkleber)."
+    "_instagram_november_2026": "Fuenf Fotos aus Daniels Instagram (daniel_reutter_stuttgart), von Francesco ausgesucht am 24.11.2026. Aus Bildschirmfotos ausgeschnitten, daher nur 820–920 px breit; Kennzeichen unkenntlich gemacht. Nicht genommen: Nahaufnahme des DTM-Wagens (Person im Hintergrund, Instagram-Knoepfe im Bild) und das Heck des silbernen Sprinters (Aufkleber).",
+    "_ohne_ausbau": "November 2026: Der Betrieb macht keine Zerlegearbeiten. Deshalb entfallen der Fall „Ausgebaut und auf dem Bock“ und die Rasterbilder mit ausgebautem Kofferraumdeckel und offenem Radhaus. Die Dateien liegen weiter in uploads/."
 }

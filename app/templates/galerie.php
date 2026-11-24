@@ -2,7 +2,7 @@
 /**
  * Galerie — nachgebaut aus export/project/Galerie.dc.html.
  *
- * Zwei Teile: drei Fallstudien mit Vergleichsregler (Layout wechselt die
+ * Zwei Teile: Fallstudien mit Vergleichsregler (Layout wechselt die
  * Seite) und darunter das Bildraster mit Filter.
  *
  * Der Filter arbeitet ohne JavaScript nicht — ohne Skript stehen einfach
@@ -60,7 +60,7 @@ partial('kopf', [
   </div>
 </section>
 
-<!-- Drei Fallstudien -->
+<!-- Fallstudien -->
 <?php /* Nur Faelle mit zwei verschiedenen Fotos, siehe vergleich_echt(). */ ?>
 <?php $faelle = array_values(array_filter(
     get($seite, 'faelle.eintraege', []),
