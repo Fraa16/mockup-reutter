@@ -199,6 +199,17 @@ partial('kopf', [
         <?php endforeach; ?>
       </div>
     </div>
+    <?php /* Seit November 2026 ein breites Foto unter dem Text: der eigene
+            Transporter mit Fahrzeug auf dem Anhaenger. Ohne Foto im Panel
+            entfaellt es einfach. */ ?>
+    <?php if ((string) get($seite, 'transport.bild', '') !== ''): ?>
+    <figure class="transport-bild">
+      <?= bild(get($seite, 'transport.bild'), get($seite, 'transport.bild_alt', ''), [
+          'class' => 'slot-img',
+          'sizes' => '(max-width: 1440px) 92vw, 1312px',
+      ]) ?>
+    </figure>
+    <?php endif; ?>
   </div>
 </section>
 
