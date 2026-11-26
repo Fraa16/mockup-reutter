@@ -2825,6 +2825,18 @@ a.recht-chip:hover{border-color:var(--red);color:#fff}
 }
 .grenzen-intro p{margin:0;font:400 16.5px/1.68 var(--font-body);color:var(--gray-450)}
 .grenzen-punkte{display:grid;grid-template-columns:1fr 1fr;gap:0 44px}
+/* Foto unter dem Transport-Abschnitt der Startseite: breit wie die Seite,
+   flach genug, dass es den Abschnitt nicht zur Bildstrecke macht. Der
+   Ausschnitt sitzt etwas unter der Mitte — dort stehen Transporter und
+   Anhaenger, darueber ist meist nur Himmel. */
+.transport-bild{margin:56px 0 0;aspect-ratio:16/7;overflow:hidden;background:var(--light-bg)}
+.transport-bild .slot-img{object-position:50% 58%}
+@media (max-width: 980px){
+  .transport-bild{margin-top:44px;aspect-ratio:16/9}
+}
+@media (max-width: 640px){
+  .transport-bild{margin:36px calc(var(--gutter) * -1) 0;aspect-ratio:4/3}
+}
 .grenzen-punkt{padding:22px 0;border-top:1px solid rgba(10,11,13,.13)}
 .grenzen-punkt h3{margin:0;font:700 18px/1.3 var(--font-display);color:var(--black)}
 .grenzen-punkt p{margin:7px 0 0;font:400 15.5px/1.58 var(--font-body);color:var(--gray-450)}

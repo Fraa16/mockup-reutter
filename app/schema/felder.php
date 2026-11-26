@@ -319,6 +319,8 @@ return [
                     ['pfad' => 'transport.titel',     'typ' => 'text',       'label' => 'Überschrift'],
                     ['pfad' => 'transport.lead',      'typ' => 'mehrzeilig', 'label' => 'Einleitung'],
                     ['pfad' => 'transport.link_text', 'typ' => 'text',       'label' => 'Beschriftung des Verweises'],
+                    ['pfad' => 'transport.bild',      'typ' => 'bild',       'label' => 'Foto unter dem Abschnitt', 'hilfe' => 'Breites Bild über die ganze Seitenbreite: der Transporter mit Fahrzeug auf dem Anhänger, im Querformat. Leer lassen, dann entfällt es.'],
+                    ['pfad' => 'transport.bild_alt',  'typ' => 'text',       'label' => 'Bildbeschreibung'],
                     ['pfad' => 'transport.punkte', 'typ' => 'liste', 'label' => 'Punkt', 'min' => 2, 'max' => 4,
                      'subfelder' => [
                         ['pfad' => 'titel', 'typ' => 'text',       'label' => 'Überschrift'],
