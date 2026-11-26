@@ -10,6 +10,11 @@
 # Deshalb wird ausschliesslich hochgeladen und ueberschrieben, nie entfernt.
 # Eine Datei, die im Repository verschwindet, bleibt auf dem Server liegen.
 # Das ist Absicht: harmloser Ballast statt geloeschter Kundendaten.
+#
+# Seit November 2026 gehen auch Texte (data/content/) und Fotos
+# (public/uploads/) mit — aber nur, was im Panel niemand geaendert hat. Die
+# Entscheidung trifft .github/scripts/inhalte-abgleichen.py, Datei fuer Datei.
+# Erklaert in docs/automatisch-hochladen.md.
 
 name: Auf IONOS hochladen
 
@@ -32,7 +37,12 @@ jobs:
   hochladen:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      # Die ganze Geschichte, nicht nur der letzte Stand: Der Abgleich der
+      # Texte erkennt daran, ob der Server eine fruehere Fassung aus dem
+      # Repository hat oder eine Aenderung aus dem Panel.
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: lftp bereitstellen
         run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
@@ -74,9 +84,10 @@ jobs:
           # So herum steht hoechstens kurz altes HTML neben neuen Stilen; die
           # behalten die alten Regeln fast alle, das faellt nicht auf.
           #
-          # public/uploads/ bleibt aussen vor: Dort liegen die Fotos aus dem
-          # Panel. Die gehoeren dem Server, nicht dem Repository — und jeder
-          # Durchlauf schoebe sonst sieben Megabyte Platzhalter erneut hoch.
+          # public/uploads/ bleibt hier aussen vor: Dort liegen auch die Fotos
+          # aus dem Panel. Ein Spiegeln wuerde jedes Foto aus dem Repository
+          # hochladen, auch solche, die Daniel laengst geloescht hat. Fotos
+          # gehen deshalb erst im naechsten Schritt, und nur die gebrauchten.
           lftp -u "$BENUTZER" --env-password "sftp://$SERVER" <<ENDE
           set sftp:auto-confirm yes;
           set net:max-retries 2;
@@ -89,10 +100,76 @@ jobs:
           bye
           ENDE
 
-      # Inhalte liegen in data/ und werden bewusst NICHT uebertragen (siehe
-      # docs/automatisch-hochladen.md). Die Folge vergisst man leicht, und sie
-      # ist unsichtbar: Ein Text, den man im Repository aendert und merged,
-      # steht danach nicht auf der Website — ohne Fehlermeldung, ohne Hinweis.
+      # Texte und Fotos. Erst wird der Stand des Servers geholt — die
+      # JSON-Dateien und die Liste der Fotos, nur lesend —, dann entscheidet
+      # das Skript, was davon gefahrlos ersetzt werden kann, und schreibt die
+      # lftp-Befehle dafuer. Im Probelauf werden sie nur angezeigt.
+      #
+      # cmd:fail-exit: Scheitert ein Befehl, bricht lftp ab, statt mit dem
+      # naechsten weiterzumachen. Ohne Fotoliste galten sonst alle Fotos als
+      # fehlend; ein abgebrochenes Hochladen soll rot werden, damit es jemand
+      # sieht. Eine dabei halb geschriebene Datei repariert der naechste Lauf
+      # (ungueltiges JSON wird immer ersetzt).
+      - name: Texte und Fotos abgleichen
+        env:
+          SERVER:        ${{ secrets.IONOS_SERVER }}
+          BENUTZER:      ${{ secrets.IONOS_BENUTZER }}
+          LFTP_PASSWORD: ${{ secrets.IONOS_PASSWORT }}
+          PROBELAUF:     ${{ inputs.probelauf && 'ja' || '' }}
+        run: |
+          set -euo pipefail
+          stand="$RUNNER_TEMP/server"
+          mkdir -p "$stand/inhalt"
+
+          lftp -u "$BENUTZER" --env-password "sftp://$SERVER" <<ENDE
+          set sftp:auto-confirm yes;
+          set net:max-retries 2;
+          set net:timeout 15;
+          set net:reconnect-interval-base 5;
+          set xfer:log no;
+          set cmd:fail-exit yes;
+          mirror --no-recursion --include-glob=*.json neu/data/content/ $stand/inhalt/;
+          cd neu/web/uploads;
+          cls -1 > $stand/fotos.txt;
+          cd cache;
+          cls -1 > $stand/cache.txt;
+          bye
+          ENDE
+
+          python3 .github/scripts/inhalte-abgleichen.py \
+            --server-inhalt "$stand/inhalt" \
+            --server-fotos  "$stand/fotos.txt" \
+            --server-cache  "$stand/cache.txt" \
+            --befehle       "$stand/befehle.lftp" \
+            --bericht       "$stand/bericht.md"
+          cat "$stand/bericht.md" >> "$GITHUB_STEP_SUMMARY"
+
+          if [ ! -s "$stand/befehle.lftp" ]; then
+            exit 0
+          fi
+          if [ -n "$PROBELAUF" ]; then
+            echo "Probelauf — diese Befehle wuerden ausgefuehrt:"
+            cat "$stand/befehle.lftp"
+            exit 0
+          fi
+
+          lftp -u "$BENUTZER" --env-password "sftp://$SERVER" <<ENDE
+          set sftp:auto-confirm yes;
+          set net:max-retries 2;
+          set net:timeout 15;
+          set net:reconnect-interval-base 5;
+          set xfer:log no;
+          set cmd:fail-exit yes;
+          source $stand/befehle.lftp;
+          bye
+          ENDE
+          echo "Uebertragen: $(wc -l < "$stand/befehle.lftp") Dateien."
+
+      # Die Kontaktadresse ist der Rauchmelder fuer veraltete Inhalte. Bis
+      # November 2026 gingen Texte gar nicht automatisch hoch — ein Text, den
+      # man im Repository aenderte und mergte, stand danach nicht auf der
+      # Website, ohne Fehlermeldung, ohne Hinweis. Heute faengt der Schritt
+      # davor das ab; die Probe bleibt als zweite Sicherung.
       #
       # Genau das ist am 12.09.2026 passiert. Die Kontaktadresse war im
       # Repository seit einem Tag auf info@smartrepair-reutter.de geaendert,
@@ -132,7 +209,7 @@ jobs:
           if grep -qF "$soll" <<<"$seite"; then
             echo "  Kontaktadresse stimmt ueberein: $soll"
           else
-            echo "::warning::Die Website zeigt NICHT die Adresse aus dem Repository ($soll). Entweder ist data/content/ auf dem Server veraltet — dann die Datei von Hand hochladen oder im Panel nachtragen — oder sie wurde im Panel bewusst geaendert. Nach der Uebergabe ist der Server im Recht."
+            echo "::warning::Die Website zeigt NICHT die Adresse aus dem Repository ($soll). Meist wurde site.json im Panel geaendert — dann ist der Server im Recht, und der Schritt „Texte und Fotos abgleichen\" hat sie deshalb stehen lassen (siehe dort)."
           fi
 
       - name: Gegenprobe

@@ -1,6 +1,6 @@
 # Automatisch hochladen statt FileZilla
 
-Stand: 11.09.2026
+Stand: 26.11.2026
 
 Nach einem Merge in `main` überträgt GitHub die Website von selbst auf den
 IONOS-Webspace. Die Handarbeit aus `anleitung-hochladen.md` entfällt damit für
@@ -46,7 +46,9 @@ Danach läuft es bei jedem Merge in `main` von allein.
 | `app/` → `neu/app/` | ja |
 | `bin/` → `neu/bin/` | ja |
 | `public/` → `neu/web/` | ja, **ohne** `uploads/` |
-| `data/` | **nein** |
+| `data/content/` → `neu/data/content/` | ja, **aber nur, was im Panel niemand geändert hat** |
+| `public/uploads/` → `neu/web/uploads/` | nur Fotos, die auf dem Server fehlen **und** von einem Text gebraucht werden |
+| alles andere in `data/` (Anfragen, Passwörter, Sicherungen) | **nein, nie** |
 
 **Gelöscht wird nie.** Eine Datei, die im Repository verschwindet, bleibt auf
 dem Server liegen. Das ist Absicht: Auf dem Server stehen Dinge, die es im
@@ -55,59 +57,67 @@ Namen und Telefonnummern, die Panel-Passwörter, der Postfach-Zugang. Ein
 Abgleich, der „aufräumt", nimmt genau das mit. Harmloser Ballast ist das
 kleinere Übel.
 
-### Warum `data/` außen vor bleibt
+### Texte und Fotos: hoch, aber nie über eine Änderung aus dem Panel
 
-Sobald Daniel das Panel benutzt, ist die Fassung **auf dem Server** die
-richtige, nicht die im Repository. Jede Übertragung von `data/content/` würde
-seine Änderungen überschreiben — den geänderten Text, die neu einsortierten
-Fotos, die gepflegten Öffnungszeiten.
+Bis November 2026 gingen Texte und Fotos gar nicht automatisch hoch — man
+musste jede geänderte Datei mit FileZilla übertragen. Der Grund war das Panel:
+Sobald Daniel dort etwas ändert, ist die Fassung **auf dem Server** die
+richtige. Eine Automatik, die stur alles aus dem Repository hochlädt, würde
+seine Änderungen überschreiben, ohne dass es jemand merkt.
 
-**Die Folge, die man kennen muss:** Ändere ich einen Inhalt im Repository,
-kommt er **nicht** von selbst auf die Website. Das ist kein Fehler, sondern
-dieselbe Entscheidung von der anderen Seite. Inhaltsänderungen laufen deshalb
-in drei Schritten: die aktuelle Datei vom Server holen, darin ändern, wieder
-hochladen. So bleibt erhalten, was im Panel entstanden ist.
+Seitdem entscheidet ein kleines Skript (`.github/scripts/inhalte-abgleichen.py`)
+bei jedem Lauf **Datei für Datei**. Es holt dazu den Stand des Servers — nur
+lesend — und vergleicht:
 
-> **Diese Falle hat einmal zugeschlagen — sie ist nicht theoretisch.**
+| Auf dem Server liegt … | Dann … |
+|---|---|
+| nichts | wird die Datei hochgeladen |
+| genau dieselbe Fassung | passiert nichts |
+| eine **frühere Fassung aus dem Repository** | wird sie ersetzt — niemand hat sie im Panel angefasst, der Server ist nur alt |
+| eine kaputte Datei (kein gültiges JSON) | wird sie ersetzt — das Panel schreibt nie kaputtes JSON, so etwas bleibt nur nach einem abgebrochenen Hochladen liegen |
+| **irgendetwas anderes** | **bleibt sie stehen**: Das ist eine Änderung aus dem Panel, und die gilt |
+
+„Frühere Fassung" heißt: Byte für Byte gleich einer Fassung, die irgendwann im
+Repository stand. Die Geschichte dafür liefert Git selbst. Auf dem Server liegt
+kein Merkzettel, der verloren gehen oder veralten könnte.
+
+**Fotos** gehen nur hoch, wenn sie auf dem Server fehlen **und** einer der Texte,
+die nach dem Lauf live sind, sie benutzt. Ein Foto, das Daniel im Panel
+gelöscht hat, kommt so nicht zurück — es steht in seinen Texten nicht mehr.
+Ein Foto, das schon da ist, wird nie ersetzt; die Dateinamen tragen eine
+Zufallskennung, gleicher Name heißt gleiches Bild. Fehlen nur die verkleinerten
+Fassungen in `cache/`, werden die nachgezogen.
+
+Die Reihenfolge ist immer: Code, dann Fotos, dann Texte. So steht nie ein Text
+online, der auf ein Foto zeigt, das noch unterwegs ist.
+
+**Was man sehen kann:** Jeder Lauf schreibt eine kurze Zusammenfassung auf
+seine Seite unter **Actions** — welche Texte hochgingen, welche Fotos, und
+welche Dateien wegen einer Panel-Änderung stehen geblieben sind. Letzteres
+erscheint zusätzlich als gelbe Warnung.
+
+### Wenn eine Datei stehen geblieben ist
+
+Das ist kein Fehler. Es heißt: Jemand hat im Repository einen Text geändert,
+den Daniel im Panel ebenfalls geändert hat. Die Website zeigt weiter Daniels
+Fassung. Soll die Änderung aus dem Repository trotzdem online:
+
+1. Die Datei mit FileZilla aus `neu/data/content/` holen — das ist Daniels
+   aktueller Stand.
+2. Die gewünschte Änderung **darin** nachtragen.
+3. Diese Fassung ins Repository übernehmen und mergen.
+
+Beim nächsten Lauf ist der Server dann „eine frühere Fassung" — und die neue
+geht von selbst hoch. Für einzelne Angaben ist das Panel ohnehin der kürzere
+Weg.
+
+> **Warum das alles: Diese Falle hat einmal zugeschlagen.**
 > Am 12.09.2026 landete eine Testanfrage im alten Postfach
 > `info@clean-box.eu`. Die Adresse war im Repository seit einem Tag geändert,
 > der Merge war durch, die Automatik gelaufen — auf dem Server stand trotzdem
-> die alte, weil `site.json` in `data/` liegt.
->
-> Das Tückische daran ist nicht der Fehler, sondern seine Lautlosigkeit: Es
-> gibt keine Fehlermeldung, kein rotes Häkchen, keinen Unterschied im Log. Die
-> Website läuft, sie zeigt nur ältere Inhalte. Aufgefallen ist es durch Zufall.
->
-> Seitdem prüft der letzte Schritt der Automatik, ob die Website die
-> Kontaktadresse aus dem Repository zeigt, und warnt, wenn nicht. Nur eine
-> Warnung, kein Fehlschlag: Nach der Übergabe pflegt Daniel die Inhalte im
-> Panel, und dann ist der Server im Recht.
-
-### Inhalte von Hand übertragen
-
-Zwei Wege, je nach Umfang:
-
-**Eine einzelne Angabe** — im Panel ändern. Nichts herunterladen, nichts
-hochladen, kein Risiko, dass dabei etwas anderes überschrieben wird. Das ist
-der richtige Weg für die Kontaktadresse, die Öffnungszeiten, einen Textabsatz.
-
-**Eine ganze Datei** — etwa eine fertig überarbeitete Rechtsseite. Dann:
-
-1. In FileZilla `neu/data/content/` öffnen und die betroffene Datei auf den
-   Schreibtisch ziehen. Das ist die Sicherung; ohne sie gibt es keinen Rückweg.
-2. Die Fassung aus dem Repository hochladen und die alte überschreiben.
-3. Die Seite im Browser aufrufen und nachsehen, ob der neue Text dasteht.
-
-**`galerie.json` gehört nicht dazu.** Sobald im Panel ein Foto einsortiert
-wurde, steht in dieser Datei etwas, das es im Repository nicht gibt. Sie zu
-überschreiben wirft die Einsortierung weg. Dasselbe gilt für alles, was
-sonst im Panel entstanden ist.
-
-### Warum `uploads/` außen vor bleibt
-
-Dort liegen die Fotos aus dem Panel. Sie gehören dem Server. Nebeneffekt: Ohne
-diesen Ausschluss schöbe jeder Durchlauf sieben Megabyte Platzhalterbilder
-erneut über die Leitung.
+> die alte, weil `site.json` damals nie automatisch hochging. Keine
+> Fehlermeldung, kein rotes Häkchen. Die Probe der Kontaktadresse am Ende
+> jedes Laufs stammt von damals und bleibt als zweite Sicherung.
 
 ## Nach jedem Lauf prüft GitHub selbst
 
@@ -125,7 +135,7 @@ Der letzte Schritt ruft die Website auf und meldet einen Fehlschlag, wenn
 | `Ein Repository-Geheimnis fehlt (…)` | Name vertippt — Groß-/Kleinschreibung zählt |
 | `Login failed` | Passwort stimmt nicht mehr. Wurde es bei IONOS geändert, gehört es auch hier neu hinterlegt |
 | `Fatal error: Host key verification failed` | Der Server hat einen neuen Schlüssel. Dann melden, bevor irgendetwas bestätigt wird |
-| Die Änderung erscheint nicht | Lag sie in `data/`? Siehe oben |
+| Die Änderung erscheint nicht | Zusammenfassung des Laufs ansehen: Steht die Datei unter „Im Panel geändert"? Siehe oben |
 
 ## Für später: die Übergabe
 
