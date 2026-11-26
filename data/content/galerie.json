@@ -318,6 +318,31 @@
             },
             {
                 "kategorie": "Transport",
+                "bild": "transporter-anhaenger-s-klasse-motorworld-aca43.webp",
+                "alt": "Silberner Reutter-Transporter mit Autoanhänger, darauf eine zweifarbige Mercedes S-Klasse"
+            },
+            {
+                "kategorie": "Transport",
+                "bild": "s-klasse-zweifarbig-auf-anhaenger-9bd3c.webp",
+                "alt": "Zweifarbige Mercedes S-Klasse auf dem Autoanhänger, vorn der silberne Reutter-Transporter"
+            },
+            {
+                "kategorie": "Transport",
+                "bild": "transporter-anhaenger-s-klasse-autohaus-fe852.webp",
+                "alt": "Reutter-Transporter mit Anhänger und schwarzer Mercedes S-Klasse vor einem Autohaus"
+            },
+            {
+                "kategorie": "Transport",
+                "bild": "s-klasse-schwarz-auf-anhaenger-44817.webp",
+                "alt": "Schwarze Mercedes S-Klasse auf dem Autoanhänger hinter dem Reutter-Transporter"
+            },
+            {
+                "kategorie": "Transport",
+                "bild": "transporter-anhaenger-taycan-morgens-e7c12.webp",
+                "alt": "Reutter-Transporter mit einem Porsche Taycan auf dem Anhänger im Morgenlicht"
+            },
+            {
+                "kategorie": "Transport",
                 "bild": "anhaenger-mercedes-gl-ebd11.webp",
                 "alt": "Silberner Mercedes GL auf dem eigenen Autoanhänger"
             },
@@ -391,5 +416,6 @@
     "cta_ueberschrift": "Ihr Fahrzeug als nächstes?",
     "_quelle_altseite": "Die letzten 19 Bilder im Raster (ab delle-tuer-linienlampe) stammen von Daniels alter Seite clean-box.eu, Oktober 2026 uebernommen, je 600 x 450 Pixel. Kennzeichen waren dort schon unkenntlich gemacht; Messefotos und Bilder mit Personen sind bewusst nicht dabei. Die Originale liegen unter bildpool/altseite/.",
     "_instagram_november_2026": "Fuenf Fotos aus Daniels Instagram (daniel_reutter_stuttgart), von Francesco ausgesucht am 24.11.2026. Aus Bildschirmfotos ausgeschnitten, daher nur 820–920 px breit; Kennzeichen unkenntlich gemacht. Nicht genommen: Nahaufnahme des DTM-Wagens (Person im Hintergrund, Instagram-Knoepfe im Bild) und das Heck des silbernen Sprinters (Aufkleber).",
-    "_ohne_ausbau": "November 2026: Der Betrieb macht keine Zerlegearbeiten. Deshalb entfallen der Fall „Ausgebaut und auf dem Bock“ und die Rasterbilder mit ausgebautem Kofferraumdeckel und offenem Radhaus. Die Dateien liegen weiter in uploads/."
+    "_ohne_ausbau": "November 2026: Der Betrieb macht keine Zerlegearbeiten. Deshalb entfallen der Fall „Ausgebaut und auf dem Bock“ und die Rasterbilder mit ausgebautem Kofferraumdeckel und offenem Radhaus. Die Dateien liegen weiter in uploads/.",
+    "_transport_november_2026": "Fuenf Transportfotos in voller Groesse von Daniel (26.11.2026), 960–1600 px. Kennzeichen unkenntlich, beim schwarzen S-Klasse-Bild sind Person und Nachbarfahrzeug weggeschnitten. Das sechste Foto (Seitenansicht vor der Halle) fehlt absichtlich: fast dieselbe Aufnahme wie das Kopfbild."
 }
