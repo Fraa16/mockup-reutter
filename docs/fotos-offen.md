@@ -1,6 +1,6 @@
 # Fotos, die noch fehlen
 
-Stand: 22.10.2026
+Stand: 26.11.2026
 
 Die Abschnitte dazu sind auf der Website ausgeblendet und erscheinen von
 selbst, sobald die Fotos im Panel eingetragen sind (wie das geht, steht in der
@@ -13,7 +13,6 @@ fotografieren. Sonst wirkt der Schieberegler wie ein Trick.
 
 | # | Seite | Foto | Wo im Panel |
 |---|---|---|---|
-| 1 | Transport & Abschleppdienst | Transporter oder Abschleppwagen, am besten mit aufgeladenem Auto, **groß** (mindestens 2400 px) — der Kopfbereich ist ein bildschirmbreites Foto | Transport & Abschleppdienst → Kopfbereich (fragt Francesco an) |
 | 2 | Fahrzeugpflege Exterieur | **Vorher:** Lack im Streiflicht mit Waschkratzern/Hologrammen | Fahrzeugpflege Exterieur → Vorher / Nachher |
 | 3 | | **Nachher:** dieselbe Stelle poliert, klare Spiegelung | |
 | 4 | Lackierarbeiten | Musterblech, neben das Bauteil gehalten | Lackierarbeiten → Farbtonfindung |
@@ -49,3 +48,10 @@ Bewusst nicht übernommen: Messefotos (keine eigene Arbeit), Bilder mit
 erkennbaren Personen und die Unfallinstandsetzung des Mercedes in
 `gallerie_lackierarbeiten` 200–204 — Unfallinstandsetzung bietet der Betrieb
 laut Leistungsübersicht nicht an.
+
+## Erledigt im November 2026
+
+- **Transport & Abschleppdienst, Kopfbild:** Silberner Transporter mit
+  zweifarbiger S-Klasse auf dem Anhaenger, 1600 px, von Daniel. Vier weitere
+  Transportfotos in voller Groesse und fuenf aus seinem Instagram stehen in der
+  Galerie unter „Transport“.
